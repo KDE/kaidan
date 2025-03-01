@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-11 08:19+0200\n"
+"PO-Revision-Date: 2025-02-28 22:42+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -494,9 +494,6 @@ msgid "Open"
 msgstr ""
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "סימון כנקרא"
@@ -527,10 +524,9 @@ msgid "Away"
 msgstr ""
 
 #: src/PresenceCache.cpp:44
-#, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr "נא לא להפריע"
+msgstr "לא להפריע"
 
 #: src/PresenceCache.cpp:46
 msgctxt "QObject|"
@@ -538,10 +534,9 @@ msgid "Away for longer"
 msgstr ""
 
 #: src/PresenceCache.cpp:48
-#, fuzzy
 msgctxt "QObject|"
 msgid "Offline"
-msgstr "לא מחובר/ת"
+msgstr "מנותק"
 
 #: src/ProviderListModel.cpp:30
 msgctxt "ProviderListModel|"
@@ -640,12 +635,9 @@ msgid "Change label…"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:226
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr "הסרה"
+msgstr "הסרת תווית"
 
 #: src/qml/details/AccountDetailsContent.qml:239
 #: src/qml/details/AccountDetailsContent.qml:244
@@ -669,18 +661,14 @@ msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:267
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
-msgstr "השתקת ההתרעות"
+msgstr "התראות"
 
 #: src/qml/details/AccountDetailsContent.qml:271
-#, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr "חיבור הודעה"
+msgstr "הודעות קשר נכנסות"
 
 #: src/qml/details/AccountDetailsContent.qml:272
 msgctxt "AccountDetailsContent|"
@@ -688,10 +676,9 @@ msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:294
-#, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr "חיבור הודעה"
+msgstr "הודעות קבוצתיות נכנסות"
 
 #: src/qml/details/AccountDetailsContent.qml:295
 msgctxt "AccountDetailsContent|"
@@ -699,20 +686,14 @@ msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:302
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr "התחברות"
+msgstr "בעת אזכור"
 
 #: src/qml/details/AccountDetailsContent.qml:321
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "השתקת ההתרעות"
+msgstr "מקומות"
 
 #: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
@@ -733,28 +714,19 @@ msgid "Display previews of locations"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:339
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr "שליחת מיקום"
+msgstr "פתיחת מקומות"
 
 #: src/qml/details/AccountDetailsContent.qml:340
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr "שליחת מיקום"
+msgstr "איך לפתוח מקומות"
 
 #: src/qml/details/AccountDetailsContent.qml:343
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "אבטחת החשבון"
+msgstr "ברירת המחדל של המערכת"
 
 #: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
@@ -772,12 +744,9 @@ msgid "Provider"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:382
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
-msgstr "אתר אינטרנט"
+msgstr "ביקור באתר"
 
 #: src/qml/details/AccountDetailsContent.qml:383
 msgctxt "AccountDetailsContent|"
@@ -785,12 +754,9 @@ msgid "Open your provider's website in a web browser"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:389
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
-msgstr "כתובת שיחה:"
+msgstr "העתקת כתובת אתר"
 
 #: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
@@ -840,12 +806,9 @@ msgid "Group Support %1"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:490
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "כתובת שיחה:"
+msgstr "כתובות שיחה חסומות"
 
 #: src/qml/details/AccountDetailsContent.qml:494
 msgctxt "AccountDetailsContent|"
@@ -865,20 +828,14 @@ msgid "user@example.org"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:536
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "כתובת שיחה:"
+msgstr "חסימת כתובת שיחה"
 
 #: src/qml/details/AccountDetailsContent.qml:594
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "כתובת שיחה:"
+msgstr "החלפת כתובת שיחה…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -916,12 +873,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:698
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
-msgstr "ססמה:"
+msgstr "החלפת סיסמה"
 
 #: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
@@ -931,52 +885,34 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:709
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password is invalid."
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr "הססמה הנוכחית אינה תקינה."
+msgstr "סיסמה נוכחית"
 
 #: src/qml/details/AccountDetailsContent.qml:710
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr "הססמה הנוכחית:"
+msgstr "נא למלא את הסיסמה הנוכחית שלך"
 
 #: src/qml/details/AccountDetailsContent.qml:711
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
-msgstr "הססמה הנוכחית:"
+msgstr "נא למלא את הסיסמה הנכונה"
 
 #: src/qml/details/AccountDetailsContent.qml:725
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr "הססמה החדשה:"
+msgstr "סיסמה חדשה"
 
 #: src/qml/details/AccountDetailsContent.qml:725
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "AccountDetailsContent|"
 msgid "Password"
-msgstr "ססמה:"
+msgstr "סיסמה"
 
 #: src/qml/details/AccountDetailsContent.qml:726
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr "הססמה הנוכחית:"
+msgstr "נא למלא את הסיסמה החדשה שלך"
 
 #: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
@@ -984,20 +920,15 @@ msgid "Enter different password to change it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:737
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
-msgstr "שינוי הססמה"
+msgstr "החלפת הסיסמה"
 
 #: src/qml/details/AccountDetailsContent.qml:784
-#, fuzzy, qt-format
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr "שינוי הססמה"
+msgstr "החלפת הסיסמה נכשלה: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
@@ -1005,12 +936,9 @@ msgid "Password changed successfully"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:802
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "ססמה:"
+msgstr "חשיפת הסיסמה"
 
 #: src/qml/details/AccountDetailsContent.qml:806
 msgctxt "AccountDetailsContent|"
@@ -1022,12 +950,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:812
-#, fuzzy
-#| msgctxt "DisablePlainTextPasswordDisplay|"
-#| msgid "Do not show password"
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
-msgstr "לא להציג את הססמה"
+msgstr "לא להציג את הסיסמה כטקסט"
 
 #: src/qml/details/AccountDetailsContent.qml:813
 msgctxt "AccountDetailsContent|"
@@ -1037,18 +962,14 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:820
-#, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "הסרת הססמה"
+msgstr "הסיסמה נמחקת מהטקסט…"
 
 #: src/qml/details/AccountDetailsContent.qml:826
-#, fuzzy
-#| msgctxt "DisablePlainTextPasswordDisplay|"
-#| msgid "Do not show password"
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
-msgstr "לא להציג את הססמה"
+msgstr "לא לחשוף את הסיסמה בשום צורה"
 
 #: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
@@ -1063,12 +984,9 @@ msgid "Removing password from text and QR code…"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:843
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
-msgstr "התחברות"
+msgstr "חיבור"
 
 #: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
@@ -1078,12 +996,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:862
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
-msgstr "בהתחברות…"
+msgstr "החלפת הגדרות חיבור"
 
 #: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
@@ -1091,20 +1006,15 @@ msgid "Enter different connection settings to change them"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:920
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr "בהתחברות…"
+msgstr "לא ניתן לשנות את הגדרות החיבור: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:935
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
-msgstr "בהתחברות…"
+msgstr "הגדרות החיבור נערכו"
 
 #: src/qml/details/AccountDetailsContent.qml:955
 msgctxt "AccountDetailsContent|"
@@ -1573,12 +1483,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:168
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "You need to be connected to change your password."
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr "יש להתחבר על מנת לשנות את הססמה."
+msgstr "חובה להתחבר כדי לשנות את המשתתפים"
 
 #: src/qml/details/GroupChatDetailsContent.qml:203
 msgctxt "GroupChatDetailsContent|"
@@ -1721,20 +1628,15 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "שינוי שם"
+msgstr "שיחה קבוצתית נמחקת…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:439
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן למחוק את הקבוצה %1%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:17
 msgctxt "GroupChatDetailsDialog|"
@@ -1877,12 +1779,9 @@ msgid "Remove notes chat and complete chat history"
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "שינוי שם"
+msgstr "שיחת ההערות נמחקת…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:15
 msgctxt "NotesChatDetailsDialog|"
@@ -1900,12 +1799,9 @@ msgid "Notes Details"
 msgstr ""
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
-msgstr "אבטחת החשבון"
+msgstr "ברירת מחדל של חשבון"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -1918,12 +1814,9 @@ msgid "Always"
 msgstr ""
 
 #: src/qml/details/RosterItemDetailsContent.qml:55
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
-msgstr "הסרה"
+msgstr "תווית חדשה"
 
 #: src/qml/details/RosterItemDetailsContent.qml:69
 msgctxt "RosterItemDetailsContent|"
@@ -1931,20 +1824,14 @@ msgid "Add label"
 msgstr ""
 
 #: src/qml/details/RosterItemDetailsHeader.qml:22
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
-msgstr "שינוי הססמה"
+msgstr "הגדלת תמונה ייצוגית"
 
 #: src/qml/details/UserDevicesArea.qml:26
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Online"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
-msgstr "מחובר/ת"
+msgstr "מכשירים מחוברים"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
@@ -1952,31 +1839,21 @@ msgid "Switch device"
 msgstr ""
 
 #: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "הסתרת קוד QR"
 
 #: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
-msgstr "סריקת קוד QR"
+msgstr "הצגה כקוד QR"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "הסתרת הטקסט"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "הצגה כטקסט"
@@ -2001,44 +1878,29 @@ msgid ""
 msgstr ""
 
 #: src/qml/DeviceSwitchingPage.qml:69
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "כתובת שיחה:"
 
 #: src/qml/DeviceSwitchingPage.qml:78
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
-msgstr "כתובת שיחה:"
+msgstr "העתקת כתובת השיחה"
 
 #: src/qml/DeviceSwitchingPage.qml:88
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
-msgstr "ססמה:"
+msgstr "סיסמה:"
 
 #: src/qml/DeviceSwitchingPage.qml:98
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
-msgstr "שינוי הססמה"
+msgstr "העתקת הסיסמה"
 
 #: src/qml/elements/AboutContent.qml:19
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "AboutContent|"
 msgid "Visit website"
-msgstr "אתר אינטרנט"
+msgstr "ביקור באתר"
 
 #: src/qml/elements/AboutContent.qml:20
 msgctxt "AboutContent|"
@@ -2066,9 +1928,6 @@ msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:40
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "דיווח על בעיות"
@@ -2094,10 +1953,9 @@ msgid "Modern chat app for every device"
 msgstr ""
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
-#, fuzzy
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 1: לסרוק את קוד ה־QA של <b>המכשיר הנוסף שלך</b>"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
 #, fuzzy
@@ -2142,28 +2000,19 @@ msgid "%1 has read up to this point"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "הסרה"
+msgstr "הסרת הקובץ הנבחר"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "הסרה"
+msgstr "פתיחת התיקייה של הקובץ הנבחר"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "התחברות"
+msgstr "רגש בתגובה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:98
 msgctxt "ChatMessageContextMenu|"
@@ -2194,44 +2043,29 @@ msgid "Mark as first unread"
 msgstr "סימון כנקרא"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:157
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
-msgstr "הסרה"
+msgstr "הסרה מהמכשיר הזה"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "חיבור הודעה"
+msgstr "סגירת החיפוש"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr "חיפוש"
+msgstr "חיפוש למעלה"
 
 #: src/qml/elements/ChatPageSearchView.qml:92
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr "חיפוש"
+msgstr "חיפוש למטה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:81
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "ביטול"
+msgstr "ביטול תגובה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
@@ -2254,28 +2088,24 @@ msgid "Mention a participant"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "חיבור הודעה"
+msgstr "כתיבת הודעה <b>מוצפנת </b> עם חלק מוסתר"
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "חיבור הודעה"
+msgstr "כתיבת הודעה <b>לא מוצפנת</b> עם חלק מוסתר"
 
 #: src/qml/elements/ChatPageSendingPane.qml:202
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "חיבור הודעה"
+msgstr "כתיבת הודעה <b>לא מוצפנת</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:202
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "חיבור הודעה"
+msgstr "כתיבת הודעה <b>לא מוצפנת</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:288
 msgctxt "ChatPageSendingPane|"
@@ -2393,10 +2223,9 @@ msgid "Show explanation"
 msgstr ""
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
-#, fuzzy
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 1: לסרוק את קוד ה־QA של <b>פרטי הקשר שלך</b>"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
@@ -2404,16 +2233,14 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr ""
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
-#, fuzzy
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 1: לסרוק את קוד ה־QA של <b>פרטי הקשר שלך</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
-#, fuzzy
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 2: לאפשר לאיש או אשת הקשר שלך לסרוק את קוד ה־QA <b>שלך</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2526,28 +2353,22 @@ msgid "Nickname (optional):"
 msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:89
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן ליצור את הקבוצה ב־%1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:93
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן ליצור את הקבוצה %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:97
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להצטרף לקבוצה %1%2"
 
 #: src/qml/elements/GroupChatCreationDialog.qml:17
 msgctxt "GroupChatCreationDialog|"
@@ -2611,10 +2432,9 @@ msgid "Invite contacts to this group…"
 msgstr "הזמנת אנשי קשר לקבוצה הזאת…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
-#, fuzzy
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 1: לסרוק את קוד ה־QR של <b>המשתתף או המשתתפת</b>"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -3391,19 +3211,19 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:278
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr ""
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:280
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr ""
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:282
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3458,17 +3278,17 @@ msgstr ""
 #: src/RosterModel.cpp:858
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "אתמול"
 
 #: src/VCardModel.cpp:117
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "שם"
 
 #: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "כינוי"
 
 #: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
@@ -3483,7 +3303,7 @@ msgstr "דוא״ל"
 #: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "יום הולדת"
 
 #: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
