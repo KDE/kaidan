@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-28 22:42+0200\n"
+"PO-Revision-Date: 2025-03-02 07:37+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -19,32 +19,32 @@ msgstr ""
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "יצירת קוד ה־QR נכשלה: %1"
 
 #: src/AccountMigrationManager.cpp:388
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "לא ניתן להסב את החשבון: כבר מתבצעת הסבה אחרת ברקע"
 
 #: src/AccountMigrationManager.cpp:400
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "לא ניתן להסב את החשבון: לא ניתן לטעון את נתוני החשבון שיוצאו"
 
 #: src/AccountMigrationManager.cpp:409
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "לא ניתן להסב את החשבון: צריך להתחבר"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:96
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
-msgstr ""
+msgstr "המכשיר הזה"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "מכשירים"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
@@ -54,23 +54,23 @@ msgstr "משתמשים"
 #: src/Blocking.cpp:329
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "שרתים"
 
 #: src/Blocking.cpp:331
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "מכשירים או שרתים"
 
 #: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
-msgstr ""
+msgstr "אין חיבור - הודעות תישלחנו ותתקבלנה לאחר שיש חיבור"
 
 #: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
 #: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "התעלמות"
 
 #: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
@@ -101,12 +101,12 @@ msgstr ""
 #: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "לסרב"
 
 #: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "להרשות"
 
 #: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
@@ -116,7 +116,7 @@ msgstr "ניתנת הרשאה…"
 #: src/ChatHintModel.cpp:335
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
-msgstr ""
+msgstr "אין משתמשים בקבוצה הזאת"
 
 #: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
@@ -197,12 +197,12 @@ msgstr "שמע"
 #: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "מסמך"
 
 #: src/MediaUtils.cpp:304
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "מקום"
 
 #: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
@@ -217,7 +217,7 @@ msgstr "וידאו"
 #: src/MediaUtils.cpp:312
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "קובץ"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
@@ -308,7 +308,7 @@ msgstr ""
 #: src/Message.cpp:369
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "קלקלן"
 
 #: src/Message.cpp:379
 msgctxt "Message|"
@@ -319,7 +319,7 @@ msgstr "מקום"
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
-msgstr ""
+msgstr "הזמנה לקבוצה%1"
 
 #: src/MessageComposition.cpp:239
 #, qt-format
@@ -335,7 +335,7 @@ msgstr ""
 #: src/MessageComposition.cpp:497
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "גודל לא ידוע"
 
 #: src/MessageComposition.cpp:539
 #, qt-format
@@ -368,12 +368,12 @@ msgstr "בהמתנה"
 #: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "נשלחה"
 
 #: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "נמסרה"
 
 #: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
@@ -395,17 +395,17 @@ msgstr "לא ניתן לשלוח את התגובות: %1"
 #: src/MessageModel.cpp:1462
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "היום"
 
 #: src/MessageModel.cpp:1465
 msgctxt "MessageModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "אתמול"
 
 #: src/MixController.cpp:114
 msgctxt "MixController|"
 msgid "The group already exists"
-msgstr ""
+msgstr "הקבוצה כבר קיימת"
 
 #: src/MixController.cpp:141
 #, qt-format
@@ -417,23 +417,23 @@ msgstr "לא ניתן לזהות האם %1 הוא ציבורי: %2"
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
-msgstr ""
+msgstr "לא ניתן למשוך מידע על הקבוצה%1: %2"
 
 #: src/MixController.cpp:174 src/MixController.cpp:182
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
-msgstr ""
+msgstr "לא ניתן לשנות את השם של הקבוצה%1: %2"
 
 #: src/MixController.cpp:209
 msgctxt "MixController|"
 msgid "The group does not exist"
-msgstr ""
+msgstr "הקבוצה לא קיימת"
 
 #: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
-msgstr ""
+msgstr "אסור לך להצטרף לקבוצה"
 
 #: src/MixController.cpp:278 src/MixController.cpp:291
 #, fuzzy, qt-format
@@ -486,12 +486,12 @@ msgstr "לא היה ניתן לשלוח את ההודעה."
 #: src/MixController.cpp:460
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
-msgstr ""
+msgstr "אסור לך למחוק את הקבוצה"
 
 #: src/Notifications.cpp:154 src/Notifications.cpp:233
 msgctxt "Notifications|"
 msgid "Open"
-msgstr ""
+msgstr "פתיחה"
 
 #: src/Notifications.cpp:158
 msgctxt "Notifications|"
@@ -501,7 +501,7 @@ msgstr "סימון כנקרא"
 #: src/Notifications.cpp:219
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "בקשות לקבלת הנתונים האישיים שלך"
 
 #: src/OmemoController.cpp:127
 msgctxt "OmemoController|"
@@ -549,28 +549,28 @@ msgstr ""
 #: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "ללא הגבלה"
 
 #: src/ProviderListModel.cpp:111
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 ימים"
 
 #: src/qml/AboutDialog.qml:12
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "על Kaidan"
 
 #: src/qml/AboutPage.qml:12
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "על Kaidan"
 
 #: src/qml/ChatPage.qml:82
 msgctxt "ChatPage|"
 msgid "Details…"
-msgstr ""
+msgstr "פרטים…"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
@@ -600,22 +600,22 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:306
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: src/qml/details/AccountDetailsContent.qml:62
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "ריק"
 
 #: src/qml/details/AccountDetailsContent.qml:82
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr ""
+msgstr "הגדרת ערך"
 
 #: src/qml/details/AccountDetailsContent.qml:131
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "הצפנה"
 
 #: src/qml/details/AccountDetailsContent.qml:135
 msgctxt "AccountDetailsContent|"
@@ -632,7 +632,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:196
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr ""
+msgstr "החלפת תווית…"
 
 #: src/qml/details/AccountDetailsContent.qml:226
 msgctxt "AccountDetailsContent|"
@@ -643,17 +643,17 @@ msgstr "הסרת תווית"
 #: src/qml/details/AccountDetailsContent.qml:244
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של החשבון הזה דרך קוד QR"
 
 #: src/qml/details/AccountDetailsContent.qml:248
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של החשבון הזה דרך טקסט"
 
 #: src/qml/details/AccountDetailsContent.qml:251
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
-msgstr ""
+msgstr "כתובת החשבון הועתקה ללוח הגזירים"
 
 #: src/qml/details/AccountDetailsContent.qml:255
 msgctxt "AccountDetailsContent|"
@@ -731,7 +731,7 @@ msgstr "ברירת המחדל של המערכת"
 #: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr ""
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:351
 msgctxt "AccountDetailsContent|"
@@ -741,7 +741,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:378
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
-msgstr ""
+msgstr "ספק"
 
 #: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
@@ -771,39 +771,39 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
-msgstr ""
+msgstr "פתיחת שיחת תמיכה"
 
 #: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "התחלת שיחה מול גורם הקשר לתמיכה מצד הספק שלך"
 
 #: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Support"
-msgstr ""
+msgstr "תמיכה ב־FTP"
 
 #: src/qml/details/AccountDetailsContent.qml:432
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr ""
+msgstr "תמיכה %1"
 
 #: src/qml/details/AccountDetailsContent.qml:449
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
-msgstr ""
+msgstr "פתיחת קבוצת תמיכה"
 
 #: src/qml/details/AccountDetailsContent.qml:450
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
-msgstr ""
+msgstr "הצטרפות לקבוצת התמיכה הציבורית של הספק שלך"
 
 #: src/qml/details/AccountDetailsContent.qml:476
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "תמיכה קבוצתית %1"
 
 #: src/qml/details/AccountDetailsContent.qml:490
 msgctxt "AccountDetailsContent|"
@@ -840,17 +840,17 @@ msgstr "החלפת כתובת שיחה…"
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "שחרור חסימה"
 
 #: src/qml/details/AccountDetailsContent.qml:648
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "הערות"
 
 #: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "הוספת שיחה להערות"
 
 #: src/qml/details/AccountDetailsContent.qml:655
 #, fuzzy
@@ -933,7 +933,7 @@ msgstr "החלפת הסיסמה נכשלה: %1"
 #: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
-msgstr ""
+msgstr "הסיסמה הוחלפה בהצלחה"
 
 #: src/qml/details/AccountDetailsContent.qml:802
 msgctxt "AccountDetailsContent|"
