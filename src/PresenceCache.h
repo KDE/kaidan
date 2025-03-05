@@ -105,47 +105,6 @@ private:
     static PresenceCache *s_instance;
 };
 
-class UserPresenceWatcher : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
-    Q_PROPERTY(QString resource READ resource WRITE setResource NOTIFY resourceChanged)
-    Q_PROPERTY(Presence::Availability availability READ availability NOTIFY presencePropertiesChanged)
-    Q_PROPERTY(QString availabilityIcon READ availabilityIcon NOTIFY presencePropertiesChanged)
-    Q_PROPERTY(QString availabilityText READ availabilityText NOTIFY presencePropertiesChanged)
-    Q_PROPERTY(QColor availabilityColor READ availabilityColor NOTIFY presencePropertiesChanged)
-    Q_PROPERTY(QString statusText READ statusText NOTIFY presencePropertiesChanged)
-
-public:
-    explicit UserPresenceWatcher(QObject *parent = nullptr);
-
-    QString jid() const;
-    void setJid(const QString &jid);
-
-    QString resource() const;
-    bool setResource(const QString &resource, bool autoPicked = false);
-
-    Presence::Availability availability() const;
-    QString availabilityIcon() const;
-    QString availabilityText() const;
-    QColor availabilityColor() const;
-    QString statusText() const;
-
-    Q_SIGNAL void jidChanged();
-    Q_SIGNAL void resourceChanged();
-    Q_SIGNAL void presencePropertiesChanged();
-
-private:
-    Q_SLOT void handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
-    Q_SLOT void handlePresencesCleared();
-
-    bool autoPickResource();
-
-    QString m_jid;
-    QString m_resource;
-    bool m_resourceAutoPicked;
-};
-
 class UserResourcesWatcher : public QObject
 {
     Q_OBJECT

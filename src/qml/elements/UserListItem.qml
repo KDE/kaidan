@@ -22,19 +22,24 @@ Controls.ItemDelegate {
 	property bool isGroupChat
 	property bool selected: false
 	property bool dragged: false
+	property bool first: model ? model.index === 0 : true
 
 	topPadding: 0
 	leftPadding: 0
 	bottomPadding: 0
 	rightPadding: 0
-	height: 65
+	height: first ? Kirigami.Units.smallSpacing * 18 : Kirigami.Units.smallSpacing * 17
 	background: null
 	contentItem: Controls.Control {
-		topPadding: 0
-		leftPadding: 0
-		rightPadding: Kirigami.Units.largeSpacing
-		bottomPadding: 0
-		background: Rectangle {
+		topInset: root.first ? Kirigami.Units.smallSpacing : 0
+		bottomInset: Kirigami.Units.smallSpacing
+		leftInset: Kirigami.Units.smallSpacing
+		rightInset: Kirigami.Units.smallSpacing
+		topPadding: root.first ? Kirigami.Units.smallSpacing : 0
+		leftPadding: Kirigami.Units.smallSpacing * 3
+		rightPadding: Kirigami.Units.smallSpacing * 3
+		bottomPadding: Kirigami.Units.smallSpacing
+		background: RoundedRectangle {
 			color: {
 				let colorOpacity = 0
 
@@ -67,19 +72,6 @@ Controls.ItemDelegate {
 		contentItem: RowLayout {
 			id: content
 			spacing: Kirigami.Units.largeSpacing
-
-			// left border: presence
-			Rectangle {
-				id: presenceIndicator
-				width: Kirigami.Units.gridUnit * 0.3
-				height: parent.height
-				color: userPresence.availabilityColor
-
-				UserPresenceWatcher {
-					id: userPresence
-					jid: root.jid
-				}
-			}
 
 			// left: avatar
 			Avatar {

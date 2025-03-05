@@ -450,7 +450,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
     qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
     qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
-    qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
     qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
     qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
     qmlRegisterType<PublicGroupChatSearchManager>(APPLICATION_ID, 1, 0, "PublicGroupChatSearchManager");

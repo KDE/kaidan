@@ -24,6 +24,10 @@ Dialog {
 	property string messageId
 	property alias reactions: messageReactionModel.reactions
 
+	topPadding: 0
+	leftPadding: 0
+	bottomPadding: 0
+	rightPadding: 0
 	header: Item {}
 
 	ListView {

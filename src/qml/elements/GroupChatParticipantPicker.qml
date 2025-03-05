@@ -22,6 +22,10 @@ Kirigami.Dialog {
 	property string searchedText
 	property alias listView: listView
 
+	topPadding: 0
+	leftPadding: 0
+	bottomPadding: 0
+	rightPadding: 0
 	modal: false
 	header: Item {}
 	footer: Item {}
@@ -57,6 +61,7 @@ Kirigami.Dialog {
 				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
 				avatar.color: Kirigami.Theme.textColor
 				implicitWidth: largeButtonWidth
+				implicitHeight: height
 				hoverEnabled: true
 				onClicked: {
 					root.close()
