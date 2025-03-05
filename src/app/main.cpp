@@ -103,7 +103,6 @@
 #include "VCardModel.h"
 #include "VersionManager.h"
 #include "kaidan_debug.h"
-#include "platforms_defs.h"
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 
@@ -206,6 +205,20 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #if BUILD_AS_APPIMAGE
     qputenv("OPENSSL_CONF", "");
+#endif
+
+    // Initialize the resources from Kaidan's core library.
+    Q_INIT_RESOURCE(data);
+    Q_INIT_RESOURCE(misc);
+    Q_INIT_RESOURCE(qml);
+#if BUNDLE_ICONS || BUILD_AS_UBUNTU_TOUCH || defined(Q_OS_ANDROID)
+    Q_INIT_RESOURCE(kirigami_icons);
+#endif
+#if defined(Q_OS_ANDROID)
+    Q_INIT_RESOURCE(notifications);
+#endif
+#if defined(Q_OS_ANDROID) || defined(Q_OS_WINDOWS) || defined(Q_OS_APPLE)
+    Q_INIT_RESOURCE(images);
 #endif
 
     // name, display name, description

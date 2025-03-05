@@ -11,7 +11,6 @@
 // Kaidan
 #include "Globals.h"
 #include "kaidan_core_debug.h"
-#include "platforms_defs.h"
 
 DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
     : QObject(parent)

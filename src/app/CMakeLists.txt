@@ -15,8 +15,6 @@ ecm_qt_declare_logging_category(
     EXPORT KAIDAN
 )
 
-target_sources(${PROJECT_NAME} PRIVATE ../qml/qml.qrc)
-
 if (TARGET KF6::Crash)
     target_link_libraries(${PROJECT_NAME} KF6::Crash)
 endif()

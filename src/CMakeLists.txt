@@ -8,7 +8,7 @@
 
 set(TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}")
 
-configure_file(platforms_defs.h.in ${CMAKE_CURRENT_BINARY_DIR}/platforms_defs.h)
+configure_file(${CMAKE_SOURCE_DIR}/GlobalsGen.h.in ${CMAKE_BINARY_DIR}/GlobalsGen.h)
 
 add_subdirectory(app)
 
@@ -211,6 +211,7 @@ target_sources(libkaidancore PRIVATE
 
     ${CMAKE_SOURCE_DIR}/data/data.qrc
     ${CMAKE_SOURCE_DIR}/misc/misc.qrc
+    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
 )
 
 if(NOT ANDROID AND NOT IOS)

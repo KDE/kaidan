@@ -28,7 +28,6 @@
 #include "AccountManager.h"
 #include "Globals.h"
 #include "SystemUtils.h"
-#include "platforms_defs.h"
 
 const auto NEW_LINE = QStringLiteral("\n");
 const auto QUOTE_PREFIX = QStringLiteral("> ");
