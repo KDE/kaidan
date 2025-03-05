@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-02 07:37+0200\n"
+"PO-Revision-Date: 2025-03-04 08:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -436,52 +436,40 @@ msgid "You aren't allowed to join the group"
 msgstr "אסור לך להצטרף לקבוצה"
 
 #: src/MixController.cpp:278 src/MixController.cpp:291
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להזמין את %1 אל %2: %3"
 
 #: src/MixController.cpp:323
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן היה למשוך את המפרקים של %1: %2"
 
 #: src/MixController.cpp:338
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן היה למשוך את המשתמשים המורשים של %1: %2"
 
 #: src/MixController.cpp:358
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן היה למשוך את המשתמשים החסומים של %1: %2"
 
 #: src/MixController.cpp:378
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן היה למשוך את המשתמשים שהצטרפו אל %1: %2"
 
 #: src/MixController.cpp:396
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן לחסום את הגישה של %1 אל %2: %3"
 
 #: src/MixController.cpp:460
 msgctxt "MixController|"
@@ -1641,7 +1629,7 @@ msgstr "לא ניתן למחוק את הקבוצה %1%2"
 #: src/qml/details/GroupChatDetailsDialog.qml:17
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr ""
+msgstr "פרטי קבוצה"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:18
 msgctxt "GroupChatDetailsHeader|"
@@ -1666,7 +1654,7 @@ msgstr "נמחקה"
 #: src/qml/details/GroupChatDetailsPage.qml:13
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr ""
+msgstr "פרטי קבוצה"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1730,13 +1718,13 @@ msgstr "סרטונים"
 #: src/qml/details/MediaOverview.qml:105
 msgctxt "MediaOverview|"
 msgid "Other"
-msgstr ""
+msgstr "אחר"
 
 #: src/qml/details/MediaOverview.qml:172
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "%1/%2 נבחרו"
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format
@@ -1745,16 +1733,18 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"לא ניתן היה למחוק חלק מהקבצים:\n"
+"%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:25
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "הצפנה"
 
 #: src/qml/details/NotesChatDetailsContent.qml:29
 msgctxt "NotesChatDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/NotesChatDetailsContent.qml:30
 msgctxt "NotesChatDetailsContent|"
@@ -1806,12 +1796,12 @@ msgstr "ברירת מחדל של חשבון"
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: src/qml/details/RosterItemDetailsContent.qml:29
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: src/qml/details/RosterItemDetailsContent.qml:55
 msgctxt "RosterItemDetailsContent|"
@@ -1821,7 +1811,7 @@ msgstr "תווית חדשה"
 #: src/qml/details/RosterItemDetailsContent.qml:69
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "הוספת תווית"
 
 #: src/qml/details/RosterItemDetailsHeader.qml:22
 msgctxt "RosterItemDetailsHeader|"
@@ -1836,7 +1826,7 @@ msgstr "מכשירים מחוברים"
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
-msgstr ""
+msgstr "החלפת מכשיר"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
@@ -1905,27 +1895,27 @@ msgstr "ביקור באתר"
 #: src/qml/elements/AboutContent.qml:20
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "פתיחת האתר של Kaidan בדפדפן"
 
 #: src/qml/elements/AboutContent.qml:26
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "מעקב ב־Mastodon"
 
 #: src/qml/elements/AboutContent.qml:27
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr ""
+msgstr "פתיחת עמוד המסטודון של Kaidan בדפדפן"
 
 #: src/qml/elements/AboutContent.qml:33
 msgctxt "AboutContent|"
 msgid "Donate"
-msgstr ""
+msgstr "תרומה"
 
 #: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "אפשר לתמוך בפיתוח ובתשתית של Kaidan על ידי תרומה כספית"
 
 #: src/qml/elements/AboutContent.qml:40
 msgctxt "AboutContent|"
@@ -1935,63 +1925,62 @@ msgstr "דיווח על בעיות"
 #: src/qml/elements/AboutContent.qml:41
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr ""
+msgstr "דיווח על תקלות עם Kaidan למפתחים"
 
 #: src/qml/elements/AboutContent.qml:47
 msgctxt "AboutContent|"
 msgid "View source code"
-msgstr ""
+msgstr "הצגת קוד המקור"
 
 #: src/qml/elements/AboutContent.qml:48
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr ""
+msgstr "הצגת קוד המקור של Kaidan באינטרנט ותרומה למיזם"
 
 #: src/qml/elements/AboutHeader.qml:40
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
-msgstr ""
+msgstr "יישום שיחות מודרני לכל סוג של מכשיר"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "שלב 1: לסרוק את קוד ה־QA של <b>המכשיר הנוסף שלך</b>"
+msgstr "שלב 1: לסרוק את קוד ה־QR של <b>המכשיר הנוסף שלך</b>"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
-#, fuzzy
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "סריקת קוד QR"
+msgstr "שלב 2: לסרוק עם המכשיר הנוסף שלך את קוד ה־QR של <b>המכשיר הזה</b>"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr ""
+msgstr "מכשירים עצמיים שלא אומתו"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Pause"
-msgstr ""
+msgstr "השהיה"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "נגינה"
 
 #: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr ""
+msgstr "אין מצלמה זמינה"
 
 #: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr ""
+msgstr "קלקלן"
 
 #: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
-msgstr ""
+msgstr "חדש"
 
 #: src/qml/elements/ChatMessage.qml:454
 #, qt-format
@@ -2017,22 +2006,22 @@ msgstr "רגש בתגובה"
 #: src/qml/elements/ChatMessageContextMenu.qml:98
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "תגובה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:116
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "ציטוט"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:124
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr ""
+msgstr "העתקה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:138
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "עריכה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:146
 #, fuzzy
@@ -2070,22 +2059,22 @@ msgstr "ביטול תגובה"
 #: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "החלק הגלוי בהודעה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:131
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "ביטול הוספת חלק נסתר בהודעה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:156
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "הוספת אמוג׳י"
 
 #: src/qml/elements/ChatPageSendingPane.qml:167
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr ""
+msgstr "אזכור משתתפים"
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
 msgctxt "ChatPageSendingPane|"
@@ -2130,7 +2119,7 @@ msgstr "שיתוף המקום שלך"
 #: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "הוספת חלק נסתר בהודעה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
@@ -2140,7 +2129,7 @@ msgstr "הסתרה"
 #: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "עוד"
 
 #: src/qml/elements/ChatPageSendingPane.qml:416
 msgctxt "ChatPageSendingPane|"
@@ -2150,7 +2139,7 @@ msgstr "שליחת הודעה קולית"
 #: src/qml/elements/ChatPageSendingPane.qml:443
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
-msgstr ""
+msgstr "שליחה"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:47
 msgctxt "ConfirmationFormButtonArea|"
@@ -2165,37 +2154,37 @@ msgstr "ביטול"
 #: src/qml/elements/ContactAdditionContent.qml:31
 msgctxt "ContactAdditionContent|"
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: src/qml/elements/ContactAdditionContent.qml:34
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr ""
+msgstr "איש הקשר כבר קיים"
 
 #: src/qml/elements/ContactAdditionContent.qml:36
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr ""
+msgstr "פתיחת שיחה"
 
 #: src/qml/elements/ContactAdditionContent.qml:47
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "הוספת איש קשר…"
 
 #: src/qml/elements/ContactAdditionContent.qml:58
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr ""
+msgstr "שם (רשות):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "הודעה (רשות):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "שלום, אני…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
 msgctxt "ContactAdditionDialog|"
@@ -2220,47 +2209,47 @@ msgstr "סריקת קודים מסוג QR"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "הצגת הסבר"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "שלב 1: לסרוק את קוד ה־QA של <b>פרטי הקשר שלך</b>"
+msgstr "שלב 1: לסרוק את קוד ה־QR של <b>פרטי הקשר שלך</b>"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "שלב 2: לאפשר לאיש או אשת הקשר שלך לסרוק את קוד ה־QR <b>שלך</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "שלב 1: לסרוק את קוד ה־QA של <b>פרטי הקשר שלך</b>"
+msgstr "שלב 1: לסרוק את קוד ה־QR של <b>פרטי הקשר שלך</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "שלב 2: לאפשר לאיש או אשת הקשר שלך לסרוק את קוד ה־QA <b>שלך</b>"
+msgstr "שלב 2: לאפשר לאיש או אשת הקשר שלך לסרוק את קוד ה־QR <b>שלך</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "מכשירי אנשי קשר שלא אומתו"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr ""
+msgstr "שם מארח:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:29
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr ""
+msgstr "שם המארח לא יכול להכיל רווחים"
 
 #: src/qml/elements/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
-msgstr ""
+msgstr "פתחה:"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2270,12 +2259,12 @@ msgstr "כתובת צ׳אט"
 #: src/qml/elements/fields/JidField.qml:20
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr ""
+msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:22
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr ""
+msgstr "כתובת השיחה חייבת להיות בצורת <b>username@server</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:18
 msgctxt "PasswordField|"
@@ -2285,12 +2274,12 @@ msgstr "סיסמה"
 #: src/qml/elements/fields/PasswordField.qml:29
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "נא למלא סיסמה תקפה"
 
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
 msgctxt "GeoLocationMapPage|"
@@ -2310,47 +2299,47 @@ msgstr "שיתוף מקום"
 #: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
-msgstr ""
+msgstr "יצירה"
 
 #: src/qml/elements/GroupChatCreationContent.qml:25
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr ""
+msgstr "נוצרת שיחה קבוצתית…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr ""
+msgstr "שם קבוצה (רשות)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr ""
+msgstr "קבוצה לדוגמה"
 
 #: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
-msgstr ""
+msgstr "ציבורית"
 
 #: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
-msgstr ""
+msgstr "מזהה קבוצה"
 
 #: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr ""
+msgstr "קבוצה-לדוגמה"
 
 #: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr ""
+msgstr "נא למלא מזהה קבוצה תקף"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr ""
+msgstr "כינוי (רשות):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:89
 #, qt-format
@@ -2373,22 +2362,22 @@ msgstr "לא ניתן להצטרף לקבוצה %1%2"
 #: src/qml/elements/GroupChatCreationDialog.qml:17
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr ""
+msgstr "יצירת שיחה קבוצתית"
 
 #: src/qml/elements/GroupChatCreationPage.qml:15
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr ""
+msgstr "יצירת שיחה קבוצתית"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
-msgstr ""
+msgstr "הצטרפות"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:22
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr ""
+msgstr "הצטרפות לשיחה קבוצתית…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2398,17 +2387,17 @@ msgstr "כתובת"
 #: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
-msgstr ""
+msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
-msgstr ""
+msgstr "הכתובת חייבת להיות בצורה <b>group@server</b>"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:38
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr ""
+msgstr "כינוי (רשות):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:48
 #, qt-format
@@ -2419,12 +2408,12 @@ msgstr "לא ניתן להצטרף לקבוצה %1%2"
 #: src/qml/elements/GroupChatJoiningDialog.qml:17
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr ""
+msgstr "הצטרפות לשיחה קבוצתית"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:15
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr ""
+msgstr "הצטרפות לשיחה קבוצתית"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:54
 msgctxt "GroupChatParticipantPicker|"
@@ -2439,12 +2428,12 @@ msgstr "שלב 1: לסרוק את קוד ה־QR של <b>המשתתף או המש
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 2: Let the participant scan <b>your</b> QR code"
-msgstr ""
+msgstr "שלב 2: לאפשר למשתתפים לסרוק את קוד ה־QR <b>שלך</b>"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr ""
+msgstr "מכשירים משתתפים שלא אומתו"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
@@ -2454,13 +2443,13 @@ msgstr "צילום תמונה"
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr ""
+msgstr "אימות מכשירים"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "הצגת הסבר"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
@@ -2470,38 +2459,39 @@ msgstr "סריקת קודים מסוג QR"
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr ""
+msgstr "אימות ידני"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:81
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr ""
+msgstr "אימות מכשיר"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:96
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr ""
+msgstr "המכשיר אומת"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:100
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
+"טביעת האצבע שלך צריכה להיות מורכבת מ־64 תווים עם ספרות ואותיות מ־a עד f"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:137
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "מכשירים מאומתים שלך"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:158
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "העתקת טביעת אצבע"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:165
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr ""
+msgstr "טביעת האצבע הועתקה ללוח הגזירים"
 
 #: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
@@ -2531,7 +2521,7 @@ msgstr "בהתחברות…"
 #: src/qml/elements/MediumSendingPreview.qml:37
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr ""
+msgstr "תיאור"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
 msgctxt "MediumSendingPreview|"
@@ -2541,32 +2531,32 @@ msgstr "הסרת קובץ"
 #: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "לא מוצפן"
 
 #: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
-msgstr ""
+msgstr "לא אמין"
 
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr ""
+msgstr "הוספת רגש כתגובה…"
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr ""
+msgstr "הצגת פרטים"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:115
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
-msgstr ""
+msgstr "יתווסף לאחר התחברות"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:120
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be removed once you are connected"
-msgstr ""
+msgstr "יוסר לאחר התחברות"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:124
 msgctxt "MessageReactionDisplayButton|"
@@ -2581,52 +2571,52 @@ msgstr "לא ניתן להסיר"
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
-msgstr ""
+msgstr "נשלחה"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
-msgstr ""
+msgstr "נמסרה"
 
 #: src/qml/elements/MessageReactionRetryButton.qml:22
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
-msgstr ""
+msgstr "לנסות לעדכן את רגשוני התגובה"
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr ""
+msgstr "איש קשר נוסף - להמשיך עם שלב 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "קוד ה־QR הזה לא מכיל פרטי קשר"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
-msgstr ""
+msgstr "החלטות אמון שנערכו בנוגע למכשיר נוסף שלך - להמשיך עם שלב 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr ""
+msgstr "החלטות אמון שנערכו בנוגע לאנשי קשר - להמשיך עם שלב 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "קוד ה־QR הזה אינו למכשיר הנוסף שלך"
 
 #: src/qml/elements/QrCodeScanningArea.qml:88
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "קוד ה־QR הזה לא מיועד לאנשי הקשר שלך"
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
-msgstr ""
+msgstr "קוד ה־QR הזה לא מיועד להחלטות אמון"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -2641,7 +2631,7 @@ msgstr "הוספת איש קשר…"
 #: src/qml/elements/ReferencedMessage.qml:80
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr ""
+msgstr "אני"
 
 #: src/qml/elements/ReferencedMessage.qml:96
 msgctxt "ReferencedMessage|"
@@ -2651,7 +2641,7 @@ msgstr "מקום"
 #: src/qml/elements/ReferencedMessage.qml:99
 msgctxt "ReferencedMessage|"
 msgid "Media"
-msgstr ""
+msgstr "מדיה"
 
 #: src/qml/elements/RosterFilteringArea.qml:27
 msgctxt "RosterFilteringArea|"
@@ -2666,7 +2656,7 @@ msgstr "אנשי קשר זמינים"
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "קבוצות פרטיות"
 
 #: src/qml/elements/RosterFilteringArea.qml:39
 msgctxt "RosterFilteringArea|"
@@ -2681,7 +2671,7 @@ msgstr "סינון לפי סוג"
 #: src/qml/elements/RosterFilteringArea.qml:53
 msgctxt "RosterFilteringArea|"
 msgid "Show only entries of specific types"
-msgstr ""
+msgstr "להציג רק רשומות מסוגים מסוימים"
 
 #: src/qml/elements/RosterFilteringArea.qml:115
 msgctxt "RosterFilteringArea|"
@@ -2691,17 +2681,17 @@ msgstr "סינון לפי חשבונות"
 #: src/qml/elements/RosterFilteringArea.qml:116
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "הצגת שיחות בחשבונות הנבחרים בלבד"
 
 #: src/qml/elements/RosterFilteringArea.qml:178
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "סינון לפי תוויות"
 
 #: src/qml/elements/RosterFilteringArea.qml:179
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "להציג שיחות עם התוויות הנבחרות בלבד"
 
 #: src/qml/elements/RosterListItem.qml:83
 msgctxt "RosterListItem|"
@@ -2716,28 +2706,28 @@ msgstr "אין הודעות עדיין"
 #: src/qml/elements/RosterListItem.qml:117
 msgctxt "RosterListItem|"
 msgid "Draft:"
-msgstr ""
+msgstr "טיוטה:"
 
 #: src/qml/elements/RosterListItem.qml:120
 msgctxt "RosterListItem|"
 msgid "Me:"
-msgstr ""
+msgstr "אני:"
 
 #: src/qml/elements/RosterListItem.qml:124
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "שחרור נעיצה"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "נעיצה"
 
 #: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
@@ -2758,7 +2748,7 @@ msgstr "מתבצעת הורדה…"
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
-msgstr ""
+msgstr "לנסות שוב"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
 #, qt-format
@@ -2779,7 +2769,7 @@ msgstr "הקלטת סרטון"
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr ""
+msgstr "נא לבחור שיחה להתחלה"
 
 #: src/qml/GlobalDrawer.qml:33
 msgctxt "GlobalDrawer|"
@@ -2789,12 +2779,12 @@ msgstr "חשבונות"
 #: src/qml/GlobalDrawer.qml:105
 msgctxt "GlobalDrawer|"
 msgid "Actions"
-msgstr ""
+msgstr "פעולות"
 
 #: src/qml/GlobalDrawer.qml:109
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "הוספת איש קשר לפי קוד QR"
 
 #: src/qml/GlobalDrawer.qml:115
 msgctxt "GlobalDrawer|"
@@ -2804,12 +2794,12 @@ msgstr "הוספת פרטי קשר לפי כתובת צ׳אט"
 #: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr ""
+msgstr "יצירת קבוצה"
 
 #: src/qml/GlobalDrawer.qml:128
 msgctxt "GlobalDrawer|"
 msgid "Join group"
-msgstr ""
+msgstr "הצטרפות לקבוצה"
 
 #: src/qml/GlobalDrawer.qml:136
 msgctxt "GlobalDrawer|"
@@ -2819,7 +2809,7 @@ msgstr "חיפוש בקבוצות ציבוריות"
 #: src/qml/GlobalDrawer.qml:147
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
-msgstr ""
+msgstr "החלפת מכשיר"
 
 #: src/qml/GlobalDrawer.qml:153
 msgctxt "GlobalDrawer|"
@@ -2830,24 +2820,24 @@ msgstr "על אודות"
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "החסימה מעל %1 שוחררה"
 
 #: src/qml/main.qml:105
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "הסגה"
 
 #: src/qml/main.qml:112
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "לא ניתן לחסום את %1: %2"
 
 #: src/qml/main.qml:114
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "לא ניתן לשחרר את החסימה מעל %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
 msgctxt "QrCodeOnboardingPage|"
@@ -2862,7 +2852,7 @@ msgstr "סריקת קוד QR"
 #: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "הצגת הסבר"
 
 #: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
@@ -2872,7 +2862,7 @@ msgstr "נא לסרוק את קוד ה־QR של המכשיר הישן שלך"
 #: src/qml/QrCodeOnboardingPage.qml:90
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr ""
+msgstr "קוד ה־QR הזה אינו קוד QR תקף."
 
 #: src/qml/QrCodeOnboardingPage.qml:97
 msgctxt "QrCodeOnboardingPage|"
@@ -2882,17 +2872,17 @@ msgstr "בהתחברות…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "הרשמה אוטומטית"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:54
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "מוגשת בקשת הרשמה…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:59
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "נא להשלים את ההרשמה!"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -2902,22 +2892,22 @@ msgstr "נא למלא פרטים נוספים"
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "הספק ביקש פרטים נוספים"
 
 #: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "לא הכול בגדר חובה"
 
 #: src/qml/registration/ManualRegistrationPage.qml:30
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr ""
+msgstr "הרשמה ידנית"
 
 #: src/qml/registration/ManualRegistrationPage.qml:42
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr ""
+msgstr "נא להשלים את טופס ההרשמה!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
 msgctxt "ManualRegistrationPage|"
@@ -2927,7 +2917,7 @@ msgstr "נא למלא את פרטי הגישה הרצויים"
 #: src/qml/registration/ManualRegistrationPage.qml:68
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
 msgctxt "ManualRegistrationPage|"
@@ -2937,22 +2927,22 @@ msgstr "שם משתמש"
 #: src/qml/registration/ManualRegistrationPage.qml:80
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
-msgstr ""
+msgstr "נא למלא שם משתמש תקף או להשאיר את השדה ריק כדי לחולל אקראי"
 
 #: src/qml/registration/ManualRegistrationPage.qml:140
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "הספק דורש סיסמה חזקה יותר."
 
 #: src/qml/registration/ManualRegistrationPage.qml:189
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "שם המשתמש כבר תפוס."
 
 #: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "נוצר שם משתמש אקראי."
 
 #: src/qml/registration/ProviderPage.qml:22
 msgctxt "ProviderPage|"
@@ -2962,7 +2952,7 @@ msgstr "נא לבחור ספק"
 #: src/qml/registration/ProviderPage.qml:39
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "יש לבחור ספק כדי להירשם!"
 
 #: src/qml/registration/ProviderPage.qml:110
 msgctxt "ProviderPage|"
@@ -2982,32 +2972,32 @@ msgstr "מקומות שרת"
 #: src/qml/registration/ProviderPage.qml:176
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr ""
+msgstr "שפות"
 
 #: src/qml/registration/ProviderPage.qml:181
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "זמין/מופיע מאז"
 
 #: src/qml/registration/ProviderPage.qml:186
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr ""
+msgstr "הגודל המרבי למדיה המשותפת"
 
 #: src/qml/registration/ProviderPage.qml:191
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "משך אחסון הודעות"
 
 #: src/qml/registration/ProviderPage.qml:195
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "ביקור בעמוד הפרטים"
 
 #: src/qml/registration/ProviderPage.qml:196
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr ""
+msgstr "פתיחת עמוד הפרטים באתר הספק"
 
 #: src/qml/registration/ProviderPage.qml:210
 msgctxt "ProviderPage|"
@@ -3017,22 +3007,22 @@ msgstr "בחירה"
 #: src/qml/registration/ProviderPage.qml:211
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "מוגשת בקשת רישום…"
 
 #: src/qml/registration/ProviderPage.qml:237
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "יש למלא כתובת ספק"
 
 #: src/qml/registration/ProviderPage.qml:299
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
-msgstr ""
+msgstr "הספק לא תומך בהרשמה דרך היישום."
 
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "נחסמת זמנית: "
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
@@ -3042,7 +3032,7 @@ msgstr "כניסה לאחר אימות הדוא״ל"
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "הרשמה"
 
 #: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
@@ -3057,65 +3047,65 @@ msgstr "מתבצע רישום…"
 #: src/qml/registration/RegistrationPage.qml:58
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "קלט מבחן אנוש (CAPTCHA) שגוי"
 
 #: src/qml/registration/RegistrationPage.qml:67
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "הפרטים הבאים חסרים: "
 
 #: src/qml/registration/RegistrationPage.qml:76
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "ההרשמה נכשלה:"
 
 #: src/qml/registration/WebRegistrationPage.qml:26
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr ""
+msgstr "אתר הרשמה"
 
 #: src/qml/registration/WebRegistrationPage.qml:30
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "להירשם דרך אתר הספק!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr ""
+msgstr "שלב 1: לרשום חשבון"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr ""
+msgstr "הספק הנבחר תומך בהרשמה דרך האתר בלבד"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
-msgstr ""
+msgstr "לאחר יצירת חשבון דרך אתר הספק, אפשר להיכנס דרך Kaidan"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr ""
+msgstr "ביקור באתר ההרשמה"
 
 #: src/qml/registration/WebRegistrationPage.qml:61
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr ""
+msgstr "פתיחת עמוד ההרשמה באתר הספק"
 
 #: src/qml/registration/WebRegistrationPage.qml:71
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr ""
+msgstr "שלב 2: להיכנס עם החשבון שרשמת"
 
 #: src/qml/RosterPage.qml:25 src/qml/RosterPage.qml:35
 #: src/qml/RosterPage.qml:48
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "מסנן"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3130,109 +3120,110 @@ msgstr ""
 #: src/qml/StartPage.qml:120
 msgctxt "StartPage|"
 msgid "Register"
-msgstr ""
+msgstr "הרשמה"
 
 #: src/qml/StartPage.qml:124
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr ""
+msgstr "יצירת חשבון אוטומטית"
 
 #: src/qml/StartPage.qml:129
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr ""
+msgstr "יצירת חשבון ידנית"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "שם משתמש או סיסמה שגויים."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
+msgstr "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט תקין."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr ""
+msgstr "שגיאה בעת הניסיון להתחבר בצורה מאובטחת."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr ""
+msgstr "השרת לא תומך בחיבורים מאובטחים."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט או שם השרת שלך תקינים."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "השרת מנותק או שחסום על ידי חומת אש."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr ""
+msgstr "פרוטוקול האימות לא נתמך על ידי השרת."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "לא ניתן לרענן את החיבור."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
-msgstr ""
+msgstr "הגישה לאינטרנט אסורה. נא לבדוק את הגדרות הגישה של המערכת לאינטרנט."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "השרת הזה לא תומך ברישום."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
-msgstr ""
+msgstr "לא ניתן להיכנס. נא לאשר תחילה את ההודעה שקיבלת בדוא״ל."
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "לא ניתן להתחבר לשרת."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "גודל לא ידוע"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 מקוון/נת"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "הקלדה מצד %1…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "נעצרה ההקלדה מצד %1"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "הערות"
 
 #: src/RosterManager.cpp:191
 #, qt-format
@@ -3261,19 +3252,19 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
-msgstr ""
+msgstr "הבקשה לצפות בנתונים האישיים של %1 נכשלה עקב בעיית חיבור: %2"
 
 #: src/RosterManager.cpp:244
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr ""
+msgstr "מתן האפשרות להצגת הנתונים האישיים שלך בפני %1 נכשל"
 
 #: src/RosterManager.cpp:255
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr ""
+msgstr "עצירת האפשרות להצגת הנתונים האישיים שלך בפני %1 נכשל"
 
 #: src/RosterModel.cpp:858
 msgctxt "RosterModel|"
