@@ -1,10 +1,16 @@
 // SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
 #define BUILD_TYPE "${CMAKE_BUILD_TYPE}"
+#cmakedefine01 BUILD_AS_UBUNTU_TOUCH
+#cmakedefine01 BUILD_AS_APPIMAGE
+
+#cmakedefine01 BUNDLE_ICONS
+#define TARGET_GSTREAMER_PLUGINS "${TARGET_GSTREAMER_PLUGINS}"
 
 #cmakedefine VERSION "${PROJECT_VERSION}"
 #cmakedefine VERSION_STRING "${VERSION_STRING}"

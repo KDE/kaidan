@@ -130,8 +130,6 @@ ecm_install_po_files_as_qm(poqm)
 # Kaidan binary
 #
 
-configure_file(${CMAKE_SOURCE_DIR}/GlobalsGen.h.in GlobalsGen.h)
-
 add_subdirectory(src)
 
 #
