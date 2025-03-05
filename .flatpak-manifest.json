@@ -8,21 +8,23 @@
     "tags": ["nightly"],
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
+        "--device=all",
+        "--device=dri",
+        "--env=LD_LIBRARY_PATH=/usr/lib/",
+        "--filesystem=home",
         "--share=ipc",
         "--share=network",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--filesystem=home",
-        "--device=dri",
-        "--device=all",
-        "--talk-name=org.freedesktop.Notifications",
-        "--env=LD_LIBRARY_PATH=/usr/lib/"
+        "--talk-name=org.freedesktop.Notifications"
     ],
     "separate-locales": false,
     "modules": [
         {
             "name": "kirigami-addons",
-            "config-opts": ["-DBUILD_TESTING=OFF"],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
@@ -60,7 +62,9 @@
         {
             "name": "libprotobuf-c",
             "buildsystem": "autotools",
-            "config-opts": ["--disable-protoc"],
+            "config-opts": [
+                "--disable-protoc"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -71,7 +75,9 @@
         {
             "name": "libomemo-c",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DBUILD_SHARED_LIBS=ON"],
+            "config-opts": [
+                "-DBUILD_SHARED_LIBS=ON"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -83,7 +89,12 @@
         {
             "name": "qxmpp",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DQT_VERSION_MAJOR=6", "-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON"],
+            "config-opts": [
+                "-DBUILD_EXAMPLES=OFF",
+                "-DBUILD_OMEMO=ON",
+                "-DBUILD_TESTS=OFF",
+                "-DQT_VERSION_MAJOR=6"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -91,7 +102,11 @@
                     "sha256": "a9e95847c432cbf9ad36aa6d1596d66aa8f644d6983926457235fb64343bc42c"
                 }
             ],
-            "cleanup": ["/include", "/lib/cmake", "/lib/pkgconfig"]
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig"
+            ]
         },
         {
             "name": "kaidan",
