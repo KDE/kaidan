@@ -373,10 +373,11 @@ public:
     /**
      * Receives messages from another instance of the application
      */
-    Q_INVOKABLE void receiveMessage(quint32, const QByteArray &msg)
+    Q_INVOKABLE void receiveMessage(const QStringList &arguments, const QString &workingDirectory)
     {
+        Q_UNUSED(workingDirectory)
         // currently we only send XMPP URIs
-        addOpenUri(QString::fromUtf8(msg));
+        // TODO implement it addOpenUri(QString::fromUtf8(msg));
     }
 
 private:
