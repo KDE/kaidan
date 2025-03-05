@@ -504,8 +504,25 @@ Controls.Pane {
 
 			GroupChatParticipantPicker {
 				id: participantPicker
-				x: root.chatPage.x + root.leftInset
-				y: mapToGlobal(root.x, root.y).y - contentHeight - Kirigami.Units.smallSpacing
+				x: {
+					const cursorRectangle = messageArea.cursorRectangle
+
+					// A gap is needed since cursorRectangle.x is (for an unknown reason) not at the cursor's position.
+					const gap = Kirigami.Units.largeSpacing * 8
+
+					if (root.chatPage.width > cursorRectangle.x + gap + participantPicker.listView.implicitWidth) {
+						return mapToGlobal(cursorRectangle.x, cursorRectangle.y).x + gap
+					}
+
+					return pageStack.wideMode ? root.chatPage.x : 0
+				}
+				y: {
+					// Used to trigger a reevaluation of y if the window's height changes.
+					const windowHeight = applicationWindow().height
+
+					const cursorRectangle = messageArea.cursorRectangle
+					return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - contentHeight
+				}
 				accountJid: ChatController.accountJid
 				chatJid: ChatController.chatJid
 				textArea: messageArea
