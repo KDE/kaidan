@@ -62,6 +62,8 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO Kirigami Prison)
 if (NOT ANDROID)
    find_package(KF6 ${KF_MIN_VERSION} OPTIONAL_COMPONENTS Crash)
+   find_package(KDSingleApplication-qt6 CONFIG REQUIRED)
+   find_package(KF6WindowSystem ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
 find_package(KF6KirigamiAddons 1.4.0 REQUIRED)

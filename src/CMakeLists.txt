@@ -214,15 +214,6 @@ target_sources(libkaidancore PRIVATE
     ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
 )
 
-if(NOT ANDROID AND NOT IOS)
-    target_sources(libkaidancore PRIVATE
-        singleapp/singleapplication.cpp
-        singleapp/singleapplication.h
-        singleapp/singleapplication_p.cpp
-        singleapp/singleapplication_p.h
-    )
-endif()
-
 # Include bundled icons on Ubuntu Touch, Android, Windows, macOS and iOS
 if(BUNDLE_ICONS OR UBUNTU_TOUCH OR ANDROID)
     target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/kirigami-icons.qrc")

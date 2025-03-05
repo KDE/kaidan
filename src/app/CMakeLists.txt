@@ -20,6 +20,14 @@ if (TARGET KF6::Crash)
     target_link_libraries(${PROJECT_NAME} KF6::Crash)
 endif()
 
+if (NOT ANDROID)
+    target_link_libraries(${PROJECT_NAME} KDAB::kdsingleapplication KF6::WindowSystem)
+endif()
+if (NOT WIN32 AND NOT APPLE)
+    target_link_libraries(${PROJECT_NAME} Qt::GuiPrivate)
+endif()
+
+
 # Set a custom plist file for the app bundle
 if(APPLE)
     if(IOS)

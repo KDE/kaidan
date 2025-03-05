@@ -18,16 +18,39 @@
 #include <QDebug>
 #include <QDir>
 #include <QIcon>
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QTranslator>
+#include <QWindow>
 #include <qqml.h>
+
+#ifdef Q_OS_ANDROID
+#include <QtAndroid>
+#endif
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#include <private/qtx11extras_p.h>
+#endif
+
+// Windows
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
 
 // KF6
 #if __has_include("KCrash")
 #include <KCrash>
 #endif
+
+#if __has_include("KWindowSystem")
+#include <KWindowSystem>
+#endif
+
+// KDAB
+#include <kdsingleapplication.h>
 
 // QXmpp
 #include <QXmppClient.h>
@@ -130,19 +153,6 @@ Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 #define QAPPLICATION_CLASS QApplication
 #endif
 #include QT_STRINGIFY(QAPPLICATION_CLASS)
-
-#if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
-// SingleApplication (Qt5 replacement for QtSingleApplication)
-#include "singleapp/singleapplication.h"
-#endif
-
-#ifdef Q_OS_ANDROID
-#include <QtAndroid>
-#endif
-
-#ifdef Q_OS_WIN
-#include <windows.h>
-#endif
 
 const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
@@ -256,12 +266,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     }
 
-    // create a qt app
-#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
-    QGuiApplication app(argc, argv);
-#else
-    SingleApplication app(argc, argv, true);
-#endif
+    QAPPLICATION_CLASS app(argc, argv);
 
 #if BUILD_AS_APPIMAGE
     QFileInfo executable(QCoreApplication::applicationFilePath());
@@ -393,33 +398,74 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         break;
     }
 
-#if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    // Create a single-instance policy application.
+    KDSingleApplication sapp;
+
+    auto generateSingleApplicationMessage = [&app] {
+        QJsonDocument doc;
+
+        QJsonObject obj;
+        obj[QLatin1String("working_dir")] = QDir::currentPath();
+        obj[QLatin1String("args")] = QJsonArray::fromStringList(app.arguments());
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+        if (KWindowSystem::isPlatformWayland()) {
+            obj[QLatin1String("xdg_activation_token")] = qEnvironmentVariable("XDG_ACTIVATION_TOKEN");
+        } else if (KWindowSystem::isPlatformX11()) {
+            obj[QLatin1String("startup_id")] = QString::fromUtf8(QX11Info::nextStartupId());
+        }
+#endif // !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+
+        doc.setObject(obj);
+
+        return doc.toJson(QJsonDocument::Compact);
+    };
+
+    if (!sapp.isPrimaryInstance()) {
 #ifdef NDEBUG
-    if (app.isSecondary()) {
         qCDebug(KAIDAN_LOG) << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
-#else
-    // check if another instance already runs
-    if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {
-        qCDebug(KAIDAN_LOG).noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
-                                      << "You can enable multiple instances by specifying '--multiple'.";
-#endif
-
-        // send a possible link to the primary instance
-        if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
-            app.sendMessage(positionalArguments.first().toUtf8());
+        sapp.sendMessage(generateSingleApplicationMessage());
         return 0;
+#else
+        // check if another instance already runs
+        if (!parser.isSet(QStringLiteral("multiple"))) {
+            qCDebug(KAIDAN_LOG).noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
+                                          << "You can enable multiple instances by specifying '--multiple'.";
+            sapp.sendMessage(generateSingleApplicationMessage());
+            return 0;
+        }
+#endif // NDEBUG
     }
-#endif
 
+#endif // !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     //
     // Kaidan back-end
     //
     Kaidan kaidan(!parser.isSet(QStringLiteral("disable-xml-log")));
 
-#if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     // receive messages from other instances of Kaidan
-    Kaidan::connect(&app, &SingleApplication::receivedMessage, &kaidan, &Kaidan::receiveMessage);
+    QApplication::connect(&sapp, &KDSingleApplication::messageReceived, &app, [&kaidan](const QByteArray &messageData) {
+        QJsonDocument doc = QJsonDocument::fromJson(messageData);
+        QJsonObject message = doc.object();
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+        if (KWindowSystem::isPlatformWayland()) {
+            qputenv("XDG_ACTIVATION_TOKEN", message[QLatin1String("xdg_activation_token")].toString().toUtf8());
+        } else if (KWindowSystem::isPlatformX11()) {
+            QX11Info::setNextStartupId(message[QLatin1String("startup_id")].toString().toUtf8());
+        }
 #endif
+        QStringList arguments;
+
+        const auto argumentsJson = message[QLatin1String("args")].toArray();
+        for (const QJsonValue &val : argumentsJson) {
+            arguments << val.toString();
+        }
+
+        kaidan.receiveMessage(arguments, message[QLatin1String("working_dir")].toString());
+    });
+#endif // !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
 
     // open the XMPP-URI/link (if given)
     if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())

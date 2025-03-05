@@ -18,6 +18,7 @@
 // Kaidan
 #include "AccountMigrationManager.h"
 #include "ClientWorker.h"
+#include <QStringList>
 
 class AccountDb;
 class BlockingController;
@@ -373,10 +374,12 @@ public:
     /**
      * Receives messages from another instance of the application
      */
-    Q_INVOKABLE void receiveMessage(quint32, const QByteArray &msg)
+    Q_INVOKABLE void receiveMessage(const QStringList &arguments, const QString &workingDirectory)
     {
-        // currently we only send XMPP URIs
-        addOpenUri(QString::fromUtf8(msg));
+        Q_UNUSED(workingDirectory)
+        for (const QString &arg : arguments) {
+            addOpenUri(arg);
+        }
     }
 
 private:
