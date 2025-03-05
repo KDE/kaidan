@@ -94,7 +94,7 @@ public:
      */
     Kaidan(bool enableLogging = true, QObject *parent = nullptr);
 
-    ~Kaidan();
+    ~Kaidan() override;
 
     /**
      * Connects to the XMPP server and logs in to it.

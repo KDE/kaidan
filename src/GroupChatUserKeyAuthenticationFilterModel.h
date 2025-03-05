@@ -11,7 +11,7 @@ class GroupChatUserKeyAuthenticationFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    GroupChatUserKeyAuthenticationFilterModel(QObject *parent = nullptr);
+    explicit GroupChatUserKeyAuthenticationFilterModel(QObject *parent = nullptr);
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 

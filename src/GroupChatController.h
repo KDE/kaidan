@@ -32,7 +32,7 @@ public:
     static GroupChatController *instance();
 
     explicit GroupChatController(QObject *parent = nullptr);
-    ~GroupChatController();
+    ~GroupChatController() override;
 
     bool busy();
     Q_SIGNAL void busyChanged();

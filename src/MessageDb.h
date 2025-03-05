@@ -37,7 +37,7 @@ public:
     };
 
     explicit MessageDb(Database *db, QObject *parent = nullptr);
-    ~MessageDb();
+    ~MessageDb() override;
 
     static MessageDb *instance();
 

@@ -42,7 +42,7 @@ public:
     static QmlUtils *instance();
 
     explicit QmlUtils(QObject *parent = nullptr);
-    ~QmlUtils();
+    ~QmlUtils() override;
 
     static QChar messageBubblePaddingCharacter();
     static QChar groupChatUserMentionPrefix();

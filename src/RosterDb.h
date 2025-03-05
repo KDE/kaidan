@@ -15,7 +15,7 @@ class RosterDb : public DatabaseComponent
 
 public:
     RosterDb(Database *db, QObject *parent = nullptr);
-    ~RosterDb();
+    ~RosterDb() override;
 
     static RosterDb *instance();
 

@@ -40,8 +40,8 @@ public:
 
     static EncryptionController *instance();
 
-    EncryptionController(QObject *parent = nullptr);
-    ~EncryptionController();
+    explicit EncryptionController(QObject *parent = nullptr);
+    ~EncryptionController() override;
 
     QFuture<void> load();
     QFuture<void> setUp();

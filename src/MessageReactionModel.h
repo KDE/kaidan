@@ -22,7 +22,7 @@ public:
     };
 
     explicit MessageReactionModel(QObject *parent = nullptr);
-    ~MessageReactionModel() = default;
+    ~MessageReactionModel() override = default;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;

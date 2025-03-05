@@ -92,7 +92,7 @@ public:
     static MessageModel *instance();
 
     explicit MessageModel(QObject *parent = nullptr);
-    ~MessageModel();
+    ~MessageModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
