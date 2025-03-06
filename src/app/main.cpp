@@ -371,15 +371,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QXmppMixParticipantItem>();
     qRegisterMetaType<QMultiHash<QString, QByteArray>>();
 
-    // Translations
-    const QString translationFilename = QStringLiteral("qt_") + QLocale::system().name();
-    const auto translationFileDirectory = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
-    if (QTranslator translator; translator.load(translationFilename, translationFileDirectory)) {
-        QCoreApplication::installTranslator(&translator);
-    } else {
-        qWarning() << "Translation file" << translationFilename << "could not be loaded from" << translationFileDirectory;
-    }
-
     //
     // Command line arguments
     //
