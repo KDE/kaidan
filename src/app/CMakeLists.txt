@@ -5,6 +5,7 @@
 add_executable(${PROJECT_NAME} WIN32)
 target_sources(${PROJECT_NAME} PRIVATE main.cpp)
 target_link_libraries(${PROJECT_NAME} Kaidan::Core)
+ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
 ecm_qt_declare_logging_category(
     ${PROJECT_NAME}
