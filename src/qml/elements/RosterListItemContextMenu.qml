@@ -20,6 +20,7 @@ Controls.Menu {
 	Controls.MenuItem {
 		text: root.item && root.item.pinned ? qsTr("Unpin") : qsTr("Pin")
 		visible: root.item
+		icon.name: root.item && root.item.pinned ? "window-unpin-symbolic" : "window-pin-symbolic"
 		onTriggered: {
 			if (root.item.pinned) {
 				RosterModel.unpinItem(root.item.accountJid, root.item.jid)
