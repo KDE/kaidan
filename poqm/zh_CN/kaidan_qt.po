@@ -171,22 +171,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
 
-#: src/Kaidan.cpp:210
+#: src/Kaidan.cpp:218
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "在线"
 
-#: src/Kaidan.cpp:212
+#: src/Kaidan.cpp:220
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/Kaidan.cpp:214
+#: src/Kaidan.cpp:222
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "离线"
 
-#: src/Kaidan.cpp:299
+#: src/Kaidan.cpp:307
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "将在您连接后打开链接。"
@@ -382,24 +382,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "错误"
 
-#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
+#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:814
+#: src/MessageModel.cpp:808
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:1462
+#: src/MessageModel.cpp:1456
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1465
+#: src/MessageModel.cpp:1459
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -557,17 +557,17 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "关于 Kaidan"
 
-#: src/qml/ChatPage.qml:82
+#: src/qml/ChatPage.qml:81
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "详情…"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:95
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:499
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
@@ -1988,17 +1988,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "没有可用的相机"
 
-#: src/qml/elements/ChatMessage.qml:208
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "剧透"
 
-#: src/qml/elements/ChatMessage.qml:426
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "新的"
 
-#: src/qml/elements/ChatMessage.qml:454
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2428,7 +2428,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "加入群聊"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:54
+#: src/qml/elements/GroupChatParticipantPicker.qml:58
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "邀请联系人加入此群聊…"
@@ -2555,7 +2555,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr "添加回应…"
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:23
+#: src/qml/elements/MessageReactionDetailsButton.qml:22
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "显示详情"
@@ -3144,88 +3144,88 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "手动创建账号"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "用户名或密码无效。"
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "无法连接到服务器。请检查您的互联网连接。"
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "尝试安全连接时出错。"
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "服务器不支持安全连接。"
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "无法连接到服务器。请检查您的互联网连接或服务器名称。"
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "无法刷新连接。"
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "不允许访问互联网。请检查系统的互联网访问配置。"
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "此服务器不支持注册。"
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "无法登录。请先确认您收到的电子邮件。"
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 已上线"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 正在输入…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"

@@ -192,7 +192,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/Kaidan.cpp:210
+#: src/Kaidan.cpp:218
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -200,7 +200,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Dalam talian"
 
-#: src/Kaidan.cpp:212
+#: src/Kaidan.cpp:220
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -208,7 +208,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Kaidan.cpp:214
+#: src/Kaidan.cpp:222
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -216,7 +216,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Luar talian"
 
-#: src/Kaidan.cpp:299
+#: src/Kaidan.cpp:307
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Pautan akan dibuka selepas anda disambungkan."
@@ -428,7 +428,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ralat"
 
-#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
+#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -436,7 +436,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Mesej gagal dihantar."
 
-#: src/MessageModel.cpp:814
+#: src/MessageModel.cpp:808
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -444,12 +444,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Mesej gagal dihantar."
 
-#: src/MessageModel.cpp:1462
+#: src/MessageModel.cpp:1456
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1465
+#: src/MessageModel.cpp:1459
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -632,17 +632,17 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/ChatPage.qml:82
+#: src/qml/ChatPage.qml:81
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:95
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:499
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
@@ -2540,17 +2540,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Tiada kamera tersedia."
 
-#: src/qml/elements/ChatMessage.qml:208
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Beberan"
 
-#: src/qml/elements/ChatMessage.qml:426
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:454
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -3123,7 +3123,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:54
+#: src/qml/elements/GroupChatParticipantPicker.qml:58
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -3298,7 +3298,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:23
+#: src/qml/elements/MessageReactionDetailsButton.qml:22
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""

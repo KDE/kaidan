@@ -181,22 +181,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Banni"
 
-#: src/Kaidan.cpp:210
+#: src/Kaidan.cpp:218
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En ligne"
 
-#: src/Kaidan.cpp:212
+#: src/Kaidan.cpp:220
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Connexion en cours..."
 
-#: src/Kaidan.cpp:214
+#: src/Kaidan.cpp:222
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Hors ligne"
 
-#: src/Kaidan.cpp:299
+#: src/Kaidan.cpp:307
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Le lien ne sera ouvert qu'une fois que vous vous serez connecté."
@@ -393,24 +393,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
+#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Il a été impossible d'envoyer une réaction : %1"
 
-#: src/MessageModel.cpp:814
+#: src/MessageModel.cpp:808
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Il a été impossible d'envoyer des réactions : %1"
 
-#: src/MessageModel.cpp:1462
+#: src/MessageModel.cpp:1456
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/MessageModel.cpp:1465
+#: src/MessageModel.cpp:1459
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Hier"
@@ -572,17 +572,17 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "À propos de Kaidan"
 
-#: src/qml/ChatPage.qml:82
+#: src/qml/ChatPage.qml:81
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Détails…"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:95
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Rechercher"
 
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:499
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Déposer les fichiers à envoyer"
@@ -2096,17 +2096,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Aucun appareil photo disponible"
 
-#: src/qml/elements/ChatMessage.qml:208
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
 
-#: src/qml/elements/ChatMessage.qml:426
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/qml/elements/ChatMessage.qml:454
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2538,7 +2538,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Rejoindre un groupe de discussions"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:54
+#: src/qml/elements/GroupChatParticipantPicker.qml:58
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Inviter des contacts à ce groupe..."
@@ -2667,7 +2667,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr "Ajouter une réaction..."
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:23
+#: src/qml/elements/MessageReactionDetailsButton.qml:22
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Afficher les détails"

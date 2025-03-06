@@ -178,22 +178,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Prepovedal"
 
-#: src/Kaidan.cpp:210
+#: src/Kaidan.cpp:218
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Povezan"
 
-#: src/Kaidan.cpp:212
+#: src/Kaidan.cpp:220
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/Kaidan.cpp:214
+#: src/Kaidan.cpp:222
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Nepovezan"
 
-#: src/Kaidan.cpp:299
+#: src/Kaidan.cpp:307
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Povezava se bo odprla, ko se povežete."
@@ -389,24 +389,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
+#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:814
+#: src/MessageModel.cpp:808
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Odzivov ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:1462
+#: src/MessageModel.cpp:1456
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Danes"
 
-#: src/MessageModel.cpp:1465
+#: src/MessageModel.cpp:1459
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -564,17 +564,17 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "O Kaidanu"
 
-#: src/qml/ChatPage.qml:82
+#: src/qml/ChatPage.qml:81
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:95
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Iskanje"
 
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:499
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Spustite datoteke za pošiljanje"
@@ -2040,17 +2040,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Nobene kamere ni na voljo"
 
-#: src/qml/elements/ChatMessage.qml:208
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Motilnik"
 
-#: src/qml/elements/ChatMessage.qml:426
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Novi"
 
-#: src/qml/elements/ChatMessage.qml:454
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2480,7 +2480,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Pridruži se skupinskemu klepetu"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:54
+#: src/qml/elements/GroupChatParticipantPicker.qml:58
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Povabi stike v to skupino…"
@@ -2607,7 +2607,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr "Dodaj odziv…"
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:23
+#: src/qml/elements/MessageReactionDetailsButton.qml:22
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Prikaži podrobnosti"
