@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "GroupChatUserModel.h"
+#include "kaidan_core_debug.h"
 
 #include "Algorithms.h"
 #include "FutureUtils.h"
@@ -34,7 +35,7 @@ QHash<int, QByteArray> GroupChatUserModel::roleNames() const
 QVariant GroupChatUserModel::data(const QModelIndex &index, int role) const
 {
     if (!hasIndex(index.row(), index.column(), index.parent())) {
-        qWarning() << "Could not get data from GroupChatUserModel." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from GroupChatUserModel." << index << role;
         return {};
     }
 

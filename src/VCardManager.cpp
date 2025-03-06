@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "VCardManager.h"
+#include "kaidan_core_debug.h"
 
 // Qt
 #include <QBuffer>
@@ -48,7 +49,7 @@ void VCardManager::requestVCard(const QString &jid)
     if (m_client->state() == QXmppClient::ConnectedState)
         m_manager->requestVCard(jid);
     else
-        qWarning() << "[VCardManager] Could not fetch vCard: Not connected to a server";
+        qCWarning(KAIDAN_CORE_LOG) << "[VCardManager] Could not fetch vCard: Not connected to a server";
 }
 
 void VCardManager::handleVCardReceived(const QXmppVCardIq &iq)
@@ -65,7 +66,7 @@ void VCardManager::requestClientVCard()
     if (m_client->state() == QXmppClient::ConnectedState)
         m_manager->requestClientVCard();
     else
-        qWarning() << "[VCardManager] Could not fetch own vCard: Not connected to a server";
+        qCWarning(KAIDAN_CORE_LOG) << "[VCardManager] Could not fetch own vCard: Not connected to a server";
 }
 
 void VCardManager::handleClientVCardReceived()

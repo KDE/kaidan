@@ -359,7 +359,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (QTranslator translator; translator.load(translationFilename, translationFileDirectory)) {
         QCoreApplication::installTranslator(&translator);
     } else {
-        qWarning() << "Translation file" << translationFilename << "could not be loaded from" << translationFileDirectory;
+        qCWarning(KAIDAN_LOG) << "Translation file" << translationFilename << "could not be loaded from" << translationFileDirectory;
     }
 
     //
@@ -372,7 +372,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QString commandLineErrorMessage;
     switch (parseCommandLine(parser, &commandLineErrorMessage)) {
     case CommandLineError:
-        qWarning() << commandLineErrorMessage;
+        qCWarning(KAIDAN_LOG) << commandLineErrorMessage;
         return 1;
     case CommandLineVersionRequested:
         parser.showVersion();

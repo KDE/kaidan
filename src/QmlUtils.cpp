@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "QmlUtils.h"
+#include "kaidan_core_debug.h"
 
 // Qt
 #include <QClipboard>
@@ -148,7 +149,7 @@ QString QmlUtils::getResourcePath(const QString &name)
     }
 
     // no file found
-    qWarning() << "[main] Could NOT find media file:" << name;
+    qCWarning(KAIDAN_CORE_LOG) << "[main] Could NOT find media file:" << name;
     return QString();
 }
 

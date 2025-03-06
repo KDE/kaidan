@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterModel.h"
+#include "kaidan_core_debug.h"
 
 // QXmpp
 #include <QXmppUri.h>
@@ -97,7 +98,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 QVariant RosterModel::data(const QModelIndex &index, int role) const
 {
     if (!hasIndex(index.row(), index.column(), index.parent())) {
-        qWarning() << "Could not get data from roster model." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from roster model." << index << role;
         return {};
     }
 

@@ -7,6 +7,7 @@
 #include "FutureUtils.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
+#include "kaidan_core_debug.h"
 
 FileModel::FileModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -143,7 +144,7 @@ void FileModel::loadFiles()
     m_watcher.cancel();
 
     if (m_accountJid.isEmpty()) {
-        qWarning("FileModel: Trying to call loadFiles() but m_accountJid is empty.");
+        qCWarning(KAIDAN_CORE_LOG, "FileModel: Trying to call loadFiles() but m_accountJid is empty.");
     } else if (m_chatJid.isEmpty()) {
         m_watcher.setFuture(MessageDb::instance()->fetchFiles(m_accountJid));
     } else {
@@ -156,9 +157,9 @@ void FileModel::loadDownloadedFiles()
     m_watcher.cancel();
 
     if (m_accountJid.isEmpty()) {
-        qWarning(
-            "FileModel: Trying to call loadDownloadedFiles() but m_accountJid is "
-            "empty.");
+        qCWarning(KAIDAN_CORE_LOG,
+                  "FileModel: Trying to call loadDownloadedFiles() but m_accountJid is "
+                  "empty.");
     } else if (m_chatJid.isEmpty()) {
         m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid));
     } else {

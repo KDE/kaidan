@@ -355,7 +355,7 @@ void MessageController::sendPendingMessage(Message message)
                       this,
                       [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
-                              qWarning() << "[client] [MessageController] Could not send message:" << error->description;
+                              qCWarning(KAIDAN_CORE_LOG) << "[client] [MessageController] Could not send message:" << error->description;
 
                               // The error message of the message is saved untranslated. To make
                               // translation work in the UI, the tr() call of the passive

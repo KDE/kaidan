@@ -25,6 +25,7 @@
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QSharedMemory>
 
+#include "kaidan_core_debug.h"
 #include "singleapplication.h"
 #include "singleapplication_p.h"
 
@@ -46,7 +47,7 @@ SingleApplication::SingleApplication(int &argc, char *argv[], bool allowSecondar
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
     // On Android and iOS since the library is not supported fallback to
     // standard QApplication behaviour by simply returning at this point.
-    qWarning() << "SingleApplication is not supported on Android and iOS systems.";
+    qCWarning(KAIDAN_CORE_LOG) << "SingleApplication is not supported on Android and iOS systems.";
     return;
 #endif
 
@@ -121,7 +122,8 @@ SingleApplication::SingleApplication(int &argc, char *argv[], bool allowSecondar
         // If more than 5s have elapsed, assume the primary instance crashed and
         // assume it's position
         if (time.elapsed() > 5000) {
-            qWarning() << "SingleApplication: Shared memory block has been in an inconsistent state from more than 5s. Assuming primary instance failure.";
+            qCWarning(KAIDAN_CORE_LOG)
+                << "SingleApplication: Shared memory block has been in an inconsistent state from more than 5s. Assuming primary instance failure.";
             d->initializeMemoryBlock();
         }
 

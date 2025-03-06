@@ -229,7 +229,7 @@ void Database::transaction()
         auto db = currentDatabase();
         // currently no transactions running
         if (!db.transaction()) {
-            qWarning() << "Could not begin transaction on database:" << db.lastError().text();
+            qCWarning(KAIDAN_CORE_LOG) << "Could not begin transaction on database:" << db.lastError().text();
         }
     }
     // increase counter
@@ -244,14 +244,14 @@ void Database::commit()
     transactions--;
     if (transactions < 0) {
         transactions = 0;
-        qWarning() << "[Database] commit() called, but there's no transaction to commit.";
+        qCWarning(KAIDAN_CORE_LOG) << "[Database] commit() called, but there's no transaction to commit.";
     }
 
     if (!transactions) {
         // no transaction requested anymore
         auto db = currentDatabase();
         if (!db.commit()) {
-            qWarning() << "Could not commit transaction on database:" << db.lastError().text();
+            qCWarning(KAIDAN_CORE_LOG) << "Could not commit transaction on database:" << db.lastError().text();
         }
     }
 }

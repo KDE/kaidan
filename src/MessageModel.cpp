@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageModel.h"
+#include "kaidan_core_debug.h"
 
 // Qt
 #include <QGeoCoordinate>
@@ -125,7 +126,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     const auto row = index.row();
 
     if (!hasIndex(row, index.column(), index.parent())) {
-        qWarning() << "Could not get data from message model." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from message model." << index << role;
         return {};
     }
     const Message &msg = m_messages.at(row);
