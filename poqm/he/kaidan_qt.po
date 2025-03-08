@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-04 08:26+0200\n"
+"PO-Revision-Date: 2025-03-07 10:33+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -529,7 +529,7 @@ msgstr "מנותק"
 #: src/ProviderListModel.cpp:30
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "ספק בהתאמה אישית"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -568,20 +568,20 @@ msgstr "חיפוש"
 #: src/qml/ChatPage.qml:499
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "יש לגרור קבצים לשליחה"
 
 #: src/qml/details/AccountDetailsContent.qml:27
 #: src/qml/details/AccountDetailsContent.qml:275
 #: src/qml/details/AccountDetailsContent.qml:298
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם לא"
 
 #: src/qml/details/AccountDetailsContent.qml:31
 #: src/qml/details/AccountDetailsContent.qml:279
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "אם משותפים פרטים אישיים"
 
 #: src/qml/details/AccountDetailsContent.qml:35
 #: src/qml/details/AccountDetailsContent.qml:283
@@ -608,7 +608,7 @@ msgstr "הצפנה"
 #: src/qml/details/AccountDetailsContent.qml:135
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/AccountDetailsContent.qml:136
 msgctxt "AccountDetailsContent|"
@@ -616,6 +616,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"הצפנה מקצה לקצה עם OMEMO 2 מבטיחה שמלבדך ושותפיך לשיחה אף אחד לא יוכל לקרוא "
+"או לשנות את הנתונים שמועברים."
 
 #: src/qml/details/AccountDetailsContent.qml:196
 msgctxt "AccountDetailsContent|"
@@ -646,7 +648,7 @@ msgstr "כתובת החשבון הועתקה ללוח הגזירים"
 #: src/qml/details/AccountDetailsContent.qml:255
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של החשבון הזה דרך עמוד באתר עם עזרה לשימוש"
 
 #: src/qml/details/AccountDetailsContent.qml:267
 msgctxt "AccountDetailsContent|"
@@ -661,7 +663,7 @@ msgstr "הודעות קשר נכנסות"
 #: src/qml/details/AccountDetailsContent.qml:272
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr ""
+msgstr "הצגת התראות והשמעת צלילים עם הגעת הודעות מאיש קשר"
 
 #: src/qml/details/AccountDetailsContent.qml:294
 msgctxt "AccountDetailsContent|"
@@ -671,7 +673,7 @@ msgstr "הודעות קבוצתיות נכנסות"
 #: src/qml/details/AccountDetailsContent.qml:295
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr ""
+msgstr "הצגת התראות והשמעת צלילים עם הגעת הודעות מקבוצה"
 
 #: src/qml/details/AccountDetailsContent.qml:302
 msgctxt "AccountDetailsContent|"
@@ -841,12 +843,9 @@ msgid "Add chat for notes"
 msgstr "הוספת שיחה להערות"
 
 #: src/qml/details/AccountDetailsContent.qml:655
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "שינוי שם"
+msgstr "נוספת שיחת הערות…"
 
 #: src/qml/details/AccountDetailsContent.qml:656
 msgctxt "AccountDetailsContent|"
@@ -870,7 +869,7 @@ msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
-msgstr ""
+msgstr "נא להחליף את הסיסמה שלך. יש למלא את הסיסמה החדשה בכל המכשירים שלך!"
 
 #: src/qml/details/AccountDetailsContent.qml:709
 msgctxt "AccountDetailsContent|"
@@ -905,7 +904,7 @@ msgstr "נא למלא את הסיסמה החדשה שלך"
 #: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
-msgstr ""
+msgstr "נא למלא סיסמה אחרת כדי לשנות אותה"
 
 #: src/qml/details/AccountDetailsContent.qml:737
 msgctxt "AccountDetailsContent|"
@@ -969,7 +968,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "הסיסמה נמחקת מהטקסט ומקוד ה־QR…"
 
 #: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
@@ -981,7 +980,7 @@ msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
-msgstr ""
+msgstr "הגדרת שם המארח והפתחה להתחברות (שדות ריקים למילוי ערכי ברירת המחדל)"
 
 #: src/qml/details/AccountDetailsContent.qml:862
 msgctxt "AccountDetailsContent|"
@@ -991,7 +990,7 @@ msgstr "החלפת הגדרות חיבור"
 #: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
-msgstr ""
+msgstr "נא למלא הגדרות חיבור אחרות כדי לשנות אותן"
 
 #: src/qml/details/AccountDetailsContent.qml:920
 #, qt-format
@@ -1022,7 +1021,7 @@ msgstr "הסבת החשבון "
 #: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
-msgstr ""
+msgstr "זה יכול לארוך זמן רב"
 
 #: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
@@ -1152,12 +1151,12 @@ msgstr "החלפת תמונת פרופיל"
 #: src/qml/details/AvatarChangePage.qml:90
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
-msgstr ""
+msgstr "פתיחת תמונה…"
 
 #: src/qml/details/AvatarChangePage.qml:95
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
-msgstr ""
+msgstr "הסרת תמונת הפרופיל הנוכחית"
 
 #: src/qml/details/AvatarChangePage.qml:101
 msgctxt "AvatarChangePage|"
@@ -1167,12 +1166,12 @@ msgstr "שמירת הבחירה"
 #: src/qml/details/ContactDetailsContent.qml:50
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "הצפנה"
 
 #: src/qml/details/ContactDetailsContent.qml:54
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:55
 msgctxt "ContactDetailsContent|"
@@ -1185,7 +1184,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:80
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של איש הקשר הזה דרך קוד QR"
 
 #: src/qml/details/ContactDetailsContent.qml:84
 msgctxt "ContactDetailsContent|"
@@ -1225,39 +1224,39 @@ msgstr "ברירת מחדל של החשבון"
 #: src/qml/details/ContactDetailsContent.qml:115
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: src/qml/details/ContactDetailsContent.qml:119
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: src/qml/details/ContactDetailsContent.qml:134
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
-msgstr ""
+msgstr "פרטיות"
 
 #: src/qml/details/ContactDetailsContent.qml:138
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr ""
+msgstr "בקשת נתונים אישיים"
 
 #: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
-msgstr ""
+msgstr "נא לבקש מאיש הקשר שלך לשתף את הזמינות, המכשירים ופרטים אישיים נוספים"
 
 #: src/qml/details/ContactDetailsContent.qml:145
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "ביטול שיתוף נתונים אישיים"
 
 #: src/qml/details/ContactDetailsContent.qml:146
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr ""
+msgstr "להפסיק לשתף את הזמינות, המכשירים או פרטים אישיים כלשהם עליך"
 
 #: src/qml/details/ContactDetailsContent.qml:152
 msgctxt "ContactDetailsContent|"
@@ -1268,7 +1267,7 @@ msgstr "לשלוח התראות הקלדה"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
+msgstr "לציין מתי הדיון הזה פתוח אצלך, מקלידים ומפסיקים להקליד בו"
 
 #: src/qml/details/ContactDetailsContent.qml:164
 msgctxt "ContactDetailsContent|"
@@ -1278,17 +1277,17 @@ msgstr "לשלוח התראות קריאה"
 #: src/qml/details/ContactDetailsContent.qml:165
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "לציין אילו הודעות קראת"
 
 #: src/qml/details/ContactDetailsContent.qml:176
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "חסימה"
 
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "לחסום את כל התקשורת כולל מצב והתראות"
 
 #: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
@@ -1303,7 +1302,7 @@ msgstr "הסרה"
 #: src/qml/details/ContactDetailsContent.qml:205
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr ""
+msgstr "הסרת איש הקשר והיסטוריית השיחות במלואה"
 
 #: src/qml/details/ContactDetailsContent.qml:213
 msgctxt "ContactDetailsContent|"
@@ -1313,7 +1312,7 @@ msgstr "איש קשר נמחק…"
 #: src/qml/details/ContactDetailsDialog.qml:17
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr ""
+msgstr "פרטי קשר"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1323,39 +1322,41 @@ msgstr "הגדלת תמונה ייצוגית"
 #: src/qml/details/ContactDetailsPage.qml:13
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr ""
+msgstr "פרטי קשר"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr ""
+msgstr "נא לאמת את המכשירים של איש הקשר שלך כדי להצפין עבורם"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr ""
+msgstr "נא לאמת את המכשירים הלא מוכרים של איש הקשר שלך כדי להצפין עבורם"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr ""
+msgstr "נא לאמת את המכשירים של איש הקשר שלך להגברת האבטחה"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
 msgstr ""
+"נא לאמת את המכשירים הלא מוכרים של איש הקשר שלך או לאפשר לאיש הקשר שלך לאמת "
+"את ההתקן שלו או שלה"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr ""
+msgstr "לאיש הקשר שלך אין מכשירים אמינים להצפין עבורם"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr ""
+msgstr "לאיש הקשר שלך אין מכשיר מוכר שמשתמש ב־OMEMO 2"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
 msgctxt "ContactKeyAuthenticationButton|"
@@ -1375,38 +1376,38 @@ msgstr ""
 #: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "מדיה"
 
 #: src/qml/details/DetailsContent.qml:61
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
-msgstr ""
+msgstr "הורדות אוטומטיות"
 
 #: src/qml/details/DetailsContent.qml:62
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr ""
+msgstr "להוריד מדיה אוטומטית"
 
 #: src/qml/details/DetailsContent.qml:69
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr ""
+msgstr "אפשר לשתף פריטי מדיה בגודל של עד %1."
 
 #: src/qml/details/DetailsContent.qml:110
 msgctxt "DetailsContent|"
 msgid "Profile"
-msgstr ""
+msgstr "פרופיל"
 
 #: src/qml/details/DetailsContent.qml:142
 msgctxt "DetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "תוויות"
 
 #: src/qml/details/DetailsContent.qml:163
 msgctxt "DetailsContent|"
 msgid "Sharing"
-msgstr ""
+msgstr "שיתוף"
 
 #: src/qml/details/DetailsContent.qml:168
 msgctxt "DetailsContent|"
@@ -1421,7 +1422,7 @@ msgstr "העתקת קוד QR"
 #: src/qml/details/DetailsContent.qml:188
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr ""
+msgstr "קוד ה־QR הועתק ללוח הגזירים"
 
 #: src/qml/details/DetailsContent.qml:193
 msgctxt "DetailsContent|"
@@ -1431,37 +1432,37 @@ msgstr "העתקת כתובת צ׳אט"
 #: src/qml/details/DetailsContent.qml:199
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
-msgstr ""
+msgstr "העתקת קישור הזמנה"
 
 #: src/qml/details/DetailsContent.qml:201
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "קישור ההזמנה הועתק ללוח הגזירים"
 
 #: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
-msgstr ""
+msgstr "החלפת שם…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:29
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
-msgstr ""
+msgstr "הזמנה"
 
 #: src/qml/details/GroupChatDetailsContent.qml:67
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
-msgstr ""
+msgstr "הזמנת אנשי הקשר הנבחרים"
 
 #: src/qml/details/GroupChatDetailsContent.qml:127
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
-msgstr ""
+msgstr "לבחור איש קשר אחד לפחות"
 
 #: src/qml/details/GroupChatDetailsContent.qml:141
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "משתתפים"
 
 #: src/qml/details/GroupChatDetailsContent.qml:145
 msgctxt "GroupChatDetailsContent|"
@@ -1478,17 +1479,17 @@ msgstr "חובה להתחבר כדי לשנות את המשתתפים"
 #: src/qml/details/GroupChatDetailsContent.qml:203
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
-msgstr ""
+msgstr "חסימה"
 
 #: src/qml/details/GroupChatDetailsContent.qml:226
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "הצפנה"
 
 #: src/qml/details/GroupChatDetailsContent.qml:230
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:231
 msgctxt "GroupChatDetailsContent|"
@@ -1501,22 +1502,22 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:305
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של הקבוצה הזאת דרך קוד QR"
 
 #: src/qml/details/GroupChatDetailsContent.qml:309
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של הקבוצה הזאת דרך טקסט"
 
 #: src/qml/details/GroupChatDetailsContent.qml:312
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
-msgstr ""
+msgstr "כתובת הקבוצה הועתקה ללוח הגזירים"
 
 #: src/qml/details/GroupChatDetailsContent.qml:316
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
-msgstr ""
+msgstr "שיתוף כתובת השיחה של הקבוצה הזאת דרך עמוד באתר עם עזרה לשימוש"
 
 #: src/qml/details/GroupChatDetailsContent.qml:324
 msgctxt "GroupChatDetailsContent|"
@@ -1531,7 +1532,7 @@ msgstr "הודעות נכנסות"
 #: src/qml/details/GroupChatDetailsContent.qml:329
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
-msgstr ""
+msgstr "הצגת התראות והשמעת צלילים עם הגעת הודעות"
 
 #: src/qml/details/GroupChatDetailsContent.qml:332
 msgctxt "GroupChatDetailsContent|"
@@ -1541,22 +1542,22 @@ msgstr "ברירת מחדל של החשבון"
 #: src/qml/details/GroupChatDetailsContent.qml:336
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: src/qml/details/GroupChatDetailsContent.qml:340
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "בעת אזכור"
 
 #: src/qml/details/GroupChatDetailsContent.qml:344
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
-msgstr ""
+msgstr "פרטיות"
 
 #: src/qml/details/GroupChatDetailsContent.qml:363
 msgctxt "GroupChatDetailsContent|"
@@ -1567,7 +1568,7 @@ msgstr "לשלוח התראות הקלדה"
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
+msgstr "לציין מתי הדיון הזה פתוח אצלך, מקלידים ומפסיקים להקליד בו"
 
 #: src/qml/details/GroupChatDetailsContent.qml:375
 msgctxt "GroupChatDetailsContent|"
@@ -1577,7 +1578,7 @@ msgstr "לשלוח התראות קריאה"
 #: src/qml/details/GroupChatDetailsContent.qml:376
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "לציין אילו הודעות קראת"
 
 #: src/qml/details/GroupChatDetailsContent.qml:393
 msgctxt "GroupChatDetailsContent|"
@@ -1587,17 +1588,17 @@ msgstr "עזיבה ומחיקה"
 #: src/qml/details/GroupChatDetailsContent.qml:399
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "עזיבה"
 
 #: src/qml/details/GroupChatDetailsContent.qml:400
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr ""
+msgstr "עזיבת הקבוצה והסרת היסטוריית השיחה במלואה"
 
 #: src/qml/details/GroupChatDetailsContent.qml:409
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr ""
+msgstr "עזבת את השיחה הקבוצתית…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
 #, qt-format
@@ -1613,7 +1614,7 @@ msgstr "מחיקה"
 #: src/qml/details/GroupChatDetailsContent.qml:424
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr ""
+msgstr "מחיקת הקבוצה. לאף אחד לא תהיה עוד אפשרות להצטרף לקבוצה!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
@@ -1639,12 +1640,12 @@ msgstr "הגדלת תמונה ייצוגית"
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "שיחה קבוצתית ציבורית"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "שיחה קבוצתית פרטית"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:26
 msgctxt "GroupChatDetailsHeader|"
@@ -1682,28 +1683,28 @@ msgstr ""
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr ""
+msgstr "לאף אחד או אחת מהמשתתפים אין מכשיר אמין להצפין עבורו"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr ""
+msgstr "לאף אחד או אחת מהמשתתפים אין מכשיר מוכר שמשתמש ב־OMEMO 2"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr ""
+msgstr "לחלק מהמשתתפים יש מכשירים שיש לאמת כדי להצפין עבורם"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "לחלק מהמשתתפים יש התקנים שאינם מאומתים"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr ""
+msgstr "כל המכשירים המוכרים של המשתתפים מאומתים"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -1752,6 +1753,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
 "read or modify the data that is synchronized across your devices."
 msgstr ""
+"הצפנה מקצה לקצה עם OMEMO 2 מוודאת שמלבדך אי אפשר לקרוא או לשנות את המידע "
+"שמסונכרן בין המכשירים שלך."
 
 #: src/qml/details/NotesChatDetailsContent.qml:50
 msgctxt "NotesChatDetailsContent|"
@@ -1766,7 +1769,7 @@ msgstr "הסרה"
 #: src/qml/details/NotesChatDetailsContent.qml:56
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr ""
+msgstr "הסרת שיחת הערות ואת היסטוריית השיחות במלואה"
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
 msgctxt "NotesChatDetailsContent|"
@@ -1776,17 +1779,17 @@ msgstr "שיחת ההערות נמחקת…"
 #: src/qml/details/NotesChatDetailsDialog.qml:15
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr ""
+msgstr "פרטי הערות"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr ""
+msgstr "ההודעות בשיחה הזאת מסונכרנות מול כל המכשירים שלך"
 
 #: src/qml/details/NotesChatDetailsPage.qml:14
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr ""
+msgstr "פרטי הערות"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -1854,11 +1857,12 @@ msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
+"נא לסרוק את קוד ה־QR או למלא את פרטי הגישה כטקסט במכשיר נוסף כדי להכניס אותו."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "נא לשים לב:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
 msgctxt "DeviceSwitchingPage|"
@@ -1866,6 +1870,8 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"לעולם לא להציג את קוד ה־QR הזה לגורם נוסף. תהיה לו או לה אפשרות לגשת לחשבון "
+"שלך ללא הגבלות!"
 
 #: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
@@ -1986,7 +1992,7 @@ msgstr "חדש"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1 קרא או קראה עד לנקודה הזאת"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
 msgctxt "ChatMessageContextMenu|"
@@ -2621,7 +2627,7 @@ msgstr "קוד ה־QR הזה לא מיועד להחלטות אמון"
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "מתבצעות החלטות אמון…"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -3234,17 +3240,17 @@ msgstr "לא ניתן להוסיף את %1: %2"
 #: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr ""
+msgstr "לא ניתן להוסיף איש קשר, כתוצאה מהעדר חיבור."
 
 #: src/RosterManager.cpp:211
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr ""
+msgstr "לא ניתן להסיר איש קשר, כתוצאה מהעדר חיבור."
 
 #: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
+msgstr "לא ניתן לשנות שם איש קשר, כתוצאה מהעדר חיבור."
 
 #: src/RosterManager.cpp:233
 #, qt-format
