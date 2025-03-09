@@ -164,21 +164,21 @@ void TextFormatter::update()
 {
     if (m_textDocument) {
         if (m_enhancedFormatting) {
-            attachEnhancedTextFormatting();
+            attachEnhancedFormatting();
         } else {
-            attachTextFormatting();
+            attachNormalFormatting();
         }
     }
 }
 
-void TextFormatter::attachTextFormatting()
+void TextFormatter::attachNormalFormatting()
 {
     attachFormatting([](QTextCursor &cursor, const QString &text) {
         formatEmojis(cursor, text, MIXED_TEXT_EMOJI_SIZE_FACTOR);
     });
 }
 
-void TextFormatter::attachEnhancedTextFormatting()
+void TextFormatter::attachEnhancedFormatting()
 {
     attachFormatting([](QTextCursor &cursor, const QString &text) {
         formatEmojis(cursor, text, determineEmojiFontSizeFactor(text));

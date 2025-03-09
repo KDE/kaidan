@@ -32,7 +32,7 @@ private:
      * That results in displaying the text approriately.
      * For example, emojis are correctly formatted and a bit enlarged.
      */
-    void attachTextFormatting();
+    void attachNormalFormatting();
 
     /**
      * Attaches formatting to a text document in order to format the text on each change with all
@@ -42,7 +42,7 @@ private:
      * For example, emojis are correctly formatted and enlarged depending on their count while links
      * are marked as such and appropriately highlighted.
      */
-    void attachEnhancedTextFormatting();
+    void attachEnhancedFormatting();
 
     void attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText);
 
