@@ -418,8 +418,9 @@ void Message::toQXmppBase(QXmppMessage &message) const
         message.setType(QXmppMessage::GroupChat);
     }
 
-    message.setFrom(isOwn ? accountJid : chatJid);
-    message.setTo(isOwn ? chatJid : accountJid);
+    Q_ASSERT(isOwn);
+
+    message.setTo(chatJid);
     message.setStamp(timestamp);
     message.setIsSpoiler(isSpoiler);
     message.setSpoilerHint(spoilerHint);
