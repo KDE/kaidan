@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ChatHintModel.h"
+
 #include "kaidan_core_debug.h"
 
 // Qt
