@@ -22,9 +22,9 @@
 
 #include <QStringBuilder>
 
-// Q_OS_BSD4 includes all BSD variants and also Q_OS_DARWIN
+// Q_OS_BSD4 includes all BSD variants and also Q_OS_APPLE
 // Q_OS_LINUX is also defined on Android
-#if (defined(Q_OS_LINUX) || defined(Q_OS_BSD4) || defined(Q_OS_HURD)) && !defined(Q_OS_ANDROID) && !defined(Q_OS_DARWIN)
+#if (defined(Q_OS_LINUX) || defined(Q_OS_BSD4) || defined(Q_OS_HURD)) && !defined(Q_OS_ANDROID) && !defined(Q_OS_APPLE)
 #define DESKTOP_LINUX_ALIKE_OS
 #endif
 
