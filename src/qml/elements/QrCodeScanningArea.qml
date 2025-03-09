@@ -33,7 +33,6 @@ GridLayout {
 	QrCodeScanner {
 		id: scanner
 
-		property bool acceptingResult: true
 		property bool busy: false
 
 		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
@@ -100,13 +99,6 @@ GridLayout {
 				acceptingResult = false
 				resetAcceptingResultTimer.start()
 			}
-		}
-
-		// timer to accept the result again after an invalid URI was scanned
-		Timer {
-			id: resetAcceptingResultTimer
-			interval: Kirigami.Units.veryLongDuration * 4
-			onTriggered: scanner.acceptingResult = true
 		}
 
 		LoadingArea {

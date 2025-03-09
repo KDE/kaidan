@@ -21,8 +21,15 @@ Item {
 
 	property bool cameraEnabled: false
 	property alias filter: filter
+	property bool acceptingResult: true
 	property alias zoomSlider: zoomSlider
 	property bool cornersRounded: true
+
+	// timer to accept the result again after a QR code was scanned containing content that cannot be processed
+	property Timer resetAcceptingResultTimer: Timer {
+		interval: Kirigami.Units.veryLongDuration * 4
+		onTriggered: root.acceptingResult = true
+	}
 
 	Item {
 		// Mirror the video output on desktop devices.

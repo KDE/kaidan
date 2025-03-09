@@ -64,9 +64,6 @@ ExplanationTogglePage {
 	}
 	content: QrCodeScanner {
 		id: scanner
-
-		property bool acceptingResult: true
-
 		cornersRounded: false
 		anchors.fill: parent
 		zoomSlider.anchors.bottomMargin: Kirigami.Units.largeSpacing * 10
@@ -97,13 +94,6 @@ ExplanationTogglePage {
 			description: qsTr("Connecting…")
 			visible: Kaidan.connectionState === Enums.StateConnecting
 			anchors.centerIn: parent
-		}
-
-		// timer to accept the result again after an invalid login URI was scanned
-		Timer {
-			id: resetAcceptingResultTimer
-			interval: Kirigami.Units.veryLongDuration * 4
-			onTriggered: scanner.acceptingResult = true
 		}
 	}
 }
