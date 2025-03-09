@@ -33,8 +33,8 @@ GridLayout {
 	QrCodeScanner {
 		id: scanner
 
-		property bool isAcceptingResult: true
-		property bool isBusy: false
+		property bool acceptingResult: true
+		property bool busy: false
 
 		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
 		Layout.fillHeight: parent.flow === GridLayout.LeftToRight
@@ -44,8 +44,8 @@ GridLayout {
 
 		// Use the data from the decoded QR code.
 		filter.onResultContentChanged: result => {
-			if (result.hasText && isAcceptingResult) {
-				isBusy = true
+			if (result.hasText && acceptingResult) {
+				busy = true
 				let processTrust = true
 
 				// Try to add a contact.
@@ -96,23 +96,23 @@ GridLayout {
 					}
 				}
 
-				isBusy = false
-				isAcceptingResult = false
-				resetAcceptResultTimer.start()
+				busy = false
+				acceptingResult = false
+				resetAcceptingResultTimer.start()
 			}
 		}
 
 		// timer to accept the result again after an invalid URI was scanned
 		Timer {
-			id: resetAcceptResultTimer
+			id: resetAcceptingResultTimer
 			interval: Kirigami.Units.veryLongDuration * 4
-			onTriggered: scanner.isAcceptingResult = true
+			onTriggered: scanner.acceptingResult = true
 		}
 
 		LoadingArea {
 			description: root.onlyForTrustDecisions ? qsTr("Making trust decisions…") : qsTr("Adding contact…")
 			anchors.centerIn: parent
-			visible: scanner.isBusy
+			visible: scanner.busy
 		}
 	}
 

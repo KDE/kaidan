@@ -28,8 +28,8 @@ ExplanationTogglePage {
 			scanner.cameraEnabled = true
 		}
 
-		if (!scanner.acceptResult) {
-			scanner.acceptResult = true
+		if (!scanner.acceptingResult) {
+			scanner.acceptingResult = true
 			loginArea.visible = false
 			loginArea.reset()
 		}
@@ -65,28 +65,28 @@ ExplanationTogglePage {
 	content: QrCodeScanner {
 		id: scanner
 
-		property bool acceptResult: true
+		property bool acceptingResult: true
 
 		cornersRounded: false
 		anchors.fill: parent
 		zoomSlider.anchors.bottomMargin: Kirigami.Units.largeSpacing * 10
 		zoomSlider.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
 		filter.onResultContentChanged: (result) => {
-			if (result.hasText && acceptResult) {
+			if (result.hasText && acceptingResult) {
 				// Try to log in by the data from the decoded QR code.
 				switch (Kaidan.logInByUri(result.text)) {
 				case Enums.Connecting:
-					acceptResult = false
+					acceptingResult = false
 					break
 				case Enums.PasswordNeeded:
 					root.primaryButton.clicked()
-					acceptResult = false
+					acceptingResult = false
 					loginArea.visible = true
 					loginArea.initialize()
 					break
 				case Enums.InvalidLoginUri:
-					acceptResult = false
-					resetAcceptResultTimer.start()
+					acceptingResult = false
+					resetAcceptingResultTimer.start()
 					showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
 					break
 				}
@@ -101,9 +101,9 @@ ExplanationTogglePage {
 
 		// timer to accept the result again after an invalid login URI was scanned
 		Timer {
-			id: resetAcceptResultTimer
+			id: resetAcceptingResultTimer
 			interval: Kirigami.Units.veryLongDuration * 4
-			onTriggered: scanner.acceptResult = true
+			onTriggered: scanner.acceptingResult = true
 		}
 	}
 }
