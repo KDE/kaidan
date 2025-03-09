@@ -35,13 +35,6 @@ GridLayout {
 
 		property bool busy: false
 
-		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
-		Layout.fillHeight: parent.flow === GridLayout.LeftToRight
-		Layout.preferredWidth: height
-		Layout.preferredHeight: width
-		Layout.alignment: Qt.AlignCenter
-
-		// Use the data from the decoded QR code.
 		filter.onResultContentChanged: result => {
 			if (result.hasText && acceptingResult) {
 				busy = true
@@ -100,6 +93,11 @@ GridLayout {
 				resetAcceptingResultTimer.start()
 			}
 		}
+		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
+		Layout.fillHeight: parent.flow === GridLayout.LeftToRight
+		Layout.preferredWidth: height
+		Layout.preferredHeight: width
+		Layout.alignment: Qt.AlignCenter
 
 		LoadingArea {
 			description: root.onlyForTrustDecisions ? qsTr("Making trust decisions…") : qsTr("Adding contact…")
