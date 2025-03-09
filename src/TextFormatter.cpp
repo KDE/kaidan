@@ -103,6 +103,23 @@ static void formatEmojis(QTextCursor &cursor, const QString &text, double emojiF
     }
 }
 
+// Removes the format applied to emojis from the text in a specified range.
+static void removeEmojiFormat(QTextCursor &cursor, int start, int end)
+{
+    cursor.setPosition(start, QTextCursor::MoveAnchor);
+    cursor.setPosition(end, QTextCursor::KeepAnchor);
+
+    auto format = cursor.charFormat();
+
+    if (auto font = format.font(); font.family() == EMOJI_FONT_FAMILY) {
+        font.setFamilies(QGuiApplication::font().families());
+        font.setPointSize(QGuiApplication::font().pointSize());
+
+        format.setFont(font);
+        cursor.setCharFormat(format);
+    }
+}
+
 // Marks and hightlights URLs to be displayed as links that can be opened.
 static void formatUrls(QTextCursor &cursor, const QString &text)
 {
@@ -187,23 +204,31 @@ void TextFormatter::attachEnhancedFormatting()
     });
 }
 
-void TextFormatter::attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText)
+void TextFormatter::attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText, int start, int addedCharactersCount)
 {
     auto document = m_textDocument->textDocument();
 
     // Avoid calling this function again and creating an infinite loop if this function modifies the
     // text document.
-    QObject::disconnect(document, &QTextDocument::contentsChanged, this, nullptr);
+    QObject::disconnect(document, &QTextDocument::contentsChange, this, nullptr);
 
     QTextCursor cursor(document);
     auto text = document->toRawText();
+
+    // If text is added after an emoji, the format of the emoji is automatically applied to the added text.
+    // To not display the added text with the wrong emoji format, the format of the added text is reset.
+    // The added text is afterwards formatted again by formatText() which ensures that added emojis are correctly displayed as well.
+    // "end <= text.size()" is needed since addedCharactersCount is sometimes out of range (for an unknown reason).
+    if (const auto end = start + addedCharactersCount; addedCharactersCount > 0 && end <= text.size()) {
+        removeEmojiFormat(cursor, start, end);
+    }
 
     formatText(cursor, text);
 
     // Connect this function in order to be called each time the text document is modified.
     // That way, text changes via QML cause the formatting to be applied.
-    QObject::connect(document, &QTextDocument::contentsChanged, this, [this, formatText]() {
-        attachFormatting(formatText);
+    QObject::connect(document, &QTextDocument::contentsChange, this, [this, formatText](int start, int, int addedCharactersCount) {
+        attachFormatting(formatText, start, addedCharactersCount);
     });
 }
 

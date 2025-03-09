@@ -44,7 +44,7 @@ private:
      */
     void attachEnhancedFormatting();
 
-    void attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText);
+    void attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText, int start = 0, int addedCharactersCount = 0);
 
     QQuickTextDocument *m_textDocument = nullptr;
     bool m_enhancedFormatting = false;
