@@ -962,7 +962,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
 
     if (foundIndex < m_messages.size()) {
         for (; foundIndex < m_messages.size(); foundIndex++) {
-            if (foundIndex > -1 && m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive)) {
+            if (foundIndex > -1 && m_messages.at(foundIndex).body().contains(searchString, Qt::CaseInsensitive)) {
                 return foundIndex;
             }
         }
@@ -987,7 +987,7 @@ int MessageModel::searchForMessageFromOldToNew(const QString &searchString, int 
 
     if (foundIndex >= 0) {
         for (; foundIndex >= 0; foundIndex--) {
-            if (m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive))
+            if (m_messages.at(foundIndex).body().contains(searchString, Qt::CaseInsensitive))
                 break;
         }
     }
@@ -1032,7 +1032,6 @@ void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
             continue;
         }
 
-        processMessage(msg);
         m_messages << msg;
         addVideoThumbnails(msg);
     }
@@ -1069,8 +1068,6 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
 
 void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 {
-    processMessage(msg);
-
     showMessageNotification(msg, origin);
 
     if (msg.accountJid == ChatController::instance()->accountJid() && msg.chatJid == ChatController::instance()->chatJid()) {
@@ -1165,15 +1162,6 @@ void MessageModel::removeMessages(const QString &accountJid, const QString &chat
 {
     if (accountJid == ChatController::instance()->accountJid() && chatJid == ChatController::instance()->chatJid()) {
         removeAllMessages();
-    }
-}
-
-void MessageModel::processMessage(Message &message)
-{
-    if (message.body.size() > MESSAGE_MAX_CHARS) {
-        auto body = message.body;
-        body.truncate(MESSAGE_MAX_CHARS);
-        message.body = body;
     }
 }
 
@@ -1305,7 +1293,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
         auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
             await(GroupChatUserDb::instance()->user(accountJid, chatJid, rosterItem.groupChatParticipantId),
                   this,
-                  [body = message.body, sendNotification](const std::optional<GroupChatUser> user) {
+                  [body = message.body(), sendNotification](const std::optional<GroupChatUser> user) {
                       if (user && (body.contains(user->id) || body.contains(user->jid) || body.contains(user->name))) {
                           sendNotification();
                       }

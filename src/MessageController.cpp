@@ -728,11 +728,11 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     parseSharedFiles(msg, message);
 
     if (!encryptionName.isEmpty() && message.encryption == Encryption::NoEncryption) {
-        message.body = tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName);
+        message.setPreparedBody(tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName));
     } else {
         // Do not use the file sharing fallback body.
         if (messageBody != msg.outOfBandUrl()) {
-            message.body = messageBody;
+            message.setUnpreparedBody(messageBody);
         }
     }
 
@@ -743,6 +743,11 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
             .groupChatJid = mixInvitation->channelJid(),
             .token = mixInvitation->token(),
         };
+    }
+
+    // Ignore messages without any displayable content.
+    if (message.body().isEmpty() && !message.groupChatInvitation) {
+        return;
     }
 
     // If the message is sent from this device and reflected from a group chat or the chat with
@@ -816,7 +821,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
                 storedMessage.stanzaId = message.stanzaId;
                 storedMessage.replaceId = message.replaceId;
                 storedMessage.reply = message.reply;
-                storedMessage.body = message.body;
+                storedMessage.setPreparedBody(message.body());
                 storedMessage.encryption = message.encryption;
                 storedMessage.senderKey = message.senderKey;
                 storedMessage.isSpoiler = message.isSpoiler;

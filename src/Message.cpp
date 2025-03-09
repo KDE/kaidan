@@ -248,16 +248,16 @@ QXmppMessage Message::toQXmpp() const
         if (!reply->quote.isEmpty()) {
             const auto quote = QmlUtils::quote(reply->quote);
 
-            message.setBody(quote + body);
+            message.setBody(quote + m_body);
             message.setFallbackMarkers({QXmppFallback{
                 XMLNS_MESSAGE_REPLIES.toString(),
                 {QXmppFallback::Reference{QXmppFallback::Body, QXmppFallback::Range{0, uint32_t(quote.size())}}},
             }});
         } else {
-            message.setBody(body);
+            message.setBody(m_body);
         }
     } else {
-        message.setBody(body);
+        message.setBody(m_body);
     }
 
     message.setMarkable(true);
@@ -353,13 +353,32 @@ bool Message::isGroupChatMessage() const
     return !groupChatSenderId.isEmpty();
 }
 
+QString Message::body() const
+{
+    return m_body;
+}
+
+void Message::setPreparedBody(const QString &preparedBody)
+{
+    m_body = preparedBody;
+}
+
+void Message::setUnpreparedBody(const QString &unpreparedBody)
+{
+    // Remove all leading/trailing whitespace to not display/store useless characters.
+    m_body = unpreparedBody.trimmed();
+
+    // Shorten the body to prevent denial-of-service attacks.
+    m_body.truncate(MESSAGE_MAX_CHARS);
+}
+
 QString Message::text() const
 {
     if (groupChatInvitation) {
         return groupChatInvitationText();
     }
 
-    return body;
+    return m_body;
 }
 
 QString Message::previewText() const
@@ -380,15 +399,15 @@ QString Message::previewText() const
     }
 
     if (files.isEmpty()) {
-        return body;
+        return m_body;
     }
 
     // Use first file for detection (could be improved with more complex logic)
     auto mediaType = MediaUtils::messageType(files.front().mimeType);
     auto mediaPreviewText = MediaUtils::mediaTypeName(mediaType);
 
-    if (!body.isEmpty()) {
-        return mediaPreviewText % QStringLiteral(": ") % body;
+    if (!m_body.isEmpty()) {
+        return mediaPreviewText % QStringLiteral(": ") % m_body;
     }
 
     return mediaPreviewText;
@@ -396,7 +415,7 @@ QString Message::previewText() const
 
 QGeoCoordinate Message::geoCoordinate() const
 {
-    return QmlUtils::geoCoordinate(body);
+    return QmlUtils::geoCoordinate(m_body);
 }
 
 Message::TrustLevel Message::trustLevel() const
@@ -428,7 +447,7 @@ void Message::toQXmppBase(QXmppMessage &message) const
 
 bool Message::fileFallbackIncludedInMainMessage() const
 {
-    return files.size() == 1 && body.isEmpty();
+    return files.size() == 1 && m_body.isEmpty();
 }
 
 bool Message::addFileFallbackMessageBase(QXmppMessage &message, const File &file)

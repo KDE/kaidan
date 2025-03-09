@@ -164,7 +164,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
         }
 
         msg.timestamp = QDateTime::fromString(query.value(idxTimestamp).toString(), Qt::ISODate);
-        msg.body = query.value(idxBody).toString();
+        msg.setPreparedBody(query.value(idxBody).toString());
         msg.encryption = query.value(idxEncryption).value<Encryption::Enum>();
         msg.senderKey = query.value(idxSenderKey).toByteArray();
         msg.deliveryState = query.value(idxDeliveryState).value<Enums::DeliveryState>();
@@ -233,8 +233,8 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     if (oldMsg.timestamp != newMsg.timestamp) {
         rec.append(createSqlField(QStringLiteral("timestamp"), newMsg.timestamp.toString(Qt::ISODateWithMs)));
     }
-    if (oldMsg.body != newMsg.body) {
-        rec.append(createSqlField(QStringLiteral("body"), newMsg.body));
+    if (oldMsg.body() != newMsg.body()) {
+        rec.append(createSqlField(QStringLiteral("body"), newMsg.body()));
     }
     if (oldMsg.encryption != newMsg.encryption) {
         rec.append(createSqlField(QStringLiteral("encryption"), newMsg.encryption));
@@ -978,7 +978,7 @@ void MessageDb::_addMessage(const Message &message)
         {u"stanzaId", message.stanzaId},
         {u"replaceId", message.replaceId},
         {u"timestamp", message.timestamp.toString(Qt::ISODateWithMs)},
-        {u"body", message.body},
+        {u"body", message.body()},
         {u"encryption", message.encryption},
         {u"senderKey", message.senderKey},
         {u"deliveryState", int(message.deliveryState)},

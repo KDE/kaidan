@@ -217,12 +217,6 @@ private:
      */
     void removeMessages(const QString &accountJid, const QString &chatJid = {});
 
-    /**
-     * Shortens messages to 10000 if longer to prevent DoS
-     * @param message message to process
-     */
-    void processMessage(Message &message);
-
     void addVideoThumbnails(const Message &message);
 
     void updateLastReadOwnMessageId();

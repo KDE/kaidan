@@ -234,7 +234,6 @@ public:
     QString replaceId;
     std::optional<Reply> reply;
     QDateTime timestamp;
-    QString body;
     // End-to-end encryption used for this message.
     Encryption::Enum encryption = Encryption::NoEncryption;
     // ID of this message's sender's public long-term end-to-end encryption key.
@@ -266,6 +265,10 @@ public:
     bool isServerMessage() const;
     bool isGroupChatMessage() const;
 
+    QString body() const;
+    void setPreparedBody(const QString &preparedBody);
+    void setUnpreparedBody(const QString &unpreparedBody);
+
     // Text to be shown for the user depending on the message's content
     QString text() const;
 
@@ -282,6 +285,8 @@ private:
     bool fileFallbackIncludedInMainMessage() const;
     static bool addFileFallbackMessageBase(QXmppMessage &message, const File &file);
     QString groupChatInvitationText() const;
+
+    QString m_body;
 };
 
 Q_DECLARE_METATYPE(Message)

@@ -252,7 +252,7 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
     message.id = QXmppUtils::generateStanzaUuid();
     message.originId = message.id;
     message.timestamp = QDateTime::currentDateTimeUtc();
-    message.body = groupChatUri.toString();
+    message.setPreparedBody(groupChatUri.toString());
     message.encryption = ChatController::instance()->activeEncryption();
     message.deliveryState = DeliveryState::Pending;
     message.receiptRequested = true;

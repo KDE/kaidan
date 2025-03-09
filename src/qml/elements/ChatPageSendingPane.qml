@@ -212,6 +212,12 @@ Controls.Pane {
 				onTextChanged: {
 					handleShortcuts()
 
+					// Remove text solely consisting of whitespace.
+					// That forbids sending messages without any visible characters.
+					if (text && !text.trim()) {
+						messageArea.clear()
+					}
+
 					// Skip events in which the text field was emptied (probably automatically after sending)
 					if (text) {
 						ChatController.sendChatState(ChatState.Composing)

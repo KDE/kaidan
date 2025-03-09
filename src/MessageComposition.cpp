@@ -186,7 +186,7 @@ void MessageComposition::send()
     message.originId = originId;
     setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
     message.timestamp = QDateTime::currentDateTimeUtc();
-    message.body = m_body;
+    message.setUnpreparedBody(m_body);
     message.encryption = ChatController::instance()->activeEncryption();
     message.deliveryState = DeliveryState::Pending;
     message.isSpoiler = m_isSpoiler;
@@ -262,7 +262,7 @@ void MessageComposition::correct()
          body = m_body,
          spoilerHint = m_spoilerHint](Message &message) {
             setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
-            message.body = body;
+            message.setUnpreparedBody(body);
             message.isSpoiler = !spoilerHint.isEmpty();
             message.spoilerHint = spoilerHint;
 
@@ -362,7 +362,7 @@ void MessageComposition::loadDraft()
                             setOriginalReplyId(reply->id);
                         }
 
-                        setOriginalBody(message->body);
+                        setOriginalBody(message->body());
 
                         Q_EMIT isDraftChanged();
                     }
@@ -391,7 +391,7 @@ void MessageComposition::loadDraft()
                 setReplyQuote(reply->quote);
             }
 
-            setBody(message->body);
+            setBody(message->body());
             setSpoiler(message->isSpoiler);
             setSpoilerHint(message->spoilerHint);
             setIsDraft(true);
@@ -423,7 +423,7 @@ void MessageComposition::saveDraft()
                                                           message.replaceId = replaceId;
                                                           setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
                                                           message.timestamp = QDateTime::currentDateTimeUtc();
-                                                          message.body = body;
+                                                          message.setUnpreparedBody(body);
                                                           message.isSpoiler = isSpoiler;
                                                           message.spoilerHint = spoilerHint;
                                                       });
@@ -437,7 +437,7 @@ void MessageComposition::saveDraft()
         message.replaceId = m_replaceId;
         setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
         message.timestamp = QDateTime::currentDateTimeUtc();
-        message.body = m_body;
+        message.setUnpreparedBody(m_body);
         message.isSpoiler = m_isSpoiler;
         message.spoilerHint = m_spoilerHint;
         message.deliveryState = DeliveryState::Draft;
