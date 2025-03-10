@@ -1,8 +1,8 @@
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-03-20 18:17+0200\n"
+"PO-Revision-Date: 2025-02-17 15:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,12 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
-#, fuzzy, qt-format
-#| msgctxt "QrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-koodin luonti epäonnistui: %1"
@@ -23,22 +22,19 @@ msgstr "QR-koodin luonti epäonnistui: %1"
 #: src/AccountMigrationManager.cpp:388
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "Tiliä ei voitu siirtää: toinen siirto on jo meneillään"
 
 #: src/AccountMigrationManager.cpp:400
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "Tiliä ei voitu siirtää: vietyjä tilitietoja ei voitu ladata"
 
 #: src/AccountMigrationManager.cpp:409
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Tiliä ei voitu siirtää: tarvitaan verkkoyhteys"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:96
-#, fuzzy
-#| msgctxt "OmemoModel|"
-#| msgid "This device"
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Tämä laite"
@@ -96,19 +92,16 @@ msgstr ""
 "%1 haluaisi nähdä henkilökohtaisia tietojasi kuten läsnäolon, laitteet ja "
 "muuta%2"
 
+# ”Contact” jätetty tarkoituksella pois, koska ”henkilö” olisi turha
 #: src/ChatHintModel.cpp:313
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"%1 haluaisi nähdä henkilökohtaisia tietojasi kuten läsnäolon, laitteet ja "
-"muuta%2"
+"%1 on nyt %2 ja haluaisi vastaanottaa henkilökohtaisia tietojasi kuten "
+"läsnäolon, laitteet ja muuta%3"
 
 #: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
@@ -128,44 +121,33 @@ msgstr "Sallitaan…"
 #: src/ChatHintModel.cpp:335
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
-msgstr ""
+msgstr "Tässä ryhmässä ei ole käyttäjiä"
 
+# ”Contact” tässä ”ihminen” yrityksessä yhdenmukaistaa Gnomen kanssa
 #: src/ChatHintModel.cpp:336
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
-msgstr "Poista yhteystieto"
+msgstr "Kutsu ihmisiä"
 
 #: src/ChatHintModel.cpp:338
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
-msgstr "Avaa rekisteröintisivu"
+msgstr "Avataan kutsualuetta"
 
 #: src/ChatHintModel.cpp:356
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Tämä ryhmä on poistettu"
 
 #: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "Leave"
-msgstr ""
+msgstr "Poistu"
 
 #: src/ChatHintModel.cpp:359
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Vapaana juttelemaan"
+msgstr "Poistutaan ryhmäkeskustelusta"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -176,22 +158,22 @@ msgstr "Ei voitu ladata tiedostoa: %1"
 #: src/GroupChatUserModel.cpp:53
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
-msgstr ""
+msgstr "Ei liitytty"
 
 #: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
-msgstr ""
+msgstr "Liitytty"
 
 #: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Left"
-msgstr ""
+msgstr "Poistuttu"
 
 #: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr ""
+msgstr "Estetty"
 
 #: src/Kaidan.cpp:210
 msgctxt "Kaidan|"
@@ -335,9 +317,6 @@ msgid "Spoiler"
 msgstr "Vihje"
 
 #: src/Message.cpp:379
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
 msgstr "Sijainti"
@@ -346,7 +325,7 @@ msgstr "Sijainti"
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
-msgstr ""
+msgstr "Kutsu ryhmään %1"
 
 #: src/MessageComposition.cpp:239
 #, qt-format
@@ -355,9 +334,6 @@ msgid "Upload failed: %1"
 msgstr "Lähetys epäonnistui: %1"
 
 #: src/MessageComposition.cpp:289
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful"
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Viestin korjaaminen ei onnistunut"
@@ -371,31 +347,24 @@ msgstr "Tuntematon koko"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "”%1”: ei voida lähettää, koska on yli %2"
 
 #: src/MessageController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
 #: src/MessageController.cpp:363
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
 #: src/MessageController.cpp:731
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "Viesti on %1-salattu, mutta salausta ei voi purkaa"
+msgstr "Viesti on salattu (%1), mutta salausta ei voi purkaa"
 
 #: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
@@ -440,52 +409,43 @@ msgid "Yesterday"
 msgstr "Eilen"
 
 #: src/MixController.cpp:114
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "MixController|"
 msgid "The group already exists"
-msgstr "Yhteystieto on jo olemassa"
+msgstr "Ryhmä on jo olemassa"
 
 #: src/MixController.cpp:141
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu määrittää, onko %1 julkinen: %2"
 
 #: src/MixController.cpp:161
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
-msgstr ""
+msgstr "Ryhmän %1 tietoja ei voitu noutaa: %2"
 
 #: src/MixController.cpp:174 src/MixController.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
-msgstr "Estoa ei voitu purkaa: %1: %2"
+msgstr "Ryhmän %1 nimeä ei voitu muuttaa: %2"
 
 #: src/MixController.cpp:209
 msgctxt "MixController|"
 msgid "The group does not exist"
-msgstr ""
+msgstr "Tätä ryhmää ei ole olemassa"
 
 #: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
-msgstr ""
+msgstr "Sinulla ei ole oikeutta liittyä ryhmään"
 
 #: src/MixController.cpp:278 src/MixController.cpp:291
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu kutsua käyttäjää %1 ryhmään %2: %3"
 
 #: src/MixController.cpp:323
 #, fuzzy, qt-format
@@ -496,41 +456,33 @@ msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
 #: src/MixController.cpp:338
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmän %1 sallittuja käyttäjiä ei voitu noutaa: %2"
 
 #: src/MixController.cpp:358
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmän %1 estettyjä käyttäjiä ei voitu noutaa: %2"
 
 #: src/MixController.cpp:378
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmään %1 liittyneitä käyttäjiä ei voitu noutaa: %2"
 
 #: src/MixController.cpp:396
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu estää käyttäjää %1 ryhmässä %2: %3"
 
 #: src/MixController.cpp:460
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
-msgstr ""
+msgstr "Sinulla ei ole oikeutta poistaa ryhmää"
 
 #: src/Notifications.cpp:154 src/Notifications.cpp:233
 msgctxt "Notifications|"
@@ -548,12 +500,9 @@ msgid "Requests to receive your personal data"
 msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietojasi"
 
 #: src/OmemoController.cpp:127
-#, fuzzy
-#| msgctxt "OmemoManager|"
-#| msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr "Päästä päähän salausta OMEMO 2:lla ei saatu asetetuksi"
+msgstr "OMEMO 2:lla ei saatu asetetuksi päästä päähän -salausta"
 
 #: src/PresenceCache.cpp:38
 msgctxt "QObject|"
@@ -605,9 +554,6 @@ msgid "%1 days"
 msgstr "%1 päivää"
 
 #: src/qml/AboutDialog.qml:12
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "Tietoa Kaidanista"
@@ -630,7 +576,7 @@ msgstr "Etsi"
 #: src/qml/ChatPage.qml:507
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "Pudota lähetettävät tiedostot"
 
 #: src/qml/details/AccountDetailsContent.qml:27
 #: src/qml/details/AccountDetailsContent.qml:275
@@ -693,92 +639,61 @@ msgstr "Poista nimiö"
 
 #: src/qml/details/AccountDetailsContent.qml:239
 #: src/qml/details/AccountDetailsContent.qml:244
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr "Jaa tämän yhteystiedon osoite QR-koodina"
+msgstr "Jaa tämän tilin keskusteluosoite QR-koodina"
 
 #: src/qml/details/AccountDetailsContent.qml:248
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa tämän tilin keskusteluosoite tekstinä"
 
 #: src/qml/details/AccountDetailsContent.qml:251
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Website address copied to clipboard"
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
-msgstr "Verkko-osoite kopioitu leikepöydälle"
+msgstr "Tilin osoite kopioitiin leikepöydälle"
 
 #: src/qml/details/AccountDetailsContent.qml:255
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa tämän tilin keskusteluosoite verkkosivulla käyttöohjeen kanssa"
 
 #: src/qml/details/AccountDetailsContent.qml:267
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/AccountDetailsContent.qml:271
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr "Saapuvat viestit"
+msgstr "Yhteyskumppanien saapuvat viestit"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/AccountDetailsContent.qml:272
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr "Näytä viestin saapuessa ilmoitus ja soita merkkiääni"
+msgstr "Näytä ilmoitus ja soita merkkiääni viestin saapuessa yhteyskumppanilta"
 
 #: src/qml/details/AccountDetailsContent.qml:294
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr "Saapuvat viestit"
+msgstr "Saapuvat ryhmäviestit"
 
 #: src/qml/details/AccountDetailsContent.qml:295
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr "Näytä viestin saapuessa ilmoitus ja soita merkkiääni"
+msgstr "Näytä ilmoitus ja soita merkkiääni viestin saapuessa ryhmästä"
 
 #: src/qml/details/AccountDetailsContent.qml:302
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr "Yhteys"
+msgstr "Maininta"
 
 #: src/qml/details/AccountDetailsContent.qml:321
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "Sijainti"
+msgstr "Sijainnit"
 
 #: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
@@ -787,53 +702,43 @@ msgid ""
 "provider OpenStreetMap is used. The data is downloaded from it after "
 "submitting the location."
 msgstr ""
+"Sijaintien näyttämiseen Kaidanissa käytetään kolmannen osapuolen tarjoajan, "
+"OpenStreetMapin, verkkotietoa. Tieto ladataan, kun sijainti on välitetty."
 
 #: src/qml/details/AccountDetailsContent.qml:330
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
-msgstr ""
+msgstr "Sijaintikartan esikatselut"
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr ""
+msgstr "Näytä sijaintien esikatselut"
 
 #: src/qml/details/AccountDetailsContent.qml:339
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr "Lähetä sijainti"
+msgstr "Sijaintien avaaminen"
 
 #: src/qml/details/AccountDetailsContent.qml:340
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr "Lähetä sijainti"
+msgstr "Miten sijainnit avataan"
 
 #: src/qml/details/AccountDetailsContent.qml:343
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Reset to defaults"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "Palaa oletuksiin"
+msgstr "Järjestelmän oletus"
 
 #: src/qml/details/AccountDetailsContent.qml:347
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "Tietoa Kaidanista"
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:351
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr ""
+msgstr "Verkko"
 
 #: src/qml/details/AccountDetailsContent.qml:378
 msgctxt "AccountDetailsContent|"
@@ -881,12 +786,10 @@ msgid "Support"
 msgstr "Tuki"
 
 #: src/qml/details/AccountDetailsContent.qml:432
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr "Tuki %1"
+msgstr "Tuki – %1"
 
 #: src/qml/details/AccountDetailsContent.qml:449
 msgctxt "AccountDetailsContent|"
@@ -899,12 +802,10 @@ msgid "Join your provider's public support group"
 msgstr "Liity palveluntarjoajasi julkiseen tukiryhmään"
 
 #: src/qml/details/AccountDetailsContent.qml:476
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr "Ryhmätuki %1"
+msgstr "Ryhmätuki – %1"
 
 #: src/qml/details/AccountDetailsContent.qml:490
 msgctxt "AccountDetailsContent|"
@@ -923,7 +824,8 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:514
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr "Keskusteluosoitteiden estämiseksi vaaditaan yhteys"
+msgstr ""
+"Verkkoyhteys vaaditaan keskusteluosoitteiden estämiseksi tai sallimiseksi"
 
 #: src/qml/details/AccountDetailsContent.qml:521
 msgctxt "AccountDetailsContent|"
@@ -957,12 +859,9 @@ msgid "Add chat for notes"
 msgstr "Lisää muistiinpanoihin keskusteluja"
 
 #: src/qml/details/AccountDetailsContent.qml:655
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "Lisätään yhteystietoa…"
+msgstr "Lisätään muistiinpanokeskustelua…"
 
 #: src/qml/details/AccountDetailsContent.qml:656
 msgctxt "AccountDetailsContent|"
@@ -975,6 +874,8 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Muistiinpanokeskustelua ei voitu lisätä yhteystietoihin, koska palvelin ei "
+"tue sitä"
 
 #: src/qml/details/AccountDetailsContent.qml:698
 msgctxt "AccountDetailsContent|"
@@ -1072,12 +973,9 @@ msgstr ""
 "salasanaa"
 
 #: src/qml/details/AccountDetailsContent.qml:820
-#, fuzzy
-#| msgctxt "PasswordRemovalPage|"
-#| msgid "Remove password"
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "Poista salasana"
+msgstr "Poistetaan tekstistä salasanaa…"
 
 #: src/qml/details/AccountDetailsContent.qml:826
 msgctxt "AccountDetailsContent|"
@@ -1095,7 +993,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "Poistetaan salasanaa tekstistä ja QR-koodista…"
 
 #: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
@@ -1132,48 +1030,35 @@ msgid "Connection settings changed"
 msgstr "Yhteysasetukset ovat muuttuneet"
 
 #: src/qml/details/AccountDetailsContent.qml:955
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Kuvateksti"
+msgstr "Siirtäminen"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Poista tili"
+msgstr "Siirrä tili"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "Tiliasetukset"
+msgstr "Valmistellaan tilin siirtoa…"
 
 #: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
-msgstr ""
+msgstr "Tämä voi kestää"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Poista tili tältä laitteelta. Varmuuskopioi tarvittaessa todennustiedot ja "
-"keskusteluhistoria!"
+"Siirrä tilitiedot (paitsi keskusteluhistoriaa) toiselle tilille. Nykyinen "
+"tilisi poistetaan sovelluksesta. Varmuuskopioi tarvittaessa todennustietosi "
+"ja keskusteluhistoriasi!"
 
 #: src/qml/details/AccountDetailsContent.qml:990
 msgctxt "AccountDetailsContent|"
@@ -1195,12 +1080,9 @@ msgstr ""
 "keskusteluhistoria!"
 
 #: src/qml/details/AccountDetailsContent.qml:1005
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Lisätään yhteystietoa…"
+msgstr "Poistetaan tiliä…"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -1214,19 +1096,12 @@ msgid ""
 msgstr "Poista tili palveluntarjoajalta. Tiliä ei voi enää myöhemmin käyttää!"
 
 #: src/qml/details/AccountDetailsContent.qml:1021
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Poista tili"
+msgstr "Poistetaan tiliä…"
 
 #: src/qml/details/AccountDetailsContent.qml:1028
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1236,12 +1111,9 @@ msgstr ""
 "tästä sovelluksesta: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:18
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "Tiliasetukset"
+msgstr "Tilin tiedot"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1249,78 +1121,63 @@ msgid "Change your profile image"
 msgstr "Vaihda profiilikuva"
 
 #: src/qml/details/AccountDetailsPage.qml:17
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "Tiliasetukset"
+msgstr "Tilin tiedot"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr "Varmenna omat laitteesi salataksesi niille"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr "Varmenna tuntemattomat laitteesi salataksesi niille"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr "Todenna <b>omia</b> laitteitasi tietoturvan parantamiseksi"
+msgstr "Varmenna laitteesi tietoturvan parantamiseksi"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:43
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
 msgstr ""
+"Varmenna omia tuntemattomia laitteitasi tai salli muiden laitteittesi "
+"todentaa tämä"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:49
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
-msgstr ""
+msgstr "Sinulla ei ole luotettuja laitteita, joille salata"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr "<b>Sinun</b> muut laitteesi eivät käytä OMEMO 2:ta"
+msgstr "Sinulla on muita laitteita, jotka eivät käytä OMEMO 2:ta"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr "<b>Sinulla</b> ei ole muita OMEMO 2:ta tukevia laitteita"
+msgstr "Sinulla ei ole muita OMEMO 2:ta käyttäviä laitteita"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
 msgstr ""
+"Sinulla on muita laitteita, jotka tulee varmentaa, jotta niille voi salata"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:57
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "Sinulla on muita varmentamattomia laitteita"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "Kaikki muut tunnetut laitteesi on varmennettu"
 
 #: src/qml/details/AvatarChangePage.qml:22
 msgctxt "AvatarChangePage|"
@@ -1361,58 +1218,46 @@ msgstr ""
 "Päästä päähän -salaus OMEMO 2:lla varmistaa, ettei kukaan sinun ja "
 "keskustelukumppaniesi lisäksi voi lukea tai muuttaa välitettyä tietoa."
 
+# ”Contact” ihmismerkityksessä sovittu yhtenäistettäväksi Gnomen kanssa yleisesti ”henkilöksi”
 #: src/qml/details/ContactDetailsContent.qml:74
 #: src/qml/details/ContactDetailsContent.qml:80
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr "Jaa tämän yhteystiedon osoite QR-koodina"
+msgstr "Jaa henkilön osoite QR-koodina"
 
+# ”Contact” ihmismerkityksessä sovittu yhtenäistettäväksi Gnomen kanssa yleisesti ”henkilöksi”
 #: src/qml/details/ContactDetailsContent.qml:84
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa henkilön osoite tekstinä"
 
 #: src/qml/details/ContactDetailsContent.qml:87
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
-msgstr "Yhteystieto kopioitu leikepöydälle"
+msgstr "Yhteystieto kopioitiin leikepöydälle"
 
+# ”Contact” ihmismerkityksessä sovittu yhtenäistettäväksi Gnomen kanssa yleisesti ”henkilöksi”
 #: src/qml/details/ContactDetailsContent.qml:91
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa henkilön keskusteluosoite verkkosivulla käyttöohjeen kanssa"
 
 #: src/qml/details/ContactDetailsContent.qml:103
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
 #: src/qml/details/ContactDetailsContent.qml:107
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Saapuvat viestit"
 
 #: src/qml/details/ContactDetailsContent.qml:108
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Näytä viestin saapuessa ilmoitus ja soita merkkiääni"
 
 #: src/qml/details/ContactDetailsContent.qml:111
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Tilin oletus"
@@ -1437,13 +1282,13 @@ msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Pyydä henkilökohtaisia tietoja"
 
+# ”Contact” ihmismerkityksessä sovittu yhtenäistettäväksi Gnomen kanssa yleisesti ”henkilöksi”
 #: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
-msgstr ""
-"Pyydä yhteyskumppanilta läsnäolo-, laite- ja muita henkilökohtaisia tietoja"
+msgstr "Pyydä henkilöltä läsnäolo-, laite- ja muita henkilökohtaisia tietoja"
 
 #: src/qml/details/ContactDetailsContent.qml:145
 msgctxt "ContactDetailsContent|"
@@ -1465,7 +1310,8 @@ msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
-"Osoita, kun keskustelu on auki, joku kirjoittaa tai keskeyttää kirjoittamisen"
+"Osoita, että keskustelu on auki, joku kirjoittaa tai keskeyttää "
+"kirjoittamisen"
 
 #: src/qml/details/ContactDetailsContent.qml:164
 msgctxt "ContactDetailsContent|"
@@ -1503,20 +1349,14 @@ msgid "Remove contact and complete chat history"
 msgstr "Poista yhteystieto keskusteluhistorioineen"
 
 #: src/qml/details/ContactDetailsContent.qml:213
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Lisätään yhteystietoa…"
+msgstr "Poistetaan yhteystietoa…"
 
 #: src/qml/details/ContactDetailsDialog.qml:17
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "Yhteystiedot"
+msgstr "Tarkat yhteystiedot"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1524,83 +1364,69 @@ msgid "Maximize avatar"
 msgstr "Suurenna avatar"
 
 #: src/qml/details/ContactDetailsPage.qml:13
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "Yhteystiedot"
+msgstr "Tarkat yhteystiedot"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr "Salataksesi yhteyskumppanisi laitteille varmenna ne"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr "Salataksesi yhteyskumppanisi tuntemattomille laitteille varmenna ne"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr "Todenna <b>omia</b> laitteitasi tietoturvan parantamiseksi"
+msgstr "Tietoturvan parantamiseksi varmenna yhteyskumppanisi laitteet"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr ""
+"Varmenna yhteyskumppanisi tuntemattomat laitteet tai anna hänen varmentaa "
+"tämä laite"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr "Yhteyskumppanillasi ei ole luotettua laitetta, jolle salata"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr "<b>Sinulla</b> ei ole muita OMEMO 2:ta tukevia laitteita"
+msgstr "Yhteyskumppanillasi ei ole OMEMO 2:ta käyttävää tunnettua laitetta"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr ""
+"Yhteyskumppanillasi on laitteita, jotka tulee varmentaa, jotta niille voi "
+"salata"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "Yhteyskumppanillasi on varmentamattomia laitteita"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr "Kaikki yhteyskumppanisi tunnetut laitteet on varmennettu"
 
 #: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
@@ -1608,9 +1434,6 @@ msgid "Media"
 msgstr "Media"
 
 #: src/qml/details/DetailsContent.qml:61
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Automatic Downloads"
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr "Automaattiset lataukset"
@@ -1621,12 +1444,10 @@ msgid "Download media automatically"
 msgstr "Lataa media automaattisesti"
 
 #: src/qml/details/DetailsContent.qml:69
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Sallii median jaon tähän asti:"
+msgstr "Mediaa voi jakaa %1 asti."
 
 #: src/qml/details/DetailsContent.qml:110
 msgctxt "DetailsContent|"
@@ -1639,41 +1460,26 @@ msgid "Labels"
 msgstr "Nimiöt"
 
 #: src/qml/details/DetailsContent.qml:163
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Sharing"
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "Jakaminen"
 
 #: src/qml/details/DetailsContent.qml:168
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show QR code"
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Näytä QR-koodi"
 
 #: src/qml/details/DetailsContent.qml:186
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show QR code"
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
-msgstr "Näytä QR-koodi"
+msgstr "Kopioi QR-koodi"
 
 #: src/qml/details/DetailsContent.qml:188
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr "Yhteystieto kopioitu leikepöydälle"
+msgstr "QR-koodi kopioitiin leikepöydälle"
 
 #: src/qml/details/DetailsContent.qml:193
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Copy chat address"
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopioi keskusteluosoite"
@@ -1681,15 +1487,12 @@ msgstr "Kopioi keskusteluosoite"
 #: src/qml/details/DetailsContent.qml:199
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
-msgstr ""
+msgstr "Kopioi kutsulinkki"
 
 #: src/qml/details/DetailsContent.qml:201
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Invitation link copied to clipboard"
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
-msgstr "Kutsulinkki kopioitu leikepöydälle"
+msgstr "Kutsulinkki kopioitiin leikepöydälle"
 
 #: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
@@ -1699,78 +1502,54 @@ msgstr "Muuta nimeä…"
 #: src/qml/details/GroupChatDetailsContent.qml:29
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
-msgstr ""
+msgstr "Kutsu"
 
+# ”Contact” ihmismerkityksessä sovittu yhtenäistettäväksi Gnomen kanssa yleisesti ”henkilöksi”
 #: src/qml/details/GroupChatDetailsContent.qml:67
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
-msgstr "Poista yhteystieto"
+msgstr "Kutsu valitut henkilöt"
 
 #: src/qml/details/GroupChatDetailsContent.qml:127
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
-msgstr "Poista yhteystieto"
+msgstr "Valitse vähintään yksi yhteystieto"
 
 #: src/qml/details/GroupChatDetailsContent.qml:141
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "Osanottajat"
 
 #: src/qml/details/GroupChatDetailsContent.qml:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Block a specific user (e.g., user@example.org) or all users of the same "
-#| "server (e.g., example.org)"
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
-"Estä määräkäyttäjä (esim. kayttaja@esimerkki.fi) tai kaikki saman palvelimen "
-"käyttäjät (esim. esimerkki.fi)"
+"Salli käyttäjän (esim. tunnus@esimerkki.fi) tai kaikkien saman palvelimen "
+"käyttäjien (esim. esimerkki.fi) osallistua"
 
 #: src/qml/details/GroupChatDetailsContent.qml:168
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "You must be connected to block or unblock chat addresses"
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr "Keskusteluosoitteiden estämiseksi vaaditaan yhteys"
+msgstr "Verkkoyhteys vaaditaan osanottajien muuttamiseksi"
 
 #: src/qml/details/GroupChatDetailsContent.qml:203
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
-msgstr ""
+msgstr "Estä"
 
 #: src/qml/details/GroupChatDetailsContent.qml:226
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Salaus"
 
 #: src/qml/details/GroupChatDetailsContent.qml:230
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "OMEMO 2"
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:231
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1781,73 +1560,46 @@ msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:300
 #: src/qml/details/GroupChatDetailsContent.qml:305
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via QR code"
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr "Jaa tämän yhteystiedon osoite QR-koodina"
+msgstr "Jaa tämän ryhmän keskusteluosoite QR-koodina"
 
 #: src/qml/details/GroupChatDetailsContent.qml:309
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa tämän ryhmän keskusteluosoite tekstinä"
 
 #: src/qml/details/GroupChatDetailsContent.qml:312
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Website address copied to clipboard"
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
-msgstr "Verkko-osoite kopioitu leikepöydälle"
+msgstr "Ryhmäosoite kopioitiin leikepöydälle"
 
 #: src/qml/details/GroupChatDetailsContent.qml:316
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
-msgstr "Jaa tämän yhteystiedon osoite tekstinä"
+msgstr "Jaa tämän ryhmän keskusteluosoite verkkosivulla käyttöohjeen kanssa"
 
 #: src/qml/details/GroupChatDetailsContent.qml:324
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
 #: src/qml/details/GroupChatDetailsContent.qml:328
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Saapuvat viestit"
 
 #: src/qml/details/GroupChatDetailsContent.qml:329
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Näytä viestin saapuessa ilmoitus ja soita merkkiääni"
 
 #: src/qml/details/GroupChatDetailsContent.qml:332
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Tilin oletus"
 
 #: src/qml/details/GroupChatDetailsContent.qml:336
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Ei koskaan"
@@ -1855,143 +1607,94 @@ msgstr "Ei koskaan"
 #: src/qml/details/GroupChatDetailsContent.qml:340
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Maininta"
 
 #: src/qml/details/GroupChatDetailsContent.qml:344
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Always"
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Aina"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Privacy"
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Yksityisyys"
 
 #: src/qml/details/GroupChatDetailsContent.qml:363
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Send typing notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
-msgstr "Näytä ilmoitus kirjoittamisesta"
+msgstr "Lähetä ilmoitus kirjoittamisesta"
 
 #: src/qml/details/GroupChatDetailsContent.qml:364
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Indicate when you have this conversation open, are typing and stopped "
-#| "typing"
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
-"Osoita, kun keskustelu on auki, joku kirjoittaa tai keskeyttää kirjoittamisen"
+"Osoita keskustelun ollessa auki, kun joku kirjoittaa tai keskeyttää "
+"kirjoittamisen"
 
 #: src/qml/details/GroupChatDetailsContent.qml:375
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Send read notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Lähetä lukuilmoitukset"
 
 #: src/qml/details/GroupChatDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Osoita, mitkä viestit olet lukenut"
 
 #: src/qml/details/GroupChatDetailsContent.qml:393
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
-msgstr "Tallenna valinta"
+msgstr "Poistuminen ja poistaminen"
 
 #: src/qml/details/GroupChatDetailsContent.qml:399
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "Poistu"
 
 #: src/qml/details/GroupChatDetailsContent.qml:400
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove contact and complete chat history"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr "Poista yhteystieto keskusteluhistorioineen"
+msgstr "Poistu ryhmästä ja poista koko keskusteluhistoria"
 
 #: src/qml/details/GroupChatDetailsContent.qml:409
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "Vapaana juttelemaan"
+msgstr "Poistutaan ryhmäkeskustelusta…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmästä %1 ei voitu poistua%2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:423
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Poista"
 
 #: src/qml/details/GroupChatDetailsContent.qml:424
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Delete account from provider. You will not be able to use your account "
-#| "again!"
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr "Poista tili palveluntarjoajalta. Tiliä ei voi enää myöhemmin käyttää!"
+msgstr "Poista ryhmä. Kukaan ei voi enää liittyä ryhmään!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "Poista tili"
+msgstr "Poistetaan ryhmäkeskustelua…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:439
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmää %1 ei voitu poistaa%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:17
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "Yksityiskohdat…"
+msgstr "Ryhmän tiedot"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:18
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid "Maximize avatar"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Suurenna avatar"
@@ -1999,101 +1702,76 @@ msgstr "Suurenna avatar"
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "Julkinen ryhmäkeskustelu"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "Yksityinen ryhmäkeskustelu"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:26
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
-msgstr "Poista"
+msgstr "Poistettu"
 
 #: src/qml/details/GroupChatDetailsPage.qml:13
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "Yksityiskohdat…"
+msgstr "Ryhmän tiedot"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr "Varmenna osanottajien laitteet salataksesi niille"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr "Varmenna osanottajien tuntemattomat laitteet salataksesi niille"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact</b> for maximum security"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr "Todenna <b>yhteystietojasi</b> tietoturvan parantamiseksi"
+msgstr "Varmenna osanottajien laitteet tietoturvan parantamiseksi"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr ""
+"Varmenna osanottajien tuntemattomat laitteet tai salli osanottajien "
+"varmentaa tämä laite"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr "Yhdelläkään osanottajalla ei ole luotettua laitetta, jolle salata"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr "<b>Yhteystietosi</b> ei käytä OMEMO 2:ta"
+msgstr ""
+"Yhdelläkään osanottajalla ei ole OMEMO 2:ta käyttäviä tunnettuja laitteita"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "Todenna <b>omia</b> laitteitasi salaamista varten"
+msgstr ""
+"Joillakin osanottajilla on laitteita, jotka tulee varmentaa, jotta niille "
+"voi salata"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "Joillakin osanottajilla on varmentamattomia laitteita"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Todenna <b>yhteystietosi</b> laitteita salaamista varten"
+msgstr "Osanottajien kaikki tunnetut laitteet on varmennettu"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -2127,152 +1805,97 @@ msgstr ""
 "%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
 msgstr "Salaus"
 
 #: src/qml/details/NotesChatDetailsContent.qml:29
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "OMEMO 2"
 msgctxt "NotesChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/NotesChatDetailsContent.qml:30
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "NotesChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
 "read or modify the data that is synchronized across your devices."
 msgstr ""
 "Päästä päähän -salaus OMEMO 2:lla varmistaa, ettei kukaan sinun ja "
-"keskustelukumppaniesi lisäksi voi lukea tai muuttaa välitettyä tietoa."
+"keskustelukumppaniesi lisäksi voi lukea tai muuttaa laitteidesi välillä "
+"tahdistettua tietoa."
 
 #: src/qml/details/NotesChatDetailsContent.qml:50
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
 #: src/qml/details/NotesChatDetailsContent.qml:55
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Poista"
 
 #: src/qml/details/NotesChatDetailsContent.qml:56
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove contact and complete chat history"
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr "Poista yhteystieto keskusteluhistorioineen"
+msgstr "Poista muistiinpanokeskustelu ja koko keskusteluhistoria"
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "Lisätään yhteystietoa…"
+msgstr "Poistetaan muistiinpanokeskustelua…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "Yksityiskohdat…"
+msgstr "Muistiinpanon tiedot"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr "Keskustelun viestit tahdistetaan laitteiden välillä muistiinpanoina"
+msgstr ""
+"Tämän keskustelun viestit tahdistetaan muistiinpanoiksi laitteittesi välillä"
 
 #: src/qml/details/NotesChatDetailsPage.qml:14
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "Yksityiskohdat…"
+msgstr "Muistiinpanon tiedot"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
 msgstr "Tilin oletus"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
 msgstr "Ei koskaan"
 
 #: src/qml/details/RosterItemDetailsContent.qml:29
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Always"
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
 msgstr "Aina"
 
 #: src/qml/details/RosterItemDetailsContent.qml:55
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "New label"
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
 msgstr "Uusi nimiö"
 
 #: src/qml/details/RosterItemDetailsContent.qml:69
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Add label"
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "Lisää nimiö"
 
 #: src/qml/details/RosterItemDetailsHeader.qml:22
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid "Maximize avatar"
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Suurenna avatar"
 
 #: src/qml/details/UserDevicesArea.qml:26
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Yhdistetyt laitteet"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "Vaihda laitetta"
@@ -2298,51 +1921,25 @@ msgid "Show as text"
 msgstr "Näytä tekstinä"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
-"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta sille "
-"kirjautumiseksi.\n"
-"\n"
-"Varoitus:\n"
-"Älä koskaan näytä tätä QR-koodia muille. Se antaa rajoittamattoman pääsyn "
-"tiliisi!"
+"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta "
+"kirjautuaksesi sillä."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Huomio:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta sille "
-"kirjautumiseksi.\n"
-"\n"
-"Varoitus:\n"
 "Älä koskaan näytä tätä QR-koodia muille. Se antaa rajoittamattoman pääsyn "
 "tiliisi!"
 
@@ -2367,137 +1964,89 @@ msgid "Copy password"
 msgstr "Kopioi salasana"
 
 #: src/qml/elements/AboutContent.qml:19
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "Käy sivustolla"
 
 #: src/qml/elements/AboutContent.qml:20
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's website in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "Avaa Kaidanin sivusto selaimeen"
+msgstr "Avaa selaimeen Kaidanin sivusto"
 
 #: src/qml/elements/AboutContent.qml:26
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Follow on Mastodon"
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr "Seuraa Mastodonissa"
 
 #: src/qml/elements/AboutContent.qml:27
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's Mastodon page in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "Avaa Kaidanin Mastodon-sivu selaimeen"
+msgstr "Avaa selaimeen Kaidanin Mastodon-sivu"
 
 #: src/qml/elements/AboutContent.qml:33
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "Lahjoita"
 
 #: src/qml/elements/AboutContent.qml:34
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Support Kaidan's development and infrastructure by a donation"
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr "Tue Kaidanin kehitystä ja infrastruktuuria lahjoittamalla"
+msgstr "Tue Kaidanin kehitystä ja infraa lahjoittamalla"
 
 #: src/qml/elements/AboutContent.qml:40
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Ilmoita ongelmista"
 
 #: src/qml/elements/AboutContent.qml:41
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues with Kaidan to the developers"
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr "Kerro Kaidanin ongelmista kehittäjille"
+msgstr "Ilmoita Kaidanin ongelmista kehittäjille"
 
 #: src/qml/elements/AboutContent.qml:47
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code"
 msgctxt "AboutContent|"
 msgid "View source code"
 msgstr "Näytä lähdekoodi"
 
 #: src/qml/elements/AboutContent.qml:48
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code online and contribute to the project"
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr "Näytä Kaidanin lähdekoodi verkossa ja avusta projektia"
+msgstr "Näytä verkossa Kaidanin lähdekoodi ja avusta projektia"
 
 #: src/qml/elements/AboutHeader.qml:40
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
-msgstr "Joka laitteen käyttäjäystävällinen ja nykyaikainen keskustelusovellus"
+msgstr "Nykyaikainen keskustelusovellus joka laitteelle"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgstr "Vaihe 1: Lue <b>toisen laitteesi</b> QR-koodi"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "Vaihe 1: Lue toisella laitteellasi <b>tämän laitteen</b> QR-koodi"
+msgstr "Vaihe 2: Lue toisella laitteellasi <b>tämän laitteen</b> QR-koodi"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Unverified own devices"
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "Omat todentamattomat laitteet"
+msgstr "Omat varmentamattomat laitteet"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Paused"
 msgctxt "Audio|"
 msgid "Pause"
-msgstr "Keskeytetty"
+msgstr "Tauko"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "Toista"
 
 #: src/qml/elements/CameraStatus.qml:40
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr "Ei kameraa käytettävissä."
+msgstr "Ei kameraa käytettävissä"
 
 #: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
@@ -2507,7 +2056,7 @@ msgstr "Vihje"
 #: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: src/qml/elements/ChatMessage.qml:454
 #, qt-format
@@ -2516,51 +2065,39 @@ msgid "%1 has read up to this point"
 msgstr "%1 on lukenut tähän asti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "Poista tiedosto"
+msgstr "Poista valittu tiedosto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "Poista tiedosto"
+msgstr "Avaa valitun tiedoston kansio"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "Reactions"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "Reaktiot"
+msgstr "Reagoi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:98
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Vastaa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:116
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Lainaa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:124
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Copy URL"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr "Kopioi verkko-osoite"
+msgstr "Kopioi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:138
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Muokkaa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:146
 msgctxt "ChatMessageContextMenu|"
@@ -2573,12 +2110,9 @@ msgid "Remove from this device"
 msgstr "Poista tältä laitteelta"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "Sulje viestin hakupalkki"
+msgstr "Sulje haku"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -2591,12 +2125,9 @@ msgid "Search down"
 msgstr "Etsi alaspäin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:81
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Peru"
+msgstr "Peru vastaus"
 
 #: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
@@ -2611,12 +2142,12 @@ msgstr "Peru viestin piilo-osan lisääminen"
 #: src/qml/elements/ChatPageSendingPane.qml:156
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "Lisää emoji"
 
 #: src/qml/elements/ChatPageSendingPane.qml:167
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr ""
+msgstr "Mainitse osanottaja"
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
 msgctxt "ChatPageSendingPane|"
@@ -2639,17 +2170,11 @@ msgid "Compose <b>unencrypted</b> message"
 msgstr "Kirjoita <b>salaamaton</b> viesti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:288
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Ota kuva"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Nauhoita video"
@@ -2660,54 +2185,36 @@ msgid "Share files"
 msgstr "Jaa tiedostoja"
 
 #: src/qml/elements/ChatPageSendingPane.qml:315
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send your location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "Lähetä sijaintisi"
+msgstr "Jaa sijaintisi"
 
 #: src/qml/elements/ChatPageSendingPane.qml:323
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Add hidden message part"
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Lisää viestiin piilo-osa"
 
 #: src/qml/elements/ChatPageSendingPane.qml:367
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Hide text"
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr "Piilota teksti"
+msgstr "Piilota"
 
 #: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "Lisää"
 
 #: src/qml/elements/ChatPageSendingPane.qml:416
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Send a spoiler message"
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "Lähetä vihjeviesti"
+msgstr "Lähetä ääniviesti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:443
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Lähetä"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:47
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Vahvista"
@@ -2777,39 +2284,35 @@ msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
 msgstr "Näytä selitys"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
+msgstr "Vaihe 1: Lue <b>yhteyskumppanisi</b> QR-koodi"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "Vaihe 2: Anna yhteystiedon lukea <b>sinun</b> QR-koodisi"
+msgstr "Vaihe 2: Anna yhteyskumppanisi lukea <b>sinun</b> QR-koodisi"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
-#, fuzzy
-#| msgctxt "ContactAdditionQrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
+msgstr "Vaihe 1: Lue <b>yhteyskumppanisi</b> QR-koodi"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
-#, fuzzy
-#| msgctxt "ContactAdditionQrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "Vaihe 2: Anna yhteystiedon lukea <b>sinun</b> QR-koodisi"
+msgstr "Vaihe 2: Anna yhteyskumppanisi lukea <b>sinun</b> QR-koodisi"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Unverified contact devices"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr "Yhteystietojen todentamattomat laitteet"
+msgstr "Yhteyskumppanin varmentamattomat laitteet"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -2854,28 +2357,19 @@ msgstr "Anna kelvollinen salasana"
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "Jaa sijainti"
+msgstr "Näytä sijainti"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Sijainti"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
 msgstr "Jaa sijainti"
@@ -2883,196 +2377,143 @@ msgstr "Jaa sijainti"
 #: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
-msgstr ""
+msgstr "Luo"
 
 #: src/qml/elements/GroupChatCreationContent.qml:25
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr ""
+msgstr "Luodaan ryhmäkeskustelua…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:30
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr "Nimi (valinnainen):"
+msgstr "Ryhmän nimi (valinnainen)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr ""
+msgstr "Esimerkkiryhmä"
 
 #: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
-msgstr ""
+msgstr "Julkinen"
 
 #: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
-msgstr ""
+msgstr "Ryhmätunniste"
 
 #: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr ""
+msgstr "esimerkkiryhmä"
 
 #: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr ""
+msgstr "Syötä kelvollinen ryhmätunniste"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr "Nimi (valinnainen):"
+msgstr "Kutsumanimi (valinnainen):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:89
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid ""
-#| "The public groups could not be retrieved, try again.\n"
-#| "\n"
-#| "%1"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
-msgstr ""
-"Julkisia ryhmiä ei voitu noutaa: yritä uudelleen.\n"
-"\n"
-"%1"
+msgstr "Ei voitu ryhmää kohteeseen %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:93
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu luoda ryhmää %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:97
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu liittyä ryhmään %1%2"
 
 #: src/qml/elements/GroupChatCreationDialog.qml:17
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr "Vapaana juttelemaan"
+msgstr "Luo ryhmäkeskustelu"
 
 #: src/qml/elements/GroupChatCreationPage.qml:15
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr "Vapaana juttelemaan"
+msgstr "Luo ryhmäkeskustelu"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
-msgstr ""
+msgstr "Liity"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:22
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr ""
+msgstr "Liitytään ryhmäkeskusteluun…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
-msgstr "Keskustelun osoite"
+msgstr "Osoite"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:29
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "user@example.org"
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
-msgstr "kayttaja@esimerkki.fi"
+msgstr "ryhma@ryhmat.esimerkki.fi"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:31
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "The chat address must have the form <b>username@server</b>"
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
-msgstr "Keskusteluosoite on muotoa <b>kayttaja@palvelin</b>"
+msgstr "Osoitteen on oltava muotoa <b>ryhmä@palvelin</b>"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:38
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr "Nimi (valinnainen):"
+msgstr "Kutsumanimi (valinnainen):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:48
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ryhmään %1 ei voitu liittyä%2"
 
 #: src/qml/elements/GroupChatJoiningDialog.qml:17
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Liity ryhmäkeskusteluun"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:15
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Liity ryhmäkeskusteluun"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:54
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "Poista yhteystieto"
+msgstr "Kutsu tähän ryhmään ihmisiä…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
-#, fuzzy
-#| msgctxt "ContactAdditionQrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
-msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
+msgstr "Vaihe 1: Lue <b>osanottajan</b> QR-koodi"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
-#, fuzzy
-#| msgctxt "ContactAdditionQrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 2: Let the participant scan <b>your</b> QR code"
-msgstr "Vaihe 2: Anna yhteystiedon lukea <b>sinun</b> QR-koodisi"
+msgstr "Vaihe 2: Anna osanottajan lukea <b>sinun</b> QR-koodisi"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Unverified contact devices"
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr "Yhteystietojen todentamattomat laitteet"
+msgstr "Osanottajien varmentamattomat laitteet"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Ota kuva"
@@ -3140,12 +2581,9 @@ msgid "Log in"
 msgstr "Kirjaudu"
 
 #: src/qml/elements/LoginArea.qml:35
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr "Lue QR-koodi"
+msgstr "Lue kirjautumisen QR-koodi"
 
 #: src/qml/elements/LoginArea.qml:54
 msgctxt "LoginArea|"
@@ -3158,17 +2596,11 @@ msgid "Connecting…"
 msgstr "Yhdistetään…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr "Salaus"
+msgstr "Kuvaus"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
@@ -3184,73 +2616,49 @@ msgid "Untrusted"
 msgstr "Ei luotettu"
 
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
-#, fuzzy
-#| msgctxt "MessageReactionSenderSheet|"
-#| msgid "Add own reaction"
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr "Lisää oma reaktiosi"
+msgstr "Lisää reaktio…"
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr ""
+msgstr "Näytä yksityiskohdat"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:115
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 will be added once you are connected"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
-msgstr "%1 lisätään yhteydenoton jälkeen"
+msgstr "Lisätään yhteydenoton jälkeen"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:120
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 will be removed once you are connected"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be removed once you are connected"
-msgstr "%1 poistetaan yhteydenoton jälkeen"
+msgstr "Poistetaan yhteydenoton jälkeen"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:124
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be added"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu lisätä"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:129
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be removed"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be removed"
-msgstr "Ei voitu poistaa: %1"
+msgstr "Ei voitu poistaa"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Sent"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
 msgstr "Lähetetty"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Delivered"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
 msgstr "Välitetty"
 
 #: src/qml/elements/MessageReactionRetryButton.qml:22
-#, fuzzy
-#| msgctxt "MessageReactionSenderSheet|"
-#| msgid "Remove own reaction"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
-msgstr "Poista reaktiosi"
+msgstr "Yritä päivittää reaktiot uudelleen"
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
 msgctxt "QrCodeScanningArea|"
@@ -3260,7 +2668,7 @@ msgstr "Yhteystieto lisätty – jatka toiseen vaiheeseen"
 #: src/qml/elements/QrCodeScanningArea.qml:62
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr "Tämä QR-koodi ei sisällä yhteystietoa"
+msgstr "Tämä QR-koodi ei sisällä yhteystietoja"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
 msgctxt "QrCodeScanningArea|"
@@ -3281,7 +2689,7 @@ msgstr "Tämä QR-koodi ei ole toiselle laitteellesi"
 #: src/qml/elements/QrCodeScanningArea.qml:88
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr "Tämä QR-koodi ei ole yhteystiedollesi"
+msgstr "Tämä QR-koodi ei ole yhteyskumppanisi"
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
 msgctxt "QrCodeScanningArea|"
@@ -3299,73 +2707,51 @@ msgid "Adding contact…"
 msgstr "Lisätään yhteystietoa…"
 
 #: src/qml/elements/ReferencedMessage.qml:80
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "Minä:"
+msgstr "Minä"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "Sijainti"
 
 #: src/qml/elements/ReferencedMessage.qml:99
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Media"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/RosterFilteringArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only available contacts"
 msgctxt "RosterFilteringArea|"
 msgid "Unavailable contacts"
-msgstr "Näytä vain saatavilla olevat yhteystiedot"
+msgstr "Saavuttamattomissa olevat yhteyskumppanit"
 
+# ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/RosterFilteringArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only available contacts"
 msgctxt "RosterFilteringArea|"
 msgid "Available contacts"
-msgstr "Näytä vain saatavilla olevat yhteystiedot"
+msgstr "Saatavilla olevat yhteyskumppanit"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "Yksityiset ryhmät"
 
 #: src/qml/elements/RosterFilteringArea.qml:39
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
 msgctxt "RosterFilteringArea|"
 msgid "Public groups"
-msgstr "Etsi julkisia ryhmiä"
+msgstr "Julkiset ryhmät"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "Suodata nimiön mukaan"
+msgstr "Suodata tyypin mukaan"
 
 #: src/qml/elements/RosterFilteringArea.qml:53
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilteringArea|"
 msgid "Show only entries of specific types"
-msgstr "Näytä vain valittujen tilien keskustelut"
+msgstr "Näytä vain tietyntyyppiset kohteet"
 
 #: src/qml/elements/RosterFilteringArea.qml:115
 msgctxt "RosterFilteringArea|"
@@ -3388,20 +2774,14 @@ msgid "Show only chats with selected labels"
 msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
 #: src/qml/elements/RosterListItem.qml:83
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterListItem|"
 msgid "Deleted"
-msgstr "Poista"
+msgstr "Poistettu"
 
 #: src/qml/elements/RosterListItem.qml:101
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Kopioi viesti"
+msgstr "Ei vielä viestejä"
 
 #: src/qml/elements/RosterListItem.qml:117
 msgctxt "RosterListItem|"
@@ -3435,66 +2815,41 @@ msgid "Search"
 msgstr "Etsi"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "Etsi julkisia ryhmiä (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "Ladataan…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Retry"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "Yritä uudelleen"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid ""
-#| "The public groups could not be retrieved, try again.\n"
-#| "\n"
-#| "%1"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr ""
-"Julkisia ryhmiä ei voitu noutaa: yritä uudelleen.\n"
-"\n"
-"%1"
+msgstr "Julkisia ryhmiä ei voitu noutaa: %1"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr "Kopioi verkkosivun osoite"
+msgstr "Kopioi verkko-osoite"
 
 #: src/qml/elements/VideoRecordingDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Nauhoita video"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Aloita viestiminen valitsemalla keskustelu"
+msgstr "Aloita valitsemalla keskustelu"
 
 #: src/qml/GlobalDrawer.qml:33
 msgctxt "GlobalDrawer|"
@@ -3519,12 +2874,12 @@ msgstr "Lisää yhteystieto keskusteluosoitteella"
 #: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr ""
+msgstr "Luo ryhmä"
 
 #: src/qml/GlobalDrawer.qml:128
 msgctxt "GlobalDrawer|"
 msgid "Join group"
-msgstr ""
+msgstr "Liity ryhmään"
 
 #: src/qml/GlobalDrawer.qml:136
 msgctxt "GlobalDrawer|"
@@ -3537,9 +2892,6 @@ msgid "Switch device"
 msgstr "Vaihda laitetta"
 
 #: src/qml/GlobalDrawer.qml:153
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Tietoa"
@@ -3568,9 +2920,6 @@ msgid "Could not unblock %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "Lue QR-koodi"
@@ -3603,84 +2952,60 @@ msgstr "Yhdistetään…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "Automaattinen rekisteröityminen"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr "Kysellään palvelimelta…"
+msgstr "Pyydetään rekisteröimistä…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:59
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "Viimeistele rekisteröityminen!"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "Ei tietoa"
+msgstr "Syötä lisätiedot"
 
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "Palveluntarjoaja on pyytänyt lisätietoa"
 
 #: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "Kaikkia ei ehkä vaadita"
 
+# Inhoan tuota ”käsin”, mutten keksi parempaakaan :p
 #: src/qml/registration/ManualRegistrationPage.qml:30
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "Rekisteröityminen epäonnistui:"
+msgstr "Rekisteröityminen käsin"
 
 #: src/qml/registration/ManualRegistrationPage.qml:42
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr "Vain verkkorekisteröityminen:"
+msgstr "Täydennä rekisteröitymislomake!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Enter your credentials"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Anna kirjautumistiedot"
+msgstr "Syötä haluamasi kirjautumistiedot"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Näyttönimi"
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
 #: src/qml/registration/ManualRegistrationPage.qml:80
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid ""
-#| "Please enter a valid username or leave the field empty for a random one."
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
@@ -3703,103 +3028,76 @@ msgid "A new random username has been generated."
 msgstr "Luotiin uusi, satunnainen käyttäjätunnus."
 
 #: src/qml/registration/ProviderPage.qml:22
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "Valitse video"
+msgstr "Valitse palveluntarjoaja"
 
 #: src/qml/registration/ProviderPage.qml:39
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "Valitse palveluntarjoaja, johon rekisteröityä!"
 
 #: src/qml/registration/ProviderPage.qml:110
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "Palveluntarjoaja"
+msgstr "Palveluntarjoajan osoite"
 
 #: src/qml/registration/ProviderPage.qml:123
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Yhteysasetukset"
 
 #: src/qml/registration/ProviderPage.qml:171
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Server locations:"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "Palvelinsijainnit:"
+msgstr "Palvelinsijainnit"
 
 #: src/qml/registration/ProviderPage.qml:176
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "Kielet:"
+msgstr "Kielet"
 
 #: src/qml/registration/ProviderPage.qml:181
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "Käytettävissä/luetteloitu alkaen"
 
 #: src/qml/registration/ProviderPage.qml:186
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr ""
+msgstr "Jaetun median enimmäiskoko"
 
 #: src/qml/registration/ProviderPage.qml:191
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "Viestien talletuskesto"
 
 #: src/qml/registration/ProviderPage.qml:195
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "Vieraile tietosivulla"
 
 #: src/qml/registration/ProviderPage.qml:196
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr "Avaa rekisteröintisivu"
+msgstr "Avaa palveluntarjoajan tietosivu"
 
 #: src/qml/registration/ProviderPage.qml:210
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Valitse tiedosto"
+msgstr "Valitse"
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr "Kysellään palvelimelta…"
+msgstr "Pyydetään rekisteröimistä…"
 
 #: src/qml/registration/ProviderPage.qml:237
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "Palveluntarjoajan osoite on annettava"
 
 #: src/qml/registration/ProviderPage.qml:299
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Palveluntarjoaja ei tue rekisteröitymistä tästä sovelluksesta."
@@ -3807,15 +3105,12 @@ msgstr "Palveluntarjoaja ei tue rekisteröitymistä tästä sovelluksesta."
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "Olet väliaikaisesti estetty: "
 
 #: src/qml/registration/RegistrationButton.qml:24
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "Ei tietoa"
+msgstr "Kirjaudu sähköpostivahvistuksen jälkeen"
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
@@ -3823,20 +3118,14 @@ msgid "Register"
 msgstr "Rekisteröidy"
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Kirjaudu"
+msgstr "Kirjaudutaan…"
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "Rekisteröidy"
+msgstr "Rekisteröidään…"
 
 #: src/qml/registration/RegistrationPage.qml:58
 msgctxt "RegistrationPage|"
@@ -3854,71 +3143,46 @@ msgid "Registration failed:"
 msgstr "Rekisteröityminen epäonnistui:"
 
 #: src/qml/registration/WebRegistrationPage.qml:26
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr "Vain verkkorekisteröityminen:"
+msgstr "Verkkorekisteröityminen"
 
 #: src/qml/registration/WebRegistrationPage.qml:30
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "Rekisteröidy palveluntarjoajan sivustolla!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr "Rekisteröi uusi tili"
+msgstr "Vaihe 1: rekisteröi tili"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "Palvelin ei tue rekisteröitymistä."
+msgstr "Valittu palveluntarjoaja tukee rekisteröitymistä vain sivustolla"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid ""
-#| "The selected provider only provides web registration. After creating an "
-#| "account via the web page, you can log in via Kaidan."
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
-msgstr ""
-"Valittu palveluntarjoaja tarjoaa vain verkkorekisteröitymisen. Luotuasi "
-"tilin verkkosivulla voit kirjautua Kaidanista."
+msgstr "Luotuasi tilin palveluntarjoajan sivustolla voit kirjautua Kaidanilla"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr "Avaa rekisteröintisivu"
+msgstr "Siirry rekisteröitymissivulle"
 
 #: src/qml/registration/WebRegistrationPage.qml:61
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr "Avaa rekisteröintisivu"
+msgstr "Avaa palveluntarjoajan rekisteröitymissivu"
 
 #: src/qml/registration/WebRegistrationPage.qml:71
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Log in with your new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "Kirjaudu uudelle tilille"
+msgstr "Vaihe 2: kirjaudu rekisteröidyllä tililläsi"
 
 #: src/qml/RosterPage.qml:25 src/qml/RosterPage.qml:35
 #: src/qml/RosterPage.qml:48
@@ -3927,12 +3191,9 @@ msgid "Filter"
 msgstr "Suodata"
 
 #: src/qml/StartPage.qml:26
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Tiliasetukset"
+msgstr "Tilin siirto"
 
 #: src/qml/StartPage.qml:56
 msgctxt "StartPage|"
@@ -4014,15 +3275,12 @@ msgstr "Palvelin ei tue rekisteröitymistä."
 #: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
-msgstr ""
+msgstr "Ei voitu kirjautua. Vahvista ensin saamasi sähköpostiviesti."
 
 #: src/QmlUtils.cpp:110
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr "Poista tili palvelimelta"
+msgstr "Palvelimeen ei voitu yhdistää."
 
 #: src/QmlUtils.cpp:257
 msgctxt "QmlUtils|"
@@ -4053,27 +3311,25 @@ msgid "Notes"
 msgstr "Muistiinpanot"
 
 #: src/RosterManager.cpp:191
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Ei voitu lisätä käyttäjää %1: %2"
 
 #: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "Yhteystietoa ei voitu lisätä, koska yhteyttä ei ole."
+msgstr "Yhteystietoa ei voitu lisätä, koska ei olla verkossa."
 
 #: src/RosterManager.cpp:211
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "Yhteystietoa ei voitu poistaa, koska yhteyttä ei ole."
+msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
 
 #: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
+msgstr "Henkilön nimeä ei voitu muuttaa, koska ei olla verkossa."
 
 #: src/RosterManager.cpp:233
 #, qt-format
