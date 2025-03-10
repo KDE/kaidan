@@ -275,7 +275,7 @@ Kirigami.GlobalDrawer {
 
 		function onXmppUriReceived(uriString) {
 			const xmppUriPrefix = `xmpp:`
-			openContactAdditionView().jid = uri.substr(xmppUriPrefix.length)
+			openContactAdditionView().jid = uriString.substr(xmppUriPrefix.length)
 		}
 	}
 }
