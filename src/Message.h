@@ -189,11 +189,6 @@ struct GroupChatInvitation {
 
 Q_DECLARE_METATYPE(GroupChatInvitation)
 
-/**
- * @brief This class is used to load messages from the database and use them in
- * the @c MessageModel. The class inherits from @c QXmppMessage and most
- * properties are shared.
- */
 struct Message {
     Q_GADGET
     Q_DECLARE_TR_FUNCTIONS(Message)
