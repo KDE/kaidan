@@ -28,6 +28,7 @@
 #include "AccountManager.h"
 #include "Globals.h"
 #include "SystemUtils.h"
+#include "kaidan_core_debug.h"
 
 const auto NEW_LINE = QStringLiteral("\n");
 const auto QUOTE_PREFIX = QStringLiteral("> ");
@@ -147,7 +148,7 @@ QString QmlUtils::getResourcePath(const QString &name)
     }
 
     // no file found
-    qWarning() << "[main] Could NOT find media file:" << name;
+    qCWarning(KAIDAN_CORE_LOG) << "[main] Could NOT find media file:" << name;
     return QString();
 }
 

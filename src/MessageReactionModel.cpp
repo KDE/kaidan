@@ -6,6 +6,7 @@
 
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
+#include "kaidan_core_debug.h"
 
 MessageReactionModel::MessageReactionModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -31,7 +32,7 @@ QVariant MessageReactionModel::data(const QModelIndex &index, int role) const
     const auto row = index.row();
 
     if (!hasIndex(row, index.column(), index.parent())) {
-        qWarning() << "Could not get data from MessageReactionModel." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from MessageReactionModel." << index << role;
         return {};
     }
 

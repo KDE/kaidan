@@ -17,6 +17,7 @@
 // Kaidan
 #include "Globals.h"
 #include "QmlUtils.h"
+#include "kaidan_core_debug.h"
 
 int ProviderListModel::providersMatchingSystemLocaleMinimumCount()
 {
@@ -155,12 +156,12 @@ void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
 {
     QFile file(filePath);
     if (!file.exists()) {
-        qWarning() << "[ProviderListModel] Could not parse provider list:" << filePath << "- file does not exist!";
+        qCWarning(KAIDAN_CORE_LOG) << "[ProviderListModel] Could not parse provider list:" << filePath << "- file does not exist!";
         return;
     }
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "[ProviderListModel] Could not open file for reading:" << filePath;
+        qCWarning(KAIDAN_CORE_LOG) << "[ProviderListModel] Could not open file for reading:" << filePath;
         return;
     }
 
@@ -169,8 +170,8 @@ void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
     QJsonParseError parseError;
     QJsonArray jsonProviderArray = QJsonDocument::fromJson(content, &parseError).array();
     if (jsonProviderArray.isEmpty()) {
-        qWarning() << "[ProviderListModel] Could not parse provider list JSON file or no providers defined.";
-        qWarning() << "[ProviderListModel] QJsonParseError:" << parseError.errorString() << "at" << parseError.offset;
+        qCWarning(KAIDAN_CORE_LOG) << "[ProviderListModel] Could not parse provider list JSON file or no providers defined.";
+        qCWarning(KAIDAN_CORE_LOG) << "[ProviderListModel] QJsonParseError:" << parseError.errorString() << "at" << parseError.offset;
         return;
     }
 

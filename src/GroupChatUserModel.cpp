@@ -9,6 +9,7 @@
 #include "Globals.h"
 #include "GroupChatUserDb.h"
 #include "RosterModel.h"
+#include "kaidan_core_debug.h"
 
 GroupChatUserModel::GroupChatUserModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -34,7 +35,7 @@ QHash<int, QByteArray> GroupChatUserModel::roleNames() const
 QVariant GroupChatUserModel::data(const QModelIndex &index, int role) const
 {
     if (!hasIndex(index.row(), index.column(), index.parent())) {
-        qWarning() << "Could not get data from GroupChatUserModel." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from GroupChatUserModel." << index << role;
         return {};
     }
 

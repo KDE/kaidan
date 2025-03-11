@@ -386,7 +386,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QString commandLineErrorMessage;
     switch (parseCommandLine(parser, &commandLineErrorMessage)) {
     case CommandLineError:
-        qWarning() << commandLineErrorMessage;
+        qCWarning(KAIDAN_LOG) << commandLineErrorMessage;
         return 1;
     case CommandLineVersionRequested:
         parser.showVersion();

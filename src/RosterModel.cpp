@@ -23,6 +23,7 @@
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
 #include "RosterManager.h"
+#include "kaidan_core_debug.h"
 
 RosterModel *RosterModel::s_instance = nullptr;
 
@@ -97,7 +98,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 QVariant RosterModel::data(const QModelIndex &index, int role) const
 {
     if (!hasIndex(index.row(), index.column(), index.parent())) {
-        qWarning() << "Could not get data from roster model." << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from roster model." << index << role;
         return {};
     }
 

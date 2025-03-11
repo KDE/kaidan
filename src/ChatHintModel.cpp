@@ -16,6 +16,7 @@
 #include "QmlUtils.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
+#include "kaidan_core_debug.h"
 
 ChatHintModel *ChatHintModel::s_instance = nullptr;
 
@@ -67,7 +68,7 @@ QHash<int, QByteArray> ChatHintModel::roleNames() const
 QVariant ChatHintModel::data(const QModelIndex &index, int role) const
 {
     if (!hasIndex(index.row(), index.column(), index.parent())) {
-        qWarning() << "Could not get data from ChatHintModel:" << index << role;
+        qCWarning(KAIDAN_CORE_LOG) << "Could not get data from ChatHintModel:" << index << role;
         return {};
     }
 
@@ -83,7 +84,7 @@ QVariant ChatHintModel::data(const QModelIndex &index, int role) const
         return chatHint.loadingDescription;
     }
 
-    qWarning("[ChatHintModel] Invalid role requested!");
+    qCWarning(KAIDAN_CORE_LOG, "[ChatHintModel] Invalid role requested!");
     return {};
 }
 
