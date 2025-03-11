@@ -359,7 +359,7 @@ QString Message::text() const
         return groupChatInvitationText();
     }
 
-    return body.isEmpty() ? QString() : body;
+    return body;
 }
 
 QString Message::previewText() const
