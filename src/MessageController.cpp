@@ -9,7 +9,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageController.h"
-#include "kaidan_core_debug.h"
 
 // std
 #include <ranges>
@@ -52,6 +51,7 @@
 #include "RosterDb.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
+#include "kaidan_core_debug.h"
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;

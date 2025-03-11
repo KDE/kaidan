@@ -6,8 +6,6 @@
 
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
-// #include "MessageDb.h"
-// #include "RosterModel.h"
 
 MessageReactionModel::MessageReactionModel(QObject *parent)
     : QAbstractListModel(parent)

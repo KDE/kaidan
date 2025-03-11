@@ -11,14 +11,7 @@
 
 #include "Database.h"
 
-#include "Account.h"
-#include "AccountDb.h"
-#include "Globals.h"
-#include "Kaidan.h"
-#include "Settings.h"
-#include "SqlUtils.h"
-#include "kaidan_core_debug.h"
-
+// Qt
 #include <QDir>
 #include <QMutex>
 #include <QRandomGenerator>
@@ -32,12 +25,19 @@
 #include <QThreadPool>
 #include <QThreadStorage>
 #include <QtConcurrent/QtConcurrentRun>
-
 #ifdef DB_UNIT_TEST
 #define TEST_DB_FILENAME "tests_db_" + QCoreApplication::applicationName() + ".sqlite"
 #include <QCoreApplication>
 #include <QFile>
 #endif
+// Kaidan
+#include "Account.h"
+#include "AccountDb.h"
+#include "Globals.h"
+#include "Kaidan.h"
+#include "Settings.h"
+#include "SqlUtils.h"
+#include "kaidan_core_debug.h"
 
 using namespace SqlUtils;
 

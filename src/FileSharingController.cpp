@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "FileSharingController.h"
-#include "kaidan_core_debug.h"
 
 // std
 #include <array>
@@ -41,6 +40,7 @@
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "ServerFeaturesCache.h"
+#include "kaidan_core_debug.h"
 
 template<typename T, typename Lambda>
 auto find_if(T &container, Lambda lambda)

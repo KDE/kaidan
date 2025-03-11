@@ -4,14 +4,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "LogHandler.h"
-#include "kaidan_core_debug.h"
 
 // Qt
-#include <QDebug>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 // QXmpp
 #include <QXmppClient.h>
+// Kaidan
+#include "kaidan_core_debug.h"
 
 LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
     : QObject(parent)
