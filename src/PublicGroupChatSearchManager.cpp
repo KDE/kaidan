@@ -179,7 +179,14 @@ QString PublicGroupChatSearchManager::saveFilePath() const
 {
     // Don't bother to do checks, Database already do them.
     const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    return QDir(appDataPath).absoluteFilePath(QStringLiteral("public-group-chats.json"));
+    const auto dir = QDir(appDataPath);
+
+    if (!dir.mkpath(QStringLiteral("."))) {
+        qCWarning(publicGroupChat_search, "Can not create dir: %ls", qUtf16Printable(dir.absolutePath()));
+        return {};
+    }
+
+    return dir.absoluteFilePath(QStringLiteral("public-group-chats.json"));
 }
 
 bool PublicGroupChatSearchManager::saveGroupChats()
