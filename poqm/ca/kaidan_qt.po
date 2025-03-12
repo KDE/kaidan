@@ -72,30 +72,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositius en els servidors"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "No hi ha connexió: Els missatges s'enviaran i es rebran un cop hi hagi "
 "connexió"
 
-#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connecta"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:297
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:309
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -105,7 +105,7 @@ msgstr ""
 "%1 voldria rebre les vostres dades personals com la disponibilitat, "
 "dispositius i altra informació personal%2"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:314
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -115,47 +115,47 @@ msgstr ""
 "El contacte %1 ara és %2 i voldria rebre les vostres dades personals com la "
 "disponibilitat, dispositius i altra informació personal%3"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rebutja"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Permet"
 
-#: src/ChatHintModel.cpp:321
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "S'està permetent…"
 
-#: src/ChatHintModel.cpp:335
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Aquest grup no té cap usuari"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:337
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Convida contactes"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Obre l'àrea d'invitació"
 
-#: src/ChatHintModel.cpp:356
+#: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Aquest grup s'ha suprimit"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Surt"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "S'està sortint del grup de xat"
@@ -166,22 +166,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "No s'ha pogut baixar el fitxer: %1"
 
-#: src/GroupChatUserModel.cpp:53
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "No unit"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Unit"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Ha sortit"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandejat"
@@ -377,44 +377,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageModel.cpp:281
+#: src/MessageModel.cpp:282
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendent"
 
-#: src/MessageModel.cpp:283
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviat"
 
-#: src/MessageModel.cpp:285
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Lliurat"
 
-#: src/MessageModel.cpp:287
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
+#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "No s'ha pogut enviar la reacció: %1"
 
-#: src/MessageModel.cpp:808
+#: src/MessageModel.cpp:809
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "No s'han pogut enviar les reaccions: %1"
 
-#: src/MessageModel.cpp:1456
+#: src/MessageModel.cpp:1457
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Avui"
 
-#: src/MessageModel.cpp:1459
+#: src/MessageModel.cpp:1460
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ahir"
@@ -543,7 +543,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Desconnectat"
 
-#: src/ProviderListModel.cpp:30
+#: src/ProviderListModel.cpp:31
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Proveïdor personalitzat"
@@ -551,12 +551,12 @@ msgstr "Proveïdor personalitzat"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Sense límit"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:112
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -2678,50 +2678,50 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Reintenta l'actualització de les reaccions"
 
-#: src/qml/elements/QrCodeScanningArea.qml:55
+#: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "S'ha afegit el contacte - Continueu amb el pas 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:62
+#: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Aquest codi QR no conté cap contacte"
 
-#: src/qml/elements/QrCodeScanningArea.qml:77
+#: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 "S'han pres les decisions de confiança per a un altre dispositiu propi - "
 "Continueu amb el pas 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:79
+#: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
 "S'han fet les decisions de confiança per al contacte - Continueu amb el pas 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Aquest codi QR no és per a l'altre dispositiu vostre"
 
-#: src/qml/elements/QrCodeScanningArea.qml:88
+#: src/qml/elements/QrCodeScanningArea.qml:80
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Aquest codi QR no és per al vostre contacte"
 
-#: src/qml/elements/QrCodeScanningArea.qml:94
+#: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Aquest codi QR no és per a les decisions de confiança"
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "S'estan prenent les decisions de confiança…"
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Afegeix un contacte…"
@@ -2957,12 +2957,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Escanegeu el codi QR del dispositiu antic"
 
-#: src/qml/QrCodeOnboardingPage.qml:90
+#: src/qml/QrCodeOnboardingPage.qml:87
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Aquest codi QR no és un codi QR vàlid d'inici de sessió."
 
-#: src/qml/QrCodeOnboardingPage.qml:97
+#: src/qml/QrCodeOnboardingPage.qml:94
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
@@ -3233,28 +3233,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea un compte manualment"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "El nom d'usuari o la contrasenya són incorrectes."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "S'ha produït un error en provar de connectar de forma segura."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "El servidor no és compatible amb les connexions segures."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3263,22 +3263,22 @@ msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
 "o el vostre nom de servidor."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "No s'ha pogut actualitzar la connexió."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3287,41 +3287,41 @@ msgstr ""
 "No es permet l'accés a Internet. Comproveu la configuració d'accés a "
 "Internet del sistema."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Aquest servidor no permet el registre."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
 "electrònic que heu rebut."
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "No s'ha pogut connectar amb el servidor."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 està en línia"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 està escrivint…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3376,7 +3376,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Ha fallat en aturar a %1 de veure les vostres dades personals"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ahir"

@@ -66,30 +66,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Пристрої на серверах"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Немає з'єднання — повідомлення буде надіслано та отримано після встановлення "
 "з'єднання"
 
-#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Відкинути"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "З'єднатися"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:297
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:309
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -99,7 +99,7 @@ msgstr ""
 "%1 хоче отримувати ваші особисті дані, зокрема щодо доступності контакту, "
 "пристроїв та інших особистих даних%2"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:314
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -109,47 +109,47 @@ msgstr ""
 "Ваш контакт %1 %2 і знову хоче отримувати ваші особисті дані, зокрема щодо "
 "доступності контакту, пристроїв та інших особистих даних%3"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Відмовити"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Дозволити"
 
-#: src/ChatHintModel.cpp:321
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Уможливлення…"
 
-#: src/ChatHintModel.cpp:335
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "У цій групі немає користувачів"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:337
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Запросити контакти"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Відкриття області запрошень"
 
-#: src/ChatHintModel.cpp:356
+#: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Цю групу вилучено"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Полишити"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Полишаємо групове спілкування"
@@ -160,22 +160,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
-#: src/GroupChatUserModel.cpp:53
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "Не долучено"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Долучено"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Полишено"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Заблоковано"
@@ -372,44 +372,44 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageModel.cpp:281
+#: src/MessageModel.cpp:282
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Очікування"
 
-#: src/MessageModel.cpp:283
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Надіслані"
 
-#: src/MessageModel.cpp:285
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:287
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Помилка"
 
-#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
+#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не вдалося надіслати реакцію: %1"
 
-#: src/MessageModel.cpp:808
+#: src/MessageModel.cpp:809
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не вдалося надіслати реакції: %1"
 
-#: src/MessageModel.cpp:1456
+#: src/MessageModel.cpp:1457
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/MessageModel.cpp:1459
+#: src/MessageModel.cpp:1460
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -538,7 +538,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#: src/ProviderListModel.cpp:30
+#: src/ProviderListModel.cpp:31
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Нетиповий надавач послуг"
@@ -546,12 +546,12 @@ msgstr "Нетиповий надавач послуг"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Без обмежень"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:112
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -2677,47 +2677,47 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Повторити оновлення реакцій"
 
-#: src/qml/elements/QrCodeScanningArea.qml:55
+#: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "Контакт додано — перейдіть до кроку 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:62
+#: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "У QR-коді не міститься даних контакту"
 
-#: src/qml/elements/QrCodeScanningArea.qml:77
+#: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr "Рішення щодо довіри для іншого пристрою — перейдіть до кроку 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:79
+#: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Рішення щодо довіри для контакту — перейдіть до кроку 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Цей QR-код не є кодом вашого іншого пристрою"
 
-#: src/qml/elements/QrCodeScanningArea.qml:88
+#: src/qml/elements/QrCodeScanningArea.qml:80
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Цей QR-код не є кодом вашого контакту"
 
-#: src/qml/elements/QrCodeScanningArea.qml:94
+#: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Цей QR-код не годиться для рішень щодо довіри"
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Вирішуємо щодо довіри…"
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Додавання контакту…"
@@ -2953,12 +2953,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Скануйте QR-код вашого старого пристрою"
 
-#: src/qml/QrCodeOnboardingPage.qml:90
+#: src/qml/QrCodeOnboardingPage.qml:87
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Цей QR-код не є коректним QR-кодом для входу."
 
-#: src/qml/QrCodeOnboardingPage.qml:97
+#: src/qml/QrCodeOnboardingPage.qml:94
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
@@ -3231,29 +3231,29 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3262,22 +3262,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3286,41 +3286,41 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3377,7 +3377,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Спроба припинити надання %1 ваших особистих даних зазнала невдачі"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчора"

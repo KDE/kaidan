@@ -62,7 +62,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:294
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Could not correct message, as a result of not being connected."
@@ -70,13 +70,13 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "Исправить сообщение не получилось (отсутствует подключение к сети)."
 
-#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:295
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -84,7 +84,7 @@ msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Подключиться"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:297
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -92,7 +92,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Поключение…"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:309
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -100,7 +100,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:314
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -108,17 +108,17 @@ msgid ""
 "as availability, devices and other personal information again%3"
 msgstr ""
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:321
+#: src/ChatHintModel.cpp:322
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -126,12 +126,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Запись…"
 
-#: src/ChatHintModel.cpp:335
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:337
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -139,12 +139,12 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Удалить контакт"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
 
-#: src/ChatHintModel.cpp:356
+#: src/ChatHintModel.cpp:357
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -152,12 +152,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Не удалось отправить сообщение."
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:360
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -173,22 +173,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Не удалось сохранить файл: %1"
 
-#: src/GroupChatUserModel.cpp:53
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
@@ -409,27 +409,27 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:281
+#: src/MessageModel.cpp:282
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ожидает отправки"
 
-#: src/MessageModel.cpp:283
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Отправлено"
 
-#: src/MessageModel.cpp:285
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:287
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
+#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -437,7 +437,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:808
+#: src/MessageModel.cpp:809
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -445,12 +445,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:1456
+#: src/MessageModel.cpp:1457
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1459
+#: src/MessageModel.cpp:1460
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -596,7 +596,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Не в сети"
 
-#: src/ProviderListModel.cpp:30
+#: src/ProviderListModel.cpp:31
 #, fuzzy
 #| msgctxt "ServerListModel|"
 #| msgid "Custom server"
@@ -607,12 +607,12 @@ msgstr "Другой сервер"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:112
 #, fuzzy, qt-format
 #| msgctxt "ServerListModel|"
 #| msgid "%1 days"
@@ -3341,12 +3341,12 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Удалить контакт"
 
-#: src/qml/elements/QrCodeScanningArea.qml:55
+#: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanningArea.qml:62
+#: src/qml/elements/QrCodeScanningArea.qml:54
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
@@ -3354,17 +3354,17 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Этот QR-код недействителен для входа в аккаунт."
 
-#: src/qml/elements/QrCodeScanningArea.qml:77
+#: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanningArea.qml:79
+#: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:78
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
@@ -3372,7 +3372,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Этот QR-код недействителен для входа в аккаунт."
 
-#: src/qml/elements/QrCodeScanningArea.qml:88
+#: src/qml/elements/QrCodeScanningArea.qml:80
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
@@ -3380,7 +3380,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Этот QR-код недействителен для входа в аккаунт."
 
-#: src/qml/elements/QrCodeScanningArea.qml:94
+#: src/qml/elements/QrCodeScanningArea.qml:86
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
@@ -3388,12 +3388,12 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Этот QR-код недействителен для входа в аккаунт."
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add new contact"
@@ -3699,12 +3699,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Cканировать QR-код"
 
-#: src/qml/QrCodeOnboardingPage.qml:90
+#: src/qml/QrCodeOnboardingPage.qml:87
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Этот QR-код недействителен для входа в аккаунт."
 
-#: src/qml/QrCodeOnboardingPage.qml:97
+#: src/qml/QrCodeOnboardingPage.qml:94
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Подключение…"
@@ -4029,28 +4029,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Удалить аккаунт отовсюду"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Неверное имя пользователя или пароль."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не удалось подключиться к серверу. Пожалуйста, проверьте подключение к сети."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Ошибка при попытке установить защищённое соединение."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Сервер не поддерживает защищённое соединение."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -4059,22 +4059,22 @@ msgstr ""
 "Не удалось подключиться к серверу. Проверьте подключение к сети и имя узла "
 "сервера."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Этот сервер не работает или заблокирован сетевым экраном."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Сервер не поддерживает этот протокол аутентификации."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Не удалось обновить соединение."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -4083,40 +4083,40 @@ msgstr ""
 "Доступ в сеть закрыт. Пожалуйста, проверьте системные настройки доступа в "
 "интернет."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Этот сервер не поддерживает регистрацию."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Не смог подключиться к серверу."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 в сети"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 набирает сообщение…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -4170,7 +4170,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

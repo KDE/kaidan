@@ -61,29 +61,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Non sei connesso - I messaggi sono inviati e ricevuti una volta connesso"
 
-#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Ignora"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connetti"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:297
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:309
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -93,7 +93,7 @@ msgstr ""
 "%1 vorrebbe ricevere i tuoi dati personali come disponibilità, dispositivi e "
 "altre informazioni personali%2"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:314
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -103,47 +103,47 @@ msgstr ""
 "Il tuo contatto %1 è ora %2 e desidera ricevere nuovamente i tuoi dati "
 "personali come disponibilità, dispositivi e altre informazioni personali%3"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rifiuta"
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Consenti"
 
-#: src/ChatHintModel.cpp:321
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Consenso..."
 
-#: src/ChatHintModel.cpp:335
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Questo gruppo non ha utenti"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:337
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Invita contatti"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Apertura dell'area degli inviti"
 
-#: src/ChatHintModel.cpp:356
+#: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Questo gruppo è stato eliminato"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Esci"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Uscita dalla chat di gruppo"
@@ -154,22 +154,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Impossibile scaricare il file: %1."
 
-#: src/GroupChatUserModel.cpp:53
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "Non si è unito"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Entrato"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Ha abbandonato"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandito"
@@ -365,44 +365,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Questo messaggio è cifrato con %1 ma non può essere decifrato"
 
-#: src/MessageModel.cpp:281
+#: src/MessageModel.cpp:282
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In attesa"
 
-#: src/MessageModel.cpp:283
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Inviato"
 
-#: src/MessageModel.cpp:285
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Consegnato"
 
-#: src/MessageModel.cpp:287
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errore"
 
-#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
+#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Impossibile inviare la reazione: %1"
 
-#: src/MessageModel.cpp:808
+#: src/MessageModel.cpp:809
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Impossibile inviare le reazioni: %1"
 
-#: src/MessageModel.cpp:1456
+#: src/MessageModel.cpp:1457
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Oggi"
 
-#: src/MessageModel.cpp:1459
+#: src/MessageModel.cpp:1460
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ieri"
@@ -531,7 +531,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Non in linea"
 
-#: src/ProviderListModel.cpp:30
+#: src/ProviderListModel.cpp:31
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Fornitore personalizzato"
@@ -539,12 +539,12 @@ msgstr "Fornitore personalizzato"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Illimitato"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:112
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -2672,49 +2672,49 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Riprova ad aggiornare le reazioni"
 
-#: src/qml/elements/QrCodeScanningArea.qml:55
+#: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "Contatto aggiunto - Continua con la fase 2!"
 
-#: src/qml/elements/QrCodeScanningArea.qml:62
+#: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Questo codice QR non contiene un contatto."
 
-#: src/qml/elements/QrCodeScanningArea.qml:77
+#: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 "Fiducia delle decisioni prese per il tuo altro dispositivo - Continua con la "
 "fase 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:79
+#: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Decisioni di fiducia prese per il contatto - Continua con la fase 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Questo codice QR non è per il tuo altro dispositivo"
 
-#: src/qml/elements/QrCodeScanningArea.qml:88
+#: src/qml/elements/QrCodeScanningArea.qml:80
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Questo codice QR non è per il tuo contatto"
 
-#: src/qml/elements/QrCodeScanningArea.qml:94
+#: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Questo codice QR non è per decisioni di fiducia"
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Prendere decisioni di fiducia..."
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Aggiunta contatto…"
@@ -2950,12 +2950,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Scansione del codice QR del tuo vecchio dispositivo"
 
-#: src/qml/QrCodeOnboardingPage.qml:90
+#: src/qml/QrCodeOnboardingPage.qml:87
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Questo codice QR non è un codice QR di accesso valido."
 
-#: src/qml/QrCodeOnboardingPage.qml:97
+#: src/qml/QrCodeOnboardingPage.qml:94
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Connessione…"
@@ -3225,28 +3225,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea account manualmente"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Nome utente o password non validi."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Impossibile connettersi al server. Controlla la tua connessione Internet."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Errore durante il tentativo di connessione sicura."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Il server non supporta connessioni sicure."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3255,22 +3255,22 @@ msgstr ""
 "Impossibile connettersi al server. Controlla la tua connessione Internet o "
 "il nome del tuo server."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Il server non è in linea o è bloccato da un firewall."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Protocollo di autenticazione non supportato dal server."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Impossibile aggiornare la connessione."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3279,40 +3279,40 @@ msgstr ""
 "L'accesso a Internet non è consentito. Verifica la configurazione "
 "dell'accesso a Internet del tuo sistema."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Questo server non supporta la registrazione."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Impossibile accedere. Conferma prima il messaggio di posta che hai ricevuto."
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Impossibile connettersi al server."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 è in linea"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 sta scrivendo…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3370,7 +3370,7 @@ msgstr ""
 "La rimozione da %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ieri"

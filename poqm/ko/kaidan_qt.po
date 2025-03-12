@@ -62,18 +62,18 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "연결되지 않았습니다. 연결된 후 메시지를 주고 받습니다"
 
-#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:295
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -81,12 +81,12 @@ msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "연결 중..."
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:297
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:309
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -94,7 +94,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:314
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -102,17 +102,17 @@ msgid ""
 "as availability, devices and other personal information again%3"
 msgstr ""
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:320
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "허용"
 
-#: src/ChatHintModel.cpp:321
+#: src/ChatHintModel.cpp:322
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -120,12 +120,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "녹음 중…"
 
-#: src/ChatHintModel.cpp:335
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:337
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -133,7 +133,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "대화 상대 삭제"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:339
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -141,7 +141,7 @@ msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "등록 웹 페이지 열기"
 
-#: src/ChatHintModel.cpp:356
+#: src/ChatHintModel.cpp:357
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -149,12 +149,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:358
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "떠나기"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:360
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -170,22 +170,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "파일을 저장할 수 없음: %1"
 
-#: src/GroupChatUserModel.cpp:53
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
@@ -392,27 +392,27 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:281
+#: src/MessageModel.cpp:282
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:283
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:285
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:287
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:644 src/MessageModel.cpp:729
+#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -420,7 +420,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:808
+#: src/MessageModel.cpp:809
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -428,12 +428,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:1456
+#: src/MessageModel.cpp:1457
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1459
+#: src/MessageModel.cpp:1460
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -576,7 +576,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "오프라인"
 
-#: src/ProviderListModel.cpp:30
+#: src/ProviderListModel.cpp:31
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "사용자 정의 공급자"
@@ -584,12 +584,12 @@ msgstr "사용자 정의 공급자"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "무제한"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:112
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -3139,7 +3139,7 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "대화 상대 삭제"
 
-#: src/qml/elements/QrCodeScanningArea.qml:55
+#: src/qml/elements/QrCodeScanningArea.qml:47
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Contact added - Continue with step 2!"
@@ -3147,7 +3147,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "대화 상대가 추가됨 - 2단계로 진행하십시오!"
 
-#: src/qml/elements/QrCodeScanningArea.qml:62
+#: src/qml/elements/QrCodeScanningArea.qml:54
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code does not contain a contact."
@@ -3155,7 +3155,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "이 QR 코드에 대화 상대 정보가 없습니다."
 
-#: src/qml/elements/QrCodeScanningArea.qml:77
+#: src/qml/elements/QrCodeScanningArea.qml:69
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Contact added - Continue with step 2!"
@@ -3163,7 +3163,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr "대화 상대가 추가됨 - 2단계로 진행하십시오!"
 
-#: src/qml/elements/QrCodeScanningArea.qml:79
+#: src/qml/elements/QrCodeScanningArea.qml:71
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Contact added - Continue with step 2!"
@@ -3171,7 +3171,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "대화 상대가 추가됨 - 2단계로 진행하십시오!"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:78
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
@@ -3179,7 +3179,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "QR 코드가 올바른 로그인 QR 코드가 아닙니다."
 
-#: src/qml/elements/QrCodeScanningArea.qml:88
+#: src/qml/elements/QrCodeScanningArea.qml:80
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code does not contain a contact."
@@ -3187,7 +3187,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "이 QR 코드에 대화 상대 정보가 없습니다."
 
-#: src/qml/elements/QrCodeScanningArea.qml:94
+#: src/qml/elements/QrCodeScanningArea.qml:86
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code does not contain a contact."
@@ -3195,12 +3195,12 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "이 QR 코드에 대화 상대 정보가 없습니다."
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanningArea.qml:113
+#: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "대화 상대 추가…"
@@ -3491,12 +3491,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
-#: src/qml/QrCodeOnboardingPage.qml:90
+#: src/qml/QrCodeOnboardingPage.qml:87
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "QR 코드가 올바른 로그인 QR 코드가 아닙니다."
 
-#: src/qml/QrCodeOnboardingPage.qml:97
+#: src/qml/QrCodeOnboardingPage.qml:94
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "연결 중..."
@@ -3838,49 +3838,49 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "수동으로 계정 생성"
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:95
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:97
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:99
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:101
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:103
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "연결을 새로 고칠 수 없습니다."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:105
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3888,39 +3888,39 @@ msgid ""
 msgstr ""
 "인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:107
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "이 서버에서 등록을 지원하지 않습니다."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:109
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:111
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "서버에 연결할 수 없습니다."
 
-#: src/QmlUtils.cpp:257
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/QmlUtils.cpp:278
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 님이 온라인"
 
-#: src/QmlUtils.cpp:280
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 님이 입력 중…"
 
-#: src/QmlUtils.cpp:282
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3974,7 +3974,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"
