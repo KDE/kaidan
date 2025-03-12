@@ -147,21 +147,37 @@ private Q_SLOTS:
         QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
 
         // requestAll and cancel after 1 second
+        QVERIFY(!manager.isRunning());
         manager.requestAll();
-        QTimer::singleShot(1000, &manager, &PublicGroupChatSearchManager::cancel);
+
+        QTimer cancelTimer;
+        cancelTimer.setSingleShot(true);
+        cancelTimer.setInterval(1000);
+        cancelTimer.callOnTimeout(&manager, &PublicGroupChatSearchManager::cancel);
+
+        cancelTimer.start();
 
         QVERIFY(spyIsRunning.wait(2000));
         QVERIFY(spyError.isEmpty());
-        QVERIFY(spyReceived.isEmpty());
+        // Depending how fast our network is, we can request cancel too late (data already received).
+        QVERIFY(spyReceived.size() <= 1);
         QCOMPARE(spyIsRunning.count(), 2);
         QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
         QCOMPARE(spyIsRunning.constLast().constFirst().toBool(), false);
-        QVERIFY(manager.cachedGroupChats().isEmpty());
+        if (spyReceived.isEmpty()) {
+            QVERIFY(manager.cachedGroupChats().isEmpty());
+        } else {
+            QVERIFY(manager.cachedGroupChats().size() >= 1);
+        }
         QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
+
+        // In case our network was too fast, avoid canceling next request
+        cancelTimer.stop();
 
         clearSpies();
 
         // Really requestAll
+        QVERIFY(!manager.isRunning());
         manager.requestAll();
 
         QVERIFY(spyIsRunning.wait(REQUEST_TIMEOUT));
