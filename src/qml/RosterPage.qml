@@ -21,12 +21,22 @@ import "elements"
 SearchBarPage {
 	id: root
 	listView: rosterListView
-	actions: Kirigami.Action {
-		text: qsTr("Filter")
-		icon.name: "filter-symbolic"
-		displayHint: Kirigami.DisplayHint.IconOnly
-		onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
-	}
+	actions: [
+		Kirigami.Action {
+			text: qsTr("Filter")
+			icon.name: "filter-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
+		},
+
+		Kirigami.Action {
+			id: pinAction
+			text: qsTr("Pin & Move")
+			icon.name: "starred-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			checkable: true
+		}
+	]
 
 	Component {
 		id: rosterFilteringDialog
@@ -77,15 +87,10 @@ SearchBarPage {
 			sourceModel: RosterModel
 		}
 
-		RosterListItemContextMenu {
-			id: itemContextMenu
-		}
-
 		delegate: RosterListItem {
 			highlighted: _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			width: rosterListView.width
 			listView: rosterListView
-			contextMenu: itemContextMenu
 			accountJid: model ? model.accountJid : ""
 			jid: model ? model.jid : ""
 			name: model ? model.name : ""
@@ -98,6 +103,7 @@ SearchBarPage {
 			lastMessageIsOwn: model ? model.lastMessageIsOwn : false
 			lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
 			unreadMessages: model ? model.unreadMessages : 0
+			pinModeActive: pinAction.checked
 			pinned: model ? model.pinned : false
 			notificationRule: model ? model.notificationRule : false
 

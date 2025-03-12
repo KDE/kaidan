@@ -18,7 +18,6 @@ UserListItem {
 	id: root
 
 	property ListView listView
-	property Controls.Menu contextMenu
 	property bool isPublicGroupChat
 	property bool isDeletedGroupChat
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
@@ -27,6 +26,7 @@ UserListItem {
 	property bool lastMessageIsOwn
 	property string lastMessageGroupChatSenderName
 	property int unreadMessages
+	property bool pinModeActive
 	property bool pinned
 	property int notificationRule
 
@@ -200,24 +200,33 @@ UserListItem {
 		}
 	}
 
-	MouseArea {
-		parent: root
-		anchors.fill: parent
-		acceptedButtons: Qt.RightButton
+	// handle for reordering a pinned roster item
+	Kirigami.ListItemDragHandle {
+		id: dragHandle
+		visible: root.pinModeActive && root.pinned
+		listItem: root.contentItem
+		listView: root.listView
+		incrementalMoves: false
 
-		onClicked: mouse => {
-			if (mouse.button === Qt.RightButton) {
-				showContextMenu()
-			}
-		}
+		onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
+		onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
 
-		onPressAndHold: showContextMenu()
+		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 	}
 
-	function showContextMenu() {
-		if (contextMenu) {
-			contextMenu.item = this
-			contextMenu.popup()
+	ClickableIcon {
+		Controls.ToolTip.text: root.pinned ? qsTr("Unpin") : qsTr("Pin")
+		source: root.pinned ? "starred-symbolic" : "non-starred-symbolic"
+		visible: root.pinModeActive
+		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+		onClicked: {
+			if (root.pinned) {
+				RosterModel.unpinItem(root.accountJid, root.jid)
+			} else {
+				RosterModel.pinItem(root.accountJid, root.jid)
+			}
 		}
 	}
 }
