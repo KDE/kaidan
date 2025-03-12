@@ -29,6 +29,7 @@
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "TrustDb.h"
+#include "kaidan_core_debug.h"
 
 Q_DECLARE_METATYPE(QXmpp::Cipher)
 Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)
@@ -37,11 +38,6 @@ Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
 
 using std::ranges::find;
-
-static auto debug()
-{
-    return qDebug() << "[MessageDb]";
-}
 
 template<typename T>
 QVariant optionalToVariant(std::optional<T> value)
@@ -847,7 +843,7 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
                   {{u":accountJid", accountJid}, {u":chatJid", chatJid}, {u":id", messageId}});
         auto msgs = _fetchMessagesFromQuery(query);
         if (msgs.empty()) {
-            debug() << "Could not find message with ID" << messageId << "to attach file sources.";
+            qCDebug(KAIDAN_CORE_LOG) << "Could not find message with ID" << messageId << "to attach file sources.";
             return;
         }
         _fetchAdditionalData(msgs);
@@ -857,7 +853,8 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
         // find file with external ID
         auto fileItr = find(message.files, externalFileId, &File::externalId);
         if (fileItr == message.files.end()) {
-            debug() << "Could not attach sources to message with ID" << messageId << ": No file with external ID of" << externalFileId << "found.";
+            qCDebug(KAIDAN_CORE_LOG) << "Could not attach sources to message with ID" << messageId << ": No file with external ID of" << externalFileId
+                                     << "found.";
             return;
         }
         auto &file = *fileItr;

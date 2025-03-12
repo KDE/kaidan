@@ -14,13 +14,9 @@
 #include "Globals.h"
 #include "Kaidan.h"
 #include "SqlUtils.h"
+#include "kaidan_core_debug.h"
 
 using namespace SqlUtils;
-
-auto debug()
-{
-    return qDebug() << "[Blocking]";
-}
 
 auto determineJidType(const QString &jid)
 {
@@ -204,7 +200,7 @@ void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::Blockli
             handleBlocklist({Blocklist::Xmpp, QList<QString>()});
         }
 
-        debug() << "Error fetching blocklist:" << error->description;
+        qCDebug(KAIDAN_CORE_LOG) << "Error fetching blocklist:" << error->description;
     } else {
         // success
         handleBlocklist({Blocklist::Xmpp, std::get<QXmppBlocklist>(result).entries()});
@@ -441,7 +437,7 @@ BlockingAction::BlockingAction(QObject *parent)
 
 void BlockingAction::block(const QString &jid)
 {
-    debug() << "Blocking" << jid;
+    qCDebug(KAIDAN_CORE_LOG) << "Blocking" << jid;
     setRunning(m_running + 1);
     callRemoteTask(
         Kaidan::instance()->client(),
@@ -454,7 +450,7 @@ void BlockingAction::block(const QString &jid)
             if (auto *error = std::get_if<QXmppError>(&result)) {
                 Q_EMIT errorOccurred(jid, true, error->description);
             } else {
-                debug() << "Blocked" << jid;
+                qCDebug(KAIDAN_CORE_LOG) << "Blocked" << jid;
                 Q_EMIT succeeded(jid, true);
             }
 
@@ -464,7 +460,7 @@ void BlockingAction::block(const QString &jid)
 
 void BlockingAction::unblock(const QString &jid)
 {
-    debug() << "Unblocking" << jid;
+    qCDebug(KAIDAN_CORE_LOG) << "Unblocking" << jid;
     setRunning(m_running + 1);
     callRemoteTask(
         Kaidan::instance()->client(),
@@ -477,7 +473,7 @@ void BlockingAction::unblock(const QString &jid)
             if (auto *error = std::get_if<QXmppError>(&result)) {
                 Q_EMIT errorOccurred(jid, false, error->description);
             } else {
-                debug() << "Unblocked" << jid;
+                qCDebug(KAIDAN_CORE_LOG) << "Unblocked" << jid;
                 Q_EMIT succeeded(jid, false);
             }
 

@@ -48,7 +48,7 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
         qDebug().noquote() << makeXmlPretty(text);
         break;
     case QXmppLogger::WarningMessage:
-        qDebug().noquote() << "[client] [warn]" << text;
+        qCDebug(KAIDAN_CORE_LOG).noquote() << "[client] [warn]" << text;
         break;
     default:
         break;
