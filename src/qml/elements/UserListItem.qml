@@ -39,7 +39,8 @@ Controls.ItemDelegate {
 		leftPadding: Kirigami.Units.smallSpacing * 3
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		bottomPadding: Kirigami.Units.smallSpacing
-		background: RoundedRectangle {
+		background: Rectangle {
+			radius: roundedCornersRadius
 			color: {
 				let colorOpacity = 0
 
