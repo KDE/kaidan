@@ -40,8 +40,8 @@ UserListItem {
 	}
 	dragged: dragHandle.dragActive
 
-	// middle
 	ColumnLayout {
+		id: middleArea
 		spacing: 0
 		Layout.topMargin: parent.spacing
 		Layout.bottomMargin: Layout.topMargin
@@ -148,6 +148,7 @@ UserListItem {
 				text: lastMessageTextMetrics.elidedText
 				visible: root.lastMessage
 				color: root.lastMessageIsDraft ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+				wrapMode: Text.NoWrap
 				font.weight: root.unreadMessages ? Font.Normal : Font.Light
 				Layout.fillWidth: true
 
@@ -155,52 +156,46 @@ UserListItem {
 					id: lastMessageTextMetrics
 					text: Utils.removeNewLinesFromString(root.lastMessage)
 					elide: Text.ElideRight
-					elideWidth: secondRow.width - secondRow.spacing * (secondRow.visibleChildren.length - (optionalItemArea.visibleChildren ? 1 : 2)) - lastMessagePrefix.width - optionalItemArea.width
+					elideWidth: {
+						let width = middleArea.width
+
+						for (let i in secondRow.visibleChildren) {
+							let visibleChild = secondRow.visibleChildren[i]
+							if (visibleChild !== lastMessageText) {
+								width -= secondRow.spacing + visibleChild.width
+							}
+						}
+
+						return width
+					}
 				}
 			}
 
-			RowLayout {
-				id: optionalItemArea
+			// icon for muted roster item
+			Kirigami.Icon {
+				id: mutedIcon
+				source: "notifications-disabled-symbolic"
+				visible: root.notificationRule === RosterItem.NotificationRule.Never
+				Layout.preferredWidth: Layout.preferredHeight
+				Layout.preferredHeight: counter.height
+			}
 
-				// icon for muted roster item
-				Kirigami.Icon {
-					source: "notifications-disabled-symbolic"
-					visible: root.notificationRule === RosterItem.NotificationRule.Never
-					Layout.preferredWidth: Layout.preferredHeight
-					Layout.preferredHeight: counter.height
-				}
+			// icon-like text for roster item that notifies only when user is mentioned in group
+			// chat
+			ScalableText {
+				id: mentionIcon
+				text: "@"
+				visible: root.notificationRule === RosterItem.NotificationRule.Mentioned
+				scaleFactor: counter.height * 0.065
+				Layout.topMargin: - 2
+			}
 
-				// icon-like text for roster item that notifies only when user is mentioned in group
-				// chat
-				ScalableText {
-					text: "@"
-					visible: root.notificationRule === RosterItem.NotificationRule.Mentioned
-					scaleFactor: counter.height * 0.065
-					Layout.topMargin: - 2
-				}
-
-				// unread message counter
-				MessageCounter {
-					id: counter
-					count: root.unreadMessages
-					muted: root.notificationRule === RosterItem.NotificationRule.Never ||
-						   root.notificationRule === RosterItem.NotificationRule.Mentioned
-				}
-
-				// icon for reordering
-				Kirigami.ListItemDragHandle {
-					id: dragHandle
-					visible: root.pinned
-					listItem: root.contentItem
-					listView: root.listView
-					incrementalMoves: false
-
-					onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
-					onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
-
-					Layout.preferredWidth: Layout.preferredHeight
-					Layout.preferredHeight: counter.height
-				}
+			// unread message counter
+			MessageCounter {
+				id: counter
+				count: root.unreadMessages
+				muted: root.notificationRule === RosterItem.NotificationRule.Never ||
+					   root.notificationRule === RosterItem.NotificationRule.Mentioned
 			}
 		}
 	}
