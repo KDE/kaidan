@@ -656,14 +656,15 @@ void Database::convertDatabaseToV15()
                                    SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL) "PRIMARY KEY(account, encryption)"));
     execQuery(query,
               SQL_CREATE_TABLE("trust_keys",
-                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
-                                   SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+                                   SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
                                        SQL_ATTRIBUTE(trust_level, SQL_INTEGER_NOT_NULL) "PRIMARY KEY(account, encryption, key_id, owner_jid)"));
     execQuery(query,
               SQL_CREATE_TABLE("trust_keys_unprocessed",
-                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
-                                   SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(sender_key_id, SQL_BLOB_NOT_NULL)
-                                       SQL_ATTRIBUTE(trust, SQL_BOOL_NOT_NULL) "PRIMARY KEY(account, encryption, key_id, owner_jid)"));
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+                                   SQL_ATTRIBUTE(sender_key_id, SQL_BLOB_NOT_NULL) SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+                                       SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+                                           SQL_ATTRIBUTE(trust, SQL_BOOL_NOT_NULL) "PRIMARY KEY(account, encryption, key_id, owner_jid)"));
     d->version = 15;
 }
 
