@@ -3,9 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterItemWatcher.h"
-#ifndef UNIT_TEST
 #include "RosterModel.h"
-#endif
 
 RosterItemNotifier &RosterItemNotifier::instance()
 {
@@ -59,9 +57,7 @@ void RosterItemWatcher::setJid(const QString &jid)
         m_jid = jid;
         RosterItemNotifier::instance().registerItemWatcher(m_jid, this);
         Q_EMIT jidChanged();
-#ifndef UNIT_TEST
         notify(RosterModel::instance()->findItem(m_jid));
-#endif
     }
 }
 

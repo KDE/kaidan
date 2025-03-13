@@ -45,10 +45,8 @@ public:
     Files files() const;
     void setFiles(const Files &files);
 
-#ifndef BUILD_TESTS
     Q_SLOT void loadFiles();
     Q_SLOT void loadDownloadedFiles();
-#endif
 
     Q_SIGNAL void rowCountChanged();
 

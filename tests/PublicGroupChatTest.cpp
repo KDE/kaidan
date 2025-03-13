@@ -2,21 +2,25 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include <QJsonArray>
+#include <QSignalSpy>
 #include <QTest>
+#include <QTimer>
 
-#include "../src/PublicGroupChat.h"
-#include "../src/PublicGroupChatModel.h"
-#include "../src/PublicGroupChatProxyModel.h"
-#include "../src/PublicGroupChatSearchManager.h"
+#include "PublicGroupChat.h"
+#include "PublicGroupChatModel.h"
+#include "PublicGroupChatProxyModel.h"
+#include "PublicGroupChatSearchManager.h"
+#include "Test.h"
 
 #define REQUEST_TIMEOUT static_cast<int>((std::chrono::milliseconds(PublicGroupChatSearchManager::RequestTimeout) * 1.2).count())
 
-class GroupChatTest : public QObject
+class PublicGroupChatTest : public Test
 {
     Q_OBJECT
 
 private Q_SLOTS:
-    void test_splitLanguages_data()
+    void testSplitLanguages_data()
     {
         QTest::addColumn<QString>("languages");
         QTest::addColumn<QStringList>("expected");
@@ -56,7 +60,7 @@ private Q_SLOTS:
                                            };
     }
 
-    void test_splitLanguages()
+    void testSplitLanguages()
     {
         QFETCH(QString, languages);
         QFETCH(QStringList, expected);
@@ -64,7 +68,7 @@ private Q_SLOTS:
         QCOMPARE(PublicGroupChat::splitLanguages(languages), expected);
     }
 
-    void test_GroupChat()
+    void testPublicGroupChat()
     {
         PublicGroupChat groupChat;
 
@@ -86,7 +90,7 @@ private Q_SLOTS:
         QVERIFY(groupChat == PublicGroupChat(object));
     }
 
-    void test_GroupChats()
+    void testPublicGroupChats()
     {
         PublicGroupChat groupChat1;
 
@@ -128,7 +132,7 @@ private Q_SLOTS:
         QVERIFY(groupChats == (PublicGroupChats{PublicGroupChat{object1}, PublicGroupChat{object2}}));
     }
 
-    void test_GroupChatSearchManager_GroupChatModel()
+    void testGroupChatSearchManagerAndGroupChatModel()
     {
         PublicGroupChatSearchManager manager;
         PublicGroupChatModel model;
@@ -159,7 +163,7 @@ private Q_SLOTS:
 
         QVERIFY(spyIsRunning.wait(2000));
         QVERIFY(spyError.isEmpty());
-        // Depending how fast our network is, we can request cancel too late (data already received).
+        // Depending on how fast the network is, the cancellation can be requested too late (data already received).
         QVERIFY(spyReceived.size() <= 1);
         QCOMPARE(spyIsRunning.count(), 2);
         QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
@@ -171,7 +175,7 @@ private Q_SLOTS:
         }
         QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
 
-        // In case our network was too fast, avoid canceling next request
+        // In case the network was too fast, avoid canceling the next request.
         cancelTimer.stop();
 
         clearSpies();
@@ -198,7 +202,7 @@ private Q_SLOTS:
         QCOMPARE(groupChat.description(), index.data(Qt::ToolTipRole));
     }
 
-    void test_GroupChatProxyModel_data()
+    void testPublicGroupChatProxyModel_data()
     {
         using Role = PublicGroupChatModel::CustomRole;
         QTest::addColumn<Role>("sortRole");
@@ -406,9 +410,9 @@ private Q_SLOTS:
         QTest::newRow("Languages / Languages / fr") << Role::Languages << Role::Languages << QStringLiteral("fr")
                                                     << QList<QStringList>{
                                                            {
-                                                               QStringList{"Bookri"},
-                                                               QStringList{"bookri@jabber.com"},
-                                                               QStringList{"fr"},
+                                                               QStringList{QStringLiteral("Bookri")},
+                                                               QStringList{QStringLiteral("bookri@jabber.com")},
+                                                               QStringList{QStringLiteral("fr")},
                                                            },
                                                        };
 
@@ -472,7 +476,7 @@ private Q_SLOTS:
                                                            };
     }
 
-    void test_GroupChatProxyModel()
+    void testPublicGroupChatProxyModel()
     {
         using Role = PublicGroupChatModel::CustomRole;
         PublicGroupChatModel model;
@@ -537,5 +541,5 @@ private Q_SLOTS:
     }
 };
 
-QTEST_GUILESS_MAIN(GroupChatTest)
+QTEST_GUILESS_MAIN(PublicGroupChatTest)
 #include "PublicGroupChatTest.moc"

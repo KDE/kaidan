@@ -20,10 +20,8 @@
 #include <QStandardPaths>
 #include <QStringBuilder>
 // QXmpp
-#ifndef BUILD_TESTS
 #include <QXmppColorGeneration.h>
 #include <QXmppUri.h>
-#endif
 // Kaidan
 #include "AccountManager.h"
 #include "Globals.h"
@@ -79,7 +77,6 @@ QString QmlUtils::systemCountryCode()
     return SystemUtils::systemLocaleCodes().countryCode;
 }
 
-#ifndef BUILD_TESTS
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 {
     switch (error) {
@@ -112,7 +109,6 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
     }
     Q_UNREACHABLE();
 }
-#endif
 
 QString QmlUtils::getResourcePath(const QString &name)
 {
@@ -195,7 +191,6 @@ QUrl QmlUtils::invitationUrl(const QString &uri)
     return QUrl(QStringLiteral(INVITATION_URL) + uri.mid(5));
 }
 
-#ifndef BUILD_TESTS
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 {
     QXmppUri uri;
@@ -203,7 +198,6 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
     uri.setQuery(QXmpp::Uri::Join());
     return QUrl(uri.toString());
 }
-#endif
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
 {
@@ -260,13 +254,7 @@ QString QmlUtils::formattedDataSize(qint64 fileSize)
 
 QColor QmlUtils::userColor(const QString &id, const QString &name)
 {
-#ifndef BUILD_TESTS
     return QXmppColorGeneration::generateColor(id.isEmpty() ? name : id);
-#else
-    Q_UNUSED(id)
-    Q_UNUSED(name)
-    return QColor(Qt::black);
-#endif
 }
 
 QString QmlUtils::chatStateDescription(const QString &displayName, const QXmppMessage::State state)

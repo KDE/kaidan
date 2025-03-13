@@ -45,7 +45,6 @@ set(VERSION_CODE 20)
 set(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # CMake options
-option(BUILD_TESTS "Build unit tests" FALSE)
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
 option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 
@@ -199,7 +198,7 @@ add_custom_target(Others
 # Unit tests
 #
 
-if(BUILD_TESTS)
+if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 

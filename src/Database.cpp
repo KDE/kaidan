@@ -25,11 +25,6 @@
 #include <QThreadPool>
 #include <QThreadStorage>
 #include <QtConcurrent/QtConcurrentRun>
-#ifdef DB_UNIT_TEST
-#define TEST_DB_FILENAME "tests_db_" + QCoreApplication::applicationName() + ".sqlite"
-#include <QCoreApplication>
-#include <QFile>
-#endif
 // Kaidan
 #include "Account.h"
 #include "AccountDb.h"
@@ -81,31 +76,32 @@ public:
             qFatal("Cannot add database: %s", qPrintable(database.lastError().text()));
         }
 
-#ifdef DB_UNIT_TEST
-        const QString databaseFilePath = TEST_DB_FILENAME;
-#else
-        // Check if there is a writable location for app data.
-        const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        if (appDataPath.isEmpty()) {
-            qFatal("Failed to find writable location for database file.");
-        }
+        const auto databaseFilePath = []() {
+            // Check if there is a writable location for app data.
+            const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+            if (appDataPath.isEmpty()) {
+                qFatal("Failed to find writable location for database file.");
+            }
 
-        const auto appDataDir = QDir(appDataPath);
-        if (!appDataDir.mkpath(QLatin1String("."))) {
-            qFatal("Failed to create writable directory at %s", qPrintable(appDataDir.absolutePath()));
-        }
+            const auto appDataDir = QDir(appDataPath);
+            if (!appDataDir.mkpath(QLatin1String("."))) {
+                qFatal("Failed to create writable directory at %s", qPrintable(appDataDir.absolutePath()));
+            }
 
-        // Create the absolute database file path while ensuring that there is a writable
-        // location on all systems.
-        const auto databaseFilePath = appDataDir.absoluteFilePath(databaseFilename());
+            // Create the absolute database file path while ensuring that there is a writable
+            // location on all systems.
+            const auto databaseFilePath = appDataDir.absoluteFilePath(databaseFilename());
 
-        // Rename old database files to the current name.
-        // There should only be one old file at once.
-        // Thus, only the first entry of "oldDbFilenames" is renamed.
-        if (const auto oldDbFilenames = appDataDir.entryList(oldDatabaseFilenames(), QDir::Files); !oldDbFilenames.isEmpty()) {
-            QFile::rename(appDataDir.absoluteFilePath(oldDbFilenames.first()), databaseFilePath);
-        }
-#endif
+            // Rename old database files to the current name.
+            // There should only be one old file at once.
+            // Thus, only the first entry of "oldDbFilenames" is renamed.
+            if (const auto oldDbFilenames = appDataDir.entryList(oldDatabaseFilenames(), QDir::Files); !oldDbFilenames.isEmpty()) {
+                QFile::rename(appDataDir.absoluteFilePath(oldDbFilenames.first()), databaseFilePath);
+            }
+
+            return databaseFilePath;
+        }();
+
         // open() creates the database file if it doesn't exist.
         database.setDatabaseName(databaseFilePath);
         if (!database.open()) {
@@ -152,14 +148,6 @@ Database::Database(QObject *parent)
     // worker
     d->dbWorker->moveToThread(&d->dbThread);
     connect(&d->dbThread, &QThread::finished, d->dbWorker, &QObject::deleteLater);
-
-#ifdef DB_UNIT_TEST
-    QFile file(TEST_DB_FILENAME);
-    if (file.exists()) {
-        qCDebug(KAIDAN_CORE_LOG) << "Removing old database file" << TEST_DB_FILENAME;
-        file.remove();
-    }
-#endif
 }
 
 Database::~Database()

@@ -224,7 +224,7 @@ Remember to install Kaidan again if you modified that file in order to see any c
 
 Unit tests are stored in Kaidan's [`tests` directory](tests).
 If you add a new C++ file to that directory, please add it to the related [CMakeLists file](tests/CMakeLists.txt).
-In order to build the unit tests, you need to enable the CMake build option `BUILD_TESTS` (i.e., add `-DBUILD_TESTS=ON` to the `cmake` command for building Kaidan).
+In order to build the unit tests, you need to enable the CMake build option `BUILD_TESTING` (i.e., add `-DBUILD_TESTING=ON` to the `cmake` command for building Kaidan).
 
 ## Builds and Dependencies
 

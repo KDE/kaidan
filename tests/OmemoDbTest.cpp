@@ -3,11 +3,12 @@
 //
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
-#include "../src/OmemoDb.h"
-#include "../src/Database.h"
-#include "utils.h"
-
 #include <QTest>
+
+#include "Database.h"
+#include "OmemoDb.h"
+#include "Test.h"
+#include "TestUtils.h"
 
 using Storage = OmemoDb;
 
@@ -26,7 +27,7 @@ bool operator==(const Storage::SignedPreKeyPair &a, const Storage::SignedPreKeyP
     return a.data == b.data && a.creationDate == b.creationDate;
 }
 
-class OmemoDbTest : public QObject
+class OmemoDbTest : public Test
 {
     Q_OBJECT
 
@@ -38,7 +39,7 @@ private:
     Q_SLOT void testResetAll();
 
     Database db;
-    OmemoDb storage = OmemoDb(&db, this, "user@example.org", this);
+    OmemoDb storage = OmemoDb(&db, this, QStringLiteral("user@example.org"), this);
 };
 
 void OmemoDbTest::testOwnDevice()
@@ -55,7 +56,7 @@ void OmemoDbTest::testOwnDevice()
 
     ownDevice = Storage::OwnDevice{
         .id = 1,
-        .label = ("Notebook"),
+        .label = QStringLiteral("Notebook"),
         .privateIdentityKey = QByteArray::fromBase64("ZDVNZFdJeFFUa3N6ZWdSUG9scUdoQXFpWERGbHRsZTIK"),
         .publicIdentityKey = QByteArray::fromBase64("dUsxSTJyM2tKVHE1TzNXbk1Xd0tpMGY0TnFleDRYUGkK"),
         .latestSignedPreKeyId = 2,
@@ -122,7 +123,7 @@ void OmemoDbTest::testDevices()
     // empty check
     QCOMPARE(wait(this, storage.allData()).devices, Storage::Devices());
 
-    Storage::Device deviceAlice = {.label = "Desktop",
+    Storage::Device deviceAlice = {.label = QStringLiteral("Desktop"),
                                    .keyId = QByteArray::fromBase64("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo="),
                                    .session = QByteArray::fromBase64("Cs8CCAQSIQWIhBRMdJ80tLVT7ius0H1LutRLeXBid68NH90M/kwhGxohBT+2kM/wV"
                                                                      "Q2UrZZPJBRmGZP0ZoCCWiET7KxA3ieAa888IiBSTWnp4qrTeo7z9kfKRaAFy+fYwP"
@@ -136,7 +137,7 @@ void OmemoDbTest::testDevices()
                                    .removalFromDeviceListDate = QDateTime(QDate(2022, 01, 01), QTime())};
 
     Storage::Device deviceBob1;
-    deviceBob1.label = ("Phone");
+    deviceBob1.label = QStringLiteral("Phone");
     deviceBob1.keyId = QByteArray::fromBase64(("WTV6c3B2UFhYbE9OQ1d0N0ZScUhLWXpmYnY2emJoego="));
     deviceBob1.session =
         QByteArray::fromBase64(("CvgCCAQSIQXZwE+G9R6ECMxKWPMidwcx3lPboUT2KEoea3B2T3vjUBohBQ7qW+Fb9Gi/"
@@ -152,7 +153,7 @@ void OmemoDbTest::testDevices()
     deviceBob1.removalFromDeviceListDate = QDateTime(QDate(2022, 01, 02), QTime());
 
     Storage::Device deviceBob2;
-    deviceBob2.label = ("Tablet");
+    deviceBob2.label = QStringLiteral("Tablet");
     deviceBob2.keyId = QByteArray::fromBase64(("U0tXcUlSVHVISzZLYUdGcW53czBtdXYxTEt2blVsbQo="));
     deviceBob2.session =
         QByteArray::fromBase64(("CvgCCAQSIQU/tpDP8FUNlK2WTyQUZhmT9GaAglohE+ysQN4ngGvPPBohBdnAT4b1HoQI"
@@ -167,19 +168,19 @@ void OmemoDbTest::testDevices()
     deviceBob2.unrespondedReceivedStanzasCount = 31;
     deviceBob2.removalFromDeviceListDate = QDateTime(QDate(2022, 01, 03), QTime());
 
-    storage.addDevice("alice@example.org", 1, deviceAlice);
-    storage.addDevice("bob@example.com", 1, deviceBob1);
-    storage.addDevice("bob@example.com", 2, deviceBob2);
+    storage.addDevice(QStringLiteral("alice@example.org"), 1, deviceAlice);
+    storage.addDevice(QStringLiteral("bob@example.com"), 1, deviceBob1);
+    storage.addDevice(QStringLiteral("bob@example.com"), 2, deviceBob2);
 
     {
         auto result = wait(this, storage.allData()).devices;
         QCOMPARE(result.size(), 2);
 
-        auto resultDevicesAlice = result.value(("alice@example.org"));
+        auto resultDevicesAlice = result.value(QStringLiteral("alice@example.org"));
         QCOMPARE(resultDevicesAlice.size(), 1);
 
         auto resultDeviceAlice = resultDevicesAlice.value(1);
-        QCOMPARE(resultDeviceAlice.label, ("Desktop"));
+        QCOMPARE(resultDeviceAlice.label, QStringLiteral("Desktop"));
         QCOMPARE(resultDeviceAlice.keyId, QByteArray::fromBase64(("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo=")));
         QCOMPARE(resultDeviceAlice.session,
                  QByteArray::fromBase64(("Cs8CCAQSIQWIhBRMdJ80tLVT7ius0H1LutRLeXBid68NH90M/"
@@ -197,11 +198,11 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceAlice.unrespondedReceivedStanzasCount, 11);
         QCOMPARE(resultDeviceAlice.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 01), QTime()));
 
-        auto resultDevicesBob = result.value(("bob@example.com"));
+        auto resultDevicesBob = result.value(QStringLiteral("bob@example.com"));
         QCOMPARE(resultDevicesBob.size(), 2);
 
         auto resultDeviceBob1 = resultDevicesBob.value(1);
-        QCOMPARE(resultDeviceBob1.label, ("Phone"));
+        QCOMPARE(resultDeviceBob1.label, QStringLiteral("Phone"));
         QCOMPARE(resultDeviceBob1.keyId, QByteArray::fromBase64(("WTV6c3B2UFhYbE9OQ1d0N0ZScUhLWXpmYnY2emJoego=")));
         QCOMPARE(resultDeviceBob1.session,
                  QByteArray::fromBase64(("CvgCCAQSIQXZwE+"
@@ -222,7 +223,7 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceBob1.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 02), QTime()));
 
         auto resultDeviceBob2 = resultDevicesBob.value(2);
-        QCOMPARE(resultDeviceBob2.label, ("Tablet"));
+        QCOMPARE(resultDeviceBob2.label, QStringLiteral("Tablet"));
         QCOMPARE(resultDeviceBob2.keyId, QByteArray::fromBase64(("U0tXcUlSVHVISzZLYUdGcW53czBtdXYxTEt2blVsbQo=")));
         QCOMPARE(resultDeviceBob2.session,
                  QByteArray::fromBase64(("CvgCCAQSIQU/"
@@ -242,17 +243,17 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceBob2.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 03), QTime()));
     }
 
-    storage.removeDevice(("bob@example.com"), 2);
+    storage.removeDevice(QStringLiteral("bob@example.com"), 2);
 
     {
         auto result = wait(this, storage.allData()).devices;
         QCOMPARE(result.size(), 2);
 
-        auto resultDevicesAlice = result.value(("alice@example.org"));
+        auto resultDevicesAlice = result.value(QStringLiteral("alice@example.org"));
         QCOMPARE(resultDevicesAlice.size(), 1);
 
         auto resultDeviceAlice = resultDevicesAlice.value(1);
-        QCOMPARE(resultDeviceAlice.label, ("Desktop"));
+        QCOMPARE(resultDeviceAlice.label, QStringLiteral("Desktop"));
         QCOMPARE(resultDeviceAlice.keyId, QByteArray::fromBase64(("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo=")));
         QCOMPARE(resultDeviceAlice.session,
                  QByteArray::fromBase64(("Cs8CCAQSIQWIhBRMdJ80tLVT7ius0H1LutRLeXBid68NH90M/"
@@ -270,11 +271,11 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceAlice.unrespondedReceivedStanzasCount, 11);
         QCOMPARE(resultDeviceAlice.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 01), QTime()));
 
-        auto resultDevicesBob = result.value(("bob@example.com"));
+        auto resultDevicesBob = result.value(QStringLiteral("bob@example.com"));
         QCOMPARE(resultDevicesBob.size(), 1);
 
         auto resultDeviceBob1 = resultDevicesBob.value(1);
-        QCOMPARE(resultDeviceBob1.label, ("Phone"));
+        QCOMPARE(resultDeviceBob1.label, QStringLiteral("Phone"));
         QCOMPARE(resultDeviceBob1.keyId, QByteArray::fromBase64(("WTV6c3B2UFhYbE9OQ1d0N0ZScUhLWXpmYnY2emJoego=")));
         QCOMPARE(resultDeviceBob1.session,
                  QByteArray::fromBase64(("CvgCCAQSIQXZwE+"
@@ -295,17 +296,17 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceBob1.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 02), QTime()));
     }
 
-    storage.removeDevice(("alice@example.org"), 1);
+    storage.removeDevice(QStringLiteral("alice@example.org"), 1);
 
     {
         auto result = wait(this, storage.allData()).devices;
         QCOMPARE(result.size(), 1);
 
-        auto resultDevicesBob = result.value(("bob@example.com"));
+        auto resultDevicesBob = result.value(QStringLiteral("bob@example.com"));
         QCOMPARE(resultDevicesBob.size(), 1);
 
         auto resultDeviceBob1 = resultDevicesBob.value(1);
-        QCOMPARE(resultDeviceBob1.label, ("Phone"));
+        QCOMPARE(resultDeviceBob1.label, QStringLiteral("Phone"));
         QCOMPARE(resultDeviceBob1.keyId, QByteArray::fromBase64(("WTV6c3B2UFhYbE9OQ1d0N0ZScUhLWXpmYnY2emJoego=")));
         QCOMPARE(resultDeviceBob1.session,
                  QByteArray::fromBase64(("CvgCCAQSIQXZwE+"
@@ -326,19 +327,19 @@ void OmemoDbTest::testDevices()
         QCOMPARE(resultDeviceBob1.removalFromDeviceListDate, QDateTime(QDate(2022, 01, 02), QTime()));
     }
 
-    storage.addDevice(("alice@example.org"), 1, deviceAlice);
-    storage.addDevice(("bob@example.com"), 2, deviceBob2);
-    storage.removeDevices(("bob@example.com"));
+    storage.addDevice(QStringLiteral("alice@example.org"), 1, deviceAlice);
+    storage.addDevice(QStringLiteral("bob@example.com"), 2, deviceBob2);
+    storage.removeDevices(QStringLiteral("bob@example.com"));
 
     {
         auto result = wait(this, storage.allData()).devices;
         QCOMPARE(result.size(), 1);
 
-        auto resultDevicesAlice = result.value(("alice@example.org"));
+        auto resultDevicesAlice = result.value(QStringLiteral("alice@example.org"));
         QCOMPARE(resultDevicesAlice.size(), 1);
 
         auto resultDeviceAlice = resultDevicesAlice.value(1);
-        QCOMPARE(resultDeviceAlice.label, ("Desktop"));
+        QCOMPARE(resultDeviceAlice.label, QStringLiteral("Desktop"));
         QCOMPARE(resultDeviceAlice.keyId, QByteArray::fromBase64(("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo=")));
         QCOMPARE(resultDeviceAlice.session,
                  QByteArray::fromBase64(("Cs8CCAQSIQWIhBRMdJ80tLVT7ius0H1LutRLeXBid68NH90M/"
@@ -372,7 +373,7 @@ void OmemoDbTest::testResetAll()
 
     auto device = Storage::Device();
     device.keyId = "r4nd0m1d";
-    storage.addDevice("alice@example.org", 123, device);
+    storage.addDevice(QStringLiteral("alice@example.org"), 123, device);
 
     storage.resetAll();
 

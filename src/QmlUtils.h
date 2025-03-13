@@ -11,9 +11,7 @@
 
 #include <QXmppMessage.h>
 
-#ifndef BUILD_TESTS
 #include "ClientWorker.h"
-#endif
 
 class QGeoCoordinate;
 
@@ -50,14 +48,12 @@ public:
 
     Q_INVOKABLE static QString systemCountryCode();
 
-#ifndef BUILD_TESTS
     /**
      * Returns an error message for a connection error.
      *
      * @param error error for which an error message should be returned
      */
     Q_INVOKABLE static QString connectionErrorMessage(ClientWorker::ConnectionError error);
-#endif
 
     /**
      * Returns a URL to a given resource file name
@@ -115,14 +111,12 @@ public:
      */
     Q_INVOKABLE static QUrl invitationUrl(const QString &uri);
 
-#ifndef BUILD_TESTS
     /**
      * Returns an XMPP URI for opening a group chat.
      *
      * @param groupChatJid JID of the group chat
      */
     Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
-#endif
 
     /**
      * Validates the ID of an encryption key.

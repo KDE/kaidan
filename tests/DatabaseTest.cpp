@@ -2,10 +2,6 @@
 //
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
-#include "../src/Database.h"
-#include "../src/Algorithms.h"
-#include "../src/SqlUtils.h"
-
 #include <ranges>
 
 #include <QSqlDatabase>
@@ -13,6 +9,11 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QTest>
+
+#include "Algorithms.h"
+#include "Database.h"
+#include "SqlUtils.h"
+#include "Test.h"
 
 using namespace SqlUtils;
 using std::ranges::sort;
@@ -40,7 +41,7 @@ static auto fieldNames(const QSqlRecord &record)
     return fieldNames;
 }
 
-class DatabaseTest : public QObject
+class DatabaseTest : public Test
 {
     Q_OBJECT
 
@@ -114,10 +115,10 @@ void DatabaseTest::conversion()
             }
 
             // check data type
-            if (fieldC.type() != fieldN.type()) {
+            if (fieldC.metaType() != fieldN.metaType()) {
                 qDebug() << tableName << fieldName << "data type mismatch!";
-                qDebug() << "  Conversion variant:" << fieldC.type();
-                qDebug() << "  New variant is:" << fieldN.type();
+                qDebug() << "  Conversion variant:" << fieldC.metaType();
+                qDebug() << "  New variant is:" << fieldN.metaType();
                 QFAIL("Field data type of conversion/new variant does not match.");
             }
         }
