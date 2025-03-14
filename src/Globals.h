@@ -6,8 +6,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#pragma once
 
 // Qt
 #include <QLatin1String>
@@ -128,5 +127,3 @@ constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
 inline constexpr QStringView XMLNS_SFS = u"urn:xmpp:sfs:0";
 inline constexpr QStringView XMLNS_MESSAGE_REPLIES = u"urn:xmpp:reply:0";
 const auto XMLNS_OMEMO_2 = QStringLiteral("urn:xmpp:omemo:2");
-
-#endif // GLOBALS_H

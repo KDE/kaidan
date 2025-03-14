@@ -5,8 +5,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef ENUMS_H
-#define ENUMS_H
+#pragma once
 
 // Qt
 #include <QMetaEnum>
@@ -116,5 +115,3 @@ auto toIntegral(const T flags)
 #if 0
 Q_OBJECT
 #endif
-
-#endif // ENUMS_H

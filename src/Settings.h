@@ -5,8 +5,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#pragma once
 
 // std
 #include <optional>
@@ -121,5 +120,3 @@ private:
     QSettings m_settings;
     mutable QMutex m_mutex;
 };
-
-#endif // SETTINGS_H
