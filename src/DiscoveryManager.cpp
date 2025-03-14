@@ -20,7 +20,7 @@ DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
     // we're a normal client (not a server, gateway, server component, etc.)
     m_manager->setClientCategory(QStringLiteral("client"));
     m_manager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
-#if defined Q_OS_ANDROID || BUILD_AS_UBUNTU_TOUCH
+#if defined Q_OS_ANDROID
     // on Ubuntu Touch and Android we're always a mobile client
     m_manager->setClientType("phone");
 #else

@@ -36,9 +36,6 @@ set(APPLICATION_ID "im.kaidan.kaidan")
 set(APPLICATION_NAME "kaidan")
 set(APPLICATION_DISPLAY_NAME "Kaidan")
 set(APPLICATION_DESCRIPTION "User-friendly and modern chat app for every device")
-if(BUILD_AS_UBUNTU_TOUCH)
-    set(APPLICATION_NAME "${APPLICATION_ID}")
-endif()
 
 # Version
 set(VERSION_MAJOR 0)
@@ -49,9 +46,6 @@ set(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # CMake options
 option(BUILD_TESTS "Build unit tests" FALSE)
-option(BUILD_AS_APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
-option(BUILD_AS_UBUNTU_TOUCH "Building an Ubuntu Touch click (internal use only!)" FALSE)
-option(CLICK_ARCH "Architecture that will be used in the click's manifest")
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
 option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 
@@ -98,7 +92,7 @@ if(USE_KNOTIFICATIONS)
 endif()
 
 # Optional QWidget style integration (not on mobile)
-if(NOT BUILD_AS_UBUNTU_TOUCH AND NOT ANDROID AND NOT IOS)
+if(NOT ANDROID AND NOT IOS)
     find_package(Qt6Widgets)
     find_package(KF6QQC2DesktopStyle)
     set_package_properties(Qt6Widgets PROPERTIES
@@ -146,26 +140,7 @@ elseif(IOS)
                    ${CMAKE_SOURCE_DIR}/misc/ios/Info.plist)
 endif()
 
-if(BUILD_AS_UBUNTU_TOUCH AND CLICK_ARCH)
-    # will replace ${CLICK_ARCH} with its value
-    configure_file(${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json.in
-                   ${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json)
-
-    # install kaidan binary
-    install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/bin/${PROJECT_NAME}
-            DESTINATION ${CMAKE_INSTALL_PREFIX}
-    )
-    # install kaidan media
-    install(DIRECTORY "data/"
-            DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/${APPLICATION_ID}"
-            PATTERN "*.qrc" EXCLUDE
-    )
-    # install icon
-    install(FILES "data/images/kaidan.svg" "misc/ubuntu-touch/apparmor.json"
-                  "misc/ubuntu-touch/kaidan.desktop" "misc/ubuntu-touch/manifest.json"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}"
-    )
-elseif(UNIX AND NOT APPLE)
+if(UNIX AND NOT APPLE)
     # install kaidan media
     install(DIRECTORY "data/"
             DESTINATION "${CMAKE_INSTALL_FULL_DATADIR}/${PROJECT_NAME}"

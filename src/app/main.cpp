@@ -208,20 +208,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     // App
     //
 
-#if BUILD_AS_UBUNTU_TOUCH
-    qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "true");
-    qputenv("QT_QUICK_CONTROLS_MOBILE", "true");
-#endif
-
-#if BUILD_AS_APPIMAGE
-    qputenv("OPENSSL_CONF", "");
-#endif
-
     // Initialize the resources from Kaidan's core library.
     Q_INIT_RESOURCE(data);
     Q_INIT_RESOURCE(misc);
     Q_INIT_RESOURCE(qml);
-#if BUNDLE_ICONS || BUILD_AS_UBUNTU_TOUCH || defined(Q_OS_ANDROID)
+#if BUNDLE_ICONS || defined(Q_OS_ANDROID)
     Q_INIT_RESOURCE(kirigami_icons);
 #endif
 #if defined(Q_OS_ANDROID)
@@ -267,35 +258,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }
 
     QAPPLICATION_CLASS app(argc, argv);
-
-#if BUILD_AS_APPIMAGE
-    QFileInfo executable(QCoreApplication::applicationFilePath());
-
-    if (executable.isSymLink()) {
-        executable.setFile(executable.symLinkTarget());
-    }
-
-    QString gstreamerPluginsPath;
-
-    // Try to use deployed plugins if any...
-#if defined(TARGET_GSTREAMER_PLUGINS)
-    gstreamerPluginsPath = QString::fromLocal8Bit(TARGET_GSTREAMER_PLUGINS);
-
-    if (!gstreamerPluginsPath.isEmpty()) {
-        gstreamerPluginsPath = QDir::cleanPath(QString::fromLatin1("%1/../..%2").arg(executable.absolutePath(), gstreamerPluginsPath));
-    }
-    qCDebug(KAIDAN_LOG) << "Looking for gstreamer in " << gstreamerPluginsPath;
-#else
-    qFatal("Please provide the unified directory containing the gstreamer plugins and gst-plugin-scanner.");
-#endif
-
-#if defined(QT_DEBUG)
-    qputenv("GST_DEBUG", "ERROR:5,WARNING:5,INFO:5,DEBUG:5,LOG:5");
-#endif
-    qputenv("GST_PLUGIN_PATH_1_0", QByteArray());
-    qputenv("GST_PLUGIN_SYSTEM_PATH_1_0", gstreamerPluginsPath.toLocal8Bit());
-    qputenv("GST_PLUGIN_SCANNER_1_0", QString::fromLatin1("%1/gst-plugin-scanner").arg(gstreamerPluginsPath).toLocal8Bit());
-#endif // APPIMAGE
 
     // register qMetaTypes
     qRegisterMetaType<ProviderListItem>();
