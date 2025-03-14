@@ -9,7 +9,6 @@
 
 // Qt
 #include <QMetaEnum>
-#include <QObject>
 // QXmpp
 #include <QXmppClient.h>
 
@@ -109,9 +108,3 @@ auto toIntegral(const T flags)
     return static_cast<T::Int>(flags);
 }
 }
-
-// Needed workaround to trigger older CMake auto moc versions to generate moc
-// sources for this file (it only contains Q_NAMESPACE, which is new).
-#if 0
-Q_OBJECT
-#endif
