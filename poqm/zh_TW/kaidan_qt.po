@@ -3349,13 +3349,19 @@ msgctxt "RosterListItem|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterListItemContextMenu.qml:21
-msgctxt "RosterListItemContextMenu|"
+#: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Unpin"
+msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "取消釘選"
 
-#: src/qml/elements/RosterListItemContextMenu.qml:21
-msgctxt "RosterListItemContextMenu|"
+#: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Pin"
+msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "釘選"
 
@@ -3844,11 +3850,16 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:25 src/qml/RosterPage.qml:35
-#: src/qml/RosterPage.qml:48
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
+#: src/qml/RosterPage.qml:58
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"
+
+#: src/qml/RosterPage.qml:34
+msgctxt "RosterPage|"
+msgid "Pin & Move"
+msgstr ""
 
 #: src/qml/StartPage.qml:26
 #, fuzzy
