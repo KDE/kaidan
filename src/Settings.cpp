@@ -13,8 +13,6 @@
 #include "Globals.h"
 #include "Kaidan.h"
 
-Q_DECLARE_METATYPE(QXmppConfiguration::StreamSecurityMode)
-
 Settings::Settings(QObject *parent)
     : QObject(parent)
     , m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
