@@ -114,9 +114,6 @@ target_sources(libkaidancore PRIVATE
     HostCompletionModel.h
     HostCompletionProxyModel.cpp
     HostCompletionProxyModel.h
-    # hsluv-c required for color generation
-    hsluv-c/hsluv.c
-    hsluv-c/hsluv.h
     JsonUtils.h
     Kaidan.cpp
     Kaidan.h
