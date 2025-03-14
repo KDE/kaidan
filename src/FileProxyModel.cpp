@@ -4,10 +4,11 @@
 
 #include "FileProxyModel.h"
 
-#include "FileModel.h"
-
+// Qt
 #include <QFile>
 #include <QtConcurrentRun>
+// Kaidan
+#include "FileModel.h"
 
 FileProxyModel::FileProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)

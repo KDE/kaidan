@@ -6,6 +6,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterDb.h"
+
+// Qt
+#include <QSqlDriver>
+#include <QSqlField>
+#include <QSqlQuery>
+#include <QSqlRecord>
 // Kaidan
 #include "Globals.h"
 #include "GroupChatUser.h"
@@ -14,11 +20,6 @@
 #include "MessageDb.h"
 #include "RosterItem.h"
 #include "SqlUtils.h"
-// Qt
-#include <QSqlDriver>
-#include <QSqlField>
-#include <QSqlQuery>
-#include <QSqlRecord>
 
 Q_DECLARE_METATYPE(QXmppRosterIq::Item::SubscriptionType)
 

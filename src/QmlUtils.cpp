@@ -8,7 +8,6 @@
 
 // Qt
 #include <QClipboard>
-#include <QDebug>
 #include <QDesktopServices>
 #include <QDir>
 #include <QGeoCoordinate>
@@ -18,7 +17,6 @@
 #include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QStandardPaths>
-#include <QStringBuilder>
 // QXmpp
 #include <QXmppColorGeneration.h>
 #include <QXmppUri.h>

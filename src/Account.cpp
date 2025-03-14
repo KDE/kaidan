@@ -4,6 +4,7 @@
 
 #include "Account.h"
 
+// QXmpp
 #include <QXmppUtils.h>
 
 QString Account::displayName() const

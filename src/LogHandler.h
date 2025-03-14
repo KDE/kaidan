@@ -5,7 +5,9 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
+// QXmpp
 #include <QXmppLogger.h>
 
 class QXmppClient;

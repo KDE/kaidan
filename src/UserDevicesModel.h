@@ -5,9 +5,9 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
-#include <QList>
-
+// Kaidan
 #include "PresenceCache.h"
 
 class QXmppVersionIq;

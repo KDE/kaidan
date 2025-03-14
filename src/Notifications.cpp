@@ -8,19 +8,16 @@
 
 #include "Notifications.h"
 
-// KNotifications
+// KDE
 #ifdef HAVE_KNOTIFICATIONS
 #include <KNotification>
 #endif
-
 // Kaidan
 #include "ChatController.h"
 #include "Kaidan.h"
 #include "MessageController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
-
-#include <QStringBuilder>
 
 // Q_OS_BSD4 includes all BSD variants and also Q_OS_APPLE
 // Q_OS_LINUX is also defined on Android

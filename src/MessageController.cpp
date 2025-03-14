@@ -10,8 +10,6 @@
 
 #include "MessageController.h"
 
-// std
-#include <ranges>
 // Qt
 #include <QUrl>
 // QXmpp

@@ -3,8 +3,9 @@
 //
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
+// Qt
 #include <QTest>
-
+// Kaidan
 #include "Database.h"
 #include "OmemoDb.h"
 #include "Test.h"

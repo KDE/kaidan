@@ -2,11 +2,13 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "QXmppFileMetadata.h"
-#include "QXmppHttpFileSource.h"
-#include "QXmppMessage.h"
+// Qt
 #include <QCoreApplication>
+// QXmpp
 #include <QXmppClient.h>
+#include <QXmppFileMetadata.h>
+#include <QXmppHttpFileSource.h>
+#include <QXmppMessage.h>
 #include <QXmppTask.h>
 #include <QXmppUtils.h>
 

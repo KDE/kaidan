@@ -6,6 +6,7 @@
 
 #include "CredentialsValidator.h"
 
+// QXmpp
 #include <QXmppUtils.h>
 
 CredentialsValidator::CredentialsValidator(QObject *parent)

@@ -5,10 +5,11 @@
 
 #pragma once
 
-#include <QXmppTrustLevel.h>
-//
-#include "DatabaseComponent.h"
+// QXmpp
 #include <QXmppAtmTrustStorage.h>
+#include <QXmppTrustLevel.h>
+// Kaidan
+#include "DatabaseComponent.h"
 
 class Database;
 struct Key;

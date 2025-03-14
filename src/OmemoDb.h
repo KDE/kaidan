@@ -5,8 +5,10 @@
 
 #pragma once
 
-#include "DatabaseComponent.h"
+// QXmpp
 #include <QXmppOmemoStorage.h>
+// Kaidan
+#include "DatabaseComponent.h"
 
 class OmemoDb : public DatabaseComponent, public QXmppOmemoStorage
 {

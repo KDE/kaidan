@@ -10,13 +10,12 @@
 // Qt
 #include <QMap>
 #include <QObject>
-// QXmpp
+
+class AvatarFileStorage;
+class ClientWorker;
 class QXmppClient;
 class QXmppPresence;
 class QXmppRosterManager;
-// Kaidan
-class AvatarFileStorage;
-class ClientWorker;
 class VCardManager;
 
 class RosterManager : public QObject

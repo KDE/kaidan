@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "DiscoveryManager.h"
+
 // QXmpp
 #include <QXmppDiscoveryManager.h>
 #include <QXmppTask.h>

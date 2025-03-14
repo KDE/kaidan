@@ -17,7 +17,6 @@
 #include "AccountManager.h"
 #include "ChatController.h"
 #include "FutureUtils.h"
-#include "Kaidan.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterDb.h"

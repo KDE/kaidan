@@ -5,10 +5,8 @@
 
 #pragma once
 
+// Kaidan
 #include "DataFormModel.h"
-// Qt
-#include <QList>
-class QString;
 
 /**
  * This class is used to store the data of the registration form.

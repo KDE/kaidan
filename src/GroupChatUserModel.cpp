@@ -4,6 +4,7 @@
 
 #include "GroupChatUserModel.h"
 
+// Kaidan
 #include "Algorithms.h"
 #include "FutureUtils.h"
 #include "Globals.h"

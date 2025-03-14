@@ -3,10 +3,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include "CredentialsGenerator.h"
+
 // Qt
 #include <QRandomGenerator>
 // Kaidan
-#include "CredentialsGenerator.h"
 #include "Globals.h"
 
 static const QLatin1String VOWELS = QLatin1String("aeiou");

@@ -9,7 +9,6 @@
 
 // Qt
 #include <QDateTime>
-#include <QDebug>
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlField>

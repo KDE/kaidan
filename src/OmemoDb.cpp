@@ -5,11 +5,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "OmemoDb.h"
-#include "Globals.h"
-#include "QXmppFutureUtils_p.h"
+
+// Kaidan
 #include "SqlUtils.h"
-#include <QSqlQuery>
-#include <QStringBuilder>
 
 using namespace SqlUtils;
 

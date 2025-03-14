@@ -4,6 +4,7 @@
 
 #include "EncryptionController.h"
 
+// Kaidan
 #include "OmemoController.h"
 
 EncryptionController *EncryptionController::s_instance = nullptr;

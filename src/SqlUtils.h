@@ -5,11 +5,12 @@
 
 #pragma once
 
+// std
+#include <optional>
+// Qt
 #include <QSqlQuery>
 #include <QStringView>
 #include <QVariant>
-
-#include <optional>
 
 class QSqlDriver;
 class QSqlField;

@@ -8,12 +8,12 @@
 
 #pragma once
 
+// Qt
 #include <QDateTime>
 #include <QObject>
 #include <QUuid>
 
 class KNotification;
-class QString;
 
 class Notifications : public QObject
 {

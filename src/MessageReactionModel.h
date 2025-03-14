@@ -4,8 +4,10 @@
 
 #pragma once
 
-#include "MessageModel.h"
+// Qt
 #include <QAbstractListModel>
+// Kaidan
+#include "MessageModel.h"
 
 class MessageReactionModel : public QAbstractListModel
 {

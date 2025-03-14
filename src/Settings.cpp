@@ -7,9 +7,9 @@
 
 #include "Settings.h"
 
+// Qt
 #include <QMutexLocker>
-#include <QUuid>
-
+// Kaidan
 #include "Globals.h"
 #include "Kaidan.h"
 

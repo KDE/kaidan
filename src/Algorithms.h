@@ -7,13 +7,14 @@
 
 #pragma once
 
+// std
 #include <algorithm>
 #include <optional>
 #include <unordered_map>
 #if __has_include(<__cpp_lib_ranges_enumerate>)
 #include <ranges>
 #endif
-
+// Qt
 #include <QList>
 
 template<typename T, typename Converter>

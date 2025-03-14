@@ -5,10 +5,11 @@
 
 #include "AtmManager.h"
 
+// QXmpp
 #include <QXmppAtmManager.h>
 #include <QXmppClient.h>
 #include <QXmppUri.h>
-
+// Kaidan
 #include "Globals.h"
 #include "TrustDb.h"
 

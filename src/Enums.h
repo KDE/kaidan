@@ -8,10 +8,11 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 
+// Qt
 #include <QMetaEnum>
 #include <QObject>
+// QXmpp
 #include <QXmppClient.h>
-#include <QtGlobal>
 
 #define ENABLE_IF(...) typename std::enable_if<__VA_ARGS__>::type * = nullptr
 

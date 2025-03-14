@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ClientWorker.h"
+
 // Qt
 #include <QGuiApplication>
 #include <QNetworkAccessManager>

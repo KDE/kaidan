@@ -4,6 +4,7 @@
 
 #include "GroupChatQrCodeGenerator.h"
 
+// QXmpp
 #include <QXmppUri.h>
 
 GroupChatQrCodeGenerator::GroupChatQrCodeGenerator(QObject *parent)

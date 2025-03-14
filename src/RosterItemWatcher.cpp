@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterItemWatcher.h"
+
+// Kaidan
 #include "RosterModel.h"
 
 RosterItemNotifier &RosterItemNotifier::instance()

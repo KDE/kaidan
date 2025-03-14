@@ -2,11 +2,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// Qt
 #include <QSignalSpy>
 #include <QTest>
-
+// QXmpp
 #include <QXmppUtils.h>
-
+// Kaidan
 #include "PresenceCache.h"
 #include "Test.h"
 

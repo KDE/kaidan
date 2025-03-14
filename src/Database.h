@@ -10,8 +10,10 @@
 
 #pragma once
 
-#include <QObject>
+// std
 #include <memory>
+// Qt
+#include <QObject>
 
 class QSqlQuery;
 class QSqlDatabase;

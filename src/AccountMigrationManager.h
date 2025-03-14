@@ -4,12 +4,11 @@
 
 #pragma once
 
-#include <QXmppAccountMigrationManager.h>
-
+// Qt
 #include <QObject>
 #include <QVariant>
-
-#include <optional>
+// QXmpp
+#include <QXmppAccountMigrationManager.h>
 
 class QXmppConfiguration;
 class QXmppMovedManager;
@@ -17,7 +16,6 @@ class QXmppMovedManager;
 struct ClientSettings;
 
 class ClientWorker;
-class Settings;
 
 class AccountMigrationManager : public QObject
 {

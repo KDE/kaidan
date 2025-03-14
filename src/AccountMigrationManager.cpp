@@ -4,6 +4,18 @@
 
 #include "AccountMigrationManager.h"
 
+// Qt
+#include <QDir>
+#include <QDomDocument>
+#include <QFile>
+#include <QSaveFile>
+#include <QStandardPaths>
+#include <QUrl>
+// QXmpp
+#include <QXmppConfiguration.h>
+#include <QXmppMovedManager.h>
+#include <QXmppPubSubManager.h>
+// Kaidan
 #include "AccountManager.h"
 #include "Algorithms.h"
 #include "Encryption.h"
@@ -12,20 +24,8 @@
 #include "RosterDb.h"
 #include "RosterItem.h"
 #include "RosterModel.h"
-#include "Settings.h"
 #include "XmlUtils.h"
 #include "kaidan_core_debug.h"
-
-#include <QDir>
-#include <QDomDocument>
-#include <QFile>
-#include <QSaveFile>
-#include <QStandardPaths>
-#include <QUrl>
-
-#include <QXmppConfiguration.h>
-#include <QXmppMovedManager.h>
-#include <QXmppPubSubManager.h>
 
 #define readDataElement(NAME)                                                                                                                                  \
     if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), data.NAME)) {                                                            \

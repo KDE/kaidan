@@ -6,6 +6,7 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
 
 class QImage;

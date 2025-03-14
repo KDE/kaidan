@@ -4,11 +4,12 @@
 
 #include "DatabaseComponent.h"
 
+// Qt
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlQuery>
 #include <QSqlRecord>
-
+// Kaidan
 #include "Database.h"
 
 DatabaseComponent::DatabaseComponent(Database *database, QObject *parent)

@@ -9,15 +9,13 @@
 // Qt
 #include <QLocale>
 #include <QSharedDataPointer>
-#include <QVariantList>
 // Kaidan
 #include "Globals.h"
 #include "SystemUtils.h"
 
+class ProviderListItemPrivate;
 class QUrl;
 class QJsonObject;
-
-class ProviderListItemPrivate;
 
 class ProviderListItem
 {

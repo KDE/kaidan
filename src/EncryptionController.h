@@ -4,11 +4,12 @@
 
 #pragma once
 
+// Qt
 #include <QFuture>
 #include <QHash>
 #include <QList>
 #include <QObject>
-
+// QXmpp
 #include <QXmppTrustLevel.h>
 
 class OmemoController;

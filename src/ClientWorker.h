@@ -7,8 +7,6 @@
 
 #pragma once
 
-#include <functional>
-// Qt
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan

@@ -5,6 +5,7 @@
 
 #include "RosterFilterProxyModel.h"
 
+// Kaidan
 #include "GroupChatController.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"

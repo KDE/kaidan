@@ -4,6 +4,7 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
 
 struct GroupChatUser;

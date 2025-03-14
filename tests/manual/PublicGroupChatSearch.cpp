@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// Qt
 #include <QCoreApplication>
 #include <QEventLoop>
 #include <QJsonArray>

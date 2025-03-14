@@ -8,8 +8,6 @@
 
 #include "MessageDb.h"
 
-// C++
-#include <ranges>
 // Qt
 #include <QBuffer>
 #include <QFile>

@@ -5,9 +5,10 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
 #include <QHash>
-
+// QXmpp
 #include <QXmppDataForm.h>
 
 class DataFormModel : public QAbstractListModel

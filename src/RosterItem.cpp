@@ -6,6 +6,7 @@
 
 #include "RosterItem.h"
 
+// QXmpp
 #include <QXmppUtils.h>
 
 RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item)

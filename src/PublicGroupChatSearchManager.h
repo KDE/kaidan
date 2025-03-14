@@ -4,16 +4,17 @@
 
 #pragma once
 
+// Qt
 #include <QLoggingCategory>
 #include <QPointer>
-
+// Kaidan
 #include "PublicGroupChat.h"
 
 Q_DECLARE_LOGGING_CATEGORY(publicGroupChat_search)
 
 class QNetworkAccessManager;
-class QNetworkRequest;
 class QNetworkReply;
+class QNetworkRequest;
 class QTimer;
 
 using namespace std::chrono_literals;

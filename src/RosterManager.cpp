@@ -17,7 +17,6 @@
 #include "ChatHintModel.h"
 #include "EncryptionController.h"
 #include "GroupChatController.h"
-#include "Kaidan.h"
 #include "MessageDb.h"
 #include "RosterDb.h"
 #include "RosterModel.h"

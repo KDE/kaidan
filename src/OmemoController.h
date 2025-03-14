@@ -5,11 +5,12 @@
 
 #pragma once
 
+// Qt
 #include <QFuture>
-
+// QXmpp
 #include <QXmppTask.h>
 #include <QXmppTrustLevel.h>
-
+// Kaidan
 #include "EncryptionController.h"
 
 class OmemoController : public QObject

@@ -4,8 +4,8 @@
 
 #pragma once
 
+// Kaidan
 #include "DatabaseComponent.h"
-
 #include "GroupChatUser.h"
 
 class GroupChatUserDb : public DatabaseComponent

@@ -6,10 +6,10 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
-#include <QList>
 
-#include "ProviderListItem.h"
+class ProviderListItem;
 
 class ProviderListModel : public QAbstractListModel
 {

@@ -189,7 +189,8 @@ struct GroupChatInvitation {
 
 Q_DECLARE_METATYPE(GroupChatInvitation)
 
-struct Message {
+class Message
+{
     Q_GADGET
     Q_DECLARE_TR_FUNCTIONS(Message)
 

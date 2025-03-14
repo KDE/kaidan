@@ -4,7 +4,7 @@
 
 #include "PublicGroupChatSearchManager.h"
 
-#include <QDebug>
+// Qt
 #include <QDir>
 #include <QJsonArray>
 #include <QJsonDocument>

@@ -8,8 +8,9 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
-
+// Kaidan
 #include "DatabaseComponent.h"
 #include "Message.h"
 #include "SqlUtils.h"

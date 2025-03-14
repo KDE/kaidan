@@ -4,6 +4,7 @@
 
 #include "GroupChatUser.h"
 
+// Kaidan
 #include "RosterModel.h"
 
 QString GroupChatUser::displayName() const

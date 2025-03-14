@@ -4,8 +4,9 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
-
+// Kaidan
 #include "PublicGroupChat.h"
 
 class PublicGroupChatModel : public QAbstractListModel

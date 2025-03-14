@@ -15,10 +15,11 @@
 
 #pragma once
 
+// Qt
+#include <QStringList>
 // Kaidan
 #include "AccountMigrationManager.h"
 #include "ClientWorker.h"
-#include <QStringList>
 
 class AccountDb;
 class BlockingController;

@@ -2,9 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// Qt
 #include <QSignalSpy>
 #include <QTest>
-
+// Kaidan
 #include "Kaidan.h"
 #include "RosterItemWatcher.h"
 #include "Test.h"

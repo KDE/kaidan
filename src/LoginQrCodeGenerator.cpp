@@ -9,7 +9,6 @@
 // Kaidan
 #include "AccountManager.h"
 #include "Kaidan.h"
-#include "Settings.h"
 
 LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent)
     : AbstractQrCodeGenerator(parent)

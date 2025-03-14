@@ -4,10 +4,11 @@
 
 #pragma once
 
-#include <QObject>
+// std
 #include <optional>
-#include <unordered_map>
-
+// Qt
+#include <QObject>
+// Kaidan
 #include "RosterItem.h"
 
 class RosterItemWatcher;

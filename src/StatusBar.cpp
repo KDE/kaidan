@@ -25,6 +25,8 @@
  */
 
 #include "StatusBar.h"
+
+// Qt
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
 

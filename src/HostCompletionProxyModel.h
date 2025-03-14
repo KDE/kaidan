@@ -4,6 +4,7 @@
 
 #pragma once
 
+// Qt
 #include <QSortFilterProxyModel>
 
 class HostCompletionProxyModel : public QSortFilterProxyModel

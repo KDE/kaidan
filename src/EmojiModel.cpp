@@ -10,10 +10,7 @@
 
 #include "EmojiModel.h"
 
-// Qt
-#include <QRegularExpression>
 // Kaidan
-#include "Globals.h"
 #include "Kaidan.h"
 #include "Settings.h"
 

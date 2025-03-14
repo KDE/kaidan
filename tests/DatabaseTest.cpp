@@ -2,14 +2,15 @@
 //
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
+// std
 #include <ranges>
-
+// Qt
 #include <QSqlDatabase>
 #include <QSqlField>
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QTest>
-
+// Kaidan
 #include "Algorithms.h"
 #include "Database.h"
 #include "SqlUtils.h"

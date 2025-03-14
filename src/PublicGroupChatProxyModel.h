@@ -4,6 +4,7 @@
 
 #pragma once
 
+// Qt
 #include <QSortFilterProxyModel>
 
 class PublicGroupChatProxyModel : public QSortFilterProxyModel

@@ -3,15 +3,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "HostCompletionModel.h"
-#include "Algorithms.h"
-#include "Globals.h"
-#include "RosterModel.h"
 
+// Qt
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include <QLoggingCategory>
+// Kaidan
+#include "Algorithms.h"
+#include "Globals.h"
+#include "RosterModel.h"
 
 Q_LOGGING_CATEGORY(providers_completion, "providers.completion", QtMsgType::QtWarningMsg)
 

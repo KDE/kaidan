@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// Qt
 #include <QTest>
-
+// Kaidan
 #include "FutureUtils.h"
 #include "Test.h"
 

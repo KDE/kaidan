@@ -5,6 +5,7 @@
 
 #pragma once
 
+// Qt
 #include <QSortFilterProxyModel>
 
 class RosterFilterProxyModel : public QSortFilterProxyModel

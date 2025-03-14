@@ -8,15 +8,16 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+// std
+#include <optional>
+// Qt
 #include <QMutex>
 #include <QObject>
 #include <QPoint>
 #include <QSettings>
 #include <QSize>
-
+// Kaidan
 #include "Enums.h"
-
-#include <optional>
 
 /**
  * Manages settings stored in the settings file.

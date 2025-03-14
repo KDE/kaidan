@@ -14,12 +14,10 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
-#include <QList>
 // Kaidan
 #include "RosterItem.h"
 
-class Kaidan;
-struct Message;
+class Message;
 enum class MessageOrigin : quint8;
 
 class RosterModel : public QAbstractListModel

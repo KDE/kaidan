@@ -7,8 +7,9 @@
 
 #include "VCardModel.h"
 
+// QXmpp
 #include <QXmppVCardManager.h>
-
+// Kaidan
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "VCardManager.h"

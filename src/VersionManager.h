@@ -5,6 +5,7 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
 
 class QXmppClient;

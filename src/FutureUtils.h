@@ -13,9 +13,6 @@
 #include <QXmppPromise.h>
 #include <QXmppTask.h>
 
-#include <QHash>
-#include <QString>
-
 template<typename ValueType>
 auto qFutureValueType(QFuture<ValueType>) -> ValueType;
 template<typename Future>

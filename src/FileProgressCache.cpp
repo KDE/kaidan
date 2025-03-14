@@ -5,6 +5,7 @@
 
 #include "FileProgressCache.h"
 
+// Qt
 #include <QCoreApplication>
 
 FileProgressWatcher::FileProgressWatcher(QObject *parent)

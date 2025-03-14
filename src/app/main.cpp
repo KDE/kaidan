@@ -15,7 +15,6 @@
 // Qt
 #include <QCommandLineOption>
 #include <QCommandLineParser>
-#include <QDebug>
 #include <QDir>
 #include <QIcon>
 #include <QJsonArray>
@@ -26,32 +25,25 @@
 #include <QTranslator>
 #include <QWindow>
 #include <qqml.h>
-
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
 #endif
-
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 #include <private/qtx11extras_p.h>
 #endif
-
 // Windows
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
-
-// KF6
+// KDE
 #if __has_include("KCrash")
 #include <KCrash>
 #endif
-
 #if __has_include("KWindowSystem")
 #include <KWindowSystem>
 #endif
-
 // KDAB
 #include <kdsingleapplication.h>
-
 // QXmpp
 #include <QXmppClient.h>
 #include <QXmppDiscoveryIq.h>
@@ -62,7 +54,6 @@
 #include <QXmppUri.h>
 #include <QXmppVCardIq.h>
 #include <QXmppVersionIq.h>
-
 // Kaidan
 #include "Account.h"
 #include "AccountManager.h"
@@ -107,6 +98,7 @@
 #include "MessageComposition.h"
 #include "MessageModel.h"
 #include "MessageReactionModel.h"
+#include "ProviderListItem.h"
 #include "ProviderListModel.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"

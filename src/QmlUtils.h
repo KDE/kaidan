@@ -6,11 +6,12 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
 #include <QUrl>
-
+// QXmpp
 #include <QXmppMessage.h>
-
+// Kaidan
 #include "ClientWorker.h"
 
 class QGeoCoordinate;

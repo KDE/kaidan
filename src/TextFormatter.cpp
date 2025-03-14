@@ -6,6 +6,7 @@
 
 #include "TextFormatter.h"
 
+// Qt
 #include <QGuiApplication>
 #include <QPalette>
 #include <QQuickTextDocument>
@@ -13,7 +14,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <unicode/uchar.h>
-
+// Kaidan
 #include "Algorithms.h"
 #include "QmlUtils.h"
 

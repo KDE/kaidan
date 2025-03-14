@@ -3,11 +3,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR LGPL-2.1-or-later
 
+// Qt
 #include <QTest>
-
+// QXmpp
 #include <QXmppTrustLevel.h>
 #include <QXmppTrustMessageKeyOwner.h>
-
+// Kaidan
 #include "Database.h"
 #include "Test.h"
 #include "TestUtils.h"

@@ -5,14 +5,15 @@
 
 #pragma once
 
+// Qt
 #include <QDateTime>
 #include <QObject>
 #include <QString>
 #include <QUuid>
-
+// QXmpp
 #include <QXmppConfiguration.h>
 #include <QXmppCredentials.h>
-
+// Kaidan
 #include "Encryption.h"
 #include "Globals.h"
 #include "Kaidan.h"

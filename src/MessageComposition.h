@@ -7,13 +7,12 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
 
-#include "Message.h"
-
+struct File;
 class FileSelectionModel;
-template<typename T>
-class QFutureWatcher;
+class Message;
 
 class MessageComposition : public QObject
 {

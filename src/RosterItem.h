@@ -8,9 +8,10 @@
 
 #pragma once
 
+// Qt
 #include <QDateTime>
 #include <QXmppRosterIq.h>
-
+// Kaidan
 #include "Encryption.h"
 #include "Enums.h"
 

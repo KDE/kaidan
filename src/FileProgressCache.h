@@ -5,9 +5,11 @@
 
 #pragma once
 
-#include <QObject>
+// std
 #include <mutex>
-
+// Qt
+#include <QObject>
+// Kaidan
 #include "AbstractNotifier.h"
 
 struct FileProgress {

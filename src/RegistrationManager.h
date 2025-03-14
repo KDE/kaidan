@@ -7,9 +7,7 @@
 #pragma once
 
 // Qt
-#include <QList>
 #include <QObject>
-#include <QTimer>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppStanza.h>
@@ -17,10 +15,10 @@
 class ClientWorker;
 class DataFormModel;
 class RegistrationDataFormModel;
-class QXmppRegistrationManager;
 class QXmppClient;
 class QXmppDataForm;
 class QXmppRegisterIq;
+class QXmppRegistrationManager;
 
 class RegistrationManager : public QObject
 {

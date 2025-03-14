@@ -4,8 +4,6 @@
 
 #include "MixController.h"
 
-// Qt
-#include <QStringBuilder>
 // QXmpp
 #include "QXmppMixParticipantItem.h"
 #include <QXmppClient.h>

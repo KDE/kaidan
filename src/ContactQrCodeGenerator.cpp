@@ -4,6 +4,7 @@
 
 #include "ContactQrCodeGenerator.h"
 
+// Qt
 #include <QUrl>
 
 ContactQrCodeGenerator::ContactQrCodeGenerator(QObject *parent)

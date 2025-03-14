@@ -5,8 +5,9 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
-
+// QXmpp
 #include <QXmppGlobal.h>
 
 class Encryption

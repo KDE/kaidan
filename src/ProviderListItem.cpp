@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ProviderListItem.h"
+
 // Qt
 #include <QJsonArray>
 #include <QJsonObject>

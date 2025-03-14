@@ -4,6 +4,7 @@
 
 #pragma once
 
+// Kaidan
 #include "AbstractQrCodeGenerator.h"
 
 /**

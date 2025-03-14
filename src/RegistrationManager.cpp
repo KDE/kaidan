@@ -8,6 +8,8 @@
 
 // std
 #include <chrono>
+// Qt
+#include <QTimer>
 // QXmpp
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppRegistrationManager.h>
@@ -15,7 +17,6 @@
 #include "AccountManager.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
-#include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
 

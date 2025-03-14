@@ -4,6 +4,7 @@
 
 #pragma once
 
+// Kaidan
 #include "TrustMessageUriGenerator.h"
 
 class AccountTrustMessageUriGenerator : public TrustMessageUriGenerator

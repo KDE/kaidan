@@ -5,14 +5,13 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
+// QXmpp
+#include <QXmppFileSharingManager.h>
 #include <QXmppTask.h>
 
-#include <QXmppFileSharingManager.h>
-
 struct File;
-struct Message;
-class QXmppFileSharingManager;
 class QXmppClient;
 
 class FileSharingController : public QObject

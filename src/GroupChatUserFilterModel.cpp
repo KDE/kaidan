@@ -4,6 +4,7 @@
 
 #include "GroupChatUserFilterModel.h"
 
+// Kaidan
 #include "GroupChatUserModel.h"
 
 GroupChatUserFilterModel::GroupChatUserFilterModel(QObject *parent)

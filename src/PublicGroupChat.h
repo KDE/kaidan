@@ -5,8 +5,8 @@
 
 #pragma once
 
+// Qt
 #include <QJsonObject>
-#include <QObject>
 
 using PublicGroupChats = QList<class PublicGroupChat>;
 

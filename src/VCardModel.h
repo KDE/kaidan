@@ -5,8 +5,9 @@
 
 #pragma once
 
+// Qt
 #include <QAbstractListModel>
-
+// QXmpp
 #include <QXmppVCardIq.h>
 
 class QXmppVCardIq;

@@ -5,13 +5,12 @@
 
 #include "VersionManager.h"
 
-#include <QStringBuilder>
-
+// QXmpp
 #include <QXmppClient.h>
 #include <QXmppPresence.h>
 #include <QXmppRosterManager.h>
 #include <QXmppVersionManager.h>
-
+// Kaidan
 #include "Globals.h"
 
 VersionManager::VersionManager(QXmppClient *client, QObject *parent)

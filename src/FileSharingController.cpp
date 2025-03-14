@@ -8,14 +8,16 @@
 
 // std
 #include <array>
-
+// Qt
 #include <QDir>
 #include <QFile>
 #include <QImage>
 #include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QStringBuilder>
-
+// KDE
+#include <KFileUtils>
+// QXmpp
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppError.h>
@@ -28,15 +30,12 @@
 #include <QXmppPromise.h>
 #include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
-
-#include <KFileUtils>
-
+// Kaidan
 #include "Account.h"
 #include "AccountDb.h"
 #include "Algorithms.h"
 #include "FileProgressCache.h"
 #include "FutureUtils.h"
-#include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "ServerFeaturesCache.h"

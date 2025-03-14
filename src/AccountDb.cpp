@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "AccountDb.h"
+
 // Qt
 #include <QSqlDriver>
 #include <QSqlField>

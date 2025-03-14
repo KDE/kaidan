@@ -10,8 +10,8 @@
 
 #include "ChatController.h"
 
+// std
 #include <chrono>
-
 // Qt
 #include <QTimer>
 // QXmpp

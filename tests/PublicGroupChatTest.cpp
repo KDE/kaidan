@@ -2,11 +2,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+// Qt
 #include <QJsonArray>
 #include <QSignalSpy>
 #include <QTest>
 #include <QTimer>
-
+// Kaidan
 #include "PublicGroupChat.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"

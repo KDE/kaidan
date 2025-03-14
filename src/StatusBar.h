@@ -26,6 +26,7 @@
 
 #pragma once
 
+// Qt
 #include <QColor>
 #include <QObject>
 

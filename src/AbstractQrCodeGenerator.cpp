@@ -9,7 +9,7 @@
 
 // Qt
 #include <QImage>
-// Prison
+// KDE
 #include <Prison/barcode.h>
 // Kaidan
 #include "Kaidan.h"

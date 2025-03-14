@@ -7,6 +7,16 @@
 
 #include "MessageComposition.h"
 
+// Qt
+#include <QFileDialog>
+#include <QFutureWatcher>
+#include <QGuiApplication>
+#include <QMimeDatabase>
+// KDE
+#include <KFileItem>
+#include <KIO/PreviewJob>
+// QXmpp
+#include <QXmppUtils.h>
 // Kaidan
 #include "Algorithms.h"
 #include "ChatController.h"
@@ -19,16 +29,6 @@
 #include "MessageDb.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
-// Qt
-#include <QFileDialog>
-#include <QFutureWatcher>
-#include <QGuiApplication>
-#include <QMimeDatabase>
-// QXmpp
-#include <QXmppUtils.h>
-// KF
-#include <KFileItem>
-#include <KIO/PreviewJob>
 
 MessageComposition::MessageComposition()
     : m_fileSelectionModel(new FileSelectionModel(this))

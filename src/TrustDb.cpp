@@ -6,12 +6,13 @@
 
 #include "TrustDb.h"
 
+// Qt
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QStringBuilder>
-
+// QXmpp
 #include <QXmppTrustMessageKeyOwner.h>
-
+// Kaidan
 #include "Globals.h"
 #include "SqlUtils.h"
 

@@ -6,15 +6,14 @@
 
 #include "OmemoController.h"
 
-#include <QStringBuilder>
+// Qt
 #include <QTimer>
-
+// QXmpp
 #include <QXmppOmemoManager.h>
-
+// Kaidan
 #include "AccountManager.h"
 #include "Algorithms.h"
 #include "FutureUtils.h"
-#include "Globals.h"
 #include "Kaidan.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"

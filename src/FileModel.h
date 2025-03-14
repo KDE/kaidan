@@ -4,10 +4,11 @@
 
 #pragma once
 
-#include "Message.h"
-
+// Qt
 #include <QAbstractListModel>
 #include <QFutureWatcher>
+// Kaidan
+#include "Message.h"
 
 using Files = QList<File>;
 

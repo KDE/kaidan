@@ -9,9 +9,10 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#include <GlobalsGen.h>
-
+// Qt
 #include <QLatin1String>
+// Kaidan
+#include <GlobalsGen.h>
 
 // Kaidan settings
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"

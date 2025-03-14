@@ -4,6 +4,7 @@
 
 #include "ContactTrustMessageUriGenerator.h"
 
+// Kaidan
 #include "EncryptionController.h"
 #include "FutureUtils.h"
 

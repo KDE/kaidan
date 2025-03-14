@@ -7,13 +7,14 @@
 
 #pragma once
 
+// Qt
 #include <QFuture>
 #include <QGeoCoordinate>
 #include <QMimeDatabase>
 #include <QObject>
-
+// QXmpp
 #include <QXmppFileSharingManager.h>
-
+// Kaidan
 #include "Enums.h"
 #include "Globals.h"
 

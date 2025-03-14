@@ -5,9 +5,10 @@
 
 #include "UserDevicesModel.h"
 
+// QXmpp
 #include <QXmppUtils.h>
 #include <QXmppVersionIq.h>
-
+// Kaidan
 #include "Kaidan.h"
 #include "VersionManager.h"
 

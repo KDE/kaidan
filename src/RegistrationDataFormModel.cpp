@@ -4,8 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RegistrationDataFormModel.h"
-// Qt
-#include <QString>
+
 // QXmpp
 #include <QXmppDataForm.h>
 

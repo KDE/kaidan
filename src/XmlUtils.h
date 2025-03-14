@@ -4,9 +4,10 @@
 
 #pragma once
 
-#include "Enums.h"
-
+// Qt
 #include <QDomElement>
+// Kaidan
+#include "Enums.h"
 
 namespace XmlUtils
 {

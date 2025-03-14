@@ -7,6 +7,7 @@
 
 #pragma once
 
+// Qt
 #include <QImage>
 #include <QObject>
 

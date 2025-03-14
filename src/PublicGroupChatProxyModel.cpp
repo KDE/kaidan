@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "PublicGroupChatProxyModel.h"
+
+// Kaidan
 #include "PublicGroupChatModel.h"
 
 PublicGroupChatProxyModel::PublicGroupChatProxyModel(QObject *parent)
