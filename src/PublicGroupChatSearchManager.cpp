@@ -15,8 +15,8 @@
 #include <QStandardPaths>
 #include <QTimer>
 #include <QUrlQuery>
-
-Q_LOGGING_CATEGORY(publicGroupChat_search, "public-group-chat.search", QtMsgType::QtWarningMsg)
+// Kaidan
+#include "kaidan_core_debug.h"
 
 #define NEXT_TIMEOUT 0
 
@@ -106,7 +106,7 @@ QNetworkRequest PublicGroupChatSearchManager::newRequest(const QString &previous
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("Accept-Encoding"), QByteArrayLiteral("gzip, deflate"));
 
-    qCDebug(publicGroupChat_search, "Requesting groupChats: %s", qUtf8Printable(url.toString()));
+    qCDebug(KAIDAN_CORE_LOG, "Requesting groupChats: %s", qUtf8Printable(url.toString()));
 
     return request;
 }
@@ -135,19 +135,19 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
     if (reply->error() != QNetworkReply::NoError) {
         if (reply->error() == QNetworkReply::OperationCanceledError) {
             // We did cancel the request - not an error
-            qCDebug(publicGroupChat_search, "Search request aborted");
+            qCDebug(KAIDAN_CORE_LOG, "Search request aborted");
             return;
         }
 
         const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
         if (statusCode == 429) {
-            qCDebug(publicGroupChat_search, "Search request long throttled");
+            qCDebug(KAIDAN_CORE_LOG, "Search request long throttled");
             m_throttler->start(RequestTimeout);
             return;
         }
 
-        qCWarning(publicGroupChat_search, "Search request error: %s", qUtf8Printable(reply->errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Search request error: %s", qUtf8Printable(reply->errorString()));
 
         if (readGroupChats()) {
             Q_EMIT groupChatsReceived(m_groupChats);
@@ -170,7 +170,7 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
         Q_EMIT groupChatsReceived(m_groupChats);
         setIsRunning(false);
     } else {
-        qCDebug(publicGroupChat_search, "Search request fast throttled");
+        qCDebug(KAIDAN_CORE_LOG, "Search request fast throttled");
         m_throttler->start(NEXT_TIMEOUT);
     }
 }
@@ -182,7 +182,7 @@ QString PublicGroupChatSearchManager::saveFilePath() const
     const auto dir = QDir(appDataPath);
 
     if (!dir.mkpath(QStringLiteral("."))) {
-        qCWarning(publicGroupChat_search, "Can not create dir: %ls", qUtf16Printable(dir.absolutePath()));
+        qCWarning(KAIDAN_CORE_LOG, "Cannot create dir: %ls", qUtf16Printable(dir.absolutePath()));
         return {};
     }
 
@@ -194,7 +194,7 @@ bool PublicGroupChatSearchManager::saveGroupChats()
     QSaveFile file(saveFilePath());
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-        qCWarning(publicGroupChat_search, "Can not open file for writing: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Cannot open file for writing: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
         file.cancelWriting();
         return false;
     }
@@ -202,7 +202,7 @@ bool PublicGroupChatSearchManager::saveGroupChats()
     const auto json = QJsonDocument(PublicGroupChat::toJson(m_groupChats)).toJson();
 
     if (file.write(json) == -1) {
-        qCWarning(publicGroupChat_search, "Can not save public group chats: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Cannot save public group chats: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
         file.cancelWriting();
         return false;
     }
@@ -221,7 +221,7 @@ bool PublicGroupChatSearchManager::readGroupChats()
     QFile file(filePath);
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qCWarning(publicGroupChat_search, "Can not open file for reading: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Can ot open file for reading: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
         return false;
     }
 
@@ -229,7 +229,7 @@ bool PublicGroupChatSearchManager::readGroupChats()
     const auto document = QJsonDocument::fromJson(file.readAll(), &error);
 
     if (error.error != QJsonParseError::NoError) {
-        qCWarning(publicGroupChat_search, "Can not parse json file: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(error.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Cannot parse json file: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(error.errorString()));
         return false;
     }
 

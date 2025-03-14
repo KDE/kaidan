@@ -5,12 +5,9 @@
 #pragma once
 
 // Qt
-#include <QLoggingCategory>
 #include <QPointer>
 // Kaidan
 #include "PublicGroupChat.h"
-
-Q_DECLARE_LOGGING_CATEGORY(publicGroupChat_search)
 
 class QNetworkAccessManager;
 class QNetworkReply;

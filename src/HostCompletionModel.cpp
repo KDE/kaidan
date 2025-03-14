@@ -9,13 +9,11 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonParseError>
-#include <QLoggingCategory>
 // Kaidan
 #include "Algorithms.h"
 #include "Globals.h"
 #include "RosterModel.h"
-
-Q_LOGGING_CATEGORY(providers_completion, "providers.completion", QtMsgType::QtWarningMsg)
+#include "kaidan_core_debug.h"
 
 int HostCompletionModel::rowCount(const QModelIndex &parent) const
 {
@@ -119,14 +117,14 @@ QString HostCompletionModel::transform(const QString &entry) const
 QStringList HostCompletionModel::completionProviders() const
 {
     if (!QFile::exists(PROVIDER_COMPLETION_LIST_FILE_PATH)) {
-        qCWarning(providers_completion, "Can not open known providers file: %ls, file does not exists", qUtf16Printable(PROVIDER_COMPLETION_LIST_FILE_PATH));
+        qCWarning(KAIDAN_CORE_LOG, "Can not open known providers file: %ls, file does not exists", qUtf16Printable(PROVIDER_COMPLETION_LIST_FILE_PATH));
         return {};
     }
 
     QFile file(PROVIDER_COMPLETION_LIST_FILE_PATH);
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qCWarning(providers_completion,
+        qCWarning(KAIDAN_CORE_LOG,
                   "Can not open known providers file: %ls, %ls",
                   qUtf16Printable(PROVIDER_COMPLETION_LIST_FILE_PATH),
                   qUtf16Printable(file.errorString()));
@@ -137,10 +135,7 @@ QStringList HostCompletionModel::completionProviders() const
     const auto document = QJsonDocument::fromJson(file.readAll(), &error);
 
     if (error.error != QJsonParseError::NoError) {
-        qCWarning(providers_completion,
-                  "Can not parse known providers JSON file: %ls, %ls",
-                  qUtf16Printable(file.fileName()),
-                  qUtf16Printable(error.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Can not parse known providers JSON file: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(error.errorString()));
         return {};
     }
 
