@@ -46,6 +46,7 @@
 #include "EncryptionController.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "LogHandler.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
@@ -59,7 +60,6 @@
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
-#include "kaidan_core_debug.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
     : settings(new Settings(parent))

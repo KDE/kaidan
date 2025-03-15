@@ -37,9 +37,9 @@
 #include "FileProgressCache.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "MessageDb.h"
 #include "ServerFeaturesCache.h"
-#include "kaidan_core_debug.h"
 
 template<typename T, typename Lambda>
 auto find_if(T &container, Lambda lambda)

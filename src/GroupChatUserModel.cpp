@@ -9,8 +9,8 @@
 #include "FutureUtils.h"
 #include "Globals.h"
 #include "GroupChatUserDb.h"
+#include "KaidanCoreLog.h"
 #include "RosterModel.h"
-#include "kaidan_core_debug.h"
 
 GroupChatUserModel::GroupChatUserModel(QObject *parent)
     : QAbstractListModel(parent)

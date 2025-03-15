@@ -42,6 +42,7 @@
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
@@ -49,7 +50,6 @@
 #include "RosterDb.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
-#include "kaidan_core_debug.h"
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;

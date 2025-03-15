@@ -14,7 +14,7 @@
 #include <QSqlField>
 #include <QSqlRecord>
 // Kaidan
-#include "kaidan_core_debug.h"
+#include "KaidanCoreLog.h"
 
 namespace SqlUtils
 {

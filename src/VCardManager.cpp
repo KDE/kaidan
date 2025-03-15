@@ -17,8 +17,8 @@
 // Kaidan
 #include "AvatarFileStorage.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "VCardCache.h"
-#include "kaidan_core_debug.h"
 
 VCardManager::VCardManager(ClientWorker *clientWorker, QXmppClient *client, AvatarFileStorage *avatars, QObject *parent)
     : QObject(parent)

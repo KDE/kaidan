@@ -12,8 +12,8 @@
 // Kaidan
 #include "Algorithms.h"
 #include "Globals.h"
+#include "KaidanCoreLog.h"
 #include "RosterModel.h"
-#include "kaidan_core_debug.h"
 
 int HostCompletionModel::rowCount(const QModelIndex &parent) const
 {

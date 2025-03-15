@@ -24,6 +24,7 @@
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "MessageDb.h"
@@ -31,7 +32,6 @@
 #include "RosterDb.h"
 #include "RosterModel.h"
 #include "TrustDb.h"
-#include "kaidan_core_debug.h"
 
 // defines that the message is suitable for correction only if it is among the N latest messages
 constexpr int MAX_CORRECTION_MESSAGE_COUNT_DEPTH = 20;

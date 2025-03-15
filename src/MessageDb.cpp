@@ -26,8 +26,8 @@
 #include "Globals.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
+#include "KaidanCoreLog.h"
 #include "TrustDb.h"
-#include "kaidan_core_debug.h"
 
 Q_DECLARE_METATYPE(QXmpp::Cipher)
 Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)

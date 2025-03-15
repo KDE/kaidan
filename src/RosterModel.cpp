@@ -17,12 +17,12 @@
 #include "AccountManager.h"
 #include "ChatController.h"
 #include "FutureUtils.h"
+#include "KaidanCoreLog.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
 #include "RosterManager.h"
-#include "kaidan_core_debug.h"
 
 RosterModel *RosterModel::s_instance = nullptr;
 

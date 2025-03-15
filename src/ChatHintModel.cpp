@@ -12,11 +12,11 @@
 #include "FutureUtils.h"
 #include "GroupChatController.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "Notifications.h"
 #include "QmlUtils.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
-#include "kaidan_core_debug.h"
 
 ChatHintModel *ChatHintModel::s_instance = nullptr;
 

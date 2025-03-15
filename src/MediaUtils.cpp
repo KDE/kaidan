@@ -26,8 +26,8 @@
 #include <KIO/PreviewJob>
 // Kaidan
 #include "FutureUtils.h"
+#include "KaidanCoreLog.h"
 #include "SystemUtils.h"
-#include "kaidan_core_debug.h"
 
 const auto IMAGE_FILE_EXTENSION = QStringLiteral("jpg");
 const auto AUDIO_FILE_EXTENSION = QStringLiteral("mp3");

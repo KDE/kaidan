@@ -11,7 +11,7 @@
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan
-#include "kaidan_core_debug.h"
+#include "KaidanCoreLog.h"
 
 LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
     : QObject(parent)

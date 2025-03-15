@@ -6,9 +6,9 @@
 
 // Kaidan
 #include "FutureUtils.h"
+#include "KaidanCoreLog.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
-#include "kaidan_core_debug.h"
 
 FileModel::FileModel(QObject *parent)
     : QAbstractListModel(parent)

@@ -7,7 +7,7 @@
 // Kaidan
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
-#include "kaidan_core_debug.h"
+#include "KaidanCoreLog.h"
 
 MessageReactionModel::MessageReactionModel(QObject *parent)
     : QAbstractListModel(parent)

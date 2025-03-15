@@ -14,8 +14,8 @@
 #include "FutureUtils.h"
 #include "Globals.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "SqlUtils.h"
-#include "kaidan_core_debug.h"
 
 using namespace SqlUtils;
 

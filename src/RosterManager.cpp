@@ -17,11 +17,11 @@
 #include "ChatHintModel.h"
 #include "EncryptionController.h"
 #include "GroupChatController.h"
+#include "KaidanCoreLog.h"
 #include "MessageDb.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 #include "VCardManager.h"
-#include "kaidan_core_debug.h"
 
 RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
     : QObject(parent)

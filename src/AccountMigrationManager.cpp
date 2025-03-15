@@ -20,12 +20,12 @@
 #include "Algorithms.h"
 #include "Encryption.h"
 #include "FutureUtils.h"
+#include "KaidanCoreLog.h"
 #include "RegistrationManager.h"
 #include "RosterDb.h"
 #include "RosterItem.h"
 #include "RosterModel.h"
 #include "XmlUtils.h"
-#include "kaidan_core_debug.h"
 
 #define readDataElement(NAME)                                                                                                                                  \
     if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), data.NAME)) {                                                            \

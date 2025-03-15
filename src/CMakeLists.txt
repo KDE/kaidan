@@ -17,7 +17,7 @@ add_library(Kaidan::Core ALIAS libkaidancore)
 
 ecm_qt_declare_logging_category(
     libkaidancore
-    HEADER kaidan_core_debug.h
+    HEADER KaidanCoreLog.h
     IDENTIFIER KAIDAN_CORE_LOG
     CATEGORY_NAME im.kaidan.core
     DESCRIPTION "Kaidan Core"

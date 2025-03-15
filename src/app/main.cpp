@@ -92,6 +92,7 @@
 #include "HostCompletionModel.h"
 #include "HostCompletionProxyModel.h"
 #include "Kaidan.h"
+#include "KaidanLog.h"
 #include "LoginQrCodeGenerator.h"
 #include "MediaUtils.h"
 #include "Message.h"
@@ -117,7 +118,6 @@
 #include "VCardManager.h"
 #include "VCardModel.h"
 #include "VersionManager.h"
-#include "kaidan_debug.h"
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 

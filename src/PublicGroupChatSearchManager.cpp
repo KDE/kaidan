@@ -16,7 +16,7 @@
 #include <QTimer>
 #include <QUrlQuery>
 // Kaidan
-#include "kaidan_core_debug.h"
+#include "KaidanCoreLog.h"
 
 #define NEXT_TIMEOUT 0
 

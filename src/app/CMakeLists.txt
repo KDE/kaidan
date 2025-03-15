@@ -9,7 +9,7 @@ ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
 ecm_qt_declare_logging_category(
     ${PROJECT_NAME}
-    HEADER kaidan_debug.h
+    HEADER KaidanLog.h
     IDENTIFIER KAIDAN_LOG
     CATEGORY_NAME im.kaidan.kaidan
     DESCRIPTION "Kaidan"

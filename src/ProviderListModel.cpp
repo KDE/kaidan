@@ -16,9 +16,9 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "Globals.h"
+#include "KaidanCoreLog.h"
 #include "ProviderListItem.h"
 #include "QmlUtils.h"
-#include "kaidan_core_debug.h"
 
 int ProviderListModel::providersMatchingSystemLocaleMinimumCount()
 {

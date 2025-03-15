@@ -13,7 +13,7 @@
 #include <QStandardPaths>
 #include <QUrl>
 // Kaidan
-#include "kaidan_core_debug.h"
+#include "KaidanCoreLog.h"
 
 AvatarFileStorage::AvatarFileStorage(QObject *parent)
     : QObject(parent)

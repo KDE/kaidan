@@ -30,9 +30,9 @@
 #include "AccountDb.h"
 #include "Globals.h"
 #include "Kaidan.h"
+#include "KaidanCoreLog.h"
 #include "Settings.h"
 #include "SqlUtils.h"
-#include "kaidan_core_debug.h"
 
 using namespace SqlUtils;
 
