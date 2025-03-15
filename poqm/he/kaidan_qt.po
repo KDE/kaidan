@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-08 15:58+0200\n"
+"PO-Revision-Date: 2025-03-14 09:07+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2750,17 +2750,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "שחרור נעיצה"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "נעיצה"
@@ -3146,7 +3140,7 @@ msgstr "מסנן"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "נעיצה והעברה"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3173,27 +3167,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "יצירת חשבון ידנית"
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "שם משתמש או סיסמה שגויים."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט תקין."
 
-#: src/QmlUtils.cpp:93
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "שגיאה בעת הניסיון להתחבר בצורה מאובטחת."
 
-#: src/QmlUtils.cpp:95
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "השרת לא תומך בחיבורים מאובטחים."
 
-#: src/QmlUtils.cpp:97
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3201,61 +3195,61 @@ msgid ""
 msgstr ""
 "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט או שם השרת שלך תקינים."
 
-#: src/QmlUtils.cpp:99
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "השרת מנותק או שחסום על ידי חומת אש."
 
-#: src/QmlUtils.cpp:101
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "פרוטוקול האימות לא נתמך על ידי השרת."
 
-#: src/QmlUtils.cpp:103
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "לא ניתן לרענן את החיבור."
 
-#: src/QmlUtils.cpp:105
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "הגישה לאינטרנט אסורה. נא לבדוק את הגדרות הגישה של המערכת לאינטרנט."
 
-#: src/QmlUtils.cpp:107
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "השרת הזה לא תומך ברישום."
 
-#: src/QmlUtils.cpp:109
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "לא ניתן להיכנס. נא לאשר תחילה את ההודעה שקיבלת בדוא״ל."
 
-#: src/QmlUtils.cpp:111
+#: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "לא ניתן להתחבר לשרת."
 
-#: src/QmlUtils.cpp:258
+#: src/QmlUtils.cpp:249
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:264
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 מקוון/נת"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:266
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "הקלדה מצד %1…"
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:268
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"

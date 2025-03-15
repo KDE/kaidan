@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-01-24 09:06+0100\n"
+"PO-Revision-Date: 2025-03-14 09:09+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2818,17 +2818,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "Deixa de fixar"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Fixa"
@@ -3217,7 +3211,7 @@ msgstr "Filtre"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Fixa i mou"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3244,28 +3238,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea un compte manualment"
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "El nom d'usuari o la contrasenya són incorrectes."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
 
-#: src/QmlUtils.cpp:93
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "S'ha produït un error en provar de connectar de forma segura."
 
-#: src/QmlUtils.cpp:95
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "El servidor no és compatible amb les connexions segures."
 
-#: src/QmlUtils.cpp:97
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3274,22 +3268,22 @@ msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
 "o el vostre nom de servidor."
 
-#: src/QmlUtils.cpp:99
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
-#: src/QmlUtils.cpp:101
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
 
-#: src/QmlUtils.cpp:103
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "No s'ha pogut actualitzar la connexió."
 
-#: src/QmlUtils.cpp:105
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3298,41 +3292,41 @@ msgstr ""
 "No es permet l'accés a Internet. Comproveu la configuració d'accés a "
 "Internet del sistema."
 
-#: src/QmlUtils.cpp:107
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Aquest servidor no permet el registre."
 
-#: src/QmlUtils.cpp:109
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
 "electrònic que heu rebut."
 
-#: src/QmlUtils.cpp:111
+#: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "No s'ha pogut connectar amb el servidor."
 
-#: src/QmlUtils.cpp:258
+#: src/QmlUtils.cpp:249
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:264
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 està en línia"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:266
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 està escrivint…"
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:268
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3421,79 +3415,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "AvatarChangePage|"
-#~ msgid "Choose profile image"
-#~ msgstr "Trieu una imatge de perfil"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Log in"
-#~ msgstr "Inici de sessió"
-
-#~ msgctxt "StartPage|"
-#~ msgid "Log in"
-#~ msgstr "Inici de sessió"
-
-#~ msgctxt "StartPage|"
-#~ msgid "or"
-#~ msgstr "o"
-
-#~ msgctxt "CameraStatus|"
-#~ msgid "Loading camera…"
-#~ msgstr "S'està carregant la càmera…"
-
-#~ msgctxt "CameraStatus|"
-#~ msgid ""
-#~ "Camera busy\n"
-#~ "Try to close other applications using the camera"
-#~ msgstr ""
-#~ "La càmera està ocupada.\n"
-#~ "Intenteu tancar les altres aplicacions que estan utilitzant la càmera"
-
-#~ msgctxt "QrCodeScanner|"
-#~ msgid "The camera format '%1' is not supported."
-#~ msgstr "El format de càmera «%1» no està implementat."
-
-#~ msgctxt "MediaRecorder|"
-#~ msgid "Default"
-#~ msgstr "Predeterminat"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Very low"
-#~ msgstr "Molt baixa"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Low"
-#~ msgstr "Baixa"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "High"
-#~ msgstr "Alta"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Very high"
-#~ msgstr "Molt alta"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Constant quality"
-#~ msgstr "Qualitat constant"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Constant bit rate"
-#~ msgstr "Velocitat de bits constant"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Average bit rate"
-#~ msgstr "Velocitat de bits mitjana"
-
-#~ msgctxt "CommonEncoderSettings|"
-#~ msgid "Two pass"
-#~ msgstr "Dues passades"
-
-#~ msgctxt "OmemoManager|"
-#~ msgid "End-to-end encryption via OMEMO 2 could not be set up"
-#~ msgstr "No s'ha pogut establir l'encriptatge d'extrem a extrem via OMEMO 2"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-24 09:15+0200\n"
+"PO-Revision-Date: 2025-03-14 13:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2814,17 +2814,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "Відшпилити"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Пришпилити"
@@ -3215,7 +3209,7 @@ msgstr "Фільтрувати"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Пришпилити і пересунути"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3242,29 +3236,29 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/QmlUtils.cpp:93
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/QmlUtils.cpp:95
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/QmlUtils.cpp:97
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3273,22 +3267,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/QmlUtils.cpp:99
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/QmlUtils.cpp:101
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/QmlUtils.cpp:103
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/QmlUtils.cpp:105
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3297,41 +3291,41 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/QmlUtils.cpp:107
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/QmlUtils.cpp:109
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/QmlUtils.cpp:111
+#: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
 
-#: src/QmlUtils.cpp:258
+#: src/QmlUtils.cpp:249
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:264
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:266
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:268
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
