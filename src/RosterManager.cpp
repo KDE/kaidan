@@ -102,7 +102,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QO
 
 void RosterManager::populateRoster()
 {
-    qCDebug(KAIDAN_CORE_LOG) << "[client] [RosterManager] Populating roster";
+    qCDebug(KAIDAN_CORE_LOG) << "Populating roster";
 
     // create a new list of contacts
     QHash<QString, RosterItem> items;
@@ -197,9 +197,8 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
                 });
         }
     } else {
-        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not add contact, as a result of not being connected."));
-        qCWarning(KAIDAN_CORE_LOG) << "[client] [RosterManager] Could not add contact, as a result of "
-                                      "not being connected.";
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not add contact as a result of not being connected."));
+        qCWarning(KAIDAN_CORE_LOG) << "Could not add contact as a result of not being connected.";
     }
 }
 
@@ -208,9 +207,8 @@ void RosterManager::removeContact(const QString &jid)
     if (m_client->state() == QXmppClient::ConnectedState) {
         m_manager->removeItem(jid);
     } else {
-        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not remove contact, as a result of not being connected."));
-        qCWarning(KAIDAN_CORE_LOG) << "[client] [RosterManager] Could not remove contact, as a result of "
-                                      "not being connected.";
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not remove contact as a result of not being connected."));
+        qCWarning(KAIDAN_CORE_LOG) << "Could not remove contact as a result of not being connected.";
     }
 }
 
@@ -219,9 +217,8 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
     if (m_client->state() == QXmppClient::ConnectedState) {
         m_manager->renameItem(jid, newContactName);
     } else {
-        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename contact, as a result of not being connected."));
-        qCWarning(KAIDAN_CORE_LOG) << "[client] [RosterManager] Could not rename contact, as a result of "
-                                      "not being connected.";
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename contact as a result of not being connected."));
+        qCWarning(KAIDAN_CORE_LOG) << "Could not rename contact as a result of not being connected.";
     }
 }
 

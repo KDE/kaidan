@@ -141,7 +141,7 @@ QString QmlUtils::getResourcePath(const QString &name)
     }
 
     // no file found
-    qCWarning(KAIDAN_CORE_LOG) << "[main] Could NOT find media file:" << name;
+    qCWarning(KAIDAN_CORE_LOG) << "Could not find media file:" << name;
     return QString();
 }
 

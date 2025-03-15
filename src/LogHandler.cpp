@@ -40,11 +40,11 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
     switch (type) {
     case QXmppLogger::ReceivedMessage:
-        qCDebug(KAIDAN_CORE_LOG) << "[client] [incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+        qCDebug(KAIDAN_CORE_LOG) << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
         qDebug().noquote() << makeXmlPretty(text);
         break;
     case QXmppLogger::SentMessage:
-        qCDebug(KAIDAN_CORE_LOG) << "[client] [outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+        qCDebug(KAIDAN_CORE_LOG) << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
         qDebug().noquote() << makeXmlPretty(text);
         break;
     case QXmppLogger::WarningMessage:

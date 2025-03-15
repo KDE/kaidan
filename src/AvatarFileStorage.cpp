@@ -54,7 +54,7 @@ AvatarFileStorage::AvatarFileStorage(QObject *parent)
             };
         }
     } catch (...) {
-        qCDebug(KAIDAN_CORE_LOG) << "[AvatarFileStorage] Error in" << avatarFilePath << "(avatar list file)";
+        qCDebug(KAIDAN_CORE_LOG) << "Error in" << avatarFilePath << "(avatar list file)";
     }
 }
 

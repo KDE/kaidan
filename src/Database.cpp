@@ -232,7 +232,7 @@ void Database::commit()
     transactions--;
     if (transactions < 0) {
         transactions = 0;
-        qCWarning(KAIDAN_CORE_LOG) << "[Database] commit() called, but there's no transaction to commit.";
+        qCWarning(KAIDAN_CORE_LOG) << "commit() called but no transaction to commit";
     }
 
     if (!transactions) {
@@ -323,10 +323,10 @@ void Database::convertDatabase()
     transaction();
 
     if (d->version == DbNotCreated) {
-        qCDebug(KAIDAN_CORE_LOG) << "[Database] Creating new database with latest version" << DATABASE_LATEST_VERSION;
+        qCDebug(KAIDAN_CORE_LOG) << "Creating new database with latest version" << DATABASE_LATEST_VERSION;
         createNewDatabase();
     } else {
-        qCDebug(KAIDAN_CORE_LOG) << "[Database] Converting database from version" << d->version << "to latest version" << DATABASE_LATEST_VERSION;
+        qCDebug(KAIDAN_CORE_LOG) << "Converting database from version" << d->version << "to latest version" << DATABASE_LATEST_VERSION;
         DATABASE_CONVERT_TO_LATEST_VERSION();
     }
 

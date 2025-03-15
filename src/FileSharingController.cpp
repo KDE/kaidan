@@ -372,8 +372,8 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
             if (std::holds_alternative<QXmppError>(result)) {
                 auto errorText = std::get<QXmppError>(result).description;
 
-                qCDebug(KAIDAN_CORE_LOG) << "[FileSharingController] Couldn't download file:" << errorText;
-                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Couldn't download file: %1").arg(errorText));
+                qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
+                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
             } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
                 MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
                     auto file = find_if(message.files, [=](const auto &file) {

@@ -84,7 +84,7 @@ QVariant ChatHintModel::data(const QModelIndex &index, int role) const
         return chatHint.loadingDescription;
     }
 
-    qCWarning(KAIDAN_CORE_LOG, "[ChatHintModel] Invalid role requested!");
+    qCWarning(KAIDAN_CORE_LOG, "Invalid role requested!");
     return {};
 }
 
