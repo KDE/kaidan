@@ -10,7 +10,6 @@
 #include <array>
 // Qt
 #include <QDir>
-#include <QFile>
 #include <QImage>
 #include <QMimeDatabase>
 #include <QStandardPaths>
@@ -319,7 +318,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
         auto maybeFileName = andThen(fileShare.metadata().filename(), sanitizeFilename);
 
         // Add fallback file name, so we always have a file name
-        auto filename = [&]() {
+        auto fileName = [&]() {
             if (maybeFileName) {
                 return maybeFileName->first;
             }
@@ -337,17 +336,11 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
             return QString();
         }();
 
-        auto makeFileName = [&]() -> QString {
-            return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension;
-        };
+        const QString fileNameWithExtension = fileName + QLatin1Char('.') + fileExtension;
 
-        QString filePath = makeFileName();
-
-        // Check if the file name is already taken, and propose one that is unique
-        if (QFile::exists(filePath)) {
-            filename = KFileUtils::suggestName(QUrl::fromLocalFile(dirPath), filename);
-            filePath = makeFileName();
-        }
+        // Ensure that the file name is locally unique.
+        const auto uniqueFileNameWithExtension = KFileUtils::suggestName(QUrl::fromLocalFile(dirPath), fileNameWithExtension);
+        const QString filePath = dirPath + QDir::separator() + uniqueFileNameWithExtension;
 
         // Open the file at the resulting path
         auto output = std::make_unique<QFile>(filePath);
