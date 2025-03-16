@@ -744,7 +744,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     }
 
     // Ignore messages without any displayable content.
-    if (message.body().isEmpty() && !message.groupChatInvitation) {
+    if (message.body().isEmpty() && !message.groupChatInvitation && message.files.isEmpty()) {
         return;
     }
 
