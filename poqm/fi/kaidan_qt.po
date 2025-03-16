@@ -19,42 +19,42 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-koodin luonti epäonnistui: %1"
 
-#: src/AccountMigrationManager.cpp:388
+#: src/AccountMigrationManager.cpp:389
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Tiliä ei voitu siirtää: toinen siirto on jo meneillään"
 
-#: src/AccountMigrationManager.cpp:400
+#: src/AccountMigrationManager.cpp:401
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Tiliä ei voitu siirtää: vietyjä tilitietoja ei voitu ladata"
 
-#: src/AccountMigrationManager.cpp:409
+#: src/AccountMigrationManager.cpp:410
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Tiliä ei voitu siirtää: tarvitaan verkkoyhteys"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:96
+#: src/AuthenticatedEncryptionKeyModel.cpp:97
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Tämä laite"
 
-#: src/Blocking.cpp:325
+#: src/Blocking.cpp:322
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Laitteet"
 
-#: src/Blocking.cpp:327
+#: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Käyttäjät"
 
-#: src/Blocking.cpp:329
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Palvelimet"
 
-#: src/Blocking.cpp:331
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
@@ -149,28 +149,30 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Poistutaan ryhmäkeskustelusta"
 
-#: src/FileSharingController.cpp:376
-#, qt-format
+#: src/FileSharingController.cpp:375
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
-msgid "Couldn't download file: %1"
+msgid "Could not download file: %1"
 msgstr "Ei voitu ladata tiedostoa: %1"
 
-#: src/GroupChatUserModel.cpp:54
+#: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "Ei liitytty"
 
-#: src/GroupChatUserModel.cpp:56
+#: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Liitytty"
 
-#: src/GroupChatUserModel.cpp:58
+#: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Poistuttu"
 
-#: src/GroupChatUserModel.cpp:60
+#: src/GroupChatUserModel.cpp:61
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Estetty"
@@ -349,18 +351,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "”%1”: ei voida lähettää, koska on yli %2"
 
-#: src/MessageController.cpp:235
+#: src/MessageController.cpp:233
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
-#: src/MessageController.cpp:363
+#: src/MessageController.cpp:361
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:731
+#: src/MessageController.cpp:729
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -408,46 +410,46 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: src/MixController.cpp:114
+#: src/MixController.cpp:112
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Ryhmä on jo olemassa"
 
-#: src/MixController.cpp:141
+#: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Ei voitu määrittää, onko %1 julkinen: %2"
 
-#: src/MixController.cpp:161
+#: src/MixController.cpp:159
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Ryhmän %1 tietoja ei voitu noutaa: %2"
 
-#: src/MixController.cpp:174 src/MixController.cpp:182
+#: src/MixController.cpp:172 src/MixController.cpp:180
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Ryhmän %1 nimeä ei voitu muuttaa: %2"
 
-#: src/MixController.cpp:209
+#: src/MixController.cpp:207
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Tätä ryhmää ei ole olemassa"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:210
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Sinulla ei ole oikeutta liittyä ryhmään"
 
-#: src/MixController.cpp:278 src/MixController.cpp:291
+#: src/MixController.cpp:276 src/MixController.cpp:289
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Ei voitu kutsua käyttäjää %1 ryhmään %2: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:321
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -455,51 +457,51 @@ msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:338
+#: src/MixController.cpp:336
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Ryhmän %1 sallittuja käyttäjiä ei voitu noutaa: %2"
 
-#: src/MixController.cpp:358
+#: src/MixController.cpp:356
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Ryhmän %1 estettyjä käyttäjiä ei voitu noutaa: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:376
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Ryhmään %1 liittyneitä käyttäjiä ei voitu noutaa: %2"
 
-#: src/MixController.cpp:396
+#: src/MixController.cpp:394
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Ei voitu estää käyttäjää %1 ryhmässä %2: %3"
 
-#: src/MixController.cpp:460
+#: src/MixController.cpp:458
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Sinulla ei ole oikeutta poistaa ryhmää"
 
-#: src/Notifications.cpp:154 src/Notifications.cpp:233
+#: src/Notifications.cpp:151 src/Notifications.cpp:230
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/Notifications.cpp:158
+#: src/Notifications.cpp:155
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Merkitse luetuksi"
 
-#: src/Notifications.cpp:219
+#: src/Notifications.cpp:216
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietojasi"
 
-#: src/OmemoController.cpp:127
+#: src/OmemoController.cpp:126
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "OMEMO 2:lla ei saatu asetetuksi päästä päähän -salausta"
@@ -534,7 +536,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Ei verkossa"
 
-#: src/ProviderListModel.cpp:31
+#: src/ProviderListModel.cpp:32
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Oma palveluntarjoaja"
@@ -542,12 +544,12 @@ msgstr "Oma palveluntarjoaja"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
+#: src/ProviderListModel.cpp:101 src/ProviderListModel.cpp:111
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Ei rajoitettu"
 
-#: src/ProviderListModel.cpp:112
+#: src/ProviderListModel.cpp:113
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -3226,27 +3228,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Luo tili itse"
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Virheellinen käyttäjätunnus tai salasana."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Virhe yritettäessä salattua yhteyttä."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Palvelin ei tue salattuja yhteyksiä."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3254,22 +3256,22 @@ msgid ""
 msgstr ""
 "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys ja palvelimen nimi."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Yhteyttä ei voitu virkistää."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3278,71 +3280,80 @@ msgstr ""
 "Internetyhteyttä ei ole sallittu. Tarkista järjestelmän "
 "internetyhteysasetukset."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Palvelin ei tue rekisteröitymistä."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Ei voitu kirjautua. Vahvista ensin saamasi sähköpostiviesti."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Palvelimeen ei voitu yhdistää."
 
-#: src/QmlUtils.cpp:249
+#: src/QmlUtils.cpp:247
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/QmlUtils.cpp:264
+#: src/QmlUtils.cpp:262
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 on verkossa"
 
-#: src/QmlUtils.cpp:266
+#: src/QmlUtils.cpp:264
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 kirjoittaa…"
 
-#: src/QmlUtils.cpp:268
+#: src/QmlUtils.cpp:266
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 keskeytti kirjoittamisen"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:37
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterManager.cpp:191
+#: src/RosterManager.cpp:190
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä käyttäjää %1: %2"
 
-#: src/RosterManager.cpp:200
+#: src/RosterManager.cpp:199
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not add contact, as a result of not being connected."
+msgid "Could not add contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska ei olla verkossa."
 
-#: src/RosterManager.cpp:211
+#: src/RosterManager.cpp:209
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not remove contact, as a result of not being connected."
+msgid "Could not remove contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
 
-#: src/RosterManager.cpp:222
+#: src/RosterManager.cpp:219
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not rename contact, as a result of not being connected."
+msgid "Could not rename contact as a result of not being connected."
 msgstr "Henkilön nimeä ei voitu muuttaa, koska ei olla verkossa."
 
-#: src/RosterManager.cpp:233
+#: src/RosterManager.cpp:229
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3352,49 +3363,49 @@ msgstr ""
 "Yhteysongelman vuoksi käyttäjän %1 pyyntö nähdä henkilökohtaisia tietojasi "
 "epäonnistui: %2"
 
-#: src/RosterManager.cpp:244
+#: src/RosterManager.cpp:240
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Käyttäjän %1 salliminen henkilökohtaisiin tietoihisi epäonnistui"
 
-#: src/RosterManager.cpp:255
+#: src/RosterManager.cpp:251
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Käyttäjän %1 pääsyä henkilökohtaisiin tietoihisi ei saatu lopetetuksi"
 
-#: src/RosterModel.cpp:859
+#: src/RosterModel.cpp:858
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: src/VCardModel.cpp:117
+#: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Nimi"
 
-#: src/VCardModel.cpp:118
+#: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Kutsumanimi"
 
-#: src/VCardModel.cpp:119
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Tietoa"
 
-#: src/VCardModel.cpp:120
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "Sähköposti"
 
-#: src/VCardModel.cpp:121
+#: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
-#: src/VCardModel.cpp:128
+#: src/VCardModel.cpp:129
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"

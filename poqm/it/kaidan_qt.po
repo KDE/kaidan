@@ -19,44 +19,44 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generazione del codice QR non riuscita: %1"
 
-#: src/AccountMigrationManager.cpp:388
+#: src/AccountMigrationManager.cpp:389
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Impossibile migrare l'account: è già in corso un'altra migrazione"
 
-#: src/AccountMigrationManager.cpp:400
+#: src/AccountMigrationManager.cpp:401
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "L'account non può essere migrato: impossibile caricare i dati dell'account "
 "esportati"
 
-#: src/AccountMigrationManager.cpp:409
+#: src/AccountMigrationManager.cpp:410
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "L'account non può essere migrato: devi essere connesso"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:96
+#: src/AuthenticatedEncryptionKeyModel.cpp:97
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Questo dispositivo"
 
-#: src/Blocking.cpp:325
+#: src/Blocking.cpp:322
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Dispositivi"
 
-#: src/Blocking.cpp:327
+#: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Utenti"
 
-#: src/Blocking.cpp:329
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Server"
 
-#: src/Blocking.cpp:331
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
@@ -148,28 +148,30 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Uscita dalla chat di gruppo"
 
-#: src/FileSharingController.cpp:376
-#, qt-format
+#: src/FileSharingController.cpp:375
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
-msgid "Couldn't download file: %1"
+msgid "Could not download file: %1"
 msgstr "Impossibile scaricare il file: %1."
 
-#: src/GroupChatUserModel.cpp:54
+#: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "Non si è unito"
 
-#: src/GroupChatUserModel.cpp:56
+#: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Entrato"
 
-#: src/GroupChatUserModel.cpp:58
+#: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Ha abbandonato"
 
-#: src/GroupChatUserModel.cpp:60
+#: src/GroupChatUserModel.cpp:61
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandito"
@@ -348,18 +350,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "«%1» non può essere inviato poiché è più grande di %2"
 
-#: src/MessageController.cpp:235
+#: src/MessageController.cpp:233
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Impossibile inviare la reazione: %1"
 
-#: src/MessageController.cpp:363
+#: src/MessageController.cpp:361
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
 
-#: src/MessageController.cpp:731
+#: src/MessageController.cpp:729
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -407,96 +409,96 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: src/MixController.cpp:114
+#: src/MixController.cpp:112
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Il gruppo esiste già"
 
-#: src/MixController.cpp:141
+#: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Non è stato possibile determinare se %1 è pubblico: %2"
 
-#: src/MixController.cpp:161
+#: src/MixController.cpp:159
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Impossibile recuperare le informazioni del gruppo %1: %2"
 
-#: src/MixController.cpp:174 src/MixController.cpp:182
+#: src/MixController.cpp:172 src/MixController.cpp:180
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Impossibile rinominare il gruppo %1: %2"
 
-#: src/MixController.cpp:209
+#: src/MixController.cpp:207
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Il gruppo non esiste"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:210
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Non ti è consentito unirti al gruppo"
 
-#: src/MixController.cpp:278 src/MixController.cpp:291
+#: src/MixController.cpp:276 src/MixController.cpp:289
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 non è stato invitato a %2: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:321
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Impossibile recuperare i nodi di %1: %2"
 
-#: src/MixController.cpp:338
+#: src/MixController.cpp:336
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Gli utenti consentiti di %1 non possono essere recuperati: %2"
 
-#: src/MixController.cpp:358
+#: src/MixController.cpp:356
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Gli utenti banditi da %1 non possono essere recuperati: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:376
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Gli utenti registrati di %1 non possono essere recuperati: %2"
 
-#: src/MixController.cpp:396
+#: src/MixController.cpp:394
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 non può essere bandito da %2: %3"
 
-#: src/MixController.cpp:460
+#: src/MixController.cpp:458
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Non ti è consentito eliminare il gruppo"
 
-#: src/Notifications.cpp:154 src/Notifications.cpp:233
+#: src/Notifications.cpp:151 src/Notifications.cpp:230
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "Apri"
 
-#: src/Notifications.cpp:158
+#: src/Notifications.cpp:155
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Marca come letto"
 
-#: src/Notifications.cpp:219
+#: src/Notifications.cpp:216
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Richieste di ricevere i vostri dati personali"
 
-#: src/OmemoController.cpp:127
+#: src/OmemoController.cpp:126
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "La cifratura end-to-end tramite OMEMO 2 non può essere configurata"
@@ -531,7 +533,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Non in linea"
 
-#: src/ProviderListModel.cpp:31
+#: src/ProviderListModel.cpp:32
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Fornitore personalizzato"
@@ -539,12 +541,12 @@ msgstr "Fornitore personalizzato"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
+#: src/ProviderListModel.cpp:101 src/ProviderListModel.cpp:111
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Illimitato"
 
-#: src/ProviderListModel.cpp:112
+#: src/ProviderListModel.cpp:113
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -3236,28 +3238,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea account manualmente"
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Nome utente o password non validi."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Impossibile connettersi al server. Controlla la tua connessione Internet."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Errore durante il tentativo di connessione sicura."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Il server non supporta connessioni sicure."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3266,22 +3268,22 @@ msgstr ""
 "Impossibile connettersi al server. Controlla la tua connessione Internet o "
 "il nome del tuo server."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Il server non è in linea o è bloccato da un firewall."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Protocollo di autenticazione non supportato dal server."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Impossibile aggiornare la connessione."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3290,72 +3292,81 @@ msgstr ""
 "L'accesso a Internet non è consentito. Verifica la configurazione "
 "dell'accesso a Internet del tuo sistema."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Questo server non supporta la registrazione."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Impossibile accedere. Conferma prima il messaggio di posta che hai ricevuto."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Impossibile connettersi al server."
 
-#: src/QmlUtils.cpp:249
+#: src/QmlUtils.cpp:247
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
-#: src/QmlUtils.cpp:264
+#: src/QmlUtils.cpp:262
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 è in linea"
 
-#: src/QmlUtils.cpp:266
+#: src/QmlUtils.cpp:264
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 sta scrivendo…"
 
-#: src/QmlUtils.cpp:268
+#: src/QmlUtils.cpp:266
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha sospeso la digitazione"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:37
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Note"
 
-#: src/RosterManager.cpp:191
+#: src/RosterManager.cpp:190
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
-#: src/RosterManager.cpp:200
+#: src/RosterManager.cpp:199
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not add contact, as a result of not being connected."
+msgid "Could not add contact as a result of not being connected."
 msgstr "Impossibile aggiungere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:211
+#: src/RosterManager.cpp:209
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not remove contact, as a result of not being connected."
+msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:222
+#: src/RosterManager.cpp:219
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
-msgid "Could not rename contact, as a result of not being connected."
+msgid "Could not rename contact as a result of not being connected."
 msgstr "Impossibile rinominare il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:233
+#: src/RosterManager.cpp:229
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3365,7 +3376,7 @@ msgstr ""
 "La richiesta di vedere i dati personali di %1 non è riuscita a causa di un "
 "problema di connessione: %2"
 
-#: src/RosterManager.cpp:244
+#: src/RosterManager.cpp:240
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
@@ -3373,7 +3384,7 @@ msgstr ""
 "L'attribuzione a %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterManager.cpp:255
+#: src/RosterManager.cpp:251
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
@@ -3381,37 +3392,37 @@ msgstr ""
 "La rimozione da %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterModel.cpp:859
+#: src/RosterModel.cpp:858
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: src/VCardModel.cpp:117
+#: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Nome"
 
-#: src/VCardModel.cpp:118
+#: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Nick"
 
-#: src/VCardModel.cpp:119
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Informazioni"
 
-#: src/VCardModel.cpp:120
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "Posta elettronica"
 
-#: src/VCardModel.cpp:121
+#: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Data di nascita"
 
-#: src/VCardModel.cpp:128
+#: src/VCardModel.cpp:129
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
