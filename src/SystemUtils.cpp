@@ -57,4 +57,8 @@ QString videoDirectory()
     return QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 }
 
+QString downloadDirectory()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+}
 }

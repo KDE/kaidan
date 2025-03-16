@@ -40,6 +40,7 @@
 #include "KaidanCoreLog.h"
 #include "MessageDb.h"
 #include "ServerFeaturesCache.h"
+#include "SystemUtils.h"
 
 template<typename T, typename Lambda>
 auto find_if(T &container, Lambda lambda)
@@ -308,7 +309,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
     auto *client = Kaidan::instance()->client();
 
     runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
-        QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+        QString dirPath = SystemUtils::downloadDirectory();
 
         if (auto dir = QDir(dirPath); !dir.exists()) {
             dir.mkpath(QStringLiteral("."));
@@ -406,9 +407,7 @@ void FileSharingController::deleteFile(const QString &messageId, const File &fil
     });
 
     // don't delete files not downloaded by us
-    const auto downloadsFolder =
-        QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
-    if (file.localFilePath.startsWith(downloadsFolder)) {
+    if (file.localFilePath.startsWith(SystemUtils::downloadDirectory())) {
         QFile::remove(file.localFilePath);
     }
 }

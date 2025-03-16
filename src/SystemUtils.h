@@ -27,5 +27,5 @@ QString productName();
 QString audioDirectory();
 QString imageDirectory();
 QString videoDirectory();
-
+QString downloadDirectory();
 }
