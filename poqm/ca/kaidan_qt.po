@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-03-14 09:09+0100\n"
+"PO-Revision-Date: 2025-03-16 09:53+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -160,13 +160,11 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "S'està sortint del grup de xat"
 
-#: src/FileSharingController.cpp:375
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#: src/FileSharingController.cpp:369
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "No s'ha pogut baixar el fitxer: %1"
+msgstr "No s'han pogut baixar el fitxer: %1"
 
 #: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
@@ -3346,29 +3344,19 @@ msgid "%1 could not be added: %2"
 msgstr "No s'ha pogut afegir %1: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr ""
-"No s'ha pogut reanomenar el contacte, com a resultat de no estar connectat."
+msgstr "No s'ha pogut reanomenar el contacte perquè no hi ha connexió."
 
 #: src/RosterManager.cpp:229
 #, qt-format
