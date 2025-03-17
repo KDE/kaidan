@@ -105,12 +105,12 @@ struct ClientConfiguration {
     ClientConfiguration() = default;
     explicit ClientConfiguration(const Account &account)
     {
-        authHost = account.host;
-        authPort = account.port;
-        authTlsErrorsIgnored = account.tlsErrorsIgnored;
-        authTlsRequirement = account.tlsRequirement;
-        authJid = account.jid;
-        authPassword = account.password;
+        host = account.host;
+        port = account.port;
+        tlsErrorsIgnored = account.tlsErrorsIgnored;
+        tlsRequirement = account.tlsRequirement;
+        jid = account.jid;
+        password = account.password;
     }
 
     static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)
@@ -120,12 +120,12 @@ struct ClientConfiguration {
 
         ClientConfiguration data;
 
-        readDataElement(authHost);
-        readDataElement(authPort);
-        readDataElement(authTlsErrorsIgnored);
-        readDataElement(authTlsRequirement);
-        readDataElement(authJid);
-        readDataElement(authPassword);
+        readDataElement(host);
+        readDataElement(port);
+        readDataElement(tlsErrorsIgnored);
+        readDataElement(tlsRequirement);
+        readDataElement(jid);
+        readDataElement(password);
 
         return data;
     }
@@ -134,12 +134,12 @@ struct ClientConfiguration {
     {
         writer.writeStartElement(s_old_configuration.toString());
         writer.writeDefaultNamespace(s_kaidan_ns.toString());
-        writeDataElement(authHost);
-        writeDataElement(authPort);
-        writeDataElement(authTlsErrorsIgnored);
-        writeDataElement(authTlsRequirement);
-        writeDataElement(authJid);
-        writeDataElement(authPassword);
+        writeDataElement(host);
+        writeDataElement(port);
+        writeDataElement(tlsErrorsIgnored);
+        writeDataElement(tlsRequirement);
+        writeDataElement(jid);
+        writeDataElement(password);
         writer.writeEndElement();
     }
 
@@ -147,39 +147,39 @@ struct ClientConfiguration {
     {
         QXmppConfiguration configuration;
 
-        if (authHost) {
-            configuration.setHost(*authHost);
+        if (host) {
+            configuration.setHost(*host);
         }
 
-        if (authPort) {
-            configuration.setPort(*authPort);
+        if (port) {
+            configuration.setPort(*port);
         }
 
-        if (authTlsErrorsIgnored) {
-            configuration.setIgnoreSslErrors(*authTlsErrorsIgnored);
+        if (tlsErrorsIgnored) {
+            configuration.setIgnoreSslErrors(*tlsErrorsIgnored);
         }
 
-        if (authTlsRequirement) {
-            configuration.setStreamSecurityMode(*authTlsRequirement);
+        if (tlsRequirement) {
+            configuration.setStreamSecurityMode(*tlsRequirement);
         }
 
-        if (authJid) {
-            configuration.setJid(*authJid);
+        if (jid) {
+            configuration.setJid(*jid);
         }
 
-        if (authPassword) {
-            configuration.setPassword(*authPassword);
+        if (password) {
+            configuration.setPassword(*password);
         }
 
         return configuration;
     }
 
-    std::optional<QString> authHost;
-    std::optional<quint16> authPort;
-    std::optional<bool> authTlsErrorsIgnored;
-    std::optional<QXmppConfiguration::StreamSecurityMode> authTlsRequirement;
-    std::optional<QString> authJid;
-    std::optional<QString> authPassword;
+    std::optional<QString> host;
+    std::optional<quint16> port;
+    std::optional<bool> tlsErrorsIgnored;
+    std::optional<QXmppConfiguration::StreamSecurityMode> tlsRequirement;
+    std::optional<QString> jid;
+    std::optional<QString> password;
 };
 
 struct ClientSettings {
