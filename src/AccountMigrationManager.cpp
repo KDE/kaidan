@@ -478,25 +478,26 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
                             .then(this,
                                   [this,
                                    fail,
+                                   newJid = AccountManager::instance()->account().jid,
+                                   oldJid = m_migrationData->account.accountJid(),
                                    configuration = clientSettings->oldConfiguration.toXmppConfiguration(),
                                    contacts = clientSettings->rosterContacts()](auto &&result) {
                                       if (const auto error = std::get_if<QXmppError>(&result)) {
                                           fail(error->description);
                                       } else {
-                                          publishMovedStatement(configuration, m_migrationData->account.accountJid())
-                                              .then(this, [this, fail, contacts](auto &&result) {
-                                                  if (const auto error = std::get_if<QXmppError>(&result)) {
-                                                      fail(error->description);
-                                                  } else {
-                                                      notifyContacts(contacts, m_migrationData->account.accountJid()).then(this, [&](auto &&result) {
-                                                          if (const auto error = std::get_if<QXmppError>(&result)) {
-                                                              fail(error->description);
-                                                          } else {
-                                                              continueMigration();
-                                                          }
-                                                      });
-                                                  }
-                                              });
+                                          publishMovedStatement(configuration, newJid).then(this, [this, fail, contacts, oldJid](auto &&result) {
+                                              if (const auto error = std::get_if<QXmppError>(&result)) {
+                                                  fail(error->description);
+                                              } else {
+                                                  notifyContacts(contacts, oldJid).then(this, [&](auto &&result) {
+                                                      if (const auto error = std::get_if<QXmppError>(&result)) {
+                                                          fail(error->description);
+                                                      } else {
+                                                          continueMigration();
+                                                      }
+                                                  });
+                                              }
+                                          });
                                       }
                                   });
                     } else {

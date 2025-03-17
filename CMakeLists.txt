@@ -60,7 +60,7 @@ if (NOT ANDROID)
 endif()
 
 find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
-find_package(QXmppQt6 1.10.1 REQUIRED COMPONENTS Omemo)
+find_package(QXmppQt6 1.10.2 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
 set_package_properties(ICU PROPERTIES
