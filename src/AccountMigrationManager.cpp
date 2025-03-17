@@ -16,6 +16,7 @@
 #include <QXmppMovedManager.h>
 #include <QXmppPubSubManager.h>
 // Kaidan
+#include "AccountDb.h"
 #include "AccountManager.h"
 #include "Algorithms.h"
 #include "Encryption.h"
@@ -105,12 +106,20 @@ struct ClientConfiguration {
     ClientConfiguration() = default;
     explicit ClientConfiguration(const Account &account)
     {
+        jid = account.jid;
+        password = account.password;
         host = account.host;
         port = account.port;
         tlsErrorsIgnored = account.tlsErrorsIgnored;
         tlsRequirement = account.tlsRequirement;
-        jid = account.jid;
-        password = account.password;
+        passwordVisibility = account.passwordVisibility;
+        encryption = account.encryption;
+        automaticMediaDownloadsRule = account.automaticMediaDownloadsRule;
+        name = account.name;
+        contactNotificationRule = account.contactNotificationRule;
+        groupChatNotificationRule = account.groupChatNotificationRule;
+        geoLocationMapPreviewEnabled = account.geoLocationMapPreviewEnabled;
+        geoLocationMapService = account.geoLocationMapService;
     }
 
     static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)
@@ -120,12 +129,20 @@ struct ClientConfiguration {
 
         ClientConfiguration data;
 
+        readDataElement(jid);
+        readDataElement(password);
         readDataElement(host);
         readDataElement(port);
         readDataElement(tlsErrorsIgnored);
         readDataElement(tlsRequirement);
-        readDataElement(jid);
-        readDataElement(password);
+        readDataElement(passwordVisibility);
+        readDataElement(encryption);
+        readDataElement(automaticMediaDownloadsRule);
+        readDataElement(name);
+        readDataElement(contactNotificationRule);
+        readDataElement(groupChatNotificationRule);
+        readDataElement(geoLocationMapPreviewEnabled);
+        readDataElement(geoLocationMapService);
 
         return data;
     }
@@ -134,18 +151,34 @@ struct ClientConfiguration {
     {
         writer.writeStartElement(s_old_configuration.toString());
         writer.writeDefaultNamespace(s_kaidan_ns.toString());
+        writeDataElement(jid);
+        writeDataElement(password);
         writeDataElement(host);
         writeDataElement(port);
         writeDataElement(tlsErrorsIgnored);
         writeDataElement(tlsRequirement);
-        writeDataElement(jid);
-        writeDataElement(password);
+        writeDataElement(passwordVisibility);
+        writeDataElement(encryption);
+        writeDataElement(automaticMediaDownloadsRule);
+        writeDataElement(name);
+        writeDataElement(contactNotificationRule);
+        writeDataElement(groupChatNotificationRule);
+        writeDataElement(geoLocationMapPreviewEnabled);
+        writeDataElement(geoLocationMapService);
         writer.writeEndElement();
     }
 
     QXmppConfiguration toXmppConfiguration() const
     {
         QXmppConfiguration configuration;
+
+        if (jid) {
+            configuration.setJid(*jid);
+        }
+
+        if (password) {
+            configuration.setPassword(*password);
+        }
 
         if (host) {
             configuration.setHost(*host);
@@ -163,23 +196,23 @@ struct ClientConfiguration {
             configuration.setStreamSecurityMode(*tlsRequirement);
         }
 
-        if (jid) {
-            configuration.setJid(*jid);
-        }
-
-        if (password) {
-            configuration.setPassword(*password);
-        }
-
         return configuration;
     }
 
+    std::optional<QString> jid;
+    std::optional<QString> password;
     std::optional<QString> host;
     std::optional<quint16> port;
     std::optional<bool> tlsErrorsIgnored;
     std::optional<QXmppConfiguration::StreamSecurityMode> tlsRequirement;
-    std::optional<QString> jid;
-    std::optional<QString> password;
+    std::optional<Kaidan::PasswordVisibility> passwordVisibility;
+    std::optional<Encryption::Enum> encryption;
+    std::optional<Account::AutomaticMediaDownloadsRule> automaticMediaDownloadsRule;
+    std::optional<QString> name;
+    std::optional<Account::ContactNotificationRule> contactNotificationRule;
+    std::optional<Account::GroupChatNotificationRule> groupChatNotificationRule;
+    std::optional<bool> geoLocationMapPreviewEnabled;
+    std::optional<Account::GeoLocationMapService> geoLocationMapService;
 };
 
 struct ClientSettings {
@@ -622,7 +655,49 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 
 QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::importClientSettingsTask(const ClientSettings &settings)
 {
-    return runAsyncTask(this, Kaidan::instance(), [settings]() -> ImportResult {
+    return runAsyncTask(this, Kaidan::instance(), [jid = AccountManager::instance()->account().jid, settings]() -> ImportResult {
+        AccountDb::instance()->updateAccount(jid, [accountSettings = settings.oldConfiguration](Account &account) {
+            if (accountSettings.tlsErrorsIgnored) {
+                account.tlsErrorsIgnored = *accountSettings.tlsErrorsIgnored;
+            }
+
+            if (accountSettings.tlsRequirement) {
+                account.tlsRequirement = *accountSettings.tlsRequirement;
+            }
+
+            if (accountSettings.passwordVisibility) {
+                account.passwordVisibility = *accountSettings.passwordVisibility;
+            }
+
+            if (accountSettings.encryption) {
+                account.encryption = *accountSettings.encryption;
+            }
+
+            if (accountSettings.automaticMediaDownloadsRule) {
+                account.automaticMediaDownloadsRule = *accountSettings.automaticMediaDownloadsRule;
+            }
+
+            if (accountSettings.name) {
+                account.name = *accountSettings.name;
+            }
+
+            if (accountSettings.contactNotificationRule) {
+                account.contactNotificationRule = *accountSettings.contactNotificationRule;
+            }
+
+            if (accountSettings.groupChatNotificationRule) {
+                account.groupChatNotificationRule = *accountSettings.groupChatNotificationRule;
+            }
+
+            if (accountSettings.geoLocationMapPreviewEnabled) {
+                account.geoLocationMapPreviewEnabled = *accountSettings.geoLocationMapPreviewEnabled;
+            }
+
+            if (accountSettings.geoLocationMapService) {
+                account.geoLocationMapService = *accountSettings.geoLocationMapService;
+            }
+        });
+
         for (const ClientRosterItemSettings &itemSettings : settings.roster) {
             RosterDb::instance()->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
                 item.encryption = itemSettings.encryption.value_or(item.encryption);
