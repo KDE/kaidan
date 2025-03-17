@@ -38,10 +38,10 @@ class Account
     Q_PROPERTY(Encryption::Enum encryption MEMBER encryption CONSTANT FINAL)
     Q_PROPERTY(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule MEMBER automaticMediaDownloadsRule CONSTANT FINAL)
     Q_PROPERTY(QString name MEMBER name CONSTANT FINAL)
-    Q_PROPERTY(ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule CONSTANT FINAL)
-    Q_PROPERTY(GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule CONSTANT FINAL)
+    Q_PROPERTY(Account::ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule CONSTANT FINAL)
+    Q_PROPERTY(Account::GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule CONSTANT FINAL)
     Q_PROPERTY(bool geoLocationMapPreviewEnabled MEMBER geoLocationMapPreviewEnabled CONSTANT FINAL)
-    Q_PROPERTY(GeoLocationMapService geoLocationMapService MEMBER geoLocationMapService CONSTANT FINAL)
+    Q_PROPERTY(Account::GeoLocationMapService geoLocationMapService MEMBER geoLocationMapService CONSTANT FINAL)
     Q_PROPERTY(QString displayName READ displayName)
     Q_PROPERTY(QString jidResource READ jidResource)
 
