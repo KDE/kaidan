@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-01-25 09:50+0100\n"
+"PO-Revision-Date: 2025-03-15 09:14+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
@@ -2849,17 +2849,11 @@ msgid "%1:"
 msgstr "%1 :"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
-msgstr "Dé-épingler"
+msgstr "Désépingler"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Épingler"
@@ -3253,7 +3247,7 @@ msgstr "Filtrer"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Épingler et déplacer"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"

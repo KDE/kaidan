@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-14 12:03+0100\n"
+"PO-Revision-Date: 2025-03-17 11:16+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -152,12 +152,10 @@ msgid "Leaving group chat"
 msgstr "Groeps-chat wordt verlaten"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "Kon bestand niet downloaden: %1"
+msgstr "Kon niet downloaden bestand: %1"
 
 #: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
@@ -3336,29 +3334,20 @@ msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Kan geen contact toevoegen omdat er geen verbinding is."
+msgstr "Kan geen contactpersoon toevoegen omdat er geen verbinding is."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Kan het contact niet verwijderen omdat er geen verbinding is."
+msgstr "Kan de contactpersoon niet verwijderen omdat er geen verbinding is."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
-"De naam van het contact kon niet worden veranderd, doordat er geen "
+"De naam van de contactpersoon kon niet worden veranderd, doordat er geen "
 "verbinding beschikbaar is."
 
 #: src/RosterManager.cpp:229
