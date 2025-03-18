@@ -32,7 +32,7 @@ SearchBarPage {
 		Kirigami.Action {
 			id: pinAction
 			text: qsTr("Pin & Move")
-			icon.name: "starred-symbolic"
+			icon.name: "non-starred-symbolic"
 			displayHint: Kirigami.DisplayHint.IconOnly
 			checkable: true
 		}
