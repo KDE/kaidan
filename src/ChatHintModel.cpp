@@ -301,6 +301,7 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &request)
 {
     const QString text = [&request]() {
+        const auto jid = ChatController::instance()->chatJid();
         const auto displayName = ChatController::instance()->rosterItem().displayName();
         const auto appendedText = request.statusText().isEmpty() ? QString() : QStringLiteral(": %1").arg(request.statusText());
         const auto oldJid = request.oldJid();
@@ -311,8 +312,9 @@ void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &re
         }
 
         const auto oldDisplayName = RosterModel::instance()->findItem(oldJid)->displayName();
-        return tr("Your contact %1 is %2 now and would like to receive your personal data such as availability, devices and other personal information again%3")
-            .arg(oldDisplayName, displayName, appendedText);
+        return tr("Your contact %1 (%2) is %3 (%4) now and would like to receive your personal data such as availability, devices and other personal "
+                  "information again%5")
+            .arg(oldDisplayName, oldJid, displayName, jid, appendedText);
     }();
 
     const auto chatHint = ChatHint{
