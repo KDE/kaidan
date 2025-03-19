@@ -39,17 +39,9 @@
             return;                                                                                                                                            \
         }                                                                                                                                                      \
     }                                                                                                                                                          \
-    await(AccountDb::instance()->updateAccount(AccountManager::account().jid,                                                                                  \
-                                               [PROPERTY](Account &account) {                                                                                  \
-                                                   account.PROPERTY = PROPERTY;                                                                                \
-                                               }),                                                                                                             \
-          this,                                                                                                                                                \
-          [this, PROPERTY]() {                                                                                                                                 \
-              {                                                                                                                                                \
-                  QMutexLocker locker(&m_mutex);                                                                                                               \
-                  m_account.PROPERTY = PROPERTY;                                                                                                               \
-              }                                                                                                                                                \
-          })
+    AccountDb::instance()->updateAccount(AccountManager::account().jid, [PROPERTY](Account &account) {                                                         \
+        account.PROPERTY = PROPERTY;                                                                                                                           \
+    });
 
 AccountManager *AccountManager::s_instance = nullptr;
 
@@ -66,7 +58,24 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
     s_instance = this;
 
     connect(AccountDb::instance(), &AccountDb::accountUpdated, this, [this](const Account &account) {
-        m_account = account;
+        {
+            QMutexLocker locker(&m_mutex);
+
+            // Normally, AccountDb::accountUpdated() is only triggered for accounts already stored
+            // in the database.
+            // In that case, there would not be a temporary account.
+            // If a new account is stored, a temporary account may still exist, though.
+            // accountChanged() must not be emitted in that case.
+            if (m_tmpAccount) {
+                Q_ASSERT(m_tmpAccount->jid == account.jid);
+                m_tmpAccount = account;
+                return;
+            } else {
+                Q_ASSERT(m_account.jid == account.jid);
+                m_account = account;
+            }
+        }
+
         Q_EMIT accountChanged();
     });
 
@@ -325,6 +334,8 @@ void AccountManager::storeAccount()
                       m_account = *m_tmpAccount;
                       m_tmpAccount.reset();
                   }
+
+                  Q_EMIT accountChanged();
               });
     });
 }
