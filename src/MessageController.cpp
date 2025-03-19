@@ -36,7 +36,6 @@
 #include "ChatController.h"
 #include "ClientWorker.h"
 #include "EncryptionController.h"
-#include "FutureUtils.h"
 #include "Globals.h"
 #include "GroupChatController.h"
 #include "GroupChatUser.h"
@@ -158,31 +157,31 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
         if (const auto omemoEncryptionActive = rosterItem && rosterItem->encryption == Encryption::Omemo2) {
             if (rosterItem->isGroupChat()) {
-                await(GroupChatUserDb::instance()->userJids(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid),
-                      this,
-                      [this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](QList<QString> &&userJids) mutable {
-                          if (!userJids.isEmpty()) {
-                              await(EncryptionController::instance()->hasUsableDevices({userJids.cbegin(), userJids.cend()}),
-                                    this,
-                                    [omemoEncryptionActive, sendEncrypted, sendUnencrypted, userJids](bool hasUsableDevices) mutable {
-                                        if (omemoEncryptionActive && hasUsableDevices) {
-                                            sendEncrypted(userJids);
-                                        } else {
-                                            sendUnencrypted();
-                                        }
-                                    });
-                          }
-                      });
+                GroupChatUserDb::instance()
+                    ->userJids(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid)
+                    .then(this, [this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](QList<QString> &&userJids) mutable {
+                        if (!userJids.isEmpty()) {
+                            EncryptionController::instance()
+                                ->hasUsableDevices({userJids.cbegin(), userJids.cend()})
+                                .then(this, [omemoEncryptionActive, sendEncrypted, sendUnencrypted, userJids](bool hasUsableDevices) mutable {
+                                    if (omemoEncryptionActive && hasUsableDevices) {
+                                        sendEncrypted(userJids);
+                                    } else {
+                                        sendUnencrypted();
+                                    }
+                                });
+                        }
+                    });
             } else {
-                await(EncryptionController::instance()->hasUsableDevices({recipientJid}),
-                      this,
-                      [omemoEncryptionActive, sendEncrypted, sendUnencrypted](bool hasUsableDevices) mutable {
-                          if (omemoEncryptionActive && hasUsableDevices) {
-                              sendEncrypted();
-                          } else {
-                              sendUnencrypted();
-                          }
-                      });
+                EncryptionController::instance()
+                    ->hasUsableDevices({recipientJid})
+                    .then(this, [omemoEncryptionActive, sendEncrypted, sendUnencrypted](bool hasUsableDevices) mutable {
+                        if (omemoEncryptionActive && hasUsableDevices) {
+                            sendEncrypted();
+                        } else {
+                            sendUnencrypted();
+                        }
+                    });
             }
         } else {
             sendUnencrypted();
@@ -194,7 +193,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 void MessageController::sendPendingMessages()
 {
-    await(MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->account().jid), this, [this](QList<Message> &&messages) {
+    MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->account().jid).then(this, [this](QList<Message> &&messages) {
         for (Message message : messages) {
             sendPendingMessage(std::move(message));
         }
@@ -204,7 +203,7 @@ void MessageController::sendPendingMessages()
 void MessageController::sendPendingMessageReactions(const QString &accountJid)
 {
     auto future = MessageDb::instance()->fetchPendingReactions(accountJid);
-    await(future, this, [=, this](QMap<QString, QMap<QString, MessageReactionSender>> reactions) {
+    future.then(this, [=, this](QMap<QString, QMap<QString, MessageReactionSender>> reactions) {
         for (auto reactionItr = reactions.cbegin(); reactionItr != reactions.cend(); ++reactionItr) {
             const auto &reactionSenders = reactionItr.value();
 
@@ -223,39 +222,36 @@ void MessageController::sendPendingMessageReactions(const QString &accountJid)
 
                 const auto chatJid = reactionItr.key();
 
-                await(MessageController::instance()->sendMessageReaction(ChatController::instance()->chatJid(),
-                                                                         messageId,
-                                                                         ChatController::instance()->rosterItem().isGroupChat(),
-                                                                         emojis),
-                      this,
-                      [this, messageId, accountJid](QXmpp::SendResult &&result) {
-                          if (const auto error = std::get_if<QXmppError>(&result)) {
-                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                MessageController::instance()
+                    ->sendMessageReaction(ChatController::instance()->chatJid(), messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis)
+                    .then(this, [this, messageId, accountJid](QXmpp::SendResult &&result) {
+                        if (const auto error = std::get_if<QXmppError>(&result)) {
+                            Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
-                              MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
-                                  auto &reactionSender = message.reactionSenders[accountJid];
-                                  reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+                            MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
+                                auto &reactionSender = message.reactionSenders[accountJid];
+                                reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
-                                  for (auto &reaction : reactionSender.reactions) {
-                                      switch (auto &deliveryState = reaction.deliveryState) {
-                                      case MessageReactionDeliveryState::PendingAddition:
-                                          deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
-                                          break;
-                                      case MessageReactionDeliveryState::PendingRemovalAfterSent:
-                                          deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
-                                          break;
-                                      case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
-                                          deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
-                                          break;
-                                      default:
-                                          break;
-                                      }
-                                  }
-                              });
-                          } else {
-                              updateMessageReactionsAfterSending(messageId, accountJid);
-                          }
-                      });
+                                for (auto &reaction : reactionSender.reactions) {
+                                    switch (auto &deliveryState = reaction.deliveryState) {
+                                    case MessageReactionDeliveryState::PendingAddition:
+                                        deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+                                        break;
+                                    case MessageReactionDeliveryState::PendingRemovalAfterSent:
+                                        deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
+                                        break;
+                                    case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
+                                        deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
+                                        break;
+                                    default:
+                                        break;
+                                    }
+                                }
+                            });
+                        } else {
+                            updateMessageReactionsAfterSending(messageId, accountJid);
+                        }
+                    });
             }
         }
     });
@@ -349,34 +345,33 @@ void MessageController::sendPendingMessage(Message message)
 
                 message.receiptRequested = !message.isGroupChatMessage();
 
-                await(send(message.toQXmpp()),
-                      this,
-                      [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
-                          if (const auto error = std::get_if<QXmppError>(&result)) {
-                              qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
+                send(message.toQXmpp())
+                    .then(this, [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
+                        if (const auto error = std::get_if<QXmppError>(&result)) {
+                            qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
 
-                              // The error message of the message is saved untranslated. To make
-                              // translation work in the UI, the tr() call of the passive
-                              // notification must contain exactly the same string.
-                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
-                              MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-                                  msg.deliveryState = Enums::DeliveryState::Error;
-                                  msg.errorText = QStringLiteral("Message could not be sent.");
-                              });
-                          } else {
-                              MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-                                  msg.deliveryState = Enums::DeliveryState::Sent;
-                                  msg.errorText.clear();
-                              });
+                            // The error message of the message is saved untranslated. To make
+                            // translation work in the UI, the tr() call of the passive
+                            // notification must contain exactly the same string.
+                            Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
+                            MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+                                msg.deliveryState = Enums::DeliveryState::Error;
+                                msg.errorText = QStringLiteral("Message could not be sent.");
+                            });
+                        } else {
+                            MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+                                msg.deliveryState = Enums::DeliveryState::Sent;
+                                msg.errorText.clear();
+                            });
 
-                              for (auto &fileFallbackMessage : fileFallbackMessages) {
-                                  // TODO: Track sending of fallback messages individually
-                                  // Needed for the case when the success differs between the main message
-                                  // and the fallback messages.
-                                  send(std::move(fileFallbackMessage));
-                              }
-                          }
-                      });
+                            for (auto &fileFallbackMessage : fileFallbackMessages) {
+                                // TODO: Track sending of fallback messages individually
+                                // Needed for the case when the success differs between the main message
+                                // and the fallback messages.
+                                send(std::move(fileFallbackMessage));
+                            }
+                        }
+                    });
             }
         });
 }
@@ -450,15 +445,15 @@ void MessageController::handleRosterReceived()
     if (AccountManager::instance()->hasNewAccount()) {
         retrieveInitialMessages();
     } else {
-        await(AccountDb::instance()->fetchLatestMessageStanzaId(Kaidan::instance()->client()->xmppClient()->configuration().jidBare()),
-              this,
-              [this](QString &&stanzaId) {
-                  if (stanzaId.isEmpty()) {
-                      retrieveAllMessages();
-                  } else {
-                      retrieveCatchUpMessages(stanzaId);
-                  }
-              });
+        AccountDb::instance()
+            ->fetchLatestMessageStanzaId(Kaidan::instance()->client()->xmppClient()->configuration().jidBare())
+            .then(this, [this](QString &&stanzaId) {
+                if (stanzaId.isEmpty()) {
+                    retrieveAllMessages();
+                } else {
+                    retrieveCatchUpMessages(stanzaId);
+                }
+            });
 
         if (const auto rosterItems = RosterModel::instance()->items(); !rosterItems.isEmpty()) {
             // TODO: Check whether the own server supports archiving group chat messages and skip the retrieval for each group chat in that case
@@ -877,7 +872,7 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
                                                               senderJid,
                                                               RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid),
                                                               markedId);
-            await(future, this, [recipientJid, markedId](int count) {
+            future.then(this, [recipientJid, markedId](int count) {
                 RosterDb::instance()->updateItem(recipientJid, [=](RosterItem &item) {
                     item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
                     item.lastReadContactMessageId = markedId;

@@ -16,7 +16,6 @@
 // Kaidan
 #include "AccountManager.h"
 #include "ChatController.h"
-#include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MessageController.h"
 #include "MessageDb.h"
@@ -54,7 +53,7 @@ RosterModel::RosterModel(QObject *parent)
         m_items.clear();
         endResetModel();
 
-        await(RosterDb::instance()->fetchItems(), this, [this](const QList<RosterItem> &items) {
+        RosterDb::instance()->fetchItems().then(this, [this](const QList<RosterItem> &items) {
             handleItemsFetched(items);
         });
     });
@@ -584,7 +583,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
         return;
     }
 
-    await(updateLastMessage(itr, message), this, [this, message, origin, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, message).then(this, [this, message, origin, itr](QList<int> &&changedRoles) mutable {
         // unread messages counter
         std::optional<int> newUnreadMessages;
 
@@ -630,7 +629,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
         return;
     }
 
-    await(updateLastMessage(itr, message), this, [this, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, message).then(this, [this, itr](QList<int> &&changedRoles) mutable {
         if (!changedRoles.isEmpty()) {
             informAboutChangedData(itr, changedRoles);
         }
@@ -701,7 +700,7 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
         return;
     }
 
-    await(updateLastMessage(itr, newLastMessage, false), this, [this, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, newLastMessage, false).then(this, [this, itr](QList<int> &&changedRoles) mutable {
         if (!changedRoles.isEmpty()) {
             informAboutChangedData(itr, changedRoles);
         }

@@ -11,7 +11,6 @@
 // Kaidan
 #include "AccountManager.h"
 #include "Algorithms.h"
-#include "FutureUtils.h"
 #include "Globals.h"
 #include "Kaidan.h"
 #include "KaidanCoreLog.h"
@@ -133,7 +132,7 @@ void BlockingController::subscribeToBlocklist()
     m_subscribed = true;
 
     // load blocklist from database
-    await(m_db->blockedJids(AccountManager::instance()->account().jid), this, [this](auto result) {
+    m_db->blockedJids(AccountManager::instance()->account().jid).then(this, [this](QList<QString> result) {
         handleBlocklist({Blocklist::Db, std::move(result)});
     });
 

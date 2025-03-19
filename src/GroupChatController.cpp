@@ -193,7 +193,7 @@ void GroupChatController::handleChatChanged()
         const auto accountJid = chatController->accountJid();
         const auto chatJid = chatController->chatJid();
 
-        await(GroupChatUserDb::instance()->userJids(accountJid, chatJid), this, [this, chatController, accountJid, chatJid](QList<QString> &&userJids) {
+        GroupChatUserDb::instance()->userJids(accountJid, chatJid).then(this, [this, chatController, accountJid, chatJid](QList<QString> &&userJids) {
             // Ensure that the chat is still the open one after fetching the user JIDs.
             if (chatController->accountJid() == accountJid && chatController->chatJid() == chatJid) {
                 setCurrentUserJids(userJids);
@@ -231,15 +231,13 @@ void GroupChatController::updateUserJidsChanged(const QString &accountJid, const
     const auto currentChatJid = chatController->chatJid();
 
     if (currentAccountJid == accountJid && currentChatJid == groupChatJid) {
-        await(GroupChatUserDb::instance()->userJids(accountJid, groupChatJid),
-              this,
-              [this, chatController, accountJid, groupChatJid](QList<QString> &&userJids) {
-                  // Ensure that the chat is still the open one after fetching the user JIDs.
-                  if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
-                      setCurrentUserJids(userJids);
-                      updateEncryption();
-                  }
-              });
+        GroupChatUserDb::instance()->userJids(accountJid, groupChatJid).then(this, [this, chatController, accountJid, groupChatJid](QList<QString> &&userJids) {
+            // Ensure that the chat is still the open one after fetching the user JIDs.
+            if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
+                setCurrentUserJids(userJids);
+                updateEncryption();
+            }
+        });
     }
 }
 

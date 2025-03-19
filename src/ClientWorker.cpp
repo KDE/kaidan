@@ -44,7 +44,6 @@
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
 #include "EncryptionController.h"
-#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "KaidanCoreLog.h"
 #include "LogHandler.h"
@@ -180,13 +179,8 @@ void ClientWorker::logIn()
     m_omemoDb->setAccountJid(jid);
 
     auto proceedLogIn = [this, accountManager, account]() {
-        await(
-            EncryptionController::instance(),
-            []() {
-                return EncryptionController::instance()->load();
-            },
-            this,
-            [this, accountManager, account]() {
+        runOnThread(EncryptionController::instance(), [this, accountManager, account]() {
+            EncryptionController::instance()->load().then([this, accountManager, account]() {
                 if (!m_isFirstLoginAfterStart || account.online) {
                     // Store the latest online state which is restored when opening Kaidan again after closing.
                     accountManager->setAuthOnline(true);
@@ -205,17 +199,14 @@ void ClientWorker::logIn()
 
                 m_isFirstLoginAfterStart = false;
             });
+        });
     };
 
     // Reset the locally cached OMEMO data after an account migration to allow a new OMEMO setup.
     if (const auto oldAccountJid = m_client->configuration().jidBare(); !oldAccountJid.isEmpty() && oldAccountJid != jid) {
-        await(
-            EncryptionController::instance(),
-            []() {
-                return EncryptionController::instance()->resetLocally();
-            },
-            this,
-            proceedLogIn);
+        runOnThread(EncryptionController::instance(), [this, proceedLogIn]() {
+            EncryptionController::instance()->resetLocally().then(this, proceedLogIn);
+        });
     } else {
         proceedLogIn();
     }
@@ -293,15 +284,11 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 
         break;
     case QXmppClient::ConnectedState:
-        await(
-            EncryptionController::instance(),
-            []() {
-                return EncryptionController::instance()->unload();
-            },
-            this,
-            [this]() {
+        runOnThread(EncryptionController::instance(), [this]() {
+            EncryptionController::instance()->unload().then(this, [this]() {
                 m_client->disconnectFromServer();
             });
+        });
     }
 }
 

@@ -7,7 +7,6 @@
 // Kaidan
 #include "Algorithms.h"
 #include "EncryptionController.h"
-#include "FutureUtils.h"
 
 EncryptionWatcher::EncryptionWatcher(QObject *parent)
     : QObject(parent)
@@ -79,7 +78,7 @@ void EncryptionWatcher::handleDevicesChanged(const QString &, QList<QString> jid
 
 void EncryptionWatcher::update()
 {
-    await(EncryptionController::instance()->devices(m_accountJid, m_jids), this, [this](QList<EncryptionController::Device> &&devices) {
+    EncryptionController::instance()->devices(m_accountJid, m_jids).then(this, [this](QList<EncryptionController::Device> &&devices) {
         const auto distrustedDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
         });

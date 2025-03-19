@@ -5,7 +5,6 @@
 #include "FileModel.h"
 
 // Kaidan
-#include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
@@ -55,28 +54,27 @@ QVariant FileModel::data(const QModelIndex &index, int role) const
 
             auto fileModel = const_cast<FileModel *>(this);
 
-            await(MediaUtils::generateThumbnail(url, file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT),
-                  fileModel,
-                  [fileModel, pIndex = QPersistentModelIndex(index), fileId = file.fileId()](const QByteArray &thumbnail) mutable {
-                      if (!pIndex.isValid()) {
-                          return;
-                      }
+            MediaUtils::generateThumbnail(url, file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT)
+                .then(fileModel, [fileModel, pIndex = QPersistentModelIndex(index), fileId = file.fileId()](const QByteArray &thumbnail) mutable {
+                    if (!pIndex.isValid()) {
+                        return;
+                    }
 
-                      auto &file = fileModel->m_files[pIndex.row()];
+                    auto &file = fileModel->m_files[pIndex.row()];
 
-                      if (file.fileId() != fileId) {
-                          return;
-                      }
+                    if (file.fileId() != fileId) {
+                        return;
+                    }
 
-                      file.thumbnail = thumbnail;
+                    file.thumbnail = thumbnail;
 
-                      Q_EMIT fileModel->dataChanged(pIndex,
-                                                    pIndex,
-                                                    {
-                                                        static_cast<int>(Role::File),
-                                                        static_cast<int>(Role::Thumbnail),
-                                                    });
-                  });
+                    Q_EMIT fileModel->dataChanged(pIndex,
+                                                  pIndex,
+                                                  {
+                                                      static_cast<int>(Role::File),
+                                                      static_cast<int>(Role::Thumbnail),
+                                                  });
+                });
         }
         }
     }

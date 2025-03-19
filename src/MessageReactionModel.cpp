@@ -57,7 +57,7 @@ void MessageReactionModel::setReactions(const QList<DetailedMessageReaction> &re
         this->reactions = reactions;
 
         for (auto &reaction : this->reactions) {
-            await(GroupChatUserDb::instance()->user(accountJid, chatJid, reaction.senderId), this, [this, &reaction](const std::optional<GroupChatUser> user) {
+            GroupChatUserDb::instance()->user(accountJid, chatJid, reaction.senderId).then(this, [this, &reaction](const std::optional<GroupChatUser> user) {
                 if (user) {
                     beginResetModel();
                     reaction.senderJid = user->jid;

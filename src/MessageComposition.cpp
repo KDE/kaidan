@@ -283,7 +283,7 @@ void MessageComposition::correct()
                         // this way they can tell which version of the message is the latest
                         message.timestamp = QDateTime::currentDateTimeUtc();
 
-                        await(MessageController::instance()->send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult &&result) {
+                        MessageController::instance()->send(message.toQXmpp()).then(this, [messageId = message.id](QXmpp::SendResult &&result) {
                             if (std::holds_alternative<QXmppError>(result)) {
                                 // TODO store in the database only error codes, assign text messages right in the QML
                                 Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
@@ -351,12 +351,12 @@ void MessageComposition::loadDraft()
     }
 
     auto future = MessageDb::instance()->fetchDraftMessage(m_accountJid, m_chatJid);
-    await(future, this, [this](std::optional<Message> &&message) {
+    future.then(this, [this](std::optional<Message> &&message) {
         if (message) {
             if (const auto replaceId = message->replaceId; !replaceId.isEmpty()) {
                 setReplaceId(replaceId);
 
-                await(MessageDb::instance()->fetchMessage(m_accountJid, m_chatJid, replaceId), this, [this](std::optional<Message> &&message) {
+                MessageDb::instance()->fetchMessage(m_accountJid, m_chatJid, replaceId).then(this, [this](std::optional<Message> &&message) {
                     if (message) {
                         if (const auto &reply = message->reply) {
                             setOriginalReplyId(reply->id);
@@ -376,12 +376,12 @@ void MessageComposition::loadDraft()
                 // Only process if it is not a reply to an own message.
                 if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {
                     if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid); rosterItem->isGroupChat()) {
-                        await(GroupChatUserDb::instance()->user(m_accountJid, m_chatJid, m_replyToGroupChatParticipantId),
-                              this,
-                              [this](const std::optional<GroupChatUser> &user) {
-                                  setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
-                                  Q_EMIT isDraftChanged();
-                              });
+                        GroupChatUserDb::instance()
+                            ->user(m_accountJid, m_chatJid, m_replyToGroupChatParticipantId)
+                            .then(this, [this](const std::optional<GroupChatUser> &user) {
+                                setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
+                                Q_EMIT isDraftChanged();
+                            });
                     } else {
                         setReplyToName(rosterItem->displayName());
                     }
@@ -554,12 +554,11 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     };
 
     if (file.type() == MessageType::MessageVideo) {
-        await(MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT),
-              this,
-              [file, insertFile](const QByteArray &thumbnail) mutable {
-                  file.thumbnail = thumbnail;
-                  insertFile(std::move(file));
-              });
+        MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT)
+            .then(this, [file, insertFile](const QByteArray &thumbnail) mutable {
+                file.thumbnail = thumbnail;
+                insertFile(std::move(file));
+            });
     } else {
         insertFile(std::move(file));
     }

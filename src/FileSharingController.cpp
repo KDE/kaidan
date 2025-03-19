@@ -196,7 +196,7 @@ auto FileSharingController::sendFiles(QList<File> files, bool encrypt) -> QXmppT
         return sendFile(file, encrypt);
     });
 
-    await(join(this, std::move(futures)), this, [promise = std::move(promise), files = std::move(files)](auto &&uploadResults) mutable {
+    join(this, std::move(futures)).then(this, [promise = std::move(promise), files = std::move(files)](QList<UploadResult> &&uploadResults) mutable {
         // Check if any of the uploads failed
         bool failed = std::any_of(uploadResults.begin(), uploadResults.end(), [](const auto &result) {
             auto &[id, uploadResult] = result;

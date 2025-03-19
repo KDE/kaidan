@@ -7,7 +7,6 @@
 // Kaidan
 #include "Algorithms.h"
 #include "EncryptionController.h"
-#include "FutureUtils.h"
 
 AuthenticatableEncryptionKeyModel::AuthenticatableEncryptionKeyModel(QObject *parent)
     : EncryptionKeyModel(parent)
@@ -92,7 +91,7 @@ void AuthenticatableEncryptionKeyModel::handleDevicesChanged(const QString &acco
 
 void AuthenticatableEncryptionKeyModel::updateKeys()
 {
-    await(EncryptionController::instance()->devices(accountJid(), {m_chatJid}), this, [this](QList<EncryptionController::Device> &&devices) {
+    EncryptionController::instance()->devices(accountJid(), {m_chatJid}).then(this, [this](QList<EncryptionController::Device> &&devices) {
         beginResetModel();
 
         m_keys = transformFilter<QList<Key>>(devices, [](const EncryptionController::Device &device) -> std::optional<Key> {

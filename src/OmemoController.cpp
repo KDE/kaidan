@@ -191,7 +191,7 @@ QFuture<void> OmemoController::initializeChat(const QString &accountJid, const Q
         futures.append(subscribeToDeviceLists(deviceListSubscriptionJids));
     }
 
-    await(joinVoidFutures(this, std::move(futures)), this, [this, interface, accountJid, jids = jids]() mutable {
+    joinVoidFutures(this, std::move(futures)).then(this, [this, interface, accountJid, jids = jids]() mutable {
         jids.append(accountJid);
         buildMissingSessions(interface, jids);
     });

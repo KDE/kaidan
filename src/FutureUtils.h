@@ -42,48 +42,6 @@ inline QXmppTask<void> makeReadyTask()
     return promise.task();
 }
 
-template<typename T, typename Handler>
-void await(const QFuture<T> &future, QObject *context, Handler handler)
-{
-    auto *watcher = new QFutureWatcher<T>();
-    watcher->moveToThread(context->thread());
-    watcher->setParent(context);
-    QObject::connect(watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
-        if constexpr (std::is_same_v<T, void> || std::is_invocable<Handler>::value) {
-            handler();
-        }
-        if constexpr (!std::is_same_v<T, void> && !std::is_invocable<Handler>::value) {
-            handler(watcher->result());
-        }
-        watcher->deleteLater();
-    });
-    watcher->setFuture(future);
-}
-
-template<typename Runner, typename Functor, typename Handler>
-void await(Runner *runner, Functor function, QObject *context, Handler handler)
-{
-    // function() returns QFuture<T>, we get T by using QFutureValueType
-    using Result = QFutureValueType<std::invoke_result_t<Functor>>;
-
-    auto *watcher = new QFutureWatcher<Result>();
-    watcher->moveToThread(context->thread());
-    watcher->setParent(context);
-    QObject::connect(watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
-        if constexpr (std::is_same_v<Result, void> || std::is_invocable<Handler>::value) {
-            handler();
-        }
-        if constexpr (!std::is_same_v<Result, void> && !std::is_invocable<Handler>::value) {
-            handler(watcher->result());
-        }
-        watcher->deleteLater();
-    });
-
-    QMetaObject::invokeMethod(runner, [watcher, function = std::move(function)]() mutable {
-        watcher->setFuture(function());
-    });
-}
-
 template<typename T>
 void reportFinishedResult(QFutureInterface<T> &interface, const T &result)
 {
@@ -214,7 +172,7 @@ QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
         void joinOne()
         {
             if (i < futures.size()) {
-                await(futures.at(i), context, [this](T &&value) {
+                futures[i].then(context, [this](T &&value) {
                     results.push_back(std::move(value));
                     i++;
                     joinOne();
@@ -249,7 +207,7 @@ QFuture<void> joinVoidFutures(QObject *context, QList<QFuture<T>> &&futures)
     QFutureInterface<void> interface;
 
     for (auto future : futures) {
-        await(future, context, [=]() mutable {
+        future.then(context, [=]() mutable {
             if (++(*finishedFutureCount) == futureCount) {
                 interface.reportFinished();
             }

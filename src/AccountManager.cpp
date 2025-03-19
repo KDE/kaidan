@@ -295,7 +295,7 @@ QXmppSasl2UserAgent AccountManager::userAgent()
 void AccountManager::loadConnectionData()
 {
     if (!hasEnoughCredentialsForLogin()) {
-        await(AccountDb::instance()->lastAccount(), this, [this](Account &&account) {
+        AccountDb::instance()->lastAccount().then(this, [this](Account &&account) {
             const auto jid = account.jid;
 
             Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(account.httpUploadLimit);
@@ -322,21 +322,21 @@ void AccountManager::storeAccount()
     auto currentAccount = AccountManager::account();
     const auto currentJid = currentAccount.jid;
 
-    await(AccountDb::instance()->addAccount(currentJid), this, [this, currentJid, newAccount = std::move(currentAccount)]() {
-        await(AccountDb::instance()->updateAccount(currentJid,
-                                                   [&newAccount](Account &account) {
-                                                       account = newAccount;
-                                                   }),
-              this,
-              [this]() {
-                  {
-                      QMutexLocker locker(&m_mutex);
-                      m_account = *m_tmpAccount;
-                      m_tmpAccount.reset();
-                  }
+    AccountDb::instance()->addAccount(currentJid).then(this, [this, currentJid, newAccount = std::move(currentAccount)]() {
+        AccountDb::instance()
+            ->updateAccount(currentJid,
+                            [&newAccount](Account &account) {
+                                account = newAccount;
+                            })
+            .then(this, [this]() {
+                {
+                    QMutexLocker locker(&m_mutex);
+                    m_account = *m_tmpAccount;
+                    m_tmpAccount.reset();
+                }
 
-                  Q_EMIT accountChanged();
-              });
+                Q_EMIT accountChanged();
+            });
     });
 }
 
@@ -354,7 +354,7 @@ void AccountManager::deleteAccountFromClient()
         this,
         [this](bool authenticated) {
             if (authenticated) {
-                await(EncryptionController::instance()->reset(), this, []() {
+                EncryptionController::instance()->reset().then(this, []() {
                     runOnThread(Kaidan::instance()->client(), []() {
                         Kaidan::instance()->client()->logOut();
                     });
@@ -436,7 +436,7 @@ void AccountManager::handleDisconnected()
     // Delete the account from the client if the account was deleted from the server or the client
     // was connected and had to disconnect first.
     if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
-        await(EncryptionController::instance()->resetLocally(), this, [this]() {
+        EncryptionController::instance()->resetLocally().then(this, [this]() {
             removeAccount(account().jid);
         });
     } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {

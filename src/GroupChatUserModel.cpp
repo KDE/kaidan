@@ -6,7 +6,6 @@
 
 // Kaidan
 #include "Algorithms.h"
-#include "FutureUtils.h"
 #include "Globals.h"
 #include "GroupChatUserDb.h"
 #include "KaidanCoreLog.h"
@@ -135,7 +134,7 @@ QString GroupChatUserModel::participantName(const QString &accountJid, const QSt
 
 void GroupChatUserModel::fetchUsers()
 {
-    await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()), this, [this](QList<GroupChatUser> &&users) {
+    GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()).then(this, [this](QList<GroupChatUser> &&users) {
         for (const auto &user : std::as_const(users)) {
             addUser(user);
         }
