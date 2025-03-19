@@ -109,7 +109,7 @@ QFuture<Account> AccountDb::account(const QString &jid)
     });
 }
 
-QFuture<Account> AccountDb::firstAccount()
+QFuture<Account> AccountDb::lastAccount()
 {
     // Get the last created account, which is the last we want to use.
     // When migrating, the old account is not deleted. Before we would store the jid to login in the settings file so we would retrieve it correctly

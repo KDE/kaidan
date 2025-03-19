@@ -282,7 +282,7 @@ QXmppSasl2UserAgent AccountManager::userAgent()
 void AccountManager::loadConnectionData()
 {
     if (!hasEnoughCredentialsForLogin()) {
-        await(AccountDb::instance()->firstAccount(), this, [this](Account &&account) {
+        await(AccountDb::instance()->lastAccount(), this, [this](Account &&account) {
             const auto jid = account.jid;
 
             Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(account.httpUploadLimit);
