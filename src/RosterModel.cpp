@@ -49,7 +49,7 @@ RosterModel::RosterModel(QObject *parent)
     connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
     connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &RosterModel::handleMessageRemoved);
 
-    connect(AccountManager::instance(), &AccountManager::accountChanged, this, [this] {
+    connect(Kaidan::instance(), &Kaidan::openChatViewRequested, this, [this] {
         beginResetModel();
         m_items.clear();
         endResetModel();
@@ -568,7 +568,9 @@ void RosterModel::removeItems(const QString &accountJid)
 
 void RosterModel::handleAccountChanged()
 {
-    Q_EMIT dataChanged(index(0), index(m_items.size() - 1), {NotificationRuleRole});
+    if (!m_items.isEmpty()) {
+        Q_EMIT dataChanged(index(0), index(m_items.size() - 1), {NotificationRuleRole});
+    }
 }
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)

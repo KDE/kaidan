@@ -140,7 +140,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     connect(accountManager, &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
     connect(accountManager, &AccountManager::connectionDataLoaded, this, [this, accountManager]() {
         if (accountManager->hasEnoughCredentialsForLogin()) {
-            openChatViewRequested();
+            Q_EMIT openChatViewRequested();
             logIn();
         }
     });
