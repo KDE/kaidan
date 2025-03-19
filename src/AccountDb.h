@@ -26,6 +26,7 @@ public:
     QFuture<Account> account(const QString &jid);
     QFuture<Account> lastAccount();
     QFuture<void> updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount);
+    Q_SIGNAL void accountUpdated(const Account &account);
 
     /**
      * Fetches the stanza ID of the latest locally stored (existing or removed) message.

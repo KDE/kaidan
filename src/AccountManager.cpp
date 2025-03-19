@@ -49,7 +49,6 @@
                   QMutexLocker locker(&m_mutex);                                                                                                               \
                   m_account.PROPERTY = PROPERTY;                                                                                                               \
               }                                                                                                                                                \
-              Q_EMIT accountChanged();                                                                                                                         \
           })
 
 AccountManager *AccountManager::s_instance = nullptr;
@@ -65,6 +64,11 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
 {
     Q_ASSERT(!s_instance);
     s_instance = this;
+
+    connect(AccountDb::instance(), &AccountDb::accountUpdated, this, [this](const Account &account) {
+        m_account = account;
+        Q_EMIT accountChanged();
+    });
 
     connect(cache, &VCardCache::vCardChanged, this, [this](const QString &jid) {
         const auto currentJid = account().jid;
@@ -321,8 +325,6 @@ void AccountManager::storeAccount()
                       m_account = *m_tmpAccount;
                       m_tmpAccount.reset();
                   }
-
-                  Q_EMIT accountChanged();
               });
     });
 }

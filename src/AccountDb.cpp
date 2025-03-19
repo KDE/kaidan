@@ -152,6 +152,8 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 
             // Replace the old account's values with the updated ones if the item has changed.
             if (oldAccount != newAccount) {
+                Q_EMIT accountUpdated(newAccount);
+
                 if (auto record = createUpdateRecord(oldAccount, newAccount); !record.isEmpty()) {
                     // Create an SQL record containing only the differences.
                     updateAccountByRecord(jid, record);
