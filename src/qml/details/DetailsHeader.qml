@@ -31,45 +31,34 @@ FormInfoHeader {
 		Layout.preferredWidth: Layout.preferredHeight
 
 		MouseArea {
-			anchors.fill: parent
+			id: avatarOverlay
 			visible: avatarAction.enabled
 			hoverEnabled: true
-			onHoveredChanged: {
-				if (containsMouse) {
-					avatarHoverFadeInAnimation.start()
-				} else {
-					avatarHoverFadeOutAnimation.start()
-				}
-			}
-			onExited: avatarHoverFadeOutAnimation.start()
+			anchors.fill: parent
 			onClicked: root.avatarAction.triggered()
 
 			Rectangle {
 				anchors.fill: parent
 				color: Kirigami.Theme.backgroundColor
-				opacity: avatar.source.toString() ? avatarActionHoverImage.opacity * 0.5 : 0
+				opacity: avatarHoverIcon.opacity * 0.65
 			}
 
 			Kirigami.Icon {
-				id: avatarActionHoverImage
+				id: avatarHoverIcon
 				source: root.avatarAction.icon.name
-				color: Kirigami.Theme.textColor
+				opacity: {
+					if (avatarOverlay.containsMouse) {
+						return avatar.source.toString() ? 1 : 0.8
+					}
+
+					return 0
+				}
 				width: parent.width / 2
 				height: width
 				anchors.centerIn: parent
 
-				NumberAnimation on opacity {
-					id: avatarHoverFadeOutAnimation
-					from: avatar.source.toString() ? 1 : 0.8
-					to: 0
-					duration: 250
-				}
-
-				NumberAnimation on opacity {
-					id: avatarHoverFadeInAnimation
-					from: 0
-					to: avatar.source.toString() ? 1 : 0.8
-					duration: 250
+				Behavior on opacity {
+					NumberAnimation {}
 				}
 			}
 		}
