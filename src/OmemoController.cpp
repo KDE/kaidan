@@ -113,6 +113,8 @@ QFuture<void> OmemoController::setUp()
             this,
             [this, interface](bool isSetUp) mutable {
                 if (isSetUp) {
+                    m_isLoaded = true;
+
                     // Enabling the session building for new devices is delayed after all (or at least
                     // most) devices are automatically received from the servers.
                     // That way, the sessions for those devices, which are only new during this setup,
@@ -127,6 +129,22 @@ QFuture<void> OmemoController::setUp()
                     interface.reportFinished();
                 }
             });
+    }
+
+    return interface.future();
+}
+
+QFuture<void> OmemoController::unload()
+{
+    QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+
+    if (m_isLoaded) {
+        unsubscribeFromDeviceLists().then([this, interface]() mutable {
+            m_isLoaded = false;
+            interface.reportFinished();
+        });
+    } else {
+        interface.reportFinished();
     }
 
     return interface.future();
@@ -232,23 +250,6 @@ QFuture<void> OmemoController::subscribeToDeviceLists(const QList<QString> &jids
         Kaidan::instance()->client(),
         [this, jids]() {
             return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->subscribeToDeviceLists(jids), this};
-        },
-        this,
-        [interface](auto) mutable {
-            interface.reportFinished();
-        });
-
-    return interface.future();
-}
-
-QFuture<void> OmemoController::unsubscribeFromDeviceLists()
-{
-    QFutureInterface<void> interface(QFutureInterfaceBase::Started);
-
-    callRemoteTask(
-        Kaidan::instance()->client(),
-        [this]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->unsubscribeFromDeviceLists(), this};
         },
         this,
         [interface](auto) mutable {
@@ -398,6 +399,23 @@ void OmemoController::enableSessionBuildingForNewDevices()
     runOnThread(Kaidan::instance()->client(), []() {
         Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setNewDeviceAutoSessionBuildingEnabled(true);
     });
+}
+
+QFuture<void> OmemoController::unsubscribeFromDeviceLists()
+{
+    QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+
+    callRemoteTask(
+        Kaidan::instance()->client(),
+        [this]() {
+            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->unsubscribeFromDeviceLists(), this};
+        },
+        this,
+        [interface](auto) mutable {
+            interface.reportFinished();
+        });
+
+    return interface.future();
 }
 
 #include "moc_OmemoController.cpp"

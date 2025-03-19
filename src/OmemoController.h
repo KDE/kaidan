@@ -22,6 +22,7 @@ public:
 
     QFuture<void> load();
     QFuture<void> setUp();
+    QFuture<void> unload();
     QFuture<void> reset();
     QFuture<void> resetLocally();
 
@@ -32,7 +33,6 @@ public:
 
     QFuture<void> requestDeviceLists(const QList<QString> &jids);
     QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
-    QFuture<void> unsubscribeFromDeviceLists();
 
     QFuture<QString> ownKey(const QString &accountJid);
     QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
@@ -49,6 +49,8 @@ private:
      * Enables session building for new devices even before sending a message.
      */
     void enableSessionBuildingForNewDevices();
+
+    QFuture<void> unsubscribeFromDeviceLists();
 
     bool m_isLoaded = false;
 };

@@ -85,7 +85,7 @@ void EncryptionController::removeContactDevices(const QString &jid)
 
 QFuture<void> EncryptionController::unload()
 {
-    return m_omemoController->unsubscribeFromDeviceLists();
+    return m_omemoController->unload();
 }
 
 QFuture<void> EncryptionController::reset()

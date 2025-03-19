@@ -17,6 +17,8 @@
 #include "AccountManager.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
+#include "EncryptionController.h"
+#include "FutureUtils.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
 
@@ -183,9 +185,18 @@ void RegistrationManager::handleRegistrationSucceeded()
 
     m_client->disconnectFromServer();
     setRegisterOnConnectEnabled(false);
-    m_clientWorker->logIn();
 
-    cleanUpLastForm();
+    // Allow a new OMEMO setup after an account migration.
+    await(
+        EncryptionController::instance(),
+        []() {
+            return EncryptionController::instance()->unload();
+        },
+        this,
+        [this]() {
+            m_clientWorker->logIn();
+            cleanUpLastForm();
+        });
 }
 
 void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &error)

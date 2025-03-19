@@ -53,7 +53,7 @@ The following dependencies are needed by Kaidan:
 * [KDSingleApplication][kdsingleapplication]
 * [Kirigami Addons][kirigami-addons] >= 1.4.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
-* [QXmpp][qxmpp] (with OMEMO) >= 1.10.2
+* [QXmpp][qxmpp] (with OMEMO) >= 1.10.3
 
 ## Optional Dependencies
 

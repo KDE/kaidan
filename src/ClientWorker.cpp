@@ -175,34 +175,52 @@ void ClientWorker::logIn()
     const auto accountManager = AccountManager::instance();
     const auto account = accountManager->account();
     const auto jid = account.jid;
+
     m_atmManager->setAccountJid(jid);
     m_omemoDb->setAccountJid(jid);
 
-    await(
-        EncryptionController::instance(),
-        []() {
-            return EncryptionController::instance()->load();
-        },
-        this,
-        [this, accountManager, account]() {
-            if (!m_isFirstLoginAfterStart || account.online) {
-                // Store the latest online state which is restored when opening Kaidan again after closing.
-                accountManager->setAuthOnline(true);
+    auto proceedLogIn = [this, accountManager, account]() {
+        await(
+            EncryptionController::instance(),
+            []() {
+                return EncryptionController::instance()->load();
+            },
+            this,
+            [this, accountManager, account]() {
+                if (!m_isFirstLoginAfterStart || account.online) {
+                    // Store the latest online state which is restored when opening Kaidan again after closing.
+                    accountManager->setAuthOnline(true);
 
-                QXmppConfiguration config;
-                config.setResource(account.jidResource());
-                config.setCredentials(account.credentials);
-                config.setPassword(account.password);
-                config.setAutoAcceptSubscriptions(false);
+                    QXmppConfiguration config;
+                    config.setResource(account.jidResource());
+                    config.setCredentials(account.credentials);
+                    config.setPassword(account.password);
+                    config.setAutoAcceptSubscriptions(false);
 
-                // Servers using LDAP do not support SASL PLAIN authentication.
-                config.setDisabledSaslMechanisms({});
+                    // Servers using LDAP do not support SASL PLAIN authentication.
+                    config.setDisabledSaslMechanisms({});
 
-                connectToServer(config);
-            }
+                    connectToServer(config);
+                }
 
-            m_isFirstLoginAfterStart = false;
-        });
+                m_isFirstLoginAfterStart = false;
+            });
+    };
+
+    // Reset the local OMEMO data after an account migration.
+    if (const auto oldAccountJid = m_client->configuration().jidBare(); !oldAccountJid.isEmpty() && oldAccountJid != jid) {
+        await(
+            EncryptionController::instance(),
+            []() {
+                return EncryptionController::instance()->resetLocally();
+            },
+            this,
+            [proceedLogIn]() {
+                proceedLogIn();
+            });
+    } else {
+        proceedLogIn();
+    }
 }
 
 void ClientWorker::connectToServer(QXmppConfiguration config)
