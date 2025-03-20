@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-03-15 09:14+0100\n"
+"PO-Revision-Date: 2025-03-17 09:22+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -156,9 +156,7 @@ msgid "Leaving group chat"
 msgstr "Sortie du groupe de discussions"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Impossible de télécharger un fichier : %1"
@@ -3382,28 +3380,19 @@ msgid "%1 could not be added: %2"
 msgstr "Il a été impossible d'ajouter %1 : %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Impossible d'ajouter un contact, du fait de ne pas être connecté."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
+msgstr "Impossible de renommer un contact, du fait de ne pas être connecté."
 
 #: src/RosterManager.cpp:229
 #, qt-format

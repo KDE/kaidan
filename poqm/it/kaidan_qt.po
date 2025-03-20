@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-24 13:15+0100\n"
+"PO-Revision-Date: 2025-03-16 16:53+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
@@ -149,12 +149,10 @@ msgid "Leaving group chat"
 msgstr "Uscita dalla chat di gruppo"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "Impossibile scaricare il file: %1."
+msgstr "Impossibile scaricare il file: %1"
 
 #: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
@@ -2813,17 +2811,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "Rimuovi"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Appunta"
@@ -3211,7 +3203,7 @@ msgstr "Filtro"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Appunta e sposta"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3343,25 +3335,16 @@ msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Impossibile aggiungere il contatto a causa della mancata connessione."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa della mancata connessione."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Impossibile rinominare il contatto a causa della mancata connessione."

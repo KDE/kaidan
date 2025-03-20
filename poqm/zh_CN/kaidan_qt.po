@@ -149,7 +149,7 @@ msgstr "正在离开群聊"
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr ""
+msgstr "无法下载文件：%1"
 
 #: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
@@ -269,7 +269,7 @@ msgstr "选择文档"
 #: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr "全部文件"
+msgstr "所有文件"
 
 #: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
@@ -810,7 +810,7 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
-"屏蔽特定用户（例如 user@example.org）或同一服务器（例如 example.org）的全部用"
+"屏蔽特定用户（例如 user@example.org）或同一服务器（例如 example.org）的所有用"
 "户"
 
 #: src/qml/details/AccountDetailsContent.qml:514
@@ -948,7 +948,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:812
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
-msgstr "不将密码显示为文本"
+msgstr "不要以文本形式显示密码"
 
 #: src/qml/details/AccountDetailsContent.qml:813
 msgctxt "AccountDetailsContent|"
@@ -1152,7 +1152,7 @@ msgstr "您还有未经验证的其他设备"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr "您的全部其他已知设备都经过验证"
+msgstr "您的所有其他已知设备都经过验证"
 
 #: src/qml/details/AvatarChangePage.qml:22
 msgctxt "AvatarChangePage|"
@@ -1382,7 +1382,7 @@ msgstr "您的联系人有未经验证的设备"
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "您联系人的全部已知设备都经过验证"
+msgstr "您联系人的所有已知设备都经过验证"
 
 #: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
@@ -1481,7 +1481,7 @@ msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
-"允许用户（例如 user@example.org）或同一服务器（例如 example.org）的全部用户参"
+"允许用户（例如 user@example.org）或同一服务器（例如 example.org）的所有用户参"
 "与"
 
 #: src/qml/details/GroupChatDetailsContent.qml:168
@@ -1719,7 +1719,7 @@ msgstr "一些参与者的设备未经验证"
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "全部参与者的已知设备都经过验证"
+msgstr "所有参与者的已知设备都经过验证"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -1852,7 +1852,7 @@ msgstr "隐藏二维码"
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
-msgstr "显示为二维码"
+msgstr "以二维码形式显示"
 
 #: src/qml/DeviceSwitchingPage.qml:26
 msgctxt "DeviceSwitchingPage|"
@@ -1862,7 +1862,7 @@ msgstr "隐藏文本"
 #: src/qml/DeviceSwitchingPage.qml:26
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
-msgstr "显示为文本"
+msgstr "以文本形式显示"
 
 #: src/qml/DeviceSwitchingPage.qml:36
 msgctxt "DeviceSwitchingPage|"
@@ -2734,12 +2734,12 @@ msgstr "%1："
 #: src/qml/elements/RosterListItem.qml:219
 msgctxt "RosterListItem|"
 msgid "Unpin"
-msgstr "取消置顶"
+msgstr "取消固定"
 
 #: src/qml/elements/RosterListItem.qml:219
 msgctxt "RosterListItem|"
 msgid "Pin"
-msgstr "置顶"
+msgstr "固定"
 
 #: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
@@ -2909,7 +2909,7 @@ msgstr "提供者要求提供更多信息"
 #: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr "并非全部内容都是必填的"
+msgstr "并非所有内容均为必填项"
 
 #: src/qml/registration/ManualRegistrationPage.qml:30
 msgctxt "ManualRegistrationPage|"
@@ -3122,7 +3122,7 @@ msgstr "筛选器"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "固定并移动"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3250,17 +3250,17 @@ msgstr "无法添加 %1：%2"
 #: src/RosterManager.cpp:199
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
-msgstr ""
+msgstr "由于未连接，无法添加联系人。"
 
 #: src/RosterManager.cpp:209
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr ""
+msgstr "由于未连接，无法移除联系人。"
 
 #: src/RosterManager.cpp:219
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr ""
+msgstr "由于未连接，无法重命名联系人。"
 
 #: src/RosterManager.cpp:229
 #, qt-format
