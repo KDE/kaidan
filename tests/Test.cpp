@@ -24,3 +24,5 @@ void Test::removeTestDataDirectory()
         QVERIFY(testDirectory.removeRecursively());
     }
 }
+
+#include "moc_Test.cpp"
