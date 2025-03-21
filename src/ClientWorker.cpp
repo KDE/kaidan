@@ -207,7 +207,7 @@ void ClientWorker::logIn()
             });
     };
 
-    // Reset the local OMEMO data after an account migration.
+    // Reset the locally cached OMEMO data after an account migration to allow a new OMEMO setup.
     if (const auto oldAccountJid = m_client->configuration().jidBare(); !oldAccountJid.isEmpty() && oldAccountJid != jid) {
         await(
             EncryptionController::instance(),
@@ -215,9 +215,7 @@ void ClientWorker::logIn()
                 return EncryptionController::instance()->resetLocally();
             },
             this,
-            [proceedLogIn]() {
-                proceedLogIn();
-            });
+            proceedLogIn);
     } else {
         proceedLogIn();
     }
