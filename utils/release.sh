@@ -441,7 +441,7 @@ clear_working_directory() {
     initial_branch=$(git branch --show-current)
     stashed="false"
 
-    if [ $(git diff --name-only) ]
+    if [[ $(git diff --name-only) ]]
     then
         git stash -u
         stashed="true"
