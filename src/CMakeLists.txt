@@ -263,6 +263,15 @@ if (TARGET KF6::Crash)
     target_link_libraries(libkaidancore KF6::Crash)
 endif()
 
+if(TARGET KF6::SyntaxHighlighting)
+    target_sources(libkaidancore PRIVATE
+        syntax-highlighting/ansihighlighter.cpp
+        syntax-highlighting/ansihighlighter.h
+    )
+    target_link_libraries(libkaidancore KF6::SyntaxHighlighting)
+    target_compile_definitions(libkaidancore PRIVATE WITH_KSYNTAXHIGHLIGHTING)
+endif()
+
 if(ANDROID)
     target_link_libraries(libkaidancore OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
 endif()

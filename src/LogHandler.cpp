@@ -6,12 +6,50 @@
 #include "LogHandler.h"
 
 // Qt
+#include <QBuffer>
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
 // QXmpp
 #include <QXmppClient.h>
+// KF
+#ifdef WITH_KSYNTAXHIGHLIGHTING
+#include "syntax-highlighting/ansihighlighter.h"
+#include <KSyntaxHighlighting/Repository>
+#endif
 // Kaidan
 #include "KaidanCoreLog.h"
+
+using namespace Qt::StringLiterals;
+#ifdef WITH_KSYNTAXHIGHLIGHTING
+using namespace KSyntaxHighlighting;
+#endif
+
+static QString applyXmlAnsiHighlighting(const QString &xml)
+{
+#ifdef WITH_KSYNTAXHIGHLIGHTING
+    thread_local static Repository repo;
+    thread_local static auto theme = repo.defaultTheme(Repository::DarkTheme);
+    thread_local static auto definition = repo.definitionForName(u"xml"_s);
+
+    AnsiHighlighter highlighter;
+    highlighter.setTheme(theme);
+    highlighter.setDefinition(definition);
+
+    QString xmlAnsiHighlighted;
+    highlighter.setOutputString(&xmlAnsiHighlighted);
+
+    QByteArray bufferData = xml.toUtf8();
+    QBuffer inputBuffer(&bufferData);
+    inputBuffer.open(QIODevice::ReadOnly);
+
+    highlighter.highlightData(&inputBuffer, AnsiHighlighter::AnsiFormat::XTerm256Color, AnsiHighlighter::Option::NoOptions);
+
+    // remove '\n' at the end
+    return xmlAnsiHighlighted.isEmpty() ? QString() : xmlAnsiHighlighted.chopped(1);
+#else
+    return xml;
+#endif
+}
 
 LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
     : QObject(parent)
@@ -40,12 +78,12 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
     switch (type) {
     case QXmppLogger::ReceivedMessage:
-        qCDebug(KAIDAN_CORE_LOG) << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-        qDebug().noquote() << makeXmlPretty(text);
+        qCDebug(KAIDAN_CORE_LOG).noquote() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" << Qt::endl
+                                           << applyXmlAnsiHighlighting(makeXmlPretty(text));
         break;
     case QXmppLogger::SentMessage:
-        qCDebug(KAIDAN_CORE_LOG) << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
-        qDebug().noquote() << makeXmlPretty(text);
+        qCDebug(KAIDAN_CORE_LOG).noquote() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << Qt::endl
+                                           << applyXmlAnsiHighlighting(makeXmlPretty(text));
         break;
     case QXmppLogger::WarningMessage:
         qCDebug(KAIDAN_CORE_LOG).noquote() << "[client] [warn]" << text;
