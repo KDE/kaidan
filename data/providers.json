@@ -235,7 +235,7 @@
     {
         "jid": "chatrix.one",
         "category": "A",
-        "latestChange": "2025-02-05",
+        "latestChange": "2024-12-27",
         "website": {
             "bg": "https://chatrix.one/bg/",
             "en": "https://chatrix.one"
@@ -284,7 +284,7 @@
     {
         "jid": "disroot.org",
         "category": "B",
-        "latestChange": "2024-11-26",
+        "latestChange": "2025-03-02",
         "website": {
             "en": "https://disroot.org"
         },
@@ -296,7 +296,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "trunk nightly build 1937 (2024-11-24, 411649d03ad8)",
+        "serverSoftwareVersion": "trunk nightly build 1971 (2025-03-01, 025f6e490774)",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -335,7 +335,7 @@
     {
         "jid": "draugr.de",
         "category": "A",
-        "latestChange": "2024-11-25",
+        "latestChange": "2025-03-10",
         "website": {
             "de": "https://www.draugr.de"
         },
@@ -351,7 +351,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.7.0",
+        "serverSoftwareVersion": "24.12.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -384,7 +384,7 @@
     {
         "jid": "hookipa.net",
         "category": "A",
-        "latestChange": "2025-02-05",
+        "latestChange": "2025-03-16",
         "website": {
             "de": "https://hookipa.net",
             "en": "https://hookipa.net/en/front-page/"
@@ -430,57 +430,6 @@
             ]
         },
         "since": "2008-05-28"
-    },
-    {
-        "jid": "jabber-germany.de",
-        "category": "B",
-        "latestChange": "2025-01-04",
-        "website": {
-            "de": "https://www.jabber-germany.de/index-de.html"
-        },
-        "alternativeJids": [],
-        "busFactor": -1,
-        "organization": "private person",
-        "passwordReset": {
-            "de": "https://www.jabber-germany.de/index-de.html"
-        },
-        "serverTesting": true,
-        "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "0.12.5",
-        "ratingGreenWebCheck": false,
-        "inBandRegistration": false,
-        "inBandRegistrationEmailAddressRequired": false,
-        "inBandRegistrationCaptchaRequired": false,
-        "registrationWebPage": {
-            "en": "https://www.jabber-germany.de/register.html"
-        },
-        "ratingXmppComplianceTester": 100,
-        "ratingImObservatoryClientToServer": "A",
-        "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 41,
-        "maximumHttpFileUploadTotalSize": 2048,
-        "maximumHttpFileUploadStorageTime": 14,
-        "maximumMessageArchiveManagementStorageTime": 31,
-        "professionalHosting": true,
-        "freeOfCharge": true,
-        "legalNotice": {
-            "de": "https://www.jabber-germany.de/index-de.html"
-        },
-        "serverLocations": [
-            "de"
-        ],
-        "emailSupport": {
-            "en": [
-                "admin@jabber-germany.de"
-            ]
-        },
-        "chatSupport": {
-            "en": [
-                "admin@jabber-germany.de"
-            ]
-        },
-        "groupChatSupport": {},
-        "since": "2017-06-01"
     },
     {
         "jid": "jabber.fr",
@@ -594,7 +543,7 @@
     {
         "jid": "jabjab.de",
         "category": "A",
-        "latestChange": "2025-02-13",
+        "latestChange": "2025-02-20",
         "website": {
             "de": "https://www.jabjab.de",
             "en": "https://www.jabjab.de/?lang=en",
@@ -644,7 +593,11 @@
                 "admin@jabjab.de"
             ]
         },
-        "chatSupport": {},
+        "chatSupport": {
+            "en": [
+                "admin@jabjab.de"
+            ]
+        },
         "groupChatSupport": {},
         "since": "2005-08-29"
     },
@@ -762,7 +715,7 @@
     {
         "jid": "magicbroccoli.de",
         "category": "A",
-        "latestChange": "2025-02-06",
+        "latestChange": "2025-02-10",
         "website": {
             "en": "https://magicbroccoli.de"
         },
@@ -803,6 +756,61 @@
             ]
         },
         "since": "2017-06-20"
+    },
+    {
+        "jid": "monocles.eu",
+        "category": "B",
+        "latestChange": "2025-03-13",
+        "website": {
+            "en": "https://monocles.eu/more",
+            "de": "https://monocles.eu/more/de.html",
+            "es": "https://monocles.eu/more/es.html",
+            "fr": "https://monocles.eu/more/fr.html",
+            "he": "https://monocles.eu/more/he.html"
+        },
+        "alternativeJids": [],
+        "busFactor": 3,
+        "organization": "commercial person",
+        "passwordReset": {
+            "en": "https://ocean.monocles.eu/login",
+            "de": "https://ocean.monocles.eu/login",
+            "es": "https://ocean.monocles.eu/login",
+            "fr": "https://ocean.monocles.eu/login"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "0.12.5",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": false,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {
+            "en": "https://ocean.monocles.eu/apps/registration/"
+        },
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 209,
+        "maximumHttpFileUploadTotalSize": 3221,
+        "maximumHttpFileUploadStorageTime": 0,
+        "maximumMessageArchiveManagementStorageTime": 60,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "en": "https://monocles.eu/legal-privacy/",
+            "de": "https://monocles.eu/legal-privacy/de.html"
+        },
+        "serverLocations": [
+            "de"
+        ],
+        "emailSupport": {},
+        "chatSupport": {
+            "en": [
+                "support@monocles.eu"
+            ]
+        },
+        "groupChatSupport": {},
+        "since": "2021-08-21"
     },
     {
         "jid": "movim.eu",
@@ -903,12 +911,12 @@
     {
         "jid": "redlibre.es",
         "category": "A",
-        "latestChange": "2025-01-23",
+        "latestChange": "2025-02-19",
         "website": {
             "es": "https://www.redlibre.es"
         },
         "alternativeJids": [],
-        "busFactor": 2,
+        "busFactor": 1,
         "organization": "private person",
         "passwordReset": {
             "es": "https://www.redlibre.es/restablecer-contrasena/"
@@ -934,8 +942,7 @@
             "es": "https://www.redlibre.es/terminos-de-servicio/"
         },
         "serverLocations": [
-            "es",
-            "fi"
+            "es"
         ],
         "emailSupport": {
             "en": [
@@ -957,12 +964,12 @@
     {
         "jid": "suchat.org",
         "category": "A",
-        "latestChange": "2025-01-28",
+        "latestChange": "2025-02-19",
         "website": {
             "es": "https://www.suchat.org"
         },
         "alternativeJids": [],
-        "busFactor": 2,
+        "busFactor": 1,
         "organization": "private person",
         "passwordReset": {
             "es": "https://www.suchat.org/restablecer-contrasena/"
@@ -988,8 +995,7 @@
             "es": "https://www.suchat.org/terminos-de-servicio/"
         },
         "serverLocations": [
-            "es",
-            "fi"
+            "es"
         ],
         "emailSupport": {
             "en": [
@@ -1011,7 +1017,7 @@
     {
         "jid": "trashserver.net",
         "category": "B",
-        "latestChange": "2024-12-21",
+        "latestChange": "2025-03-18",
         "website": {
             "de": "https://trashserver.net",
             "en": "https://trashserver.net/en/"
@@ -1058,7 +1064,7 @@
     {
         "jid": "worlio.com",
         "category": "B",
-        "latestChange": "2025-01-19",
+        "latestChange": "2025-01-30",
         "website": {
             "en": "https://worlio.com"
         },
@@ -1109,7 +1115,7 @@
     {
         "jid": "xmpp.earth",
         "category": "A",
-        "latestChange": "2025-02-05",
+        "latestChange": "2024-11-02",
         "website": {
             "en": "https://xmpp.earth"
         },
