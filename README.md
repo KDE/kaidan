@@ -96,7 +96,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [qt]: https://www.qt.io/
 [qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
-[qxmpp]: https://github.com/qxmpp-project/qxmpp
+[qxmpp]: https://invent.kde.org/libraries/qxmpp
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
 [xmpp]: https://xmpp.org
