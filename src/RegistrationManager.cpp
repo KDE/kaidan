@@ -185,18 +185,9 @@ void RegistrationManager::handleRegistrationSucceeded()
 
     m_client->disconnectFromServer();
     setRegisterOnConnectEnabled(false);
+    m_clientWorker->logIn();
 
-    // Allow a new OMEMO setup after an account migration.
-    await(
-        EncryptionController::instance(),
-        []() {
-            return EncryptionController::instance()->unload();
-        },
-        this,
-        [this]() {
-            m_clientWorker->logIn();
-            cleanUpLastForm();
-        });
+    cleanUpLastForm();
 }
 
 void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &error)
