@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-20 10:03+0400\n"
+"PO-Revision-Date: 2025-03-02 13:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,42 +20,42 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "فشل إنشاء رمز الاستجابة السريعة: %1"
 
-#: src/AccountMigrationManager.cpp:389
+#: src/AccountMigrationManager.cpp:422
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم بالفعل"
 
-#: src/AccountMigrationManager.cpp:401
+#: src/AccountMigrationManager.cpp:434
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "لا يمكن ترحيل الحساب: لا يمكن تحميل بيانات الحساب المصدرة"
 
-#: src/AccountMigrationManager.cpp:410
+#: src/AccountMigrationManager.cpp:443
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "لا يمكن ترحيل الحساب: يجب أن تكون متصلاً"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:97
+#: src/AuthenticatedEncryptionKeyModel.cpp:96
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "هذا الجهاز"
 
-#: src/Blocking.cpp:322
+#: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "الأجهزة"
 
-#: src/Blocking.cpp:324
+#: src/Blocking.cpp:323
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "المستخدمين"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "الخواديم"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "الأجهزة على الخوادم"
@@ -65,8 +65,8 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "أنت غير متصل - يتم إرسال الرسائل واستلامها بمجرد الاتصال"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "تجاهل"
@@ -81,7 +81,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "يتّصل…"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:310
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -91,83 +91,89 @@ msgstr ""
 "%1 يرغب في تلقي بياناتك الشخصية مثل التوفر والأجهزة والمعلومات الشخصية "
 "الأخرى %2"
 
-#: src/ChatHintModel.cpp:314
-#, qt-format
+#: src/ChatHintModel.cpp:315
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 is %2 now and would like to receive your personal data "
+#| "such as availability, devices and other personal information again%3"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 is %2 now and would like to receive your personal data such "
-"as availability, devices and other personal information again%3"
+"Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
+"data such as availability, devices and other personal information again%5"
 msgstr ""
 "متراسلك %1 هو الآن %2 ويرغب في تلقي بياناتك الشخصية مثل التوفر والأجهزة "
 "والمعلومات الشخصية الأخرى مرة أخرى %3"
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "ارفض"
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "اسمح"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "يسمح…"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:338
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "لا يوجد لدى هذه المجموعة مستخدمين"
 
-#: src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "أدعو متراسلين"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:341
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "فتح منطقة الدعوة"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:359
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "هذه المجموعة محذوفة"
 
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "اترك"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:362
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "يترك الدردشة الجماعية"
 
 #: src/FileSharingController.cpp:369
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "تعذر تنزيل الملف: %1"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "لم ينضم"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "انضم"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "خرج"
 
-#: src/GroupChatUserModel.cpp:61
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "حُظر"
@@ -349,61 +355,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "لا يمكن إرسال '%1' لأنه أكبر من %2"
 
-#: src/MessageController.cpp:233
+#: src/MessageController.cpp:229
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:356
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "تعذر إرسال الرسالة."
 
-#: src/MessageController.cpp:729
+#: src/MessageController.cpp:724
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "هذه الرّسالة معمّاة ب%1 لكن لا يمكن فك تعميتها"
 
-#: src/MessageModel.cpp:282
+#: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "ينتظر"
 
-#: src/MessageModel.cpp:284
+#: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "أُرسلت"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "وصلت"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "خطأ"
 
-#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
+#: src/MessageModel.cpp:642 src/MessageModel.cpp:727
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
-#: src/MessageModel.cpp:809
+#: src/MessageModel.cpp:803
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1435
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "اليوم"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1438
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "الأمس"
@@ -497,7 +503,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "طلبات لتلقي بياناتك الشخصية"
 
-#: src/OmemoController.cpp:126
+#: src/OmemoController.cpp:128
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "لا يمكن إعداد التشفير من طرف إلى طرف عبر OMEMO 2"
@@ -1462,7 +1468,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "تم نسخ رابط الدعوة إلى الحافظة"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:77
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "غير اسم…"
@@ -2754,11 +2760,17 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "ألغ التثبيت"
 
 #: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "ثبت"
@@ -3145,7 +3157,7 @@ msgstr "المُرشِّح"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "ثبّت وانقل"
+msgstr ""
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3271,19 +3283,28 @@ msgid "%1 could not be added: %2"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/RosterManager.cpp:199
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "تعذر إضافة جهة اتصال جديدة بسبب عدم توفر الاتصال."
 
 #: src/RosterManager.cpp:209
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "تعذر إزالة جهة الاتصال بسبب عدم توفر الاتصال."
 
 #: src/RosterManager.cpp:219
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "لا يمكن إعادة تسمية متراسلك بسبب عدم توفر الاتصال."
+msgstr "لا يمكن إعادة تسمية متراسلك نتيجة لعدم الاتصال."
 
 #: src/RosterManager.cpp:229
 #, qt-format
@@ -3305,7 +3326,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "فشل إيقاف %1 عن الإطلاع على بياناتك الشخصية"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "الأمس"

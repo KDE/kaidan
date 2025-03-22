@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
-"X-Crowdin-File-ID: 57154\n"
+"X-Crowdin-File: /kf6-stable/messages/kaidan/kaidan_qt.pot\n"
+"X-Crowdin-File-ID: 57166\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -21,42 +21,42 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
 
-#: src/AccountMigrationManager.cpp:389
+#: src/AccountMigrationManager.cpp:422
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "无法迁移账号：另一项迁移已在进行中"
 
-#: src/AccountMigrationManager.cpp:401
+#: src/AccountMigrationManager.cpp:434
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationManager.cpp:410
+#: src/AccountMigrationManager.cpp:443
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:97
+#: src/AuthenticatedEncryptionKeyModel.cpp:96
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "此设备"
 
-#: src/Blocking.cpp:322
+#: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "设备"
 
-#: src/Blocking.cpp:324
+#: src/Blocking.cpp:323
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "用户"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "服务器"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
@@ -66,8 +66,8 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接 — 连接后即可发送和接收消息"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
@@ -82,7 +82,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:310
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -90,83 +90,89 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:314
-#, qt-format
+#: src/ChatHintModel.cpp:315
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 is %2 now and would like to receive your personal data "
+#| "such as availability, devices and other personal information again%3"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 is %2 now and would like to receive your personal data such "
-"as availability, devices and other personal information again%3"
+"Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
+"data such as availability, devices and other personal information again%5"
 msgstr ""
 "您的联系人 %1 现在用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个人"
 "信息 %3"
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:338
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:341
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:359
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群聊已删除"
 
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "离开"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:362
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
 #: src/FileSharingController.cpp:369
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "无法下载文件：%1"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "未加入"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "已加入"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "已离开"
 
-#: src/GroupChatUserModel.cpp:61
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
@@ -345,61 +351,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:233
+#: src/MessageController.cpp:229
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:356
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:729
+#: src/MessageController.cpp:724
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此消息已用 %1 加密，但无法解密"
 
-#: src/MessageModel.cpp:282
+#: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "等待中"
 
-#: src/MessageModel.cpp:284
+#: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "已发送"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "已送达"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "错误"
 
-#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
+#: src/MessageModel.cpp:642 src/MessageModel.cpp:727
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:809
+#: src/MessageModel.cpp:803
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1435
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1438
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -493,7 +499,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
-#: src/OmemoController.cpp:126
+#: src/OmemoController.cpp:128
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "无法通过 OMEMO 2 设置端到端加密"
@@ -1450,7 +1456,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀请链接已复制到剪贴板"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:77
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "更改名称…"
@@ -2732,11 +2738,17 @@ msgid "%1:"
 msgstr "%1："
 
 #: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "取消固定"
 
 #: src/qml/elements/RosterListItem.qml:219
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "固定"
@@ -3122,7 +3134,7 @@ msgstr "筛选器"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "固定并移动"
+msgstr ""
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3248,16 +3260,25 @@ msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
 #: src/RosterManager.cpp:199
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
 #: src/RosterManager.cpp:209
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
 #: src/RosterManager.cpp:219
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
@@ -3282,7 +3303,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
