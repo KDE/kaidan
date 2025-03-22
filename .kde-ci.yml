@@ -12,6 +12,7 @@ Dependencies:
       frameworks/prison: '@latest-kf6'
       libraries/kirigami-addons: '@latest-kf6'
       libraries/kquickimageeditor: '@latest-kf6'
+      libraries/qxmpp: '@latest-kf6'
 
   - 'on': ['Linux', 'FreeBSD', 'Windows']
     require:
