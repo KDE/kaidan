@@ -88,7 +88,7 @@ SearchBarPage {
 		}
 
 		delegate: RosterListItem {
-			highlighted: _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
+			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			width: rosterListView.width
 			listView: rosterListView
 			accountJid: model ? model.accountJid : ""
