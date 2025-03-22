@@ -26,22 +26,22 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "A geração do código QR foi mal-sucedida: %1"
 
-#: src/AccountMigrationManager.cpp:389
+#: src/AccountMigrationManager.cpp:422
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:401
+#: src/AccountMigrationManager.cpp:434
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:410
+#: src/AccountMigrationManager.cpp:443
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:97
+#: src/AuthenticatedEncryptionKeyModel.cpp:96
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Switch device"
@@ -49,12 +49,12 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Mudar de dispositivo"
 
-#: src/Blocking.cpp:322
+#: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr ""
 
-#: src/Blocking.cpp:324
+#: src/Blocking.cpp:323
 #, fuzzy
 #| msgctxt "UsernameView|"
 #| msgid "Username"
@@ -62,12 +62,12 @@ msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Utilizador"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr ""
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
@@ -77,8 +77,8 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:337
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
@@ -99,7 +99,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "A ligar…"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:310
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid ""
@@ -111,29 +111,29 @@ msgid ""
 msgstr ""
 "Pedir a disponibilidade, os dispositivos e outros dados pessoais do contacto"
 
-#: src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:315
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid ""
 #| "Request contact's availability, devices and other personal information"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 is %2 now and would like to receive your personal data such "
-"as availability, devices and other personal information again%3"
+"Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
+"data such as availability, devices and other personal information again%5"
 msgstr ""
 "Pedir a disponibilidade, os dispositivos e outros dados pessoais do contacto"
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:320
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:324
 #, fuzzy
 #| msgctxt "LoadingArea|"
 #| msgid "Loading…"
@@ -141,12 +141,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "A carregar…"
 
-#: src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:338
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:337
+#: src/ChatHintModel.cpp:339
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invite friends"
@@ -154,7 +154,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Convidar amigos"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:341
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -162,7 +162,7 @@ msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Abrir a página Web do registo"
 
-#: src/ChatHintModel.cpp:357
+#: src/ChatHintModel.cpp:359
 #, fuzzy
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -170,12 +170,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Não foi possível adicionar o %1"
 
-#: src/ChatHintModel.cpp:358
+#: src/ChatHintModel.cpp:360
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:362
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -191,22 +191,22 @@ msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Não foi possível obter o ficheiro: %1"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr ""
 
-#: src/GroupChatUserModel.cpp:61
+#: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
@@ -396,7 +396,7 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:233
+#: src/MessageController.cpp:229
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %s"
@@ -404,7 +404,7 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Não foi possível enviar a reacção: %s"
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:356
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -412,7 +412,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageController.cpp:729
+#: src/MessageController.cpp:724
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -421,27 +421,27 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está encriptada com o %1 mas não é possível descodificá-la"
 
-#: src/MessageModel.cpp:282
+#: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/MessageModel.cpp:284
+#: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregue"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/MessageModel.cpp:645 src/MessageModel.cpp:730
+#: src/MessageModel.cpp:642 src/MessageModel.cpp:727
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %s"
@@ -449,7 +449,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Não foi possível enviar a reacção: %s"
 
-#: src/MessageModel.cpp:809
+#: src/MessageModel.cpp:803
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reactions could not be sent: %s"
@@ -457,12 +457,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Não foi possível enviar as reacções: %s"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1435
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1438
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -579,7 +579,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/OmemoController.cpp:126
+#: src/OmemoController.cpp:128
 #, fuzzy
 #| msgctxt "OmemoManager|"
 #| msgid "End-to-end encryption via OMEMO 2 could not be set up"
@@ -1800,7 +1800,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "A ligação do convite foi copiada para a área de transferência"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:77
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Mudar o nome…"
@@ -4318,7 +4318,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Permitir ao %s ver o seu estado"
 
-#: src/RosterModel.cpp:858
+#: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
