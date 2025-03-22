@@ -427,8 +427,6 @@ Controls.Pane {
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.stop()
-						root.composition.fileSelectionModel.addFile(voiceMessageRecorder.actualLocation)
-						root.composition.send()
 					} else {
 						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFileUrl()
 						voiceMessageRecorder.record()
@@ -488,8 +486,8 @@ Controls.Pane {
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
+						voiceMessageRecorder.recordingCanceled = true
 						voiceMessageRecorder.stop()
-						MediaUtils.deleteFile(voiceMessageRecorder.actualLocation)
 					} else {
 						root.composition.clear()
 						root.clear()
@@ -539,7 +537,23 @@ Controls.Pane {
 				audioInput: AudioInput {}
 				recorder: MediaRecorder {
 					id: voiceMessageRecorder
+
+					property bool recordingCanceled: false
+
 					mediaFormat.fileFormat: MediaFormat.MP3
+					onRecorderStateChanged: {
+						if (recorderState === MediaRecorder.StoppedState) {
+							// Delete or send the recorded voice message once its data is completely
+							// processed.
+							if (recordingCanceled) {
+								recordingCanceled = false
+								MediaUtils.deleteFile(actualLocation)
+							} else {
+								root.composition.fileSelectionModel.addFile(actualLocation)
+								root.composition.send()
+							}
+						}
+					}
 				}
 			}
 		}
