@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-15 10:37+0100\n"
+"PO-Revision-Date: 2025-03-22 12:40+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -155,9 +155,7 @@ msgid "Leaving group chat"
 msgstr "Opuszczanie rozmowy grupowej"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Nie można pobrać pliku: %1"
@@ -3327,28 +3325,19 @@ msgid "%1 could not be added: %2"
 msgstr "Nie udało się dodać %1: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Nie można dodać styku, w wyniku nie podłączenia."
+msgstr "Nie można dodać kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Nie można usunąć styku, ponieważ nie jest on połączony."
+msgstr "Nie można usunąć kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "Nie można było zmienić nazwy kontaktu, w wyniku braku połączenia."
+msgstr "Nie można zmienić nazwy kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterManager.cpp:229
 #, qt-format
