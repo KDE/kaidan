@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-24 11:48+0100\n"
+"PO-Revision-Date: 2025-03-22 13:15+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -96,19 +96,15 @@ msgstr ""
 "andere personele informatie %2 vragen"
 
 #: src/ChatHintModel.cpp:315
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"Uw contactpersoon %1 is nu %2 en zou graag opnieuw uw persoonlijke gegevens "
-"zoals beschikbaarheid, apparaten en andere persoonlijke informatie ontvangen "
-"%3"
+"Uw contactpersoon %1 (%2) is nu %3 (%4) en zou graag opnieuw uw persoonlijke "
+"gegevens zoals beschikbaarheid, apparaten en andere persoonlijke informatie "
+"ontvangen %5"
 
 #: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
@@ -156,12 +152,10 @@ msgid "Leaving group chat"
 msgstr "Groeps-chat wordt verlaten"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "Kon bestand niet downloaden: %1"
+msgstr "Kon niet downloaden bestand: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2812,17 +2806,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "Pin losmaken"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Pin"
@@ -3213,7 +3201,7 @@ msgstr "Filter"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Pin & verplaatsen"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3346,29 +3334,20 @@ msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Kan geen contact toevoegen omdat er geen verbinding is."
+msgstr "Kan geen contactpersoon toevoegen omdat er geen verbinding is."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Kan het contact niet verwijderen omdat er geen verbinding is."
+msgstr "Kan de contactpersoon niet verwijderen omdat er geen verbinding is."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
-"De naam van het contact kon niet worden veranderd, doordat er geen "
+"De naam van de contactpersoon kon niet worden veranderd, doordat er geen "
 "verbinding beschikbaar is."
 
 #: src/RosterManager.cpp:229
