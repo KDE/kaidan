@@ -35,6 +35,7 @@ SearchBarPage {
 			icon.name: "non-starred-symbolic"
 			displayHint: Kirigami.DisplayHint.IconOnly
 			checkable: true
+			onToggled: root.searchField.forceActiveFocus()
 		}
 	]
 
@@ -148,9 +149,9 @@ SearchBarPage {
 			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
 				if (Kirigami.Settings.isMobile) {
-					toggleSearchBar()
+					root.toggleSearchBar()
 				} else {
-					searchField.clear()
+					root.searchField.clear()
 				}
 
 				ChatController.setChat(accountJid, chatJid)

@@ -38,24 +38,24 @@ ChatPageBase {
 	}
 
 	titleDelegate: Controls.ToolButton {
+		id: avatarActionButton
 		visible: !Kirigami.Settings.isMobile
 		focusPolicy: Qt.NoFocus
+		hoverEnabled: true
+		topPadding: Kirigami.Units.mediumSpacing
+		bottomPadding: Kirigami.Units.mediumSpacing
+		leftPadding: Kirigami.Units.largeSpacing
+		rightPadding: Kirigami.Units.smallSpacing * 3
 		contentItem: RowLayout {
-			// weirdly having an id here, although unused, fixes the layout
-			id: layout
-
 			Avatar {
-				Layout.leftMargin: Kirigami.Units.largeSpacing
-				Layout.preferredHeight: parent.height
-				Layout.preferredWidth: parent.height
+				Layout.preferredHeight: pageStack.globalToolBar.preferredHeight - avatarActionButton.topPadding - avatarActionButton.bottomPadding
 				jid: ChatController.chatJid
 				name: ChatController.rosterItem.displayName
 				isGroupChat: ChatController.rosterItem.isGroupChat
 			}
+
 			Kirigami.Heading {
 				Layout.fillWidth: true
-				Layout.leftMargin: Kirigami.Units.largeSpacing
-				Layout.rightMargin: Kirigami.Units.largeSpacing
 				text: ChatController.rosterItem.displayName
 			}
 		}

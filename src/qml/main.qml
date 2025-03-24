@@ -56,6 +56,11 @@ Kirigami.ApplicationWindow {
 		color: Material.Material.color(Material.Material.Green, Material.Material.Shade700)
 	}
 
+	pageStack.globalToolBar {
+		preferredHeight: Kirigami.Units.gridUnit * 3
+		showNavigationButtons: pageStack.currentIndex === 0 ? Kirigami.ApplicationHeaderStyle.NoNavigationButtons : Kirigami.ApplicationHeaderStyle.ShowBackButton
+	}
+
 	// Global and Contextual Drawers
 	// It is initialized as invisible.
 	// That way, it does not pop up for a moment before the startPage is opened.
