@@ -63,10 +63,6 @@ Kirigami.ApplicationWindow {
 		enabled: false
 	}
 
-	contextDrawer: Kirigami.ContextDrawer {
-		id: contextDrawer
-	}
-
 	onClosing: close => {
 		// Disconnect from the server when the application window is closed but before the application
 		// is quit.
