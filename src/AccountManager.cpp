@@ -325,7 +325,7 @@ void AccountManager::storeAccount()
     AccountDb::instance()->addAccount(currentJid).then(this, [this, currentJid, newAccount = std::move(currentAccount)]() {
         AccountDb::instance()
             ->updateAccount(currentJid,
-                            [&newAccount](Account &account) {
+                            [newAccount](Account &account) {
                                 account = newAccount;
                             })
             .then(this, [this]() {
