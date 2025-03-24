@@ -108,9 +108,13 @@ SearchBarPage {
 			notificationRule: model ? model.notificationRule : false
 
 			onClicked: {
-				// Open the chatPage only if it is not yet open.
-				// Emitting the signal is needed because there are slots in other places.
-				if (!selected || !wideScreen) {
+				// Open the chatPage.
+				if (selected) {
+					if (!pageStack.wideMode) {
+						pageStack.goForward()
+					}
+				} else {
+					// Emitting the signal is needed because there are slots in other places.
 					Kaidan.openChatPageRequested(accountJid, jid)
 				}
 			}
