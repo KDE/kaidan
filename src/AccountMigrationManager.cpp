@@ -22,7 +22,6 @@
 #include "Encryption.h"
 #include "FutureUtils.h"
 #include "KaidanCoreLog.h"
-#include "RegistrationManager.h"
 #include "RosterDb.h"
 #include "RosterItem.h"
 #include "RosterModel.h"

@@ -15,7 +15,7 @@ ImageBackgroundPage {
 	// JID of the provider from whom the registration form is requested
 	property string provider
 
-	onBackRequested: Kaidan.client.registrationManager.abortRegistrationRequested()
+	onBackRequested: Kaidan.registrationController.abortRegistration()
 	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 
 	/**
@@ -26,6 +26,6 @@ ImageBackgroundPage {
 		AccountManager.setNewAccountJid(provider)
 
 		// Request a registration form.
-		Kaidan.client.registrationManager.registrationFormRequested()
+		Kaidan.registrationController.requestRegistrationForm()
 	}
 }

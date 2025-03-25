@@ -275,7 +275,7 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan
+		target: Kaidan.registrationController
 		enabled: pageStack.layers.currentItem === root
 
 		function onRegistrationFormReceived(dataFormModel) {
@@ -287,7 +287,7 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan
+		target: Kaidan.registrationController
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			openWebRegistrationPage(outOfBandUrl)
@@ -295,10 +295,10 @@ RegistrationPage {
 
 		function onRegistrationFailed(error, errorMessage) {
 			switch(error) {
-			case RegistrationManager.InBandRegistrationNotSupported:
+			case RegistrationController.InBandRegistrationNotSupported:
 				passiveNotification(qsTr("The provider does not support registration via this app."))
 				break
-			case RegistrationManager.TemporarilyBlocked:
+			case RegistrationController.TemporarilyBlocked:
 				passiveNotification(qsTr("You are temporarily blocked: ") + errorMessage)
 				break
 			}

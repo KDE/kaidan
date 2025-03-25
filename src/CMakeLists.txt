@@ -159,12 +159,12 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatSearchManager.h
     QmlUtils.cpp
     QmlUtils.h
+    RegistrationController.cpp
+    RegistrationController.h
     RegistrationDataFormFilterModel.cpp
     RegistrationDataFormFilterModel.h
     RegistrationDataFormModel.cpp
     RegistrationDataFormModel.h
-    RegistrationManager.cpp
-    RegistrationManager.h
     RosterDb.cpp
     RosterDb.h
     RosterFilterProxyModel.cpp

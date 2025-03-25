@@ -35,7 +35,7 @@ FormCard.FormCard {
 		}
 
 		Connections {
-			target: Kaidan
+			target: Kaidan.registrationController
 
 			function onRegistrationFailed(error, errorMessage) {
 				button.busy = false

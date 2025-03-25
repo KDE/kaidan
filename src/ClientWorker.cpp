@@ -30,6 +30,7 @@
 #include <QXmppOmemoManager.h>
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
+#include <QXmppRegistrationManager.h>
 #include <QXmppRosterManager.h>
 #include <QXmppSasl2UserAgent.h>
 #include <QXmppStreamError.h>
@@ -51,7 +52,7 @@
 #include "MessageController.h"
 #include "OmemoDb.h"
 #include "PresenceCache.h"
-#include "RegistrationManager.h"
+#include "RegistrationController.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
@@ -93,13 +94,13 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_client->addNewExtension<QXmppMovedManager>();
     m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
     m_client->addNewExtension<QXmppMessageReceiptManager>();
+    m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
     m_client->addNewExtension<QXmppRosterManager>(m_client);
     m_client->addNewExtension<QXmppUploadRequestManager>();
     m_client->addNewExtension<QXmppVCardManager>();
     m_client->addNewExtension<QXmppVersionManager>();
     m_client->addNewExtension<QXmppMixManager>();
 
-    m_registrationManager = new RegistrationManager(this, m_client, this);
     m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
     m_rosterManager = new RosterManager(this, m_client, this);
     m_discoveryManager = new DiscoveryManager(m_client, this);
@@ -275,8 +276,12 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
     case QXmppClient::ConnectingState:
         // Abort an ongoing registration if the application is being closed.
         // Otherwise, wait for the client to connect in order to disconnect appropriately.
-        if (isApplicationBeingClosed && m_registrationManager->registerOnConnectEnabled()) {
-            m_client->disconnectFromServer();
+        if (isApplicationBeingClosed) {
+            Kaidan::instance()->registrationController()->registerOnConnectEnabled().then(this, [this](bool registerOnConnectEnabled) {
+                if (registerOnConnectEnabled) {
+                    m_client->disconnectFromServer();
+                }
+            });
         } else {
             qCDebug(KAIDAN_CORE_LOG) << "Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
             m_isDisconnecting = true;

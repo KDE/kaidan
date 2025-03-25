@@ -102,13 +102,27 @@ RegistrationPage {
 	Connections {
 		target: Kaidan
 
+		function onConnectionErrorChanged() {
+			if (Kaidan.connectionError !== ClientWorker.NoError) {
+				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
+					loadingStackArea.busy = false
+				} else {
+					popLayer()
+				}
+			}
+		}
+	}
+
+	Connections {
+		target: Kaidan.registrationController
+
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			requestRegistrationFormFromAnotherProvider()
 		}
 
 		function onRegistrationFailed(error, errorMessage) {
 			switch (error) {
-			case RegistrationManager.UsernameConflict:
+			case RegistrationController.UsernameConflict:
 				if (remainingRegistrationAttemptsAfterUsernameConflictOccurred > 0) {
 					remainingRegistrationAttemptsAfterUsernameConflictOccurred--
 					// Try to register again with another username on the same provider.
@@ -119,7 +133,7 @@ RegistrationPage {
 					requestRegistrationFormFromAnotherProvider()
 				}
 				break
-			case RegistrationManager.CaptchaVerificationFailed:
+			case RegistrationController.CaptchaVerificationFailed:
 				showPassiveNotificationForCaptchaVerificationFailedError(errorMessage)
 
 				if (remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred > 0) {
@@ -130,7 +144,7 @@ RegistrationPage {
 					requestRegistrationFormFromAnotherProvider()
 				}
 				break
-			case RegistrationManager.RequiredInformationMissing:
+			case RegistrationController.RequiredInformationMissing:
 				showPassiveNotificationForRequiredInformationMissingError(errorMessage)
 
 				if (remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred > 0 && customFormFieldsAvailable) {
@@ -144,16 +158,6 @@ RegistrationPage {
 				break
 			default:
 				requestRegistrationFormFromAnotherProvider()
-			}
-		}
-
-		function onConnectionErrorChanged() {
-			if (Kaidan.connectionError !== ClientWorker.NoError) {
-				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
-					loadingStackArea.busy = false
-				} else {
-					popLayer()
-				}
 			}
 		}
 	}

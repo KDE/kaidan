@@ -747,7 +747,7 @@ DetailsContent {
 								passwordField.toggleHintForInvalidText()
 							} else {
 								passwordBusyIndicator.visible = true
-								Kaidan.client.registrationManager.changePasswordRequested(passwordField.text)
+								Kaidan.registrationController.changePassword(passwordField.text)
 							}
 						}
 					}
@@ -774,7 +774,7 @@ DetailsContent {
 				}
 
 				Connections {
-					target: Kaidan
+					target: Kaidan.registrationController
 
 					function onPasswordChangeFailed(errorMessage) {
 						passwordBusyIndicator.visible = false

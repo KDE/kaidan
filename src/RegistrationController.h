@@ -7,6 +7,7 @@
 #pragma once
 
 // Qt
+#include <QFuture>
 #include <QObject>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
@@ -20,7 +21,7 @@ class QXmppDataForm;
 class QXmppRegisterIq;
 class QXmppRegistrationManager;
 
-class RegistrationManager : public QObject
+class RegistrationController : public QObject
 {
     Q_OBJECT
 
@@ -36,53 +37,74 @@ public:
     };
     Q_ENUM(RegistrationError)
 
-    RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
+    RegistrationController(QObject *parent = nullptr);
+
+    QFuture<bool> registerOnConnectEnabled();
 
     /**
      * Connects to the server and requests a data form for account registration.
      */
-    Q_SIGNAL void registrationFormRequested();
-
-    bool registerOnConnectEnabled() const;
+    Q_INVOKABLE void requestRegistrationForm();
 
     /**
-     * Emitted to send a completed data form for registration.
-     */
-    Q_SIGNAL void sendRegistrationFormRequested();
-
-    /**
-     * Aborts an ongoing registration.
-     */
-    Q_SIGNAL void abortRegistrationRequested();
-
-    /**
-     * Deletes the account from the server.
-     */
-    void deleteAccount();
-
-    Q_SIGNAL void changePasswordRequested(const QString &newPassword);
-
-private:
-    void requestRegistrationForm();
-
-    /**
-     * Sets whether a registration is requested for the next time when the client connects to the server.
+     * Emitted when a data form for registration is received from the server.
      *
-     * @param registerOnConnect true for requesting a registration on connecting, false otherwise
+     * @param dataFormModel received model for the registration data form
      */
-    void setRegisterOnConnectEnabled(bool registerOnConnect);
+    Q_SIGNAL void registrationFormReceived(DataFormModel *dataFormModel);
 
     /**
-     * Sends the form containing information to register an account.
+     * Emitted when an out-of-band URL for registration is received from the
+     * server.
+     *
+     * @param outOfBandUrl URL used for out-of-band registration
      */
-    void sendRegistrationForm();
+    Q_SIGNAL void registrationOutOfBandUrlReceived(const QUrl &outOfBandUrl);
+
+    /**
+     * Sends the completed data form containing information to register an account.
+     */
+    Q_INVOKABLE void sendRegistrationForm();
+
+    /**
+     * Emitted when the account registration failed.
+     *
+     * @param error received error
+     * @param errorMessage message describing the error
+     */
+    Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
 
     /**
      * Changes the user's password.
      *
      * @param newPassword new password to set
      */
-    void changePassword(const QString &newPassword);
+    Q_INVOKABLE void changePassword(const QString &newPassword);
+
+    /**
+     * Emitted when changing of the user's password finished succfessully.
+     */
+    Q_SIGNAL void passwordChangeSucceeded();
+
+    /**
+     * Emitted when changing the user's password failed.
+     *
+     * @param errorMessage message describing the error
+     */
+    Q_SIGNAL void passwordChangeFailed(const QString &errorMessage);
+
+    /**
+     * Deletes the account from the server.
+     */
+    void deleteAccount();
+
+private:
+    /**
+     * Sets whether a registration is requested for the next time when the client connects to the server.
+     *
+     * @param registerOnConnect true for requesting a registration on connecting, false otherwise
+     */
+    void setRegisterOnConnectEnabled(bool registerOnConnect);
 
     /**
      * Called when the In-Band Registration support changed.
@@ -136,7 +158,7 @@ private:
      *
      * @return data form with extracted key-value pairs
      */
-    QXmppDataForm extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm);
+    static QXmppDataForm extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm);
 
     /**
      * Aborts an ongoing registration.
@@ -159,7 +181,7 @@ private:
      * @param oldForm form with old values
      * @param newForm form with new values
      */
-    void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm);
+    static void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm);
 
     /**
      * Removes content IDs from the last form.

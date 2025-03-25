@@ -27,7 +27,6 @@ class ChatController;
 class ChatHintModel;
 class ClientThread;
 class Database;
-class DataFormModel;
 class EncryptionController;
 class FileSharingController;
 class GroupChatController;
@@ -36,6 +35,7 @@ class MessageController;
 class MessageDb;
 class MessageModel;
 class Notifications;
+class RegistrationController;
 class RosterDb;
 
 /**
@@ -55,6 +55,7 @@ class Kaidan : public QObject
     Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
+    Q_PROPERTY(RegistrationController *registrationController READ registrationController CONSTANT)
     Q_PROPERTY(AvatarFileStorage *avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
     Q_PROPERTY(ServerFeaturesCache *serverFeaturesCache READ serverFeaturesCache CONSTANT)
     Q_PROPERTY(Settings *settings READ settings CONSTANT)
@@ -160,6 +161,10 @@ public:
     {
         return m_groupChatController;
     }
+    RegistrationController *registrationController() const
+    {
+        return m_registrationController;
+    }
     AvatarFileStorage *avatarStorage() const
     {
         return m_caches->avatarStorage;
@@ -235,29 +240,6 @@ public:
 
     Q_SIGNAL void accountErrorOccurred(const QString &msg);
     Q_SIGNAL void accountBusyChanged(bool busy);
-
-    /**
-     * Emitted when a data form for registration is received from the server.
-     *
-     * @param dataFormModel received model for the registration data form
-     */
-    Q_SIGNAL void registrationFormReceived(DataFormModel *dataFormModel);
-
-    /**
-     * Emitted when an out-of-band URL for registration is received from the
-     * server.
-     *
-     * @param outOfBandUrl URL used for out-of-band registration
-     */
-    Q_SIGNAL void registrationOutOfBandUrlReceived(const QUrl &outOfBandUrl);
-
-    /**
-     * Emitted when the account registration failed.
-     *
-     * @param error received error
-     * @param errorMessage message describing the error
-     */
-    Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
 
     /**
      * Emitted to log in to the server with the set credentials.
@@ -346,18 +328,6 @@ public:
     Q_SIGNAL void xmppUriReceived(QString uriString);
 
     /**
-     * Emitted when changing of the user's password finished succfessully.
-     */
-    Q_SIGNAL void passwordChangeSucceeded();
-
-    /**
-     * Emitted when changing the user's password failed.
-     *
-     * @param errorMessage message describing the error
-     */
-    Q_SIGNAL void passwordChangeFailed(const QString &errorMessage);
-
-    /**
      * Emitted when changing of the user's avatar finished succfessully.
      */
     Q_SIGNAL void avatarChangeSucceeded();
@@ -403,6 +373,7 @@ private:
     std::unique_ptr<FileSharingController> m_fileSharingController;
     GroupChatController *m_groupChatController;
     MessageController *m_messageController;
+    RegistrationController *m_registrationController;
 
     MessageModel *m_messageModel;
     ChatHintModel *m_chatHintModel;

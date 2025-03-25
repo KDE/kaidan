@@ -41,6 +41,7 @@
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "Notifications.h"
+#include "RegistrationController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
@@ -155,6 +156,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
     m_groupChatController = new GroupChatController(this);
     m_messageController = new MessageController(this);
+    m_registrationController = new RegistrationController(this);
 
     m_messageModel = new MessageModel(this);
     m_chatHintModel = new ChatHintModel(this);

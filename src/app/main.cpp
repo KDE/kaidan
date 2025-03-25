@@ -106,8 +106,8 @@
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
+#include "RegistrationController.h"
 #include "RegistrationDataFormFilterModel.h"
-#include "RegistrationManager.h"
 #include "RosterFilterProxyModel.h"
 #include "RosterItemWatcher.h"
 #include "RosterManager.h"
@@ -259,7 +259,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<DiscoveryManager *>();
     qRegisterMetaType<VCardManager *>();
     qRegisterMetaType<VersionManager *>();
-    qRegisterMetaType<RegistrationManager *>();
+    qRegisterMetaType<RegistrationController *>();
     qRegisterMetaType<AccountMigrationManager *>();
     qRegisterMetaType<FileSharingController *>();
     qRegisterMetaType<EncryptionController *>();
@@ -483,7 +483,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<Presence>(APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<RegistrationManager>(APPLICATION_ID, 1, 0, "RegistrationManager", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<RegistrationController>(APPLICATION_ID,
+                                                       1,
+                                                       0,
+                                                       "RegistrationController",
+                                                       QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<AccountMigrationManager>(APPLICATION_ID,
                                                         1,
                                                         0,

@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "RegistrationManager.h"
+#include "RegistrationController.h"
 
 // std
 #include <chrono>
@@ -17,7 +17,6 @@
 #include "AccountManager.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
-#include "EncryptionController.h"
 #include "FutureUtils.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
@@ -26,40 +25,122 @@ using namespace std::chrono_literals;
 
 constexpr auto ACCOUNT_DELETION_TIMEOUT = 5s;
 
-RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
+RegistrationController::RegistrationController(QObject *parent)
     : QObject(parent)
-    , m_clientWorker(clientWorker)
-    , m_client(client)
-    , m_manager(client->addNewExtension<QXmppRegistrationManager>())
+    , m_clientWorker(Kaidan::instance()->client())
+    , m_client(m_clientWorker->xmppClient())
+    , m_manager(m_clientWorker->registrationManager())
 {
-    connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationManager::handleInBandRegistrationSupportedChanged);
+    connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationController::handleInBandRegistrationSupportedChanged);
 
     // account creation
-    connect(this, &RegistrationManager::registrationFormRequested, this, &RegistrationManager::requestRegistrationForm);
-    connect(this, &RegistrationManager::sendRegistrationFormRequested, this, &RegistrationManager::sendRegistrationForm);
-    connect(this, &RegistrationManager::abortRegistrationRequested, this, &RegistrationManager::abortRegistration);
-    connect(m_manager, &QXmppRegistrationManager::registrationFormReceived, this, &RegistrationManager::handleRegistrationFormReceived);
-    connect(m_manager, &QXmppRegistrationManager::registrationSucceeded, this, &RegistrationManager::handleRegistrationSucceeded);
-    connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationManager::handleRegistrationFailed);
+    connect(m_manager, &QXmppRegistrationManager::registrationFormReceived, this, &RegistrationController::handleRegistrationFormReceived);
+    connect(m_manager, &QXmppRegistrationManager::registrationSucceeded, this, &RegistrationController::handleRegistrationSucceeded);
+    connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationController::handleRegistrationFailed);
 
     // account deletion
     connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountManager::instance(), &AccountManager::handleAccountDeletedFromServer);
     connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, AccountManager::instance(), &AccountManager::handleAccountDeletionFromServerFailed);
 
     // password change
-    connect(this, &RegistrationManager::changePasswordRequested, this, &RegistrationManager::changePassword);
-    connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationManager::handlePasswordChanged);
-    connect(m_manager, &QXmppRegistrationManager::passwordChangeFailed, this, &RegistrationManager::handlePasswordChangeFailed);
+    connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationController::handlePasswordChanged);
+    connect(m_manager, &QXmppRegistrationManager::passwordChangeFailed, this, &RegistrationController::handlePasswordChangeFailed);
 }
 
-bool RegistrationManager::registerOnConnectEnabled() const
+QFuture<bool> RegistrationController::registerOnConnectEnabled()
 {
-    return m_manager->registerOnConnectEnabled();
+    return runAsync(m_manager, [this]() {
+        return m_manager->registerOnConnectEnabled();
+    });
 }
 
-void RegistrationManager::deleteAccount()
+void RegistrationController::requestRegistrationForm()
 {
-    m_manager->deleteAccount();
+    auto connectToRegister = [this]() {
+        setRegisterOnConnectEnabled(true);
+
+        runOnThread(m_clientWorker, [this]() {
+            m_clientWorker->connectToServer();
+        });
+    };
+
+    auto reconnectToRegister = [this, connectToRegister]() {
+        m_client->disconnectFromServer();
+        connectToRegister();
+    };
+
+    if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
+        registerOnConnectEnabled().then(this, [this, reconnectToRegister](bool registerOnConnectEnabled) {
+            if (registerOnConnectEnabled) {
+                runOnThread(
+                    m_client,
+                    [this]() {
+                        return m_client->configuration().jidBare();
+                    },
+                    this,
+                    [this, reconnectToRegister](QString &&accountJid) {
+                        if (accountJid == AccountManager::instance()->account().jid) {
+                            m_manager->requestRegistrationForm();
+                        } else {
+                            reconnectToRegister();
+                        }
+                    });
+            } else {
+                reconnectToRegister();
+            }
+        });
+    } else {
+        connectToRegister();
+    }
+}
+
+void RegistrationController::sendRegistrationForm()
+{
+    if (m_dataFormModel->isFakeForm()) {
+        QXmppRegisterIq iq;
+        iq.setUsername(m_dataFormModel->extractUsername());
+        iq.setPassword(m_dataFormModel->extractPassword());
+        iq.setEmail(m_dataFormModel->extractEmail());
+
+        runOnThread(m_manager, [this, iq]() {
+            m_manager->setRegistrationFormToSend(iq);
+        });
+    } else {
+        runOnThread(m_manager, [this, iq = m_dataFormModel->form()]() {
+            m_manager->setRegistrationFormToSend(iq);
+        });
+    }
+
+    setRegisterOnConnectEnabled(true);
+
+    // If the client is still connected/connecting to the server, send the registration form
+    // directly.
+    // Otherwise, reconnect to the server beforehand.
+    if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
+        runOnThread(m_manager, [this]() {
+            m_manager->sendCachedRegistrationForm();
+        });
+    } else {
+        runOnThread(m_clientWorker, [this]() {
+            m_clientWorker->connectToServer();
+        });
+    }
+}
+
+void RegistrationController::changePassword(const QString &newPassword)
+{
+    runOnThread(m_clientWorker, [this, newPassword]() {
+        m_clientWorker->startTask([this, newPassword] {
+            m_manager->changePassword(newPassword);
+        });
+    });
+}
+
+void RegistrationController::deleteAccount()
+{
+    runOnThread(m_manager, [this]() {
+        m_manager->deleteAccount();
+    });
 
     // Start a timer to disconnect from the server after a specified timeout triggering
     // QXmppRegistrationManager::accountDeleted to be emitted.
@@ -68,66 +149,29 @@ void RegistrationManager::deleteAccount()
     QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, m_client, &QXmppClient::disconnectFromServer);
 }
 
-void RegistrationManager::requestRegistrationForm()
+void RegistrationController::setRegisterOnConnectEnabled(bool registerOnConnect)
 {
-    if (m_client->state() != QXmppClient::DisconnectedState) {
-        if (registerOnConnectEnabled() && m_client->configuration().jidBare() == AccountManager::instance()->account().jid) {
-            m_manager->requestRegistrationForm();
-            return;
-        }
-
-        m_client->disconnectFromServer();
-    }
-
-    setRegisterOnConnectEnabled(true);
-    m_clientWorker->connectToServer();
-}
-
-void RegistrationManager::setRegisterOnConnectEnabled(bool registerOnConnect)
-{
-    m_manager->setRegisterOnConnectEnabled(registerOnConnect);
-}
-
-void RegistrationManager::sendRegistrationForm()
-{
-    if (m_dataFormModel->isFakeForm()) {
-        QXmppRegisterIq iq;
-        iq.setUsername(m_dataFormModel->extractUsername());
-        iq.setPassword(m_dataFormModel->extractPassword());
-        iq.setEmail(m_dataFormModel->extractEmail());
-
-        m_manager->setRegistrationFormToSend(iq);
-    } else {
-        m_manager->setRegistrationFormToSend(m_dataFormModel->form());
-    }
-
-    setRegisterOnConnectEnabled(true);
-
-    // If the client is still connected/connecting to the server, send the registration form
-    // directly.
-    // Otherwise, reconnect to the server beforehand.
-    if (m_client->state() != QXmppClient::DisconnectedState) {
-        m_manager->sendCachedRegistrationForm();
-    } else {
-        m_clientWorker->connectToServer();
-    }
-}
-
-void RegistrationManager::changePassword(const QString &newPassword)
-{
-    m_clientWorker->startTask([this, newPassword] {
-        m_manager->changePassword(newPassword);
+    runOnThread(m_manager, [this, registerOnConnect]() {
+        m_manager->setRegisterOnConnectEnabled(registerOnConnect);
     });
 }
 
-void RegistrationManager::handleInBandRegistrationSupportedChanged()
+void RegistrationController::handleInBandRegistrationSupportedChanged()
 {
-    if (m_client->isConnected()) {
-        m_clientWorker->caches()->serverFeaturesCache->setInBandRegistrationSupported(m_manager->supportedByServer());
+    if (Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnected) {
+        runOnThread(
+            m_manager,
+            [this]() {
+                return m_manager->supportedByServer();
+            },
+            this,
+            [this](bool supportedByServer) {
+                m_clientWorker->caches()->serverFeaturesCache->setInBandRegistrationSupported(supportedByServer);
+            });
     }
 }
 
-void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &iq)
+void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterIq &iq)
 {
     bool isFakeForm;
     QXmppDataForm newDataForm = extractFormFromRegisterIq(iq, isFakeForm);
@@ -136,7 +180,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
     if (newDataForm.fields().isEmpty()) {
         // If there is a standardized out-of-band URL, use that.
         if (!iq.outOfBandUrl().isEmpty()) {
-            Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
+            Q_EMIT registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
             abortRegistration();
             return;
         }
@@ -146,7 +190,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         const auto words = iq.instructions().split(u' ');
         for (const auto &instructionPart : words) {
             if (instructionPart.startsWith(u"https://")) {
-                Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{instructionPart});
+                Q_EMIT registrationOutOfBandUrlReceived(QUrl{instructionPart});
                 abortRegistration();
                 return;
             }
@@ -165,8 +209,6 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
     }
 
     m_dataFormModel->setIsFakeForm(isFakeForm);
-    // Move to the main thread, so QML can connect signals to the model.
-    m_dataFormModel->moveToThread(Kaidan::instance()->thread());
 
     // Add the attached Bits of Binary data to the corresponding image provider.
     const auto bobDataList = iq.bitsOfBinaryData();
@@ -175,22 +217,28 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         m_contentIdsToRemove << bobData.cid();
     }
 
-    Q_EMIT Kaidan::instance()->registrationFormReceived(m_dataFormModel);
+    Q_EMIT registrationFormReceived(m_dataFormModel);
 }
 
-void RegistrationManager::handleRegistrationSucceeded()
+void RegistrationController::handleRegistrationSucceeded()
 {
     AccountManager::instance()->setNewAccount(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()),
                                               m_dataFormModel->extractPassword());
 
-    m_client->disconnectFromServer();
+    runOnThread(m_client, [this]() {
+        m_client->disconnectFromServer();
+    });
+
     setRegisterOnConnectEnabled(false);
-    m_clientWorker->logIn();
+
+    runOnThread(m_clientWorker, [this]() {
+        m_clientWorker->logIn();
+    });
 
     cleanUpLastForm();
 }
 
-void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &error)
+void RegistrationController::handleRegistrationFailed(const QXmppStanza::Error &error)
 {
     RegistrationError registrationError = RegistrationError::UnknownError;
 
@@ -241,23 +289,30 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
         break;
     }
 
-    Q_EMIT Kaidan::instance()->registrationFailed(quint8(registrationError), error.text());
+    Q_EMIT registrationFailed(quint8(registrationError), error.text());
 }
 
-void RegistrationManager::handlePasswordChanged(const QString &newPassword)
+void RegistrationController::handlePasswordChanged(const QString &newPassword)
 {
     AccountManager::instance()->setAuthPassword(newPassword);
-    m_clientWorker->finishTask();
-    Q_EMIT Kaidan::instance()->passwordChangeSucceeded();
+
+    runOnThread(m_clientWorker, [this]() {
+        m_clientWorker->finishTask();
+    });
+
+    Q_EMIT passwordChangeSucceeded();
 }
 
-void RegistrationManager::handlePasswordChangeFailed(const QXmppStanza::Error &error)
+void RegistrationController::handlePasswordChangeFailed(const QXmppStanza::Error &error)
 {
-    Q_EMIT Kaidan::instance()->passwordChangeFailed(error.text());
-    m_clientWorker->finishTask();
+    Q_EMIT passwordChangeFailed(error.text());
+
+    runOnThread(m_clientWorker, [this]() {
+        m_clientWorker->finishTask();
+    });
 }
 
-QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm)
+QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm)
 {
     QXmppDataForm newDataForm = iq.form();
     if (newDataForm.fields().isEmpty()) {
@@ -295,7 +350,7 @@ QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegister
     return newDataForm;
 }
 
-void RegistrationManager::abortRegistration()
+void RegistrationController::abortRegistration()
 {
     const auto accountManager = AccountManager::instance();
 
@@ -305,8 +360,10 @@ void RegistrationManager::abortRegistration()
         accountManager->resetNewAccount();
 
         // Disconnect from any server that the client is still connected to.
-        if (m_client->state() != QXmppClient::DisconnectedState) {
-            m_client->disconnectFromServer();
+        if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
+            runOnThread(m_client, [this]() {
+                m_client->disconnectFromServer();
+            });
         }
 
         setRegisterOnConnectEnabled(false);
@@ -314,20 +371,20 @@ void RegistrationManager::abortRegistration()
     }
 }
 
-void RegistrationManager::updateLastForm(const QXmppDataForm &newDataForm)
+void RegistrationController::updateLastForm(const QXmppDataForm &newDataForm)
 {
     copyUserDefinedValuesToNewForm(m_dataFormModel->form(), newDataForm);
     m_dataFormModel = new RegistrationDataFormModel(newDataForm);
     removeOldContentIds();
 }
 
-void RegistrationManager::cleanUpLastForm()
+void RegistrationController::cleanUpLastForm()
 {
     m_dataFormModel = nullptr;
     removeOldContentIds();
 }
 
-void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm)
+void RegistrationController::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm)
 {
     // Copy values from the last form.
     const QList<QXmppDataForm::Field> oldFields = oldForm.fields();
@@ -347,7 +404,7 @@ void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &ol
     }
 }
 
-void RegistrationManager::removeOldContentIds()
+void RegistrationController::removeOldContentIds()
 {
     for (auto itr = m_contentIdsToRemove.begin(); itr != m_contentIdsToRemove.end();) {
         if (BitsOfBinaryImageProvider::instance()->removeImage(*itr)) {
@@ -358,4 +415,4 @@ void RegistrationManager::removeOldContentIds()
     }
 }
 
-#include "moc_RegistrationManager.cpp"
+#include "moc_RegistrationController.cpp"

@@ -20,19 +20,19 @@ class Database;
 class DiscoveryManager;
 class LogHandler;
 class OmemoDb;
-class RegistrationManager;
+class PresenceCache;
 class RosterManager;
 class RosterModel;
 class ServerFeaturesCache;
+class Settings;
 class VCardCache;
 class VCardManager;
 class VersionManager;
-class Settings;
 class QNetworkAccessManager;
+class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
-class QXmppEncryptedFileSharingProvider;
-class PresenceCache;
+class QXmppRegistrationManager;
 
 /**
  * The ClientWorker is used as a QObject-based worker on the ClientThread.
@@ -41,7 +41,6 @@ class ClientWorker : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(AccountMigrationManager *accountMigrationManager READ accountMigrationManager CONSTANT)
-    Q_PROPERTY(RegistrationManager *registrationManager READ registrationManager CONSTANT)
     Q_PROPERTY(VCardManager *vCardManager READ vCardManager CONSTANT)
     Q_PROPERTY(RosterManager *rosterManager READ rosterManager CONSTANT)
     Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
@@ -89,11 +88,6 @@ public:
      */
     ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
 
-    RegistrationManager *registrationManager() const
-    {
-        return m_registrationManager;
-    }
-
     AccountMigrationManager *accountMigrationManager() const
     {
         return m_accountMigrationManager;
@@ -129,14 +123,19 @@ public:
         return m_caches;
     }
 
+    QXmppClient *xmppClient() const
+    {
+        return m_client;
+    }
+
     QXmppFileSharingManager *fileSharingManager() const
     {
         return m_fileSharingManager;
     }
 
-    std::shared_ptr<QXmppHttpFileSharingProvider> httpFileSharingProvider() const
+    QXmppRegistrationManager *registrationManager() const
     {
-        return m_httpProvider;
+        return m_registrationManager;
     }
 
     std::shared_ptr<QXmppEncryptedFileSharingProvider> encryptedHttpFileSharingProvider() const
@@ -144,9 +143,9 @@ public:
         return m_encryptedProvider;
     }
 
-    QXmppClient *xmppClient() const
+    std::shared_ptr<QXmppHttpFileSharingProvider> httpFileSharingProvider() const
     {
-        return m_client;
+        return m_httpProvider;
     }
 
     /**
@@ -262,7 +261,6 @@ private:
     bool m_enableLogging;
     QNetworkAccessManager *m_networkManager;
 
-    RegistrationManager *m_registrationManager;
     AccountMigrationManager *m_accountMigrationManager;
     VCardManager *m_vCardManager;
     RosterManager *m_rosterManager;
@@ -270,11 +268,14 @@ private:
     DiscoveryManager *m_discoveryManager;
     VersionManager *m_versionManager;
 
+    QXmppFileSharingManager *m_fileSharingManager;
+    QXmppRegistrationManager *m_registrationManager;
+
     OmemoDb *m_omemoDb;
 
-    QXmppFileSharingManager *m_fileSharingManager;
-    std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
     std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
+    std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
+
     QList<std::function<void()>> m_pendingTasks;
     uint m_activeTasks = 0;
 

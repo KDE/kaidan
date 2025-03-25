@@ -22,7 +22,7 @@
 #include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
-#include "RegistrationManager.h"
+#include "RegistrationController.h"
 #include "RosterDb.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
@@ -366,9 +366,7 @@ void AccountManager::deleteAccountFromClientAndServer()
         this,
         [this](bool authenticated) {
             if (authenticated) {
-                runOnThread(Kaidan::instance()->client(), []() {
-                    Kaidan::instance()->client()->registrationManager()->deleteAccount();
-                });
+                Kaidan::instance()->registrationController()->deleteAccount();
             } else {
                 m_deletionStates |= DeletionState::ClientDisconnectedBeforeDeletionFromServer;
 
@@ -403,9 +401,7 @@ bool AccountManager::handleConnected()
 {
     // If the account could not be deleted because the client was disconnected, delete it now.
     if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient) && m_deletionStates.testFlag(DeletionState::ToBeDeletedFromServer)) {
-        runOnThread(Kaidan::instance()->client(), []() {
-            Kaidan::instance()->client()->registrationManager()->deleteAccount();
-        });
+        Kaidan::instance()->registrationController()->deleteAccount();
 
         return true;
     } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {

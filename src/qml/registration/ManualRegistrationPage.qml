@@ -111,7 +111,7 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan
+		target: Kaidan.registrationController
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			// Further processing is handled by ProviderPage.
@@ -126,25 +126,25 @@ RegistrationPage {
 		 */
 		function onRegistrationFailed(error, errorMessage) {
 			switch(error) {
-			case RegistrationManager.InBandRegistrationNotSupported:
-			case RegistrationManager.TemporarilyBlocked:
+			case RegistrationController.InBandRegistrationNotSupported:
+			case RegistrationController.TemporarilyBlocked:
 				// Further processing is handled by ProviderPage.
 				popLayer()
 				break
-			case RegistrationManager.UsernameConflict:
+			case RegistrationController.UsernameConflict:
 				handleUsernameConflictError()
 				break
-			case RegistrationManager.PasswordTooWeak:
+			case RegistrationController.PasswordTooWeak:
 				nextFocusedItem = passwordField
 				requestRegistrationForm()
 				passiveNotification(qsTr("The provider requires a stronger password."))
 				break
-			case RegistrationManager.CaptchaVerificationFailed:
+			case RegistrationController.CaptchaVerificationFailed:
 				nextFocusedItem = customDataFormArea
 				requestRegistrationForm()
 				showPassiveNotificationForCaptchaVerificationFailedError()
 				break
-			case RegistrationManager.RequiredInformationMissing:
+			case RegistrationController.RequiredInformationMissing:
 				requestRegistrationForm()
 				if (customDataFormArea.visible) {
 					nextFocusedItem = customDataFormArea
