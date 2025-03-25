@@ -220,21 +220,6 @@ void AccountManager::setNewAccountJid(const QString &jid)
     setNewAccount(jid, {});
 }
 
-void AccountManager::setNewAccountPassword(const QString &password)
-{
-    {
-        QMutexLocker locker(&m_mutex);
-
-        if (!m_tmpAccount) {
-            return;
-        }
-
-        m_tmpAccount->password = password;
-    }
-
-    Q_EMIT accountChanged();
-}
-
 void AccountManager::setNewAccountHost(const QString &host, quint16 port)
 {
     {

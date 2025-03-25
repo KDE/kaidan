@@ -70,7 +70,6 @@ public:
 
     Q_INVOKABLE void setNewAccount(const QString &jid, const QString &password, const QString &host = {}, quint16 port = PORT_AUTODETECT);
     Q_INVOKABLE void setNewAccountJid(const QString &jid);
-    Q_INVOKABLE void setNewAccountPassword(const QString &password);
     Q_INVOKABLE void setNewAccountHost(const QString &host, quint16 port);
     Q_INVOKABLE void resetNewAccount();
 
