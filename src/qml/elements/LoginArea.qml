@@ -43,7 +43,7 @@ FormCard.FormCard {
 
 	FormCardCustomContentArea {
 		contentItem: ColumnLayout {
-			Component.onCompleted: AccountManager.resetCustomConnectionSettings()
+			Component.onCompleted: AccountController.resetCustomConnectionSettings()
 
 			JidField {
 				id: jidField
@@ -98,7 +98,7 @@ FormCard.FormCard {
 			} else if (!passwordField.valid) {
 				passwordField.forceActiveFocus()
 			} else {
-				AccountManager.setNewAccount(jidField.text, passwordField.text,
+				AccountController.setNewAccount(jidField.text, passwordField.text,
 											 customConnectionSettings.hostField.text,
 											 customConnectionSettings.portField.value)
 

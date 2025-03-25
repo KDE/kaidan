@@ -23,8 +23,8 @@
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
+#include "AccountController.h"
 #include "AccountDb.h"
-#include "AccountManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "Blocking.h"
@@ -136,11 +136,11 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_cltThrd->setObjectName("XmppClient");
     m_cltThrd->waitForStarted();
 
-    auto accountManager = AccountManager::instance();
+    auto accountController = new AccountController(m_client->caches()->settings, m_client->caches()->vCardCache, parent);
 
-    connect(accountManager, &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
-    connect(accountManager, &AccountManager::connectionDataLoaded, this, [this, accountManager]() {
-        if (accountManager->hasEnoughCredentialsForLogin()) {
+    connect(accountController, &AccountController::credentialsNeeded, this, &Kaidan::credentialsNeeded);
+    connect(accountController, &AccountController::connectionDataLoaded, this, [this, accountController]() {
+        if (accountController->hasEnoughCredentialsForLogin()) {
             Q_EMIT openChatViewRequested();
             logIn();
         }
@@ -171,7 +171,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
                 const auto effectiveRule = [contactRule]() -> Account::AutomaticMediaDownloadsRule {
                     switch (contactRule) {
                     case RosterItem::AutomaticMediaDownloadsRule::Account:
-                        return AccountManager::instance()->account().automaticMediaDownloadsRule;
+                        return AccountController::instance()->account().automaticMediaDownloadsRule;
                     case RosterItem::AutomaticMediaDownloadsRule::Never:
                         return Account::AutomaticMediaDownloadsRule::Never;
                     case RosterItem::AutomaticMediaDownloadsRule::Always:
@@ -330,7 +330,7 @@ quint8 Kaidan::logInByUri(const QString &uriString)
         }
 
         // Connect with the extracted credentials.
-        AccountManager::instance()->setNewAccount(jid, password);
+        AccountController::instance()->setNewAccount(jid, password);
         logIn();
 
         return quint8(LoginByUriState::Connecting);

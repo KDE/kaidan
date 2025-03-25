@@ -35,7 +35,7 @@ Kirigami.GlobalDrawer {
 				}
 
 				InlineListView {
-					model: [ AccountManager.account.jid ]
+					model: [ AccountController.account.jid ]
 					delegate: ColumnLayout {
 						spacing: 0
 						width: ListView.view.width
@@ -49,13 +49,13 @@ Kirigami.GlobalDrawer {
 							background: FormCard.FormDelegateBackground { control: accountArea }
 							leading: Avatar {
 								jid: modelData
-								name: AccountManager.account.displayName
+								name: AccountController.account.displayName
 							}
 							leadingPadding: 10
-							// The placeholder text is used while "AccountManager.account.displayName"
+							// The placeholder text is used while "AccountController.account.displayName"
 							// is not yet loaded to avoid a binding loop for the property
 							// "implicitHeight".
-							text: AccountManager.account.displayName ? AccountManager.account.displayName : " "
+							text: AccountController.account.displayName ? AccountController.account.displayName : " "
 							description: Kaidan.connectionStateText
 							descriptionItem {
 								color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
@@ -82,9 +82,9 @@ Kirigami.GlobalDrawer {
 										id: passwordField
 										labelText: qsTr("Password")
 										placeholderText: qsTr("Enter your correct password")
-										text: AccountManager.account.passwordVisibility === Kaidan.PasswordVisible ? AccountManager.account.password : ""
+										text: AccountController.account.passwordVisibility === Kaidan.PasswordVisible ? AccountController.account.password : ""
 										invalidHintMayBeShown: true
-										valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.account.password
+										valid: credentialsValidator.isPasswordValid(text) && text !== AccountController.account.password
 										enabled: !passwordBusyIndicator.visible
 										inputField.onAccepted: passwordConfirmationButton.clicked()
 									}
@@ -103,7 +103,7 @@ Kirigami.GlobalDrawer {
 												passwordField.forceActiveFocus()
 												passwordField.toggleHintForInvalidText()
 											} else {
-												AccountManager.setAuthPassword(passwordField.text)
+												AccountController.setAuthPassword(passwordField.text)
 											}
 										}
 									}
@@ -117,7 +117,7 @@ Kirigami.GlobalDrawer {
 									}
 
 									Connections {
-										target: AccountManager
+										target: AccountController
 										enabled: Kaidan.connectionError === ClientWorker.AuthenticationFailed
 
 										function onAccountChanged() {
@@ -261,8 +261,8 @@ Kirigami.GlobalDrawer {
 		id: groupChatCreationDialog
 
 		GroupChatCreationDialog {
-			accountJid: AccountManager.account.jid
-			nickname: AccountManager.account.displayName
+			accountJid: AccountController.account.jid
+			nickname: AccountController.account.displayName
 		}
 	}
 
@@ -270,8 +270,8 @@ Kirigami.GlobalDrawer {
 		id: groupChatCreationPage
 
 		GroupChatCreationPage {
-			accountJid: AccountManager.account.jid
-			nickname: AccountManager.account.displayName
+			accountJid: AccountController.account.jid
+			nickname: AccountController.account.displayName
 		}
 	}
 

@@ -21,7 +21,7 @@ import "fields"
 ConfirmationArea {
 	id: root
 
-	property string accountJid: AccountManager.account.jid
+	property string accountJid: AccountController.account.jid
 	property alias jidField: jidField
 	property alias jid: jidField.text
 	property alias nameField: nameField

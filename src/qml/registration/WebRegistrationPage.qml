@@ -75,7 +75,7 @@ ImageBackgroundPage {
 	}
 
 	function showLoginArea() {
-		AccountManager.setNewAccountJid(provider)
+		AccountController.setNewAccountJid(provider)
 		loginArea.visible = true
 		loginArea.initialize()
 	}

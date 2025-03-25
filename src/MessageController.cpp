@@ -30,8 +30,8 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
+#include "AccountController.h"
 #include "AccountDb.h"
-#include "AccountManager.h"
 #include "Algorithms.h"
 #include "ChatController.h"
 #include "ClientWorker.h"
@@ -193,7 +193,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 void MessageController::sendPendingMessages()
 {
-    MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->account().jid).then(this, [this](QList<Message> &&messages) {
+    MessageDb::instance()->fetchPendingMessages(AccountController::instance()->account().jid).then(this, [this](QList<Message> &&messages) {
         for (Message message : messages) {
             sendPendingMessage(std::move(message));
         }
@@ -442,7 +442,7 @@ void MessageController::handleRosterReceived()
     // then.
     // If Kaidan already tried to retrieve the initial messages but there is none, request all
     // messages in order to get the messages since the last request.
-    if (AccountManager::instance()->hasNewAccount()) {
+    if (AccountController::instance()->hasNewAccount()) {
         retrieveInitialMessages();
     } else {
         AccountDb::instance()
@@ -955,7 +955,7 @@ bool MessageController::handleFileSourcesAttachments(const QXmppMessage &message
         });
         auto encryptedSources = transformFilter(attachment.encryptedSources(), std::bind(&MessageController::parseEncryptedSource, 0, _1));
         MessageDb::instance()
-            ->attachFileSources(AccountManager::instance()->account().jid, chatJid, message.attachId(), attachment.id(), httpSources, encryptedSources);
+            ->attachFileSources(AccountController::instance()->account().jid, chatJid, message.attachId(), attachment.id(), httpSources, encryptedSources);
     }
     return !attachments.empty();
 }

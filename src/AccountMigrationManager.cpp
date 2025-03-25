@@ -16,8 +16,8 @@
 #include <QXmppMovedManager.h>
 #include <QXmppPubSubManager.h>
 // Kaidan
+#include "AccountController.h"
 #include "AccountDb.h"
-#include "AccountManager.h"
 #include "Algorithms.h"
 #include "Encryption.h"
 #include "FutureUtils.h"
@@ -510,7 +510,7 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
                             .then(this,
                                   [this,
                                    fail,
-                                   newJid = AccountManager::instance()->account().jid,
+                                   newJid = AccountController::instance()->account().jid,
                                    oldJid = m_migrationData->account.accountJid(),
                                    configuration = clientSettings->oldConfiguration.toXmppConfiguration(),
                                    contacts = clientSettings->rosterContacts()](auto &&result) {
@@ -549,10 +549,10 @@ void AccountMigrationManager::cancelMigration()
     if (migrationState() != MigrationState::Idle) {
         // Restore the previous account.
         if (m_migrationData->state == MigrationState::ChoosingNewAccount) {
-            const auto accountManager = AccountManager::instance();
+            const auto accountController = AccountController::instance();
 
             // If the stored JID differs from the cached one, reconnect with the stored one.
-            if (accountManager->hasNewAccount()) {
+            if (accountController->hasNewAccount()) {
                 // Disconnect from any server that the client is connecting to because of a login
                 // attempt.
                 if (m_worker->xmppClient()->state() == QXmppClient::ConnectingState) {
@@ -560,10 +560,10 @@ void AccountMigrationManager::cancelMigration()
                 }
 
                 // Resetting the cached JID is needed to load the stored JID via
-                // AccountManager::loadConnectionData().
-                accountManager->resetNewAccount();
+                // AccountController::loadConnectionData().
+                accountController->resetNewAccount();
 
-                if (accountManager->hasEnoughCredentialsForLogin()) {
+                if (accountController->hasEnoughCredentialsForLogin()) {
                     m_worker->logIn();
                 }
             }
@@ -654,7 +654,7 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 
 QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::importClientSettingsTask(const ClientSettings &settings)
 {
-    return runAsyncTask(this, Kaidan::instance(), [jid = AccountManager::instance()->account().jid, settings]() -> ImportResult {
+    return runAsyncTask(this, Kaidan::instance(), [jid = AccountController::instance()->account().jid, settings]() -> ImportResult {
         AccountDb::instance()->updateAccount(jid, [accountSettings = settings.oldConfiguration](Account &account) {
             if (accountSettings.tlsErrorsIgnored) {
                 account.tlsErrorsIgnored = *accountSettings.tlsErrorsIgnored;
@@ -714,7 +714,7 @@ QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::import
 
 QXmppTask<AccountMigrationManager::ExportResult> AccountMigrationManager::exportClientSettingsTask()
 {
-    return runAsyncTask(this, Kaidan::instance(), [account = AccountManager::instance()->account()]() -> ExportResult {
+    return runAsyncTask(this, Kaidan::instance(), [account = AccountController::instance()->account()]() -> ExportResult {
         return ClientSettings(account, RosterModel::instance()->items());
     });
 }

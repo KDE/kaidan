@@ -12,7 +12,6 @@
 // Kaidan
 #include "Enums.h"
 
-class AccountManager;
 class AccountMigrationManager;
 class AtmManager;
 class AvatarFileStorage;
@@ -74,7 +73,6 @@ public:
 
         Settings *settings;
         VCardCache *vCardCache;
-        AccountManager *accountManager;
         PresenceCache *presenceCache;
         RosterModel *rosterModel;
         AvatarFileStorage *avatarStorage;

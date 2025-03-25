@@ -24,7 +24,7 @@ RowLayout {
 		id: hostField
 		labelText: qsTr("Hostname:")
 		placeholderText: "xmpp.example.org"
-		text: AccountManager.account.host
+		text: AccountController.account.host
 		inputMethodHints: Qt.ImhUrlCharactersOnly
 		invalidHintText: qsTr("The hostname must not contain blank spaces")
 		invalidHintMayBeShown: true
@@ -52,14 +52,14 @@ RowLayout {
 		Controls.SpinBox {
 			id: portField
 			editable: true
-			from: AccountManager.portAutodetect
+			from: AccountController.portAutodetect
 			to: 65535
-			value: AccountManager.account.port
+			value: AccountController.account.port
 			Layout.minimumWidth: 80
 
 			textFromValue: function(value, locale) {
 				// Return an empty string if no custom port is set.
-				if (value === AccountManager.portAutodetect)
+				if (value === AccountController.portAutodetect)
 					return ""
 
 				// By returning the value without taking the locale into account, no digit grouping is applied.

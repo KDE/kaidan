@@ -14,7 +14,7 @@
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "ChatController.h"
 #include "KaidanCoreLog.h"
 #include "MessageController.h"
@@ -58,7 +58,7 @@ RosterModel::RosterModel(QObject *parent)
         });
     });
 
-    connect(AccountManager::instance(), &AccountManager::accountChanged, this, &RosterModel::handleAccountChanged);
+    connect(AccountController::instance(), &AccountController::accountChanged, this, &RosterModel::handleAccountChanged);
 }
 
 RosterModel::~RosterModel()
@@ -146,7 +146,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
     case NotificationRuleRole:
         if (item.notificationRule == RosterItem::NotificationRule::Account) {
             if (item.isGroupChat()) {
-                switch (AccountManager::instance()->account().groupChatNotificationRule) {
+                switch (AccountController::instance()->account().groupChatNotificationRule) {
                 case Account::GroupChatNotificationRule::Never:
                     return QVariant::fromValue(RosterItem::NotificationRule::Never);
                 case Account::GroupChatNotificationRule::Mentioned:
@@ -156,7 +156,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
                 }
             }
 
-            switch (AccountManager::instance()->account().contactNotificationRule) {
+            switch (AccountController::instance()->account().contactNotificationRule) {
             case Account::ContactNotificationRule::Never:
                 return QVariant::fromValue(RosterItem::NotificationRule::Never);
             case Account::ContactNotificationRule::PresenceOnly:

@@ -7,7 +7,7 @@
 // Qt
 #include <QGuiApplication>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "ChatController.h"
 #include "FutureUtils.h"
 #include "GroupChatController.h"
@@ -238,7 +238,7 @@ void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &acc
 
     const auto notificationRule = rosterItem->notificationRule;
     const bool userMuted = (notificationRule == RosterItem::NotificationRule::Account
-                            && AccountManager::instance()->account().contactNotificationRule == Account::ContactNotificationRule::Never)
+                            && AccountController::instance()->account().contactNotificationRule == Account::ContactNotificationRule::Never)
         || notificationRule == RosterItem::NotificationRule::Never;
 
     const bool requestForCurrentChat = request.from() == ChatController::instance()->chatJid();

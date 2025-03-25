@@ -21,7 +21,7 @@
 #include <QXmppColorGeneration.h>
 #include <QXmppUri.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "Globals.h"
 #include "KaidanCoreLog.h"
 #include "SystemUtils.h"
@@ -305,7 +305,7 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
 
 bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
 {
-    switch (AccountManager::instance()->account().geoLocationMapService) {
+    switch (AccountController::instance()->account().geoLocationMapService) {
     case Account::GeoLocationMapService::System:
         QDesktopServices::openUrl(QUrl(geoUri(geoCoordinate)));
         break;

@@ -136,8 +136,8 @@ Kirigami.ApplicationWindow {
 		id: groupChatJoiningDialog
 
 		GroupChatJoiningDialog {
-			accountJid: AccountManager.account.jid
-			nickname: AccountManager.account.displayName
+			accountJid: AccountController.account.jid
+			nickname: AccountController.account.displayName
 		}
 	}
 
@@ -145,8 +145,8 @@ Kirigami.ApplicationWindow {
 		id: groupChatJoiningPage
 
 		GroupChatJoiningPage {
-			accountJid: AccountManager.account.jid
-			nickname: AccountManager.account.displayName
+			accountJid: AccountController.account.jid
+			nickname: AccountController.account.displayName
 		}
 	}
 
@@ -342,7 +342,7 @@ Kirigami.ApplicationWindow {
 
 		openStartPage()
 
-		AccountManager.loadConnectionData()
+		AccountController.loadConnectionData()
 	}
 
 	Component.onDestruction: {

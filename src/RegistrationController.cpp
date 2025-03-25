@@ -14,7 +14,7 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppRegistrationManager.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
 #include "FutureUtils.h"
@@ -39,8 +39,11 @@ RegistrationController::RegistrationController(QObject *parent)
     connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationController::handleRegistrationFailed);
 
     // account deletion
-    connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountManager::instance(), &AccountManager::handleAccountDeletedFromServer);
-    connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, AccountManager::instance(), &AccountManager::handleAccountDeletionFromServerFailed);
+    connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountController::instance(), &AccountController::handleAccountDeletedFromServer);
+    connect(m_manager,
+            &QXmppRegistrationManager::accountDeletionFailed,
+            AccountController::instance(),
+            &AccountController::handleAccountDeletionFromServerFailed);
 
     // password change
     connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationController::handlePasswordChanged);
@@ -79,7 +82,7 @@ void RegistrationController::requestRegistrationForm()
                     },
                     this,
                     [this, reconnectToRegister](QString &&accountJid) {
-                        if (accountJid == AccountManager::instance()->account().jid) {
+                        if (accountJid == AccountController::instance()->account().jid) {
                             m_manager->requestRegistrationForm();
                         } else {
                             reconnectToRegister();
@@ -222,8 +225,8 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
 
 void RegistrationController::handleRegistrationSucceeded()
 {
-    AccountManager::instance()->setNewAccount(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()),
-                                              m_dataFormModel->extractPassword());
+    AccountController::instance()->setNewAccount(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()),
+                                                 m_dataFormModel->extractPassword());
 
     runOnThread(m_client, [this]() {
         m_client->disconnectFromServer();
@@ -294,7 +297,7 @@ void RegistrationController::handleRegistrationFailed(const QXmppStanza::Error &
 
 void RegistrationController::handlePasswordChanged(const QString &newPassword)
 {
-    AccountManager::instance()->setAuthPassword(newPassword);
+    AccountController::instance()->setAuthPassword(newPassword);
 
     runOnThread(m_clientWorker, [this]() {
         m_clientWorker->finishTask();
@@ -352,12 +355,12 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
 
 void RegistrationController::abortRegistration()
 {
-    const auto accountManager = AccountManager::instance();
+    const auto accountController = AccountController::instance();
 
     // Reset the registration steps if the client connected to a server for registration.
-    if (accountManager->hasNewAccount()) {
+    if (accountController->hasNewAccount()) {
         // Resetting the cached JID is needed to clear the JID field of LoginArea.
-        accountManager->resetNewAccount();
+        accountController->resetNewAccount();
 
         // Disconnect from any server that the client is still connected to.
         if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {

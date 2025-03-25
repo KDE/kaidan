@@ -30,10 +30,10 @@ target_sources(libkaidancore PRIVATE
     AbstractQrCodeGenerator.h
     Account.cpp
     Account.h
+    AccountController.cpp
+    AccountController.h
     AccountDb.cpp
     AccountDb.h
-    AccountManager.cpp
-    AccountManager.h
     AccountMigrationManager.cpp
     AccountMigrationManager.h
     AccountQrCodeGenerator.cpp

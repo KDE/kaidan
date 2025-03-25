@@ -246,7 +246,7 @@ Controls.ItemDelegate {
 								}
 
 								if (root.geoCoordinate.isValid) {
-									if (AccountManager.account.geoLocationMapPreviewEnabled) {
+									if (AccountController.account.geoLocationMapPreviewEnabled) {
 										return geoLocationMapPreview
 									}
 

@@ -33,7 +33,7 @@ ExplanationTogglePage {
 	explanationArea.visible: Kaidan.settings.contactAdditionQrCodePageExplanationVisible
 	content: QrCodeScanningArea {
 		id: qrCodeScanningArea
-		accountJid: AccountManager.account.jid
+		accountJid: AccountController.account.jid
 		anchors.centerIn: parent
 		visible: !Kaidan.settings.contactAdditionQrCodePageExplanationVisible
 	}

@@ -11,7 +11,7 @@
 // QXmpp
 #include <QXmppOmemoManager.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "Algorithms.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
@@ -31,32 +31,32 @@ OmemoController::OmemoController(QObject *parent)
             &QXmppOmemoManager::trustLevelsChanged,
             this,
             [](const QMultiHash<QString, QByteArray> &modifiedKeys) {
-                Q_EMIT EncryptionController::instance()->keysChanged(AccountManager::instance()->account().jid, modifiedKeys.keys());
+                Q_EMIT EncryptionController::instance()->keysChanged(AccountController::instance()->account().jid, modifiedKeys.keys());
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceAdded,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->account().jid, {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountController::instance()->account().jid, {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceChanged,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->account().jid, {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountController::instance()->account().jid, {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceRemoved,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->account().jid, {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountController::instance()->account().jid, {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::devicesRemoved, this, [](const QString &jid) {
-        Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->account().jid, {jid});
+        Q_EMIT EncryptionController::instance()->devicesChanged(AccountController::instance()->account().jid, {jid});
     });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::allDevicesRemoved, this, [] {

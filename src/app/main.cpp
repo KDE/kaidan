@@ -57,7 +57,7 @@
 #include <QXmppVersionIq.h>
 // Kaidan
 #include "Account.h"
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "AccountMigrationManager.h"
 #include "AccountQrCodeGenerator.h"
 #include "AtmManager.h"
@@ -530,8 +530,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterSingletonType<GuiStyle>(APPLICATION_ID, 1, 0, "Style", [](QQmlEngine *, QJSEngine *) {
         return static_cast<QObject *>(new GuiStyle(QCoreApplication::instance()));
     });
-    qmlRegisterSingletonType<AccountManager>(APPLICATION_ID, 1, 0, "AccountManager", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(AccountManager::instance());
+    qmlRegisterSingletonType<AccountController>(APPLICATION_ID, 1, 0, "AccountController", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(AccountController::instance());
     });
     qmlRegisterSingletonType<ChatController>(APPLICATION_ID, 1, 0, "ChatController", [](QQmlEngine *, QJSEngine *) {
         return static_cast<QObject *>(ChatController::instance());

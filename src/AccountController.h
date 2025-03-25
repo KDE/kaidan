@@ -17,14 +17,16 @@
 #include "Encryption.h"
 #include "Kaidan.h"
 
+class ClientWorker;
 class Settings;
 class VCardCache;
+class QXmppClient;
 class QXmppSasl2UserAgent;
 
 /**
  * This class manages account-related settings.
  */
-class AccountManager : public QObject
+class AccountController : public QObject
 {
     Q_OBJECT
 
@@ -41,9 +43,9 @@ public:
     };
     Q_DECLARE_FLAGS(DeletionStates, DeletionState)
 
-    static AccountManager *instance();
+    static AccountController *instance();
 
-    AccountManager(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
+    AccountController(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
 
     Account account() const;
     Q_SIGNAL void accountChanged();
@@ -148,6 +150,9 @@ private:
 
     mutable QMutex m_mutex;
     Settings *const m_settings;
+    ClientWorker *const m_clientWorker;
+
+    QXmppClient *const m_client;
 
     Account m_account;
 
@@ -158,6 +163,6 @@ private:
     // These variables are used for checking the state of an ongoing account deletion.
     DeletionStates m_deletionStates = DeletionState::NotToBeDeleted;
 
-    static AccountManager *s_instance;
+    static AccountController *s_instance;
 };
-Q_DECLARE_OPERATORS_FOR_FLAGS(AccountManager::DeletionStates)
+Q_DECLARE_OPERATORS_FOR_FLAGS(AccountController::DeletionStates)

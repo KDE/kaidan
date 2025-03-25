@@ -38,9 +38,9 @@ DetailsContent {
 		]
 		textRole: "display"
 		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(AccountManager.account.automaticMediaDownloadsRule)
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(AccountController.account.automaticMediaDownloadsRule)
 		onActivated: {
-			AccountManager.setAutomaticMediaDownloadsRule(automaticMediaDownloadsDelegate.currentValue)
+			AccountController.setAutomaticMediaDownloadsRule(automaticMediaDownloadsDelegate.currentValue)
 		}
 	}
 	mediaOverview {
@@ -134,15 +134,15 @@ DetailsContent {
 			FormCard.FormSwitchDelegate {
 				text: qsTr("OMEMO 2")
 				description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-				checked: AccountManager.account.encryption === Encryption.Omemo2
+				checked: AccountController.account.encryption === Encryption.Omemo2
 				// The switch is toggled by setting the user's preference on using encryption.
 				// Note that 'checked' has already the value after the button is clicked.
 				onClicked: {
 					if (checked) {
-						AccountManager.setEncryption(Encryption.Omemo2)
+						AccountController.setEncryption(Encryption.Omemo2)
 						RosterModel.setItemEncryption(root.jid, Encryption.Omemo2)
 					} else {
-						AccountManager.setEncryption(Encryption.NoEncryption)
+						AccountController.setEncryption(Encryption.NoEncryption)
 						RosterModel.setItemEncryption(root.jid, Encryption.NoEncryption)
 					}
 				}
@@ -286,8 +286,8 @@ DetailsContent {
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(AccountManager.account.contactNotificationRule)
-			onActivated: AccountManager.setContactNotificationRule(root.jid, currentValue)
+			currentIndex: indexOf(AccountController.account.contactNotificationRule)
+			onActivated: AccountController.setContactNotificationRule(root.jid, currentValue)
 		}
 
 		FormComboBoxDelegate {
@@ -309,8 +309,8 @@ DetailsContent {
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(AccountManager.account.groupChatNotificationRule)
-			onActivated: AccountManager.setGroupChatNotificationRule(root.jid, currentValue)
+			currentIndex: indexOf(AccountController.account.groupChatNotificationRule)
+			onActivated: AccountController.setGroupChatNotificationRule(root.jid, currentValue)
 		}
 	}
 
@@ -329,9 +329,9 @@ DetailsContent {
 			id: geoLocationMapPreviewDelegate
 			text: qsTr("Location map previews")
 			description: qsTr("Display previews of locations")
-			checked: AccountManager.account.geoLocationMapPreviewEnabled
+			checked: AccountController.account.geoLocationMapPreviewEnabled
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: AccountManager.setGeoLocationMapPreviewEnabled(root.jid, checked)
+			onClicked: AccountController.setGeoLocationMapPreviewEnabled(root.jid, checked)
 		}
 
 		FormComboBoxDelegate {
@@ -354,8 +354,8 @@ DetailsContent {
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: geoLocationMapServiceDelegate.indexOf(AccountManager.account.geoLocationMapService)
-			onActivated: AccountManager.setGeoLocationMapService(root.jid, geoLocationMapServiceDelegate.currentValue)
+			currentIndex: geoLocationMapServiceDelegate.indexOf(AccountController.account.geoLocationMapService)
+			onActivated: AccountController.setGeoLocationMapService(root.jid, geoLocationMapServiceDelegate.currentValue)
 		}
 	}
 
@@ -709,8 +709,8 @@ DetailsContent {
 					labelText: qsTr("Current password")
 					placeholderText: qsTr("Enter your current password")
 					invalidHintText: qsTr("Enter correct password")
-					valid: text === AccountManager.account.password
-					visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordVisible
+					valid: text === AccountController.account.password
+					visible: AccountController.account.passwordVisibility !== Kaidan.PasswordVisible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
 					inputField.onAccepted: passwordChangeButton.clicked()
@@ -723,9 +723,9 @@ DetailsContent {
 						id: passwordField
 						labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
 						placeholderText: qsTr("Enter your new password")
-						text: passwordVerificationField.visible ? "" : AccountManager.account.password
+						text: passwordVerificationField.visible ? "" : AccountController.account.password
 						invalidHintText: qsTr("Enter different password to change it")
-						valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.account.password
+						valid: credentialsValidator.isPasswordValid(text) && text !== AccountController.account.password
 						enabled: !passwordBusyIndicator.visible
 						inputField.onAccepted: passwordChangeButton.clicked()
 					}
@@ -793,7 +793,7 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
+		visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
@@ -805,7 +805,7 @@ DetailsContent {
 		}
 
 		ConfirmationFormButtonArea {
-			visible: AccountManager.account.passwordVisibility === Kaidan.PasswordVisible
+			visible: AccountController.account.passwordVisibility === Kaidan.PasswordVisible
 			button {
 				text: qsTr("Don't show password as text")
 				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
@@ -813,13 +813,13 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountManager.setAuthPasswordVisibility(Kaidan.PasswordVisibleQrOnly)
+				AccountController.setAuthPasswordVisibility(Kaidan.PasswordVisibleQrOnly)
 			}
 			busyText: qsTr("Removing password from text…")
 		}
 
 		ConfirmationFormButtonArea {
-			visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
+			visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
 			button {
 				text: qsTr("Don't expose password in any way")
 				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
@@ -827,7 +827,7 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountManager.setAuthPasswordVisibility(Kaidan.PasswordInvisible)
+				AccountController.setAuthPasswordVisibility(Kaidan.PasswordInvisible)
 			}
 			busyText: qsTr("Removing password from text and QR code…")
 		}
@@ -865,7 +865,7 @@ DetailsContent {
 						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
 						onClicked: {
-							if (customConnectionSettings.hostField.text === AccountManager.account.host && customConnectionSettings.portField.value === AccountManager.account.port) {
+							if (customConnectionSettings.hostField.text === AccountController.account.host && customConnectionSettings.portField.value === AccountController.account.port) {
 								connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
 								connectionSettingsErrorMessage.visible = true
 							} else {
@@ -937,8 +937,8 @@ DetailsContent {
 				}
 
 				function logIn() {
-					AccountManager.account.host = customConnectionSettings.hostField.text
-					AccountManager.account.port = customConnectionSettings.portField.value
+					AccountController.account.host = customConnectionSettings.hostField.text
+					AccountController.account.port = customConnectionSettings.portField.value
 					Kaidan.logIn()
 				}
 			}
@@ -955,7 +955,7 @@ DetailsContent {
 
 		FormCard.FormSectionText {
 			text: qsTr("Never show the information in this section to anyone else. It would allow unlimited access to your account!")
-			visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
+			visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
 		}
 
 		FormCard.FormButtonDelegate {
@@ -995,8 +995,8 @@ DetailsContent {
 
 		CopyFormTextDelegate {
 			text: qsTr("Password")
-			description: AccountManager.account.password
-			visible: credentialsExpansionButton.checked && AccountManager.account.passwordVisibility === Kaidan.PasswordVisible
+			description: AccountController.account.password
+			visible: credentialsExpansionButton.checked && AccountController.account.passwordVisibility === Kaidan.PasswordVisible
 		}
 	}
 
@@ -1053,7 +1053,7 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountManager.deleteAccountFromClient()
+				AccountController.deleteAccountFromClient()
 			}
 			busyText: qsTr("Removing account…")
 		}
@@ -1069,12 +1069,12 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountManager.deleteAccountFromClientAndServer()
+				AccountController.deleteAccountFromClientAndServer()
 			}
 			busyText: qsTr("Deleting account…")
 
 			Connections {
-				target: AccountManager
+				target: AccountController
 
 				function onAccountDeletionFromClientAndServerFailed(errorMessage) {
 					accountDeletionButtonArea.busy = false

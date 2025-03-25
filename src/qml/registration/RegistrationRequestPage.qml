@@ -16,14 +16,14 @@ ImageBackgroundPage {
 	property string provider
 
 	onBackRequested: Kaidan.registrationController.abortRegistration()
-	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
+	Component.onCompleted: AccountController.resetCustomConnectionSettings()
 
 	/**
 	 * Requests a registration form from the provider.
 	 */
 	function requestRegistrationForm() {
 		// Set the provider's JID.
-		AccountManager.setNewAccountJid(provider)
+		AccountController.setNewAccountJid(provider)
 
 		// Request a registration form.
 		Kaidan.registrationController.requestRegistrationForm()

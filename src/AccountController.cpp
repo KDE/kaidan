@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "AccountManager.h"
+#include "AccountController.h"
 
 // Qt
 #include <QMutexLocker>
@@ -39,20 +39,22 @@
             return;                                                                                                                                            \
         }                                                                                                                                                      \
     }                                                                                                                                                          \
-    AccountDb::instance()->updateAccount(AccountManager::account().jid, [PROPERTY](Account &account) {                                                         \
+    AccountDb::instance()->updateAccount(AccountController::account().jid, [PROPERTY](Account &account) {                                                      \
         account.PROPERTY = PROPERTY;                                                                                                                           \
     });
 
-AccountManager *AccountManager::s_instance = nullptr;
+AccountController *AccountController::s_instance = nullptr;
 
-AccountManager *AccountManager::instance()
+AccountController *AccountController::instance()
 {
     return s_instance;
 }
 
-AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *parent)
+AccountController::AccountController(Settings *settings, VCardCache *cache, QObject *parent)
     : QObject(parent)
     , m_settings(settings)
+    , m_clientWorker(Kaidan::instance()->client())
+    , m_client(m_clientWorker->xmppClient())
 {
     Q_ASSERT(!s_instance);
     s_instance = this;
@@ -91,105 +93,105 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
     });
 }
 
-Account AccountManager::account() const
+Account AccountController::account() const
 {
     QMutexLocker locker(&m_mutex);
     return m_tmpAccount ? *m_tmpAccount : m_account;
 }
 
-bool AccountManager::hasNewAccount() const
+bool AccountController::hasNewAccount() const
 {
     QMutexLocker locker(&m_mutex);
     return m_tmpAccount.has_value();
 }
 
-void AccountManager::setAuthOnline(bool online)
+void AccountController::setAuthOnline(bool online)
 {
     UPDATE_ACCOUNT(online);
 }
 
-void AccountManager::setAuthJidResourcePrefix(const QString &resourcePrefix)
+void AccountController::setAuthJidResourcePrefix(const QString &resourcePrefix)
 {
     UPDATE_ACCOUNT(resourcePrefix);
 }
 
-void AccountManager::setAuthPassword(const QString &password)
+void AccountController::setAuthPassword(const QString &password)
 {
     UPDATE_ACCOUNT(password);
 }
 
-void AccountManager::setAuthCredentials(const QXmppCredentials &credentials)
+void AccountController::setAuthCredentials(const QXmppCredentials &credentials)
 {
     UPDATE_ACCOUNT(credentials);
 }
 
-void AccountManager::setAuthHost(const QString &host)
+void AccountController::setAuthHost(const QString &host)
 {
     UPDATE_ACCOUNT(host);
 }
 
-void AccountManager::setAuthPort(quint16 port)
+void AccountController::setAuthPort(quint16 port)
 {
     UPDATE_ACCOUNT(port);
 }
 
-void AccountManager::setAuthTlsErrorsIgnored(bool tlsErrorsIgnored)
+void AccountController::setAuthTlsErrorsIgnored(bool tlsErrorsIgnored)
 {
     UPDATE_ACCOUNT(tlsErrorsIgnored);
 }
 
-void AccountManager::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode tlsRequirement)
+void AccountController::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode tlsRequirement)
 {
     UPDATE_ACCOUNT(tlsRequirement);
 }
 
-void AccountManager::setAuthPasswordVisibility(Kaidan::PasswordVisibility passwordVisibility)
+void AccountController::setAuthPasswordVisibility(Kaidan::PasswordVisibility passwordVisibility)
 {
     UPDATE_ACCOUNT(passwordVisibility);
 }
 
-void AccountManager::setUserAgentDeviceId(const QUuid &userAgentDeviceId)
+void AccountController::setUserAgentDeviceId(const QUuid &userAgentDeviceId)
 {
     UPDATE_ACCOUNT(userAgentDeviceId);
 }
 
-void AccountManager::setEncryption(Encryption::Enum encryption)
+void AccountController::setEncryption(Encryption::Enum encryption)
 {
     UPDATE_ACCOUNT(encryption);
 }
 
-void AccountManager::setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule)
+void AccountController::setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule)
 {
     UPDATE_ACCOUNT(automaticMediaDownloadsRule);
 }
 
-void AccountManager::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule contactNotificationRule)
+void AccountController::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule contactNotificationRule)
 {
     Q_UNUSED(jid)
     UPDATE_ACCOUNT(contactNotificationRule);
 }
 
-void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule groupChatNotificationRule)
+void AccountController::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule groupChatNotificationRule)
 {
     Q_UNUSED(jid)
     UPDATE_ACCOUNT(groupChatNotificationRule);
 }
 
-void AccountManager::setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
+void AccountController::setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
 {
     Q_UNUSED(jid)
     UPDATE_ACCOUNT(geoLocationMapPreviewEnabled);
 }
 
-void AccountManager::setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService)
+void AccountController::setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService)
 {
     Q_UNUSED(jid)
     UPDATE_ACCOUNT(geoLocationMapService);
 }
 
-void AccountManager::setNewAccount(const QString &jid, const QString &password, const QString &host, quint16 port)
+void AccountController::setNewAccount(const QString &jid, const QString &password, const QString &host, quint16 port)
 {
-    if (AccountManager::account().jid != jid) {
+    if (AccountController::account().jid != jid) {
         {
             QMutexLocker locker(&m_mutex);
 
@@ -215,12 +217,12 @@ void AccountManager::setNewAccount(const QString &jid, const QString &password, 
     }
 }
 
-void AccountManager::setNewAccountJid(const QString &jid)
+void AccountController::setNewAccountJid(const QString &jid)
 {
     setNewAccount(jid, {});
 }
 
-void AccountManager::setNewAccountHost(const QString &host, quint16 port)
+void AccountController::setNewAccountHost(const QString &host, quint16 port)
 {
     {
         QMutexLocker locker(&m_mutex);
@@ -236,7 +238,7 @@ void AccountManager::setNewAccountHost(const QString &host, quint16 port)
     Q_EMIT accountChanged();
 }
 
-void AccountManager::resetNewAccount()
+void AccountController::resetNewAccount()
 {
     {
         QMutexLocker locker(&m_mutex);
@@ -251,23 +253,23 @@ void AccountManager::resetNewAccount()
     Q_EMIT accountChanged();
 }
 
-quint16 AccountManager::portAutodetect() const
+quint16 AccountController::portAutodetect() const
 {
     return PORT_AUTODETECT;
 }
 
-void AccountManager::resetCustomConnectionSettings()
+void AccountController::resetCustomConnectionSettings()
 {
     setNewAccountHost({}, PORT_AUTODETECT);
 }
 
-bool AccountManager::hasEnoughCredentialsForLogin()
+bool AccountController::hasEnoughCredentialsForLogin()
 {
-    const auto account = AccountManager::account();
+    const auto account = AccountController::account();
     return !(account.jid.isEmpty() || account.password.isEmpty());
 }
 
-QXmppSasl2UserAgent AccountManager::userAgent()
+QXmppSasl2UserAgent AccountController::userAgent()
 {
     auto deviceId = account().userAgentDeviceId;
     if (deviceId.isNull()) {
@@ -277,7 +279,7 @@ QXmppSasl2UserAgent AccountManager::userAgent()
     return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
 }
 
-void AccountManager::loadConnectionData()
+void AccountController::loadConnectionData()
 {
     if (!hasEnoughCredentialsForLogin()) {
         AccountDb::instance()->lastAccount().then(this, [this](Account &&account) {
@@ -298,13 +300,13 @@ void AccountManager::loadConnectionData()
     }
 }
 
-void AccountManager::storeAccount()
+void AccountController::storeAccount()
 {
     if (!hasNewAccount()) {
         return;
     }
 
-    auto currentAccount = AccountManager::account();
+    auto currentAccount = AccountController::account();
     const auto currentJid = currentAccount.jid;
 
     AccountDb::instance()->addAccount(currentJid).then(this, [this, currentJid, newAccount = std::move(currentAccount)]() {
@@ -325,43 +327,43 @@ void AccountManager::storeAccount()
     });
 }
 
-void AccountManager::deleteAccountFromClient()
+void AccountController::deleteAccountFromClient()
 {
     m_deletionStates = DeletionState::ToBeDeletedFromClient;
 
     // If the client is not yet disconnected, disconnect first and delete the account afterwards.
     // Otherwise, delete the account directly from the client.
     runOnThread(
-        Kaidan::instance()->client(),
-        []() {
-            return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
+        m_client,
+        [this]() {
+            return m_client->isAuthenticated();
         },
         this,
         [this](bool authenticated) {
             if (authenticated) {
-                EncryptionController::instance()->reset().then(this, []() {
-                    runOnThread(Kaidan::instance()->client(), []() {
-                        Kaidan::instance()->client()->logOut();
+                EncryptionController::instance()->reset().then(this, [this]() {
+                    runOnThread(m_clientWorker, [this]() {
+                        m_clientWorker->logOut();
                     });
                 });
             } else {
-                runOnThread(Kaidan::instance()->client(), []() {
-                    Kaidan::instance()->client()->logIn();
+                runOnThread(m_clientWorker, [this]() {
+                    m_clientWorker->logIn();
                 });
             }
         });
 }
 
-void AccountManager::deleteAccountFromClientAndServer()
+void AccountController::deleteAccountFromClientAndServer()
 {
     m_deletionStates = DeletionState::ToBeDeletedFromClient | DeletionState::ToBeDeletedFromServer;
 
     // If the client is already connected, delete the account directly from the server.
     // Otherwise, connect first and delete the account afterwards.
     runOnThread(
-        Kaidan::instance()->client(),
-        []() {
-            return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
+        m_client,
+        [this]() {
+            return m_client->isAuthenticated();
         },
         this,
         [this](bool authenticated) {
@@ -370,34 +372,34 @@ void AccountManager::deleteAccountFromClientAndServer()
             } else {
                 m_deletionStates |= DeletionState::ClientDisconnectedBeforeDeletionFromServer;
 
-                runOnThread(Kaidan::instance()->client(), []() {
-                    Kaidan::instance()->client()->logIn();
+                runOnThread(m_clientWorker, [this]() {
+                    m_clientWorker->logIn();
                 });
             }
         });
 }
 
-void AccountManager::handleAccountDeletedFromServer()
+void AccountController::handleAccountDeletedFromServer()
 {
     m_deletionStates = DeletionState::DeletedFromServer;
 }
 
-void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
+void AccountController::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
 {
     Q_EMIT accountDeletionFromClientAndServerFailed(error.text());
 
     if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
         m_deletionStates = DeletionState::NotToBeDeleted;
 
-        runOnThread(Kaidan::instance()->client(), []() {
-            Kaidan::instance()->client()->logOut();
+        runOnThread(m_clientWorker, [this]() {
+            m_clientWorker->logOut();
         });
     } else {
         m_deletionStates = DeletionState::NotToBeDeleted;
     }
 }
 
-bool AccountManager::handleConnected()
+bool AccountController::handleConnected()
 {
     // If the account could not be deleted because the client was disconnected, delete it now.
     if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient) && m_deletionStates.testFlag(DeletionState::ToBeDeletedFromServer)) {
@@ -412,7 +414,7 @@ bool AccountManager::handleConnected()
     return false;
 }
 
-void AccountManager::handleDisconnected()
+void AccountController::handleDisconnected()
 {
     // Delete the account from the client if the account was deleted from the server or the client
     // was connected and had to disconnect first.
@@ -427,7 +429,7 @@ void AccountManager::handleDisconnected()
     m_deletionStates = DeletionState::NotToBeDeleted;
 }
 
-void AccountManager::removeAccount(const QString &accountJid)
+void AccountController::removeAccount(const QString &accountJid)
 {
     MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
     RosterDb::instance()->removeItems(accountJid);
@@ -442,4 +444,4 @@ void AccountManager::removeAccount(const QString &accountJid)
     Q_EMIT credentialsNeeded();
 }
 
-#include "moc_AccountManager.cpp"
+#include "moc_AccountController.cpp"

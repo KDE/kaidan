@@ -39,7 +39,7 @@
 #include <QXmppVCardManager.h>
 #include <QXmppVersionManager.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "AccountMigrationManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
@@ -64,7 +64,6 @@
 ClientWorker::Caches::Caches(QObject *parent)
     : settings(new Settings(parent))
     , vCardCache(new VCardCache(parent))
-    , accountManager(new AccountManager(settings, vCardCache, parent))
     , presenceCache(new PresenceCache(parent))
     , rosterModel(new RosterModel(parent))
     , avatarStorage(new AvatarFileStorage(parent))
@@ -122,7 +121,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     connect(m_client, &QXmppClient::errorOccurred, this, &ClientWorker::onConnectionError);
 
     connect(m_client, &QXmppClient::credentialsChanged, this, [this]() {
-        AccountManager::instance()->setAuthCredentials(m_client->configuration().credentials());
+        AccountController::instance()->setAuthCredentials(m_client->configuration().credentials());
     });
 
     connect(Kaidan::instance(), &Kaidan::logInRequested, this, &ClientWorker::logIn);
@@ -157,7 +156,7 @@ void ClientWorker::startTask(const std::function<void()> &task)
         // credentials are available. That way, the variable can already be set locally
         // during account initialization (like during registration) and set on the server
         // after the first login.
-        if (!AccountManager::instance()->hasNewAccount() && m_client->state() != QXmppClient::ConnectingState)
+        if (!AccountController::instance()->hasNewAccount() && m_client->state() != QXmppClient::ConnectingState)
             logIn();
     }
 }
@@ -166,25 +165,25 @@ void ClientWorker::finishTask()
 {
     // If m_activeTasks > 0, there are still running tasks.
     // If m_activeTasks = 0, all tasks are finished (the tasks may have finished directly).
-    if (m_activeTasks > 0 && --m_activeTasks == 0 && !AccountManager::instance()->hasNewAccount())
+    if (m_activeTasks > 0 && --m_activeTasks == 0 && !AccountController::instance()->hasNewAccount())
         logOut();
 }
 
 void ClientWorker::logIn()
 {
-    const auto accountManager = AccountManager::instance();
-    const auto account = accountManager->account();
+    const auto accountController = AccountController::instance();
+    const auto account = accountController->account();
     const auto jid = account.jid;
 
     m_atmManager->setAccountJid(jid);
     m_omemoDb->setAccountJid(jid);
 
-    auto proceedLogIn = [this, accountManager, account]() {
-        runOnThread(EncryptionController::instance(), [this, accountManager, account]() {
-            EncryptionController::instance()->load().then([this, accountManager, account]() {
+    auto proceedLogIn = [this, accountController, account]() {
+        runOnThread(EncryptionController::instance(), [this, accountController, account]() {
+            EncryptionController::instance()->load().then([this, accountController, account]() {
                 if (!m_isFirstLoginAfterStart || account.online) {
                     // Store the latest online state which is restored when opening Kaidan again after closing.
-                    accountManager->setAuthOnline(true);
+                    accountController->setAuthOnline(true);
 
                     QXmppConfiguration config;
                     config.setResource(account.jidResource());
@@ -215,8 +214,8 @@ void ClientWorker::logIn()
 
 void ClientWorker::connectToServer(QXmppConfiguration config)
 {
-    const auto accountManager = AccountManager::instance();
-    const auto account = accountManager->account();
+    const auto accountController = AccountController::instance();
+    const auto account = accountController->account();
 
     switch (m_client->state()) {
     case QXmppClient::ConnectingState:
@@ -233,7 +232,7 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
         config.setStreamSecurityMode(account.tlsRequirement);
         config.setIgnoreSslErrors(account.tlsErrorsIgnored);
         config.setResourcePrefix(account.resourcePrefix);
-        config.setSasl2UserAgent(accountManager->userAgent());
+        config.setSasl2UserAgent(accountController->userAgent());
 
         if (!account.host.isEmpty()) {
             config.setHost(account.host);
@@ -267,7 +266,7 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 {
     // Store the latest online state which is restored when opening Kaidan again after closing.
     if (!isApplicationBeingClosed) {
-        AccountManager::instance()->setAuthOnline(false);
+        AccountController::instance()->setAuthOnline(false);
     }
 
     switch (m_client->state()) {
@@ -306,9 +305,9 @@ void ClientWorker::onConnected()
     Q_EMIT connectionErrorChanged(ClientWorker::NoError);
 
     runOnThread(
-        AccountManager::instance(),
+        AccountController::instance(),
         []() {
-            return AccountManager::instance()->handleConnected();
+            return AccountController::instance()->handleConnected();
         },
         this,
         [this](bool handled) {
@@ -331,18 +330,18 @@ void ClientWorker::onConnected()
 
             // The following tasks are only done after a login with new credentials or connection
             // settings.
-            if (AccountManager::instance()->hasNewAccount()) {
+            if (AccountController::instance()->hasNewAccount()) {
                 Q_EMIT loggedInWithNewCredentials();
 
                 // Store the valid connection data.
-                AccountManager::instance()->storeAccount();
+                AccountController::instance()->storeAccount();
             }
 
             // Enable auto reconnection so that the client is always trying to reconnect
             // automatically in case of a connection outage.
             m_client->configuration().setAutoReconnectionEnabled(true);
 
-            const auto jid = AccountManager::instance()->account().jid;
+            const auto jid = AccountController::instance()->account().jid;
 
             // Send message that could not be sent yet because the client was offline.
             runOnThread(MessageController::instance(), [jid]() {
@@ -376,8 +375,8 @@ void ClientWorker::onDisconnected()
         return;
     }
 
-    runOnThread(AccountManager::instance(), []() {
-        AccountManager::instance()->handleDisconnected();
+    runOnThread(AccountController::instance(), []() {
+        AccountController::instance()->handleDisconnected();
     });
 }
 
@@ -452,7 +451,7 @@ bool ClientWorker::startPendingTasks()
         isBusy = true;
     }
 
-    return !AccountManager::instance()->hasNewAccount() && isBusy;
+    return !AccountController::instance()->hasNewAccount() && isBusy;
 }
 
 #include "moc_ClientWorker.cpp"

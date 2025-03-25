@@ -20,7 +20,7 @@ import "../elements/fields"
 RegistrationPage {
 	id: root
 	title: qsTr("Choose a Provider")
-	onBackRequested: AccountManager.resetCustomConnectionSettings()
+	onBackRequested: AccountController.resetCustomConnectionSettings()
 
 	ListView {
 		id: providerListView
@@ -229,7 +229,7 @@ RegistrationPage {
 										if (chosenProvider) {
 											root.provider = chosenProvider
 
-											AccountManager.setNewAccountHost(loadedCustomProviderArea.hostField.text,
+											AccountController.setNewAccountHost(loadedCustomProviderArea.hostField.text,
 																			  loadedCustomProviderArea.portField.value)
 
 											requestRegistrationForm()
@@ -239,7 +239,7 @@ RegistrationPage {
 										}
 									} else {
 										root.provider = model.jid
-										AccountManager.resetCustomConnectionSettings()
+										AccountController.resetCustomConnectionSettings()
 
 										if (model.supportsInBandRegistration) {
 											requestRegistrationForm()

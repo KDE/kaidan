@@ -16,7 +16,7 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "ChatController.h"
 #include "EncryptionController.h"
 #include "Globals.h"
@@ -387,7 +387,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 void MessageModel::fetchMore(const QModelIndex &)
 {
     if (!m_fetchedAllFromDb) {
-        const auto accountJid = AccountManager::instance()->account().jid;
+        const auto accountJid = AccountController::instance()->account().jid;
         if (m_messages.isEmpty()) {
             // If there are unread messages, all messages until the first unread message are
             // fetched.
@@ -938,7 +938,7 @@ int MessageModel::searchMessageById(const QString &messageId)
     }
 
     MessageDb::instance()
-        ->fetchMessagesUntilId(AccountManager::instance()->account().jid, ChatController::instance()->chatJid(), i, messageId, 0)
+        ->fetchMessagesUntilId(AccountController::instance()->account().jid, ChatController::instance()->chatJid(), i, messageId, 0)
         .then(this, [this](MessageDb::MessageResult &&result) {
             if (const auto messages = result.messages; !messages.isEmpty()) {
                 handleMessagesFetched(messages);
@@ -962,7 +962,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
         }
 
         MessageDb::instance()
-            ->fetchMessagesUntilQueryString(AccountManager::instance()->account().jid, ChatController::instance()->chatJid(), foundIndex, searchString)
+            ->fetchMessagesUntilQueryString(AccountController::instance()->account().jid, ChatController::instance()->chatJid(), foundIndex, searchString)
             .then(this, [this](MessageDb::MessageResult &&result) {
                 handleMessagesFetched(result.messages);
                 Q_EMIT messageSearchFinished(result.queryIndex);
@@ -1261,7 +1261,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
     }
 
     if (!message.isOwn) {
-        const auto accountJid = AccountManager::instance()->account().jid;
+        const auto accountJid = AccountController::instance()->account().jid;
         const auto chatJid = message.chatJid;
 
         const auto rosterItem = RosterModel::instance()->findItem(chatJid).value_or(RosterItem{});
@@ -1292,7 +1292,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 
         if (const auto notificationRule = rosterItem.notificationRule; notificationRule == RosterItem::NotificationRule::Account) {
             if (message.isGroupChatMessage()) {
-                switch (AccountManager::instance()->account().groupChatNotificationRule) {
+                switch (AccountController::instance()->account().groupChatNotificationRule) {
                 case Account::GroupChatNotificationRule::Mentioned:
                     sendNotificationOnMention();
                     break;
@@ -1303,7 +1303,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
                     break;
                 }
             } else {
-                switch (AccountManager::instance()->account().contactNotificationRule) {
+                switch (AccountController::instance()->account().contactNotificationRule) {
                 case Account::ContactNotificationRule::PresenceOnly:
                     if (rosterItem.isReceivingPresence()) {
                         sendNotification();

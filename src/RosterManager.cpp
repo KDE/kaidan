@@ -12,7 +12,7 @@
 #include <QXmppRosterManager.h>
 #include <QXmppTask.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "AvatarFileStorage.h"
 #include "ChatHintModel.h"
 #include "EncryptionController.h"
@@ -35,7 +35,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QO
 
     connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
         RosterItem rosterItem{m_client->configuration().jidBare(), m_manager->getRosterEntry(jid)};
-        rosterItem.encryption = AccountManager::instance()->account().encryption;
+        rosterItem.encryption = AccountController::instance()->account().encryption;
         rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
         rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
         RosterDb::instance()->addItem(rosterItem);
@@ -109,7 +109,7 @@ void RosterManager::populateRoster()
 
     for (const auto &jid : bareJids) {
         RosterItem rosterItem{m_client->configuration().jidBare(), m_manager->getRosterEntry(jid)};
-        rosterItem.encryption = AccountManager::instance()->account().encryption;
+        rosterItem.encryption = AccountController::instance()->account().encryption;
         rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
         items.insert(jid, rosterItem);
 

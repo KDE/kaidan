@@ -21,7 +21,7 @@ CredentialsField {
 	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | TextFieldCompleter.inputMethodHints
 	invalidHintText: qsTr("The chat address must have the form <b>username@server</b>")
 	valid: credentialsValidator.isUserJidValid(text)
-	text: AccountManager.account.jid
+	text: AccountController.account.jid
 	completionRole: "display"
 	completionModel: HostCompletionProxyModel {
 		userInput: root.input

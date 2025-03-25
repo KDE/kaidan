@@ -9,7 +9,7 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
-#include "AccountManager.h"
+#include "AccountController.h"
 #include "Algorithms.h"
 #include "Globals.h"
 #include "Kaidan.h"
@@ -132,7 +132,7 @@ void BlockingController::subscribeToBlocklist()
     m_subscribed = true;
 
     // load blocklist from database
-    m_db->blockedJids(AccountManager::instance()->account().jid).then(this, [this](QList<QString> result) {
+    m_db->blockedJids(AccountController::instance()->account().jid).then(this, [this](QList<QString> result) {
         handleBlocklist({Blocklist::Db, std::move(result)});
     });
 
@@ -238,7 +238,7 @@ void BlockingController::updateDbBlocklist(const QList<QString> &blockedJids)
         // skip if we already know that the db version is up to date
         return;
     }
-    m_db->resetBlockedJids(AccountManager::instance()->account().jid, blockedJids);
+    m_db->resetBlockedJids(AccountController::instance()->account().jid, blockedJids);
 }
 
 void BlockingController::onJidsBlocked(const QList<QString> &jids)
@@ -246,7 +246,7 @@ void BlockingController::onJidsBlocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->addBlockedJids(AccountManager::instance()->account().jid, jids);
+    m_db->addBlockedJids(AccountController::instance()->account().jid, jids);
 
     m_blocklist->jids.append(jids);
     makeUnique(m_blocklist->jids);
@@ -263,7 +263,7 @@ void BlockingController::onJidsUnblocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->removeBlockedJids(AccountManager::instance()->account().jid, jids);
+    m_db->removeBlockedJids(AccountController::instance()->account().jid, jids);
 
     for (const auto &jid : jids) {
         m_blocklist->jids.removeOne(jid);
