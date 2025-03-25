@@ -252,17 +252,17 @@ Kirigami.GlobalDrawer {
 	}
 
 	function openOverlayFromGlobalDrawe(overlayComponent) {
-		root.close()
+		close()
 		return openOverlay(overlayComponent)
 	}
 
 	function openPageFromGlobalDrawer(pageComponent) {
-		root.close()
+		close()
 		return openPage(pageComponent)
 	}
 
 	function openViewFromGlobalDrawer(overlayComponent, pageComponent) {
-		root.close()
+		close()
 		return openView(overlayComponent, pageComponent)
 	}
 
@@ -270,12 +270,12 @@ Kirigami.GlobalDrawer {
 		target: Kaidan
 
 		function onCredentialsNeeded() {
-			close()
+			root.close()
 		}
 
 		function onXmppUriReceived(uriString) {
 			const xmppUriPrefix = `xmpp:`
-			openContactAdditionView().jid = uriString.substr(xmppUriPrefix.length)
+			root.openContactAdditionView().jid = uriString.substr(xmppUriPrefix.length)
 		}
 	}
 }
