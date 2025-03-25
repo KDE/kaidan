@@ -42,6 +42,7 @@
 #include "MessageModel.h"
 #include "Notifications.h"
 #include "RegistrationController.h"
+#include "RosterController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
@@ -157,6 +158,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_groupChatController = new GroupChatController(this);
     m_messageController = new MessageController(this);
     m_registrationController = new RegistrationController(this);
+    m_rosterController = new RosterController(this);
 
     m_messageModel = new MessageModel(this);
     m_chatHintModel = new ChatHintModel(this);

@@ -36,6 +36,7 @@ class MessageDb;
 class MessageModel;
 class Notifications;
 class RegistrationController;
+class RosterController;
 class RosterDb;
 
 /**
@@ -56,6 +57,7 @@ class Kaidan : public QObject
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
     Q_PROPERTY(RegistrationController *registrationController READ registrationController CONSTANT)
+    Q_PROPERTY(RosterController *rosterController READ rosterController CONSTANT)
     Q_PROPERTY(AvatarFileStorage *avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
     Q_PROPERTY(ServerFeaturesCache *serverFeaturesCache READ serverFeaturesCache CONSTANT)
     Q_PROPERTY(Settings *settings READ settings CONSTANT)
@@ -164,6 +166,10 @@ public:
     RegistrationController *registrationController() const
     {
         return m_registrationController;
+    }
+    RosterController *rosterController() const
+    {
+        return m_rosterController;
     }
     AvatarFileStorage *avatarStorage() const
     {
@@ -374,6 +380,7 @@ private:
     GroupChatController *m_groupChatController;
     MessageController *m_messageController;
     RegistrationController *m_registrationController;
+    RosterController *m_rosterController;
 
     MessageModel *m_messageModel;
     ChatHintModel *m_chatHintModel;

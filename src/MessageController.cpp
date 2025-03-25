@@ -46,8 +46,8 @@
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "Notifications.h"
+#include "RosterController.h"
 #include "RosterDb.h"
-#include "RosterManager.h"
 #include "RosterModel.h"
 
 // Number of messages fetched at once when loading MAM backlog
@@ -797,9 +797,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
         // Otherwise, the chat could only be opened via the message's notification and could not
         // be opened again later.
         if (!receivedFromGroupChat && !RosterModel::instance()->hasItem(senderJid)) {
-            runOnThread(Kaidan::instance()->client(), [senderJid]() {
-                Kaidan::instance()->client()->rosterManager()->addContact(senderJid, {}, {}, true);
-            });
+            Kaidan::instance()->rosterController()->addContact(senderJid, {}, {}, true);
         }
     } else {
         message.replaceId = replaceId;

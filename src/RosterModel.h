@@ -77,7 +77,6 @@ public:
     Q_INVOKABLE bool hasItem(const QString &jid) const;
 
     Q_SIGNAL void itemAdded(const QString &accountJid, const QString &jid);
-    Q_SIGNAL void itemAdditionFailed(const QString &accountJid, const QString &jid);
     Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
 
     /**

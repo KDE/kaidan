@@ -15,7 +15,7 @@
 #include "KaidanCoreLog.h"
 #include "Notifications.h"
 #include "QmlUtils.h"
-#include "RosterManager.h"
+#include "RosterController.h"
 #include "RosterModel.h"
 
 ChatHintModel *ChatHintModel::s_instance = nullptr;
@@ -34,8 +34,8 @@ ChatHintModel::ChatHintModel(QObject *parent)
     connect(Kaidan::instance(), &Kaidan::connectionStateChanged, this, &ChatHintModel::handleConnectionStateChanged);
     connect(Kaidan::instance(), &Kaidan::connectionErrorChanged, this, qOverload<>(&ChatHintModel::handleConnectionErrorChanged));
 
-    connect(Kaidan::instance()->client()->rosterManager(),
-            &RosterManager::presenceSubscriptionRequestReceived,
+    connect(Kaidan::instance()->rosterController(),
+            &RosterController::presenceSubscriptionRequestReceived,
             this,
             &ChatHintModel::handlePresenceSubscriptionRequestReceived);
     connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &ChatHintModel::handleNoGroupChatUsers);
@@ -95,19 +95,13 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
         if (i == chatHintIndex(ChatHintButton::AllowPresenceSubscription)) {
             const auto jid = ChatController::instance()->chatJid();
 
-            runOnThread(
-                Kaidan::instance()->client(),
-                [jid]() {
-                    return Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresence(jid);
-                },
-                this,
-                [this, i, jid](bool succeeded) {
-                    if (succeeded) {
-                        removeChatHint(i);
-                    } else {
-                        setLoading(i, false);
-                    }
-                });
+            Kaidan::instance()->rosterController()->refuseSubscriptionToPresence(jid).then(this, [this, i, jid](bool succeeded) {
+                if (succeeded) {
+                    removeChatHint(i);
+                } else {
+                    setLoading(i, false);
+                }
+            });
         } else {
             removeChatHint(i);
         }
@@ -119,22 +113,15 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
         return;
     case ChatHintButton::AllowPresenceSubscription: {
         setLoading(i, true);
-
         const auto jid = ChatController::instance()->chatJid();
 
-        runOnThread(
-            Kaidan::instance()->client(),
-            [jid]() {
-                return Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresence(jid);
-            },
-            this,
-            [this, i, jid](bool succeeded) {
-                if (succeeded) {
-                    removeChatHint(i);
-                } else {
-                    setLoading(i, false);
-                }
-            });
+        Kaidan::instance()->rosterController()->acceptSubscriptionToPresence(jid).then(this, [this, i, jid](bool succeeded) {
+            if (succeeded) {
+                removeChatHint(i);
+            } else {
+                setLoading(i, false);
+            }
+        });
 
         return;
     }
@@ -206,29 +193,22 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 
 void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 {
-    const auto rosterManager = Kaidan::instance()->client()->rosterManager();
+    const auto rosterController = Kaidan::instance()->rosterController();
     const auto chatController = ChatController::instance();
+    const auto chatJid = chatController->chatJid();
 
-    runOnThread(
-        rosterManager,
-        [rosterManager]() {
-            return rosterManager->unrespondedPresenceSubscriptionRequests();
-        },
-        this,
-        [this, accountJid = chatController->accountJid(), chatJid = chatController->chatJid()](
-            QMap<QString, QXmppPresence> &&unrespondedPresenceSubscriptionRequests) {
-            const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
+    const auto unrespondedPresenceSubscriptionRequests = rosterController->unrespondedPresenceSubscriptionRequests();
+    const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
 
-            if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
-                if (i == -1) {
-                    const auto request = unrespondedPresenceSubscriptionRequests.value(chatJid);
-                    addAllowPresenceSubscriptionChatHint(request);
-                }
-            } else if (i != -1) {
-                removeChatHint(i);
-                Notifications::instance()->closePresenceSubscriptionRequestNotification(accountJid, chatJid);
-            }
-        });
+    if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
+        if (i == -1) {
+            const auto request = unrespondedPresenceSubscriptionRequests.value(chatJid);
+            addAllowPresenceSubscriptionChatHint(request);
+        }
+    } else if (i != -1) {
+        removeChatHint(i);
+        Notifications::instance()->closePresenceSubscriptionRequestNotification(chatController->accountJid(), chatJid);
+    }
 }
 
 void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request)

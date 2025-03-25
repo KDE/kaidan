@@ -39,7 +39,7 @@ ConfirmationArea {
 									})
 		} else if (jidField.valid) {
 			busy = true
-			Kaidan.client.rosterManager.addContactRequested(jid, name, messageField.text)
+			Kaidan.rosterController.addContact(jid, name, messageField.text)
 		} else {
 			jidField.forceActiveFocus()
 		}

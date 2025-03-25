@@ -138,14 +138,14 @@ RosterItemDetailsContent {
 			text: qsTr("Request personal data")
 			description: qsTr("Ask your contact to share the availability, devices and other personal information")
 			visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
-			onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(ChatController.chatJid)
+			onClicked: Kaidan.rosterController.subscribeToPresence(ChatController.chatJid)
 		}
 
 		FormCard.FormButtonDelegate {
 			text: qsTr("Cancel personal data sharing")
 			description: qsTr("Stop sharing your availability, devices and other personal information")
 			visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
-			onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(ChatController.chatJid)
+			onClicked: Kaidan.rosterController.refuseSubscriptionToPresence(ChatController.chatJid)
 		}
 
 		FormCard.FormSwitchDelegate {
@@ -208,7 +208,7 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				Kaidan.client.rosterManager.removeContactRequested(ChatController.chatJid)
+				Kaidan.rosterController.removeContact(ChatController.chatJid)
 			}
 			busyText: qsTr("Removing contact…")
 		}

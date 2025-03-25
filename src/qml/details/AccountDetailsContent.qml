@@ -657,7 +657,18 @@ DetailsContent {
 			idleIconSource: "note-symbolic"
 			onClicked: {
 				busy = true
-				Kaidan.client.rosterManager.addContactRequested(root.jid)
+				Kaidan.rosterController.addContact(root.jid)
+			}
+
+			Connections {
+				target: Kaidan.rosterController
+
+				function onContactAdditionFailed(accountJid, jid, errorMessage) {
+					if (accountJid === root.jid && jid === root.jid) {
+						notesAdditionButton.busy = false
+						passiveNotification(qsTr("The notes chat could not be added to your contact list because your server does not support that"))
+					}
+				}
 			}
 
 			Connections {
@@ -670,13 +681,6 @@ DetailsContent {
 						} else {
 							notesAdditionArea.visible = false
 						}
-					}
-				}
-
-				function onItemAdditionFailed(accountJid, jid, errorMessage) {
-					if (accountJid === root.jid && jid === root.jid) {
-						notesAdditionButton.busy = false
-						passiveNotification(qsTr("The notes chat could not be added to your contact list because your server does not support that"))
 					}
 				}
 

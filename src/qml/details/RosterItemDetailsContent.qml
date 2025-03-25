@@ -83,7 +83,7 @@ DetailsContent {
 								rosterGroupBusyIndicator.visible = true
 
 								groups.push(rosterGroupField.text)
-								Kaidan.client.rosterManager.updateGroupsRequested(ChatController.chatJid, ChatController.rosterItem.name, groups)
+								Kaidan.rosterController.updateGroups(ChatController.chatJid, ChatController.rosterItem.name, groups)
 
 								rosterGroupField.clear()
 							} else {
@@ -125,7 +125,7 @@ DetailsContent {
 					groups.splice(groups.indexOf(modelData), 1)
 				}
 
-				Kaidan.client.rosterManager.updateGroupsRequested(ChatController.chatJid, ChatController.rosterItem.name, groups)
+				Kaidan.rosterController.updateGroups(ChatController.chatJid, ChatController.rosterItem.name, groups)
 			}
 
 			Connections {

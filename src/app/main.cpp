@@ -108,9 +108,9 @@
 #include "QmlUtils.h"
 #include "RegistrationController.h"
 #include "RegistrationDataFormFilterModel.h"
+#include "RosterController.h"
 #include "RosterFilterProxyModel.h"
 #include "RosterItemWatcher.h"
-#include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "StatusBar.h"
@@ -252,7 +252,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<RosterItem>();
     qRegisterMetaType<RosterItemWatcher *>();
     qRegisterMetaType<RosterModel *>();
-    qRegisterMetaType<RosterManager *>();
+    qRegisterMetaType<RosterController *>();
     qRegisterMetaType<Message>();
     qRegisterMetaType<MessageModel *>();
     qRegisterMetaType<ChatHintModel *>();

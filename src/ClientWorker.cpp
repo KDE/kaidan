@@ -53,7 +53,6 @@
 #include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RegistrationController.h"
-#include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
@@ -94,14 +93,13 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
     m_client->addNewExtension<QXmppMessageReceiptManager>();
     m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
-    m_client->addNewExtension<QXmppRosterManager>(m_client);
+    m_rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
     m_client->addNewExtension<QXmppUploadRequestManager>();
     m_client->addNewExtension<QXmppVCardManager>();
     m_client->addNewExtension<QXmppVersionManager>();
     m_client->addNewExtension<QXmppMixManager>();
 
     m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
-    m_rosterManager = new RosterManager(this, m_client, this);
     m_discoveryManager = new DiscoveryManager(m_client, this);
     m_versionManager = new VersionManager(m_client, this);
     m_accountMigrationManager = new AccountMigrationManager(this, this);

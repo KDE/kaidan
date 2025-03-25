@@ -165,6 +165,8 @@ target_sources(libkaidancore PRIVATE
     RegistrationDataFormFilterModel.h
     RegistrationDataFormModel.cpp
     RegistrationDataFormModel.h
+    RosterController.cpp
+    RosterController.h
     RosterDb.cpp
     RosterDb.h
     RosterFilterProxyModel.cpp
@@ -173,8 +175,6 @@ target_sources(libkaidancore PRIVATE
     RosterItem.h
     RosterItemWatcher.cpp
     RosterItemWatcher.h
-    RosterManager.cpp
-    RosterManager.h
     RosterModel.cpp
     RosterModel.h
     ServerFeaturesCache.cpp

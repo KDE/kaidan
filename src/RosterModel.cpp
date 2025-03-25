@@ -19,9 +19,9 @@
 #include "KaidanCoreLog.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "RosterController.h"
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
-#include "RosterManager.h"
 
 RosterModel *RosterModel::s_instance = nullptr;
 
@@ -219,7 +219,7 @@ void RosterModel::updateGroup(const QString &oldGroup, const QString &newGroup)
             groups.removeOne(oldGroup);
             groups.append(newGroup);
 
-            Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+            Kaidan::instance()->rosterController()->updateGroups(item.jid, item.name, groups);
         }
     }
 }
@@ -230,7 +230,7 @@ void RosterModel::removeGroup(const QString &group)
         if (auto groups = item.groups; groups.contains(group)) {
             groups.removeOne(group);
 
-            Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+            Kaidan::instance()->rosterController()->updateGroups(item.jid, item.name, groups);
         }
     }
 }
@@ -282,7 +282,7 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &a
             return AddContactByUriResult::ContactExists;
         }
 
-        Q_EMIT Kaidan::instance()->client()->rosterManager()->addContactRequested(jid);
+        Kaidan::instance()->rosterController()->addContact(jid);
 
         return AddContactByUriResult::AddingContact;
     }

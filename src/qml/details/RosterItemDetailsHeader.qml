@@ -33,7 +33,7 @@ DetailsHeader {
 	}
 
 	function changeDisplayName(newDisplayName) {
-		Kaidan.client.rosterManager.renameContactRequested(ChatController.chatJid, newDisplayName)
+		Kaidan.rosterController.renameContact(ChatController.chatJid, newDisplayName)
 	}
 
 	function handleDisplayNameChanged() {}

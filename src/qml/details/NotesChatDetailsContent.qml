@@ -59,7 +59,7 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
+				Kaidan.rosterController.removeContact(ChatController.accountJid)
 			}
 			busyText: qsTr("Removing notes chat…")
 		}
