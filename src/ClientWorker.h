@@ -13,7 +13,6 @@
 #include "Enums.h"
 
 class AccountMigrationManager;
-class AtmManager;
 class AvatarFileStorage;
 class Database;
 class DiscoveryManager;
@@ -27,6 +26,7 @@ class VCardCache;
 class VCardManager;
 class VersionManager;
 class QNetworkAccessManager;
+class QXmppAtmManager;
 class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
@@ -43,7 +43,6 @@ class ClientWorker : public QObject
     Q_PROPERTY(VCardManager *vCardManager READ vCardManager CONSTANT)
     Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
     Q_PROPERTY(VersionManager *versionManager READ versionManager CONSTANT)
-    Q_PROPERTY(AtmManager *atmManager READ atmManager CONSTANT)
 
 public:
     /**
@@ -105,11 +104,6 @@ public:
         return m_versionManager;
     }
 
-    AtmManager *atmManager() const
-    {
-        return m_atmManager;
-    }
-
     Caches *caches() const
     {
         return m_caches;
@@ -118,6 +112,11 @@ public:
     QXmppClient *xmppClient() const
     {
         return m_client;
+    }
+
+    QXmppAtmManager *atmManager() const
+    {
+        return m_atmManager;
     }
 
     QXmppFileSharingManager *fileSharingManager() const
@@ -260,10 +259,10 @@ private:
 
     AccountMigrationManager *m_accountMigrationManager;
     VCardManager *m_vCardManager;
-    AtmManager *m_atmManager;
     DiscoveryManager *m_discoveryManager;
     VersionManager *m_versionManager;
 
+    QXmppAtmManager *m_atmManager;
     QXmppFileSharingManager *m_fileSharingManager;
     QXmppRegistrationManager *m_registrationManager;
     QXmppRosterManager *m_rosterManager;

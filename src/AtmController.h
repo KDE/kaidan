@@ -5,8 +5,6 @@
 
 #pragma once
 
-// std
-#include <memory>
 // Qt
 #include <QObject>
 
@@ -16,13 +14,13 @@ class QXmppAtmManager;
 class QXmppUri;
 class TrustDb;
 
-class AtmManager : public QObject
+class AtmController : public QObject
 {
     Q_OBJECT
 
 public:
-    AtmManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
-    ~AtmManager();
+    AtmController(QObject *parent = nullptr);
+    ~AtmController();
 
     /**
      * Sets the JID of the current account used to store the corresponding data
@@ -39,12 +37,10 @@ public:
      * @param uri Trust Message URI
      */
     void makeTrustDecisionsByUri(const QXmppUri &uri);
-    void makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting);
-    Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
+    Q_INVOKABLE void makeTrustDecisions(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
 
 private:
-    QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);
+    static QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);
 
-    std::unique_ptr<TrustDb> m_trustStorage;
     QXmppAtmManager *const m_manager;
 };

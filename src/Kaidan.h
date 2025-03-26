@@ -22,6 +22,7 @@
 #include "ClientWorker.h"
 
 class AccountDb;
+class AtmController;
 class BlockingController;
 class ChatController;
 class ChatHintModel;
@@ -53,6 +54,7 @@ class Kaidan : public QObject
     Q_OBJECT
 
     Q_PROPERTY(ClientWorker *client READ client CONSTANT)
+    Q_PROPERTY(AtmController *atmController READ atmController CONSTANT)
     Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
@@ -150,6 +152,10 @@ public:
     ClientWorker *client() const
     {
         return m_client;
+    }
+    AtmController *atmController() const
+    {
+        return m_atmController;
     }
     BlockingController *blockingController() const
     {
@@ -373,6 +379,7 @@ private:
     ClientThread *m_cltThrd;
     ClientWorker::Caches *m_caches;
     ClientWorker *m_client;
+    AtmController *m_atmController;
     std::unique_ptr<BlockingController> m_blockingController;
     ChatController *m_chatController;
     EncryptionController *m_encryptionController;

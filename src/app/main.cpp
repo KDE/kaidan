@@ -60,7 +60,7 @@
 #include "AccountController.h"
 #include "AccountMigrationManager.h"
 #include "AccountQrCodeGenerator.h"
-#include "AtmManager.h"
+#include "AtmController.h"
 #include "AuthenticatableEncryptionKeyModel.h"
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarFileStorage.h"
@@ -278,7 +278,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QXmppUri>();
     qRegisterMetaType<QMap<QString, QUrl>>();
     qRegisterMetaType<std::shared_ptr<Message>>();
-    qRegisterMetaType<AtmManager *>();
+    qRegisterMetaType<AtmController *>();
     qRegisterMetaType<GroupChatController *>();
     qRegisterMetaType<GroupChatUser>();
     qRegisterMetaType<QList<GroupChatUser>>();

@@ -25,7 +25,7 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
-#include "AtmManager.h"
+#include "AtmController.h"
 #include "AvatarFileStorage.h"
 #include "Blocking.h"
 #include "ChatController.h"
@@ -47,6 +47,7 @@
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
+#include "TrustDb.h"
 
 using namespace std::chrono_literals;
 
@@ -123,6 +124,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_msgDb = new MessageDb(m_database, this);
     m_rosterDb = new RosterDb(m_database, this);
     m_groupChatUserDb = new GroupChatUserDb(m_database, this);
+    new TrustDb(m_database, this, {}, this);
 
     // caches
     m_caches = new ClientWorker::Caches(this);
@@ -151,6 +153,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
 
     // create controllers
+    m_atmController = new AtmController(this);
     m_blockingController = std::make_unique<BlockingController>(m_database);
     m_chatController = new ChatController(this);
     m_encryptionController = new EncryptionController(this);
@@ -358,9 +361,7 @@ Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &
                 return InvalidUri;
             }
 
-            runOnThread(m_client->atmManager(), [uri = std::move(uri)]() {
-                Kaidan::instance()->client()->atmManager()->makeTrustDecisionsByUri(uri);
-            });
+            m_atmController->makeTrustDecisionsByUri(uri);
 
             return MakingTrustDecisions;
         } else {

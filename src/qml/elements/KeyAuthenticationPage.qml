@@ -91,7 +91,7 @@ ExplanationOptionsTogglePage {
 								if (Utils.validateEncryptionKeyId(keyId)) {
 									encryptionKeyBusyIndicator.visible = true
 
-									Kaidan.client.atmManager.makeTrustDecisionsRequested(root.jid, [keyId], [])
+									Kaidan.atmController.makeTrustDecisions(root.jid, [keyId], [])
 									encryptionKeyField.clear()
 									passiveNotification(qsTr("Device verified"))
 

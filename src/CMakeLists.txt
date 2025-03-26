@@ -41,8 +41,8 @@ target_sources(libkaidancore PRIVATE
     AccountTrustMessageUriGenerator.cpp
     AccountTrustMessageUriGenerator.h
     Algorithms.h
-    AtmManager.cpp
-    AtmManager.h
+    AtmController.cpp
+    AtmController.h
     AuthenticatableEncryptionKeyModel.cpp
     AuthenticatableEncryptionKeyModel.h
     AuthenticatedEncryptionKeyModel.cpp

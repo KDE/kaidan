@@ -14,6 +14,7 @@
 #include <QSettings>
 // QXmpp
 #include <QXmppAccountMigrationManager.h>
+#include <QXmppAtmManager.h>
 #include <QXmppAuthenticationError.h>
 #include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
@@ -41,7 +42,7 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountMigrationManager.h"
-#include "AtmManager.h"
+#include "AtmController.h"
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
 #include "EncryptionController.h"
@@ -56,6 +57,7 @@
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
+#include "TrustDb.h"
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
@@ -79,8 +81,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     , m_networkManager(new QNetworkAccessManager(this))
     , m_omemoDb(new OmemoDb(database, this, {}, this))
 {
-    m_atmManager = new AtmManager(m_client, database, this);
-
     m_client->addNewExtension<QXmppAccountMigrationManager>();
     m_client->addNewExtension<QXmppBlockingManager>();
     m_client->addNewExtension<QXmppCarbonManagerV2>();
@@ -90,6 +90,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_client->addNewExtension<QXmppMamManager>();
     m_client->addNewExtension<QXmppPubSubManager>();
     m_client->addNewExtension<QXmppMovedManager>();
+    m_atmManager = m_client->addNewExtension<QXmppAtmManager>(TrustDb::instance());
     m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
     m_client->addNewExtension<QXmppMessageReceiptManager>();
     m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
@@ -169,11 +170,15 @@ void ClientWorker::finishTask()
 
 void ClientWorker::logIn()
 {
-    const auto accountController = AccountController::instance();
+    auto *accountController = AccountController::instance();
     const auto account = accountController->account();
     const auto jid = account.jid;
 
-    m_atmManager->setAccountJid(jid);
+    auto *atmController = Kaidan::instance()->atmController();
+    runOnThread(atmController, [atmController, jid]() {
+        atmController->setAccountJid(jid);
+    });
+
     m_omemoDb->setAccountJid(jid);
 
     auto proceedLogIn = [this, accountController, account]() {
