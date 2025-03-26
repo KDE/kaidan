@@ -26,12 +26,12 @@ DetailsHeader {
 	}
 
 	function changeDisplayName(newDisplayName) {
-		Kaidan.client.vCardManager.changeNicknameRequested(newDisplayName)
+		Kaidan.vCardController.changeNickname(newDisplayName)
 	}
 
 	function handleDisplayNameChanged() {
 		if (Kaidan.connectionState === Enums.StateConnected) {
-			Kaidan.client.vCardManager.clientVCardRequested()
+			Kaidan.vCardController.requestClientVCard()
 		}
 	}
 }

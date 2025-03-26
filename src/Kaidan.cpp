@@ -48,6 +48,7 @@
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
 #include "TrustDb.h"
+#include "VCardController.h"
 
 using namespace std::chrono_literals;
 
@@ -162,6 +163,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_messageController = new MessageController(this);
     m_registrationController = new RegistrationController(this);
     m_rosterController = new RosterController(this);
+    m_vCardController = new VCardController(this);
 
     m_messageModel = new MessageModel(this);
     m_chatHintModel = new ChatHintModel(this);

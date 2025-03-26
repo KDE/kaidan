@@ -213,7 +213,7 @@ RegistrationPage {
 
 	function changeNickname() {
 		if (displayNameField.text && Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			Kaidan.client.vCardManager.changeNicknameRequested(displayNameField.text)
+			Kaidan.vCardController.changeNickname(displayNameField.text)
 		}
 	}
 }

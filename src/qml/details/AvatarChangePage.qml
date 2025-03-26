@@ -94,7 +94,7 @@ Kirigami.Page {
 			CenteredAdaptiveButton {
 				text: qsTr("Remove current profile image")
 				visible: root.imagePath.toString()
-				onClicked: Kaidan.client.vCardManager.changeAvatarRequested()
+				onClicked: Kaidan.vCardController.changeAvatar()
 			}
 
 			CenteredAdaptiveHighlightedButton {
@@ -108,7 +108,7 @@ Kirigami.Page {
 						selectionTool.selectionHeight / editImage.ratioY
 					)
 
-					Kaidan.client.vCardManager.changeAvatarRequested(imageDoc.image)
+					Kaidan.vCardController.changeAvatar(imageDoc.image)
 					busyIndicator.visible = true
 				}
 			}
@@ -116,7 +116,7 @@ Kirigami.Page {
 	}
 
 	Connections {
-		target: Kaidan
+		target: Kaidan.vCardController
 
 		function onAvatarChangeSucceeded() {
 			busyIndicator.visible = false

@@ -12,14 +12,14 @@
 // Kaidan
 #include "FutureUtils.h"
 #include "Kaidan.h"
-#include "VCardManager.h"
+#include "VCardController.h"
 
 using namespace Enums;
 
 VCardModel::VCardModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(Kaidan::instance()->client()->vCardManager(), &VCardManager::vCardReceived, this, &VCardModel::handleVCardReceived);
+    connect(Kaidan::instance()->vCardController(), &VCardController::vCardReceived, this, &VCardModel::handleVCardReceived);
     connect(this, &VCardModel::unsetEntriesProcessedChanged, this, [this]() {
         beginResetModel();
         generateEntries();
@@ -107,7 +107,7 @@ void VCardModel::setJid(const QString &jid)
     Q_EMIT jidChanged();
 
     if (Kaidan::instance()->connectionState() == ConnectionState::StateConnected) {
-        Q_EMIT Kaidan::instance()->client()->vCardManager()->vCardRequested(jid);
+        Kaidan::instance()->vCardController()->requestVCard(jid);
     }
 }
 

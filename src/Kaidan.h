@@ -39,6 +39,7 @@ class Notifications;
 class RegistrationController;
 class RosterController;
 class RosterDb;
+class VCardController;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -60,6 +61,7 @@ class Kaidan : public QObject
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
     Q_PROPERTY(RegistrationController *registrationController READ registrationController CONSTANT)
     Q_PROPERTY(RosterController *rosterController READ rosterController CONSTANT)
+    Q_PROPERTY(VCardController *vCardController READ vCardController CONSTANT)
     Q_PROPERTY(AvatarFileStorage *avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
     Q_PROPERTY(ServerFeaturesCache *serverFeaturesCache READ serverFeaturesCache CONSTANT)
     Q_PROPERTY(Settings *settings READ settings CONSTANT)
@@ -176,6 +178,10 @@ public:
     RosterController *rosterController() const
     {
         return m_rosterController;
+    }
+    VCardController *vCardController() const
+    {
+        return m_vCardController;
     }
     AvatarFileStorage *avatarStorage() const
     {
@@ -340,11 +346,6 @@ public:
     Q_SIGNAL void xmppUriReceived(QString uriString);
 
     /**
-     * Emitted when changing of the user's avatar finished succfessully.
-     */
-    Q_SIGNAL void avatarChangeSucceeded();
-
-    /**
      * Set current connection state
      */
     Q_INVOKABLE void setConnectionState(Enums::ConnectionState connectionState);
@@ -388,6 +389,7 @@ private:
     MessageController *m_messageController;
     RegistrationController *m_registrationController;
     RosterController *m_rosterController;
+    VCardController *m_vCardController;
 
     MessageModel *m_messageModel;
     ChatHintModel *m_chatHintModel;

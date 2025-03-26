@@ -116,7 +116,7 @@
 #include "StatusBar.h"
 #include "TextFormatter.h"
 #include "UserDevicesModel.h"
-#include "VCardManager.h"
+#include "VCardController.h"
 #include "VCardModel.h"
 #include "VersionManager.h"
 
@@ -257,7 +257,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<MessageModel *>();
     qRegisterMetaType<ChatHintModel *>();
     qRegisterMetaType<DiscoveryManager *>();
-    qRegisterMetaType<VCardManager *>();
+    qRegisterMetaType<VCardController *>();
     qRegisterMetaType<VersionManager *>();
     qRegisterMetaType<RegistrationController *>();
     qRegisterMetaType<AccountMigrationManager *>();

@@ -21,7 +21,7 @@
 #include "MessageDb.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
-#include "VCardManager.h"
+#include "VCardController.h"
 
 RosterController::RosterController(QObject *parent)
     : QObject(parent)
@@ -55,10 +55,7 @@ RosterController::RosterController(QObject *parent)
                 }
 
                 if (Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnected) {
-                    auto vCardManager = m_clientWorker->vCardManager();
-                    runOnThread(vCardManager, [vCardManager, jid]() {
-                        vCardManager->requestVCard(jid);
-                    });
+                    Kaidan::instance()->vCardController()->requestVCard(jid);
                 }
 
                 if (m_pendingSubscriptionRequests.contains(jid)) {
@@ -141,10 +138,7 @@ void RosterController::populateRoster()
 
                 if (m_clientWorker->caches()->avatarStorage->getHashOfJid(jid).isEmpty()
                     && Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnected) {
-                    auto vCardManager = m_clientWorker->vCardManager();
-                    runOnThread(vCardManager, [vCardManager]() {
-                        vCardManager->requestVCard(jid);
-                    })
+                    Kaidan::instance()->vCardController()->requestVCard(jid);
                 }
 
                 // Process subscription requests from roster items that were received before the roster was

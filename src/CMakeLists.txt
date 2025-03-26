@@ -198,8 +198,8 @@ target_sources(libkaidancore PRIVATE
     UserDevicesModel.h
     VCardCache.cpp
     VCardCache.h
-    VCardManager.cpp
-    VCardManager.h
+    VCardController.cpp
+    VCardController.h
     VCardModel.cpp
     VCardModel.h
     VersionManager.cpp

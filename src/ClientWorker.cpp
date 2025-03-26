@@ -59,7 +59,6 @@
 #include "Settings.h"
 #include "TrustDb.h"
 #include "VCardCache.h"
-#include "VCardManager.h"
 #include "VersionManager.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
@@ -96,11 +95,10 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
     m_rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
     m_client->addNewExtension<QXmppUploadRequestManager>();
-    m_client->addNewExtension<QXmppVCardManager>();
+    m_vCardManager = m_client->addNewExtension<QXmppVCardManager>();
     m_client->addNewExtension<QXmppVersionManager>();
     m_client->addNewExtension<QXmppMixManager>();
 
-    m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
     m_discoveryManager = new DiscoveryManager(m_client, this);
     m_versionManager = new VersionManager(m_client, this);
     m_accountMigrationManager = new AccountMigrationManager(this, this);

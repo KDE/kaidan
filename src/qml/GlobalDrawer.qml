@@ -217,7 +217,7 @@ Kirigami.GlobalDrawer {
 	onOpened: {
 		if (Kaidan.connectionState === Enums.StateConnected) {
 			// Request the user's current vCard which contains the user's nickname.
-			Kaidan.client.vCardManager.clientVCardRequested()
+			Kaidan.vCardController.requestClientVCard()
 		}
 	}
 
