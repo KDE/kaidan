@@ -158,7 +158,7 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
     if (isBadName(filename)) {
         return {};
     }
-    return std::make_pair(filename, fileExtension);
+    return std::pair{filename, fileExtension};
 }
 
 FileSharingController::FileSharingController(QXmppClient *client)
