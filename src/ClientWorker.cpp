@@ -81,7 +81,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();
     m_client->addNewExtension<QXmppBlockingManager>();
     m_client->addNewExtension<QXmppCarbonManagerV2>();
-    m_client->addNewExtension<QXmppDiscoveryManager>();
+    auto *discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
     m_client->addNewExtension<QXmppEntityTimeManager>();
     auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
     m_client->addNewExtension<QXmppMamManager>();
@@ -97,7 +97,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_versionManager = m_client->addNewExtension<QXmppVersionManager>();
     m_client->addNewExtension<QXmppMixManager>();
 
-    m_discoveryManager = new DiscoveryManager(m_client, this);
+    new DiscoveryManager(m_client, discoveryManager, this);
 
     // file sharing manager
     m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();

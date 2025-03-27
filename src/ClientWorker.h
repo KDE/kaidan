@@ -14,7 +14,6 @@
 
 class AvatarFileStorage;
 class Database;
-class DiscoveryManager;
 class LogHandler;
 class OmemoDb;
 class PresenceCache;
@@ -40,7 +39,6 @@ class QXmppVersionManager;
 class ClientWorker : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
 
 public:
     /**
@@ -81,11 +79,6 @@ public:
      * @param parent Optional QObject-based parent.
      */
     ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
-
-    DiscoveryManager *discoveryManager() const
-    {
-        return m_discoveryManager;
-    }
 
     Caches *caches() const
     {
@@ -259,8 +252,6 @@ private:
     LogHandler *m_logger;
     bool m_enableLogging;
     QNetworkAccessManager *m_networkManager;
-
-    DiscoveryManager *m_discoveryManager;
 
     QXmppAccountMigrationManager *m_accountMigrationManager;
     QXmppAtmManager *m_atmManager;

@@ -21,7 +21,7 @@ class QXmppDiscoveryManager;
 class DiscoveryManager : public QObject
 {
 public:
-    explicit DiscoveryManager(QXmppClient *client, QObject *parent = nullptr);
+    explicit DiscoveryManager(QXmppClient *client, QXmppDiscoveryManager *discoveryManager, QObject *parent = nullptr);
 
     ~DiscoveryManager();
 

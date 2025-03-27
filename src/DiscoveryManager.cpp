@@ -13,10 +13,10 @@
 #include "Globals.h"
 #include "KaidanCoreLog.h"
 
-DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
+DiscoveryManager::DiscoveryManager(QXmppClient *client, QXmppDiscoveryManager *discoveryManager, QObject *parent)
     : QObject(parent)
     , m_client(client)
-    , m_manager(client->findExtension<QXmppDiscoveryManager>())
+    , m_manager(discoveryManager)
 {
     // we're a normal client (not a server, gateway, server component, etc.)
     m_manager->setClientCategory(QStringLiteral("client"));
