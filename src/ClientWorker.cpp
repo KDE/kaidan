@@ -74,7 +74,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     , m_caches(caches)
     , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
     , m_logger(new LogHandler(m_client, enableLogging, this))
-    , m_enableLogging(enableLogging)
     , m_networkManager(new QNetworkAccessManager(this))
     , m_omemoDb(new OmemoDb(database, this, {}, this))
 {

@@ -250,7 +250,6 @@ private:
     Caches *m_caches;
     QXmppClient *m_client;
     LogHandler *m_logger;
-    bool m_enableLogging;
     QNetworkAccessManager *m_networkManager;
 
     QXmppAccountMigrationManager *m_accountMigrationManager;
