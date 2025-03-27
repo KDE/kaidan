@@ -9,15 +9,16 @@
 #include <QObject>
 
 class QXmppClient;
+class QXmppRosterManager;
 class QXmppVersionIq;
 class QXmppVersionManager;
 
-class VersionManager : public QObject
+class VersionController : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit VersionManager(QXmppClient *client, QObject *parent = nullptr);
+    explicit VersionController(QObject *parent = nullptr);
 
     /**
      * Fetches the version information of all resources of the given  bare JID
@@ -31,6 +32,6 @@ Q_SIGNALS:
     void clientVersionReceived(const QXmppVersionIq &versionIq);
 
 private:
-    QXmppVersionManager *const m_manager;
-    QXmppClient *const m_client;
+    QXmppRosterManager *const m_rosterManager;
+    QXmppVersionManager *const m_versionManager;
 };

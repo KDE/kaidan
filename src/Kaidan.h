@@ -40,6 +40,7 @@ class RegistrationController;
 class RosterController;
 class RosterDb;
 class VCardController;
+class VersionController;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -182,6 +183,10 @@ public:
     VCardController *vCardController() const
     {
         return m_vCardController;
+    }
+    VersionController *versionController() const
+    {
+        return m_versionController;
     }
     AvatarFileStorage *avatarStorage() const
     {
@@ -390,6 +395,7 @@ private:
     RegistrationController *m_registrationController;
     RosterController *m_rosterController;
     VCardController *m_vCardController;
+    VersionController *m_versionController;
 
     MessageModel *m_messageModel;
     ChatHintModel *m_chatHintModel;

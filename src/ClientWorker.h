@@ -23,7 +23,6 @@ class RosterModel;
 class ServerFeaturesCache;
 class Settings;
 class VCardCache;
-class VersionManager;
 class QNetworkAccessManager;
 class QXmppAtmManager;
 class QXmppEncryptedFileSharingProvider;
@@ -32,6 +31,7 @@ class QXmppHttpFileSharingProvider;
 class QXmppRegistrationManager;
 class QXmppRosterManager;
 class QXmppVCardManager;
+class QXmppVersionManager;
 
 /**
  * The ClientWorker is used as a QObject-based worker on the ClientThread.
@@ -41,7 +41,6 @@ class ClientWorker : public QObject
     Q_OBJECT
     Q_PROPERTY(AccountMigrationManager *accountMigrationManager READ accountMigrationManager CONSTANT)
     Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
-    Q_PROPERTY(VersionManager *versionManager READ versionManager CONSTANT)
 
 public:
     /**
@@ -93,11 +92,6 @@ public:
         return m_discoveryManager;
     }
 
-    VersionManager *versionManager() const
-    {
-        return m_versionManager;
-    }
-
     Caches *caches() const
     {
         return m_caches;
@@ -131,6 +125,11 @@ public:
     QXmppVCardManager *vCardManager() const
     {
         return m_vCardManager;
+    }
+
+    QXmppVersionManager *versionManager() const
+    {
+        return m_versionManager;
     }
 
     std::shared_ptr<QXmppEncryptedFileSharingProvider> encryptedHttpFileSharingProvider() const
@@ -258,13 +257,13 @@ private:
 
     AccountMigrationManager *m_accountMigrationManager;
     DiscoveryManager *m_discoveryManager;
-    VersionManager *m_versionManager;
 
     QXmppAtmManager *m_atmManager;
     QXmppFileSharingManager *m_fileSharingManager;
     QXmppRegistrationManager *m_registrationManager;
     QXmppRosterManager *m_rosterManager;
     QXmppVCardManager *m_vCardManager;
+    QXmppVersionManager *m_versionManager;
 
     OmemoDb *m_omemoDb;
 

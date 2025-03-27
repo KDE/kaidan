@@ -118,7 +118,7 @@
 #include "UserDevicesModel.h"
 #include "VCardController.h"
 #include "VCardModel.h"
-#include "VersionManager.h"
+#include "VersionController.h"
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 
@@ -258,7 +258,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<ChatHintModel *>();
     qRegisterMetaType<DiscoveryManager *>();
     qRegisterMetaType<VCardController *>();
-    qRegisterMetaType<VersionManager *>();
+    qRegisterMetaType<VersionController *>();
     qRegisterMetaType<RegistrationController *>();
     qRegisterMetaType<AccountMigrationManager *>();
     qRegisterMetaType<FileSharingController *>();

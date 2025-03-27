@@ -10,15 +10,15 @@
 #include <QXmppVersionIq.h>
 // Kaidan
 #include "Kaidan.h"
-#include "VersionManager.h"
+#include "VersionController.h"
 
 UserDevicesModel::UserDevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     connect(PresenceCache::instance(), &PresenceCache::presenceChanged, this, &UserDevicesModel::handlePresenceChanged);
     connect(PresenceCache::instance(), &PresenceCache::presencesCleared, this, &UserDevicesModel::handlePresencesCleared);
-    connect(this, &UserDevicesModel::clientVersionsRequested, Kaidan::instance()->client()->versionManager(), &VersionManager::fetchVersions);
-    connect(Kaidan::instance()->client()->versionManager(), &VersionManager::clientVersionReceived, this, &UserDevicesModel::handleClientVersionReceived);
+    connect(this, &UserDevicesModel::clientVersionsRequested, Kaidan::instance()->versionController(), &VersionController::fetchVersions);
+    connect(Kaidan::instance()->versionController(), &VersionController::clientVersionReceived, this, &UserDevicesModel::handleClientVersionReceived);
 }
 
 QHash<int, QByteArray> UserDevicesModel::roleNames() const

@@ -202,8 +202,8 @@ target_sources(libkaidancore PRIVATE
     VCardController.h
     VCardModel.cpp
     VCardModel.h
-    VersionManager.cpp
-    VersionManager.h
+    VersionController.cpp
+    VersionController.h
     XmlUtils.h
 
     ${CMAKE_SOURCE_DIR}/data/data.qrc
