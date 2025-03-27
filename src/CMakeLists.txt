@@ -34,8 +34,8 @@ target_sources(libkaidancore PRIVATE
     AccountController.h
     AccountDb.cpp
     AccountDb.h
-    AccountMigrationManager.cpp
-    AccountMigrationManager.h
+    AccountMigrationController.cpp
+    AccountMigrationController.h
     AccountQrCodeGenerator.cpp
     AccountQrCodeGenerator.h
     AccountTrustMessageUriGenerator.cpp

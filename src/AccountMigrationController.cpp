@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "AccountMigrationManager.h"
+#include "AccountMigrationController.h"
 
 // Qt
 #include <QDir>
@@ -45,7 +45,7 @@ struct ClientRosterItemSettings {
     ClientRosterItemSettings() = default;
     explicit ClientRosterItemSettings(const RosterItem &item)
     {
-        bareJid = item.jid;
+        jid = item.jid;
         encryption = item.encryption;
         notificationRule = item.notificationRule;
         chatStateSendingEnabled = item.chatStateSendingEnabled;
@@ -61,11 +61,11 @@ struct ClientRosterItemSettings {
 
         ClientRosterItemSettings data;
 
-        if (const auto element = rootElement.firstChildElement(QStringLiteral("bareJid")); true) {
-            data.bareJid = element.text();
+        if (const auto element = rootElement.firstChildElement(QStringLiteral("jid")); true) {
+            data.jid = element.text();
 
-            if (data.bareJid.isEmpty()) {
-                return QXmppError{QStringLiteral("Missing required bareJid element."), {}};
+            if (data.jid.isEmpty()) {
+                return QXmppError{QStringLiteral("Missing required 'jid' element."), {}};
             }
         }
 
@@ -82,7 +82,7 @@ struct ClientRosterItemSettings {
     void toXml(QXmlStreamWriter &writer) const
     {
         writer.writeStartElement(s_item.toString());
-        writeDataElement(bareJid);
+        writeDataElement(jid);
         writeDataElement(encryption);
         writeDataElement(notificationRule);
         writeDataElement(chatStateSendingEnabled);
@@ -92,7 +92,7 @@ struct ClientRosterItemSettings {
         writer.writeEndElement();
     }
 
-    QString bareJid;
+    QString jid;
     std::optional<Encryption::Enum> encryption;
     std::optional<RosterItem::NotificationRule> notificationRule;
     std::optional<bool> chatStateSendingEnabled;
@@ -227,7 +227,7 @@ struct ClientSettings {
     QList<QString> rosterContacts() const
     {
         return transform<QList<QString>>(roster, [](const ClientRosterItemSettings &item) {
-            return item.bareJid;
+            return item.jid;
         });
     }
 
@@ -321,10 +321,10 @@ public:
 
     ~PublishMovedStatementClient() override = default;
 
-    void publishStatement(const QXmppConfiguration &configuration, const QString &newBareJid)
+    void publishStatement(const QXmppConfiguration &configuration, const QString &newJid)
     {
-        Q_ASSERT(!newBareJid.isEmpty());
-        m_newBareJid = newBareJid;
+        Q_ASSERT(!newJid.isEmpty());
+        m_newJid = newJid;
         connectToServer(configuration);
     }
 
@@ -360,7 +360,7 @@ private:
 
     void onConnected()
     {
-        m_movedManager->publishStatement(m_newBareJid).then(this, [this](auto &&result) {
+        m_movedManager->publishStatement(m_newJid).then(this, [this](auto &&result) {
             disconnectFromServer();
             Q_EMIT finished(std::move(std::get<QXmpp::Success>(std::move(result))));
         });
@@ -373,19 +373,16 @@ private:
 private:
     QXmppPubSubManager *const m_pubSubManager;
     QXmppMovedManager *const m_movedManager;
-    QString m_newBareJid;
+    QString m_newJid;
 };
 
-AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QObject *parent)
+AccountMigrationController::AccountMigrationController(QObject *parent)
     : QObject(parent)
-    , m_worker(clientWorker)
-    , m_migrationManager(clientWorker->xmppClient()->findExtension<QXmppAccountMigrationManager>())
-    , m_movedManager(clientWorker->xmppClient()->findExtension<QXmppMovedManager>())
+    , m_clientWorker(Kaidan::instance()->client())
+    , m_client(m_clientWorker->xmppClient())
+    , m_migrationManager(m_clientWorker->accountMigrationManager())
+    , m_movedManager(m_clientWorker->movedManager())
 {
-    // Those are mandatory
-    Q_ASSERT(m_migrationManager);
-    Q_ASSERT(m_movedManager);
-
     constexpr const auto parseData = &ClientSettings::fromDom;
     const auto serializeData = [](const ClientSettings &data, QXmlStreamWriter &writer) {
         data.toXml(writer);
@@ -393,158 +390,81 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 
     QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(s_client_settings, s_qxmpp_export_ns);
 
-    connect(this, &AccountMigrationManager::migrationStateChanged, this, [this]() {
-        Q_EMIT busyChanged(isBusy());
+    connect(this, &AccountMigrationController::migrationStateChanged, this, [this]() {
+        Q_EMIT busyChanged();
+
+        switch (migrationState()) {
+        case MigrationState::Idle:
+        case MigrationState::Exporting:
+        case MigrationState::Importing:
+            break;
+        case MigrationState::Started:
+        case MigrationState::Finished:
+            continueMigration();
+            break;
+        case MigrationState::ChoosingNewAccount:
+            Q_EMIT Kaidan::instance()->openStartPageRequested();
+            break;
+        }
     });
 
     connect(m_migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this](const QXmppError &error) {
-        Q_EMIT errorOccurred(error.description);
+        handleError(error.description);
     });
 
-    connect(clientWorker, &ClientWorker::loggedInWithNewCredentials, this, [this]() {
+    connect(m_clientWorker, &ClientWorker::loggedInWithNewCredentials, this, [this]() {
         if (migrationState() == MigrationState::ChoosingNewAccount) {
             continueMigration();
         }
     });
 }
 
-AccountMigrationManager::~AccountMigrationManager() = default;
+AccountMigrationController::~AccountMigrationController() = default;
 
-AccountMigrationManager::MigrationState AccountMigrationManager::migrationState() const
+AccountMigrationController::MigrationState AccountMigrationController::migrationState() const
 {
     return m_migrationData ? m_migrationData->state : MigrationState::Idle;
 }
 
-void AccountMigrationManager::startMigration()
+void AccountMigrationController::startMigration()
 {
     if (migrationState() != MigrationState::Idle) {
-        Q_EMIT errorOccurred(tr("Account could not be migrated: Another migration is already in progress"));
+        handleError(tr("Account could not be migrated: Another migration is already in progress"));
         return;
     }
 
-    if (m_worker->xmppClient()->isAuthenticated()) {
-        m_migrationData = MigrationData();
+    runOnThread(
+        m_clientWorker,
+        [this]() {
+            return m_client->isAuthenticated();
+        },
+        this,
+        [this](bool isAuthenticated) {
+            if (isAuthenticated) {
+                m_migrationData = MigrationData();
 
-        if (QFile::exists(diskAccountFilePath())) {
-            if (restoreAccountDataFromDisk(m_migrationData->account)) {
-                m_migrationData->state = MigrationState::ChoosingNewAccount;
-            } else {
-                Q_EMIT errorOccurred(
-                    tr("Account could not be migrated: Could not load exported "
-                       "account data"));
-                m_migrationData.reset();
-                return;
-            }
-        }
-
-        continueMigration();
-    } else {
-        Q_EMIT errorOccurred(tr("Account could not be migrated: You need to be connected"));
-    }
-}
-
-void AccountMigrationManager::continueMigration(const QVariant &userData)
-{
-    Q_UNUSED(userData)
-
-    if (m_migrationData) {
-        if (migrationState() == MigrationState::Finished) {
-            m_migrationData.reset();
-        } else {
-            m_migrationData->advanceState();
-        }
-
-        Q_EMIT migrationStateChanged(migrationState());
-
-        const auto fail = [this](const QString &message) {
-            Q_EMIT errorOccurred(message);
-            m_migrationData.reset();
-            Q_EMIT migrationStateChanged(migrationState());
-        };
-
-        switch (migrationState()) {
-        case MigrationState::Idle:
-        case MigrationState::Started:
-        case MigrationState::ChoosingNewAccount:
-        case MigrationState::Finished:
-            break;
-
-        case MigrationState::Exporting: {
-            m_migrationManager->exportData().then(this, [this, fail](auto &&result) {
-                if (const auto error = std::get_if<QXmppError>(&result)) {
-                    fail(error->description);
-                } else {
-                    m_migrationData->account = std::move(std::get<QXmppExportData>(std::move(result)));
-
-                    exportClientSettingsTask().then(this, [this, fail](auto &&result) {
-                        if (const auto error = std::get_if<QXmppError>(&result)) {
-                            fail(error->description);
+                diskAccountFilePath().then(this, [this](const QString &accountFilePath) {
+                    if (QFile::exists(accountFilePath)) {
+                        if (restoreAccountDataFromDisk(accountFilePath, m_migrationData->account)) {
+                            m_migrationData->state = MigrationState::ChoosingNewAccount;
                         } else {
-                            m_migrationData->account.setExtension(std::move(std::get<ClientSettings>(std::move(result))));
-
-                            continueMigration();
+                            handleError(
+                                tr("Account could not be migrated: Could not load exported "
+                                   "account data"));
+                            m_migrationData.reset();
+                            return;
                         }
-                    });
-                }
-            });
-
-            break;
-        }
-
-        case MigrationState::Importing: {
-            m_migrationManager->importData(m_migrationData->account).then(this, [this, fail](auto &&result) {
-                if (const auto error = std::get_if<QXmppError>(&result)) {
-                    saveAccountDataToDisk(m_migrationData->account);
-                    fail(error->description);
-                } else {
-                    const QString filePath = diskAccountFilePath();
-
-                    if (QFile::exists(filePath)) {
-                        QFile::remove(filePath);
                     }
 
-                    const auto clientSettings = m_migrationData->account.extension<ClientSettings>();
-
-                    if (clientSettings) {
-                        importClientSettingsTask(*clientSettings)
-                            .then(this,
-                                  [this,
-                                   fail,
-                                   newJid = AccountController::instance()->account().jid,
-                                   oldJid = m_migrationData->account.accountJid(),
-                                   configuration = clientSettings->oldConfiguration.toXmppConfiguration(),
-                                   contacts = clientSettings->rosterContacts()](auto &&result) {
-                                      if (const auto error = std::get_if<QXmppError>(&result)) {
-                                          fail(error->description);
-                                      } else {
-                                          publishMovedStatement(configuration, newJid).then(this, [this, fail, contacts, oldJid](auto &&result) {
-                                              if (const auto error = std::get_if<QXmppError>(&result)) {
-                                                  fail(error->description);
-                                              } else {
-                                                  notifyContacts(contacts, oldJid).then(this, [&](auto &&result) {
-                                                      if (const auto error = std::get_if<QXmppError>(&result)) {
-                                                          fail(error->description);
-                                                      } else {
-                                                          continueMigration();
-                                                      }
-                                                  });
-                                              }
-                                          });
-                                      }
-                                  });
-                    } else {
-                        continueMigration();
-                    }
-                }
-            });
-
-            break;
-        }
-        }
-    }
+                    continueMigration();
+                });
+            } else {
+                handleError(tr("Account could not be migrated: You need to be connected"));
+            }
+        });
 }
 
-void AccountMigrationManager::cancelMigration()
+void AccountMigrationController::cancelMigration()
 {
     if (migrationState() != MigrationState::Idle) {
         // Restore the previous account.
@@ -555,8 +475,10 @@ void AccountMigrationManager::cancelMigration()
             if (accountController->hasNewAccount()) {
                 // Disconnect from any server that the client is connecting to because of a login
                 // attempt.
-                if (m_worker->xmppClient()->state() == QXmppClient::ConnectingState) {
-                    m_worker->xmppClient()->disconnectFromServer();
+                if (Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnecting) {
+                    runOnThread(m_client, [this]() {
+                        m_client->disconnectFromServer();
+                    });
                 }
 
                 // Resetting the cached JID is needed to load the stored JID via
@@ -564,30 +486,147 @@ void AccountMigrationManager::cancelMigration()
                 accountController->resetNewAccount();
 
                 if (accountController->hasEnoughCredentialsForLogin()) {
-                    m_worker->logIn();
+                    runOnThread(m_clientWorker, [this]() {
+                        m_clientWorker->logIn();
+                    });
                 }
             }
         }
 
         m_migrationData.reset();
-        Q_EMIT migrationStateChanged(migrationState());
+        Q_EMIT migrationStateChanged();
     }
 }
 
-bool AccountMigrationManager::isBusy() const
+bool AccountMigrationController::busy() const
 {
     return migrationState() != MigrationState::Idle;
 }
 
-QString AccountMigrationManager::diskAccountFilePath() const
+void AccountMigrationController::continueMigration(const QVariant &userData)
 {
-    const QString jidBare = m_worker->xmppClient()->configuration().jidBare();
-    return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).absoluteFilePath(QStringLiteral("%1.xml").arg(jidBare));
+    Q_UNUSED(userData)
+
+    if (m_migrationData) {
+        if (migrationState() == MigrationState::Finished) {
+            m_migrationData.reset();
+        } else {
+            m_migrationData->advanceState();
+        }
+
+        Q_EMIT migrationStateChanged();
+
+        const auto fail = [this](const QString &error) {
+            handleError(error);
+            m_migrationData.reset();
+            Q_EMIT migrationStateChanged();
+        };
+
+        switch (migrationState()) {
+        case MigrationState::Idle:
+        case MigrationState::Started:
+        case MigrationState::ChoosingNewAccount:
+        case MigrationState::Finished:
+            break;
+
+        case MigrationState::Exporting: {
+            callRemoteTask(
+                m_migrationManager,
+                [this]() {
+                    return std::pair{m_migrationManager->exportData(), this};
+                },
+                this,
+                [this, fail](QXmppAccountMigrationManager::Result<QXmppExportData> &&result) {
+                    if (const auto error = std::get_if<QXmppError>(&result)) {
+                        fail(error->description);
+                    } else {
+                        m_migrationData->account = std::move(std::get<QXmppExportData>(std::move(result)));
+                        m_migrationData->account.setExtension(exportClientSettings());
+                        continueMigration();
+                    }
+                });
+            break;
+        }
+
+        case MigrationState::Importing: {
+            callRemoteTask(
+                m_migrationManager,
+                [this, accountData = m_migrationData->account]() {
+                    return std::pair{m_migrationManager->importData(accountData), this};
+                },
+                this,
+                [this, fail](auto &&result) {
+                    diskAccountFilePath().then(this, [this, fail, result](const QString &accountFilePath) {
+                        if (const auto error = std::get_if<QXmppError>(&result)) {
+                            saveAccountDataToDisk(accountFilePath, m_migrationData->account);
+                            fail(error->description);
+                        } else {
+                            if (QFile::exists(accountFilePath)) {
+                                QFile::remove(accountFilePath);
+                            }
+
+                            const auto clientSettings = m_migrationData->account.extension<ClientSettings>();
+
+                            if (clientSettings) {
+                                importClientSettings(*clientSettings)
+                                    .then(this,
+                                          [this,
+                                           fail,
+                                           newJid = AccountController::instance()->account().jid,
+                                           oldJid = m_migrationData->account.accountJid(),
+                                           configuration = clientSettings->oldConfiguration.toXmppConfiguration(),
+                                           contacts = clientSettings->rosterContacts()]() {
+                                              publishMovedStatement(configuration, newJid).then(this, [this, fail, contacts, oldJid](auto &&result) {
+                                                  if (const auto error = std::get_if<QXmppError>(&result)) {
+                                                      fail(error->description);
+                                                  } else {
+                                                      notifyContacts(contacts, oldJid).then(this, [this, fail](auto &&result) {
+                                                          if (const auto error = std::get_if<QXmppError>(&result)) {
+                                                              fail(error->description);
+                                                          } else {
+                                                              continueMigration();
+                                                          }
+                                                      });
+                                                  }
+                                              });
+                                          });
+                            } else {
+                                continueMigration();
+                            }
+                        }
+                    });
+                });
+            break;
+        }
+        }
+    }
 }
 
-bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
+void AccountMigrationController::handleError(const QString &error)
 {
-    const QString filePath = diskAccountFilePath();
+    switch (migrationState()) {
+    case MigrationState::Idle:
+    case MigrationState::Exporting:
+    case MigrationState::ChoosingNewAccount:
+    case MigrationState::Importing:
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(error);
+        break;
+    case MigrationState::Started:
+    case MigrationState::Finished:
+        break;
+    }
+}
+
+QFuture<QString> AccountMigrationController::diskAccountFilePath() const
+{
+    return runAsync(m_clientWorker, [this]() {
+        const QString accountJid = m_client->configuration().jidBare();
+        return QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation)).absoluteFilePath(QStringLiteral("%1.xml").arg(accountJid));
+    });
+}
+
+bool AccountMigrationController::saveAccountDataToDisk(const QString &filePath, const QXmppExportData &data)
+{
     QFile file(filePath);
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
@@ -614,9 +653,8 @@ bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
     return true;
 }
 
-bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
+bool AccountMigrationController::restoreAccountDataFromDisk(const QString &filePath, QXmppExportData &data)
 {
-    const QString filePath = diskAccountFilePath();
     QFile file(filePath);
 
     if (!file.open(QIODevice::ReadOnly)) {
@@ -652,75 +690,72 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
     return true;
 }
 
-QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::importClientSettingsTask(const ClientSettings &settings)
+QFuture<void> AccountMigrationController::importClientSettings(const ClientSettings &settings)
 {
-    return runAsyncTask(this, Kaidan::instance(), [jid = AccountController::instance()->account().jid, settings]() -> ImportResult {
-        AccountDb::instance()->updateAccount(jid, [accountSettings = settings.oldConfiguration](Account &account) {
-            if (accountSettings.tlsErrorsIgnored) {
-                account.tlsErrorsIgnored = *accountSettings.tlsErrorsIgnored;
-            }
+    return AccountDb::instance()
+        ->updateAccount(AccountController::instance()->account().jid,
+                        [settings = settings.oldConfiguration](Account &account) {
+                            if (settings.tlsErrorsIgnored) {
+                                account.tlsErrorsIgnored = *settings.tlsErrorsIgnored;
+                            }
 
-            if (accountSettings.tlsRequirement) {
-                account.tlsRequirement = *accountSettings.tlsRequirement;
-            }
+                            if (settings.tlsRequirement) {
+                                account.tlsRequirement = *settings.tlsRequirement;
+                            }
 
-            if (accountSettings.passwordVisibility) {
-                account.passwordVisibility = *accountSettings.passwordVisibility;
-            }
+                            if (settings.passwordVisibility) {
+                                account.passwordVisibility = *settings.passwordVisibility;
+                            }
 
-            if (accountSettings.encryption) {
-                account.encryption = *accountSettings.encryption;
-            }
+                            if (settings.encryption) {
+                                account.encryption = *settings.encryption;
+                            }
 
-            if (accountSettings.automaticMediaDownloadsRule) {
-                account.automaticMediaDownloadsRule = *accountSettings.automaticMediaDownloadsRule;
-            }
+                            if (settings.automaticMediaDownloadsRule) {
+                                account.automaticMediaDownloadsRule = *settings.automaticMediaDownloadsRule;
+                            }
 
-            if (accountSettings.name) {
-                account.name = *accountSettings.name;
-            }
+                            if (settings.name) {
+                                account.name = *settings.name;
+                            }
 
-            if (accountSettings.contactNotificationRule) {
-                account.contactNotificationRule = *accountSettings.contactNotificationRule;
-            }
+                            if (settings.contactNotificationRule) {
+                                account.contactNotificationRule = *settings.contactNotificationRule;
+                            }
 
-            if (accountSettings.groupChatNotificationRule) {
-                account.groupChatNotificationRule = *accountSettings.groupChatNotificationRule;
-            }
+                            if (settings.groupChatNotificationRule) {
+                                account.groupChatNotificationRule = *settings.groupChatNotificationRule;
+                            }
 
-            if (accountSettings.geoLocationMapPreviewEnabled) {
-                account.geoLocationMapPreviewEnabled = *accountSettings.geoLocationMapPreviewEnabled;
-            }
+                            if (settings.geoLocationMapPreviewEnabled) {
+                                account.geoLocationMapPreviewEnabled = *settings.geoLocationMapPreviewEnabled;
+                            }
 
-            if (accountSettings.geoLocationMapService) {
-                account.geoLocationMapService = *accountSettings.geoLocationMapService;
+                            if (settings.geoLocationMapService) {
+                                account.geoLocationMapService = *settings.geoLocationMapService;
+                            }
+                        })
+        .then(this, [settings]() {
+            for (const ClientRosterItemSettings &itemSettings : settings.roster) {
+                RosterDb::instance()->updateItem(itemSettings.jid, [itemSettings](RosterItem &item) {
+                    item.encryption = itemSettings.encryption.value_or(item.encryption);
+                    item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
+                    item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
+                    item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
+                    item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
+                    item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
+                });
             }
         });
-
-        for (const ClientRosterItemSettings &itemSettings : settings.roster) {
-            RosterDb::instance()->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
-                item.encryption = itemSettings.encryption.value_or(item.encryption);
-                item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
-                item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
-                item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
-                item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
-                item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
-            });
-        }
-
-        return QXmpp::Success{};
-    });
 }
 
-QXmppTask<AccountMigrationManager::ExportResult> AccountMigrationManager::exportClientSettingsTask()
+ClientSettings AccountMigrationController::exportClientSettings()
 {
-    return runAsyncTask(this, Kaidan::instance(), [account = AccountController::instance()->account()]() -> ExportResult {
-        return ClientSettings(account, RosterModel::instance()->items());
-    });
+    return ClientSettings(AccountController::instance()->account(), RosterModel::instance()->items());
 }
 
-QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::publishMovedStatement(const QXmppConfiguration &configuration,
-                                                                                                 const QString &newBareJid)
+QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationController::publishMovedStatement(const QXmppConfiguration &configuration,
+                                                                                                    const QString &newAccountJid)
 {
     auto client = new PublishMovedStatementClient(this);
     QXmppPromise<QXmppAccountMigrationManager::Result<>> promise;
@@ -730,39 +765,46 @@ QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::publi
         promise.finish(result);
     });
 
-    client->publishStatement(configuration, newBareJid);
+    client->publishStatement(configuration, newAccountJid);
 
     return task;
 }
 
-QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::notifyContacts(const QList<QString> &contactsBareJids, const QString &oldBareJid)
+QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationController::notifyContacts(const QList<QString> &contactJids, const QString &oldAccountJid)
 {
-    if (contactsBareJids.isEmpty()) {
+    if (contactJids.isEmpty()) {
         return makeReadyTask<QXmppAccountMigrationManager::Result<>>({});
     }
 
     QXmppPromise<QXmppAccountMigrationManager::Result<>> promise;
-    auto counter = std::make_shared<int>(contactsBareJids.size());
+    auto counter = std::make_shared<int>(contactJids.size());
 
-    for (const QString &contactBareJid : contactsBareJids) {
-        m_movedManager->notifyContact(contactBareJid, oldBareJid, false).then(this, [promise, counter](auto &&result) mutable {
-            if (promise.task().isFinished()) {
-                return;
-            }
+    for (const QString &contactJid : contactJids) {
+        callRemoteTask(
+            m_movedManager,
+            [this, contactJid, oldAccountJid]() {
+                return std::pair{m_movedManager->notifyContact(contactJid, oldAccountJid, false), this};
+            },
+            this,
+            [promise, counter](auto &&result) mutable {
+                if (promise.task().isFinished()) {
+                    return;
+                }
 
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                return promise.finish(*error);
-            }
+                if (const auto error = std::get_if<QXmppError>(&result)) {
+                    promise.finish(*error);
+                    return;
+                }
 
-            if ((--(*counter)) == 0) {
-                promise.finish(QXmpp::Success());
-            }
-        });
+                if ((--(*counter)) == 0) {
+                    promise.finish(QXmpp::Success());
+                }
+            });
     }
 
     return promise.task();
 }
 
-#include "AccountMigrationManager.moc"
+#include "AccountMigrationController.moc"
 
-#include "moc_AccountMigrationManager.cpp"
+#include "moc_AccountMigrationController.cpp"

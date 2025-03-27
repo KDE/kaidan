@@ -58,7 +58,7 @@
 // Kaidan
 #include "Account.h"
 #include "AccountController.h"
-#include "AccountMigrationManager.h"
+#include "AccountMigrationController.h"
 #include "AccountQrCodeGenerator.h"
 #include "AtmController.h"
 #include "AuthenticatableEncryptionKeyModel.h"
@@ -260,7 +260,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<VCardController *>();
     qRegisterMetaType<VersionController *>();
     qRegisterMetaType<RegistrationController *>();
-    qRegisterMetaType<AccountMigrationManager *>();
+    qRegisterMetaType<AccountMigrationController *>();
     qRegisterMetaType<FileSharingController *>();
     qRegisterMetaType<EncryptionController *>();
     qRegisterMetaType<AvatarFileStorage *>();
@@ -311,7 +311,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
     qRegisterMetaType<Account::GeoLocationMapService>();
     qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
-    qRegisterMetaType<AccountMigrationManager::MigrationState>();
+    qRegisterMetaType<AccountMigrationController::MigrationState>();
     qRegisterMetaType<RosterItem::GroupChatFlag>();
     qRegisterMetaType<RosterModel::RosterItemRoles>();
     qRegisterMetaType<Message::TrustLevel>();
@@ -488,11 +488,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                                                        0,
                                                        "RegistrationController",
                                                        QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<AccountMigrationManager>(APPLICATION_ID,
-                                                        1,
-                                                        0,
-                                                        "AccountMigrationManager",
-                                                        QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<AccountMigrationController>(APPLICATION_ID,
+                                                           1,
+                                                           0,
+                                                           "AccountMigrationController",
+                                                           QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
     qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", QStringLiteral("ServerFeaturesCache type usable"));

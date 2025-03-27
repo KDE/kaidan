@@ -1019,12 +1019,10 @@ DetailsContent {
 				id: migrateButton
 				idleText: qsTr("Migrate account")
 				busyText: qsTr("Preparing account migration…")
+				busy: Kaidan.accountMigrationController.busy
 				description: busy ? qsTr("That can take long") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
 				idleIconSource: "edit-copy-symbolic"
-				onClicked: {
-					busy = true
-					Kaidan.startAccountMigration()
-				}
+				onClicked: Kaidan.accountMigrationController.startMigration()
 
 				Connections {
 					target: Kaidan

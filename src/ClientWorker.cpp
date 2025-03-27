@@ -41,7 +41,6 @@
 #include <QXmppVersionManager.h>
 // Kaidan
 #include "AccountController.h"
-#include "AccountMigrationManager.h"
 #include "AtmController.h"
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
@@ -79,7 +78,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     , m_networkManager(new QNetworkAccessManager(this))
     , m_omemoDb(new OmemoDb(database, this, {}, this))
 {
-    m_client->addNewExtension<QXmppAccountMigrationManager>();
+    m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();
     m_client->addNewExtension<QXmppBlockingManager>();
     m_client->addNewExtension<QXmppCarbonManagerV2>();
     m_client->addNewExtension<QXmppDiscoveryManager>();
@@ -87,7 +86,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
     m_client->addNewExtension<QXmppMamManager>();
     m_client->addNewExtension<QXmppPubSubManager>();
-    m_client->addNewExtension<QXmppMovedManager>();
+    m_movedManager = m_client->addNewExtension<QXmppMovedManager>();
     m_atmManager = m_client->addNewExtension<QXmppAtmManager>(TrustDb::instance());
     m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
     m_client->addNewExtension<QXmppMessageReceiptManager>();
@@ -99,7 +98,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     m_client->addNewExtension<QXmppMixManager>();
 
     m_discoveryManager = new DiscoveryManager(m_client, this);
-    m_accountMigrationManager = new AccountMigrationManager(this, this);
 
     // file sharing manager
     m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();

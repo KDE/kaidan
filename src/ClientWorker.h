@@ -12,7 +12,6 @@
 // Kaidan
 #include "Enums.h"
 
-class AccountMigrationManager;
 class AvatarFileStorage;
 class Database;
 class DiscoveryManager;
@@ -24,10 +23,12 @@ class ServerFeaturesCache;
 class Settings;
 class VCardCache;
 class QNetworkAccessManager;
+class QXmppAccountMigrationManager;
 class QXmppAtmManager;
 class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
+class QXmppMovedManager;
 class QXmppRegistrationManager;
 class QXmppRosterManager;
 class QXmppVCardManager;
@@ -39,7 +40,6 @@ class QXmppVersionManager;
 class ClientWorker : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(AccountMigrationManager *accountMigrationManager READ accountMigrationManager CONSTANT)
     Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
 
 public:
@@ -82,11 +82,6 @@ public:
      */
     ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
 
-    AccountMigrationManager *accountMigrationManager() const
-    {
-        return m_accountMigrationManager;
-    }
-
     DiscoveryManager *discoveryManager() const
     {
         return m_discoveryManager;
@@ -102,6 +97,11 @@ public:
         return m_client;
     }
 
+    QXmppAccountMigrationManager *accountMigrationManager() const
+    {
+        return m_accountMigrationManager;
+    }
+
     QXmppAtmManager *atmManager() const
     {
         return m_atmManager;
@@ -110,6 +110,11 @@ public:
     QXmppFileSharingManager *fileSharingManager() const
     {
         return m_fileSharingManager;
+    }
+
+    QXmppMovedManager *movedManager() const
+    {
+        return m_movedManager;
     }
 
     QXmppRegistrationManager *registrationManager() const
@@ -255,11 +260,12 @@ private:
     bool m_enableLogging;
     QNetworkAccessManager *m_networkManager;
 
-    AccountMigrationManager *m_accountMigrationManager;
     DiscoveryManager *m_discoveryManager;
 
+    QXmppAccountMigrationManager *m_accountMigrationManager;
     QXmppAtmManager *m_atmManager;
     QXmppFileSharingManager *m_fileSharingManager;
+    QXmppMovedManager *m_movedManager;
     QXmppRegistrationManager *m_registrationManager;
     QXmppRosterManager *m_rosterManager;
     QXmppVCardManager *m_vCardManager;

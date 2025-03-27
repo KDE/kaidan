@@ -66,7 +66,7 @@ RegistrationPage {
 				Field {
 					id: displayNameField
 					labelText: qsTr("Display Name")
-					visible: Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)
+					visible: Kaidan.accountMigrationController.migrationState === AccountMigrationController.MigrationState.Idle
 					inputMethodHints: Qt.ImhPreferUppercase
 					inputField.onAccepted: usernameField.forceActiveFocus()
 				}
@@ -212,7 +212,7 @@ RegistrationPage {
 	}
 
 	function changeNickname() {
-		if (displayNameField.text && Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+		if (displayNameField.text && Kaidan.accountMigrationController.migrationState === AccountMigrationController.MigrationState.Idle) {
 			Kaidan.vCardController.changeNickname(displayNameField.text)
 		}
 	}

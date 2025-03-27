@@ -25,6 +25,7 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
+#include "AccountMigrationController.h"
 #include "AtmController.h"
 #include "AvatarFileStorage.h"
 #include "Blocking.h"
@@ -156,6 +157,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
     // create controllers
     m_atmController = new AtmController(this);
+    m_accountMigrationController = new AccountMigrationController(this);
     m_blockingController = std::make_unique<BlockingController>(m_database);
     m_chatController = new ChatController(this);
     m_encryptionController = new EncryptionController(this);
@@ -168,8 +170,6 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_versionController = new VersionController(this);
     m_messageModel = new MessageModel(this);
     m_chatHintModel = new ChatHintModel(this);
-
-    initializeAccountMigration();
 
     connect(m_msgDb, &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
         if (origin != MessageOrigin::UserInput && !message.files.isEmpty()) {
@@ -261,45 +261,6 @@ void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
     Q_EMIT connectionErrorChanged();
 }
 
-void Kaidan::initializeAccountMigration()
-{
-    auto migrationManager = m_client->accountMigrationManager();
-
-    connect(migrationManager, &AccountMigrationManager::migrationStateChanged, this, &Kaidan::accountMigrationStateChanged);
-    connect(migrationManager, &AccountMigrationManager::busyChanged, this, &Kaidan::accountBusyChanged);
-    connect(migrationManager, &AccountMigrationManager::errorOccurred, this, &Kaidan::accountErrorOccurred);
-
-    connect(migrationManager, &AccountMigrationManager::migrationStateChanged, this, [this, migrationManager](AccountMigrationManager::MigrationState state) {
-        switch (state) {
-        case AccountMigrationManager::MigrationState::Idle:
-        case AccountMigrationManager::MigrationState::Exporting:
-        case AccountMigrationManager::MigrationState::Importing:
-            break;
-        case AccountMigrationManager::MigrationState::Started:
-        case AccountMigrationManager::MigrationState::Finished:
-            migrationManager->continueMigration();
-            break;
-        case AccountMigrationManager::MigrationState::ChoosingNewAccount:
-            Q_EMIT openStartPageRequested();
-            break;
-        }
-    });
-
-    connect(migrationManager, &AccountMigrationManager::errorOccurred, this, [this, migrationManager](const QString &error) {
-        switch (migrationManager->migrationState()) {
-        case AccountMigrationManager::MigrationState::Idle:
-        case AccountMigrationManager::MigrationState::Exporting:
-        case AccountMigrationManager::MigrationState::ChoosingNewAccount:
-        case AccountMigrationManager::MigrationState::Importing:
-            Q_EMIT passiveNotificationRequested(error);
-            break;
-        case AccountMigrationManager::MigrationState::Started:
-        case AccountMigrationManager::MigrationState::Finished:
-            break;
-        }
-    });
-}
-
 void Kaidan::addOpenUri(const QString &uriString)
 {
     if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
@@ -373,39 +334,6 @@ Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &
     }
 
     return InvalidUri;
-}
-
-void Kaidan::startAccountMigration()
-{
-    QMetaObject::invokeMethod(m_client->accountMigrationManager(), &AccountMigrationManager::startMigration);
-}
-
-void Kaidan::continueAccountMigration(const QVariant &userData)
-{
-    QMetaObject::invokeMethod(m_client->accountMigrationManager(), [this, userData]() {
-        m_client->accountMigrationManager()->continueMigration(userData);
-    });
-}
-
-void Kaidan::cancelAccountMigration()
-{
-    QMetaObject::invokeMethod(m_client->accountMigrationManager(), &AccountMigrationManager::cancelMigration);
-}
-
-bool Kaidan::testAccountMigrationState(AccountMigrationManager::MigrationState state)
-{
-    bool ret;
-    if (QMetaObject::invokeMethod(
-            m_client->accountMigrationManager(),
-            [this, state]() {
-                return m_client->accountMigrationManager()->migrationState() == state;
-            },
-            Qt::BlockingQueuedConnection,
-            &ret)) {
-        return ret;
-    }
-
-    return false;
 }
 
 #ifdef NDEBUG

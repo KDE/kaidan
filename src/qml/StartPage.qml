@@ -22,7 +22,7 @@ import "registration"
 ImageBackgroundPage {
 	id: root
 	title: {
-		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+		if (Kaidan.accountMigrationController.migrationState !== AccountMigrationController.MigrationState.Idle) {
 			return qsTr("Account Migration")
 		}
 
@@ -30,7 +30,7 @@ ImageBackgroundPage {
 	}
 	onBackRequested: {
 		globalDrawer.enabled = true
-		Kaidan.cancelAccountMigration()
+		Kaidan.accountMigrationController.cancelMigration()
 	}
 
 	ColumnLayout {

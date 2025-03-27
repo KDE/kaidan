@@ -18,10 +18,10 @@
 // Qt
 #include <QStringList>
 // Kaidan
-#include "AccountMigrationManager.h"
 #include "ClientWorker.h"
 
 class AccountDb;
+class AccountMigrationController;
 class AtmController;
 class BlockingController;
 class ChatController;
@@ -57,6 +57,7 @@ class Kaidan : public QObject
 
     Q_PROPERTY(ClientWorker *client READ client CONSTANT)
     Q_PROPERTY(AtmController *atmController READ atmController CONSTANT)
+    Q_PROPERTY(AccountMigrationController *accountMigrationController READ accountMigrationController CONSTANT)
     Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
@@ -160,6 +161,10 @@ public:
     {
         return m_atmController;
     }
+    AccountMigrationController *accountMigrationController() const
+    {
+        return m_accountMigrationController;
+    }
     BlockingController *blockingController() const
     {
         return m_blockingController.get();
@@ -253,16 +258,6 @@ public:
      *        authenticated or none to allow all JIDs
      */
     Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid = {});
-
-    Q_SLOT void startAccountMigration();
-    Q_SLOT void continueAccountMigration(const QVariant &userData = {});
-    Q_SLOT void cancelAccountMigration();
-    Q_SIGNAL void accountMigrationStateChanged(AccountMigrationManager::MigrationState state);
-
-    Q_INVOKABLE bool testAccountMigrationState(AccountMigrationManager::MigrationState state);
-
-    Q_SIGNAL void accountErrorOccurred(const QString &msg);
-    Q_SIGNAL void accountBusyChanged(bool busy);
 
     /**
      * Emitted to log in to the server with the set credentials.
@@ -372,8 +367,7 @@ public:
     }
 
 private:
-    void initializeAccountMigration();
-
+    Settings *m_settings;
     Notifications *m_notifications;
 
     Database *m_database;
@@ -386,6 +380,7 @@ private:
     ClientWorker::Caches *m_caches;
     ClientWorker *m_client;
     AtmController *m_atmController;
+    AccountMigrationController *m_accountMigrationController;
     std::unique_ptr<BlockingController> m_blockingController;
     ChatController *m_chatController;
     EncryptionController *m_encryptionController;
