@@ -176,7 +176,7 @@ Dialog {
 		}
 	}
 
-	PublicGroupChatSearchManager {
+	PublicGroupChatSearchController {
 		id: groupChatsManager
 		onError: root.errorMessage = qsTr("The public groups could not be retrieved: %1").arg(error)
 	}

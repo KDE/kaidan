@@ -11,10 +11,10 @@
 #include "PublicGroupChat.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
-#include "PublicGroupChatSearchManager.h"
+#include "PublicGroupChatSearchController.h"
 #include "Test.h"
 
-#define REQUEST_TIMEOUT static_cast<int>((std::chrono::milliseconds(PublicGroupChatSearchManager::RequestTimeout) * 1.2).count())
+#define REQUEST_TIMEOUT static_cast<int>((std::chrono::milliseconds(PublicGroupChatSearchController::RequestTimeout) * 1.2).count())
 
 class PublicGroupChatTest : public Test
 {
@@ -135,18 +135,18 @@ private Q_SLOTS:
 
     void testGroupChatSearchManagerAndGroupChatModel()
     {
-        PublicGroupChatSearchManager manager;
+        PublicGroupChatSearchController manager;
         PublicGroupChatModel model;
-        QSignalSpy spyIsRunning(&manager, &PublicGroupChatSearchManager::isRunningChanged);
-        QSignalSpy spyError(&manager, &PublicGroupChatSearchManager::error);
-        QSignalSpy spyReceived(&manager, &PublicGroupChatSearchManager::groupChatsReceived);
+        QSignalSpy spyIsRunning(&manager, &PublicGroupChatSearchController::isRunningChanged);
+        QSignalSpy spyError(&manager, &PublicGroupChatSearchController::error);
+        QSignalSpy spyReceived(&manager, &PublicGroupChatSearchController::groupChatsReceived);
         auto clearSpies = [&]() {
             spyIsRunning.clear();
             spyError.clear();
             spyReceived.clear();
         };
 
-        connect(&manager, &PublicGroupChatSearchManager::groupChatsReceived, &model, &PublicGroupChatModel::setGroupChats);
+        connect(&manager, &PublicGroupChatSearchController::groupChatsReceived, &model, &PublicGroupChatModel::setGroupChats);
 
         QVERIFY(manager.cachedGroupChats().isEmpty());
         QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
@@ -158,7 +158,7 @@ private Q_SLOTS:
         QTimer cancelTimer;
         cancelTimer.setSingleShot(true);
         cancelTimer.setInterval(1000);
-        cancelTimer.callOnTimeout(&manager, &PublicGroupChatSearchManager::cancel);
+        cancelTimer.callOnTimeout(&manager, &PublicGroupChatSearchController::cancel);
 
         cancelTimer.start();
 

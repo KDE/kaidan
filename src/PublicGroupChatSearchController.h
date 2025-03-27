@@ -16,7 +16,7 @@ class QTimer;
 
 using namespace std::chrono_literals;
 
-class PublicGroupChatSearchManager : public QObject
+class PublicGroupChatSearchController : public QObject
 {
     Q_OBJECT
 
@@ -26,9 +26,9 @@ class PublicGroupChatSearchManager : public QObject
 public:
     static constexpr auto RequestTimeout = 60s;
 
-    explicit PublicGroupChatSearchManager(QNetworkAccessManager *manager, QObject *parent = nullptr);
-    explicit PublicGroupChatSearchManager(QObject *parent = nullptr);
-    ~PublicGroupChatSearchManager() override;
+    explicit PublicGroupChatSearchController(QNetworkAccessManager *manager, QObject *parent = nullptr);
+    explicit PublicGroupChatSearchController(QObject *parent = nullptr);
+    ~PublicGroupChatSearchController() override;
 
     bool isRunning() const;
     PublicGroupChats cachedGroupChats() const;

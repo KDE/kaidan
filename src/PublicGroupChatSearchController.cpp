@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "PublicGroupChatSearchManager.h"
+#include "PublicGroupChatSearchController.h"
 
 // Qt
 #include <QDir>
@@ -20,7 +20,7 @@
 
 #define NEXT_TIMEOUT 0
 
-PublicGroupChatSearchManager::PublicGroupChatSearchManager(QNetworkAccessManager *manager, QObject *parent)
+PublicGroupChatSearchController::PublicGroupChatSearchController(QNetworkAccessManager *manager, QObject *parent)
     : QObject(parent)
     , m_throttler(new QTimer(this))
     , m_manager(manager)
@@ -30,23 +30,23 @@ PublicGroupChatSearchManager::PublicGroupChatSearchManager(QNetworkAccessManager
     Q_ASSERT(m_manager);
 
     m_throttler->setSingleShot(true);
-    m_throttler->callOnTimeout(this, &PublicGroupChatSearchManager::wakeUp);
+    m_throttler->callOnTimeout(this, &PublicGroupChatSearchController::wakeUp);
 
-    connect(m_manager, &QNetworkAccessManager::finished, this, &PublicGroupChatSearchManager::replyFinished);
+    connect(m_manager, &QNetworkAccessManager::finished, this, &PublicGroupChatSearchController::replyFinished);
 }
 
-PublicGroupChatSearchManager::PublicGroupChatSearchManager(QObject *parent)
-    : PublicGroupChatSearchManager(new QNetworkAccessManager, parent)
+PublicGroupChatSearchController::PublicGroupChatSearchController(QObject *parent)
+    : PublicGroupChatSearchController(new QNetworkAccessManager, parent)
 {
     m_manager->setParent(this);
 }
 
-PublicGroupChatSearchManager::~PublicGroupChatSearchManager()
+PublicGroupChatSearchController::~PublicGroupChatSearchController()
 {
     cancel();
 }
 
-void PublicGroupChatSearchManager::requestAll()
+void PublicGroupChatSearchController::requestAll()
 {
     cancel();
 
@@ -55,7 +55,7 @@ void PublicGroupChatSearchManager::requestAll()
     requestFrom();
 }
 
-void PublicGroupChatSearchManager::cancel()
+void PublicGroupChatSearchController::cancel()
 {
     m_throttler->stop();
 
@@ -68,12 +68,12 @@ void PublicGroupChatSearchManager::cancel()
     setIsRunning(false);
 }
 
-bool PublicGroupChatSearchManager::isRunning() const
+bool PublicGroupChatSearchController::isRunning() const
 {
     return m_isRunning;
 }
 
-void PublicGroupChatSearchManager::setIsRunning(bool running)
+void PublicGroupChatSearchController::setIsRunning(bool running)
 {
     if (m_isRunning != running) {
         m_isRunning = running;
@@ -81,12 +81,12 @@ void PublicGroupChatSearchManager::setIsRunning(bool running)
     }
 }
 
-PublicGroupChats PublicGroupChatSearchManager::cachedGroupChats() const
+PublicGroupChats PublicGroupChatSearchController::cachedGroupChats() const
 {
     return m_groupChats;
 }
 
-QNetworkRequest PublicGroupChatSearchManager::newRequest(const QString &previousAddress) const
+QNetworkRequest PublicGroupChatSearchController::newRequest(const QString &previousAddress) const
 {
     // GET /api/1.0/rooms
     // 400 - param error
@@ -111,17 +111,17 @@ QNetworkRequest PublicGroupChatSearchManager::newRequest(const QString &previous
     return request;
 }
 
-void PublicGroupChatSearchManager::requestFrom(const QString &previousAddress)
+void PublicGroupChatSearchController::requestFrom(const QString &previousAddress)
 {
     m_lastReply = m_manager->get(newRequest(previousAddress));
 }
 
-void PublicGroupChatSearchManager::wakeUp()
+void PublicGroupChatSearchController::wakeUp()
 {
     requestFrom(m_groupChats.isEmpty() ? QString() : m_groupChats.constLast().address());
 }
 
-void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
+void PublicGroupChatSearchController::replyFinished(QNetworkReply *reply)
 {
     if (reply != m_lastReply) {
         // Not our reply
@@ -175,7 +175,7 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
     }
 }
 
-QString PublicGroupChatSearchManager::saveFilePath() const
+QString PublicGroupChatSearchController::saveFilePath() const
 {
     // Don't bother to do checks, Database already do them.
     const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
@@ -189,7 +189,7 @@ QString PublicGroupChatSearchManager::saveFilePath() const
     return dir.absoluteFilePath(QStringLiteral("public-group-chats.json"));
 }
 
-bool PublicGroupChatSearchManager::saveGroupChats()
+bool PublicGroupChatSearchController::saveGroupChats()
 {
     QSaveFile file(saveFilePath());
 
@@ -210,7 +210,7 @@ bool PublicGroupChatSearchManager::saveGroupChats()
     return file.commit();
 }
 
-bool PublicGroupChatSearchManager::readGroupChats()
+bool PublicGroupChatSearchController::readGroupChats()
 {
     const auto filePath = saveFilePath();
 
@@ -237,4 +237,4 @@ bool PublicGroupChatSearchManager::readGroupChats()
     return true;
 }
 
-#include "moc_PublicGroupChatSearchManager.cpp"
+#include "moc_PublicGroupChatSearchController.cpp"

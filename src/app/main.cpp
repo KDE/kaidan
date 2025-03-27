@@ -104,7 +104,7 @@
 #include "ProviderListModel.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
-#include "PublicGroupChatSearchManager.h"
+#include "PublicGroupChatSearchController.h"
 #include "QmlUtils.h"
 #include "RegistrationController.h"
 #include "RegistrationDataFormFilterModel.h"
@@ -457,7 +457,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
     qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
     qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-    qmlRegisterType<PublicGroupChatSearchManager>(APPLICATION_ID, 1, 0, "PublicGroupChatSearchManager");
+    qmlRegisterType<PublicGroupChatSearchController>(APPLICATION_ID, 1, 0, "PublicGroupChatSearchController");
     qmlRegisterType<PublicGroupChatModel>(APPLICATION_ID, 1, 0, "PublicGroupChatModel");
     qmlRegisterType<PublicGroupChatProxyModel>(APPLICATION_ID, 1, 0, "PublicGroupChatProxyModel");
     qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");

@@ -155,8 +155,8 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatModel.h
     PublicGroupChatProxyModel.cpp
     PublicGroupChatProxyModel.h
-    PublicGroupChatSearchManager.cpp
-    PublicGroupChatSearchManager.h
+    PublicGroupChatSearchController.cpp
+    PublicGroupChatSearchController.h
     QmlUtils.cpp
     QmlUtils.h
     RegistrationController.cpp
