@@ -12,15 +12,9 @@
 // Kaidan
 #include "Enums.h"
 
-class AvatarFileStorage;
 class Database;
 class LogHandler;
 class OmemoDb;
-class PresenceCache;
-class RosterModel;
-class ServerFeaturesCache;
-class Settings;
-class VCardCache;
 class QNetworkAccessManager;
 class QXmppAccountMigrationManager;
 class QXmppAtmManager;
@@ -62,28 +56,11 @@ public:
     };
     Q_ENUM(ConnectionError)
 
-    struct Caches {
-        Caches(QObject *parent = nullptr);
-
-        Settings *settings;
-        VCardCache *vCardCache;
-        PresenceCache *presenceCache;
-        RosterModel *rosterModel;
-        AvatarFileStorage *avatarStorage;
-        ServerFeaturesCache *serverFeaturesCache;
-    };
-
     /**
-     * @param caches All caches running in the main thread for communication with the UI.
      * @param enableLogging If logging of the XMPP stream should be done.
      * @param parent Optional QObject-based parent.
      */
-    ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
-
-    Caches *caches() const
-    {
-        return m_caches;
-    }
+    ClientWorker(Database *database, bool enableLogging, QObject *parent = nullptr);
 
     QXmppClient *xmppClient() const
     {
@@ -247,7 +224,6 @@ private:
      */
     bool startPendingTasks();
 
-    Caches *m_caches;
     QXmppClient *m_client;
     LogHandler *m_logger;
     QNetworkAccessManager *m_networkManager;

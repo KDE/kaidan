@@ -49,6 +49,7 @@
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
 #include "TrustDb.h"
+#include "VCardCache.h"
 #include "VCardController.h"
 #include "VersionController.h"
 
@@ -129,20 +130,25 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_groupChatUserDb = new GroupChatUserDb(m_database, this);
     new TrustDb(m_database, this, {}, this);
 
-    // caches
-    m_caches = new ClientWorker::Caches(this);
+    m_settings = new Settings(this);
+
+    m_avatarStorage = new AvatarFileStorage(this);
+    m_presenceCache = new PresenceCache(this);
+    m_serverFeaturesCache = new ServerFeaturesCache(this);
+    m_vCardCache = new VCardCache(this);
+
     // Connect the avatar changed signal of the avatarStorage with the NOTIFY signal
     // of the Q_PROPERTY for the avatar storage (so all avatars are updated in QML)
-    connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
+    connect(m_avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 
     // create xmpp thread
     m_cltThrd = ClientThread::create([&] {
-        m_client = new ClientWorker(m_caches, m_database, enableLogging);
+        m_client = new ClientWorker(m_database, enableLogging);
     });
     m_cltThrd->setObjectName("XmppClient");
     m_cltThrd->waitForStarted();
 
-    auto accountController = new AccountController(m_client->caches()->settings, m_client->caches()->vCardCache, parent);
+    auto accountController = new AccountController(m_settings, m_vCardCache, this);
 
     connect(accountController, &AccountController::credentialsNeeded, this, &Kaidan::credentialsNeeded);
     connect(accountController, &AccountController::connectionDataLoaded, this, [this, accountController]() {
@@ -168,6 +174,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_rosterController = new RosterController(this);
     m_vCardController = new VCardController(this);
     m_versionController = new VersionController(this);
+
+    m_rosterModel = new RosterModel(this);
     m_messageModel = new MessageModel(this);
     m_chatHintModel = new ChatHintModel(this);
 

@@ -168,8 +168,8 @@ void RegistrationController::handleInBandRegistrationSupportedChanged()
                 return m_manager->supportedByServer();
             },
             this,
-            [this](bool supportedByServer) {
-                m_clientWorker->caches()->serverFeaturesCache->setInBandRegistrationSupported(supportedByServer);
+            [](bool supportedByServer) {
+                Kaidan::instance()->serverFeaturesCache()->setInBandRegistrationSupported(supportedByServer);
             });
     }
 }

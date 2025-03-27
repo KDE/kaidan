@@ -42,7 +42,6 @@
 // Kaidan
 #include "AccountController.h"
 #include "AtmController.h"
-#include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
 #include "EncryptionController.h"
 #include "Kaidan.h"
@@ -55,23 +54,10 @@
 #include "RegistrationController.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
-#include "Settings.h"
 #include "TrustDb.h"
-#include "VCardCache.h"
 
-ClientWorker::Caches::Caches(QObject *parent)
-    : settings(new Settings(parent))
-    , vCardCache(new VCardCache(parent))
-    , presenceCache(new PresenceCache(parent))
-    , rosterModel(new RosterModel(parent))
-    , avatarStorage(new AvatarFileStorage(parent))
-    , serverFeaturesCache(new ServerFeaturesCache(parent))
-{
-}
-
-ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent)
+ClientWorker::ClientWorker(Database *database, bool enableLogging, QObject *parent)
     : QObject(parent)
-    , m_caches(caches)
     , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
     , m_logger(new LogHandler(m_client, enableLogging, this))
     , m_networkManager(new QNetworkAccessManager(this))
@@ -252,7 +238,7 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
         // attribute was true until the last logout but the server disabled the support
         // afterwards. Without that reset, the attribute would stay "true" even if the
         // server did not support it anymore.
-        m_caches->serverFeaturesCache->setInBandRegistrationSupported(false);
+        Kaidan::instance()->serverFeaturesCache()->setInBandRegistrationSupported(false);
 
         m_client->connectToServer(config);
     }

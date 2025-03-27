@@ -23,6 +23,7 @@
 class AccountDb;
 class AccountMigrationController;
 class AtmController;
+class AvatarFileStorage;
 class BlockingController;
 class ChatController;
 class ChatHintModel;
@@ -36,9 +37,14 @@ class MessageController;
 class MessageDb;
 class MessageModel;
 class Notifications;
+class PresenceCache;
 class RegistrationController;
 class RosterController;
 class RosterDb;
+class RosterModel;
+class ServerFeaturesCache;
+class Settings;
+class VCardCache;
 class VCardController;
 class VersionController;
 
@@ -195,20 +201,20 @@ public:
     }
     AvatarFileStorage *avatarStorage() const
     {
-        return m_caches->avatarStorage;
+        return m_avatarStorage;
     }
     ServerFeaturesCache *serverFeaturesCache() const
     {
-        return m_caches->serverFeaturesCache;
+        return m_serverFeaturesCache;
     }
     VCardCache *vCardCache() const
     {
-        return m_caches->vCardCache;
+        return m_vCardCache;
     }
 
     Settings *settings() const
     {
-        return m_caches->settings;
+        return m_settings;
     }
     Database *database() const
     {
@@ -376,9 +382,14 @@ private:
     RosterDb *m_rosterDb;
     GroupChatUserDb *m_groupChatUserDb;
 
+    AvatarFileStorage *m_avatarStorage;
+    PresenceCache *m_presenceCache;
+    ServerFeaturesCache *m_serverFeaturesCache;
+    VCardCache *m_vCardCache;
+
     ClientThread *m_cltThrd;
-    ClientWorker::Caches *m_caches;
     ClientWorker *m_client;
+
     AtmController *m_atmController;
     AccountMigrationController *m_accountMigrationController;
     std::unique_ptr<BlockingController> m_blockingController;
@@ -392,8 +403,9 @@ private:
     VCardController *m_vCardController;
     VersionController *m_versionController;
 
-    MessageModel *m_messageModel;
     ChatHintModel *m_chatHintModel;
+    MessageModel *m_messageModel;
+    RosterModel *m_rosterModel;
 
     QString m_openUriCache;
     Enums::ConnectionState m_connectionState = Enums::ConnectionState::StateDisconnected;

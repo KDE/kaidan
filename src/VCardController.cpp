@@ -26,7 +26,7 @@ VCardController::VCardController(QObject *parent)
     , m_clientWorker(Kaidan::instance()->client())
     , m_client(m_clientWorker->xmppClient())
     , m_manager(m_clientWorker->vCardManager())
-    , m_avatarStorage(m_clientWorker->caches()->avatarStorage)
+    , m_avatarStorage(Kaidan::instance()->avatarStorage())
 {
     connect(m_manager, &QXmppVCardManager::vCardReceived, this, &VCardController::handleVCardReceived);
     connect(m_client, &QXmppClient::presenceReceived, this, &VCardController::handlePresenceReceived);
@@ -118,11 +118,11 @@ void VCardController::handleClientVCardReceived()
             return std::tuple{m_client->configuration().jidBare(), m_manager->clientVCard()};
         },
         this,
-        [this](std::tuple<QString, QXmppVCardIq> &&result) {
+        [](std::tuple<QString, QXmppVCardIq> &&result) {
             auto [accountJid, clientVCard] = result;
             clientVCard.setFrom(accountJid);
 
-            m_clientWorker->caches()->vCardCache->setVCard(accountJid, clientVCard);
+            Kaidan::instance()->vCardCache()->setVCard(accountJid, clientVCard);
         });
 }
 

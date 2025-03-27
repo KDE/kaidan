@@ -136,7 +136,7 @@ void RosterController::populateRoster()
 
                 itr->encryption = AccountController::instance()->account().encryption;
 
-                if (m_clientWorker->caches()->avatarStorage->getHashOfJid(jid).isEmpty()
+                if (Kaidan::instance()->avatarStorage()->getHashOfJid(jid).isEmpty()
                     && Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnected) {
                     Kaidan::instance()->vCardController()->requestVCard(jid);
                 }
