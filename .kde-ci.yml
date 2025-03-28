@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-  - 'on': ['Linux', 'FreeBSD', 'Windows', 'Android']
+  - 'on': ['@all']
     require:
       frameworks/extra-cmake-modules: '@latest-kf6'
       frameworks/kcoreaddons: '@latest-kf6'
@@ -14,11 +14,11 @@ Dependencies:
       libraries/kquickimageeditor: '@latest-kf6'
       libraries/qxmpp: '@latest-kf6'
 
-  - 'on': ['Linux', 'FreeBSD', 'Windows']
+  - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
     require:
       'frameworks/kcrash': '@latest-kf6'
       'frameworks/kwindowsystem': '@latest-kf6'
 
 Options:
-  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']
+  require-passing-tests-on: ['@all']
   clang-format-versions: [19]
