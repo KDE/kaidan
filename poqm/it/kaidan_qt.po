@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-16 16:53+0100\n"
+"PO-Revision-Date: 2025-03-24 09:09+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -94,18 +94,15 @@ msgstr ""
 "altre informazioni personali%2"
 
 #: src/ChatHintModel.cpp:315
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"Il tuo contatto %1 è ora %2 e desidera ricevere nuovamente i tuoi dati "
-"personali come disponibilità, dispositivi e altre informazioni personali%3"
+"Il tuo contatto %1 (%2) è ora %3 (%4) e desidera ricevere nuovamente i tuoi "
+"dati personali come disponibilità, dispositivi e altre informazioni personali"
+"%5"
 
 #: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
