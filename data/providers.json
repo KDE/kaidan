@@ -477,7 +477,7 @@
     {
         "jid": "jabber.hot-chilli.net",
         "category": "B",
-        "latestChange": "2025-02-04",
+        "latestChange": "2025-03-28",
         "website": {
             "de": "https://jabber.hot-chilli.net/de/",
             "en": "https://jabber.hot-chilli.net"
@@ -760,7 +760,7 @@
     {
         "jid": "monocles.eu",
         "category": "B",
-        "latestChange": "2025-03-13",
+        "latestChange": "2025-03-25",
         "website": {
             "en": "https://monocles.eu/more",
             "de": "https://monocles.eu/more/de.html",
@@ -779,7 +779,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "0.12.5",
+        "serverSoftwareVersion": "13.0.0",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -815,7 +815,7 @@
     {
         "jid": "movim.eu",
         "category": "B",
-        "latestChange": "2024-11-25",
+        "latestChange": "2025-03-29",
         "website": {
             "en": "https://movim.eu"
         },
@@ -829,7 +829,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.10.0",
+        "serverSoftwareVersion": "25.3.0",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -865,7 +865,7 @@
     {
         "jid": "projectsegfau.lt",
         "category": "A",
-        "latestChange": "2025-02-11",
+        "latestChange": "2025-03-29",
         "website": {
             "en": "https://projectsegfau.lt"
         },
@@ -1060,57 +1060,6 @@
         "chatSupport": {},
         "groupChatSupport": {},
         "since": "2012-01-01"
-    },
-    {
-        "jid": "worlio.com",
-        "category": "B",
-        "latestChange": "2025-01-30",
-        "website": {
-            "en": "https://worlio.com"
-        },
-        "alternativeJids": [],
-        "busFactor": 1,
-        "organization": "company",
-        "passwordReset": {
-            "en": "https://community.worlio.com/forgot"
-        },
-        "serverTesting": true,
-        "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "0.12.5",
-        "ratingGreenWebCheck": false,
-        "inBandRegistration": false,
-        "inBandRegistrationEmailAddressRequired": false,
-        "inBandRegistrationCaptchaRequired": false,
-        "registrationWebPage": {
-            "en": "https://community.worlio.com/register"
-        },
-        "ratingXmppComplianceTester": 100,
-        "ratingImObservatoryClientToServer": "A",
-        "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 128,
-        "maximumHttpFileUploadTotalSize": 4000,
-        "maximumHttpFileUploadStorageTime": 7,
-        "maximumMessageArchiveManagementStorageTime": 7,
-        "professionalHosting": true,
-        "freeOfCharge": true,
-        "legalNotice": {
-            "en": "https://worlio.com/terms"
-        },
-        "serverLocations": [
-            "us"
-        ],
-        "emailSupport": {
-            "en": [
-                "support@worlio.com"
-            ]
-        },
-        "chatSupport": {},
-        "groupChatSupport": {
-            "en": [
-                "worlio@muc.worlio.com"
-            ]
-        },
-        "since": "2023-03-07"
     },
     {
         "jid": "xmpp.earth",
