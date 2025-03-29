@@ -709,7 +709,6 @@ DetailsContent {
 					labelText: qsTr("Current password")
 					placeholderText: qsTr("Enter your current password")
 					invalidHintText: qsTr("Enter correct password")
-					invalidHintMayBeShown: false
 					valid: text === AccountManager.account.password
 					visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordVisible
 					enabled: !passwordBusyIndicator.visible
@@ -726,7 +725,6 @@ DetailsContent {
 						placeholderText: qsTr("Enter your new password")
 						text: passwordVerificationField.visible ? "" : AccountManager.account.password
 						invalidHintText: qsTr("Enter different password to change it")
-						invalidHintMayBeShown: false
 						valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.account.password
 						enabled: !passwordBusyIndicator.visible
 						inputField.onAccepted: passwordChangeButton.clicked()
