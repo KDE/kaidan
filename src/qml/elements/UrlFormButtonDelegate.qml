@@ -15,15 +15,19 @@ import im.kaidan.kaidan
  * It includes a secondary button for copying the URL instead of opening it.
  */
 FormCard.FormTextDelegate {
+	id: root
+
 	property url url
 	property alias copyButton: copyButton
 
-	background: FormCard.FormDelegateBackground { control: parent }
+	background: FormCard.FormDelegateBackground {
+		control: parent
+	}
 	trailing: Button {
 		id: copyButton
 		Controls.ToolTip.text: qsTr("Copy web address")
 		icon.name: "edit-copy-symbolic"
-		onClicked: Utils.copyToClipboard(url)
+		onClicked: Utils.copyToClipboard(root.url)
 	}
 	onClicked: Qt.openUrlExternally(url)
 }
