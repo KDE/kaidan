@@ -167,14 +167,14 @@ FormInfoContent {
 			id: qrCodeExpansionButton
 			text: qsTr("Show QR code")
 			icon.name: "view-barcode-qr"
-			// TODO: If possible, scroll down to show whole QR code
-			onClicked: qrCodeArea.visible = !qrCodeArea.visible
+			checkable: true
 		}
 
 		FormCard.AbstractFormDelegate {
 			id: qrCodeArea
-			visible: false
-			background: Rectangle {
+			visible: qrCodeExpansionButton.checked
+			background: FormCard.FormDelegateBackground {
+				control: parent
 				color: secondaryBackgroundColor
 			}
 			Layout.preferredWidth: parent.width
