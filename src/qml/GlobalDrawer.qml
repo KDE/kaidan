@@ -14,6 +14,7 @@ import org.kde.kirigamiaddons.formcard as FormCard
 import im.kaidan.kaidan
 
 import "elements"
+import "elements/fields"
 import "details"
 
 Kirigami.GlobalDrawer {
@@ -68,6 +69,63 @@ Kirigami.GlobalDrawer {
 								root.close()
 								root.selectedAccountJid = modelData
 								openViewFromGlobalDrawer(accountDetailsDialog, accountDetailsPage).jid = modelData
+							}
+						}
+
+						FormCard.FormCard {
+							visible: Kaidan.connectionError === ClientWorker.AuthenticationFailed
+							Layout.fillWidth: true
+
+							FormCardCustomContentArea {
+								contentItem: RowLayout {
+									PasswordField {
+										id: passwordField
+										labelText: qsTr("Password")
+										placeholderText: qsTr("Enter your correct password")
+										text: AccountManager.account.passwordVisibility === Kaidan.PasswordVisible ? AccountManager.account.password : ""
+										invalidHintMayBeShown: true
+										valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.account.password
+										enabled: !passwordBusyIndicator.visible
+										inputField.onAccepted: passwordConfirmationButton.clicked()
+									}
+
+									Button {
+										id: passwordConfirmationButton
+										Controls.ToolTip.text: qsTr("Confirm password")
+										icon.name: "emblem-ok-symbolic"
+										visible: !passwordBusyIndicator.visible
+										flat: !hovered
+										Layout.preferredWidth: Layout.preferredHeight
+										Layout.preferredHeight: passwordField.inputField.implicitHeight
+										Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
+										onClicked: {
+											if (!passwordField.valid) {
+												passwordField.forceActiveFocus()
+												passwordField.toggleHintForInvalidText()
+											} else {
+												AccountManager.setAuthPassword(passwordField.text)
+											}
+										}
+									}
+
+									Controls.BusyIndicator {
+										id: passwordBusyIndicator
+										visible: Kaidan.connectionState !== Enums.StateDisconnected
+										Layout.preferredWidth: passwordConfirmationButton.Layout.preferredWidth
+										Layout.preferredHeight: Layout.preferredWidth
+										Layout.alignment: passwordConfirmationButton.Layout.alignment
+									}
+
+									Connections {
+										target: AccountManager
+										enabled: Kaidan.connectionError === ClientWorker.AuthenticationFailed
+
+										function onAccountChanged() {
+											// Try to log in with the entered password once it is stored.
+											Kaidan.logIn()
+										}
+									}
+								}
 							}
 						}
 
