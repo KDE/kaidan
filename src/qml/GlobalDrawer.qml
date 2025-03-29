@@ -144,12 +144,6 @@ Kirigami.GlobalDrawer {
 				}
 
 				FormCard.FormButtonDelegate {
-					text: qsTr("Switch device")
-					icon.name: "send-to-symbolic"
-					onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
-				}
-
-				FormCard.FormButtonDelegate {
 					text: qsTr("About")
 					icon.name: "help-about-symbolic"
 					onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)
@@ -227,12 +221,6 @@ Kirigami.GlobalDrawer {
 		id: searchPublicGroupChatDialog
 
 		SearchPublicGroupChatDialog {}
-	}
-
-	Component {
-		id: deviceSwitchingPage
-
-		DeviceSwitchingPage {}
 	}
 
 	Component {

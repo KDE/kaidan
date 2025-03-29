@@ -952,6 +952,61 @@ DetailsContent {
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
+			title: qsTr("Switch Device")
+		}
+
+		FormCard.FormSectionText {
+			text: qsTr("Never show the information in this section to anyone else. It would allow unlimited access to your account!")
+			visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
+		}
+
+		FormCard.FormButtonDelegate {
+			id: loginQrCodeExpansionButton
+			text: qsTr("Show login QR code")
+			description: qsTr("Scan the QR code by another device to log in on it")
+			icon.name: "view-barcode-qr"
+			checkable: true
+		}
+
+		FormCard.AbstractFormDelegate {
+			visible: loginQrCodeExpansionButton.checked
+			background: FormCard.FormDelegateBackground {
+				control: parent
+				color: secondaryBackgroundColor
+			}
+			contentItem: LoginQrCode {
+				jid: root.jid
+			}
+			Layout.preferredWidth: parent.width
+			Layout.preferredHeight: Layout.preferredWidth
+		}
+
+		FormCard.FormButtonDelegate {
+			id: credentialsExpansionButton
+			text: qsTr("Show credentials")
+			description: qsTr("Enter the credentials in another device to log in on it")
+			icon.name: "password-show-on"
+			checkable: true
+		}
+
+		CopyFormTextDelegate {
+			text: qsTr("Chat address")
+			description: root.jid
+			visible: credentialsExpansionButton.checked
+		}
+
+		CopyFormTextDelegate {
+			text: qsTr("Password")
+			description: AccountManager.account.password
+			visible: credentialsExpansionButton.checked && AccountManager.account.passwordVisibility === Kaidan.PasswordVisible
+		}
+	}
+
+	FormCard.FormCard {
+		enabled: accountRemovalArea.enabled
+		Layout.fillWidth: true
+
+		FormCard.FormHeader {
 			title: qsTr("Migration")
 		}
 

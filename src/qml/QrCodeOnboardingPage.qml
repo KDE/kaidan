@@ -38,20 +38,28 @@ ExplanationTogglePage {
 		width: parent.width
 		height: parent.height
 
+		Item {
+			visible: !loginArea.visible
+			Layout.fillHeight: true
+		}
+
 		CenteredAdaptiveText {
-			text: qsTr("Scan your old device's QR code")
+			text: qsTr("Scan your old device's login QR code")
 			scaleFactor: 1.5
 			visible: !loginArea.visible
 			Layout.topMargin: 10
 		}
 
-		Image {
-			source: Utils.getResourcePath("images/onboarding/account-transfer.svg")
-			sourceSize.height: root.height
-			fillMode: Image.PreserveAspectFit
+		CenteredAdaptiveText {
+			text: qsTr("You can display the QR code in the account details of your old device via Show login QR code")
+			scaleFactor: 1.2
+			visible: !loginArea.visible
+			Layout.topMargin: 10
+		}
+
+		Item {
 			visible: !loginArea.visible
 			Layout.fillHeight: true
-			Layout.fillWidth: true
 		}
 
 		LoginArea {
