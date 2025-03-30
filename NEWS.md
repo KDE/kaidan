@@ -22,21 +22,21 @@ Released: 2025-03-21
 
 Features:
 * Use square selection to crop avatars (fazevedo)
-* Fix style for Flatpak (melvo)
-* Fix displaying video thumbnails and opening files for Flatpak (melvo)
 * Use background with rounded corners for chat list items (melvo)
 * Remove colored availability indicator from chat list item (melvo)
 * Display group chat participant picker above text cursor in large windows (melvo)
-* Fix message reaction details not opening a second time (melvo)
 * Do not allow to enter/send messages without visible characters (melvo)
 * Remove leading/trailing whitespace from exchanged messages (melvo)
 * Ignore received messages without displayable content if they cannot be otherwise processed (melvo)
-* Fix eliding last message text for chat list item (melvo)
 * Allow to show/hide buttons to pin/move chat list items (melvo)
 
 Bugfixes:
+* Fix style for Flatpak (melvo)
+* Fix displaying video thumbnails and opening files for Flatpak (melvo)
+* Fix message reaction details not opening a second time (melvo)
 * Fix opening contact addition view on receiving XMPP URIs (melvo)
 * Fix format of text following emojis (melvo)
+* Fix eliding last message text for chat list item (melvo)
 * Fix unit tests (mlaurent, fazevedo, melvo)
 * Fix storing downloaded files with unique names (melvo)
 * Fix overlay to change/open avatars shown before hovered in account/contact details (melvo)
