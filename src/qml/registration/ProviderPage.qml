@@ -229,7 +229,7 @@ RegistrationPage {
 										if (chosenProvider) {
 											root.provider = chosenProvider
 
-											AccountProvider.setNewAccountHost(loadedCustomProviderArea.hostField.text,
+											AccountManager.setNewAccountHost(loadedCustomProviderArea.hostField.text,
 																			  loadedCustomProviderArea.portField.value)
 
 											requestRegistrationForm()

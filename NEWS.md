@@ -1,4 +1,21 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.12.1
+--------------
+Released: 2025-03-29
+
+Bugfixes:
+* Do not highlight unpinned chats when pinned chat is moved (melvo)
+* Fix deleting/sending voice messages (melvo)
+* Fix crash during login (melvo)
+* Fix opening chat again after going back to chat list on narrow window (melvo)
+* Increase tool bar height to fix avatar not being recognizable (melvo)
+* Fix width of search bar above chat list to take available space while showing all buttons (melvo)
+* Fix storing changed password (melvo)
+* Fix setting custom host/port for account registration (melvo)
+* Fix crash on chat removal (fazevedo)
+* Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (melvo)
+* Allow setting new password on error to fix not being able to log in after changing password via other device (melvo)
+
 Version 0.12.0
 --------------
 Released: 2025-03-21

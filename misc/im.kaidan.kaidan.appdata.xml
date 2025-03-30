@@ -179,6 +179,24 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.12.1" date="2025-03-29T00:00:00Z">
+      <description>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Do not highlight unpinned chats when pinned chat is moved (melvo)</li>
+          <li>Fix deleting/sending voice messages (melvo)</li>
+          <li>Fix crash during login (melvo)</li>
+          <li>Fix opening chat again after going back to chat list on narrow window (melvo)</li>
+          <li>Increase tool bar height to fix avatar not being recognizable (melvo)</li>
+          <li>Fix width of search bar above chat list to take available space while showing all buttons (melvo)</li>
+          <li>Fix storing changed password (melvo)</li>
+          <li>Fix setting custom host/port for account registration (melvo)</li>
+          <li>Fix crash on chat removal (fazevedo)</li>
+          <li>Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (melvo)</li>
+          <li>Allow setting new password on error to fix not being able to log in after changing password via other device (melvo)</li>
+        </ul>
+      </description>
+    </release>
     <release type="stable" version="0.12.0" date="2025-03-21T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>

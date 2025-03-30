@@ -35,6 +35,7 @@ SearchBarPage {
 			icon.name: "non-starred-symbolic"
 			displayHint: Kirigami.DisplayHint.IconOnly
 			checkable: true
+			onToggled: root.searchField.forceActiveFocus()
 		}
 	]
 
@@ -88,7 +89,7 @@ SearchBarPage {
 		}
 
 		delegate: RosterListItem {
-			highlighted: _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
+			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			width: rosterListView.width
 			listView: rosterListView
 			accountJid: model ? model.accountJid : ""
@@ -108,9 +109,13 @@ SearchBarPage {
 			notificationRule: model ? model.notificationRule : false
 
 			onClicked: {
-				// Open the chatPage only if it is not yet open.
-				// Emitting the signal is needed because there are slots in other places.
-				if (!selected || !wideScreen) {
+				// Open the chatPage.
+				if (selected) {
+					if (!pageStack.wideMode) {
+						pageStack.goForward()
+					}
+				} else {
+					// Emitting the signal is needed because there are slots in other places.
 					Kaidan.openChatPageRequested(accountJid, jid)
 				}
 			}
@@ -144,9 +149,9 @@ SearchBarPage {
 			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
 				if (Kirigami.Settings.isMobile) {
-					toggleSearchBar()
+					root.toggleSearchBar()
 				} else {
-					searchField.clear()
+					root.searchField.clear()
 				}
 
 				ChatController.setChat(accountJid, chatJid)

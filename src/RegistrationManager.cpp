@@ -246,8 +246,7 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 
 void RegistrationManager::handlePasswordChanged(const QString &newPassword)
 {
-    AccountManager::instance()->setNewAccountPassword(newPassword);
-    AccountManager::instance()->storeAccount();
+    AccountManager::instance()->setAuthPassword(newPassword);
     m_clientWorker->finishTask();
     Q_EMIT Kaidan::instance()->passwordChangeSucceeded();
 }

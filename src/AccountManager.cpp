@@ -220,21 +220,6 @@ void AccountManager::setNewAccountJid(const QString &jid)
     setNewAccount(jid, {});
 }
 
-void AccountManager::setNewAccountPassword(const QString &password)
-{
-    {
-        QMutexLocker locker(&m_mutex);
-
-        if (!m_tmpAccount) {
-            return;
-        }
-
-        m_tmpAccount->password = password;
-    }
-
-    Q_EMIT accountChanged();
-}
-
 void AccountManager::setNewAccountHost(const QString &host, quint16 port)
 {
     {
@@ -325,7 +310,7 @@ void AccountManager::storeAccount()
     AccountDb::instance()->addAccount(currentJid).then(this, [this, currentJid, newAccount = std::move(currentAccount)]() {
         AccountDb::instance()
             ->updateAccount(currentJid,
-                            [&newAccount](Account &account) {
+                            [newAccount](Account &account) {
                                 account = newAccount;
                             })
             .then(this, [this]() {

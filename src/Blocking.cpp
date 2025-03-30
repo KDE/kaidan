@@ -418,7 +418,7 @@ void BlockingWatcher::refreshState()
     auto blockedOld = blocked();
 
     // get current blocklist
-    if (auto list = Kaidan::instance()->blockingController()->blocklist()) {
+    if (auto list = Kaidan::instance()->blockingController()->blocklist(); list && !m_jid.isEmpty()) {
         m_state = list->blockingState(m_jid);
     } else {
         m_state = QXmppBlocklist::NotBlocked();

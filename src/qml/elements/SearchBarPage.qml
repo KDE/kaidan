@@ -44,8 +44,25 @@ Kirigami.ScrollablePage {
 
 		SimpleListViewSearchField {
 			listView: root.listView
-			anchors.left: parent.left
-			width: parent.width - (root.actions.length - 1) * (Kirigami.Units.iconSizes.medium + Kirigami.Units.smallSpacing)
+			implicitWidth: {
+				let availableWidth = parent.width
+				const visibleChildren = parent.visibleChildren
+
+				// The width must only be calculated once all action items are visible.
+				if (visibleChildren.length < root.actions.length) {
+					return -1
+				}
+
+				for (let i in visibleChildren) {
+					let visibleChild = visibleChildren[i]
+
+					if (visibleChild !== this) {
+						availableWidth -= visibleChild.width + parent.spacing
+					}
+				}
+
+				return availableWidth
+			}
 
 			Connections {
 				target: searchFieldFocusTimer
