@@ -1043,6 +1043,7 @@ msgid "New password"
 msgstr "Nova senha:"
 
 #: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:999
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1213,13 +1214,104 @@ msgstr "Configurações de conexão alteradas"
 
 #: src/qml/details/AccountDetailsContent.qml:955
 #, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "Trocar dispositivo"
+
+#: src/qml/details/AccountDetailsContent.qml:959
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+"Escaneie o código QR ou digite as credenciais como texto em outro "
+"dispositivo para entrar nele.\n"
+"\n"
+"Atenção:\n"
+"Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à "
+"sua conta!"
+
+#: src/qml/details/AccountDetailsContent.qml:965
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "Escanear código QR"
+
+#: src/qml/details/AccountDetailsContent.qml:966
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+"Escaneie o código QR ou digite as credenciais como texto em outro "
+"dispositivo para entrar nele.\n"
+"\n"
+"Atenção:\n"
+"Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à "
+"sua conta!"
+
+#: src/qml/details/AccountDetailsContent.qml:986
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:987
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+"Escaneie o código QR ou digite as credenciais como texto em outro "
+"dispositivo para entrar nele.\n"
+"\n"
+"Atenção:\n"
+"Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à "
+"sua conta!"
+
+#: src/qml/details/AccountDetailsContent.qml:993
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Chat address:"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "Endereço do bate-papo:"
+
+#: src/qml/details/AccountDetailsContent.qml:1010
+#, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Legenda"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1227,7 +1319,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Excluir conta"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:1019
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1235,12 +1327,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Segurança da conta"
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1248,7 +1340,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:990
+#: src/qml/details/AccountDetailsContent.qml:1045
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1256,7 +1348,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Excluir"
 
-#: src/qml/details/AccountDetailsContent.qml:996
+#: src/qml/details/AccountDetailsContent.qml:1051
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -1264,14 +1356,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Excluir conta de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1005
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add new contact"
@@ -1279,7 +1371,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Adicionar novo contato"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1067
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -1287,7 +1379,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Excluir a conta por completo"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:1068
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1302,7 +1394,7 @@ msgstr ""
 "servidor.\n"
 "Você não poderá usar sua conta novamente!"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1076
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1310,7 +1402,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Excluir conta"
 
-#: src/qml/details/AccountDetailsContent.qml:1028
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -2295,127 +2387,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Dispositivos online"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "Trocar dispositivo"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "Ocultar código QR"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "Mostrar como código QR"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "Ocultar texto"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "Mostrar como texto"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-"Escaneie o código QR ou digite as credenciais como texto em outro "
-"dispositivo para entrar nele.\n"
-"\n"
-"Atenção:\n"
-"Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à "
-"sua conta!"
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"Escaneie o código QR ou digite as credenciais como texto em outro "
-"dispositivo para entrar nele.\n"
-"\n"
-"Atenção:\n"
-"Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à "
-"sua conta!"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "Endereço do bate-papo:"
-
-#: src/qml/DeviceSwitchingPage.qml:78
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "Copiar endereço de bate-papo"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "Senha:"
-
-#: src/qml/DeviceSwitchingPage.qml:98
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "Copiar senha"
-
 #: src/qml/elements/AboutContent.qml:19
 #, fuzzy
 #| msgctxt "VCardModel|"
@@ -2884,6 +2855,14 @@ msgstr "Escanear código QR"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "Dispositivos online"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy download URL"
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "Copiar URL de download"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -3590,7 +3569,7 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Por favor, selecione um bate-papo para iniciar conversa"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -3598,7 +3577,31 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Segurança da Conta"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Password:"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "Senha:"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "Senha atual:"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "Copiar senha"
+
+#: src/qml/GlobalDrawer.qml:163
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -3606,12 +3609,12 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Local"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -3619,17 +3622,17 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Copiar endereço de bate-papo"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -3637,12 +3640,7 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Pesquisar para cima"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "Trocar dispositivo"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -3691,20 +3689,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Mostrar explicação"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "Escanear código QR"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Este código QR não é um código QR de acesso válido."
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Conectando…"
@@ -4225,6 +4230,59 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site da web"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Hide QR code"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Ocultar código QR"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Show as QR code"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Mostrar como código QR"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Hide text"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "Ocultar texto"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Show as text"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "Mostrar como texto"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Chat address:"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Endereço do bate-papo:"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Copiar endereço de bate-papo"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Password:"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Senha:"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Trocar dispositivo"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

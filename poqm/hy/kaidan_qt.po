@@ -1043,6 +1043,7 @@ msgid "New password"
 msgstr "Նոր գաղտնաբառ:"
 
 #: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:999
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1209,13 +1210,104 @@ msgstr "Կապի կարգավորումները պահպանվել են"
 
 #: src/qml/details/AccountDetailsContent.qml:955
 #, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "Փոխել սարքը"
+
+#: src/qml/details/AccountDetailsContent.qml:959
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
+"գործելու համար։\n"
+"\n"
+"Ուշադրություն՝\n"
+"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
+"մուտք գործել Ձեր հաշիվ։"
+
+#: src/qml/details/AccountDetailsContent.qml:965
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "Սկանավորել QR կոդ"
+
+#: src/qml/details/AccountDetailsContent.qml:966
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
+"գործելու համար։\n"
+"\n"
+"Ուշադրություն՝\n"
+"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
+"մուտք գործել Ձեր հաշիվ։"
+
+#: src/qml/details/AccountDetailsContent.qml:986
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:987
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
+"գործելու համար։\n"
+"\n"
+"Ուշադրություն՝\n"
+"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
+"մուտք գործել Ձեր հաշիվ։"
+
+#: src/qml/details/AccountDetailsContent.qml:993
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Chat address:"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "Զրույցի հասցե:"
+
+#: src/qml/details/AccountDetailsContent.qml:1010
+#, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Համատեքստ"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1223,7 +1315,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Ջնջել հաշիվը"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:1019
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1231,12 +1323,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Հաշվի անվտանգություն"
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1244,7 +1336,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:990
+#: src/qml/details/AccountDetailsContent.qml:1045
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1252,7 +1344,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Հեռացնել"
 
-#: src/qml/details/AccountDetailsContent.qml:996
+#: src/qml/details/AccountDetailsContent.qml:1051
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -1260,14 +1352,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Հեռացնել հաշիվը Kaidan-ից"
 
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1005
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add new contact"
@@ -1275,7 +1367,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Ստեղծել նոր կոնտակտ"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1067
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -1283,7 +1375,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ջնջել հաշիվը ամբողջովին"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:1068
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1297,7 +1389,7 @@ msgstr ""
 "Ձեր հաշիվը ամբողջովին կջնջվի, ինչը նշանակում է այս հավելվածից և սերվերից։\n"
 "Կրկին այս հաշվից օգտվելը հնարավոր չի լինի։"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1076
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1305,7 +1397,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Ջնջել հաշիվը"
 
-#: src/qml/details/AccountDetailsContent.qml:1028
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -2269,127 +2361,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Հասանելի սարքեր"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "Փոխել սարքը"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "Թաքցնել QR կոդը"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "Ցույց տալ QR կոդը"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "Թաքցնել տեքստային տվյալները"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "Ցույց տալ տեքստային տվյալները"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
-"գործելու համար։\n"
-"\n"
-"Ուշադրություն՝\n"
-"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
-"մուտք գործել Ձեր հաշիվ։"
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
-"գործելու համար։\n"
-"\n"
-"Ուշադրություն՝\n"
-"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
-"մուտք գործել Ձեր հաշիվ։"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "Զրույցի հասցե:"
-
-#: src/qml/DeviceSwitchingPage.qml:78
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "Պատճենել զրույցի հասցեն"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "Գաղտնաբառ:"
-
-#: src/qml/DeviceSwitchingPage.qml:98
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "Պատճենել գաղտնաբառը"
-
 #: src/qml/elements/AboutContent.qml:19
 #, fuzzy
 #| msgctxt "VCardModel|"
@@ -2858,6 +2829,14 @@ msgstr "Սկանավորել QR կոդ"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "Հասանելի սարքեր"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy download URL"
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "Պատճենել բովանդակության հղումը"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -3564,7 +3543,7 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Ընտրեք զրույց և սկսեք շփվել"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -3572,7 +3551,31 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Հաշվի Անվտանգություն"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Password:"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "Գաղտնաբառ:"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "Այժմյա գաղտնաբառ:"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "Պատճենել գաղտնաբառը"
+
+#: src/qml/GlobalDrawer.qml:163
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -3580,12 +3583,12 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Տեղադրություն"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -3593,17 +3596,17 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -3611,12 +3614,7 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Որոնել վերևում"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "Փոխել սարքը"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -3665,20 +3663,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Ցույց տալ բացատրությունը"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "Սկանավորել QR կոդ"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
@@ -4193,6 +4198,59 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Hide QR code"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Թաքցնել QR կոդը"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Show as QR code"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Ցույց տալ QR կոդը"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Hide text"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "Թաքցնել տեքստային տվյալները"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Show as text"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "Ցույց տալ տեքստային տվյալները"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Chat address:"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Զրույցի հասցե:"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Պատճենել զրույցի հասցեն"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Password:"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Գաղտնաբառ:"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Փոխել սարքը"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"
