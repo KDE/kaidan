@@ -1,4 +1,12 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.12.2
+--------------
+Released: 2025-03-30
+
+Bugfixes:
+* Fix removing corrected message (melvo)
+* Fix showing message bubble tail only for first message of sender (melvo)
+
 Version 0.12.1
 --------------
 Released: 2025-03-29
