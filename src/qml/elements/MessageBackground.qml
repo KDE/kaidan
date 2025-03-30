@@ -70,7 +70,7 @@ Item {
 	}
 
 	MultiEffect {
-		source: tailBase
+		source: root.showTail ? tailBase : null
 		maskEnabled: true
 		maskSource: tailMask
 		maskInverted: true
