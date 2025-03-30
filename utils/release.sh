@@ -141,6 +141,8 @@ cmake_minor_version_variable="VERSION_MINOR"
 cmake_patch_version_variable="VERSION_PATCH"
 cmake_version_code_variable="VERSION_CODE"
 
+translation_files_directory_name="poqm"
+
 wait_for_user_confirmation() {
     printf "Press ENTER once you are finished!" >&${user_output_file_descriptor}
     read
@@ -361,7 +363,32 @@ merge_stable_branch() {
         git pull
         git checkout "${default_branch}"
         git pull
-        git merge -s ort -Xours --no-edit "${stable_branch}"
+
+        set +e
+        git merge --no-edit "${stable_branch}"
+
+        # Handle merge conflicts.
+        if [ "${?}" -ne 0 ]
+        then
+            set -e
+
+            # Take the state of the default branch for translations.
+            git checkout --ours -- "${translation_files_directory_name}"
+            git add "${translation_files_directory_name}"
+
+            # Allow to solve remaining merge conflicts manually.
+            if [[ $(git diff --name-only) ]]
+            then
+                printf "Solve merge conflicts now.\n" >&${user_output_file_descriptor}
+                wait_for_user_confirmation
+                git add .
+            fi
+
+            # Create a merge commit with an automatically generated message.
+            # "git commit --no-edit" would add a list of all files with merge conflicts to the commit message.
+            GIT_EDITOR=true git merge --continue
+        fi
+
         git push "${remote}" "${default_branch}"
     fi
 
