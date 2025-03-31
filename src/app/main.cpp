@@ -13,6 +13,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 // Qt
+#include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDir>
@@ -141,11 +142,6 @@ Q_DECLARE_METATYPE(std::function<void(GroupChatUser &)>)
 
 Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 
-#ifndef QAPPLICATION_CLASS
-#define QAPPLICATION_CLASS QApplication
-#endif
-#include QT_STRINGIFY(QAPPLICATION_CLASS)
-
 const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
 const auto QUICK_CONTROLS_DEFAULT_MOBILE_STYLE = QStringLiteral("Material");
@@ -249,7 +245,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     }
 
-    QAPPLICATION_CLASS app(argc, argv);
+    QApplication app(argc, argv);
 
     // register qMetaTypes
     qRegisterMetaType<ProviderListItem>();

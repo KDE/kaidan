@@ -100,14 +100,6 @@ if(NOT ANDROID AND NOT IOS)
     )
 endif()
 
-# Platform-specific
-if(Qt6Widgets_FOUND)
-    add_definitions(-DHAVE_QWIDGETS -DQAPPLICATION_CLASS=QApplication)
-    set(__Qt6Widgets_LIBRARIES Qt6::Widgets)
-else()
-    add_definitions(-DQAPPLICATION_CLASS=QGuiApplication)
-endif()
-
 if(ANDROID)
     find_package(Qt6 REQUIRED COMPONENTS AndroidExtras)
     # We need to link against sqlite3 to help androiddeployqt detect that we need it
