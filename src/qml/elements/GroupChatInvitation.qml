@@ -39,7 +39,7 @@ ExtendedMessageContent {
 	contentArea.data: [
 		Kirigami.Icon {
 			id: icon
-			source: "resource-group"
+			source: "system-users-symbolic"
 			Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
 		},
 

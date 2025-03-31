@@ -184,7 +184,7 @@ Kirigami.GlobalDrawer {
 
 				FormCard.FormButtonDelegate {
 					text: qsTr("Join group")
-					icon.name: "resource-group"
+					icon.name: "system-users-symbolic"
 					visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
 					onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
 				}

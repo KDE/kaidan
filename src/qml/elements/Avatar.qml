@@ -14,6 +14,6 @@ Components.Avatar {
 	property bool isGroupChat: false
 
 	source: jid ? Kaidan.avatarStorage.getAvatarUrl(jid) : ""
-	iconSource: isGroupChat ? "resource-group" : "user"
+	iconSource: isGroupChat ? "system-users-symbolic" : "avatar-default-symbolic"
 	color: Utils.userColor(jid, name)
 }

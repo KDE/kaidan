@@ -80,7 +80,6 @@ Controls.Pane {
 				id: replyCancelingButton
 				Controls.ToolTip.text: qsTr("Cancel reply")
 				source: "window-close-symbolic"
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					root.composition.replyToJid = ""
 					root.composition.replyToGroupChatParticipantId = ""
@@ -130,7 +129,6 @@ Controls.Pane {
 			ClickableIcon {
 				Controls.ToolTip.text: qsTr("Cancel adding hidden message part")
 				source: "window-close-symbolic"
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					root.composition.isSpoiler = false
 					spoilerHintField.clear()
@@ -147,26 +145,27 @@ Controls.Pane {
 		}
 
 		RowLayout {
-			spacing: 0
+			spacing: Kirigami.Units.largeSpacing
+			Layout.leftMargin: Kirigami.Units.smallSpacing
+			Layout.rightMargin: Kirigami.Units.smallSpacing
 
 			// emoji picker button
 			ClickableIcon {
-				source: "smiley-add"
+				id: emojiButton
+				source:  "emoji-people-symbolic"
+				fallback: "smiley-symbolic"
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				Controls.ToolTip.text: qsTr("Add an emoji")
 				onClicked: !emojiPicker.toggle()
 			}
 
 			// group chat pariticipant mentioning button
-			ClickableText {
-				text: "@"
+			ClickableIcon {
+				source: "avatar-default-symbolic"
 				visible: ChatController.rosterItem.isGroupChat
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
-				scaleFactor: Kirigami.Units.iconSizes.smallMedium * 0.08
 				Controls.ToolTip.text: qsTr("Mention a participant")
-				Layout.topMargin: - scaleFactor * 2
-				Layout.leftMargin: Kirigami.Units.smallSpacing
 				onClicked: {
 					messageArea.selectWord()
 					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
@@ -294,7 +293,6 @@ Controls.Pane {
 					Controls.ToolTip.text: qsTr("Take a picture")
 					source: "camera-photo-symbolic"
 					visible: Kaidan.serverFeaturesCache.httpUploadSupported
-					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: expansionArea.openDialog(imageCaptureDialog)
 				}
 
@@ -302,7 +300,6 @@ Controls.Pane {
 					Controls.ToolTip.text: qsTr("Record a video")
 					source: "camera-video-symbolic"
 					visible: Kaidan.serverFeaturesCache.httpUploadSupported
-					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: expansionArea.openDialog(videoRecordingDialog)
 				}
 
@@ -310,7 +307,6 @@ Controls.Pane {
 					Controls.ToolTip.text: qsTr("Share files")
 					source: "folder-symbolic"
 					visible: Kaidan.serverFeaturesCache.httpUploadSupported
-					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: {
 						expansionArea.visible = false
 						root.composition.fileSelectionModel.selectFile()
@@ -321,7 +317,6 @@ Controls.Pane {
 					Controls.ToolTip.text: qsTr("Share your location")
 					source: "mark-location-symbolic"
 					visible: Kaidan.connectionState === Enums.StateConnected
-					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: expansionArea.openDialog(geoLocationSharingDialog)
 				}
 
@@ -330,7 +325,6 @@ Controls.Pane {
 					source: "eye-not-looking-symbolic"
 					fallback: "password-show-off"
 					visible: !root.composition.isSpoiler
-					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: {
 						expansionArea.visible = false
 						root.composition.isSpoiler = true
@@ -374,7 +368,6 @@ Controls.Pane {
 				source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
 				visible: !root.composition.replaceId && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: expansionArea.visible = !expansionArea.visible
 
 				Behavior on opacity {
@@ -423,7 +416,6 @@ Controls.Pane {
 				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
 				visible: voiceMessageCaptureSession.audioInput && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
 				opacity: visible ? 1 : 0
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.stop()
@@ -445,7 +437,6 @@ Controls.Pane {
 				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					// Do not allow sending via keys if hidden.
 					if (!visible) {
@@ -483,7 +474,6 @@ Controls.Pane {
 				visible: root.composition.replaceId || voiceMessageRecorder.recorderState === MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				source: "window-close-symbolic"
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.recordingCanceled = true

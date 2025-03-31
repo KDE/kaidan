@@ -51,7 +51,7 @@ UserListItem {
 
 			// group chat icon
 			Kirigami.Icon {
-				source: "resource-group"
+				source: "system-users-symbolic"
 				visible: root.isGroupChat
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: nameText.height

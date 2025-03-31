@@ -17,8 +17,6 @@ ClickableIcon {
 	property alias expansionTimer: expansionTimer
 
 	visible: expanded && shown
-	Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-	Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 	onClicked: contextMenu.close()
 
 	Timer {

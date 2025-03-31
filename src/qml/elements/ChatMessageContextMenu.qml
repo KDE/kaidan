@@ -7,7 +7,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
@@ -42,7 +41,7 @@ Kirigami.Dialog {
 		}
 	}
 
-	RowLayout {
+	Row {
 		id: contentArea
 		spacing: Kirigami.Units.largeSpacing * 2
 
@@ -64,12 +63,13 @@ Kirigami.Dialog {
 
 		Kirigami.Separator {
 			visible: root.localFileAvailable
-			Layout.fillHeight: true
+			height: parent.height
 		}
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("React")
-			source:  "smiley-add"
+			source:  "emoji-people-symbolic"
+			fallback: "smiley-add"
 			contextMenu: root
 			shown: {
 				// Do not allow to send reactions if the message has not yet got a stanza ID from
@@ -82,12 +82,6 @@ Kirigami.Dialog {
 
 				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
 			}
-			Layout.preferredWidth: Kirigami.Units.iconSizes.medium
-			Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-			Layout.topMargin: - Kirigami.Units.smallSpacing
-			Layout.bottomMargin: Layout.topMargin
-			Layout.leftMargin: root.localFileAvailable ? - Kirigami.Units.smallSpacing : - Kirigami.Units.smallSpacing
-			Layout.rightMargin: - Kirigami.Units.smallSpacing
 			onClicked: {
 				root.message.reactionEmojiPicker.messageId = root.message.msgId
 				root.message.reactionEmojiPicker.open()

@@ -13,6 +13,8 @@ import org.kde.kirigami as Kirigami
 Kirigami.Icon  {
 	// Icons which cannot be colored (e.g., emojis) are highlighted in another way.
 	active: mouseArea.containsMouse
+	implicitWidth: Kirigami.Units.iconSizes.smallMedium
+	implicitHeight: Kirigami.Units.iconSizes.smallMedium
 
 	property alias mouseArea: mouseArea
 	signal clicked()
