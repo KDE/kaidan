@@ -24,20 +24,20 @@ MouseArea {
 		parent.color = Kirigami.Theme.hoverColor
 
 		if (Controls.ToolTip.text && !Kirigami.Settings.isMobile) {
-			Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
+			Controls.ToolTip.visible = true
 		}
 	}
 	onPressed: {
 		parent.color = Kirigami.Theme.focusColor
 
 		if (Controls.ToolTip.text && !Kirigami.Settings.isMobile) {
-			Controls.ToolTip.hide()
+			Controls.ToolTip.visible = false
 		}
 	}
 	onPressAndHold: {
 		if (Controls.ToolTip.text && Kirigami.Settings.isMobile) {
 			remainTooltip = true
-			Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
+			Controls.ToolTip.visible = true
 		}
 	}
 	onReleased: {
@@ -45,7 +45,7 @@ MouseArea {
 			if (remainTooltip) {
 				remainTooltip = false
 				// TODO: Remain tooltip on mobile devices
-				Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
+				Controls.ToolTip.visible = true
 			}
 		}
 	}
