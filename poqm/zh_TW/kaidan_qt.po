@@ -1006,6 +1006,7 @@ msgid "New password"
 msgstr "新密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:997
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密碼"
@@ -1125,13 +1126,78 @@ msgstr "連線設定已變更"
 
 #: src/qml/details/AccountDetailsContent.qml:953
 #, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "切換裝置"
+
+#: src/qml/details/AccountDetailsContent.qml:957
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+"不要將這個 QR code 顯示給別人。任何看得到這個 QR code 的人都能無限制地存取您"
+"的帳號！"
+
+#: src/qml/details/AccountDetailsContent.qml:963
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "掃描 QR code"
+
+#: src/qml/details/AccountDetailsContent.qml:964
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+"在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
+
+#: src/qml/details/AccountDetailsContent.qml:984
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:985
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+"在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
+
+#: src/qml/details/AccountDetailsContent.qml:991
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "Chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "聊天位址"
+
+#: src/qml/details/AccountDetailsContent.qml:1008
+#, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "沒有資訊"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:1016
 #, fuzzy
 #| msgctxt "RosterFilteringArea|"
 #| msgid "Filter by accounts"
@@ -1139,7 +1205,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "依帳號過濾"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:1017
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -1147,12 +1213,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "帳號預設"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1165,24 +1231,24 @@ msgid ""
 "history if needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "從 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:995
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1058
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1190,18 +1256,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全刪除"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1074
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1209,7 +1275,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1026
+#: src/qml/details/AccountDetailsContent.qml:1081
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -2244,73 +2310,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "連線裝置"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "切換裝置"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "隱藏 QR code"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "作為 QR code 顯示"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "隱藏文字"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "作為文字顯示"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-"在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr "注意："
-
-#: src/qml/DeviceSwitchingPage.qml:48
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"不要將這個 QR code 顯示給別人。任何看得到這個 QR code 的人都能無限制地存取您"
-"的帳號！"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "聊天位址："
-
-#: src/qml/DeviceSwitchingPage.qml:78
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "複製聊天位址"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "密碼："
-
-#: src/qml/DeviceSwitchingPage.qml:98
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "複製密碼"
-
 #: src/qml/elements/AboutContent.qml:19
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
@@ -2638,7 +2637,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "編輯訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:447
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -2752,6 +2751,11 @@ msgstr "第二步：讓您的聯絡人掃描<b>您的</b> QR code"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "未驗證的聯絡人的裝置"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -3434,47 +3438,66 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "密碼"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "輸入您目前的密碼"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "複製密碼"
+
+#: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "動作"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "用 QR code 新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "依聊天位址新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜尋公開群組"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "切換裝置"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -3482,24 +3505,24 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 msgctxt "main|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/main.qml:112
+#: src/qml/main.qml:109
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/main.qml:114
+#: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -3523,17 +3546,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "顯示說明"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "掃描您的舊裝置的 QR code"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "這個 QR code 不是有效的登入 QR code。"
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "連線中…"
@@ -3852,8 +3885,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
-#: src/qml/RosterPage.qml:58
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
+#: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"
@@ -4067,6 +4100,42 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "隱藏 QR code"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "作為 QR code 顯示"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "隱藏文字"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "作為文字顯示"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "注意："
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "聊天位址："
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "複製聊天位址"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "密碼："
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "切換裝置"
 
 #~ msgctxt "AvatarChangePage|"
 #~ msgid "Choose profile image"

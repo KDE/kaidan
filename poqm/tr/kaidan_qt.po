@@ -907,6 +907,7 @@ msgid "New password"
 msgstr "Yeni parola"
 
 #: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:997
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Parola"
@@ -1029,26 +1030,96 @@ msgid "Connection settings changed"
 msgstr "Bağlantı ayarları değiştirildi"
 
 #: src/qml/details/AccountDetailsContent.qml:953
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "Aygıt değiştir"
+
+#: src/qml/details/AccountDetailsContent.qml:957
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+"Bu kare kodu başka birine kesinlikle göstermeyin; başkasının, sizin "
+"hesabınıza sınırsız erişimine izin verir!"
+
+#: src/qml/details/AccountDetailsContent.qml:963
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Scan login QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "Oturum Açma Kare Kodunu Tara"
+
+#: src/qml/details/AccountDetailsContent.qml:964
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+"Başka bir aygıtta oturum açmak için kare kodu tarayın veya oturum açma "
+"bilgilerinizi diğer aygıtta metin olarak girin."
+
+#: src/qml/details/AccountDetailsContent.qml:984
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr "Ayrıntıları göster"
+
+#: src/qml/details/AccountDetailsContent.qml:985
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+"Başka bir aygıtta oturum açmak için kare kodu tarayın veya oturum açma "
+"bilgilerinizi diğer aygıtta metin olarak girin."
+
+#: src/qml/details/AccountDetailsContent.qml:991
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "Chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "Sohbet adresi"
+
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Göç"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Hesabı Göç Ettir"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Hesap göçü için hazırlanılıyor…"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Bu biraz uzun sürebilir"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1059,17 +1130,17 @@ msgstr ""
 "hesabınız bu uygulamadan kaldırılır. Gerekiyorsa kimlik bilgilerinizi ve "
 "sohbet geçmişinizi yedekleyin!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Kaldırma"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan’dan kaldır"
 
-#: src/qml/details/AccountDetailsContent.qml:995
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1078,28 +1149,28 @@ msgstr ""
 "Bu uygulamadan hesabı kaldırın. Gerekirse kimlik bilgilerinizi ve sohbet "
 "geçmişinizi yedekleyin!"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Hesap kaldırılıyor…"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Tümüyle sil"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Hesabı sağlayıcıdan sil. Hesabınızı yeniden kullanamayacaksınız!"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1074
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Hesap siliniyor…"
 
-#: src/qml/details/AccountDetailsContent.qml:1026
+#: src/qml/details/AccountDetailsContent.qml:1081
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1882,74 +1953,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Bağlı Aygıtlar"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "Aygıt değiştir"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "Kare kodu gizle"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "Kare kod olarak göster"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "Metni gizle"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "Metin olarak göster"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-"Başka bir aygıtta oturum açmak için kare kodu tarayın veya oturum açma "
-"bilgilerinizi diğer aygıtta metin olarak girin."
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr "Dikkat:"
-
-#: src/qml/DeviceSwitchingPage.qml:48
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"Bu kare kodu başka birine kesinlikle göstermeyin; başkasının, sizin "
-"hesabınıza sınırsız erişimine izin verir!"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "Sohbet adresi:"
-
-#: src/qml/DeviceSwitchingPage.qml:78
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "Sohbet adresini kopyala"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "Parola:"
-
-#: src/qml/DeviceSwitchingPage.qml:98
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "Parolayı kopyala"
-
 #: src/qml/elements/AboutContent.qml:19
 msgctxt "AboutContent|"
 msgid "Visit website"
@@ -2197,7 +2200,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Sesli mesaj gönder"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:447
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Gönder"
@@ -2296,6 +2299,14 @@ msgstr "2. Adım: Kişinizin, <b>sizin</b> kare kodunuzu taramasına izin verin"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "Doğrulanmamış kişi aygıtları"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy"
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "Kopyala"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -2833,69 +2844,88 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Başlamak için bir sohbet seçin"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "Parola"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "Geçerli parolanızı girin"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "Parolayı kopyala"
+
+#: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Eylemler"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Kare kod ile kişi ekle"
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Sohbet adresi ile kişi ekle"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Grup oluştur"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Gruba katıl"
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Genel grupları ara"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "Aygıt değiştir"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Hakkında"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 msgctxt "main|"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/main.qml:112
+#: src/qml/main.qml:109
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
-#: src/qml/main.qml:114
+#: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -2916,17 +2946,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Açıklama göster"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "Eski aygıtınızın kare kodunu tarayın"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Bu kare kod, geçerli bir oturum açmak kare kodu değil."
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
@@ -3167,8 +3207,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2. adım: Yeni hesabınızla oturum açın"
 
-#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
-#: src/qml/RosterPage.qml:58
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
+#: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Süz"
@@ -3375,6 +3415,42 @@ msgstr "Doğum günü"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Kare kodu gizle"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Kare kod olarak göster"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "Metni gizle"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "Metin olarak göster"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "Dikkat:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Sohbet adresi:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Sohbet adresini kopyala"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Parola:"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Aygıt değiştir"
 
 #~ msgctxt "AvatarChangePage|"
 #~ msgid "Choose profile image"

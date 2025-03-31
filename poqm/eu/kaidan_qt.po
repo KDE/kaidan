@@ -929,6 +929,7 @@ msgid "New password"
 msgstr "Pasahitz berria"
 
 #: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:997
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Pasahitza"
@@ -1042,25 +1043,69 @@ msgstr "Konexio ezarpena aldatu egin dira"
 
 #: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:957
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:963
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Show QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "Erakutsi QR-kodea"
+
+#: src/qml/details/AccountDetailsContent.qml:964
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:984
+#, fuzzy
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr "Erakutsi xehetasunak"
+
+#: src/qml/details/AccountDetailsContent.qml:985
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:991
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Copy chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "Kopiatu berriketaren helbidea"
+
+#: src/qml/details/AccountDetailsContent.qml:1008
+msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migratzea"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migratu kontua"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Kontuaren migrazioa prestatzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Horrek luze jo dezake"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1068,17 +1113,17 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Kentzea"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kendu Kaidan-etik"
 
-#: src/qml/details/AccountDetailsContent.qml:995
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1087,17 +1132,17 @@ msgstr ""
 "Kendu kontua aplikazio honetatik. Egin zure egiaztagirien eta berriketa "
 "historiaren babeskopia beharrezkoa bada!"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Kontua kentzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ezabatu erabat"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1105,12 +1150,12 @@ msgstr ""
 "Ezabatu kontua hornitzailearenetik. Ezin izango duzu zure kontua sekula "
 "gehiago erabili!"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1074
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Kontaktua ezabatzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:1026
+#: src/qml/details/AccountDetailsContent.qml:1081
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1962,77 +2007,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Konektatutako gailuak"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:36
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:41
-#, fuzzy
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr "Adi"
-
-#: src/qml/DeviceSwitchingPage.qml:48
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:69
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:78
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr ""
-
-#: src/qml/DeviceSwitchingPage.qml:88
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "Pasahitza:"
-
-#: src/qml/DeviceSwitchingPage.qml:98
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "Kopiatu Sarhitza"
-
 #: src/qml/elements/AboutContent.qml:19
 #, fuzzy
 msgctxt "AboutContent|"
@@ -2327,7 +2301,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "«Spoiler» mezu bat bidali"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:447
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send"
@@ -2447,6 +2421,12 @@ msgstr ""
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr ""
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "Kopiatu"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 #, fuzzy
@@ -3100,13 +3080,37 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Hauta ezazu txat bat mezuak bidaltzen hasteko"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "Pasahitza"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "Sartu zure egungo pasahitza"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "Kopiatu Sarhitza"
+
+#: src/qml/GlobalDrawer.qml:163
 #, fuzzy
 #| msgctxt "ContextDrawer|"
 #| msgid "Actions"
@@ -3114,62 +3118,57 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "&Sortu taldea..."
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr ""
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, fuzzy
 msgctxt "main|"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/qml/main.qml:112
+#: src/qml/main.qml:109
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/main.qml:114
+#: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -3192,17 +3191,24 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
@@ -3458,8 +3464,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2. urratsa: Saioan sartu erregistratutako zure konturekin"
 
-#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
-#: src/qml/RosterPage.qml:58
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
+#: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Iragazkia"
@@ -3680,6 +3686,18 @@ msgstr "Jaioteguna"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
+
+#, fuzzy
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "Adi"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Your Password:"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Pasahitza:"
 
 #~ msgctxt "AvatarChangePage|"
 #~ msgid "Choose profile image"

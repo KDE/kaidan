@@ -898,6 +898,7 @@ msgid "New password"
 msgstr "新密码"
 
 #: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:997
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密码"
@@ -1013,26 +1014,90 @@ msgid "Connection settings changed"
 msgstr "连接设置已更改"
 
 #: src/qml/details/AccountDetailsContent.qml:953
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "切换设备"
+
+#: src/qml/details/AccountDetailsContent.qml:957
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr "请勿向他人展示此二维码。它将允许无限制地访问您的账号！"
+
+#: src/qml/details/AccountDetailsContent.qml:963
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Scan login QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "扫描登录二维码"
+
+#: src/qml/details/AccountDetailsContent.qml:964
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr "扫描二维码或在其他设备上以文本形式输入凭据以登录。"
+
+#: src/qml/details/AccountDetailsContent.qml:984
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr "显示详情"
+
+#: src/qml/details/AccountDetailsContent.qml:985
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr "扫描二维码或在其他设备上以文本形式输入凭据以登录。"
+
+#: src/qml/details/AccountDetailsContent.qml:991
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "Chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "聊天地址"
+
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "迁移"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "迁移账号"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "正在准备账号迁移…"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "这可能需要很久"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1042,45 +1107,45 @@ msgstr ""
 "将账号数据（聊天记录除外）迁移到另一个账号。将从此应用中移除您当前的账号。如"
 "果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "从 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:995
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "从此应用中移除账号。如果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全删除"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "从提供者删除账号。您将无法再次使用您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1074
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在删除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1026
+#: src/qml/details/AccountDetailsContent.qml:1081
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1839,70 +1904,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "已连接的设备"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "切换设备"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "隐藏二维码"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "以二维码形式显示"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "隐藏文本"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "以文本形式显示"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr "扫描二维码或在其他设备上以文本形式输入凭据以登录。"
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr "注意："
-
-#: src/qml/DeviceSwitchingPage.qml:48
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr "请勿向他人展示此二维码。它将允许无限制地访问您的账号！"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "聊天地址："
-
-#: src/qml/DeviceSwitchingPage.qml:78
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "复制聊天地址"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "密码："
-
-#: src/qml/DeviceSwitchingPage.qml:98
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "复制密码"
-
 #: src/qml/elements/AboutContent.qml:19
 msgctxt "AboutContent|"
 msgid "Visit website"
@@ -2149,7 +2150,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "发送语音消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:447
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "发送"
@@ -2248,6 +2249,14 @@ msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "未经验证的联系人设备"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy"
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "复制"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -2783,69 +2792,88 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "选择聊天即可开始"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "账号"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "密码"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "输入您当前的密码"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "复制密码"
+
+#: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "操作"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "通过二维码添加联系人"
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "通过聊天地址添加联系人"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "创建群聊"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "加入群聊"
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜索公开群聊"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "切换设备"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "关于"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 msgctxt "main|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/main.qml:112
+#: src/qml/main.qml:109
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/main.qml:114
+#: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -2866,17 +2894,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "显示说明"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "扫描旧设备的二维码"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "此二维码不是有效的登录二维码。"
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "正在连接…"
@@ -3113,8 +3151,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
-#: src/qml/RosterPage.qml:58
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
+#: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"
@@ -3316,3 +3354,39 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "隐藏二维码"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "以二维码形式显示"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "隐藏文本"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "以文本形式显示"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "注意："
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "聊天地址："
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "复制聊天地址"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "密码："
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "切换设备"

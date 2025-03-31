@@ -907,6 +907,7 @@ msgid "New password"
 msgstr "كلمة السرّ الجديدة"
 
 #: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:997
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "كلمة السّر"
@@ -1026,26 +1027,96 @@ msgid "Connection settings changed"
 msgstr "تغيرت إعدادات الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:953
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Switch device"
+msgctxt "AccountDetailsContent|"
+msgid "Switch Device"
+msgstr "بدّل جهاز"
+
+#: src/qml/details/AccountDetailsContent.qml:957
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Never show the information in this section to anyone else. It would allow "
+"unlimited access to your account!"
+msgstr ""
+"لا تظهر رمز الاستجابة السريعة هذا أبدًا لأي شخص آخر. حيث أنها ستسمح  بالوصول "
+"غير المحدود إلى حسابك!"
+
+#: src/qml/details/AccountDetailsContent.qml:963
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Scan login QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Show login QR code"
+msgstr "امسح رمز الاستجابة للولوج"
+
+#: src/qml/details/AccountDetailsContent.qml:964
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR code by another device to log in on it"
+msgstr ""
+"امسح رمز الاستجابة السريعة أو أدخل بيانات الاعتماد كنص على جهاز آخر لتسجيل "
+"الدخول إليه."
+
+#: src/qml/details/AccountDetailsContent.qml:984
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "AccountDetailsContent|"
+msgid "Show credentials"
+msgstr "أظهر التّفاصيل"
+
+#: src/qml/details/AccountDetailsContent.qml:985
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it."
+msgctxt "AccountDetailsContent|"
+msgid "Enter the credentials in another device to log in on it"
+msgstr ""
+"امسح رمز الاستجابة السريعة أو أدخل بيانات الاعتماد كنص على جهاز آخر لتسجيل "
+"الدخول إليه."
+
+#: src/qml/details/AccountDetailsContent.qml:991
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "Chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Chat address"
+msgstr "عنوان الدردشة"
+
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "الترحيل"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "رحّل الحساب"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "إعداد ترحيل الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "يمكن أن يستغرق وقتًا طويلاً"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1056,17 +1127,17 @@ msgstr ""
 "من هذا التطبيق. خذ نسخة احتياطية من بيانات الاعتماد وسجل الدردشة إذا لزم "
 "الأمر!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "الإزالة"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "أزل من كاديان"
 
-#: src/qml/details/AccountDetailsContent.qml:995
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1075,28 +1146,28 @@ msgstr ""
 "أزل الحساب من هذا التطبيق. خذ نسخة احتياطية لبيانات الاعتماد وسجل الدردشة "
 "إذا لزم الأمر!"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "إزالة الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "احذف بالكامل"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "احذف الحساب من مقدم الخدمة. لن تتمكن من استخدام حسابك مرة أخرى!"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1074
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "يحذف الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:1026
+#: src/qml/details/AccountDetailsContent.qml:1081
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1859,74 +1930,6 @@ msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "الأجهزة المتصلة"
 
-#: src/qml/DeviceSwitchingPage.qml:24
-msgctxt "DeviceSwitchingPage|"
-msgid "Switch device"
-msgstr "بدّل جهاز"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide QR code"
-msgstr "أخف رمز الباركود"
-
-#: src/qml/DeviceSwitchingPage.qml:25
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as QR code"
-msgstr "أظهر رمز الاستجابة السريعة"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Hide text"
-msgstr "أخف النص"
-
-#: src/qml/DeviceSwitchingPage.qml:26
-msgctxt "DeviceSwitchingPage|"
-msgid "Show as text"
-msgstr "اعرض كنص"
-
-#: src/qml/DeviceSwitchingPage.qml:36
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it."
-msgstr ""
-"امسح رمز الاستجابة السريعة أو أدخل بيانات الاعتماد كنص على جهاز آخر لتسجيل "
-"الدخول إليه."
-
-#: src/qml/DeviceSwitchingPage.qml:41
-msgctxt "DeviceSwitchingPage|"
-msgid "Attention:"
-msgstr "انتباه:"
-
-#: src/qml/DeviceSwitchingPage.qml:48
-msgctxt "DeviceSwitchingPage|"
-msgid ""
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"لا تظهر رمز الاستجابة السريعة هذا أبدًا لأي شخص آخر. حيث أنها ستسمح  بالوصول "
-"غير المحدود إلى حسابك!"
-
-#: src/qml/DeviceSwitchingPage.qml:69
-msgctxt "DeviceSwitchingPage|"
-msgid "Chat address:"
-msgstr "عنوان الدردشة:"
-
-#: src/qml/DeviceSwitchingPage.qml:78
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy chat address"
-msgstr "انسخ عنوان الدردشة"
-
-#: src/qml/DeviceSwitchingPage.qml:88
-msgctxt "DeviceSwitchingPage|"
-msgid "Password:"
-msgstr "كلمة السّرّ:"
-
-#: src/qml/DeviceSwitchingPage.qml:98
-msgctxt "DeviceSwitchingPage|"
-msgid "Copy password"
-msgstr "انسخ كلمة السر"
-
 #: src/qml/elements/AboutContent.qml:19
 msgctxt "AboutContent|"
 msgid "Visit website"
@@ -2175,7 +2178,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "أرسل رسالة صوتية"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:447
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "ارسل"
@@ -2274,6 +2277,14 @@ msgstr "الخطوة 2: اسمح لمتراسلك بمسح رمز الاستجا
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "أجهزة متراسلك غير المتحقق منها"
+
+#: src/qml/elements/CopyFormTextDelegate.qml:22
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy"
+msgctxt "CopyFormTextDelegate|"
+msgid "Copy"
+msgstr "انسخ"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -2809,69 +2820,88 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "اختر محادثة لتبدأ"
 
-#: src/qml/GlobalDrawer.qml:33
+#: src/qml/GlobalDrawer.qml:34
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "الحسابات"
 
-#: src/qml/GlobalDrawer.qml:105
+#: src/qml/GlobalDrawer.qml:83
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "GlobalDrawer|"
+msgid "Password"
+msgstr "كلمة السّر"
+
+#: src/qml/GlobalDrawer.qml:84
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "GlobalDrawer|"
+msgid "Enter your correct password"
+msgstr "أدخل كلمة السر الحالية"
+
+#: src/qml/GlobalDrawer.qml:94
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Copy password"
+msgctxt "GlobalDrawer|"
+msgid "Confirm password"
+msgstr "انسخ كلمة السر"
+
+#: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "إجراءات"
 
-#: src/qml/GlobalDrawer.qml:109
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "أضف متراسل برمز كيو أر"
 
-#: src/qml/GlobalDrawer.qml:115
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "أضف متراسل بعنوان الدردشة"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "أنشئ مجموعة"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "انضم لمجموعة"
 
-#: src/qml/GlobalDrawer.qml:136
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "ابحث في المجموعات العامة"
 
-#: src/qml/GlobalDrawer.qml:147
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "بدّل جهاز"
-
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:205
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "عن"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr "ارفع حظر %1"
 
-#: src/qml/main.qml:105
+#: src/qml/main.qml:102
 msgctxt "main|"
 msgid "Undo"
 msgstr "تراجع"
 
-#: src/qml/main.qml:112
+#: src/qml/main.qml:109
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr "لا يمكن حظر %1: %2"
 
-#: src/qml/main.qml:114
+#: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -2892,17 +2922,27 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "أظهر شرح"
 
-#: src/qml/QrCodeOnboardingPage.qml:42
+#: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Scan your old device's QR code"
+msgid "Scan your old device's login QR code"
 msgstr "امسح شفرة رمز جهازك القديم"
 
-#: src/qml/QrCodeOnboardingPage.qml:87
+#: src/qml/QrCodeOnboardingPage.qml:54
+msgctxt "QrCodeOnboardingPage|"
+msgid ""
+"You can display the QR code in the account details of your old device via "
+"Show login QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "رمز الاستجابة السريعة هذا ليس رمز ولوج صالح."
 
-#: src/qml/QrCodeOnboardingPage.qml:94
+#: src/qml/QrCodeOnboardingPage.qml:102
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "يتّصل…"
@@ -3140,8 +3180,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "الخطوة 2: الولوج  بحسابك المسجل"
 
-#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:45
-#: src/qml/RosterPage.qml:58
+#: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
+#: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "المُرشِّح"
@@ -3343,6 +3383,42 @@ msgstr "عيد الميلاد"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "الموقع الإلكتروني"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "أخف رمز الباركود"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "أظهر رمز الاستجابة السريعة"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "أخف النص"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "اعرض كنص"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "انتباه:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "عنوان الدردشة:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "انسخ عنوان الدردشة"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "كلمة السّرّ:"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "بدّل جهاز"
 
 #~ msgctxt "AvatarChangePage|"
 #~ msgid "Choose profile image"
