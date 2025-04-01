@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-22 19:18+0200\n"
+"PO-Revision-Date: 2025-03-31 12:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1021,69 +1021,40 @@ msgid "Connection settings changed"
 msgstr "הגדרות החיבור נערכו"
 
 #: src/qml/details/AccountDetailsContent.qml:955
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "החלפת מכשיר"
 
 #: src/qml/details/AccountDetailsContent.qml:959
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"לעולם לא להציג את קוד ה־QR הזה לגורם נוסף. תהיה לו או לה אפשרות לגשת לחשבון "
-"שלך ללא הגבלות!"
+"לעולם לא להציג את הפרטים שבסעיף הזה לאף אחד או אחת. תהיה לו או לה אפשרות "
+"לגשת לחשבון שלך ללא הגבלות!"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "סריקת קוד QR לכניסה"
+msgstr "הצגת קוד QR לכניסה"
 
 #: src/qml/details/AccountDetailsContent.qml:966
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"נא לסרוק את קוד ה־QR או למלא את פרטי הגישה כטקסט במכשיר נוסף כדי להכניס אותו."
+msgstr "נא לסרוק את קוד ה־QR במכשיר נוסף כדי להכניס אותו"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "הצגת פרטים"
+msgstr "הצגת פרטי גישה"
 
 #: src/qml/details/AccountDetailsContent.qml:987
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"נא לסרוק את קוד ה־QR או למלא את פרטי הגישה כטקסט במכשיר נוסף כדי להכניס אותו."
+msgstr "נא למלא את פרטי הכניסה במכשיר אחר כדי להיכנס אליו"
 
 #: src/qml/details/AccountDetailsContent.qml:993
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "כתובת צ׳אט"
@@ -2271,9 +2242,6 @@ msgid "Unverified contact devices"
 msgstr "מכשירי אנשי קשר שלא אומתו"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "העתקה"
@@ -2825,28 +2793,19 @@ msgid "Accounts"
 msgstr "חשבונות"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "סיסמה"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "נא למלא את הסיסמה הנוכחית שלך"
+msgstr "נא למלא את הסיסמה הנכונה שלך"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "העתקת הסיסמה"
+msgstr "אישור הסיסמה"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2922,12 +2881,9 @@ msgid "Show explanation"
 msgstr "הצגת הסבר"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "נא לסרוק את קוד ה־QR של המכשיר הישן שלך"
+msgstr "נא לסרוק את קוד ה־QR לכניסה של המכשיר הישן שלך"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2935,6 +2891,7 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"אפשר להציג את קוד ה־QR בפרטי החשבון של המכשיר הישן שלך דרך הצגת קוד QR לכניסה"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"

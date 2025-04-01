@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-26 17:17+0100\n"
+"PO-Revision-Date: 2025-03-31 20:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -1033,71 +1033,41 @@ msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
 #: src/qml/details/AccountDetailsContent.qml:955
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Byt apparat"
 
 #: src/qml/details/AccountDetailsContent.qml:959
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Visa aldrig QR-koden för någon annan. Den kan ge obegränsad åtkomst till "
-"ditt konto!"
+"Visa aldrig informationen här för någon annan. Den skulle ge obegränsad "
+"åtkomst till ditt konto!"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Läs QR-inloggningskod"
+msgstr "Visa QR-inloggningskod"
 
 #: src/qml/details/AccountDetailsContent.qml:966
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Läs av QR-koden eller ange inloggningsinformation som text på en annan "
-"apparat för att logga in på den."
+msgstr "Läs av QR-koden med en annan apparat för att logga in på den"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Visa detaljinformation"
+msgstr "Visa inloggningsinformation"
 
 #: src/qml/details/AccountDetailsContent.qml:987
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
-"Läs av QR-koden eller ange inloggningsinformation som text på en annan "
-"apparat för att logga in på den."
+"Ange inloggningsinformationen på en annan apparat för att logga in på den"
 
 #: src/qml/details/AccountDetailsContent.qml:993
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Chattadress"
@@ -2299,9 +2269,6 @@ msgid "Unverified contact devices"
 msgstr "Overifierad kontakters apparater"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopiera"
@@ -2847,28 +2814,19 @@ msgid "Accounts"
 msgstr "Konton"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Lösenord"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Ange ditt nuvarande lösenord"
+msgstr "Ange korrekt lösenord"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Kopiera lösenord"
+msgstr "Bekräfta lösenord"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2944,12 +2902,9 @@ msgid "Show explanation"
 msgstr "Visa förklaring"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Läs av din gamla apparats QR-kod"
+msgstr "Läs av din gamla apparats QR-inloggningskod"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2957,6 +2912,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Du kan visa QR-koden i kontoinformationen från din gamla apparat med Visa QR-"
+"inloggningskod"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
