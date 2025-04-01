@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-03-22 21:46+0100\n"
+"PO-Revision-Date: 2025-03-31 09:23+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1049,71 +1049,41 @@ msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Canvi de dispositiu"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"No mostreu mai aquest codi QR a ningú més. Permetria un accés il·limitat al "
-"vostre compte!"
+"No mostreu mai la informació d'aquesta secció a ningú més. Permetria un "
+"accés il·limitat al vostre compte!"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Escaneja un codi QR d'inici de sessió"
+msgstr "Mostra un codi QR d'inici de sessió"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Escanegeu el codi QR o introduïu les credencials com a text en un altre "
-"dispositiu per a iniciar-hi sessió."
+msgstr "Escanegeu el codi QR en un altre dispositiu per a iniciar-hi sessió"
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Mostra els detalls"
+msgstr "Mostra les credencials"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
-"Escanegeu el codi QR o introduïu les credencials com a text en un altre "
-"dispositiu per a iniciar-hi sessió."
+"Introduïu les credencials en un altre dispositiu per a iniciar-hi sessió"
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adreça de xat"
@@ -2335,9 +2305,6 @@ msgid "Unverified contact devices"
 msgstr "Dispositius no verificats de contacte"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Copia"
@@ -2886,28 +2853,19 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Contrasenya"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Introduïu la contrasenya actual"
+msgstr "Introduïu la contrasenya correcta"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Copia la contrasenya"
+msgstr "Confirmeu la contrasenya"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2983,12 +2941,9 @@ msgid "Show explanation"
 msgstr "Mostra una explicació"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Escanegeu el codi QR del dispositiu antic"
+msgstr "Escanegeu el codi QR d'inici de sessió del dispositiu antic"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2996,6 +2951,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Podeu visualitzar el codi QR en els detalls del compte del vostre dispositiu "
+"antic a través de «Mostra un codi QR d'inici de sessió»"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"

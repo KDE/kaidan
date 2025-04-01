@@ -1014,65 +1014,38 @@ msgid "Connection settings changed"
 msgstr "连接设置已更改"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr "切换设备"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
-msgstr "请勿向他人展示此二维码。它将允许无限制地访问您的账号！"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "扫描登录二维码"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr "扫描二维码或在其他设备上以文本形式输入凭据以登录。"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "显示详情"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr "扫描二维码或在其他设备上以文本形式输入凭据以登录。"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "聊天地址"
@@ -2251,9 +2224,6 @@ msgid "Unverified contact devices"
 msgstr "未经验证的联系人设备"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "复制"
@@ -2798,28 +2768,19 @@ msgid "Accounts"
 msgstr "账号"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密码"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "输入您当前的密码"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "复制密码"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2895,12 +2856,9 @@ msgid "Show explanation"
 msgstr "显示说明"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "扫描旧设备的二维码"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -3354,39 +3312,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Hide QR code"
-#~ msgstr "隐藏二维码"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Show as QR code"
-#~ msgstr "以二维码形式显示"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Hide text"
-#~ msgstr "隐藏文本"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Show as text"
-#~ msgstr "以文本形式显示"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Attention:"
-#~ msgstr "注意："
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Chat address:"
-#~ msgstr "聊天地址："
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Copy chat address"
-#~ msgstr "复制聊天地址"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Password:"
-#~ msgstr "密码："
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Switch device"
-#~ msgstr "切换设备"

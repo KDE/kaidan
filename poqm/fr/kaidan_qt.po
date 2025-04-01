@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-03-24 09:43+0100\n"
+"PO-Revision-Date: 2025-03-30 11:53+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1054,74 +1054,47 @@ msgid "Connection settings changed"
 msgstr "La configuration de connexion a changé."
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Changer de périphérique"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Ne jamais afficher ce code « QR » à quelqu'un d'autre. Il permettrait un "
-"accès illimité à votre compte !"
+"Ne jamais afficher ces informations dans cette section à quelqu'un d'autre. "
+"Il permettrait un accès illimité à votre compte !"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Lire un code « QR » de connexion"
+msgstr "Afficher un code « QR » de connexion"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr ""
-"Lisez le code « QR » ou saisissez les identifiants sous forme de texte sur "
-"un autre périphérique pour y ouvrir une session."
+"Lisez le code « QR » avec un autre périphérique pour vous connecter sur "
+"celui-ci."
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Afficher les détails"
+msgstr "Afficher les identifiants"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
-"Lisez le code « QR » ou saisissez les identifiants sous forme de texte sur "
-"un autre périphérique pour y ouvrir une session."
+"Saisissez les identifiants avec un autre périphérique pour vous connecter "
+"sur celui-ci."
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr "Adresse du forum"
+msgstr "Adresse du salon"
 
 #: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
@@ -2361,9 +2334,6 @@ msgid "Unverified contact devices"
 msgstr "Périphériques de contacts non vérifiés"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Copier"
@@ -2915,28 +2885,19 @@ msgid "Accounts"
 msgstr "Comptes"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Mot de passe"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Saisissez votre mot de passe courant"
+msgstr "Saisissez le mot de passe correct"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Copier un mot de passe"
+msgstr "Confirmer le mot de passe"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -3012,12 +2973,9 @@ msgid "Show explanation"
 msgstr "Afficher une explication"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Lire le code « QR » de votre ancien périphérique."
+msgstr "Lire le code « QR » de connexion de votre ancien périphérique."
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -3025,6 +2983,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Vous pouvez afficher le code « QR » dans les détails du compte de votre "
+"ancien périphérique grâce au  menu « Afficher le code QR de connexion »"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"

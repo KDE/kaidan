@@ -1036,71 +1036,40 @@ msgid "Connection settings changed"
 msgstr "მიერთების პარამეტრები შეიცვალა"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr "მოწყობილობის შეცვლა"
+msgstr "მოწყობილობის გადართვა"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"ეს QR კოდი არავის აჩვენოთ, არასდროს. ის მათ თქვენს ანგარიშზე შეუზღუდავ "
-"წვდომას მისცემს!"
+"ინფორმაცია ამ სექციაში არავის აჩვენოთ, არასდროს. ის მათ თქვენს ანგარიშზე "
+"შეუზღუდავ წვდომას მისცემს!"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "შესვლის QR კოდის სკანირება"
+msgstr "შესვლის QR კოდის ჩვენება"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"სხვა მოწყობილობიდან შესასვლელად დაასკანერეთ QR კოდი ან შეიყვანეთ "
-"ავტორიზაციის დეტალები."
+msgstr "სხვა მოწყობილობაზე შესასვლელად დაასკანერეთ QR კოდი"
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "დეტალების ჩვენება"
+msgstr "ავტორიზაციის დეტალების ჩვენება"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"სხვა მოწყობილობიდან შესასვლელად დაასკანერეთ QR კოდი ან შეიყვანეთ "
-"ავტორიზაციის დეტალები."
+msgstr "სხვა მოწყობილობაზე შესასვლელად შეიყვანეთ ავტორიზაციის დეტალები"
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "ჩატის მისამართი"
@@ -2314,9 +2283,6 @@ msgid "Unverified contact devices"
 msgstr "გადაუმოწმებელი კონტაქტის მოწყობილობები"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "კოპირება"
@@ -2865,28 +2831,19 @@ msgid "Accounts"
 msgstr "ანგარიშები"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "პაროლი"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
+msgstr "შეიყვანეთ თქვენი სწორი პაროლი"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "პაროლის კოპირება"
+msgstr "დაადასტურეთ პაროლი"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2962,9 +2919,6 @@ msgid "Show explanation"
 msgstr "ახსნის ჩვენება"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
 msgstr "დაასკანერეთ თქვენი ძველი მოწყობილობის QR კოდი"
@@ -2975,6 +2929,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"შეგიძლიათ, აჩვენოთ QR კოდი თქვენი ძველი მოწყობილობის ანგარიშის დეტალებში "
+"შესვლის QR კოდის ფუნქციით"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"

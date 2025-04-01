@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-22 13:10+0100\n"
+"PO-Revision-Date: 2025-03-31 07:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1035,71 +1035,40 @@ msgid "Connection settings changed"
 msgstr "Nastavitve povezave so spremenjene"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Preklopi napravo"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Nikoli ne kažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
-"dostop do vašega računa!"
+"Nikoli ne kažite informacij v tem razdelku nikomur drugemu. To bi omogočilo "
+"neomejen dostop do vašega računa!"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Prečeši kodo QR za prijavo"
+msgstr "Prikaži kodo QR za prijavo"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Skenirajte QR-kodo ali vnesite poverilnice kot besedilo v drugo napravo, da "
-"se na njej prijavite."
+msgstr "Skenirajte kodo QR z drugo napravo, da se prijavite v njej"
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Prikaži podrobnosti"
+msgstr "Prikaži poverilnice"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"Skenirajte QR-kodo ali vnesite poverilnice kot besedilo v drugo napravo, da "
-"se na njej prijavite."
+msgstr "Vnesite poverilnice v drugo napravo, da se prijavite v njej"
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Naslov klepeta"
@@ -2305,9 +2274,6 @@ msgid "Unverified contact devices"
 msgstr "Nepreverjene naprave stika"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopiraj"
@@ -2853,28 +2819,19 @@ msgid "Accounts"
 msgstr "Računi"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Geslo"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Vnesite vaše trenutno geslo"
+msgstr "Vnesite vaše pravilno geslo"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Kopiraj geslo"
+msgstr "Potrdite geslo"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2950,12 +2907,9 @@ msgid "Show explanation"
 msgstr "Prikaži pojasnilo"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Optično preberite kodo QR stare naprave"
+msgstr "Skenirajte kodo QR za prijavo vaše stare naprave"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2963,6 +2917,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Kodo QR lahko prikažete v podrobnostih računa svoje stare naprave prek "
+"Prikaži kodo QR za prijavo"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
