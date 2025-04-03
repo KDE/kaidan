@@ -332,7 +332,7 @@ msgstr "上传失败：%1"
 #: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
-msgstr "消息更正失败"
+msgstr "消息更正未成功"
 
 #: src/MessageComposition.cpp:497
 msgctxt "FileSelectionModel|"
@@ -618,8 +618,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
-"OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
-"交换的数据。"
+"使用 OMEMO 2 的端到端加密可确保除了您和您的聊天对象外，其他任何人都无法读取或"
+"修改您所交换的数据。"
 
 #: src/qml/details/AccountDetailsContent.qml:196
 msgctxt "AccountDetailsContent|"
@@ -791,7 +791,7 @@ msgstr "打开支持群聊"
 #: src/qml/details/AccountDetailsContent.qml:450
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
-msgstr "加入您的提供者的公共支持群聊"
+msgstr "加入您的提供者的公开支持群聊"
 
 #: src/qml/details/AccountDetailsContent.qml:476
 #, qt-format
@@ -1016,34 +1016,34 @@ msgstr "连接设置已更改"
 #: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr ""
+msgstr "切换设备"
 
 #: src/qml/details/AccountDetailsContent.qml:957
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
-msgstr ""
+msgstr "切勿向他人展示本部分的信息。否则他人将能无限制地访问您的账号！"
 
 #: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr ""
+msgstr "显示登录二维码"
 
 #: src/qml/details/AccountDetailsContent.qml:964
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
+msgstr "通过另一台设备扫描二维码即可登录"
 
 #: src/qml/details/AccountDetailsContent.qml:984
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr ""
+msgstr "显示凭据"
 
 #: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
+msgstr "在另一台设备上输入凭据即可登录"
 
 #: src/qml/details/AccountDetailsContent.qml:991
 msgctxt "AccountDetailsContent|"
@@ -1228,8 +1228,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
-"OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
-"交换的数据。"
+"使用 OMEMO 2 的端到端加密可确保除了您和您的聊天对象外，其他任何人都无法读取或"
+"修改您所交换的数据。"
 
 #: src/qml/details/ContactDetailsContent.qml:74
 #: src/qml/details/ContactDetailsContent.qml:80
@@ -1548,8 +1548,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
-"OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
-"交换的数据。"
+"使用 OMEMO 2 的端到端加密可确保除了您和您的聊天对象外，其他任何人都无法读取或"
+"修改您所交换的数据。"
 
 #: src/qml/details/GroupChatDetailsContent.qml:300
 #: src/qml/details/GroupChatDetailsContent.qml:305
@@ -1778,7 +1778,7 @@ msgstr "其他"
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr "%1/%2 已选择"
+msgstr "已选择 %1/%2"
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format
@@ -1805,7 +1805,9 @@ msgctxt "NotesChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
 "read or modify the data that is synchronized across your devices."
-msgstr "OMEMO 2 的端到端加密确保只有您才能读取或修改跨设备同步的数据。"
+msgstr ""
+"使用 OMEMO 2 的端到端加密可确保除了您之外，其他任何人都无法读取或修改跨设备同"
+"步的数据。"
 
 #: src/qml/details/NotesChatDetailsContent.qml:50
 msgctxt "NotesChatDetailsContent|"
@@ -2161,12 +2163,12 @@ msgstr "正在添加联系人…"
 #: src/qml/elements/ContactAdditionContent.qml:58
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr "名称（可选）："
+msgstr "名称（选填）："
 
 #: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr "消息（可选）："
+msgstr "消息（选填）："
 
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
@@ -2301,7 +2303,7 @@ msgstr "正在创建群聊…"
 #: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr "群聊名（可选）"
+msgstr "群聊名（选填）"
 
 #: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
@@ -2331,7 +2333,7 @@ msgstr "输入有效的群聊地址"
 #: src/qml/elements/GroupChatCreationContent.qml:73
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr "昵称（可选）："
+msgstr "昵称（选填）："
 
 #: src/qml/elements/GroupChatCreationContent.qml:89
 #, qt-format
@@ -2389,7 +2391,7 @@ msgstr "地址格式必须是 <b>group@server</b>"
 #: src/qml/elements/GroupChatJoiningContent.qml:38
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr "昵称（可选）："
+msgstr "昵称（选填）："
 
 #: src/qml/elements/GroupChatJoiningContent.qml:48
 #, qt-format
@@ -2713,12 +2715,12 @@ msgstr "%1："
 #: src/qml/elements/RosterListItem.qml:219
 msgctxt "RosterListItem|"
 msgid "Unpin"
-msgstr "取消固定"
+msgstr "取消置顶"
 
 #: src/qml/elements/RosterListItem.qml:219
 msgctxt "RosterListItem|"
 msgid "Pin"
-msgstr "固定"
+msgstr "置顶"
 
 #: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
@@ -2775,12 +2777,12 @@ msgstr "密码"
 #: src/qml/GlobalDrawer.qml:84
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr ""
+msgstr "输入正确的密码"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr ""
+msgstr "确认密码"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2858,14 +2860,14 @@ msgstr "显示说明"
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr ""
+msgstr "扫描您的旧设备的登录二维码"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
 msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
-msgstr ""
+msgstr "您可以通过“显示登录二维码”在旧设备的账号详情中显示二维码"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
@@ -3118,7 +3120,7 @@ msgstr "筛选器"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "固定并移动"
+msgstr "置顶并移动"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
