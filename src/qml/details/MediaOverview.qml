@@ -292,6 +292,7 @@ Controls.Control {
 				}
 				onPressAndHold: {
 					root.selectionMode = true
+					model.checkState = Qt.Checked
 				}
 
 				Image {
@@ -341,6 +342,7 @@ Controls.Control {
 				}
 				onPressAndHold: {
 					root.selectionMode = true
+					model.checkState = Qt.Checked
 				}
 
 				Kirigami.Icon {
