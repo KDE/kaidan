@@ -28,7 +28,7 @@ Dialog {
 	leftPadding: 0
 	bottomPadding: 0
 	rightPadding: 0
-	header: Item {}
+	header: null
 
 	ListView {
 		implicitHeight: contentHeight

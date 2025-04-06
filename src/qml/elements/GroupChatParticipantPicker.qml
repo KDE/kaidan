@@ -27,8 +27,8 @@ Kirigami.Dialog {
 	bottomPadding: 0
 	rightPadding: 0
 	modal: false
-	header: Item {}
-	footer: Item {}
+	header: null
+	footer: null
 
 	ListView {
 		id: listView

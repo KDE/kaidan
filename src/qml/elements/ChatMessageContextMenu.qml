@@ -29,8 +29,8 @@ Kirigami.Dialog {
 		shadow.color: Qt.darker(color, 2)
 		shadow.size: 6
 	}
-	header: Item {}
-	footer: Item {}
+	header: null
+	footer: null
 	// Ensure that the whole content is always inside of the visible area.
 	onImplicitWidthChanged: position(x, y)
 	onClosed: destroy()
