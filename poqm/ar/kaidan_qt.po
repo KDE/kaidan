@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-20 10:03+0400\n"
+"PO-Revision-Date: 2025-04-05 12:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -92,18 +92,14 @@ msgstr ""
 "الأخرى %2"
 
 #: src/ChatHintModel.cpp:315
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"متراسلك %1 هو الآن %2 ويرغب في تلقي بياناتك الشخصية مثل التوفر والأجهزة "
-"والمعلومات الشخصية الأخرى مرة أخرى %3"
+"متراسلك %1 (%2) هو الآن  %3 (%4) ويرغب في تلقي بياناتك الشخصية مثل التوفر "
+"والأجهزة والمعلومات الشخصية الأخرى مرة أخرى %5"
 
 #: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
@@ -1027,71 +1023,40 @@ msgid "Connection settings changed"
 msgstr "تغيرت إعدادات الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "بدّل جهاز"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"لا تظهر رمز الاستجابة السريعة هذا أبدًا لأي شخص آخر. حيث أنها ستسمح  بالوصول "
-"غير المحدود إلى حسابك!"
+"لا تظهر هذا الملعومات أبدًا لأي شخص آخر. حيث أنها ستسمح  بالوصول غير المحدود "
+"إلى حسابك!"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "امسح رمز الاستجابة للولوج"
+msgstr "اعرض رمز الاستجابة للولوج"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"امسح رمز الاستجابة السريعة أو أدخل بيانات الاعتماد كنص على جهاز آخر لتسجيل "
-"الدخول إليه."
+msgstr "امسح رمز الاستجابة السريعة بواسطة جهاز آخر للولوج إليه."
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "أظهر التّفاصيل"
+msgstr "أظهر بيانات الاعتماد"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"امسح رمز الاستجابة السريعة أو أدخل بيانات الاعتماد كنص على جهاز آخر لتسجيل "
-"الدخول إليه."
+msgstr "أدخل بيانات الاعتماد في جهاز آخر للولوج إليه."
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "عنوان الدردشة"
@@ -2279,9 +2244,6 @@ msgid "Unverified contact devices"
 msgstr "أجهزة متراسلك غير المتحقق منها"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "انسخ"
@@ -2826,25 +2788,16 @@ msgid "Accounts"
 msgstr "الحسابات"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "كلمة السّر"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "أدخل كلمة السر الحالية"
+msgstr "أدخل كلمة سرك الصحيحة"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "انسخ كلمة السر"
@@ -2923,12 +2876,9 @@ msgid "Show explanation"
 msgstr "أظهر شرح"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "امسح شفرة رمز جهازك القديم"
+msgstr "امسح رمز الاستجابة السريعة لجهازك القديم"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2936,6 +2886,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"يمكنك عرض رمز الاستجابة السريعة في تفاصيل الحساب بجهازك القديم عبر أظهر رمز "
+"الاستجابة السريعة للولوج."
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
