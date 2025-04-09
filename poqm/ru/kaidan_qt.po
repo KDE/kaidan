@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-24 17:10+0300\n"
+"PO-Revision-Date: 2025-04-08 15:29+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -1044,71 +1044,42 @@ msgid "Connection settings changed"
 msgstr "Параметры подключения изменены"
 
 #: src/qml/details/AccountDetailsContent.qml:955
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Переключиться на другое устройство"
 
 #: src/qml/details/AccountDetailsContent.qml:959
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Никогда никому не показывайте этот QR-код. С его помощью злоумышленники "
-"могут получить неограниченный доступ к вашей учётной записи!"
+"Никогда никому не показывайте информацию из этого раздела. С её помощью "
+"злоумышленники могут получить неограниченный доступ к вашей учётной записи!"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Cканировать QR-код для входа"
+msgstr "Показать QR-код для входа"
 
 #: src/qml/details/AccountDetailsContent.qml:966
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr ""
-"Отсканируйте QR-код или введите учётные данные как текст на другом "
-"устройстве, чтобы выполнить вход на нём."
+"Отсканируйте QR-код с помощью другого устройства, чтобы выполнить на нём вход"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Показать подробности"
+msgstr "Показать учётные данные"
 
 #: src/qml/details/AccountDetailsContent.qml:987
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
-"Отсканируйте QR-код или введите учётные данные как текст на другом "
-"устройстве, чтобы выполнить вход на нём."
+"Введите учётные данные на другом устройстве, чтобы выполнить на нём вход"
 
 #: src/qml/details/AccountDetailsContent.qml:993
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Адрес чата"
@@ -2345,9 +2316,6 @@ msgid "Unverified contact devices"
 msgstr "Непроверенные устройства контактов"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Копировать"
@@ -2894,28 +2862,19 @@ msgid "Accounts"
 msgstr "Учётные записи"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Пароль"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Введите текущий пароль"
+msgstr "Введите правильный пароль"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Копировать пароль"
+msgstr "Подтвердить пароль"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2991,12 +2950,9 @@ msgid "Show explanation"
 msgstr "Показать пояснения"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Cканировать QR-код старого устройства"
+msgstr "Cканировать QR-код для входа старого устройства"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -3004,6 +2960,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"В разделе параметров учётной записи вашего старого устройства будет показан "
+"QR-код, если нажать кнопку «Показать QR-код для входа»"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
