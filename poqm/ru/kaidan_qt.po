@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-24 17:10+0300\n"
+"PO-Revision-Date: 2025-04-08 15:29+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -1044,71 +1044,42 @@ msgid "Connection settings changed"
 msgstr "Параметры подключения изменены"
 
 #: src/qml/details/AccountDetailsContent.qml:953
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Переключиться на другое устройство"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Никогда никому не показывайте этот QR-код. С его помощью злоумышленники "
-"могут получить неограниченный доступ к вашей учётной записи!"
+"Никогда никому не показывайте информацию из этого раздела. С её помощью "
+"злоумышленники могут получить неограниченный доступ к вашей учётной записи!"
 
 #: src/qml/details/AccountDetailsContent.qml:963
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Cканировать QR-код для входа"
+msgstr "Показать QR-код для входа"
 
 #: src/qml/details/AccountDetailsContent.qml:964
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr ""
-"Отсканируйте QR-код или введите учётные данные как текст на другом "
-"устройстве, чтобы выполнить вход на нём."
+"Отсканируйте QR-код с помощью другого устройства, чтобы выполнить на нём вход"
 
 #: src/qml/details/AccountDetailsContent.qml:984
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Показать подробности"
+msgstr "Показать учётные данные"
 
 #: src/qml/details/AccountDetailsContent.qml:985
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
-"Отсканируйте QR-код или введите учётные данные как текст на другом "
-"устройстве, чтобы выполнить вход на нём."
+"Введите учётные данные на другом устройстве, чтобы выполнить на нём вход"
 
 #: src/qml/details/AccountDetailsContent.qml:991
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Адрес чата"
@@ -2099,47 +2070,47 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1 прочитано до этого места"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:50
+#: src/qml/elements/ChatMessageContextMenu.qml:49
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
 msgstr "Удалить выбранный файл"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:58
+#: src/qml/elements/ChatMessageContextMenu.qml:57
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
 msgstr "Открыть папку с выбранным файлом"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:71
+#: src/qml/elements/ChatMessageContextMenu.qml:70
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Отреагировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:98
+#: src/qml/elements/ChatMessageContextMenu.qml:92
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Ответить"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:116
+#: src/qml/elements/ChatMessageContextMenu.qml:110
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Цитировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:124
+#: src/qml/elements/ChatMessageContextMenu.qml:118
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:138
+#: src/qml/elements/ChatMessageContextMenu.qml:132
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Изменить"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:146
+#: src/qml/elements/ChatMessageContextMenu.qml:140
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Отметить как первое непрочитанное"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:157
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Удалить с этого устройства"
@@ -2164,87 +2135,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Отменить ответ"
 
-#: src/qml/elements/ChatPageSendingPane.qml:124
+#: src/qml/elements/ChatPageSendingPane.qml:123
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Видимая часть сообщения"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:130
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Отменить добавление скрытой части сообщения"
 
-#: src/qml/elements/ChatPageSendingPane.qml:156
+#: src/qml/elements/ChatPageSendingPane.qml:158
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Добавить эмодзи"
 
-#: src/qml/elements/ChatPageSendingPane.qml:167
+#: src/qml/elements/ChatPageSendingPane.qml:168
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Упомянуть участника"
 
-#: src/qml/elements/ChatPageSendingPane.qml:200
+#: src/qml/elements/ChatPageSendingPane.qml:199
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Написать <b>зашифрованное</b> сообщение со скрытой частью"
 
-#: src/qml/elements/ChatPageSendingPane.qml:200
+#: src/qml/elements/ChatPageSendingPane.qml:199
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Написать <b>незашифрованное</b> сообщение со скрытой частью"
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Написать <b>зашифрованное</b> сообщение"
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Написать <b>незашифрованное</b> сообщение"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:293
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Сделать снимок"
 
-#: src/qml/elements/ChatPageSendingPane.qml:302
+#: src/qml/elements/ChatPageSendingPane.qml:300
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Записать видео"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Поделиться файлами"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:317
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Поделиться своим местоположением"
 
-#: src/qml/elements/ChatPageSendingPane.qml:329
+#: src/qml/elements/ChatPageSendingPane.qml:324
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Добавить скрытую часть сообщения"
 
-#: src/qml/elements/ChatPageSendingPane.qml:373
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Скрыть"
 
-#: src/qml/elements/ChatPageSendingPane.qml:373
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Дополнительно"
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:415
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Отправить голосовое сообщение"
 
-#: src/qml/elements/ChatPageSendingPane.qml:447
+#: src/qml/elements/ChatPageSendingPane.qml:439
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Отправить"
@@ -2253,11 +2224,6 @@ msgstr "Отправить"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Подтвердить"
-
-#: src/qml/elements/ConfirmationPage.qml:24
-msgctxt "ConfirmationPage|"
-msgid "Cancel"
-msgstr "Отмена"
 
 #: src/qml/elements/ContactAdditionContent.qml:31
 msgctxt "ContactAdditionContent|"
@@ -2345,9 +2311,6 @@ msgid "Unverified contact devices"
 msgstr "Непроверенные устройства контактов"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Копировать"
@@ -2894,28 +2857,19 @@ msgid "Accounts"
 msgstr "Учётные записи"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Пароль"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Введите текущий пароль"
+msgstr "Введите правильный пароль"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Копировать пароль"
+msgstr "Подтвердить пароль"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2991,12 +2945,9 @@ msgid "Show explanation"
 msgstr "Показать пояснения"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Cканировать QR-код старого устройства"
+msgstr "Cканировать QR-код для входа старого устройства"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -3004,6 +2955,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"В разделе параметров учётной записи вашего старого устройства будет показан "
+"QR-код, если нажать кнопку «Показать QR-код для входа»"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
@@ -3465,6 +3418,10 @@ msgstr "Дата рождения"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Веб-сайт"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
 
 #~ msgctxt "DeviceSwitchingPage|"
 #~ msgid "Hide QR code"
