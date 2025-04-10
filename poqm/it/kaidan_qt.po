@@ -19,20 +19,30 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generazione del codice QR non riuscita: %1"
 
-#: src/AccountMigrationManager.cpp:422
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:432
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid ""
+#| "Account could not be migrated: Another migration is already in progress"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Impossibile migrare l'account: è già in corso un'altra migrazione"
 
-#: src/AccountMigrationManager.cpp:434
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:452
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "L'account non può essere migrato: impossibile caricare i dati dell'account "
 "esportati"
 
-#: src/AccountMigrationManager.cpp:443
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:462
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "L'account non può essere migrato: devi essere connesso"
 
@@ -61,29 +71,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Non sei connesso - I messaggi sono inviati e ricevuti una volta connesso"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:275 src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Ignora"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:275
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connetti"
 
-#: src/ChatHintModel.cpp:297
+#: src/ChatHintModel.cpp:277
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:290
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -93,7 +103,7 @@ msgstr ""
 "%1 vorrebbe ricevere i tuoi dati personali come disponibilità, dispositivi e "
 "altre informazioni personali%2"
 
-#: src/ChatHintModel.cpp:315
+#: src/ChatHintModel.cpp:295
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -104,47 +114,47 @@ msgstr ""
 "dati personali come disponibilità, dispositivi e altre informazioni personali"
 "%5"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rifiuta"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Consenti"
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Consenso..."
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:318
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Questo gruppo non ha utenti"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Invita contatti"
 
-#: src/ChatHintModel.cpp:341
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Apertura dell'area degli inviti"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Questo gruppo è stato eliminato"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Esci"
 
-#: src/ChatHintModel.cpp:362
+#: src/ChatHintModel.cpp:342
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Uscita dalla chat di gruppo"
@@ -175,22 +185,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandito"
 
-#: src/Kaidan.cpp:218
+#: src/Kaidan.cpp:236
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "In linea"
 
-#: src/Kaidan.cpp:220
+#: src/Kaidan.cpp:238
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/Kaidan.cpp:222
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Non in linea"
 
-#: src/Kaidan.cpp:307
+#: src/Kaidan.cpp:286
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Il collegamento sarà aperto dopo la connessione."
@@ -871,7 +881,7 @@ msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "Aggiungi una chat per sincronizzare le tue note su tutti i tuoi dispositivi"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -880,12 +890,12 @@ msgstr ""
 "La chat delle note non può essere aggiunta all'elenco dei contatti perché il "
 "server non la supporta"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Cambio password"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:706
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -894,64 +904,64 @@ msgstr ""
 "Cambia la tua password. Devi digitare la nuova password su tutti gli altri "
 "tuoi dispositivi!"
 
-#: src/qml/details/AccountDetailsContent.qml:709
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Password attuale"
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Digita la tua password attuale"
 
-#: src/qml/details/AccountDetailsContent.qml:711
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Digita la password corretta"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nuova password"
 
-#: src/qml/details/AccountDetailsContent.qml:724
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Password"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:729
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Digita la tua nuova password"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Digita una password diversa per cambiarla"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Cambia password"
 
-#: src/qml/details/AccountDetailsContent.qml:782
+#: src/qml/details/AccountDetailsContent.qml:786
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Modifica della password non riuscita: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:788
+#: src/qml/details/AccountDetailsContent.qml:792
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Password modificata correttamente"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Visibilità della password"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -965,12 +975,12 @@ msgstr ""
 "<b>considera di archiviare la password da qualche altra parte. L'operazione "
 "non può essere annullata!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Non mostrare la password come testo"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:815
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -979,17 +989,17 @@ msgstr ""
 "Consenti di aggiungere ulteriori dispositivi utilizzando il codice QR di "
 "accesso, ma non mostrare mai la password"
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:822
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Rimozione della password dal testo…"
 
-#: src/qml/details/AccountDetailsContent.qml:824
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Non esporre la password in alcun modo"
 
-#: src/qml/details/AccountDetailsContent.qml:825
+#: src/qml/details/AccountDetailsContent.qml:829
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -998,17 +1008,17 @@ msgstr ""
 "Non consentire l'aggiunta di dispositivi ulteriori utilizzando il codice QR "
 "di accesso né mostrare la password"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:836
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Rimozione della password dal testo e dal codice QR…"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:845
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Connessione"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1017,28 +1027,28 @@ msgstr ""
 "Configurare il nome host e la porta a cui connettersi (campi vuoti per i "
 "valori predefiniti)"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Modifica le impostazioni di connessione"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:873
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Digita diverse impostazioni di connessione per modificarle"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:922
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Impossibile modificare le impostazioni di connessione: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:933
+#: src/qml/details/AccountDetailsContent.qml:937
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Impostazioni di connessione modificate"
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:957
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Switch device"
@@ -1046,7 +1056,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Cambia dispositivo"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:961
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1060,7 +1070,7 @@ msgstr ""
 "Non mostrare mai questo codice QR a nessun altro. Permetterebbe l'accesso "
 "illimitato al tuo account!"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:967
 #, fuzzy
 #| msgctxt "LoginArea|"
 #| msgid "Scan login QR code"
@@ -1068,7 +1078,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Scansione del codice QR di accesso"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:968
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1080,7 +1090,7 @@ msgstr ""
 "Esegui la scansione del codice QR o inserisci le credenziali come testo su "
 "un altro dispositivo per accedervi."
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:988
 #, fuzzy
 #| msgctxt "MessageReactionDetailsButton|"
 #| msgid "Show details"
@@ -1088,7 +1098,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Mostra i dettagli"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:989
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1100,7 +1110,7 @@ msgstr ""
 "Esegui la scansione del codice QR o inserisci le credenziali come testo su "
 "un altro dispositivo per accedervi."
 
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:995
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -1108,27 +1118,27 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Indirizzo di chat"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migrazione"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migra account"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Preparazione della migrazione dell'account…"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Può richiedere del tempo"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1139,17 +1149,17 @@ msgstr ""
 "tuo account attuale sarà rimosso da questa applicazione. Esegui il backup "
 "delle tue credenziali e della cronologia chat se necessario!"
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Rimozione"
 
-#: src/qml/details/AccountDetailsContent.qml:1049
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Rimuovi da Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1158,29 +1168,29 @@ msgstr ""
 "Rimuovi l'account da questa applicazione. Crea una copia di sicurezza delle "
 "tue credenziali e della cronologia delle chat, se necessario!"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Rimozione dell'account..."
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Elimina completamente"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Elimina l'account dal provider. Non potrai più utilizzare il tuo account!"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Eliminazione dell'account"
 
-#: src/qml/details/AccountDetailsContent.qml:1081
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -3359,35 +3369,45 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha sospeso la digitazione"
 
-#: src/RosterItem.cpp:37
-msgctxt "QObject|"
-msgid "Notes"
-msgstr "Note"
-
-#: src/RosterManager.cpp:190
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:235
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
-#: src/RosterManager.cpp:199
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:245
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Impossibile aggiungere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:209
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:257
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:219
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:269
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Impossibile rinominare il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:229
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:285
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
@@ -3395,21 +3415,30 @@ msgstr ""
 "La richiesta di vedere i dati personali di %1 non è riuscita a causa di un "
 "problema di connessione: %2"
 
-#: src/RosterManager.cpp:240
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:301
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 "L'attribuzione a %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterManager.cpp:251
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:318
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 "La rimozione da %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
+
+#: src/RosterItem.cpp:37
+msgctxt "QObject|"
+msgid "Notes"
+msgstr "Note"
 
 #: src/RosterModel.cpp:859
 msgctxt "RosterModel|"

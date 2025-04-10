@@ -15,18 +15,18 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Penjanaan kod QR telah gagal: %1"
 
-#: src/AccountMigrationManager.cpp:422
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:432
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:434
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:452
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:443
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:462
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:274
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Could not correct message, as a result of not being connected."
@@ -69,13 +69,13 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "Tidak dapat membetulkan mesej, kerana anda tidak sambung ke internet."
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:275 src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:275
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -83,7 +83,7 @@ msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Sambung"
 
-#: src/ChatHintModel.cpp:297
+#: src/ChatHintModel.cpp:277
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -91,7 +91,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:290
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -99,7 +99,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:315
+#: src/ChatHintModel.cpp:295
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -107,17 +107,17 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr ""
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:304
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -125,12 +125,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Merakam…"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:318
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:319
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -138,12 +138,12 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Padam kenalan"
 
-#: src/ChatHintModel.cpp:341
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:339
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -151,12 +151,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Mesej gagal dihantar."
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:362
+#: src/ChatHintModel.cpp:342
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -192,7 +192,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/Kaidan.cpp:218
+#: src/Kaidan.cpp:236
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -200,7 +200,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Dalam talian"
 
-#: src/Kaidan.cpp:220
+#: src/Kaidan.cpp:238
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -208,7 +208,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Kaidan.cpp:222
+#: src/Kaidan.cpp:240
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -216,7 +216,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Luar talian"
 
-#: src/Kaidan.cpp:307
+#: src/Kaidan.cpp:286
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Pautan akan dibuka selepas anda disambungkan."
@@ -990,14 +990,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:702
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1005,7 +1005,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:706
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -1019,7 +1019,7 @@ msgstr ""
 "Selepas anda menukar kata laluan, anda perlu log masuk semula di kesemua "
 "peranti anda yang lain."
 
-#: src/qml/details/AccountDetailsContent.qml:709
+#: src/qml/details/AccountDetailsContent.qml:713
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -1027,7 +1027,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Kata laluan semasa tidak sah."
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:714
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1035,7 +1035,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:711
+#: src/qml/details/AccountDetailsContent.qml:715
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1043,7 +1043,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:728
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1051,8 +1051,8 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Kata laluan baru:"
 
-#: src/qml/details/AccountDetailsContent.qml:724
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:1001
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1060,7 +1060,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:729
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1068,12 +1068,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:739
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -1081,7 +1081,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Tukar kata laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:782
+#: src/qml/details/AccountDetailsContent.qml:786
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Failed to change password: %1"
@@ -1089,7 +1089,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Gagal menukar kata laluan: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:788
+#: src/qml/details/AccountDetailsContent.qml:792
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -1097,7 +1097,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Kata laluan berjaya ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:804
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1105,7 +1105,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1114,7 +1114,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:814
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -1122,7 +1122,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Jangan tunjuk kata laluan sebagai teks"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:815
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1136,7 +1136,7 @@ msgstr ""
 "Benarkan penambahan peranti tambahan menggunakan kod QR log masuk tetapi "
 "jangan tunjukkan kata laluan."
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:822
 #, fuzzy
 #| msgctxt "DisablePasswordDisplay|"
 #| msgid "Remove password completely"
@@ -1144,7 +1144,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Buang kata laluan sepenuhnya"
 
-#: src/qml/details/AccountDetailsContent.qml:824
+#: src/qml/details/AccountDetailsContent.qml:828
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -1152,7 +1152,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Jangan dedahkan kata laluan dalam sebarang cara"
 
-#: src/qml/details/AccountDetailsContent.qml:825
+#: src/qml/details/AccountDetailsContent.qml:829
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1166,12 +1166,12 @@ msgstr ""
 "Jangan benarkan penambahan peranti tambahan menggunakan kod QR log masuk dan "
 "jangan tunjukkan kata laluan."
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:836
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:845
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -1179,7 +1179,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Sambung"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:849
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -1189,7 +1189,7 @@ msgid ""
 "values)"
 msgstr "Tetapkan nama hos dan port untuk disambung"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:864
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -1197,7 +1197,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Tetapan sambungan"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:873
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1205,7 +1205,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Tetapan sambungan ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:922
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -1213,7 +1213,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Tetapan sambungan tidak dapat ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:933
+#: src/qml/details/AccountDetailsContent.qml:937
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1221,7 +1221,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Tetapan sambungan ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:957
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Switch device"
@@ -1229,7 +1229,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Tukar peranti"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:961
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1251,7 +1251,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:967
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1259,7 +1259,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Imbas kod QR"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:968
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1279,12 +1279,12 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:989
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1304,7 +1304,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:995
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1312,7 +1312,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Alamat sembang:"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1012
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1320,7 +1320,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Kapsyen"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1020
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Transfer account"
@@ -1328,7 +1328,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Pindah akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1021
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1336,12 +1336,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Keselamatan akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1349,7 +1349,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1045
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1357,7 +1357,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Buang"
 
-#: src/qml/details/AccountDetailsContent.qml:1049
+#: src/qml/details/AccountDetailsContent.qml:1051
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -1365,14 +1365,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Buang daripada aplikasi ini"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add new contact"
@@ -1380,7 +1380,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Tambah kenalan baru"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1067
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Delete completely"
@@ -1388,7 +1388,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Padam keseluruhannya"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1068
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1403,7 +1403,7 @@ msgstr ""
 "dan juga daripada pelayan.\n"
 "Anda tidak akan mampu menggunakan akaun anda lagi!"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1076
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1411,7 +1411,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Padam akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1081
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -4144,63 +4144,63 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 berhenti menaip"
 
-#: src/RosterItem.cpp:37
-msgctxt "QObject|"
-msgid "Notes"
-msgstr ""
-
-#: src/RosterManager.cpp:190
+#: src/RosterController.cpp:235
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Mesej gagal dihantar."
 
-#: src/RosterManager.cpp:199
+#: src/RosterController.cpp:245
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact, as a result of not being connected."
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Tidak dapat menambah kenalan, kerana anda tiada sambungan internet."
 
-#: src/RosterManager.cpp:209
+#: src/RosterController.cpp:257
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact, as a result of not being connected."
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Tidak dapat membuang kenalan, kerana anda tiada sambungan internet."
 
-#: src/RosterManager.cpp:219
+#: src/RosterController.cpp:269
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact, as a result of not being connected."
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "Tidak boleh menamakan semula kenalan, kerana anda tidak bersambung ke "
 "internet."
 
-#: src/RosterManager.cpp:229
+#: src/RosterController.cpp:285
 #, qt-format
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
 
-#: src/RosterManager.cpp:240
+#: src/RosterController.cpp:301
 #, qt-format
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterManager.cpp:251
+#: src/RosterController.cpp:318
 #, qt-format
-msgctxt "RosterManager|"
+msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
+msgstr ""
+
+#: src/RosterItem.cpp:37
+msgctxt "QObject|"
+msgid "Notes"
 msgstr ""
 
 #: src/RosterModel.cpp:859

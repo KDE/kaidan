@@ -30,20 +30,30 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Ha fallat en generar el codi QR: %1"
 
-#: src/AccountMigrationManager.cpp:422
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:432
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid ""
+#| "Account could not be migrated: Another migration is already in progress"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "No s'ha pogut migrar el compte: ja hi ha una altra migració en curs"
 
-#: src/AccountMigrationManager.cpp:434
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:452
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "No s'ha pogut migrar el compte: no s'han pogut carregar les dades de compte "
 "exportat"
 
-#: src/AccountMigrationManager.cpp:443
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:462
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "No s'ha pogut migrar el compte: cal estar connectat"
 
@@ -72,30 +82,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositius en els servidors"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "No hi ha connexió: Els missatges s'enviaran i es rebran un cop hi hagi "
 "connexió"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:275 src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:275
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connecta"
 
-#: src/ChatHintModel.cpp:297
+#: src/ChatHintModel.cpp:277
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:290
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -105,7 +115,7 @@ msgstr ""
 "%1 voldria rebre les vostres dades personals com la disponibilitat, "
 "dispositius i altra informació personal%2"
 
-#: src/ChatHintModel.cpp:315
+#: src/ChatHintModel.cpp:295
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -115,47 +125,47 @@ msgstr ""
 "El contacte %1 (%2) ara és %3 (%4) i voldria rebre les vostres dades "
 "personals com la disponibilitat, dispositius i altra informació personal%5"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rebutja"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Permet"
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "S'està permetent…"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:318
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Aquest grup no té cap usuari"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Convida contactes"
 
-#: src/ChatHintModel.cpp:341
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Obre l'àrea d'invitació"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Aquest grup s'ha suprimit"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Surt"
 
-#: src/ChatHintModel.cpp:362
+#: src/ChatHintModel.cpp:342
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "S'està sortint del grup de xat"
@@ -186,22 +196,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandejat"
 
-#: src/Kaidan.cpp:218
+#: src/Kaidan.cpp:236
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línia"
 
-#: src/Kaidan.cpp:220
+#: src/Kaidan.cpp:238
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Kaidan.cpp:222
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Fora de línia"
 
-#: src/Kaidan.cpp:307
+#: src/Kaidan.cpp:286
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
@@ -882,7 +892,7 @@ msgstr ""
 "Afegeix un xat per a sincronitzar les notes entre tots els vostres "
 "dispositius"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -891,12 +901,12 @@ msgstr ""
 "No es pot afegir el xat de notes a la vostra llista de contactes perquè el "
 "servidor no ho permet"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Canvi de contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:706
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -905,64 +915,64 @@ msgstr ""
 "Canvia la contrasenya. Cal tornar a introduir la contrasenya nova en tots "
 "els altres dispositius."
 
-#: src/qml/details/AccountDetailsContent.qml:709
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Contrasenya actual"
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Introduïu la contrasenya actual"
 
-#: src/qml/details/AccountDetailsContent.qml:711
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Introduïu la contrasenya correcta"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Contrasenya nova"
 
-#: src/qml/details/AccountDetailsContent.qml:724
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:729
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Introduïu la contrasenya nova"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Introduïu una contrasenya diferent per a canviar-la"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:782
+#: src/qml/details/AccountDetailsContent.qml:786
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Ha fallat en canviar la contrasenya: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:788
+#: src/qml/details/AccountDetailsContent.qml:792
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Visibilitat de la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -975,12 +985,12 @@ msgstr ""
 "utilitzar el vostre compte en un altre dispositiu més tard, <b>considereu "
 "desar la contrasenya en un altre lloc. Això no es pot desfer!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "No mostris la contrasenya com a text"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:815
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -989,17 +999,17 @@ msgstr ""
 "Permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió però mai mostra la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:822
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "S'està eliminant la contrasenya del text…"
 
-#: src/qml/details/AccountDetailsContent.qml:824
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "No exposis la contrasenya de cap manera"
 
-#: src/qml/details/AccountDetailsContent.qml:825
+#: src/qml/details/AccountDetailsContent.qml:829
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1008,17 +1018,17 @@ msgstr ""
 "No es permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió ni mostrar la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:836
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "S'està eliminant la contrasenya del text i del codi QR…"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:845
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1027,33 +1037,33 @@ msgstr ""
 "Configura el nom del servidor i el port al qual connectar (camps buits per "
 "als valors predeterminats)"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Canvi de la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:873
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Introduïu alguns paràmetres de connexió diferents per a canviar-los"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:922
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "No es pot canviar la configuració de la connexió: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:933
+#: src/qml/details/AccountDetailsContent.qml:937
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:957
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:961
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1062,53 +1072,53 @@ msgstr ""
 "No mostreu mai la informació d'aquesta secció a ningú més. Permetria un "
 "accés il·limitat al vostre compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:967
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Mostra un codi QR d'inici de sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:968
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Escanegeu el codi QR en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Mostra les credencials"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:989
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "Introduïu les credencials en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:995
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adreça de xat"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migració"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migra el compte"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "S'està preparant la migració del compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Això pot trigar una estona"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1119,17 +1129,17 @@ msgstr ""
 "El compte actual s'eliminarà d'aquesta aplicació. Feu una còpia de seguretat "
 "de les vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminació"
 
-#: src/qml/details/AccountDetailsContent.qml:1049
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Elimina del Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1138,17 +1148,17 @@ msgstr ""
 "Elimina el compte d'aquesta aplicació. Feu una còpia de seguretat de les "
 "vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "S'està eliminant el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Suprimeix completament"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1156,12 +1166,12 @@ msgstr ""
 "Suprimeix el compte en el proveïdor. No podreu tornar a utilitzar el vostre "
 "compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "S'està suprimint el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1081
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -3324,35 +3334,45 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha parat d'escriure…"
 
-#: src/RosterItem.cpp:37
-msgctxt "QObject|"
-msgid "Notes"
-msgstr "Notes"
-
-#: src/RosterManager.cpp:190
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:235
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "No s'ha pogut afegir %1: %2"
 
-#: src/RosterManager.cpp:199
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:245
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:209
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:257
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:219
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:269
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "No s'ha pogut reanomenar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:229
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:285
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
@@ -3360,17 +3380,26 @@ msgstr ""
 "La sol·licitud de veure les dades personals de %1 ha fallat per un problema "
 "de connexió: %2"
 
-#: src/RosterManager.cpp:240
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:301
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Ha fallat en permetre a %1 veure les vostres dades personals"
 
-#: src/RosterManager.cpp:251
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:318
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Ha fallat en aturar a %1 de veure les vostres dades personals"
+
+#: src/RosterItem.cpp:37
+msgctxt "QObject|"
+msgid "Notes"
+msgstr "Notes"
 
 #: src/RosterModel.cpp:859
 msgctxt "RosterModel|"

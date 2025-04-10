@@ -25,18 +25,18 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generado de la QR-kodo malsukcesis: %1"
 
-#: src/AccountMigrationManager.cpp:422
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:432
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:434
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:452
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:443
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:462
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
@@ -65,30 +65,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Aparatoj sur Serviloj"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Vi ne estas konektita - Mesaĝoj estas senditaj kaj ricevitaj unufoje "
 "konektitaj"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:275 src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Forĵeti"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:275
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Konekti"
 
-#: src/ChatHintModel.cpp:297
+#: src/ChatHintModel.cpp:277
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:290
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -98,7 +98,7 @@ msgstr ""
 "%1 ŝatus ricevi viajn personajn datumojn kiel haveblecon, aparatojn kaj "
 "aliajn personajn informojn%2"
 
-#: src/ChatHintModel.cpp:315
+#: src/ChatHintModel.cpp:295
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -108,47 +108,47 @@ msgstr ""
 "Via kontakto %1 (%2) estas %3 (%4) nun kaj ŝatus ricevi viajn personajn "
 "datumojn kiel haveblecon, aparatojn kaj aliajn personajn informojn denove%5"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rifuzi"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Permesi"
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Permesante…"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:318
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Inviti kontaktojn"
 
-#: src/ChatHintModel.cpp:341
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Malfermante invitejon"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Ĉi tiu grupo estas forigita"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Forlasi"
 
-#: src/ChatHintModel.cpp:362
+#: src/ChatHintModel.cpp:342
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Forlasas grupan babilejon"
@@ -179,22 +179,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Interdiktita"
 
-#: src/Kaidan.cpp:218
+#: src/Kaidan.cpp:236
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Rete"
 
-#: src/Kaidan.cpp:220
+#: src/Kaidan.cpp:238
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/Kaidan.cpp:222
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Senrete"
 
-#: src/Kaidan.cpp:307
+#: src/Kaidan.cpp:286
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "La ligilo estos malfermita post kiam vi konektiĝos."
@@ -866,7 +866,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Aldoni babilejon por sinkronigi viajn notojn tra ĉiuj viaj aparatoj"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -875,12 +875,12 @@ msgstr ""
 "La notbabilejo ne povus esti aldonita al via kontaktlisto ĉar via servilo ne "
 "subtenas tion"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Ŝanĝo de Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:706
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -889,64 +889,64 @@ msgstr ""
 "Ŝanĝu vian pasvorton. Vi devas enigi la novan pasvorton en ĉiuj viaj aliaj "
 "aparatoj!"
 
-#: src/qml/details/AccountDetailsContent.qml:709
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Aktuala Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Enigu vian nunan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:711
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Enigu ĝustan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nova pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:724
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:729
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Enigu vian novan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Enigu malsaman pasvorton por ŝanĝi ĝin"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ŝanĝi pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:782
+#: src/qml/details/AccountDetailsContent.qml:786
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Malsukcesis ŝanĝi pasvorton: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:788
+#: src/qml/details/AccountDetailsContent.qml:792
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Pasvorto ŝanĝiĝis sukcese"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Videbleco de pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -959,12 +959,12 @@ msgstr ""
 "en alia aparato poste, <b>konsideru konservi la pasvorton aliloke. Ĉi tio ne "
 "povas esti malfarata!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ne montri pasvorton kiel teksto"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:815
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -973,17 +973,17 @@ msgstr ""
 "Permesu aldoni pliajn aparatojn per la ensaluta QR-kodo sed neniam montru la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:822
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Forigante pasvorton el teksto…"
 
-#: src/qml/details/AccountDetailsContent.qml:824
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne elmontri pasvorton iel ajn"
 
-#: src/qml/details/AccountDetailsContent.qml:825
+#: src/qml/details/AccountDetailsContent.qml:829
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -992,17 +992,17 @@ msgstr ""
 "Nek permesi aldoni pliajn aparatojn uzante la ensaluta QR-kodo ne montri la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:836
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:845
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Konekto"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1011,28 +1011,28 @@ msgstr ""
 "Agordu la gastigan nomon kaj pordon por konektiĝi (malplenaj kampoj por "
 "defaŭltaj valoroj)"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ŝanĝi konektajn agordojn"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:873
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Enigi malsamajn konektajn agordojn por ŝanĝi ilin"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:922
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Konekto-agordoj ne povus esti ŝanĝitaj: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:933
+#: src/qml/details/AccountDetailsContent.qml:937
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Konekto-agordoj ŝanĝiĝis"
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:957
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Switch device"
@@ -1040,7 +1040,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Ŝanĝi aparaton"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:961
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1054,7 +1054,7 @@ msgstr ""
 "Neniam montru ĉi tiun QR-kodon al iu ajn alia. Ĝi permesus senliman aliron "
 "al via konto!"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:967
 #, fuzzy
 #| msgctxt "LoginArea|"
 #| msgid "Scan login QR code"
@@ -1062,7 +1062,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Skani ensalutan QR-kodon"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:968
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1074,7 +1074,7 @@ msgstr ""
 "Skanu la QR-kodon aŭ enigu la akreditaĵojn kiel teksto sur alia aparato por "
 "ensaluti al ĝi."
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:988
 #, fuzzy
 #| msgctxt "MessageReactionDetailsButton|"
 #| msgid "Show details"
@@ -1082,7 +1082,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Montri detalojn"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:989
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1094,7 +1094,7 @@ msgstr ""
 "Skanu la QR-kodon aŭ enigu la akreditaĵojn kiel teksto sur alia aparato por "
 "ensaluti al ĝi."
 
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:995
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -1102,27 +1102,27 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Babiladreso"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Transmeto"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Transmeti konton"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Preparante kontan transmeton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1133,17 +1133,17 @@ msgstr ""
 "estos forigita de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/AccountDetailsContent.qml:1049
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Forigi de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1152,28 +1152,28 @@ msgstr ""
 "Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Forigante konton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Forigi tute"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Forigante konton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1081
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -3330,52 +3330,71 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 paŭzis tajpadon"
 
-#: src/RosterItem.cpp:37
-msgctxt "QObject|"
-msgid "Notes"
-msgstr "Notoj"
-
-#: src/RosterManager.cpp:190
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:235
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 ne povis esti aldonita: %2"
 
-#: src/RosterManager.cpp:199
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:245
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Ne eblis aldoni kontakton pro nekonekteco."
 
-#: src/RosterManager.cpp:209
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:257
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Ne eblis forigi kontakton pro nekonekteco."
 
-#: src/RosterManager.cpp:219
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:269
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Ne eblis renomi kontakton pro nekonekteco."
 
-#: src/RosterManager.cpp:229
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:285
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
 "Peto vidi la personajn datumojn de %1 malsukcesis pro koneksa problemo: %2"
 
-#: src/RosterManager.cpp:240
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:301
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Permesi al %1 vidi viajn personajn datumojn malsukcesis"
 
-#: src/RosterManager.cpp:251
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:318
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Malsukcesis ĉesigi %1 por vidi viajn personajn datumojn"
+
+#: src/RosterItem.cpp:37
+msgctxt "QObject|"
+msgid "Notes"
+msgstr "Notoj"
 
 #: src/RosterModel.cpp:859
 msgctxt "RosterModel|"

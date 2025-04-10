@@ -21,18 +21,28 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
 
-#: src/AccountMigrationManager.cpp:422
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:432
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid ""
+#| "Account could not be migrated: Another migration is already in progress"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "无法迁移账号：另一项迁移已在进行中"
 
-#: src/AccountMigrationManager.cpp:434
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:452
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationManager.cpp:443
-msgctxt "AccountMigrationManager|"
+#: src/AccountMigrationController.cpp:462
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
+msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
 
@@ -61,28 +71,28 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接 — 连接后即可发送和接收消息"
 
-#: src/ChatHintModel.cpp:295 src/ChatHintModel.cpp:339
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:275 src/ChatHintModel.cpp:319
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:275
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "连接"
 
-#: src/ChatHintModel.cpp:297
+#: src/ChatHintModel.cpp:277
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:290
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -90,7 +100,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:315
+#: src/ChatHintModel.cpp:295
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -100,47 +110,47 @@ msgstr ""
 "您的联系人 %1（%2）现在是 %3（%4），想再次接收您的个人数据，如在线状态、设备"
 "和其他个人信息%5"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:338
+#: src/ChatHintModel.cpp:318
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:339
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:341
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
 
-#: src/ChatHintModel.cpp:359
+#: src/ChatHintModel.cpp:339
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群聊已删除"
 
-#: src/ChatHintModel.cpp:360
+#: src/ChatHintModel.cpp:340
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "离开"
 
-#: src/ChatHintModel.cpp:362
+#: src/ChatHintModel.cpp:342
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
@@ -171,22 +181,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
 
-#: src/Kaidan.cpp:218
+#: src/Kaidan.cpp:236
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "在线"
 
-#: src/Kaidan.cpp:220
+#: src/Kaidan.cpp:238
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/Kaidan.cpp:222
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "离线"
 
-#: src/Kaidan.cpp:307
+#: src/Kaidan.cpp:286
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "将在您连接后打开链接。"
@@ -858,83 +868,83 @@ msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "添加在所有设备上同步的聊天备注"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr "无法将聊天备注添加到您的联系人列表中，因为您的服务器不支持"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "密码更改"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:706
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr "更改密码。您需要在所有其他设备上输入新密码！"
 
-#: src/qml/details/AccountDetailsContent.qml:709
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "当前密码"
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "输入您当前的密码"
 
-#: src/qml/details/AccountDetailsContent.qml:711
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "输入正确的密码"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:728
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "新密码"
 
-#: src/qml/details/AccountDetailsContent.qml:724
-#: src/qml/details/AccountDetailsContent.qml:997
+#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密码"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:729
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "输入新密码"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "输入不同的密码进行更改"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "更改密码"
 
-#: src/qml/details/AccountDetailsContent.qml:782
+#: src/qml/details/AccountDetailsContent.qml:786
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "无法更改密码：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:788
+#: src/qml/details/AccountDetailsContent.qml:792
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "密码更改成功"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "密码显示选项"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -946,131 +956,131 @@ msgstr ""
 "稍后在其他设备上使用您的账号，<b>请考虑将密码存储在其他地方。此操作无法撤销！"
 "</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "不要以文本形式显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:815
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr "允许使用登录二维码添加其他设备，但从不显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:822
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "正在从文本中移除密码…"
 
-#: src/qml/details/AccountDetailsContent.qml:824
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "不要以任何方式暴露密码"
 
-#: src/qml/details/AccountDetailsContent.qml:825
+#: src/qml/details/AccountDetailsContent.qml:829
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr "既不允许使用登录二维码添加其他设备，也不允许显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:836
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "正在从文本和二维码中移除密码…"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:845
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "连接"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "配置要连接的主机名和端口（空字段为默认值）"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "更改连接设置"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:873
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "输入不同的连接设置以进行更改"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:922
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "无法更改连接设置：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:933
+#: src/qml/details/AccountDetailsContent.qml:937
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "连接设置已更改"
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:957
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "切换设备"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:961
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr "切勿向他人展示本部分的信息。否则他人将能无限制地访问您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:967
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "显示登录二维码"
 
-#: src/qml/details/AccountDetailsContent.qml:964
+#: src/qml/details/AccountDetailsContent.qml:968
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "通过另一台设备扫描二维码即可登录"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "显示凭据"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:989
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "在另一台设备上输入凭据即可登录"
 
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:995
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "迁移"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "迁移账号"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "正在准备账号迁移…"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "这可能需要很久"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1023
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1080,45 +1090,45 @@ msgstr ""
 "将账号数据（聊天记录除外）迁移到另一个账号。将从此应用中移除您当前的账号。如"
 "果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1049
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "从 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "从此应用中移除账号。如果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全删除"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "从提供者删除账号。您将无法再次使用您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在删除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1081
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -3229,51 +3239,70 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 已暂停输入"
 
-#: src/RosterItem.cpp:37
-msgctxt "QObject|"
-msgid "Notes"
-msgstr "备注"
-
-#: src/RosterManager.cpp:190
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:235
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterManager.cpp:199
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:245
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterManager.cpp:209
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:257
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterManager.cpp:219
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:269
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
+msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:229
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:285
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterManager.cpp:240
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:301
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterManager.cpp:251
-#, qt-format
-msgctxt "RosterManager|"
+#: src/RosterController.cpp:318
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
+
+#: src/RosterItem.cpp:37
+msgctxt "QObject|"
+msgid "Notes"
+msgstr "备注"
 
 #: src/RosterModel.cpp:859
 msgctxt "RosterModel|"
@@ -3309,7 +3338,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "取消"
