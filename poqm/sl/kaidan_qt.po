@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-31 07:35+0200\n"
+"PO-Revision-Date: 2025-04-10 07:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -25,27 +25,18 @@ msgid "Generating the QR code failed: %1"
 msgstr "Ustvarjanje kode QR je spodletelo: %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr "Računa ni bilo mogoče preseliti: Še ena selitev je v teku"
+msgstr "Računa ni bilo mogoče preseliti: Še ena selitev je že v teku"
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
-"Računa ni bilo mogoče preseliti: Ni bilo mogoče izvoziti podatkov računa"
+"Računa ni bilo mogoče preseliti: Ni bilo mogoče naložiti izvoženih podatkov "
+"računa"
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
@@ -3300,43 +3291,28 @@ msgid "%1 paused typing"
 msgstr "%1 je prekinil tipkanje"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 ni bilo mogoče dodati: %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Dodajanje stika ni uspelo, ker niste povezani."
+msgstr "Dodajanje stika ni uspelo, ker niste bili povezani."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Odstranjevanje stika ni uspelo, ker niste povezani."
+msgstr "Odstranjevanje stika ni uspelo, ker niste bili povezani."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "Preimenovanje stika ni uspelo, ker niste povezani."
+msgstr "Preimenovanje stika ni uspelo, ker niste bili povezani."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3345,20 +3321,16 @@ msgstr ""
 "Zahteva za ogled osebnih podatkov %1 ni uspela zaradi težave s povezavo: %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "Dovoljevanje %1, vpogleda v vaše osebne podatke, ni uspelo"
+msgstr "Dovoljevanje %1 za vpogled v vaše osebne podatke ni uspelo"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Zaustavitev %1 ogleda vaših osebnih podatkov ni uspela"
+msgstr "Zaustavitev %1 za ogled vaših osebnih podatkov ni uspela"
 
 #: src/RosterItem.cpp:37
 msgctxt "QObject|"

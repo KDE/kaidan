@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-01 00:16+0200\n"
+"PO-Revision-Date: 2025-04-10 12:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -21,18 +21,11 @@ msgid "Generating the QR code failed: %1"
 msgstr "De QR-code genereren is mislukt: %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Account kon niet gemigreerd worden: een andere migratie is al bezig"
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
@@ -40,9 +33,6 @@ msgstr ""
 "laden"
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Account kon niet gemigreerd worden: u moet verbonden zijn"
@@ -3324,33 +3314,22 @@ msgid "%1 paused typing"
 msgstr "%1 is gepauzeerd met typen"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Kan geen contactpersoon toevoegen omdat er geen verbinding is."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kan de contactpersoon niet verwijderen omdat er geen verbinding is."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
@@ -3358,11 +3337,7 @@ msgstr ""
 "verbinding beschikbaar is."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3372,17 +3347,13 @@ msgstr ""
 "probleem met de verbinding: %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 toestaan om uw persoonlijke gegevens te zien is mislukt"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
