@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-03-30 11:53+0200\n"
+"PO-Revision-Date: 2025-04-11 08:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -21,20 +21,13 @@ msgid "Generating the QR code failed: %1"
 msgstr "La génération du code « QR » a échoué : %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 "Il a été impossible de réaliser la migration du compte : une autre migration "
-"est déjà en cours"
+"est déjà en cours."
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
@@ -42,9 +35,6 @@ msgstr ""
 "données exportées de compte n'a pu être réalisé."
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -3374,66 +3364,47 @@ msgid "%1 paused typing"
 msgstr "%1 a suspendu sa saisie"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Il a été impossible d'ajouter %1 : %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Impossible d'ajouter un contact, du fait de ne pas être connecté."
+msgstr "Impossible d'ajouter un contact car vous n'êtes pas connecté."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
+msgstr "Impossible de supprimer un contact car vous n'êtes pas connecté."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "Impossible de renommer un contact, du fait de ne pas être connecté."
+msgstr "Impossible de renommer un contact car vous n'êtes pas connecté."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"La demande pour voir les données personnelles de %1 a échoué en raison d'un "
-"problème de connexion : %2"
+"La demande d'affichage des données personnelles de %1 a échoué en raison "
+"d'un problème de connexion : %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "Impossible de permettre à %1 de voir vos données personnelles"
+msgstr "Impossible d'autoriser à %1 d'afficher vos données personnelles"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Impossible d'arrêter %1 de voir vos données personnelles"
+msgstr "Impossible d'arrêter %1 d'afficher vos données personnelles"
 
 #: src/RosterItem.cpp:37
 msgctxt "QObject|"
