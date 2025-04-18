@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-05 12:17+0400\n"
+"PO-Revision-Date: 2025-04-17 09:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -21,26 +21,16 @@ msgid "Generating the QR code failed: %1"
 msgstr "فشل إنشاء رمز الاستجابة السريعة: %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم بالفعل"
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "لا يمكن ترحيل الحساب: لا يمكن تحميل بيانات الحساب المصدرة"
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "لا يمكن ترحيل الحساب: يجب أن تكون متصلاً"
@@ -3261,43 +3251,28 @@ msgid "%1 paused typing"
 msgstr "توقف %1 عن الكتابة مؤقتاً"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "تعذر إضافة جهة اتصال جديدة بسبب عدم توفر الاتصال."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "تعذر إزالة جهة الاتصال بسبب عدم توفر الاتصال."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "لا يمكن إعادة تسمية متراسلك بسبب عدم توفر الاتصال."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3305,17 +3280,13 @@ msgid ""
 msgstr "فشلت طلب رؤية البيانات الشخصية من %1 بسبب مشكلة الاتصال: %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "فشل السماح لـ %1 بالاطلاع على بياناتك الشخصية"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "فشل إيقاف %1 عن الإطلاع على بياناتك الشخصية"
