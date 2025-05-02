@@ -1,14 +1,14 @@
 # Translation for kaidan_qt.po to Euskara/Basque (eu).
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the original file.
-# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-08 11:27+0100\n"
+"PO-Revision-Date: 2025-05-01 19:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: eu\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -161,9 +161,7 @@ msgid "Leaving group chat"
 msgstr "Talde-berriketatik alde egitea"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ezin izan du fitxategia zama-jaitsi: %1"
@@ -186,7 +184,7 @@ msgstr "Utzi du"
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr ""
+msgstr "Debeku duna"
 
 #: src/Kaidan.cpp:218
 msgctxt "Kaidan|"
@@ -325,7 +323,6 @@ msgid "dd MMM at hh:mm"
 msgstr "MMM dd hh:mm-etan"
 
 #: src/Message.cpp:388
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "«Spoiler»"
@@ -333,13 +330,13 @@ msgstr "«Spoiler»"
 #: src/Message.cpp:398
 msgctxt "Message|"
 msgid "Location"
-msgstr "Kokalekua"
+msgstr "Kokapena"
 
 #: src/Message.cpp:486
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
-msgstr "%1(e)rako gonbidapena"
+msgstr "%1 talderako gonbidapena"
 
 #: src/MessageComposition.cpp:239
 #, qt-format
@@ -350,7 +347,7 @@ msgstr "Zama-igotzea huts egin du: %1"
 #: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
-msgstr ""
+msgstr "Mezu-zuzenketa ez da behar bezala egin"
 
 #: src/MessageComposition.cpp:497
 msgctxt "FileSelectionModel|"
@@ -468,41 +465,33 @@ msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1(e)ren nodoak ezin izan dira berreskuratu: %2"
 
 #: src/MixController.cpp:336
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
-msgstr "Konektatzen…"
+msgstr ""
 
 #: src/MixController.cpp:356
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
-msgstr "Konektatzen…"
+msgstr "%1(e)tik debekua duten erabiltzaileak ezin izan dira berreskuratu: %2"
 
 #: src/MixController.cpp:376
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
-msgstr "Konektatzen…"
+msgstr ""
 
 #: src/MixController.cpp:394
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
-msgstr "Konektatzen…"
+msgstr "%1(e)ri ezin izan zaio %2(e)rekiko debekua ipini: %3"
 
 #: src/MixController.cpp:458
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
-msgstr ""
+msgstr "Ez duzu taldea ezabatzeko baimenik"
 
 #: src/Notifications.cpp:151 src/Notifications.cpp:230
 msgctxt "Notifications|"
@@ -831,7 +820,7 @@ msgstr "%1 laguntza taldea"
 #: src/qml/details/AccountDetailsContent.qml:490
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr ""
+msgstr "Blokeatutako berriketa-helbideak"
 
 #: src/qml/details/AccountDetailsContent.qml:494
 msgctxt "AccountDetailsContent|"
@@ -839,11 +828,15 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Blokeatu erabiltzaile jakin bat (adib. erabiltzailea@adibidea.org) edo "
+"zerbitzari bereko erabiltzaile guztiak (adib. adibidea.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:514
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
+"Konektatuta egon behar duzu berriketa-helbideak blokeatzeko edo "
+"desblokeatzeko"
 
 #: src/qml/details/AccountDetailsContent.qml:521
 msgctxt "AccountDetailsContent|"
@@ -853,7 +846,7 @@ msgstr "erabiltzailea@adibidea.org"
 #: src/qml/details/AccountDetailsContent.qml:536
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr ""
+msgstr "Blokeatu berriketa-helbidea"
 
 #: src/qml/details/AccountDetailsContent.qml:594
 msgctxt "AccountDetailsContent|"
@@ -861,7 +854,6 @@ msgid "Change chat address…"
 msgstr "Aldatu berriketa-helbidea..."
 
 #: src/qml/details/AccountDetailsContent.qml:624
-#, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Desblokeatu"
@@ -893,6 +885,8 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Ohar-berriketa ezin izan da zure kontaktuen zerrendara gehitu zure "
+"zerbitzariak ez duelako hori onartzen"
 
 #: src/qml/details/AccountDetailsContent.qml:698
 msgctxt "AccountDetailsContent|"
@@ -1006,7 +1000,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "Testutik eta QR kodetik pasahitza kentzen..."
 
 #: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
@@ -1019,6 +1013,8 @@ msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
+"Konfiguratu konektatzeko ostalari-izena eta taka (eremuak hutsik "
+"lehenetsitako balioetarako)"
 
 #: src/qml/details/AccountDetailsContent.qml:862
 msgctxt "AccountDetailsContent|"
@@ -1044,7 +1040,7 @@ msgstr "Konexio ezarpena aldatu egin dira"
 #: src/qml/details/AccountDetailsContent.qml:955
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr ""
+msgstr "Aldatu gailua"
 
 #: src/qml/details/AccountDetailsContent.qml:959
 msgctxt "AccountDetailsContent|"
@@ -1052,38 +1048,33 @@ msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
+"Ez erakutsi inoiz inori atal honetako informazioa. Zure kontura sarbide "
+"mugagabea baimenduko luke!"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Show QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Erakutsi QR-kodea"
+msgstr "Erakutsi saioan sartzeko QR-kodea"
 
 #: src/qml/details/AccountDetailsContent.qml:966
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
+msgstr "Eskaneatu QR kodea beste gailu batekin hartan saioan sartzeko"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Erakutsi xehetasunak"
+msgstr "Erakutsi egiaztagiriak"
 
 #: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
+msgstr "Sartu egiaztagiriak beste gailu batean hartan saioan sartzeko"
 
 #: src/qml/details/AccountDetailsContent.qml:993
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr "Kopiatu berriketaren helbidea"
+msgstr "Berriketaren helbidea"
 
 #: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
@@ -1112,6 +1103,9 @@ msgid ""
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
+"Migratu kontuaren datuak (berriketen historia izan ezik) beste kontu batera. "
+"Zure uneko kontua aplikazio honetatik kenduko da. Beharrezkoa bada, egin "
+"zure egiaztagirien eta berriketa-historiaren babes-kopia."
 
 #: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
@@ -1184,52 +1178,55 @@ msgstr "Kontuaren xehetasunak"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu zure gailu propioak haietarako zifratzeko"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu zure gailu ezezagun propioak haietarako zifratzeko"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr ""
+msgstr "Egiaztatu zure gailu propioak segurtasun handiena izateko"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:43
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
 msgstr ""
+"Egiaztatu gailu propio ezezagunak edo utzi zure beste gailuek gailu hau "
+"egiaztatu dezaten"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:49
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
-msgstr ""
+msgstr "Ez duzu hartarako zifratzeko konfiantzazko beste gailurik"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2 erabiltzen ez dute beste gailu batzuk dituzu"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr ""
+msgstr "Ez duzu OMEMO 2 erabiltzen duen beste gailu ezagunik"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
 msgstr ""
+"Haietarako zifratzeko egiaztatu beharra duten beste gailu batzuk dituzu"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:57
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "Egiaztatu gabe dauden beste gailu batzuk dituzu"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "Zure beste gailu ezagun guztiak egiaztatuta daude"
 
 #: src/qml/details/AvatarChangePage.qml:22
 msgctxt "AvatarChangePage|"
@@ -1310,12 +1307,9 @@ msgid "Show notification and play sound on message arrival"
 msgstr "Mezua iristean jakinarazpena erakutsi eta soinua jo"
 
 #: src/qml/details/ContactDetailsContent.qml:111
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Konektatzen…"
+msgstr "Kontuaren lehenespena"
 
 #: src/qml/details/ContactDetailsContent.qml:115
 msgctxt "ContactDetailsContent|"
@@ -1335,7 +1329,7 @@ msgstr "Pribatutasuna"
 #: src/qml/details/ContactDetailsContent.qml:138
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr ""
+msgstr "Eskatu datu pertsonalak"
 
 #: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
@@ -1343,19 +1337,22 @@ msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
+"Eskatu zure kontaktuari erabilgarritasuna, gailuak eta bestelako informazio "
+"pertsonalak partekatzeko"
 
 #: src/qml/details/ContactDetailsContent.qml:145
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Ezeztatu datu pertsonalak partekatzea"
 
 #: src/qml/details/ContactDetailsContent.qml:146
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
+"Utzi zure erabilgarritasuna, gailuak eta bestelako informazio pertsonalak "
+"partekatzeari"
 
 #: src/qml/details/ContactDetailsContent.qml:152
-#, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
@@ -1365,36 +1362,35 @@ msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
+"Adierazi noiz duzun elkarrizketa hau irekita, tekleatzen ari zaren eta "
+"tekleatzeari utzi diozun"
 
 #: src/qml/details/ContactDetailsContent.qml:164
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
-msgstr ""
+msgstr "Bidali irakurtze jakinarazpenak"
 
 #: src/qml/details/ContactDetailsContent.qml:165
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "Adierazi zein mezu irakurri dituzun"
 
 #: src/qml/details/ContactDetailsContent.qml:176
-#, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr "Blokea"
+msgstr "Blokeatu"
 
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "Blokeatu komunikazio guztia egoera eta jakinarazpenak barne"
 
 #: src/qml/details/ContactDetailsContent.qml:199
-#, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Kentzea"
 
 #: src/qml/details/ContactDetailsContent.qml:204
-#, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Kendu"
@@ -1402,86 +1398,77 @@ msgstr "Kendu"
 #: src/qml/details/ContactDetailsContent.qml:205
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr ""
+msgstr "Kendu kontaktua eta berriketa-historia osoa"
 
 #: src/qml/details/ContactDetailsContent.qml:213
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Kontaktu %1 kentzen"
+msgstr "Kontaktua kentzen..."
 
 #: src/qml/details/ContactDetailsDialog.qml:17
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "Kontaktu xehetasunak"
+msgstr "Kontaktuaren xehetasunak"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
-msgstr "Pasahitza aldatu"
+msgstr "Maximizatu abatarra"
 
 #: src/qml/details/ContactDetailsPage.qml:13
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "Kontaktu xehetasunak"
+msgstr "Kontaktuaren xehetasunak"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu zure kontaktuaren gailuak haietarako zifratzeko"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu zure kontaktuaren gailu ezezagunak haietarako zifratzeko"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr ""
+msgstr "Egiaztatu zure kontaktuaren gailuak segurtasun handiena izateko"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
 msgstr ""
+"Egiaztatu zure kontaktuaren gailu ezezagunak edo utzi zure kontaktuak gailu "
+"hau egiaztatu dezan"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr ""
+msgstr "Zure kontaktuak ez du hartarako zifratzeko konfiantzako gailurik"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr ""
+msgstr "Zure kontaktuak ez du OMEMO 2 erabiltzen duen gailu ezagunik"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
 msgstr ""
+"Zure kontaktuak haietarako zifratzeko egiaztatu beharra duten gailuak ditu"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "Zure kontaktuak egiaztatu gabe dauden gailuak ditu"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr ""
+msgstr "Zure kontaktuaren gailu ezagun guztiak egiaztatuta daude"
 
 #: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
@@ -1491,18 +1478,18 @@ msgstr "Hedabidea"
 #: src/qml/details/DetailsContent.qml:61
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
-msgstr ""
+msgstr "Zama-jaiste automatikoa"
 
 #: src/qml/details/DetailsContent.qml:62
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr ""
+msgstr "Zama-jaitsi hedabideak automatikoki"
 
 #: src/qml/details/DetailsContent.qml:69
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr ""
+msgstr "%1 arteko hedabideak parteka ditzakezu."
 
 #: src/qml/details/DetailsContent.qml:110
 msgctxt "DetailsContent|"
@@ -1580,35 +1567,30 @@ msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
+"Baimendu erabiltzaile bat (adib. erabiltzailea@adibea.org) edo zerbitzari "
+"bereko erabiltzaile guztiak (adib. adibidea.org) parte hartzera"
 
 #: src/qml/details/GroupChatDetailsContent.qml:168
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "You need to be connected to change your password."
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr "Pasahitza aldatzeko konektaturik egon behar duzu."
+msgstr "Partaideak aldatzeko konektatuta egon behar duzu"
 
 #: src/qml/details/GroupChatDetailsContent.qml:203
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr "Debekua"
 
 #: src/qml/details/GroupChatDetailsContent.qml:226
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Zifratzea"
 
 #: src/qml/details/GroupChatDetailsContent.qml:230
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:231
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1622,34 +1604,31 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:305
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr ""
+msgstr "Partekatu talde honen berriketa-helbidea QR kodearen bidez"
 
 #: src/qml/details/GroupChatDetailsContent.qml:309
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
-msgstr ""
+msgstr "Partekatu talde honen berriketa-helbidea testu bidez"
 
 #: src/qml/details/GroupChatDetailsContent.qml:312
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Message copied to clipboard"
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
-msgstr "Mezua arbelean kopiatua"
+msgstr "Talde-helbidea arbelean kopiatu da"
 
 #: src/qml/details/GroupChatDetailsContent.qml:316
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
+"Partekatu talde honen berriketaren helbidea web-orri baten bidez, erabilera-"
+"laguntzarekin"
 
 #: src/qml/details/GroupChatDetailsContent.qml:324
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Jakinarazpenak"
 
 #: src/qml/details/GroupChatDetailsContent.qml:328
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Sarrerako mezuak"
@@ -1660,39 +1639,31 @@ msgid "Show notification and play sound on message arrival"
 msgstr "Mezua iristean jakinarazpena erakutsi eta soinua jo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:332
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
-msgstr "Konektatzen…"
+msgstr "Kontuaren lehenespena"
 
 #: src/qml/details/GroupChatDetailsContent.qml:336
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Inoiz ez"
 
 #: src/qml/details/GroupChatDetailsContent.qml:340
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr "Aipatzean"
 
 #: src/qml/details/GroupChatDetailsContent.qml:344
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Beti"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Pribatutasuna"
 
 #: src/qml/details/GroupChatDetailsContent.qml:363
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
@@ -1702,27 +1673,25 @@ msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
+"Adierazi noiz duzun elkarrizketa hau irekita, tekleatzen ari zaren eta "
+"tekleatzeari utzi diozun"
 
 #: src/qml/details/GroupChatDetailsContent.qml:375
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
-msgstr ""
+msgstr "Bidali irakurtze jakinarazpenak"
 
 #: src/qml/details/GroupChatDetailsContent.qml:376
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "Adierazi zein mezu irakurri dituzun"
 
 #: src/qml/details/GroupChatDetailsContent.qml:393
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
-msgstr "Izenburua"
+msgstr "Alde egitea eta ezabatzea"
 
 #: src/qml/details/GroupChatDetailsContent.qml:399
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Alde egin"
@@ -1730,26 +1699,20 @@ msgstr "Alde egin"
 #: src/qml/details/GroupChatDetailsContent.qml:400
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr ""
+msgstr "Taldetik alde egin eta kendu berriketaren historia osoa"
 
 #: src/qml/details/GroupChatDetailsContent.qml:409
-#, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "Talde-berriketatik alde egitea"
+msgstr "Talde-berriketatik alde egiten..."
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "Konektatzen…"
+msgstr "Ezin izan da %1 taldetik alde egin%2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:423
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Ezabatu"
@@ -1757,77 +1720,64 @@ msgstr "Ezabatu"
 #: src/qml/details/GroupChatDetailsContent.qml:424
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr ""
+msgstr "Ezabatu taldea. Inork ezingo du aurrerantzean taldera elkartu!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "Kontaktua ezabatu"
+msgstr "Talde-berriketa ezabatzen..."
 
 #: src/qml/details/GroupChatDetailsContent.qml:439
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr "Konektatzen…"
+msgstr "%1 taldea ezin izan da ezabatu%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:17
-#, fuzzy
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "Talde-xehetasunak"
+msgstr "Taldearen xehetasunak"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:18
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Maximize avatar"
-msgstr "Pasahitza aldatu"
+msgstr "Maximizatu abatarra"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "Berriketa-talde publikoa"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "Berriketa-talde pribatua"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:26
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Ezabatuta"
 
 #: src/qml/details/GroupChatDetailsPage.qml:13
-#, fuzzy
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "Talde-xehetasunak"
+msgstr "Taldearen xehetasunak"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu partaideen gailuak haietarako zifratzeko"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr ""
+msgstr "Egiaztatu partaideen gailu ezezagunak haietarako zifratzeko"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr ""
+msgstr "Egiaztatu partaideen gailuak segurtasun handiena izateko"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
 msgctxt "GroupChatUserKeyAuthenticationButton|"
@@ -1835,58 +1785,57 @@ msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
 msgstr ""
+"Egiaztatu partaideen gailu ezezagunak edo utzi partaideei gailu hau "
+"egiaztatzen"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr ""
+msgstr "Ez dago hartarako zifratzeko konfiantzazko gailurik duen partaiderik"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr ""
+msgstr "Ez dago OMEMO 2 erabiltzen duen gailu ezagunik duen partaiderik"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
 msgstr ""
+"Partaide batzuek haietarako zifratzeko egiaztatu beharra duten gailuak "
+"dituzte"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "Partaide batzuek egiaztatu gabeko gailuak dituzte"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr ""
+msgstr "Partaideen gailu ezagun guztiak egiaztatu dira"
 
 #: src/qml/details/MediaOverview.qml:70
-#, fuzzy
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Irudiak"
 
 #: src/qml/details/MediaOverview.qml:87
-#, fuzzy
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Bideoak"
 
 #: src/qml/details/MediaOverview.qml:105
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Other file"
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Bestelakoak"
 
 #: src/qml/details/MediaOverview.qml:172
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr "%1 hautatuta"
+msgstr "%1/%2 hautatuta"
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format
@@ -1895,15 +1844,15 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Ezin izan dira fitxategi guztiak ezabatu:\n"
+"%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:25
-#, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
 msgstr "Zifratzea"
 
 #: src/qml/details/NotesChatDetailsContent.qml:29
-#, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
@@ -1914,19 +1863,15 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
 "read or modify the data that is synchronized across your devices."
 msgstr ""
+"Muturren artean OMEMO 2rekin zifratzeak ziurtatzen du, zuk ez beste inork "
+"ezin dituela irakurri zure gailuetan zehar sinkronizatuta dauden datuak."
 
 #: src/qml/details/NotesChatDetailsContent.qml:50
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Kentzea"
 
 #: src/qml/details/NotesChatDetailsContent.qml:55
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Kendu"
@@ -1934,81 +1879,66 @@ msgstr "Kendu"
 #: src/qml/details/NotesChatDetailsContent.qml:56
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr ""
+msgstr "Kendu ohar-berriketa eta berriketa-historia osoa"
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "Kontaktu berria gehitu"
+msgstr "Ohar-berriketa kentzen..."
 
 #: src/qml/details/NotesChatDetailsDialog.qml:15
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr ""
+msgstr "Oharren xehetasunak"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"Berriketa honetako mezuak ohar gisa gailu guztietan zehar sinkronizatuta "
+"daude"
 
 #: src/qml/details/NotesChatDetailsPage.qml:14
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr ""
+msgstr "Oharren xehetasunak"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
-msgstr "Konektatzen…"
+msgstr "Kontuaren lehenespena"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
-#, fuzzy
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
 msgstr "Inoiz ez"
 
 #: src/qml/details/RosterItemDetailsContent.qml:29
-#, fuzzy
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
 msgstr "Beti"
 
 #: src/qml/details/RosterItemDetailsContent.qml:55
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
-msgstr "Kontaktua ezabatu"
+msgstr "Etiketa berria"
 
 #: src/qml/details/RosterItemDetailsContent.qml:69
-#, fuzzy
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "Gehitu etiketa"
 
 #: src/qml/details/RosterItemDetailsHeader.qml:22
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
-msgstr "Pasahitza aldatu"
+msgstr "Maximizatu abatarra"
 
 #: src/qml/details/UserDevicesArea.qml:26
-#, fuzzy
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Konektatutako gailuak"
 
 #: src/qml/elements/AboutContent.qml:19
-#, fuzzy
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "Bisitatu webgunea"
@@ -2016,20 +1946,19 @@ msgstr "Bisitatu webgunea"
 #: src/qml/elements/AboutContent.qml:20
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "Ireki Kaidan-en webgunea web arakatzaile batean"
 
 #: src/qml/elements/AboutContent.qml:26
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Jarraitu Mastodon-en"
 
 #: src/qml/elements/AboutContent.qml:27
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr ""
+msgstr "Ireki Kaidan-en Mastodon orria web arakatzaile batean"
 
 #: src/qml/elements/AboutContent.qml:33
-#, fuzzy
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "Egin dohaintza"
@@ -2037,10 +1966,9 @@ msgstr "Egin dohaintza"
 #: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "Dohaintza baten bidez Kaidan-en garapena eta azpiegitura babestea"
 
 #: src/qml/elements/AboutContent.qml:40
-#, fuzzy
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Eman arazoen berri"
@@ -2048,58 +1976,53 @@ msgstr "Eman arazoen berri"
 #: src/qml/elements/AboutContent.qml:41
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr ""
+msgstr "Kaidan-ekin izandako arazoak garatzaileei jakinarazi"
 
 #: src/qml/elements/AboutContent.qml:47
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutContent|"
 msgid "View source code"
-msgstr "Ikusi iturburu kodea linean"
+msgstr "Ikusi sorburu kodea"
 
 #: src/qml/elements/AboutContent.qml:48
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr ""
+msgstr "Ikusi Kaidan-en sorburu kodea lerroan eta proiektuari lagundu"
 
 #: src/qml/elements/AboutHeader.qml:40
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
-msgstr ""
+msgstr "Gailu guztietarako berriketa aplikazio modernoa"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr ""
+msgstr "1. urratsa: Eskaneatu zure <b>beste gailuaren</b> QR kodea"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr ""
+"2. urratsa: Eskaneatu zure beste gailuarekin <b>gailu honen</b> QR kodea"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr ""
+msgstr "Egiaztatu gabeko gailu propioak"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
 msgctxt "Audio|"
 msgid "Pause"
 msgstr "Eten"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
 msgctxt "Audio|"
 msgid "Play"
 msgstr "Jo"
 
 #: src/qml/elements/CameraStatus.qml:40
-#, fuzzy
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr "Ez dago kamerarik erabilgarri."
+msgstr "Ez dago kamerarik erabilgarri"
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -2107,7 +2030,6 @@ msgid "Spoiler"
 msgstr "«Spoiler»"
 
 #: src/qml/elements/ChatMessage.qml:424
-#, fuzzy
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Berria"
@@ -2116,52 +2038,39 @@ msgstr "Berria"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1(e)k honaino irakurri du"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
 msgstr "Kendu hautatutako fitxategia"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "Artxibo bat aukeratu"
+msgstr "Ireki hautatutako fitxategiaren karpeta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
-#, fuzzy
-#| msgctxt "ContextDrawer|"
-#| msgid "Actions"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "Erreakzioa"
+msgstr "Erreakzionatu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:98
-#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Erantzun"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:116
-#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Aipua"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:124
-#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Kopiatu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:138
-#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Editatu"
@@ -2169,20 +2078,14 @@ msgstr "Editatu"
 #: src/qml/elements/ChatMessageContextMenu.qml:146
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr ""
+msgstr "Markatu lehenengo ez irakurri gisa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:157
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
-msgstr "Kontaktua ezabatu"
+msgstr "Kendu gailu honetatik"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
 msgstr "Itxi bilaketa"
@@ -2190,130 +2093,107 @@ msgstr "Itxi bilaketa"
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr ""
+msgstr "Bilatu gorantz"
 
 #: src/qml/elements/ChatPageSearchView.qml:92
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr ""
+msgstr "Bilatu beherantz"
 
 #: src/qml/elements/ChatPageSendingPane.qml:81
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Utzi erantzuna bertan behera"
+msgstr "Ezeztatu erantzuna"
 
 #: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Mezuaren zati ikusgaia"
 
 #: src/qml/elements/ChatPageSendingPane.qml:131
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Ezeztatu mezuaren ezkutuko zatia gehitzea"
 
 #: src/qml/elements/ChatPageSendingPane.qml:156
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr "Gehitu Emoji bat"
+msgstr "Gehitu emoji bat"
 
 #: src/qml/elements/ChatPageSendingPane.qml:167
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr ""
+msgstr "Aipatu partaide bat"
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "Mezua sortu"
+msgstr "Osatu <b>zifratutako</b> mezu bat zati ezkutuekin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:200
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "Mezua sortu"
+msgstr "Osatu <b>zifratu gabeko</b> mezu bat zati ezkutuekin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:202
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "Mezua sortu"
+msgstr "Osatu <b>zifratutako</b> mezua"
 
 #: src/qml/elements/ChatPageSendingPane.qml:202
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "Mezua sortu"
+msgstr "Osatu <b>zifratu gabeko</b> mezua"
 
 #: src/qml/elements/ChatPageSendingPane.qml:294
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
-msgstr "Egin argazki bat"
+msgstr "Atera argazki bat"
 
 #: src/qml/elements/ChatPageSendingPane.qml:302
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
 #: src/qml/elements/ChatPageSendingPane.qml:310
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "Artxibo bat aukeratu"
+msgstr "Partekatu fitxategiak"
 
 #: src/qml/elements/ChatPageSendingPane.qml:321
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "Izenburua"
+msgstr "Partekatu zure kokapena"
 
 #: src/qml/elements/ChatPageSendingPane.qml:329
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Gehitu mezuaren ezkutatuko zatia"
 
 #: src/qml/elements/ChatPageSendingPane.qml:373
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Ezkutatu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:373
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Gehiago"
 
 #: src/qml/elements/ChatPageSendingPane.qml:422
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Send a spoiler message"
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "«Spoiler» mezu bat bidali"
+msgstr "Bidali ahots-mezu bat"
 
 #: src/qml/elements/ChatPageSendingPane.qml:447
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Bidali"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:47
-#, fuzzy
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
-msgstr "Berretsi"
+msgstr "Baieztatu"
 
 #: src/qml/elements/ConfirmationPage.qml:24
 #, fuzzy
@@ -2322,9 +2202,6 @@ msgid "Cancel"
 msgstr "Utzi"
 
 #: src/qml/elements/ContactAdditionContent.qml:31
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Gehitu"
@@ -2332,57 +2209,44 @@ msgstr "Gehitu"
 #: src/qml/elements/ContactAdditionContent.qml:34
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr "Kontaktua dagoeneko existitzen da"
+msgstr "Kontaktua jada existitzen da"
 
 #: src/qml/elements/ContactAdditionContent.qml:36
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr ""
+msgstr "Ireki berriketa"
 
 #: src/qml/elements/ContactAdditionContent.qml:47
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
-msgstr "Kontatua gehitzea"
+msgstr "Kontatua gehitze..."
 
 #: src/qml/elements/ContactAdditionContent.qml:58
-#, fuzzy
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr "Izena (hautazkoa)"
+msgstr "Izena (hautazkoa):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "Mezua (hautazkoa):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "Kaixo, ... naiz."
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
 msgstr "Gehitu kontaktua"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
 msgstr "Gehitu kontaktua"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
 msgstr "Gehitu kontaktua"
@@ -2390,46 +2254,44 @@ msgstr "Gehitu kontaktua"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "Eskaneatu QR kodeak"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Erakutsi azalpena"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "1. urratsa: Eskaneatu zure <b>kontaktuaren</b> QR kodea"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "2. urratsa: Utzi zure kontaktuari <b>zure</b> QR kodea eskaneatzen"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "1. urratsa: Eskaneatu zure <b>kontaktuaren</b> QR kodea"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "2. urratsa: Utzi zure kontaktuari <b>zure</b> QR kodea eskaneatzen"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "Kontaktuaren egiaztatu gabeko gailuak"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopiatu"
 
 #: src/qml/elements/CustomConnectionSettings.qml:25
-#, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Ostalari-izena:"
@@ -2437,10 +2299,9 @@ msgstr "Ostalari-izena:"
 #: src/qml/elements/CustomConnectionSettings.qml:29
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr ""
+msgstr "Ostalari-izenak ez du zuriunerik izan behar"
 
 #: src/qml/elements/CustomConnectionSettings.qml:49
-#, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Ataka:"
@@ -2448,12 +2309,9 @@ msgstr "Ataka:"
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr ""
+msgstr "Berriketaren helbidea"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "erabiltzailea@adibidea.org"
@@ -2462,11 +2320,10 @@ msgstr "erabiltzailea@adibidea.org"
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
+"Berriketaren helbideak <b>erabiltzaileizena@zerbitzaria</b> itxura izan "
+"behar du"
 
 #: src/qml/elements/fields/PasswordField.qml:18
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "PasswordField|"
 msgid "Password"
 msgstr "Pasahitza"
@@ -2474,40 +2331,29 @@ msgstr "Pasahitza"
 #: src/qml/elements/fields/PasswordField.qml:29
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "Mesedez, sartu pasahitz baliodun bat"
 
 #: src/qml/elements/GeoLocationMap.qml:97
-#, fuzzy
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr "OpenStreetMap"
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "Erakutsi kokalekua"
+msgstr "Erakutsi kokapena"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
-msgstr "Kokalekua"
+msgstr "Kokapena"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
 msgstr "Partekatu kokapena"
 
 #: src/qml/elements/GroupChatCreationContent.qml:23
-#, fuzzy
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "Sortu"
@@ -2515,86 +2361,72 @@ msgstr "Sortu"
 #: src/qml/elements/GroupChatCreationContent.qml:25
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr ""
+msgstr "Sortu berriketa-taldea..."
 
 #: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr ""
+msgstr "Talde-izena (hautazkoa)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr ""
+msgstr "Adibide-taldea"
 
 #: src/qml/elements/GroupChatCreationContent.qml:39
-#, fuzzy
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Publikoa"
 
 #: src/qml/elements/GroupChatCreationContent.qml:45
-#, fuzzy
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
-msgstr "Talde IDa:"
+msgstr "Talde IDa"
 
 #: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr ""
+msgstr "adibide-taldea"
 
 #: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr ""
+msgstr "Sartu talde ID baliodun bat"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Nickname:"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr "Ezizena:"
+msgstr "Goitizena (hautazkoa):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:89
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
-msgstr "Konektatzen…"
+msgstr "Taldea ezin izan da %1%2(e)an sortu"
 
 #: src/qml/elements/GroupChatCreationContent.qml:93
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
-msgstr "Konektatzen…"
+msgstr "%1 taldea ezin izan da sortu%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:97
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "Konektatzen…"
+msgstr "Ezin izan da %1 taldera elkartu%2"
 
 #: src/qml/elements/GroupChatCreationDialog.qml:17
-#, fuzzy
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr "Libre berriketarako"
+msgstr "Sortu berriketa-taldea"
 
 #: src/qml/elements/GroupChatCreationPage.qml:15
-#, fuzzy
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr "Libre berriketarako"
+msgstr "Sortu berriketa-taldea"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:20
-#, fuzzy
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "Elkartu"
@@ -2602,105 +2434,91 @@ msgstr "Elkartu"
 #: src/qml/elements/GroupChatJoiningContent.qml:22
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr ""
+msgstr "Berriketa-taldera elkartzen..."
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
-#, fuzzy
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Helbidea"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:29
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
-msgstr "erabiltzailea@example.org"
+msgstr "taldea@taldeak.adibidea.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
-msgstr ""
+msgstr "Taldeak <b>taldea@zerbitzaria</b> itxura izan behar du"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:38
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Nickname:"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr "Ezizena:"
+msgstr "Goitizena (hautazkoa):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:48
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "Konektatzen…"
+msgstr "Ezin izan da %1 taldera elkartu%2"
 
 #: src/qml/elements/GroupChatJoiningDialog.qml:17
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Elkartu talde-berriketara"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:15
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Elkartu talde-berriketara"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:58
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "Kontaktua ezabatu"
+msgstr "Gonbidatu kontaktua talde honetara..."
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
-msgstr ""
+msgstr "1. urratsa: Eskaneatu <b>partaideen</b> QR kodea"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 2: Let the participant scan <b>your</b> QR code"
-msgstr ""
+msgstr "2. urratsa: Utzi partaideari <b>zure</b> QR kodea eskaneatzen"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr ""
+msgstr "Partaidearen egiaztatu gabeko gailuak"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
-#, fuzzy
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
-msgstr "Egin argazki bat"
+msgstr "Atera argazki bat"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr ""
+msgstr "Egiaztatu gailuak"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Erakutsi azalpena"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "Eskaneatu QR kodeak"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr ""
+msgstr "Egiaztatu eskuz"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:81
-#, fuzzy
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
 msgstr "Egiaztatu gailua"
@@ -2708,329 +2526,270 @@ msgstr "Egiaztatu gailua"
 #: src/qml/elements/KeyAuthenticationPage.qml:96
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr ""
+msgstr "Gailua egiaztatu da"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:100
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
+"Hatz-markak 64 karaktere izan behar ditu, digituekin eta a eta f arteko "
+"letrekin"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:137
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "Egiaztatutako gailu propioak"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:158
-#, fuzzy
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
 msgstr "Kopiatu hatz-marka"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:165
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Message copied to clipboard"
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr "Mezua arbelean kopiatua"
+msgstr "Hatz-marka arbelean kopiatu da"
 
 #: src/qml/elements/LoadingArea.qml:34
-#, fuzzy
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Zamatzen..."
 
 #: src/qml/elements/LoginArea.qml:26 src/qml/elements/LoginArea.qml:87
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr "Saioa hasi"
+msgstr "Saioan sartu"
 
 #: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr ""
+msgstr "Eskaneatu saioan sartzeko QR kodea"
 
 #: src/qml/elements/LoginArea.qml:54
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Konexioaren ezarpenak"
 
 #: src/qml/elements/LoginArea.qml:88
-#, fuzzy
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
 msgctxt "MediumSendingPreview|"
 msgid "Description"
 msgstr "Deskribapena"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Kendu fitxategia"
 
 #: src/qml/elements/MessageBackground.qml:106
-#, fuzzy
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Zifratu gabe"
 
 #: src/qml/elements/MessageBackground.qml:111
-#, fuzzy
 msgctxt "MessageBackground|"
 msgid "Untrusted"
-msgstr "Ez konfiantzazkoa"
+msgstr "Ez konfiantzaduna"
 
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
-#, fuzzy
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr "Gehitu erreakzioa"
+msgstr "Gehitu erreakzioa..."
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:22
-#, fuzzy
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Erakutsi xehetasunak"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:115
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
-msgstr "Esteka konektatu ondoren irekiko da."
+msgstr "Konektatuta zaudenean gehituko da"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:120
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be removed once you are connected"
-msgstr "Esteka konektatu ondoren irekiko da."
+msgstr "Konektatuta zaudenean kenduko da"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:124
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be added"
-msgstr "«*» ezin izan da gehitu."
+msgstr "Ezin izan da gehitu"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:129
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be removed"
-msgstr "Konektatzen…"
+msgstr "Ezin izan da kendu"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
-#, fuzzy
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
 msgstr "Bidalita"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
-#, fuzzy
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
 msgstr "Entregatuta"
 
 #: src/qml/elements/MessageReactionRetryButton.qml:22
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
-msgstr "Kontaktua ezabatu"
+msgstr "Berriz saiatu erreakzioak eguneratzen"
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr ""
+msgstr "Kontaktua gehitu da - Jarraitu 2. urratsarekin"
 
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "QR kode honek ez dauka kontakturik"
 
 #: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"Beste gailu propiorako hartutako konfiantza erabakiak - Jarraitu 2. "
+"urratsarekin"
 
 #: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr ""
+msgstr "Kontakturako hartutako konfiantza erabakiak - Jarraitu 2. urratsarekin"
 
 #: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "QR kode hau ez da zure beste gailurako"
 
 #: src/qml/elements/QrCodeScanningArea.qml:80
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "QR kode hau ez da zure kontaktuarena"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
-msgstr ""
+msgstr "QR kode hau ez da konfiantza erabakietarako"
 
 #: src/qml/elements/QrCodeScanningArea.qml:103
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "Konfiantza erabakiak hartzea..."
 
 #: src/qml/elements/QrCodeScanningArea.qml:103
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr "Kontatua gehitzea"
+msgstr "Kontatua gehitzea..."
 
 #: src/qml/elements/ReferencedMessage.qml:80
-#, fuzzy
 msgctxt "ReferencedMessage|"
 msgid "Me"
 msgstr "Ni"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "Kokalekua"
 
 #: src/qml/elements/ReferencedMessage.qml:99
-#, fuzzy
 msgctxt "ReferencedMessage|"
 msgid "Media"
-msgstr "Euskarria"
+msgstr "Hedabideak"
 
 #: src/qml/elements/RosterFilteringArea.qml:27
-#, fuzzy
 msgctxt "RosterFilteringArea|"
 msgid "Unavailable contacts"
-msgstr "Eskuragarri"
+msgstr "Kontaktu ez erabilgarriak"
 
 #: src/qml/elements/RosterFilteringArea.qml:31
-#, fuzzy
 msgctxt "RosterFilteringArea|"
 msgid "Available contacts"
-msgstr "Eskuragarri"
+msgstr "Kontaktu erabilgarriak"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "Talde pribatuak"
 
 #: src/qml/elements/RosterFilteringArea.qml:39
 msgctxt "RosterFilteringArea|"
 msgid "Public groups"
-msgstr ""
+msgstr "Talde publikoak"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "Iragazi motaren arabera"
+msgstr "Motaren arabera iragazi"
 
 #: src/qml/elements/RosterFilteringArea.qml:53
 msgctxt "RosterFilteringArea|"
 msgid "Show only entries of specific types"
-msgstr ""
+msgstr "Erakutsi mota jakinetako sarrerak bakarrik"
 
 #: src/qml/elements/RosterFilteringArea.qml:115
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "Kontaktua ezabatu"
+msgstr "Kontuen arabera iragazi"
 
 #: src/qml/elements/RosterFilteringArea.qml:116
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "Erakutsi hautatutako kontuetako berriketak bakarrik"
 
 #: src/qml/elements/RosterFilteringArea.qml:178
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "Etiketen arabera iragazi"
 
 #: src/qml/elements/RosterFilteringArea.qml:179
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "Erakutsi hautatutako etiketak dituzten berriketak bakarrik"
 
 #: src/qml/elements/RosterListItem.qml:83
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterListItem|"
 msgid "Deleted"
 msgstr "Ezabatuta"
 
 #: src/qml/elements/RosterListItem.qml:101
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Copy Message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Mezua kopiatu"
+msgstr "Oraindik mezurik ez"
 
 #: src/qml/elements/RosterListItem.qml:117
-#, fuzzy
 msgctxt "RosterListItem|"
 msgid "Draft:"
-msgstr "Zirriborroa"
+msgstr "Zirriborroa:"
 
 #: src/qml/elements/RosterListItem.qml:120
-#, fuzzy
 msgctxt "RosterListItem|"
 msgid "Me:"
-msgstr "Ni"
+msgstr "Ni:"
 
 #: src/qml/elements/RosterListItem.qml:124
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
 msgctxt "RosterListItem|"
 msgid "Unpin"
-msgstr ""
+msgstr "Iltzagetu"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Iltzatu"
 
 #: src/qml/elements/SearchBarPage.qml:28
-#, fuzzy
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Bilatu"
@@ -3039,81 +2798,60 @@ msgstr "Bilatu"
 #, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
-msgstr ""
+msgstr "Bilatu talde publikoak (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "Zama-jaisten..."
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "Berriz saiatu"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "Konektatzen…"
+msgstr "Ezin izan dira talde publikoak berreskuratu: %1"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr ""
+msgstr "Kopiatu web-helbidea"
 
 #: src/qml/elements/VideoRecordingDialog.qml:17
-#, fuzzy
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Hauta ezazu txat bat mezuak bidaltzen hasteko"
+msgstr "Hasteko, hauta berriketa bat"
 
 #: src/qml/GlobalDrawer.qml:34
-#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontuak"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Pasahitza"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Sartu zure egungo pasahitza"
+msgstr "Sartu zure pasahitz zuzena"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Kopiatu Sarhitza"
+msgstr "Berretsi pasahitza"
 
 #: src/qml/GlobalDrawer.qml:163
-#, fuzzy
-#| msgctxt "ContextDrawer|"
-#| msgid "Actions"
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Ekintzak"
@@ -3121,31 +2859,29 @@ msgstr "Ekintzak"
 #: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Gehitu kontaktua QR kode bidez"
 
 #: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr ""
+msgstr "Gehitu kontaktua berriketa-helbidearen bidez"
 
 #: src/qml/GlobalDrawer.qml:179
-#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr "&Sortu taldea..."
+msgstr "Sortu taldea"
 
 #: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Join group"
-msgstr ""
+msgstr "Elkartu taldera"
 
 #: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
-msgstr ""
+msgstr "Bilatu talde publikoak"
 
 #: src/qml/GlobalDrawer.qml:205
-#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Honi buruz"
@@ -3154,10 +2890,9 @@ msgstr "Honi buruz"
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "%1 desblokeatuta"
 
 #: src/qml/main.qml:102
-#, fuzzy
 msgctxt "main|"
 msgid "Undo"
 msgstr "Desegin"
@@ -3166,22 +2901,20 @@ msgstr "Desegin"
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Ezin izan du %1 blokeatu: %2"
 
 #: src/qml/main.qml:111
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Ezin izan du %1 desblokeatu: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "Eskaneatu QR kode bat"
 
 #: src/qml/QrCodeOnboardingPage.qml:25
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Eskaneatu QR kodea"
@@ -3189,12 +2922,12 @@ msgstr "Eskaneatu QR kodea"
 #: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Erakutsi azalpena"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr ""
+msgstr "Eskaneatu zure gailu zaharraren saioan sartzeko QR kodea"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -3202,14 +2935,15 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"QR kodea gailu zaharraren kontuaren xehetasunetan azaldu dezakezu Erakutsi "
+"saioan sartzeko QR kodea bidez"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr ""
+msgstr "QR kode hau ez da izen-emateko balizko QR kode bat."
 
 #: src/qml/QrCodeOnboardingPage.qml:102
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
@@ -3217,59 +2951,54 @@ msgstr "Konektatzen…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "Izen-emate automatikoa"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:54
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "Izen-ematea eskatzen..."
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:59
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "Osatu izen-ematea!"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr ""
+msgstr "Sartu informazio gehigarria"
 
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "Hornitzaileak informazio gehiago eskatu du"
 
 #: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "Baliteke dena beharrezkoa ez izatea"
 
 #: src/qml/registration/ManualRegistrationPage.qml:30
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr ""
+msgstr "Eskuz izen-ematea"
 
 #: src/qml/registration/ManualRegistrationPage.qml:42
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr ""
+msgstr "Bete izena emateko inprimakia!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Egungo pasahitza:"
+msgstr "Sartu nahi dituzun egiaztagiriak"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
-msgstr "Bistaratzeko izena"
+msgstr "Azaltzeko izena"
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
-#, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Erabiltzaile-izena"
@@ -3278,58 +3007,49 @@ msgstr "Erabiltzaile-izena"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
+"Sartu balizko erabiltzaile-izen bat edo utzi eremua hutsik ausazko baterako"
 
 #: src/qml/registration/ManualRegistrationPage.qml:140
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "Hornitzaileak pasahitz sendoago bat eskatzen du."
 
 #: src/qml/registration/ManualRegistrationPage.qml:189
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "Erabiltzaile-izena jada hartuta dago."
 
 #: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "Ausazko erabiltzaile-izen berri bat sortu da."
 
 #: src/qml/registration/ProviderPage.qml:22
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "Artxibo bat aukeratu"
+msgstr "Aukeratu hornitzaile bat"
 
 #: src/qml/registration/ProviderPage.qml:39
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "Aukeratu hornitzaile bat erregistratzeko!"
 
 #: src/qml/registration/ProviderPage.qml:110
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr ""
+msgstr "Hornitzailearen helbidea"
 
 #: src/qml/registration/ProviderPage.qml:123
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
-msgstr "Konexioaren ezarpenak"
+msgstr "Konexio-ezarpenak"
 
 #: src/qml/registration/ProviderPage.qml:171
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "Izenburua"
+msgstr "Zerbitzarien kokalekuak"
 
 #: src/qml/registration/ProviderPage.qml:176
-#, fuzzy
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Hizkuntzak"
@@ -3337,22 +3057,22 @@ msgstr "Hizkuntzak"
 #: src/qml/registration/ProviderPage.qml:181
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "Noiztik erabilgarri/zerrendatuta"
 
 #: src/qml/registration/ProviderPage.qml:186
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr ""
+msgstr "Partekatutako hedabideen gehienezko tamaina"
 
 #: src/qml/registration/ProviderPage.qml:191
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "Mezuen biltegiratze iraupena"
 
 #: src/qml/registration/ProviderPage.qml:195
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "Bisitatu xehetasun orria"
 
 #: src/qml/registration/ProviderPage.qml:196
 msgctxt "ProviderPage|"
@@ -3462,18 +3182,18 @@ msgstr "Ireki hornitzailearen erregistratzeko web-orrian"
 #: src/qml/registration/WebRegistrationPage.qml:71
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "2. urratsa: Saioan sartu erregistratutako zure konturekin"
+msgstr "2. urratsa: Erregistratutako zure konturekin saioan sartu"
 
 #: src/qml/RosterPage.qml:26 src/qml/RosterPage.qml:46
 #: src/qml/RosterPage.qml:59
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr "Iragazkia"
+msgstr "Iragazi"
 
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Iltzatu eta mugitu"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3606,29 +3326,19 @@ msgid "%1 could not be added: %2"
 msgstr "Ezin izan da %1 gehitu: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Ezin izan du kontaktua gehitu, konektatu gabe egotearen ondorioz."
+msgstr "Ezin izan du kontaktua gehitu, konektatu gabe egoteagatik."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Ezin izan du kontaktua ezabatu, konektatu gabe egotearen ondorioz."
+msgstr "Ezin izan du kontaktua kendu, konektatu gabe egoteagatik."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr ""
-"Ezin izan du kontaktua berrizendatu, konektatu gabe egotearen ondorioz."
+msgstr "Ezin izan du kontaktua berrizendatu, konektatu gabe egoteagatik."
 
 #: src/RosterManager.cpp:229
 #, qt-format
