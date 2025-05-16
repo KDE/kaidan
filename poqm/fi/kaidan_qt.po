@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-02-17 15:06+0200\n"
+"PO-Revision-Date: 2025-04-20 10:29+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -94,18 +94,14 @@ msgstr ""
 
 # ”Contact” jätetty tarkoituksella pois, koska ”henkilö” olisi turha
 #: src/ChatHintModel.cpp:315
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"%1 on nyt %2 ja haluaisi vastaanottaa henkilökohtaisia tietojasi kuten "
-"läsnäolon, laitteet ja muuta%3"
+"%1 (%2) on nyt %3 (%4) ja haluaisi taas vastaanottaa henkilökohtaisia "
+"tietojasi kuten läsnäolon, laitteet ja muuta%5"
 
 #: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
@@ -154,12 +150,10 @@ msgid "Leaving group chat"
 msgstr "Poistutaan ryhmäkeskustelusta"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "Ei voitu ladata tiedostoa: %1"
+msgstr "Tiedostoa ei voitu ladata: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -454,12 +448,10 @@ msgid "%1 could not be invited to %2: %3"
 msgstr "Ei voitu kutsua käyttäjää %1 ryhmään %2: %3"
 
 #: src/MixController.cpp:321
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
-msgstr "Ei voitu lisätä: %1"
+msgstr "Kohteen %1 solmuja ei voitu noutaa: %2"
 
 #: src/MixController.cpp:336
 #, qt-format
@@ -1037,71 +1029,40 @@ msgid "Connection settings changed"
 msgstr "Yhteysasetukset ovat muuttuneet"
 
 #: src/qml/details/AccountDetailsContent.qml:955
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Vaihda laitetta"
 
 #: src/qml/details/AccountDetailsContent.qml:959
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Älä koskaan näytä tätä QR-koodia muille. Se antaa rajoittamattoman pääsyn "
-"tiliisi!"
+"Älä koskaan näytä tämän osion tietoja kenellekään muulle. Ne antavat "
+"rajoittamattoman pääsyn tiliisi!"
 
 #: src/qml/details/AccountDetailsContent.qml:965
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Lue kirjautumisen QR-koodi"
+msgstr "Näytä kirjautumisen QR-koodi"
 
 #: src/qml/details/AccountDetailsContent.qml:966
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta "
-"kirjautuaksesi sillä."
+msgstr "Lue toisen laitteen QR-koodi kirjautuaksesi sille"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Näytä yksityiskohdat"
+msgstr "Näytä tunnistustiedot"
 
 #: src/qml/details/AccountDetailsContent.qml:987
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta "
-"kirjautuaksesi sillä."
+msgstr "Kirjautuaksesi toiseen laitteeseen syötä sille tunnistustiedot"
 
 #: src/qml/details/AccountDetailsContent.qml:993
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Keskustelun osoite"
@@ -2324,9 +2285,6 @@ msgid "Unverified contact devices"
 msgstr "Yhteyskumppanin varmentamattomat laitteet"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopioi"
@@ -2817,17 +2775,11 @@ msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterListItem|"
 msgid "Unpin"
 msgstr "Irrota"
 
 #: src/qml/elements/RosterListItem.qml:219
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterListItem|"
 msgid "Pin"
 msgstr "Kiinnitä"
@@ -2880,28 +2832,19 @@ msgid "Accounts"
 msgstr "Tilit"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Salasana"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Anna nykyinen salasana"
+msgstr "Anna oikea salasana"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Kopioi salasana"
+msgstr "Vahvista salasana"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2977,12 +2920,9 @@ msgid "Show explanation"
 msgstr "Näytä selitys"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Lue vanhan laitteen QR-koodi"
+msgstr "Lue vanhan laitteen kirjautumis-QR-koodi"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2990,6 +2930,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"QR-koodin voi näyttää vanhan laitteen tilitiedoissa kohdasta ”Näytä "
+"kirjautumisen QR-koodi”"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
@@ -3245,7 +3187,7 @@ msgstr "Suodata"
 #: src/qml/RosterPage.qml:34
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Kiinnitä ja siirrä"
 
 #: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
@@ -3374,25 +3316,16 @@ msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä käyttäjää %1: %2"
 
 #: src/RosterManager.cpp:199
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska ei olla verkossa."
 
 #: src/RosterManager.cpp:209
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
 
 #: src/RosterManager.cpp:219
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterManager|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Henkilön nimeä ei voitu muuttaa, koska ei olla verkossa."
