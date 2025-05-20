@@ -10,16 +10,13 @@
 // QXmpp
 #include <QXmppVCardManager.h>
 // Kaidan
-#include "FutureUtils.h"
-#include "Kaidan.h"
+#include "Account.h"
+#include "Enums.h"
 #include "VCardController.h"
-
-using namespace Enums;
 
 VCardModel::VCardModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(Kaidan::instance()->vCardController(), &VCardController::vCardReceived, this, &VCardModel::handleVCardReceived);
     connect(this, &VCardModel::unsetEntriesProcessedChanged, this, [this]() {
         beginResetModel();
         generateEntries();
@@ -72,27 +69,27 @@ bool VCardModel::setData(const QModelIndex &index, const QVariant &value, int ro
     if (role == Value) {
         m_vCardMap.at(i).setValue(&m_vCard, value.toString());
         Q_EMIT dataChanged(this->index(i), this->index(i), {Roles::Value});
-
-        auto *clientWorker = Kaidan::instance()->client();
-        runOnThread(clientWorker, [clientWorker, vCard = m_vCard]() {
-            clientWorker->startTask([=]() {
-                Kaidan::instance()->client()->xmppClient()->findExtension<QXmppVCardManager>()->setClientVCard(vCard);
-                clientWorker->finishTask();
-            });
-        });
+        m_vCardController->updateOwnVCard(m_vCard);
         return true;
     }
 
     return false;
 }
 
-void VCardModel::handleVCardReceived(const QXmppVCardIq &vCard)
+void VCardModel::setConnection(Connection *connection)
 {
-    if (vCard.from() == m_jid) {
-        beginResetModel();
-        m_vCard = vCard;
-        generateEntries();
-        endResetModel();
+    if (m_connection != connection) {
+        m_connection = connection;
+        requestVCard();
+    }
+}
+
+void VCardModel::setVCardController(VCardController *vCardController)
+{
+    if (m_vCardController != vCardController) {
+        m_vCardController = vCardController;
+        connect(m_vCardController, &VCardController::vCardReceived, this, &VCardModel::handleVCardReceived);
+        requestVCard();
     }
 }
 
@@ -103,11 +100,27 @@ QString VCardModel::jid() const
 
 void VCardModel::setJid(const QString &jid)
 {
-    m_jid = jid;
-    Q_EMIT jidChanged();
+    if (m_jid != jid) {
+        m_jid = jid;
+        Q_EMIT jidChanged();
+        requestVCard();
+    }
+}
 
-    if (Kaidan::instance()->connectionState() == ConnectionState::StateConnected) {
-        Kaidan::instance()->vCardController()->requestVCard(jid);
+void VCardModel::requestVCard()
+{
+    if (!m_jid.isEmpty() && m_connection && m_vCardController) {
+        m_vCardController->requestVCard(m_jid);
+    }
+}
+
+void VCardModel::handleVCardReceived(const QXmppVCardIq &vCard)
+{
+    if (vCard.from() == m_jid) {
+        beginResetModel();
+        m_vCard = vCard;
+        generateEntries();
+        endResetModel();
     }
 }
 

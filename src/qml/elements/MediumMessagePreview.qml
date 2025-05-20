@@ -28,7 +28,7 @@ MediumPreview {
 				if (root.localFileUrl.toString()) {
 					root.open()
 				} else if (!transferWatcher.isLoading) {
-					Kaidan.fileSharingController.downloadFile(root.message.msgId, root.file)
+					root.message.chatController.account.fileSharingController.downloadFile(root.message.msgId, root.file)
 				}
 			} else if (event.button === Qt.RightButton) {
 			   if (root.localFileUrl.toString()) {

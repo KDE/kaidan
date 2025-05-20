@@ -23,6 +23,22 @@ QHash<int, QByteArray> EncryptionKeyModel::roleNames() const
     return roles;
 }
 
+EncryptionController *EncryptionKeyModel::encryptionController() const
+{
+    return m_encryptionController;
+}
+
+void EncryptionKeyModel::setEncryptionController(EncryptionController *encryptionController)
+{
+    if (m_encryptionController != encryptionController) {
+        m_encryptionController = encryptionController;
+
+        if (!m_accountJid.isEmpty()) {
+            setUp();
+        }
+    }
+}
+
 QString EncryptionKeyModel::accountJid() const
 {
     return m_accountJid;
@@ -34,7 +50,9 @@ void EncryptionKeyModel::setAccountJid(const QString &accountJid)
         m_accountJid = accountJid;
         Q_EMIT accountJidChanged();
 
-        setUp();
+        if (m_encryptionController) {
+            setUp();
+        }
     }
 }
 

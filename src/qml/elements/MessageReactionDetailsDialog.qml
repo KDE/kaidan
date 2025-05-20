@@ -19,7 +19,7 @@ import im.kaidan.kaidan
 Dialog {
 	id: root
 
-	property string accountJid
+	property Account account
 	property string chatJid
 	property string messageId
 	property alias reactions: messageReactionModel.reactions
@@ -34,15 +34,15 @@ Dialog {
 		implicitHeight: contentHeight
 		model: MessageReactionModel {
 			id: messageReactionModel
-			accountJid: root.accountJid
+			accountJid: root.account.settings.jid
 			chatJid: root.chatJid
 		}
-		delegate: UserListItem {
+		delegate: AvatarItemDelegate {
 			id: messageReactionDelegate
 
 			property var emojis: model.emojis
 
-			accountJid: root.accountJid
+			account: root.account
 			jid: model.senderJid
 			name: model.senderName
 			width: ListView.view.width
@@ -50,7 +50,7 @@ Dialog {
 			onClicked: {
 				if (jid) {
 					root.close()
-					Kaidan.openChatPageRequested(accountJid, jid)
+					MainController.openChatPageRequested(accountJid, jid)
 				}
 			}
 

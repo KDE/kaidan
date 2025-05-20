@@ -7,6 +7,8 @@
 // Qt
 #include <QSortFilterProxyModel>
 
+class EncryptionController;
+
 class GroupChatUserKeyAuthenticationFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -18,8 +20,9 @@ public:
 
 private:
     void setUp();
-    void handleDevicesChanged(const QString &accountJid, const QList<QString> &jids);
+    void handleDevicesChanged(const QList<QString> &jids);
     void updateJids();
 
     QList<QString> m_jids;
+    EncryptionController *m_encryptionController;
 };

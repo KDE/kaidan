@@ -24,22 +24,27 @@ Controls.Pane {
 	property QtObject chatPage
 	property alias messageArea: messageArea
 	property int lastMessageLength: 0
+	property real horizontalContentMargin: Kirigami.Units.smallSpacing
 	property MessageComposition composition: MessageComposition {
-		accountJid: ChatController.accountJid
-		chatJid: ChatController.chatJid
+		chatController: root.chatPage.chatController
 		body: messageArea.text
-		spoilerHint: spoilerHintField.text
+		spoilerHint: spoilerHintArea.text
 		onIsDraftChanged: {
 			if (isDraft) {
 				if (replaceId) {
 					prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
 				} else {
 					messageArea.text = body
-					spoilerHintField.text = spoilerHint
+					spoilerHintArea.text = spoilerHint
 
 					// Position the cursor after the draft message's body.
 					messageArea.cursorPosition = messageArea.text.length
 				}
+			}
+		}
+		onPreparedForNewChat: {
+			if (!isDraft) {
+				root.clear()
 			}
 		}
 	}
@@ -64,16 +69,17 @@ Controls.Pane {
 		spacing: 0
 
 		ReferencedMessage {
-			visible: root.composition.replyId
+			account: root.chatPage.chatController.account
 			senderId: root.composition.replyToJid ? root.composition.replyToJid : root.composition.replyToGroupChatParticipantId
 			senderName: root.composition.replyToName
 			messageId: root.composition.replyId
 			body: root.composition.replyQuote
 			messageListView: root.chatPage.messageListView
-			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.rightPadding
+			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.horizontalContentMargin - root.rightPadding
 			maximumWidth: minimumWidth
 			backgroundRadius: root.background.radius
 			quoteBarVisible: false
+			visible: root.composition.replyId
 			Layout.bottomMargin: Kirigami.Units.largeSpacing
 
 			ClickableIcon {
@@ -97,7 +103,7 @@ Controls.Pane {
 			delegate: MediumSendingPreview {
 				selectionModel: mediaList.model
 				modelData: model
-				minimumWidth: root.width - root.leftPadding - root.rightPadding - (ListView.view.Controls.ScrollBar.vertical.visible ? ListView.view.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing : 0)
+				minimumWidth: root.width - root.leftPadding - root.horizontalContentMargin - root.rightPadding - (ListView.view.Controls.ScrollBar.vertical.visible ? ListView.view.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing : 0)
 				maximumWidth: minimumWidth
 				mainAreaBackground.radius: root.background.radius
 				previewImage.radius: root.background.radius
@@ -117,9 +123,11 @@ Controls.Pane {
 		RowLayout {
 			visible: root.composition.isSpoiler
 			spacing: 0
+			Layout.leftMargin: root.horizontalContentMargin
+			Layout.rightMargin: root.horizontalContentMargin
 
 			FormattedTextArea {
-				id: spoilerHintField
+				id: spoilerHintArea
 				placeholderText: qsTr("Visible message part")
 				selectByMouse: true
 				background: null
@@ -131,7 +139,7 @@ Controls.Pane {
 				source: "window-close-symbolic"
 				onClicked: {
 					root.composition.isSpoiler = false
-					spoilerHintField.clear()
+					spoilerHintArea.clear()
 					root.forceActiveFocus()
 				}
 			}
@@ -140,14 +148,13 @@ Controls.Pane {
 		Kirigami.Separator {
 			visible: root.composition.isSpoiler
 			Layout.fillWidth: true
-			Layout.topMargin: root.padding
-			Layout.bottomMargin: Layout.topMargin
+			Layout.margins: root.horizontalContentMargin
 		}
 
 		RowLayout {
 			spacing: Kirigami.Units.largeSpacing
-			Layout.leftMargin: Kirigami.Units.smallSpacing
-			Layout.rightMargin: Kirigami.Units.smallSpacing
+			Layout.leftMargin: root.horizontalContentMargin
+			Layout.rightMargin: root.horizontalContentMargin
 
 			// emoji picker button
 			ClickableIcon {
@@ -162,7 +169,7 @@ Controls.Pane {
 			// group chat pariticipant mentioning button
 			ClickableIcon {
 				source: "avatar-default-symbolic"
-				visible: ChatController.rosterItem.isGroupChat
+				visible: root.chatPage.chatController.rosterItem.isGroupChat
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Mention a participant")
@@ -196,9 +203,9 @@ Controls.Pane {
 				id: messageArea
 				placeholderText: {
 					if (root.composition.isSpoiler) {
-						return ChatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
+						return root.chatPage.chatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
 					} else {
-						return ChatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
+						return root.chatPage.chatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 					}
 				}
 				background: null
@@ -219,9 +226,9 @@ Controls.Pane {
 
 					// Skip events in which the text field was emptied (probably automatically after sending)
 					if (text) {
-						ChatController.sendChatState(ChatState.Composing)
+						root.chatPage.chatController.sendChatState(ChatState.Composing)
 					} else {
-						ChatController.sendChatState(ChatState.Active)
+						root.chatPage.chatController.sendChatState(ChatState.Active)
 					}
 				}
 				Keys.onDownPressed: {
@@ -263,7 +270,7 @@ Controls.Pane {
 
 					// Restore the active focus when searchBar is closed.
 					function onActiveChanged() {
-						if (!chatPage.searchBar.active) {
+						if (!root.chatPage.searchBar.active) {
 							root.forceActiveFocus()
 						}
 					}
@@ -292,21 +299,21 @@ Controls.Pane {
 				ClickableIcon {
 					Controls.ToolTip.text: qsTr("Take a picture")
 					source: "camera-photo-symbolic"
-					visible: Kaidan.serverFeaturesCache.httpUploadSupported
+					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(imageCaptureDialog)
 				}
 
 				ClickableIcon {
 					Controls.ToolTip.text: qsTr("Record a video")
 					source: "camera-video-symbolic"
-					visible: Kaidan.serverFeaturesCache.httpUploadSupported
+					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(videoRecordingDialog)
 				}
 
 				ClickableIcon {
 					Controls.ToolTip.text: qsTr("Share files")
 					source: "folder-symbolic"
-					visible: Kaidan.serverFeaturesCache.httpUploadSupported
+					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: {
 						expansionArea.visible = false
 						root.composition.fileSelectionModel.selectFile()
@@ -316,7 +323,7 @@ Controls.Pane {
 				ClickableIcon {
 					Controls.ToolTip.text: qsTr("Share your location")
 					source: "mark-location-symbolic"
-					visible: Kaidan.connectionState === Enums.StateConnected
+					visible: root.chatPage.chatController.account.connection.state === Enums.StateConnected
 					onClicked: expansionArea.openDialog(geoLocationSharingDialog)
 				}
 
@@ -328,7 +335,7 @@ Controls.Pane {
 					onClicked: {
 						expansionArea.visible = false
 						root.composition.isSpoiler = true
-						spoilerHintField.forceActiveFocus()
+						spoilerHintArea.forceActiveFocus()
 					}
 				}
 
@@ -336,7 +343,7 @@ Controls.Pane {
 					id: imageCaptureDialog
 
 					ImageCaptureDialog {
-						messageComposition: root.composition
+						fileSelectionModel: root.composition.fileSelectionModel
 					}
 				}
 
@@ -344,7 +351,7 @@ Controls.Pane {
 					id: videoRecordingDialog
 
 					VideoRecordingDialog {
-						messageComposition: root.composition
+						fileSelectionModel: root.composition.fileSelectionModel
 					}
 				}
 
@@ -414,7 +421,7 @@ Controls.Pane {
 			ClickableIcon {
 				Controls.ToolTip.text: qsTr("Send a voice message")
 				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: voiceMessageCaptureSession.audioInput && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
+				visible: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && root.chatPage.chatController.account.connection.state === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
 				opacity: visible ? 1 : 0
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
@@ -434,7 +441,7 @@ Controls.Pane {
 			ClickableIcon {
 				id: sendButton
 				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
+				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && root.chatPage.chatController.account.connection.state === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				onClicked: {
@@ -453,7 +460,7 @@ Controls.Pane {
 						root.composition.send()
 					}
 
-					ChatController.resetComposingChatState();
+					root.chatPage.chatController.resetComposingChatState();
 					clear()
 
 					// Enable the button again.
@@ -517,8 +524,8 @@ Controls.Pane {
 					const cursorRectangle = messageArea.cursorRectangle
 					return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - contentHeight
 				}
-				accountJid: ChatController.accountJid
-				chatJid: ChatController.chatJid
+				account: root.chatPage.chatController.account
+				chatJid: root.chatPage.chatController.jid
 				textArea: messageArea
 			}
 
@@ -575,7 +582,7 @@ Controls.Pane {
 
 	function prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
 		messageArea.text = body
-		spoilerHintField.text = spoilerHint
+		spoilerHintArea.text = spoilerHint
 
 		// Move the cursor to the end of the text being corrected and focus it.
 		messageArea.cursorPosition = messageArea.text.length
@@ -638,7 +645,7 @@ Controls.Pane {
 			}
 
 			participantPicker.search()
-		} else if (ChatController.rosterItem.isGroupChat && currentCharacter === Utils.groupChatUserMentionPrefix) {
+		} else if (root.chatPage.chatController.rosterItem.isGroupChat && currentCharacter === Utils.groupChatUserMentionPrefix) {
 			if (messageArea.cursorPosition !== 1) {
 				const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 				if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
@@ -656,7 +663,7 @@ Controls.Pane {
 
 	function clear() {
 		messageArea.clear()
-		spoilerHintField.clear()
+		spoilerHintArea.clear()
 		expansionArea.visible = false
 	}
 }

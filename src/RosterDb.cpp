@@ -13,6 +13,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 // Kaidan
+#include "Algorithms.h"
 #include "Globals.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
@@ -27,8 +28,8 @@ using namespace SqlUtils;
 
 RosterDb *RosterDb::s_instance = nullptr;
 
-RosterDb::RosterDb(Database *db, QObject *parent)
-    : DatabaseComponent(db, parent)
+RosterDb::RosterDb(QObject *parent)
+    : DatabaseComponent(parent)
 {
     Q_ASSERT(!RosterDb::s_instance);
     s_instance = this;
@@ -163,19 +164,25 @@ QFuture<void> RosterDb::addItem(RosterItem item)
     });
 }
 
-QFuture<void> RosterDb::updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem)
+QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
-    return run([this, jid, updateItem]() {
-        _updateItem(jid, updateItem);
+    return run([this, accountJid, jid, updateItem]() {
+        _updateItem(accountJid, jid, updateItem);
     });
 }
 
-QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
+QFuture<void> RosterDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
 {
-    return run([this, items]() {
+    return run([this, accountJid, items]() {
         // load current items
         auto query = createQuery();
-        execQuery(query, QStringLiteral("SELECT * FROM roster"));
+        execQuery(query,
+                  QStringLiteral(R"(
+				SELECT *
+				FROM roster
+				WHERE accountJid = :accountJid
+			)"),
+                  {{u":accountJid", accountJid}});
 
         QList<RosterItem> oldItems;
         parseItemsFromQuery(query, oldItems);
@@ -183,8 +190,9 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 
         transaction();
 
-        QList<QString> keys = items.keys();
-        QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
+        QList<QString> newJids = transform(items, [](const RosterItem &rosterItem) {
+            return rosterItem.jid;
+        });
 
         for (const auto &oldItem : std::as_const(oldItems)) {
             const auto jid = oldItem.jid;
@@ -194,26 +202,33 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
             //
             // By calling remove(), we also find out whether the JID is already
             // existing or not.
-            if (newJids.remove(jid)) {
+            if (newJids.removeOne(jid)) {
+                auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
+                    return rosterItem.jid == jid;
+                });
+
                 // item is also included in newJids -> update
-                _updateItem(jid, [newItem = items.value(jid)](RosterItem &oldItem) {
+                _updateItem(accountJid, jid, [newItem = *itr](RosterItem &oldItem) {
                     oldItem.name = newItem.name;
                     oldItem.subscription = newItem.subscription;
                     oldItem.groups = newItem.groups;
                 });
             } else {
                 // item is not included in newJids -> delete
-                _removeItem(oldItem.accountJid, jid);
+                _removeItem(accountJid, jid);
             }
         }
 
         // now add the completely new JIDs
         for (const QString &jid : newJids) {
-            _addItem(items[jid]);
+            auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
+                return rosterItem.jid == jid;
+            });
+            _addItem(*itr);
         }
 
         commit();
-        Q_EMIT itemsReplaced();
+        Q_EMIT itemsReplaced(accountJid);
     });
 }
 
@@ -232,7 +247,7 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid)
         execQuery(query,
                   QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
                                  "WHERE accountJid = :accountJid"),
-                  QueryBindValues{{u":accountJid", accountJid}});
+                  {{u":accountJid", accountJid}});
 
         removeGroups(accountJid);
         GroupChatUserDb::instance()->_removeUsers(accountJid);
@@ -335,7 +350,7 @@ void RosterDb::removeGroups(const QString &accountJid)
     execQuery(query,
               QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
                              "WHERE accountJid = :accountJid"),
-              QueryBindValues{{u":accountJid", accountJid}});
+              {{u":accountJid", accountJid}});
 }
 
 void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
@@ -415,17 +430,18 @@ void RosterDb::_addItem(const RosterItem &item)
     addGroups(item.accountJid, item.jid, item.groups);
 }
 
-void RosterDb::_updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem)
+void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
 			SELECT *
 			FROM roster
-			WHERE jid = :jid
+			WHERE accountJid = :accountJid AND jid = :jid
 			LIMIT 1
 		)"),
               {
+                  {u":accountJid", accountJid},
                   {u":jid", jid},
               });
 
@@ -448,7 +464,7 @@ void RosterDb::_updateItem(const QString &jid, const std::function<void(RosterIt
 
             if (auto record = createUpdateRecord(oldItem, newItem); !record.isEmpty()) {
                 // Create an SQL record containing only the differences.
-                updateItemByRecord(jid, record);
+                updateItemByRecord(accountJid, jid, record);
             }
         }
     }
@@ -469,12 +485,12 @@ void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
     GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 }
 
-void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
+void RosterDb::updateItemByRecord(const QString &accountJid, const QString &jid, const QSqlRecord &record)
 {
     auto query = createQuery();
     auto &driver = sqlDriver();
 
-    QMap<QString, QVariant> keyValuePairs = {{QStringLiteral("jid"), jid}};
+    QMap<QString, QVariant> keyValuePairs = {{QStringLiteral("accountJid"), accountJid}, {QStringLiteral("jid"), jid}};
 
     execQuery(query,
               driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ROSTER), record, false) + simpleWhereStatement(&driver, keyValuePairs));

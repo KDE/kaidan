@@ -16,12 +16,14 @@ import "../elements"
 RosterItemDetailsContent {
 	id: root
 	mediaOverview {
-		accountJid: ChatController.accountJid
-		chatJid: ChatController.chatJid
+		accountJid: root.chatController.account.settings.jid
+		chatJid: root.chatController.jid
 	}
 	vCardRepeater {
 		model: VCardModel {
-			jid: ChatController.chatJid
+			connection: root.chatController.account.connection
+			vCardController: root.chatController.account.vCardController
+			jid: root.chatController.jid
 		}
 		delegate: FormCard.FormButtonDelegate {
 			text: model.value
@@ -53,28 +55,28 @@ RosterItemDetailsContent {
 		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
-			checked: enabled && ChatController.encryption === Encryption.Omemo2
+			enabled: root.chatController.chatEncryptionWatcher.hasUsableDevices
+			checked: enabled && root.chatController.encryption === Encryption.Omemo2
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
+			onClicked: root.chatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		},
 
 		AccountKeyAuthenticationButton {
-			jid: ChatController.accountJid
-			encryptionWatcher: ChatController.accountEncryptionWatcher
+			presenceCache: root.chatController.account.presenceCache
+			jid: root.chatController.account.settings.jid
+			encryptionWatcher: root.chatController.accountEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(contactDetailsAccountKeyAuthenticationPage)
 		},
 
 		ContactKeyAuthenticationButton {
-			encryptionWatcher: ChatController.chatEncryptionWatcher
+			encryptionWatcher: root.chatController.chatEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage)
 		}
 	]
 	qrCodeExpansionButton.description: qsTr("Share this contact's chat address via QR code")
 	qrCode: ContactQrCode {
-		accountJid: ChatController.accountJid
-		jid: ChatController.chatJid
+		uriGenerator: trustMessageUriGenerator
 	}
 	qrCodeButton {
 		description: qsTr("Share this contact's chat address via QR code")
@@ -93,7 +95,8 @@ RosterItemDetailsContent {
 	}
 
 	UserDevicesArea {
-		jid: ChatController.chatJid
+		account: root.chatController.account
+		jid: root.chatController.jid
 	}
 
 	FormCard.FormCard {
@@ -122,8 +125,8 @@ RosterItemDetailsContent {
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(ChatController.rosterItem.notificationRule)
-			onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
+			currentIndex: indexOf(root.chatController.rosterItem.notificationRule)
+			onActivated: root.chatController.account.rosterController.setNotificationRule(root.chatController.jid, currentValue)
 		}
 	}
 
@@ -137,62 +140,55 @@ RosterItemDetailsContent {
 		FormCard.FormButtonDelegate {
 			text: qsTr("Request personal data")
 			description: qsTr("Ask your contact to share the availability, devices and other personal information")
-			visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
-			onClicked: Kaidan.rosterController.subscribeToPresence(ChatController.chatJid)
+			visible: root.chatController.account.settings.enabled && root.chatController.account.connection.state === Enums.StateConnected && !root.chatController.rosterItem.sendingPresence
+			onClicked: root.chatController.account.rosterController.subscribeToPresence(root.chatController.jid)
 		}
 
 		FormCard.FormButtonDelegate {
 			text: qsTr("Cancel personal data sharing")
 			description: qsTr("Stop sharing your availability, devices and other personal information")
-			visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
-			onClicked: Kaidan.rosterController.refuseSubscriptionToPresence(ChatController.chatJid)
+			visible: root.chatController.account.settings.enabled && root.chatController.account.connection.state === Enums.StateConnected && root.chatController.rosterItem.receivingPresence
+			onClicked: root.chatController.account.rosterController.refuseSubscriptionToPresence(root.chatController.jid)
 		}
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Send typing notifications")
 			description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-			checked: ChatController.rosterItem.chatStateSendingEnabled
-			onToggled: {
-				RosterModel.setChatStateSendingEnabled(
-					ChatController.accountJid,
-					ChatController.chatJid,
-					checked)
-			}
+			checked: root.chatController.rosterItem.chatStateSendingEnabled
+			onToggled: root.chatController.account.rosterController.setChatStateSendingEnabled(root.chatController.jid, checked)
 		}
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Send read notifications")
 			description: qsTr("Indicate which messages you have read")
-			checked: ChatController.rosterItem.readMarkerSendingEnabled
-			onToggled: {
-				RosterModel.setReadMarkerSendingEnabled(
-					ChatController.accountJid,
-					ChatController.chatJid,
-					checked)
-			}
+			checked: root.chatController.rosterItem.readMarkerSendingEnabled
+			onToggled: root.chatController.account.rosterController.setReadMarkerSendingEnabled(root.chatController.jid, checked)
 		}
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Block")
 			description: qsTr("Block all communication including status and notifications")
-			enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
+			visible: root.chatController.account.settings.enabled
+			enabled: !root.chatController.account.blockingController.busy && root.chatController.account.connection.state === Enums.StateConnected
 			checked: blockingWatcher.blocked
 			onToggled: {
 				if (checked) {
-					blockingAction.block(ChatController.chatJid)
+					root.chatController.account.blockingController.block(root.chatController.jid)
 				} else {
-					blockingAction.unblock(ChatController.chatJid)
+					root.chatController.account.blockingController.unblock(root.chatController.jid)
 				}
 			}
 
 			BlockingWatcher {
 				id: blockingWatcher
-				jid: ChatController.chatJid
+				blockingController: root.chatController.account.blockingController
+				jid: root.chatController.jid
 			}
 		}
 	}
 
 	FormCard.FormCard {
+		visible: root.chatController.account.settings.enabled
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
@@ -208,7 +204,7 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				Kaidan.rosterController.removeContact(ChatController.chatJid)
+				root.chatController.account.rosterController.removeContact(root.chatController.jid)
 			}
 			busyText: qsTr("Removing contact…")
 		}
@@ -216,7 +212,7 @@ RosterItemDetailsContent {
 
 	ContactTrustMessageUriGenerator {
 		id: trustMessageUriGenerator
-		accountJid: ChatController.accountJid
-		jid: ChatController.chatJid
+		encryptionController: root.chatController.account.encryptionController
+		jid: root.chatController.jid
 	}
 }

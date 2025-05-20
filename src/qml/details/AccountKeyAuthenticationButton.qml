@@ -5,6 +5,7 @@
 import im.kaidan.kaidan
 
 KeyAuthenticationButton {
+	property alias presenceCache: resourcesWatcher.presenceCache
 	property alias jid: resourcesWatcher.jid
 
 	authenticationState: {

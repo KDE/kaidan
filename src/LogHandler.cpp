@@ -11,28 +11,38 @@
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan
+#include "Account.h"
 #include "KaidanXmppLog.h"
 
-LogHandler::LogHandler(QXmppClient *client, QObject *parent)
+LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QObject *parent)
     : QObject(parent)
+    , m_accountSettings(accountSettings)
     , m_client(client)
 {
-    client->logger()->setLoggingType(QXmppLogger::SignalLogging);
+    auto *logger = new QXmppLogger(this);
+    client->setLogger(logger);
+    logger->setLoggingType(QXmppLogger::SignalLogging);
+    connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
 }
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
     switch (type) {
+    case QXmppLogger::DebugMessage:
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [debug]" << text;
+        break;
     case QXmppLogger::ReceivedMessage:
-        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" << Qt::endl
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+                                           << Qt::endl
                                            << makeXmlPretty(text);
         break;
     case QXmppLogger::SentMessage:
-        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << Qt::endl
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                                           << Qt::endl
                                            << makeXmlPretty(text);
         break;
     case QXmppLogger::WarningMessage:
-        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[client] [warn]" << text;
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [warn]" << text;
         break;
     default:
         break;

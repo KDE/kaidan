@@ -21,7 +21,7 @@
 struct RosterItem {
     Q_GADGET
 
-    Q_PROPERTY(QString accountJid MEMBER jid)
+    Q_PROPERTY(QString accountJid MEMBER accountJid)
     Q_PROPERTY(QString jid MEMBER jid)
     Q_PROPERTY(QString name MEMBER name)
     Q_PROPERTY(QString displayName READ displayName CONSTANT)
@@ -44,12 +44,20 @@ public:
     enum class NotificationRule {
         Account, ///< Use the account rule.
         Never, ///< Never notify.
-        PresenceOnly, ///< Notify only for contacts receiving presence.
         Mentioned, ///< Notify only if the user is mentioned in a group chat.
         Always, ///< Always notify.
-        Default = Account,
     };
     Q_ENUM(NotificationRule)
+
+    /**
+     * Rule to inform the user about incoming messages depending on the roster item's and the account's settings.
+     */
+    enum class EffectiveNotificationRule {
+        Never, ///< Never notify.
+        Mentioned, ///< Notify only if the user is mentioned in a group chat.
+        Always, ///< Always notify.
+    };
+    Q_ENUM(EffectiveNotificationRule)
 
     /**
      * Rule to automatically download media for a roster item.
@@ -58,7 +66,6 @@ public:
         Account, ///< Use the account rule.
         Never, ///< Never automatically download files.
         Always, ///< Always automatically download files.
-        Default = Account,
     };
     Q_ENUM(AutomaticMediaDownloadsRule)
 
@@ -83,6 +90,8 @@ public:
     bool isGroupChat() const;
     bool isPublicGroupChat() const;
     bool isDeletedGroupChat() const;
+
+    EffectiveNotificationRule effectiveNotificationRule() const;
 
     bool operator==(const RosterItem &other) const = default;
     bool operator!=(const RosterItem &other) const = default;
@@ -177,13 +186,14 @@ public:
     bool readMarkerSendingEnabled = true;
 
     // Whether the user is informed about incoming messages.
-    NotificationRule notificationRule = NotificationRule::Default;
+    NotificationRule notificationRule = NotificationRule::Account;
 
     // Whether files are downloaded automatically.
-    AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
+    AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Account;
 };
 
 Q_DECLARE_METATYPE(RosterItem)
 Q_DECLARE_METATYPE(RosterItem::NotificationRule)
+Q_DECLARE_METATYPE(RosterItem::EffectiveNotificationRule)
 Q_DECLARE_METATYPE(RosterItem::AutomaticMediaDownloadsRule)
 Q_DECLARE_METATYPE(RosterItem::GroupChatFlags)

@@ -18,45 +18,46 @@ import "../elements/fields"
 
 DetailsContent {
 	id: root
-
-	property string jid
-
+	mediaAreaText: qsTr("You can share media up to %1.").arg(account.settings.httpUploadLimitText)
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Never"),
-				value: Account.AutomaticMediaDownloadsRule.Never
+				value: AccountSettings.AutomaticMediaDownloadsRule.Never
 			},
 			{
 				display: qsTr("If personal data is shared"),
-				value: Account.AutomaticMediaDownloadsRule.PresenceOnly
+				value: AccountSettings.AutomaticMediaDownloadsRule.PresenceOnly
 			},
 			{
 				display: qsTr("Always"),
-				value: Account.AutomaticMediaDownloadsRule.Always
+				value: AccountSettings.AutomaticMediaDownloadsRule.Always
 			}
 		]
 		textRole: "display"
 		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(AccountController.account.automaticMediaDownloadsRule)
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(root.account.settings.automaticMediaDownloadsRule)
 		onActivated: {
-			AccountController.setAutomaticMediaDownloadsRule(automaticMediaDownloadsDelegate.currentValue)
+			root.account.settings.automaticMediaDownloadsRule = automaticMediaDownloadsDelegate.currentValue
 		}
 	}
 	mediaOverview {
-		accountJid: root.jid
+		accountJid: root.account.settings.jid
 		chatJid: ""
 	}
 	vCardArea.enabled: accountRemovalArea.enabled
 	vCardRepeater {
 		model: VCardModel {
-			jid: root.jid
+			connection: root.account.connection
+			vCardController: root.account.vCardController
+			jid: root.account.settings.jid
 		}
 		delegate: FormCard.AbstractFormDelegate {
 			id: vCardDelegate
 
 			property bool editing: false
 
+			enabled: root.account.settings.enabled
 			contentItem: ColumnLayout {
 				Controls.Label {
 					text: model.value ? model.value : qsTr("Empty")
@@ -134,41 +135,39 @@ DetailsContent {
 			FormCard.FormSwitchDelegate {
 				text: qsTr("OMEMO 2")
 				description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-				checked: AccountController.account.encryption === Encryption.Omemo2
+				checked: root.account.settings.encryption === Encryption.Omemo2
 				// The switch is toggled by setting the user's preference on using encryption.
 				// Note that 'checked' has already the value after the button is clicked.
 				onClicked: {
 					if (checked) {
-						AccountController.setEncryption(Encryption.Omemo2)
-						RosterModel.setItemEncryption(root.jid, Encryption.Omemo2)
+						root.account.settings.encryption = Encryption.Omemo2
+						RosterModel.setItemEncryption(root.account.settings.jid, Encryption.Omemo2)
 					} else {
-						AccountController.setEncryption(Encryption.NoEncryption)
-						RosterModel.setItemEncryption(root.jid, Encryption.NoEncryption)
+						root.account.settings.encryption = Encryption.NoEncryption
+						RosterModel.setItemEncryption(root.account.settings.jid, Encryption.NoEncryption)
 					}
 				}
 			},
 
 			AccountKeyAuthenticationButton {
-				jid: root.jid
+				presenceCache: root.account.presenceCache
+				jid: root.account.settings.jid
 				encryptionWatcher: EncryptionWatcher {
-					accountJid: root.jid
-					jids: [root.jid]
+					encryptionController: root.account.encryptionController
+					accountJid: root.account.settings.jid
+					jids: [root.account.settings.jid]
 				}
-				onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage).accountJid = root.jid
+				onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage)
 			}
 		]
-		Component.onCompleted: {
-			// Retrieve the own devices if they are not loaded yet.
-			if (ChatController.accountJid !== root.jid) {
-				EncryptionController.initializeAccountFromQml(root.jid)
-			}
-		}
+		Component.onCompleted: root.account.encryptionController.initializeAccount()
 	}
 	rosterGoupListView {
 		enabled: accountRemovalArea.enabled
 		delegate: FormCard.AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
+			enabled: root.account.settings.enabled
 			onClicked: rosterGroupEditingButton.toggled()
 			contentItem: RowLayout {
 				Controls.Label {
@@ -178,9 +177,9 @@ DetailsContent {
 					elide: Text.ElideRight
 					visible: !rosterGroupTextField.visible
 					verticalAlignment: Text.AlignVCenter
+					leftPadding: rosterGroupTextField.leftPadding
 					Layout.preferredHeight: rosterGroupTextField.height
 					Layout.fillWidth: true
-					leftPadding: Kirigami.Units.smallSpacing * 1.5
 				}
 
 				Controls.TextField {
@@ -198,14 +197,15 @@ DetailsContent {
 					display: Controls.AbstractButton.IconOnly
 					checkable: true
 					checked: !rosterGroupText.visible
+					visible: root.account.settings.enabled
 					flat: !hovered
-					Controls.ToolTip.text: text
 					// Ensure that the button can be used within "rosterGroupDelegate"
 					// which acts as an overlay to toggle this button when clicked.
 					// Otherwise, this button would be toggled by "rosterGroupDelegate"
 					// and by this button's own visible area at the same time resulting
 					// in resetting the toggling on each click.
 					autoRepeat: true
+					Controls.ToolTip.text: text
 					onToggled: {
 						if (rosterGroupText.visible) {
 							rosterGroupTextField.visible = true
@@ -215,7 +215,7 @@ DetailsContent {
 							rosterGroupTextField.visible = false
 
 							if (rosterGroupTextField.text !== modelData) {
-								RosterModel.updateGroup(modelData, rosterGroupTextField.text)
+								root.account.rosterController.updateGroup(modelData, rosterGroupTextField.text)
 							}
 						}
 					}
@@ -227,10 +227,11 @@ DetailsContent {
 					icon.name: "edit-delete-symbolic"
 					display: Controls.AbstractButton.IconOnly
 					flat: !rosterGroupDelegate.hovered
+					visible: root.account.settings.enabled
 					Controls.ToolTip.text: text
 					onClicked: {
 						rosterGroupTextField.visible = false
-						RosterModel.removeGroup(modelData)
+						root.account.rosterController.removeGroup(modelData)
 					}
 				}
 			}
@@ -238,7 +239,7 @@ DetailsContent {
 	}
 	qrCodeExpansionButton.description: qsTr("Share this account's chat address via QR code")
 	qrCode: AccountQrCode {
-		jid: root.jid
+		uriGenerator: trustMessageUriGenerator
 	}
 	qrCodeButton {
 		description: qsTr("Share this account's chat address via QR code")
@@ -257,7 +258,8 @@ DetailsContent {
 	}
 
 	UserDevicesArea {
-		jid: root.jid
+		account: root.account
+		jid: root.account.settings.jid
 	}
 
 	FormCard.FormCard {
@@ -273,21 +275,21 @@ DetailsContent {
 			model: [
 				{
 					display: qsTr("Never"),
-					value: Account.ContactNotificationRule.Never
+					value: AccountSettings.ContactNotificationRule.Never
 				},
 				{
 					display: qsTr("If personal data is shared"),
-					value: Account.ContactNotificationRule.PresenceOnly
+					value: AccountSettings.ContactNotificationRule.PresenceOnly
 				},
 				{
 					display: qsTr("Always"),
-					value: Account.ContactNotificationRule.Always
+					value: AccountSettings.ContactNotificationRule.Always
 				}
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(AccountController.account.contactNotificationRule)
-			onActivated: AccountController.setContactNotificationRule(root.jid, currentValue)
+			currentIndex: indexOf(root.account.settings.contactNotificationRule)
+			onActivated: root.account.settings.contactNotificationRule = currentValue
 		}
 
 		FormComboBoxDelegate {
@@ -296,21 +298,21 @@ DetailsContent {
 			model: [
 				{
 					display: qsTr("Never"),
-					value: Account.GroupChatNotificationRule.Never
+					value: AccountSettings.GroupChatNotificationRule.Never
 				},
 				{
 					display: qsTr("On mention"),
-					value: Account.GroupChatNotificationRule.Mentioned
+					value: AccountSettings.GroupChatNotificationRule.Mentioned
 				},
 				{
 					display: qsTr("Always"),
-					value: Account.GroupChatNotificationRule.Always
+					value: AccountSettings.GroupChatNotificationRule.Always
 				}
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(AccountController.account.groupChatNotificationRule)
-			onActivated: AccountController.setGroupChatNotificationRule(root.jid, currentValue)
+			currentIndex: indexOf(root.account.settings.groupChatNotificationRule)
+			onActivated: root.account.settings.groupChatNotificationRule = currentValue
 		}
 	}
 
@@ -329,9 +331,9 @@ DetailsContent {
 			id: geoLocationMapPreviewDelegate
 			text: qsTr("Location map previews")
 			description: qsTr("Display previews of locations")
-			checked: AccountController.account.geoLocationMapPreviewEnabled
+			checked: root.account.settings.geoLocationMapPreviewEnabled
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: AccountController.setGeoLocationMapPreviewEnabled(root.jid, checked)
+			onClicked: root.account.settings.geoLocationMapPreviewEnabled = checked
 		}
 
 		FormComboBoxDelegate {
@@ -341,30 +343,30 @@ DetailsContent {
 			model: [
 				{
 					display: qsTr("System default"),
-					value: Account.GeoLocationMapService.System
+					value: AccountSettings.GeoLocationMapService.System
 				},
 				{
 					display: qsTr("Kaidan"),
-					value: Account.GeoLocationMapService.InApp
+					value: AccountSettings.GeoLocationMapService.InApp
 				},
 				{
 					display: qsTr("Web"),
-					value: Account.GeoLocationMapService.Web
+					value: AccountSettings.GeoLocationMapService.Web
 				}
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: geoLocationMapServiceDelegate.indexOf(AccountController.account.geoLocationMapService)
-			onActivated: AccountController.setGeoLocationMapService(root.jid, geoLocationMapServiceDelegate.currentValue)
+			currentIndex: geoLocationMapServiceDelegate.indexOf(root.account.settings.geoLocationMapService)
+			onActivated: root.account.settings.geoLocationMapService = geoLocationMapServiceDelegate.currentValue
 		}
 	}
 
 	FormCard.FormCard {
 		id: providerArea
 
-		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite
-		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chosenChatSupport
-		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).chosenGroupChatSupport
+		readonly property url providerUrl: providerListModel.providerFromBareJid(root.account.settings.jid).chosenWebsite
+		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.account.settings.jid).chosenChatSupport
+		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.account.settings.jid).chosenGroupChatSupport
 
 		visible: providerUrl.toString() || chatSupportList.length || groupChatSupportList.length
 		enabled: accountRemovalArea.enabled
@@ -398,7 +400,7 @@ DetailsContent {
 		FormCard.FormButtonDelegate {
 			text: qsTr("Open support chat")
 			description: qsTr("Start chat with your provider's support contact")
-			visible: providerArea.chatSupportList.length > 0
+			visible: root.account.settings.enabled && providerArea.chatSupportList.length
 			onClicked: {
 				if (providerArea.chatSupportList.length === 1) {
 					let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
@@ -484,6 +486,7 @@ DetailsContent {
 
 	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
+		visible: root.account.settings.enabled || blockingListView.count
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
@@ -492,73 +495,83 @@ DetailsContent {
 
 		FormCard.FormSectionText {
 			text: qsTr("Block a specific user (e.g., user@example.org) or all users of the same server (e.g., example.org)")
-			visible: blockingExpansionButton.checked
+			visible: root.account.settings.enabled && blockingExpansionButton.checked
 		}
 
 		InlineListView {
 			id: blockingListView
-			model: BlockingModel {}
+			model: BlockingModel {
+				blockingController: account.blockingController
+			}
 			visible: blockingExpansionButton.checked
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
-			header: FormCard.FormCard {
+			header: Loader {
+				sourceComponent: root.account.settings.enabled ? blockingComponent : null
 				width: ListView.view.width
-				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-				FormCard.AbstractFormDelegate {
-					background: null
-					contentItem: RowLayout {
-						spacing: Kirigami.Units.largeSpacing * 3
+				Component {
+					id: blockingComponent
 
-						Controls.Label {
-							text: qsTr("You must be connected to block or unblock chat addresses")
-							visible: Kaidan.connectionState !== Enums.StateConnected
-							Layout.fillWidth: true
-						}
+					FormCard.FormCard {
+						Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-						Controls.TextField {
-							id: blockingTextField
-							placeholderText: qsTr("user@example.org")
-							visible: Kaidan.connectionState === Enums.StateConnected
-							enabled: !blockingAction.loading
-							Layout.fillWidth: true
-							onAccepted: blockingButton.clicked()
-							onVisibleChanged: {
-								if (visible) {
-									clear()
-									forceActiveFocus()
+						FormCard.AbstractFormDelegate {
+							background: null
+							contentItem: RowLayout {
+								spacing: Kirigami.Units.largeSpacing * 3
+
+								Controls.Label {
+									text: qsTr("You must be connected to block or unblock chat addresses")
+									visible: root.account.connection.state !== Enums.StateConnected
+									Layout.fillWidth: true
+								}
+
+								Controls.TextField {
+									id: blockingTextField
+									placeholderText: qsTr("user@example.org")
+									visible: root.account.connection.state === Enums.StateConnected
+									enabled: !root.account.blockingController.busy
+									Layout.fillWidth: true
+									onAccepted: blockingButton.clicked()
+									onVisibleChanged: {
+										if (visible) {
+											clear()
+											forceActiveFocus()
+										}
+									}
+								}
+
+								Button {
+									id: blockingButton
+									Controls.ToolTip.text: qsTr("Block chat address")
+									icon.name: "list-add-symbolic"
+									visible: !root.account.blockingController.busy
+									enabled: blockingTextField.text.length
+									flat: !hovered
+									Layout.preferredWidth: Layout.preferredHeight
+									Layout.preferredHeight: blockingTextField.implicitHeight
+									Layout.rightMargin: Kirigami.Units.largeSpacing
+									onClicked: {
+										const jid = blockingTextField.text
+										if (blockingListView.model.contains(jid)) {
+											blockingTextField.clear()
+										} else if (enabled) {
+											root.account.blockingController.block(jid)
+											blockingTextField.clear()
+										} else {
+											blockingTextField.forceActiveFocus()
+										}
+									}
+								}
+
+								Controls.BusyIndicator {
+									visible: root.account.blockingController.busy
+									Layout.preferredWidth: blockingButton.Layout.preferredWidth
+									Layout.preferredHeight: Layout.preferredWidth
+									Layout.rightMargin: blockingButton.Layout.rightMargin
 								}
 							}
-						}
-
-						Button {
-							id: blockingButton
-							Controls.ToolTip.text: qsTr("Block chat address")
-							icon.name: "list-add-symbolic"
-							visible: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
-							enabled: blockingTextField.text.length
-							flat: !hovered
-							Layout.preferredWidth: Layout.preferredHeight
-							Layout.preferredHeight: blockingTextField.implicitHeight
-							Layout.rightMargin: Kirigami.Units.largeSpacing
-							onClicked: {
-								const jid = blockingTextField.text
-								if (blockingListView.model.contains(jid)) {
-									blockingTextField.clear()
-								} else if (enabled) {
-									blockingAction.block(jid)
-									blockingTextField.clear()
-								} else {
-									blockingTextField.forceActiveFocus()
-								}
-							}
-						}
-
-						Controls.BusyIndicator {
-							visible: blockingAction.loading
-							Layout.preferredWidth: blockingButton.Layout.preferredWidth
-							Layout.preferredHeight: Layout.preferredWidth
-							Layout.rightMargin: blockingButton.Layout.rightMargin
 						}
 					}
 				}
@@ -568,6 +581,7 @@ DetailsContent {
 			delegate: FormCard.AbstractFormDelegate {
 				id: blockingDelegate
 				width: ListView.view.width
+				enabled: root.account.settings.enabled
 				onClicked: blockingEditingButton.toggled()
 				contentItem: RowLayout {
 					Controls.Label {
@@ -575,10 +589,11 @@ DetailsContent {
 						text: model.jid
 						textFormat: Text.PlainText
 						elide: Text.ElideMiddle
+						verticalAlignment: Text.AlignVCenter
 						visible: !blockingEditingTextField.visible
 						Layout.preferredHeight: blockingEditingTextField.height
 						Layout.fillWidth: true
-						leftPadding: Kirigami.Units.smallSpacing * 1.5
+						leftPadding: blockingEditingTextField.leftPadding
 					}
 
 					Controls.TextField {
@@ -597,6 +612,7 @@ DetailsContent {
 						checkable: true
 						checked: !blockingText.visible
 						flat: !hovered
+						visible: root.account.settings.enabled
 						Controls.ToolTip.text: text
 						// Ensure that the button can be used within "blockingDelegate"
 						// which acts as an overlay to toggle this button when clicked.
@@ -613,8 +629,8 @@ DetailsContent {
 								blockingEditingTextField.visible = false
 
 								if (blockingEditingTextField.text !== model.jid) {
-									blockingAction.block(blockingEditingTextField.text)
-									blockingAction.unblock(model.jid)
+									root.account.blockingController.block(blockingEditingTextField.text)
+									root.account.blockingController.unblock(model.jid)
 								}
 							}
 						}
@@ -623,11 +639,11 @@ DetailsContent {
 					Button {
 						text: qsTr("Unblock")
 						icon.name: "edit-delete-symbolic"
-						visible: Kaidan.connectionState === Enums.StateConnected
 						display: Controls.AbstractButton.IconOnly
 						flat: !blockingDelegate.hovered
+						visible: root.account.settings.enabled
 						Controls.ToolTip.text: text
-						onClicked: blockingAction.unblock(model.jid)
+						onClicked: root.account.blockingController.unblock(model.jid)
 					}
 				}
 			}
@@ -640,7 +656,7 @@ DetailsContent {
 
 	FormCard.FormCard {
 		id: notesAdditionArea
-		visible: !RosterModel.hasItem(root.jid)
+		visible: root.account.settings.enabled && !RosterModel.hasItem(root.account.settings.jid, root.account.settings.jid)
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
@@ -657,14 +673,14 @@ DetailsContent {
 			idleIconSource: "note-symbolic"
 			onClicked: {
 				busy = true
-				Kaidan.rosterController.addContact(root.jid)
+				root.account.rosterController.addContact(root.account.settings.jid)
 			}
 
 			Connections {
-				target: Kaidan.rosterController
+				target: root.account.rosterController
 
-				function onContactAdditionFailed(accountJid, jid, errorMessage) {
-					if (accountJid === root.jid && jid === root.jid) {
+				function onContactAdditionFailed(jid) {
+					if (jid === root.account.settings.jid) {
 						notesAdditionButton.busy = false
 						passiveNotification(qsTr("The notes chat could not be added to your contact list because your server does not support that"))
 					}
@@ -674,18 +690,20 @@ DetailsContent {
 			Connections {
 				target: RosterModel
 
-				function onItemAdded(accountJid, jid) {
-					if (accountJid === root.jid && jid === root.jid) {
+				function onItemAdded(item) {
+					const accountJid = item.accountJid
+
+					if (accountJid === root.account.settings.jid && item.jid === root.account.settings.jid) {
 						if (notesAdditionButton.busy) {
-							Kaidan.openChatPageRequested(root.jid, root.jid)
+							MainController.openChatPageRequested(accountJid, accountJid)
 						} else {
 							notesAdditionArea.visible = false
 						}
 					}
 				}
 
-				function onItemRemoved(accountJid, jid) {
-					if (accountJid === root.jid && jid === root.jid) {
+				function onItemRemoved(item) {
+					if (item.accountJid === root.account.settings.jid && item.jid === root.account.settings.jid) {
 						notesAdditionArea.visible = true
 					}
 				}
@@ -694,7 +712,7 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
+		visible: root.account.settings.enabled && root.account.settings.inBandRegistrationFeaturesSupported
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
@@ -713,8 +731,8 @@ DetailsContent {
 					labelText: qsTr("Current password")
 					placeholderText: qsTr("Enter your current password")
 					invalidHintText: qsTr("Enter correct password")
-					valid: text === AccountController.account.password
-					visible: AccountController.account.passwordVisibility !== Kaidan.PasswordVisible
+					valid: text === root.account.settings.password
+					visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Visible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
 					inputField.onAccepted: passwordChangeButton.clicked()
@@ -727,9 +745,9 @@ DetailsContent {
 						id: passwordField
 						labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
 						placeholderText: qsTr("Enter your new password")
-						text: passwordVerificationField.visible ? "" : AccountController.account.password
+						text: passwordVerificationField.visible ? "" : root.account.settings.password
 						invalidHintText: qsTr("Enter different password to change it")
-						valid: credentialsValidator.isPasswordValid(text) && text !== AccountController.account.password
+						valid: credentialsValidator.isPasswordValid(text) && text !== root.account.settings.password
 						enabled: !passwordBusyIndicator.visible
 						inputField.onAccepted: passwordChangeButton.clicked()
 					}
@@ -751,7 +769,7 @@ DetailsContent {
 								passwordField.toggleHintForInvalidText()
 							} else {
 								passwordBusyIndicator.visible = true
-								Kaidan.registrationController.changePassword(passwordField.text)
+								root.account.registrationController.changePassword(passwordField.text)
 							}
 						}
 					}
@@ -768,7 +786,7 @@ DetailsContent {
 				Controls.Label {
 					id: passwordChangeErrorMessage
 					visible: false
-					font.bold: true
+					font.weight: Font.Medium
 					wrapMode: Text.WordWrap
 					padding: 10
 					Layout.fillWidth: true
@@ -778,7 +796,7 @@ DetailsContent {
 				}
 
 				Connections {
-					target: Kaidan.registrationController
+					target: root.account.registrationController
 
 					function onPasswordChangeFailed(errorMessage) {
 						passwordBusyIndicator.visible = false
@@ -797,7 +815,7 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
+		visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Invisible
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
@@ -809,7 +827,7 @@ DetailsContent {
 		}
 
 		ConfirmationFormButtonArea {
-			visible: AccountController.account.passwordVisibility === Kaidan.PasswordVisible
+			visible: root.account.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible
 			button {
 				text: qsTr("Don't show password as text")
 				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
@@ -817,13 +835,13 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountController.setAuthPasswordVisibility(Kaidan.PasswordVisibleQrOnly)
+				root.account.settings.passwordVisibility = AccountSettings.PasswordVisibility.OnlyVisibleViaQrCode
 			}
 			busyText: qsTr("Removing password from text…")
 		}
 
 		ConfirmationFormButtonArea {
-			visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
+			visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Invisible
 			button {
 				text: qsTr("Don't expose password in any way")
 				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
@@ -831,13 +849,14 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountController.setAuthPasswordVisibility(Kaidan.PasswordInvisible)
+				root.account.settings.passwordVisibility = AccountSettings.PasswordVisibility.Invisible
 			}
 			busyText: qsTr("Removing password from text and QR code…")
 		}
 	}
 
 	FormCard.FormCard {
+		visible: root.account.settings.enabled
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
@@ -856,6 +875,7 @@ DetailsContent {
 				RowLayout {
 					CustomConnectionSettings {
 						id: customConnectionSettings
+						account: root.account
 						confirmationButton: connectionSettingsButton
 					}
 
@@ -869,21 +889,21 @@ DetailsContent {
 						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
 						onClicked: {
-							if (customConnectionSettings.hostField.text === AccountController.account.host && customConnectionSettings.portField.value === AccountController.account.port) {
+							if (customConnectionSettings.hostField.text === root.account.settings.host && customConnectionSettings.portField.value === root.account.settings.port) {
 								connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
 								connectionSettingsErrorMessage.visible = true
 							} else {
 								connectionSettingsBusyIndicator.visible = true
 
 								// Reset the error message in case of previous button clicking without changed entered settings.
-								if (Kaidan.connectionError === ClientWorker.NoError) {
+								if (root.account.connection.error === ClientWorker.NoError) {
 									connectionSettingsErrorMessage.visible = false
 								}
 
-								if (Kaidan.connectionState === Enums.StateDisconnected) {
+								if (root.account.connection.state === Enums.StateDisconnected) {
 									connectionSettings.logIn()
 								} else {
-									Kaidan.logOut()
+									root.account.logOut()
 								}
 							}
 						}
@@ -901,7 +921,7 @@ DetailsContent {
 				Controls.Label {
 					id: connectionSettingsErrorMessage
 					visible: false
-					font.bold: true
+					font.weight: Font.Medium
 					wrapMode: Text.WordWrap
 					padding: 10
 					Layout.fillWidth: true
@@ -911,28 +931,28 @@ DetailsContent {
 				}
 
 				Connections {
-					target: Kaidan
+					target: root.account.connection
 
-					function onConnectionErrorChanged() {
+					function onErrorChanged() {
 						// Skip connection error changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
-						if (Kaidan.connectionError === ClientWorker.NoError) {
+						if (root.account.connection.error === ClientWorker.NoError) {
 							connectionSettingsErrorMessage.visible = false
 						} else {
 							connectionSettingsErrorMessage.visible = true
-							connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(Utils.connectionErrorMessage(Kaidan.connectionError))
+							connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(root.account.connection.errorText)
 						}
 					}
 
-					function onConnectionStateChanged() {
+					function onStateChanged() {
 						// Skip connection state changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
 						if (connectionSettingsBusyIndicator.visible) {
-							if (Kaidan.connectionState === Enums.StateDisconnected) {
-								if (Kaidan.connectionError === ClientWorker.NoError) {
+							if (root.account.connection.state === Enums.StateDisconnected) {
+								if (root.account.connection.error === ClientWorker.NoError) {
 									connectionSettings.logIn()
 								} else {
 									connectionSettingsBusyIndicator.visible = false
 								}
-							} else if (Kaidan.connectionState === Enums.StateConnected) {
+							} else if (root.account.connection.state === Enums.StateConnected) {
 								connectionSettingsBusyIndicator.visible = false
 								passiveNotification(qsTr("Connection settings changed"))
 							}
@@ -941,9 +961,9 @@ DetailsContent {
 				}
 
 				function logIn() {
-					AccountController.account.host = customConnectionSettings.hostField.text
-					AccountController.account.port = customConnectionSettings.portField.value
-					Kaidan.logIn()
+					root.account.settings.host = customConnectionSettings.hostField.text
+					root.account.settings.port = customConnectionSettings.portField.value
+					root.account.connection.logIn()
 				}
 			}
 		}
@@ -959,7 +979,7 @@ DetailsContent {
 
 		FormCard.FormSectionText {
 			text: qsTr("Never show the information in this section to anyone else. It would allow unlimited access to your account!")
-			visible: AccountController.account.passwordVisibility !== Kaidan.PasswordInvisible
+			visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Invisible
 		}
 
 		FormCard.FormButtonDelegate {
@@ -977,7 +997,7 @@ DetailsContent {
 				color: secondaryBackgroundColor
 			}
 			contentItem: LoginQrCode {
-				jid: root.jid
+				accountSettings: root.account.settings
 			}
 			Layout.preferredWidth: parent.width
 			Layout.preferredHeight: Layout.preferredWidth
@@ -993,18 +1013,19 @@ DetailsContent {
 
 		CopyFormTextDelegate {
 			text: qsTr("Chat address")
-			description: root.jid
+			description: root.account.settings.jid
 			visible: credentialsExpansionButton.checked
 		}
 
 		CopyFormTextDelegate {
 			text: qsTr("Password")
-			description: AccountController.account.password
-			visible: credentialsExpansionButton.checked && AccountController.account.passwordVisibility === Kaidan.PasswordVisible
+			description: root.account.settings.password
+			visible: credentialsExpansionButton.checked && root.account.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible
 		}
 	}
 
 	FormCard.FormCard {
+		visible: root.account.settings.enabled
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
@@ -1019,13 +1040,13 @@ DetailsContent {
 				id: migrateButton
 				idleText: qsTr("Migrate account")
 				busyText: qsTr("Preparing account migration…")
-				busy: Kaidan.accountMigrationController.busy
-				description: busy ? qsTr("That can take long") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
+				busy: AccountController.migrating
+				description: busy ? qsTr("This may take a while") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
 				idleIconSource: "edit-copy-symbolic"
-				onClicked: Kaidan.accountMigrationController.startMigration()
+				onClicked: AccountController.startMigration(root.account)
 
 				Connections {
-					target: Kaidan
+					target: MainController
 					enabled: root.dialog
 
 					function onOpenStartPageRequested() {
@@ -1040,6 +1061,7 @@ DetailsContent {
 		id: accountRemovalArea
 		Layout.fillWidth: true
 		enabled: !accountRemovalButtonArea.busy && !accountDeletionButtonArea.busy
+		visible: root.account.settings.enabled
 
 		FormCard.FormHeader {
 			title: qsTr("Removal")
@@ -1055,14 +1077,14 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountController.deleteAccountFromClient()
+				root.account.registrationController.deleteAccountFromClient()
 			}
 			busyText: qsTr("Removing account…")
 		}
 
 		ConfirmationFormButtonArea {
 			id: accountDeletionButtonArea
-			visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
+			visible: root.account.settings.inBandRegistrationFeaturesSupported
 			button {
 				text: qsTr("Delete completely")
 				description: qsTr("Delete account from provider. You will not be able to use your account again!")
@@ -1071,16 +1093,16 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				AccountController.deleteAccountFromClientAndServer()
+				root.account.registrationController.deleteAccountFromClientAndServer()
 			}
 			busyText: qsTr("Deleting account…")
 
 			Connections {
-				target: AccountController
+				target: root.account.registrationController
 
 				function onAccountDeletionFromClientAndServerFailed(errorMessage) {
 					accountDeletionButtonArea.busy = false
-					passiveNotification(qsTr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error));
+					passiveNotification(qsTr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(errorMessage));
 				}
 			}
 		}
@@ -1088,6 +1110,7 @@ DetailsContent {
 
 	AccountTrustMessageUriGenerator {
 		id: trustMessageUriGenerator
-		jid: root.jid
+		encryptionController: root.account.encryptionController
+		jid: root.account.settings.jid
 	}
 }

@@ -21,17 +21,11 @@ import "registration"
  */
 ImageBackgroundPage {
 	id: root
-	title: {
-		if (Kaidan.accountMigrationController.migrationState !== AccountMigrationController.MigrationState.Idle) {
-			return qsTr("Account Migration")
-		}
 
-		return "Kaidan"
-	}
-	onBackRequested: {
-		globalDrawer.enabled = true
-		Kaidan.accountMigrationController.cancelMigration()
-	}
+	property Account account: AccountController.createAccount()
+
+	title: AccountController.migrating ? qsTr("Account Migration") : qsTr("Account Creation")
+	Component.onDestruction: AccountController.discardUninitializedAccount(account)
 
 	ColumnLayout {
 		Item {
@@ -60,6 +54,7 @@ ImageBackgroundPage {
 
 		LoginArea {
 			id: loginArea
+			account: root.account
 			qrCodeButton {
 				visible: true
 				onClicked: pushLayer(qrCodeOnboardingPage)
@@ -126,25 +121,37 @@ ImageBackgroundPage {
 	}
 
 	Connections {
-		target: Kaidan
+		target: root.account.connection
 
-		function onConnectionErrorChanged() {
-			if (Kaidan.connectionError !== ClientWorker.NoError) {
-				passiveNotification(Utils.connectionErrorMessage(Kaidan.connectionError))
+		function onErrorChanged() {
+			if (root.account.connection.error !== ClientWorker.NoError) {
+				passiveNotification(root.account.connection.errorText)
 				loginArea.initialize()
 			}
 		}
 	}
 
 	Component {
+		id: qrCodeOnboardingPage
+
+		QrCodeOnboardingPage {
+			account: root.account
+		}
+	}
+
+	Component {
 		id: automaticRegistrationPage
 
-		AutomaticRegistrationPage {}
+		AutomaticRegistrationPage {
+			account: root.account
+		}
 	}
 
 	Component {
 		id: providerPage
 
-		ProviderPage {}
+		ProviderPage {
+			account: root.account
+		}
 	}
 }

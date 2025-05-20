@@ -5,19 +5,27 @@
 #pragma once
 
 // Kaidan
-#include "AbstractQrCodeGenerator.h"
+#include "QrCodeGenerator.h"
+
+class AccountSettings;
 
 /**
  * Gerenates a QR code encoding the credentials of an account used to log into it with another
  * client.
  */
-class LoginQrCodeGenerator : public AbstractQrCodeGenerator
+class LoginQrCodeGenerator : public QrCodeGenerator
 {
     Q_OBJECT
+
+    Q_PROPERTY(AccountSettings *accountSettings MEMBER m_accountSettings WRITE setAccountSettings)
 
 public:
     explicit LoginQrCodeGenerator(QObject *parent = nullptr);
 
+    void setAccountSettings(AccountSettings *accountSettings);
+
 private:
     void updateText();
+
+    AccountSettings *m_accountSettings = nullptr;
 };

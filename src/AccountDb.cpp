@@ -52,8 +52,13 @@ QVariant writeValue(const T &value)
 
 AccountDb *AccountDb::s_instance = nullptr;
 
-AccountDb::AccountDb(Database *db, QObject *parent)
-    : DatabaseComponent(db, parent)
+AccountDb *AccountDb::instance()
+{
+    return s_instance;
+}
+
+AccountDb::AccountDb(QObject *parent)
+    : DatabaseComponent(parent)
 {
     Q_ASSERT(!AccountDb::s_instance);
     s_instance = this;
@@ -64,72 +69,42 @@ AccountDb::~AccountDb()
     s_instance = nullptr;
 }
 
-AccountDb *AccountDb::instance()
+QFuture<void> AccountDb::addAccount(const AccountSettings::Data &account)
 {
-    return s_instance;
-}
-
-QFuture<void> AccountDb::addAccount(const QString &jid)
-{
-    return run([this, jid] {
+    return run([this, account] {
         auto query = createQuery();
-        execQuery(query,
-                  QStringLiteral(R"(
-				INSERT OR IGNORE INTO accounts (
-					jid
-				)
-				VALUES (
-					:jid
-				)
-			)"),
-                  {
-                      {u":jid", jid},
-                  });
+        insert(QString::fromLatin1(DB_TABLE_ACCOUNTS),
+               {
+                   {u"jid", account.jid},
+                   {u"password", account.password},
+                   {u"host", account.host.isEmpty() ? QVariant{} : account.host},
+                   {u"name", account.name.isEmpty() ? QVariant{} : account.name},
+               });
+
+        Q_EMIT accountAdded(account);
     });
 }
 
-QFuture<Account> AccountDb::account(const QString &jid)
+QFuture<QList<AccountSettings::Data>> AccountDb::accounts()
 {
-    return run([this, jid]() {
-        auto query = createQuery();
-        execQuery(query,
-                  QStringLiteral(R"(
-				SELECT *
-				FROM accounts
-				WHERE jid = :jid
-			)"),
-                  {
-                      {u":jid", jid},
-                  });
-
-        QList<Account> accounts;
-        parseAccountsFromQuery(query, accounts);
-
-        return accounts.first();
-    });
-}
-
-QFuture<Account> AccountDb::lastAccount()
-{
-    // Get the last created account, which is the last we want to use.
-    // When migrating, the old account is not deleted. Before we would store the jid to login in the settings file so we would retrieve it correctly
-    // but now it's all asynchronous and tehre is no more settings. So the accoutn we need is the last one.
-    // We may considere to just delete the previous account in db later, for now just don't change the behavior.
     return run([this]() {
         auto query = createQuery();
-        execQuery(query, QStringLiteral(R"(SELECT * FROM accounts ORDER BY rowid DESC LIMIT 1)"));
+        execQuery(query, QStringLiteral(R"(
+				SELECT *
+				FROM accounts
+			)"));
 
-        QList<Account> accounts;
+        QList<AccountSettings::Data> accounts;
         parseAccountsFromQuery(query, accounts);
 
-        return accounts.isEmpty() ? Account() : accounts.constFirst();
+        return accounts;
     });
 }
 
-QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount)
+QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void(AccountSettings::Data &)> &updateAccount)
 {
     return run([this, jid, updateAccount]() {
-        // Load the account from the database.
+        // Load the account settings from the database.
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
@@ -141,19 +116,17 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
                       {u":jid", jid},
                   });
 
-        QList<Account> accounts;
+        QList<AccountSettings::Data> accounts;
         parseAccountsFromQuery(query, accounts);
 
-        // Update the loaded account.
+        // Update the loaded account settings.
         if (!accounts.isEmpty()) {
             const auto &oldAccount = accounts.constFirst();
-            Account newAccount = oldAccount;
+            AccountSettings::Data newAccount = oldAccount;
             updateAccount(newAccount);
 
-            // Replace the old account's values with the updated ones if the item has changed.
+            // Replace the old account settings with the updated ones if the item has changed.
             if (oldAccount != newAccount) {
-                Q_EMIT accountUpdated(newAccount);
-
                 if (auto record = createUpdateRecord(oldAccount, newAccount); !record.isEmpty()) {
                     // Create an SQL record containing only the differences.
                     updateAccountByRecord(jid, record);
@@ -161,6 +134,51 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
             }
         }
     });
+}
+
+QFuture<void> AccountDb::updateEnabled(const QString &jid, bool enabled)
+{
+    return updateField(jid, QStringLiteral("enabled"), enabled);
+}
+
+QFuture<void> AccountDb::updateHttpUploadLimit(const QString &jid, qint64 httpUploadLimit)
+{
+    return updateField(jid, QStringLiteral("httpUploadLimit"), httpUploadLimit);
+}
+
+QFuture<void> AccountDb::updatePasswordVisibility(const QString &jid, AccountSettings::PasswordVisibility passwordVisibility)
+{
+    return updateField(jid, QStringLiteral("passwordVisibility"), writeValue(passwordVisibility));
+}
+
+QFuture<void> AccountDb::updateEncryption(const QString &jid, Encryption::Enum encryption)
+{
+    return updateField(jid, QStringLiteral("encryption"), encryption);
+}
+
+QFuture<void> AccountDb::updateAutomaticMediaDownloadsRule(const QString &jid, AccountSettings::AutomaticMediaDownloadsRule automaticMediaDownloadsRule)
+{
+    return updateField(jid, QStringLiteral("automaticMediaDownloadsRule"), writeValue(automaticMediaDownloadsRule));
+}
+
+QFuture<void> AccountDb::updateContactNotificationRule(const QString &jid, AccountSettings::ContactNotificationRule contactNotificationRule)
+{
+    return updateField(jid, QStringLiteral("contactNotificationRule"), writeValue(contactNotificationRule));
+}
+
+QFuture<void> AccountDb::updateGroupChatNotificationRule(const QString &jid, AccountSettings::GroupChatNotificationRule groupChatNotificationRule)
+{
+    return updateField(jid, QStringLiteral("groupChatNotificationRule"), writeValue(groupChatNotificationRule));
+}
+
+QFuture<void> AccountDb::updateGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
+{
+    return updateField(jid, QStringLiteral("geoLocationMapPreviewEnabled"), geoLocationMapPreviewEnabled);
+}
+
+QFuture<void> AccountDb::updateGeoLocationMapService(const QString &jid, AccountSettings::GeoLocationMapService geoLocationMapService)
+{
+    return updateField(jid, QStringLiteral("geoLocationMapService"), writeValue(geoLocationMapService));
 }
 
 QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
@@ -198,10 +216,12 @@ QFuture<void> AccountDb::removeAccount(const QString &jid)
                   {
                       {u":jid", jid},
                   });
+
+        Q_EMIT accountRemoved(jid);
     });
 }
 
-void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &accounts)
+void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::Data> &accounts)
 {
     QSqlRecord rec = query.record();
 
@@ -214,8 +234,8 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &account
     int idxGroupChatNotificationRule = rec.indexOf(QStringLiteral("groupChatNotificationRule"));
     int idxGeoLocationMapPreviewEnabled = rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
     int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
-    int idxOnline = rec.indexOf(QStringLiteral("online"));
-    int idxResourcePrefix = rec.indexOf(QStringLiteral("resourcePrefix"));
+    int idxEnabled = rec.indexOf(QStringLiteral("enabled"));
+    int idxJidResourcePrefix = rec.indexOf(QStringLiteral("resourcePrefix"));
     int idxPassword = rec.indexOf(QStringLiteral("password"));
     int idxCredentials = rec.indexOf(QStringLiteral("credentials"));
     int idxHost = rec.indexOf(QStringLiteral("host"));
@@ -229,8 +249,10 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &account
 
     reserve(accounts, query);
     while (query.next()) {
-        Account account;
+        AccountSettings::Data account;
 
+        account.initialized = true;
+        account.initialMessagesRetrieved = true;
         account.jid = query.value(idxJid).toString();
         account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
         account.latestMessageStanzaTimestamp = query.value(idxLatestMessageStanzaTimestamp).toDateTime();
@@ -241,24 +263,22 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &account
     account.NAME = readValue<TYPE>(NAME)
 
         SET_IF(idxName, name, QString);
-        SET_IF(idxContactNotificationRule, contactNotificationRule, Account::ContactNotificationRule);
-        SET_IF(idxGroupChatNotificationRule, groupChatNotificationRule, Account::GroupChatNotificationRule);
+        SET_IF(idxContactNotificationRule, contactNotificationRule, AccountSettings::ContactNotificationRule);
+        SET_IF(idxGroupChatNotificationRule, groupChatNotificationRule, AccountSettings::GroupChatNotificationRule);
         SET_IF(idxGeoLocationMapPreviewEnabled, geoLocationMapPreviewEnabled, bool);
-        SET_IF(idxGeoLocationMapService, geoLocationMapService, Account::GeoLocationMapService);
-        SET_IF(idxOnline, online, bool);
-        SET_IF(idxResourcePrefix, resourcePrefix, QString);
+        SET_IF(idxGeoLocationMapService, geoLocationMapService, AccountSettings::GeoLocationMapService);
+        SET_IF(idxEnabled, enabled, bool);
+        SET_IF(idxJidResourcePrefix, jidResourcePrefix, QString);
         SET_IF(idxPassword, password, QString);
-        // Password is stored as base64 unencrypted
-        account.password = QString::fromUtf8(QByteArray::fromBase64(account.password.toUtf8()));
         SET_IF(idxCredentials, credentials, QXmppCredentials);
         SET_IF(idxHost, host, QString);
         SET_IF(idxPort, port, quint16);
         SET_IF(idxTlsErrorsIgnored, tlsErrorsIgnored, bool);
         SET_IF(idxTlsRequirement, tlsRequirement, QXmppConfiguration::StreamSecurityMode);
-        SET_IF(idxPasswordVisibility, passwordVisibility, Kaidan::PasswordVisibility);
+        SET_IF(idxPasswordVisibility, passwordVisibility, AccountSettings::PasswordVisibility);
         SET_IF(idxUserAgentDeviceId, userAgentDeviceId, QUuid);
         SET_IF(idxEncryption, encryption, Encryption::Enum);
-        SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, Account::AutomaticMediaDownloadsRule);
+        SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, AccountSettings::AutomaticMediaDownloadsRule);
 
 #undef SET_IF
 
@@ -266,7 +286,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &account
     }
 }
 
-QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Account &newAccount)
+QSqlRecord AccountDb::createUpdateRecord(const AccountSettings::Data &oldAccount, const AccountSettings::Data &newAccount)
 {
     QSqlRecord rec;
 
@@ -279,30 +299,22 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
     SET_IF_NEW(latestMessageStanzaId, QString);
     SET_IF_NEW(latestMessageStanzaTimestamp, QDateTime);
     SET_IF_NEW(httpUploadLimit, qint64);
-    SET_IF_NEW(contactNotificationRule, Account::ContactNotificationRule);
-    SET_IF_NEW(groupChatNotificationRule, Account::GroupChatNotificationRule);
+    SET_IF_NEW(contactNotificationRule, AccountSettings::ContactNotificationRule);
+    SET_IF_NEW(groupChatNotificationRule, AccountSettings::GroupChatNotificationRule);
     SET_IF_NEW(geoLocationMapPreviewEnabled, bool);
-    SET_IF_NEW(geoLocationMapService, Account::GeoLocationMapService);
-
-    SET_IF_NEW(online, bool);
-    SET_IF_NEW(resourcePrefix, QString);
+    SET_IF_NEW(geoLocationMapService, AccountSettings::GeoLocationMapService);
+    SET_IF_NEW(enabled, bool);
+    SET_IF_NEW(jidResourcePrefix, QString);
     SET_IF_NEW(password, QString);
-    // Password is stored as base64 unencrypted
-    if (auto field = rec.field(rec.count() - 1); field.name().compare(QStringLiteral("password"), Qt::CaseInsensitive) == 0) {
-        if (!field.isNull()) {
-            field.setValue(QString::fromUtf8(field.value().toString().toUtf8().toBase64()));
-            rec.replace(rec.count() - 1, field);
-        }
-    }
     SET_IF_NEW(credentials, QXmppCredentials);
     SET_IF_NEW(host, QString);
     SET_IF_NEW(port, quint16);
     SET_IF_NEW(tlsErrorsIgnored, bool);
     SET_IF_NEW(tlsRequirement, QXmppConfiguration::StreamSecurityMode);
-    SET_IF_NEW(passwordVisibility, Kaidan::PasswordVisibility);
+    SET_IF_NEW(passwordVisibility, AccountSettings::PasswordVisibility);
     SET_IF_NEW(userAgentDeviceId, QUuid);
     SET_IF_NEW(encryption, Encryption::Enum);
-    SET_IF_NEW(automaticMediaDownloadsRule, Account::AutomaticMediaDownloadsRule);
+    SET_IF_NEW(automaticMediaDownloadsRule, AccountSettings::AutomaticMediaDownloadsRule);
 
 #undef SET_IF_NEW
 
@@ -314,11 +326,24 @@ void AccountDb::updateAccountByRecord(const QString &jid, const QSqlRecord &reco
     auto query = createQuery();
     auto &driver = sqlDriver();
 
-    QMap<QString, QVariant> keyValuePairs = {{QStringLiteral("jid"), jid}};
-
     execQuery(query,
               driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false)
-                  + simpleWhereStatement(&driver, keyValuePairs));
+                  + simpleWhereStatement(&driver, QStringLiteral("jid"), jid));
+}
+
+QFuture<void> AccountDb::updateField(const QString &jid, const QString &column, const QVariant &value)
+{
+    return run([this, jid, column, value]() {
+        auto query = createQuery();
+        auto &driver = sqlDriver();
+
+        QSqlRecord record;
+        record.append(createSqlField(column, value));
+
+        execQuery(query,
+                  driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false)
+                      + simpleWhereStatement(&driver, QStringLiteral("jid"), jid));
+    });
 }
 
 #include "moc_AccountDb.cpp"

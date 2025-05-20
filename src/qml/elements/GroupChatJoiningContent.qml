@@ -11,21 +11,18 @@ import "fields"
 
 ConfirmationArea {
 	id: root
-	required property string accountJid
+	property Account account
 	property alias groupChatJidField: groupChatJidField
 	property alias groupChatJid: groupChatJidField.text
-	property alias nicknameField: nicknameField
-	property alias nickname: nicknameField.text
 
 	confirmationButton.text: qsTr("Join")
 	confirmationButton.onClicked: joinGroupChat()
 	loadingArea.description: qsTr("Joining group chat…")
-	busy: GroupChatController.busy
+	busy: account.groupChatController.busy
 
 	JidField {
 		id: groupChatJidField
 		labelText: qsTr("Address")
-		text: ""
 		placeholderText: qsTr("group@groups.example.org")
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
 		invalidHintText: qsTr("The address must have the form <b>group@server</b>")
@@ -36,13 +33,14 @@ ConfirmationArea {
 	Field {
 		id: nicknameField
 		labelText: qsTr("Nickname (optional):")
+		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		Layout.fillWidth: true
 		inputField.onAccepted: joinGroupChat()
 	}
 
 	Connections {
-		target: GroupChatController
+		target: root.account.groupChatController
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
@@ -51,7 +49,7 @@ ConfirmationArea {
 
 	function joinGroupChat() {
 		if (groupChatJidField.valid) {
-			GroupChatController.joinGroupChat(accountJid, groupChatJid, nicknameField.text)
+			account.groupChatController.joinGroupChat(groupChatJid, nicknameField.text)
 		} else {
 			groupChatJidField.forceActiveFocus()
 		}

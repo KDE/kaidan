@@ -16,7 +16,8 @@ import im.kaidan.kaidan
 KeyAuthenticationPage {
 	id: root
 	authenticatableKeysArea.listView.model: AuthenticatableEncryptionKeyModel {
-		accountJid: root.accountJid
+		encryptionController: root.account.encryptionController
+		accountJid: root.account.settings.jid
 		chatJid: root.jid
 	}
 }

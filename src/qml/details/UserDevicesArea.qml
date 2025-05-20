@@ -17,9 +17,10 @@ import "../elements"
 FormCard.FormCard {
 	id: root
 
+	required property Account account
 	required property string jid
 
-	visible: deviceRepeater.count
+	visible: account.settings.enabled && deviceRepeater.count
 	Layout.fillWidth: true
 
 	FormCard.FormHeader {
@@ -30,6 +31,8 @@ FormCard.FormCard {
 		id: deviceRepeater
 		Layout.fillHeight: true
 		model: UserDevicesModel {
+			versionController: root.account.versionController
+			presenceCache: root.account.presenceCache
 			jid: root.jid
 		}
 		delegate: FormCard.AbstractFormDelegate {

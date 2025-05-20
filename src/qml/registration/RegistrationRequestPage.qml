@@ -12,20 +12,15 @@ import ".."
  * This is the base for pages requesting to register an account.
  */
 ImageBackgroundPage {
-	// JID of the provider from whom the registration form is requested
-	property string provider
+	property Account account
 
-	onBackRequested: Kaidan.registrationController.abortRegistration()
-	Component.onCompleted: AccountController.resetCustomConnectionSettings()
+	onBackRequested: account.registrationController.abortRegistration()
 
 	/**
 	 * Requests a registration form from the provider.
 	 */
 	function requestRegistrationForm() {
-		// Set the provider's JID.
-		AccountController.setNewAccountJid(provider)
-
 		// Request a registration form.
-		Kaidan.registrationController.requestRegistrationForm()
+		account.registrationController.requestRegistrationForm()
 	}
 }

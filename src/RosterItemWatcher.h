@@ -18,24 +18,29 @@ class RosterItemNotifier
 public:
     static RosterItemNotifier &instance();
 
-    void notifyWatchers(const QString &jid, const std::optional<RosterItem> &item);
-    void registerItemWatcher(const QString &jid, RosterItemWatcher *watcher);
-    void unregisterItemWatcher(const QString &jid, RosterItemWatcher *watcher);
+    void notifyWatchers(const QString &accountJid, const QString &jid, const std::optional<RosterItem> &item);
+    void registerItemWatcher(RosterItemWatcher *watcher);
+    void unregisterItemWatcher(RosterItemWatcher *watcher);
 
 private:
     RosterItemNotifier() = default;
 
-    std::unordered_multimap<QString, RosterItemWatcher *> m_itemWatchers;
+    QList<RosterItemWatcher *> m_itemWatchers;
 };
 
 class RosterItemWatcher : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(const RosterItem &item READ item NOTIFY itemChanged)
 public:
     explicit RosterItemWatcher(QObject *parent = nullptr);
     ~RosterItemWatcher();
+
+    const QString &accountJid() const;
+    void setAccountJid(const QString &accountJid);
+    Q_SIGNAL void accountJidChanged();
 
     const QString &jid() const;
     void setJid(const QString &jid);
@@ -50,6 +55,7 @@ private:
     void notify(const std::optional<RosterItem> &item);
     void unregister();
 
+    QString m_accountJid;
     QString m_jid;
     RosterItem m_item;
     bool m_outdated = false;

@@ -7,24 +7,10 @@
 // Kaidan
 #include "OmemoController.h"
 
-EncryptionController *EncryptionController::s_instance = nullptr;
-
-EncryptionController *EncryptionController::instance()
-{
-    return s_instance;
-}
-
-EncryptionController::EncryptionController(QObject *parent)
+EncryptionController::EncryptionController(AccountSettings *accountSettings, PresenceCache *presenceCache, QXmppOmemoManager *omemoManager, QObject *parent)
     : QObject(parent)
-    , m_omemoController(std::make_unique<OmemoController>())
+    , m_omemoController(new OmemoController(accountSettings, this, presenceCache, omemoManager, this))
 {
-    Q_ASSERT(!EncryptionController::s_instance);
-    s_instance = this;
-}
-
-EncryptionController::~EncryptionController()
-{
-    s_instance = nullptr;
 }
 
 QFuture<void> EncryptionController::load()
@@ -37,40 +23,34 @@ QFuture<void> EncryptionController::setUp()
     return m_omemoController->setUp();
 }
 
-void EncryptionController::initializeAccountFromQml(const QString &accountJid)
+void EncryptionController::initializeAccount()
 {
-    initializeAccount(accountJid);
+    m_omemoController->initializeAccount();
 }
 
-QFuture<void> EncryptionController::initializeAccount(const QString &accountJid)
+void EncryptionController::initializeChat(const QList<QString> &contactJids)
 {
-    return m_omemoController->initializeAccount(accountJid);
+    m_omemoController->initializeChat(contactJids);
 }
 
-QFuture<void> EncryptionController::initializeChat(const QString &accountJid, const QList<QString> &contactJids)
+QFuture<QString> EncryptionController::ownKey()
 {
-    return m_omemoController->initializeChat(accountJid, contactJids);
+    return m_omemoController->ownKey();
 }
 
-QFuture<QString> EncryptionController::ownKey(const QString &accountJid)
+QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> EncryptionController::keys(const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
 {
-    return m_omemoController->ownKey(accountJid);
+    return m_omemoController->keys(jids, trustLevels);
 }
 
-QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>
-EncryptionController::keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
+QFuture<EncryptionController::OwnDevice> EncryptionController::ownDevice()
 {
-    return m_omemoController->keys(accountJid, jids, trustLevels);
+    return m_omemoController->ownDevice();
 }
 
-QFuture<EncryptionController::OwnDevice> EncryptionController::ownDevice(const QString &accountJid)
+QFuture<QList<EncryptionController::Device>> EncryptionController::devices(const QList<QString> &jids)
 {
-    return m_omemoController->ownDevice(accountJid);
-}
-
-QFuture<QList<EncryptionController::Device>> EncryptionController::devices(const QString &accountJid, const QList<QString> &jids)
-{
-    return m_omemoController->devices(accountJid, jids);
+    return m_omemoController->devices(jids);
 }
 
 QFuture<bool> EncryptionController::hasUsableDevices(const QList<QString> &jids)

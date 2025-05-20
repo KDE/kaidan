@@ -1,168 +1,71 @@
-// SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
-// SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
-// SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2025 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
 // Qt
-#include <QMutex>
+#include <QFuture>
 #include <QObject>
-// QXmpp
-#include <QXmppGlobal.h>
-#include <QXmppStanza.h>
+#include <QPointer>
 // Kaidan
 #include "Account.h"
-#include "Encryption.h"
-#include "Kaidan.h"
 
+class AccountMigrationController;
 class ClientWorker;
-class Settings;
-class VCardCache;
-class QXmppClient;
-class QXmppSasl2UserAgent;
 
-/**
- * This class manages account-related settings.
- */
 class AccountController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Account account READ account NOTIFY accountChanged)
-    Q_PROPERTY(quint16 portAutodetect READ portAutodetect CONSTANT)
+    Q_PROPERTY(QList<Account *> accounts READ accounts NOTIFY accountsChanged)
+    Q_PROPERTY(bool migrating READ migrating NOTIFY migratingChanged)
 
 public:
-    enum class DeletionState {
-        NotToBeDeleted = 1 << 0,
-        ToBeDeletedFromClient = 1 << 1,
-        ToBeDeletedFromServer = 1 << 2,
-        DeletedFromServer = 1 << 3,
-        ClientDisconnectedBeforeDeletionFromServer = 1 << 4,
-    };
-    Q_DECLARE_FLAGS(DeletionStates, DeletionState)
-
     static AccountController *instance();
 
-    AccountController(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
+    explicit AccountController(QObject *parent = nullptr);
+    ~AccountController();
 
-    Account account() const;
-    Q_SIGNAL void accountChanged();
+    Q_INVOKABLE Account *createAccount();
+    Q_INVOKABLE void discardUninitializedAccount(Account *account);
 
-    bool hasNewAccount() const;
+    Q_INVOKABLE Account *account(const QString &jid) const;
+    QList<Account *> accounts() const;
+    Q_SIGNAL void accountsChanged();
 
-    // TODO: When multi account is there, Account must become a real QObject and those helpers goes into Account instead.
-    Q_INVOKABLE void setAuthOnline(bool online);
-    Q_INVOKABLE void setAuthJidResourcePrefix(const QString &prefix);
-    Q_INVOKABLE void setAuthPassword(const QString &password);
-    Q_INVOKABLE void setAuthCredentials(const QXmppCredentials &credentials);
-    Q_INVOKABLE void setAuthHost(const QString &host);
-    Q_INVOKABLE void setAuthPort(quint16 port);
-    Q_INVOKABLE void setAuthTlsErrorsIgnored(bool enabled);
-    Q_INVOKABLE void setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode);
-    Q_INVOKABLE void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
-    Q_INVOKABLE void setUserAgentDeviceId(const QUuid &userAgentDeviceId);
-    Q_INVOKABLE void setEncryption(Encryption::Enum encryption);
-    Q_INVOKABLE void setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule);
-    Q_INVOKABLE void setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule);
-    Q_INVOKABLE void setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule);
-    Q_INVOKABLE void setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled);
-    Q_INVOKABLE void setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService);
+    Q_INVOKABLE QList<Account *> enabledAccounts() const;
 
-    Q_INVOKABLE void setNewAccount(const QString &jid, const QString &password, const QString &host = {}, quint16 port = PORT_AUTODETECT);
-    Q_INVOKABLE void setNewAccountJid(const QString &jid);
-    Q_INVOKABLE void setNewAccountHost(const QString &host, quint16 port);
-    Q_INVOKABLE void resetNewAccount();
+    Q_SIGNAL void accountAvailable();
+    Q_SIGNAL void noAccountAvailable();
 
-    /**
-     * Returns the port which indicates that no custom port is set.
-     */
-    quint16 portAutodetect() const;
+    Q_INVOKABLE void setActiveAccount(Account *account);
+    Q_INVOKABLE void resetActiveAccount();
 
-    /**
-     * Resets the custom connection settings.
-     */
-    Q_INVOKABLE void resetCustomConnectionSettings();
+    Q_INVOKABLE void startMigration(Account *account);
+    bool migrating();
+    Q_SIGNAL void migratingChanged();
 
-    /**
-     * Returns whether there are enough credentials available to log in to the server.
-     */
-    Q_INVOKABLE bool hasEnoughCredentialsForLogin();
+    Q_INVOKABLE bool logOutAllAccountsToQuit();
+    Q_SIGNAL void allAccountsLoggedOutToQuit();
 
-    /**
-     * Returns the user agent of the current account (thread-safe).
-     */
-    QXmppSasl2UserAgent userAgent();
-
-    /**
-     * Loads all credentials and connection settings used to connect to the server.
-     *
-     * Emits connectionDataLoaded when done. Use hasEnoughCredentialsForLogin for the result.
-     */
-    Q_INVOKABLE void loadConnectionData();
-    Q_SIGNAL void connectionDataLoaded();
-
-    /**
-     * Stores credentials and connection settings in the settings file.
-     */
-    void storeAccount();
-
-    /**
-     * Deletes the account data from the configuration file and database.
-     */
-    Q_INVOKABLE void deleteAccountFromClient();
-
-    /**
-     * Deletes the account data from the client and server.
-     */
-    Q_INVOKABLE void deleteAccountFromClientAndServer();
-
-    /**
-     * Called when the account is deleted from the server.
-     */
-    void handleAccountDeletedFromServer();
-
-    /**
-     * Called when the account could not be deleted from the server.
-     *
-     * @param error error of the failed account deletion
-     */
-    void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
-    Q_SIGNAL void accountDeletionFromClientAndServerFailed(const QString &errorMessage);
-
-    bool handleConnected();
-    void handleDisconnected();
-
-Q_SIGNALS:
-    /**
-     * Emitted when there are no (correct) credentials to log in.
-     */
-    void credentialsNeeded();
+    Q_SIGNAL void accountAdded(Account *account);
+    Q_SIGNAL void accountRemoved(const QString &jid);
 
 private:
-    /**
-     * Removes an account.
-     *
-     * @param accountJid JID of the account being removed
-     */
-    void removeAccount(const QString &accountJid);
+    QFuture<void> loadAccounts();
+    void handleAccountAdded(const AccountSettings::Data &accountSettings);
+    void removeAccount(const QString &jid);
 
-    mutable QMutex m_mutex;
-    Settings *const m_settings;
-    ClientWorker *const m_clientWorker;
+    void cancelMigration();
 
-    QXmppClient *const m_client;
+    QList<Account *> m_accounts;
 
-    Account m_account;
+    Account *m_activeAccount = nullptr;
+    QPointer<Account> m_accountToBeDeleted;
+    quint32 m_accountsLoggingOutCount = 0;
 
-    // Temporary account until stored to db
-    // Use for new account setup or account registration.
-    std::optional<Account> m_tmpAccount;
-
-    // These variables are used for checking the state of an ongoing account deletion.
-    DeletionStates m_deletionStates = DeletionState::NotToBeDeleted;
+    QPointer<AccountMigrationController> m_migrationController;
 
     static AccountController *s_instance;
 };
-Q_DECLARE_OPERATORS_FOR_FLAGS(AccountController::DeletionStates)

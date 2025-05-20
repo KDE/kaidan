@@ -13,8 +13,13 @@
 #include <QXmppMixParticipantItem.h>
 #include <QXmppStanza.h>
 // Kaidan
-#include "GroupChatController.h"
+#include "Encryption.h"
 
+struct GroupChatService;
+
+class AccountSettings;
+class GroupChatController;
+class MessageController;
 class QXmppMixInfoItem;
 
 /**
@@ -25,7 +30,11 @@ class MixController : public QObject
     Q_OBJECT
 
 public:
-    explicit MixController(QObject *parent = nullptr);
+    explicit MixController(AccountSettings *accountSettings,
+                           GroupChatController *groupChatController,
+                           MessageController *messageController,
+                           QXmppMixManager *mixManager,
+                           QObject *parent = nullptr);
 
     bool channelParticipationSupported() const;
     QList<GroupChatService> groupChatServices() const;
@@ -74,6 +83,13 @@ private:
     void handleChannelDeleted(const QString &channelJid);
 
     void handleChannelDeletionFailed(const QString &channelJid, const QXmppStanza::Error &error);
+
+    AccountSettings *const m_accountSettings;
+
+    GroupChatController *const m_groupChatController;
+    MessageController *const m_messageController;
+
+    QXmppMixManager *const m_manager;
 
     bool m_channelParticipationSupported = false;
     QList<QXmppMixManager::Service> m_services;

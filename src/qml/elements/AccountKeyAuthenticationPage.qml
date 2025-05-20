@@ -18,7 +18,7 @@ import im.kaidan.kaidan
  */
 KeyAuthenticationPage {
 	id: root
-	jid: accountJid
+	jid: account.settings.jid
 	explanation: ExplanationArea {
 		primaryExplanationText.text: qsTr("Step 1: Scan your <b>other device's</b> QR code")
 		primaryExplanationImage.source: Utils.getResourcePath("images/qr-code-scan-own-1.svg")
@@ -27,7 +27,8 @@ KeyAuthenticationPage {
 	}
 	authenticatableKeysArea.header.title: qsTr("Unverified own devices")
 	authenticatableKeysArea.listView.model: AuthenticatableEncryptionKeyModel {
-		accountJid: root.accountJid
-		chatJid: accountJid
+		encryptionController: root.account.encryptionController
+		accountJid: root.jid
+		chatJid: root.jid
 	}
 }

@@ -11,14 +11,17 @@
 // Kaidan
 #include "DatabaseComponent.h"
 
+class AccountSettings;
+class Connection;
 class BlockingModel;
 class BlockingWatcher;
+class ClientWorker;
 
 class BlockingDb : public DatabaseComponent
 {
     Q_OBJECT
 public:
-    explicit BlockingDb(Database *database, QObject *parent = nullptr);
+    explicit BlockingDb(QObject *parent = nullptr);
 
     QFuture<QList<QString>> blockedJids(const QString &accountJid);
     QFuture<void> resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
@@ -30,15 +33,29 @@ public:
 class BlockingController : public QObject
 {
     Q_OBJECT
-public:
-    explicit BlockingController(Database *database, QObject *parent = nullptr);
 
-    void registerModel(BlockingModel *model);
-    void unregisterModel(BlockingModel *model);
+    Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
+
+public:
+    BlockingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent = nullptr);
 
     void subscribeToBlocklist();
     [[nodiscard]] std::optional<QXmppBlocklist> blocklist() const;
     Q_SIGNAL void blocklistChanged();
+
+    Q_INVOKABLE void block(const QString &jid);
+    Q_SIGNAL void blocked(const QString &jid);
+    Q_SIGNAL void blockingFailed(const QString &jid, const QString &errorText);
+
+    Q_INVOKABLE void unblock(const QString &jid);
+    Q_SIGNAL void unblocked(const QString &jid);
+    Q_SIGNAL void unblockingFailed(const QString &jid, const QString &errorText);
+
+    [[nodiscard]] bool busy() const;
+    Q_SIGNAL void busyChanged();
+
+    void registerModel(BlockingModel *model);
+    void unregisterModel(BlockingModel *model);
 
 private:
     struct Blocklist {
@@ -50,15 +67,24 @@ private:
         QList<QString> jids;
     };
 
+    void setRunning(uint);
+
     void handleXmppBlocklistResult(QXmppBlockingManager::BlocklistResult &&result);
     void handleBlocklist(Blocklist blocklist);
     void updateDbBlocklist(const QList<QString> &blockedJids);
+
     void onJidsBlocked(const QList<QString> &blockedJids);
     void onJidsUnblocked(const QList<QString> &unblockedJids);
+
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+    ClientWorker *const m_clientWorker;
+    QXmppBlockingManager *const m_manager;
 
     bool m_subscribed = false;
     std::unique_ptr<BlockingDb> m_db;
     std::optional<Blocklist> m_blocklist;
+    uint m_runningActionCount = 0;
     std::vector<BlockingModel *> m_registeredModels;
 };
 
@@ -66,6 +92,9 @@ private:
 class BlockingModel : public QAbstractListModel
 {
     Q_OBJECT
+
+    Q_PROPERTY(BlockingController *blockingController MEMBER m_blockingController WRITE setBlockingController)
+
     friend class BlockingController;
 
 public:
@@ -90,6 +119,8 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
+    void setBlockingController(BlockingController *blockingController);
+
     Q_INVOKABLE bool contains(const QString &jid);
 
 private:
@@ -110,6 +141,7 @@ private:
         }
     };
 
+    BlockingController *m_blockingController = nullptr;
     QList<Entry> m_entries;
 };
 
@@ -117,11 +149,15 @@ private:
 class BlockingWatcher : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(BlockingController *blockingController MEMBER m_blockingController WRITE setBlockingController)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(bool blocked READ blocked NOTIFY blockedChanged)
 
 public:
     explicit BlockingWatcher(QObject *parent = nullptr);
+
+    void setBlockingController(BlockingController *blockingController);
 
     [[nodiscard]] const QString &jid() const;
     void setJid(const QString &jid);
@@ -135,34 +171,9 @@ public:
 private:
     void refreshState();
 
+    BlockingController *m_blockingController = nullptr;
     QString m_jid;
     QXmppBlocklist::BlockingState m_state = QXmppBlocklist::NotBlocked();
-};
-
-// Used for (un)blocking JIDs from QML
-class BlockingAction : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
-
-public:
-    explicit BlockingAction(QObject *parent = nullptr);
-
-    Q_INVOKABLE void block(const QString &jid);
-    Q_INVOKABLE void unblock(const QString &jid);
-
-    Q_SIGNAL void succeeded(const QString &jid, bool block);
-    Q_SIGNAL void errorOccurred(const QString &jid, bool block, const QString &errorText);
-
-    [[nodiscard]] bool loading() const
-    {
-        return m_running > 0;
-    }
-    Q_SIGNAL void loadingChanged();
-
-private:
-    void setRunning(uint);
-    uint m_running = 0;
 };
 
 Q_DECLARE_METATYPE(BlockingModel::JidType)

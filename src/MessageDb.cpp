@@ -58,10 +58,10 @@ std::optional<T> variantToOptional(QVariant value)
 
 MessageDb *MessageDb::s_instance = nullptr;
 
-MessageDb::MessageDb(Database *db, QObject *parent)
-    : DatabaseComponent(db, parent)
+MessageDb::MessageDb(QObject *parent)
+    : DatabaseComponent(parent)
 {
-    Q_ASSERT(!MessageDb::s_instance);
+    Q_ASSERT(!s_instance);
     s_instance = this;
 
     _fetchLatestFileId();
@@ -650,20 +650,6 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
     });
 }
 
-QFuture<void>
-MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const QString &originId, const std::function<void(Message &)> &updateMessage)
-{
-    Q_ASSERT(message.deliveryState != DeliveryState::Draft);
-
-    return run([this, message, origin, originId, updateMessage]() {
-        if (_checkMessageExists(message)) {
-            _updateMessage(originId, updateMessage);
-        } else {
-            _addMessage(message, origin);
-        }
-    });
-}
-
 QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin)
 {
     Q_ASSERT(message.deliveryState != DeliveryState::Draft);
@@ -673,7 +659,28 @@ QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin
     });
 }
 
-QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
+QFuture<void> MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &updateMessage)
+{
+    Q_ASSERT(message.deliveryState != DeliveryState::Draft);
+
+    return run([this, message, origin, updateMessage]() {
+        if (_checkMessageExists(message)) {
+            _updateMessage(message.accountJid, message.chatJid, message.originId, updateMessage);
+        } else {
+            _addMessage(message, origin);
+        }
+    });
+}
+
+QFuture<void>
+MessageDb::updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg)
+{
+    return run([this, accountJid, chatJid, messageId, updateMsg]() {
+        _updateMessage(accountJid, chatJid, messageId, updateMsg);
+    });
+}
+
+QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 {
     return run([this, accountJid]() {
         auto query = createQuery();
@@ -708,12 +715,10 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
                   {
                       {u":accountJid", accountJid},
                   });
-
-        allMessagesRemovedFromAccount(accountJid);
     });
 }
 
-QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, const QString &chatJid)
+QFuture<void> MessageDb::removeMessages(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
         auto query = createQuery();
@@ -751,7 +756,7 @@ QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, co
                       {u":chatJid", chatJid},
                   });
 
-        allMessagesRemovedFromChat(accountJid, chatJid);
+        messagesRemoved(accountJid, chatJid);
     });
 }
 
@@ -816,13 +821,6 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
         }
 
         Q_EMIT messageRemoved(_initializeLastMessage(accountJid, chatJid));
-    });
-}
-
-QFuture<void> MessageDb::updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg)
-{
-    return run([this, id, updateMsg]() {
-        _updateMessage(id, updateMsg);
     });
 }
 
@@ -891,12 +889,8 @@ QFuture<void> MessageDb::addDraftMessage(const Message &msg)
     return run([this, msg]() {
         Q_ASSERT(msg.deliveryState == DeliveryState::Draft);
 
-        const auto addMessage = [this](const Message &message) {
-            _addMessage(message);
-            Q_EMIT draftMessageAdded(message);
-        };
-
-        addMessage(msg);
+        _addMessage(msg);
+        Q_EMIT draftMessageAdded(msg);
     });
 }
 
@@ -1006,19 +1000,24 @@ void MessageDb::_addMessage(const Message &message)
     insertBinary(QString::fromLatin1(DB_TABLE_MESSAGES), values);
 }
 
-void MessageDb::_updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg)
+void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg)
 {
     // load current message item from db
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-			SELECT *
-			FROM chatMessages
-			WHERE replaceId = :id OR stanzaId = :id OR originId = :id OR id = :id
-			LIMIT 1
-		)"),
+                SELECT *
+                FROM chatMessages
+                WHERE
+                    accountJid = :accountJid AND
+                    chatJid = :chatJid AND
+                    (replaceId = :id OR stanzaId = :id OR originId = :id OR id = :id)
+                LIMIT 1
+              )"),
               {
-                  {u":id", id},
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":id", messageId},
               });
 
     auto msgs = _fetchMessagesFromQuery(query);
@@ -1655,7 +1654,7 @@ void MessageDb::_fetchTrustLevel(Message &message)
             // The message is sent from this device.
             message.preciseTrustLevel = QXmpp::TrustLevel::Authenticated;
         } else {
-            message.preciseTrustLevel = TrustDb::instance()->_trustLevel(XMLNS_OMEMO_2, message.senderJid(), senderKey);
+            message.preciseTrustLevel = TrustDb::_trustLevel(database(), message.accountJid, XMLNS_OMEMO_2, message.senderJid(), senderKey);
         }
     }
 }
@@ -1815,7 +1814,7 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
                       {u":deliveryState3", int(MessageReactionDeliveryState::PendingRemovalAfterDelivered)},
                   });
 
-        // IDs of chats mapped to IDs of messages mapped to MessageReactionSender
+        // JIDs of chats mapped to IDs of messages mapped to MessageReactionSender
         QMap<QString, QMap<QString, MessageReactionSender>> reactions;
 
         // Iterate over all IDs of messages with pending reactions.

@@ -8,7 +8,6 @@
 
 // Qt
 #include <QClipboard>
-#include <QDesktopServices>
 #include <QDir>
 #include <QGeoCoordinate>
 #include <QGuiApplication>
@@ -21,7 +20,6 @@
 #include <QXmppColorGeneration.h>
 #include <QXmppUri.h>
 // Kaidan
-#include "AccountController.h"
 #include "Globals.h"
 #include "KaidanCoreLog.h"
 #include "SystemUtils.h"
@@ -31,7 +29,6 @@ const auto QUOTE_PREFIX = QStringLiteral("> ");
 
 constexpr QStringView GEO_URI_SCHEME = u"geo";
 constexpr QStringView GEO_URI_COORDINATE_SEPARATOR = u",";
-constexpr QStringView GEO_LOCATION_WEB_URL = u"https://osmand.net/map/?pin=%1,%2#16/%1/%2";
 
 static QmlUtils *s_instance;
 
@@ -73,39 +70,6 @@ QChar QmlUtils::groupChatUserMentionSeparator()
 QString QmlUtils::systemCountryCode()
 {
     return SystemUtils::systemLocaleCodes().countryCode;
-}
-
-QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
-{
-    switch (error) {
-    case ClientWorker::NoError:
-        break;
-    case ClientWorker::AuthenticationFailed:
-        return tr("Invalid username or password.");
-    case ClientWorker::NotConnected:
-        return tr("Cannot connect to the server. Please check your internet connection.");
-    case ClientWorker::TlsFailed:
-        return tr("Error while trying to connect securely.");
-    case ClientWorker::TlsNotAvailable:
-        return tr("The server doesn't support secure connections.");
-    case ClientWorker::DnsError:
-        return tr("Could not connect to the server. Please check your internet connection or your server name.");
-    case ClientWorker::ConnectionRefused:
-        return tr("The server is offline or blocked by a firewall.");
-    case ClientWorker::NoSupportedAuth:
-        return tr("Authentification protocol not supported by the server.");
-    case ClientWorker::KeepAliveError:
-        return tr("The connection could not be refreshed.");
-    case ClientWorker::NoNetworkPermission:
-        return tr("The internet access is not permitted. Please check your system's internet access configuration.");
-    case ClientWorker::RegistrationUnsupported:
-        return tr("This server does not support registration.");
-    case ClientWorker::EmailConfirmationRequired:
-        return tr("Could not log in. Confirm the email message you received first.");
-    case ClientWorker::UnknownError:
-        return tr("Could not connect to the server.");
-    }
-    Q_UNREACHABLE();
 }
 
 QString QmlUtils::getResourcePath(const QString &name)
@@ -301,22 +265,6 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
     }
 
     return {};
-}
-
-bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
-{
-    switch (AccountController::instance()->account().geoLocationMapService) {
-    case Account::GeoLocationMapService::System:
-        QDesktopServices::openUrl(QUrl(geoUri(geoCoordinate)));
-        break;
-    case Account::GeoLocationMapService::InApp:
-        return true;
-    case Account::GeoLocationMapService::Web:
-        QDesktopServices::openUrl(QUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()), QString::number(geoCoordinate.longitude()))));
-        break;
-    }
-
-    return false;
 }
 
 #include "moc_QmlUtils.cpp"

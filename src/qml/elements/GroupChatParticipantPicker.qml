@@ -16,7 +16,7 @@ import im.kaidan.kaidan
 Kirigami.Dialog {
 	id: root
 
-	property string accountJid
+	property Account account
 	property string chatJid
 	property Controls.TextArea textArea
 	property string searchedText
@@ -36,37 +36,38 @@ Kirigami.Dialog {
 		implicitHeight: contentHeight
 		model: GroupChatUserFilterModel {
 			sourceModel: GroupChatUserModel {
-				accountJid: root.accountJid
+				accountJid: root.account.settings.jid
 				chatJid: root.chatJid
 			}
 		}
 		header: count ? null : contactInvitationHint
-		delegate: GroupChatUserItem {
-			accountJid: root.accountJid
+		delegate: ContactDelegate {
+			account: root.account
 			jid: model.jid
 			name: model.name
 			width: ListView.view.width
 			hoverEnabled: true
-			selected: ListView.isCurrentItem
+			checked: ListView.isCurrentItem
 			onClicked: mentionParticipant(name)
 		}
 
 		Component {
 			id: contactInvitationHint
 
-			GroupChatUserItem {
+			ContactDelegate {
 				name: qsTr("Invite contacts to this group…")
-				userText.font.italic: true
+				textItem.font.italic: true
 				avatar.iconSource: "resource-group-new"
 				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
 				avatar.color: Kirigami.Theme.textColor
 				implicitWidth: largeButtonWidth
 				implicitHeight: height
 				hoverEnabled: true
+				checked: true
 				onClicked: {
 					root.close()
 					root.textArea.remove(root.textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
-					GroupChatController.groupChatInviteeSelectionNeeded()
+					root.account.groupChatController.groupChatInviteeSelectionNeeded()
 				}
 			}
 		}

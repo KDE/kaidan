@@ -20,8 +20,28 @@ import "details"
 Kirigami.GlobalDrawer {
 	id: root
 
-	property string selectedAccountJid
+	property AccountSelectionDialog accountSelectionDialog
+	property Account selectedAccount
+	property Component nextOverlayToOpen
+	property Component nextPageToOpen
 
+	property var accounts: AccountController.accounts
+
+	property int enabledAccountCount: {
+		let count = 0
+
+		for (let i in accounts) {
+			let account = accounts[i]
+
+			if (account.settings.enabled) {
+				count++
+			}
+		}
+
+		return count
+	}
+
+	enabled: pageStack.visibleItems.length && pageStack.visibleItems[0] instanceof RosterPage && (pageStack.wideMode || pageStack.trailingVisibleItem instanceof RosterPage)
 	topContent: [
 		ColumnLayout {
 			spacing: Kirigami.Units.largeSpacing
@@ -35,7 +55,7 @@ Kirigami.GlobalDrawer {
 				}
 
 				InlineListView {
-					model: [ AccountController.account.jid ]
+					model: root.accounts
 					delegate: ColumnLayout {
 						spacing: 0
 						width: ListView.view.width
@@ -43,37 +63,53 @@ Kirigami.GlobalDrawer {
 						FormCard.FormTextDelegate {
 							id: accountArea
 
-							property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
-							property bool connected: Kaidan.connectionState === Enums.StateConnected
+							property bool disconnected: modelData.connection.state === Enums.StateDisconnected
+							property bool connected: modelData.connection.state === Enums.StateConnected
 
 							background: FormCard.FormDelegateBackground { control: accountArea }
 							leading: Avatar {
-								jid: modelData
-								name: AccountController.account.displayName
+								account: modelData
+								jid: modelData.settings.jid
+								name: modelData.settings.displayName
 							}
 							leadingPadding: 10
-							// The placeholder text is used while "AccountController.account.displayName"
+							// The placeholder text is used while "modelData.settings.displayName"
 							// is not yet loaded to avoid a binding loop for the property
 							// "implicitHeight".
-							text: AccountController.account.displayName ? AccountController.account.displayName : " "
-							description: Kaidan.connectionStateText
+							text: modelData.settings.displayName ? modelData.settings.displayName : " "
+							description: modelData.connection.stateText
 							descriptionItem {
 								color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
 								opacity: connected ? 1 : 0.5
 							}
 							trailing: Controls.Switch {
-								checked: !accountArea.disconnected
-								onToggled: accountArea.disconnected ? Kaidan.logIn() : Kaidan.logOut()
+								checkable: false
+								checked: modelData.settings.enabled
+								onClicked: checked ? modelData.disable() : modelData.enable()
 							}
 							onClicked: {
+								root.selectedAccount = modelData
+								openView(accountDetailsDialog, accountDetailsPage)
 								root.close()
-								root.selectedAccountJid = modelData
-								openViewFromGlobalDrawer(accountDetailsDialog, accountDetailsPage).jid = modelData
+							}
+						}
+
+						Controls.Label {
+							id: errorMessage
+							visible: modelData.connection.error
+							text: modelData.connection.errorText
+							font.weight: Font.Medium
+							wrapMode: Text.WordWrap
+							padding: 10
+							Layout.margins: 10
+							Layout.fillWidth: true
+							background: RoundedRectangle {
+								color: Kirigami.Theme.negativeBackgroundColor
 							}
 						}
 
 						FormCard.FormCard {
-							visible: Kaidan.connectionError === ClientWorker.AuthenticationFailed
+							visible: modelData.connection.error === ClientWorker.AuthenticationFailed
 							Layout.fillWidth: true
 
 							FormCardCustomContentArea {
@@ -82,9 +118,9 @@ Kirigami.GlobalDrawer {
 										id: passwordField
 										labelText: qsTr("Password")
 										placeholderText: qsTr("Enter your correct password")
-										text: AccountController.account.passwordVisibility === Kaidan.PasswordVisible ? AccountController.account.password : ""
-										invalidHintMayBeShown: true
-										valid: credentialsValidator.isPasswordValid(text) && text !== AccountController.account.password
+										text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
+										invalidHintMayBeShown: modelData.connection.state !== Enums.StateDisconnected
+										valid: credentialsValidator.isPasswordValid(text) && text !== modelData.settings.password
 										enabled: !passwordBusyIndicator.visible
 										inputField.onAccepted: passwordConfirmationButton.clicked()
 									}
@@ -103,56 +139,32 @@ Kirigami.GlobalDrawer {
 												passwordField.forceActiveFocus()
 												passwordField.toggleHintForInvalidText()
 											} else {
-												AccountController.setAuthPassword(passwordField.text)
+												modelData.settings.password = passwordField.text
+												modelData.connection.logIn()
 											}
 										}
 									}
 
 									Controls.BusyIndicator {
 										id: passwordBusyIndicator
-										visible: Kaidan.connectionState !== Enums.StateDisconnected
+										visible: modelData.connection.state !== Enums.StateDisconnected
 										Layout.preferredWidth: passwordConfirmationButton.Layout.preferredWidth
 										Layout.preferredHeight: Layout.preferredWidth
 										Layout.alignment: passwordConfirmationButton.Layout.alignment
 									}
-
-									Connections {
-										target: AccountController
-										enabled: Kaidan.connectionError === ClientWorker.AuthenticationFailed
-
-										function onAccountChanged() {
-											// Try to log in with the entered password once it is stored.
-											Kaidan.logIn()
-										}
-									}
 								}
-							}
-						}
-
-						Controls.Label {
-							id: errorMessage
-							visible: Kaidan.connectionError
-							text: {
-								const error = Kaidan.connectionError
-
-								if (error === ClientWorker.NoError) {
-									return ""
-								}
-
-								return Utils.connectionErrorMessage(error)
-							}
-							font.bold: true
-							wrapMode: Text.WordWrap
-							padding: 10
-							Layout.margins: 10
-							Layout.fillWidth: true
-							background: RoundedRectangle {
-								color: Kirigami.Theme.negativeBackgroundColor
 							}
 						}
 					}
 					implicitHeight: contentHeight
 					Layout.fillWidth: true
+				}
+
+				FormAdditionButton {
+					onClicked: {
+						root.close()
+						openStartPage(true)
+					}
 				}
 			}
 
@@ -163,37 +175,85 @@ Kirigami.GlobalDrawer {
 					title: qsTr("Actions")
 				}
 
+				FormCard.FormSectionText {
+					text: root.accounts.length === 1 ? qsTr("Enable your account to use all available actions") : qsTr("Enable an account to use all available actions")
+					visible: !root.enabledAccountCount
+				}
+
 				FormCard.FormButtonDelegate {
 					text: qsTr("Add contact by QR code")
 					icon.name: "view-barcode-qr"
-					onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
+					enabled: root.enabledAccountCount
+					onClicked: root.openPageFromGlobalDrawer(contactAdditionQrCodePage)
 				}
 
 				FormCard.FormButtonDelegate {
 					text: qsTr("Add contact by chat address")
 					icon.name: "contact-new-symbolic"
-					onClicked: openContactAdditionView()
+					enabled: root.enabledAccountCount
+					onClicked: root.openContactAdditionView()
 				}
 
 				FormCard.FormButtonDelegate {
-					text: qsTr("Create group")
+					text: enabled || !root.enabledAccountCount ? qsTr("Create group") : qsTr("Create group (unsupported)")
 					icon.name: "resource-group-new"
-					visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatCreationSupported
-					onClicked: openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
+					enabled: {
+						const accounts = root.accounts
+						let supportedAccountCount = 0
+
+						for (let i in accounts) {
+							let account = accounts[i]
+
+							if (account.settings.enabled && account.groupChatController.groupChatCreationSupported) {
+								supportedAccountCount++
+							}
+						}
+
+						return supportedAccountCount
+					}
+					onClicked: {
+						root.openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
+
+						if (root.accountSelectionDialog) {
+							root.accountSelectionDialog.groupChatCreationSupported = true
+						}
+					}
 				}
 
 				FormCard.FormButtonDelegate {
-					text: qsTr("Join group")
+					text: enabled || !root.enabledAccountCount ? qsTr("Join group") : qsTr("Join group (unsupported)")
 					icon.name: "system-users-symbolic"
-					visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
-					onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
+					enabled: {
+						const accounts = root.accounts
+						let supportedAccountCount = 0
+
+						for (let i in accounts) {
+							let account = accounts[i]
+
+							if (account.settings.enabled && account.groupChatController.groupChatParticipationSupported) {
+								supportedAccountCount++
+							}
+						}
+
+						return supportedAccountCount
+					}
+					onClicked: {
+						root.openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
+
+						if (root.accountSelectionDialog) {
+							root.accountSelectionDialog.groupChatParticipationSupported = true
+						}
+					}
 				}
 
 				FormCard.FormButtonDelegate {
 					id: publicGroupChatSearchButton
 					text: qsTr("Search public groups")
 					icon.name: "system-search-symbolic"
-					onClicked: openOverlayFromGlobalDrawe(searchPublicGroupChatDialog)
+					onClicked: {
+						openOverlay(publicGroupChatSearchDialog)
+						root.close()
+					}
 
 					Shortcut {
 						sequence: "Ctrl+G"
@@ -204,7 +264,10 @@ Kirigami.GlobalDrawer {
 				FormCard.FormButtonDelegate {
 					text: qsTr("About")
 					icon.name: "help-about-symbolic"
-					onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)
+					onClicked: {
+						openView(aboutDialog, aboutPage)
+						root.close()
+					}
 				}
 			}
 
@@ -214,10 +277,29 @@ Kirigami.GlobalDrawer {
 			}
 		}
 	]
+	onSelectedAccountChanged: {
+		if (!selectedAccount) {
+			return
+		}
+
+		if (nextOverlayToOpen) {
+			openOverlay(nextOverlayToOpen)
+		} else if (nextPageToOpen) {
+			openPage(nextPageToOpen)
+		}
+	}
 	onOpened: {
-		if (Kaidan.connectionState === Enums.StateConnected) {
-			// Request the user's current vCard which contains the user's nickname.
-			Kaidan.vCardController.requestClientVCard()
+		selectedAccount = null
+		nextOverlayToOpen = null
+		nextPageToOpen = null
+
+		for (let i in accounts) {
+			let account = accounts[i]
+
+			if (account.connection.state === Enums.StateConnected) {
+				// Request the user's current vCard which contains the user's nickname.
+				account.vCardController.requestOwnVCard()
+			}
 		}
 	}
 
@@ -225,7 +307,7 @@ Kirigami.GlobalDrawer {
 		id: accountDetailsDialog
 
 		AccountDetailsDialog {
-			jid: root.selectedAccountJid
+			account: root.selectedAccount
 		}
 	}
 
@@ -233,36 +315,68 @@ Kirigami.GlobalDrawer {
 		id: accountDetailsPage
 
 		AccountDetailsPage {
-			jid: root.selectedAccountJid
+			account: root.selectedAccount
 		}
 	}
 
 	Component {
 		id: avatarChangePage
 
-		AvatarChangePage {}
+		AvatarChangePage {
+			account: root.selectedAccount
+		}
 	}
 
 	Component {
 		id: accountDetailsKeyAuthenticationPage
 
 		AccountKeyAuthenticationPage {
+			account: root.selectedAccount
 			Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage)
+		}
+	}
+
+	Component {
+		id: accountSelectionDialog
+
+		AccountSelectionDialog {
+			onAccountSelected: account => {
+				root.selectedAccount = account
+			}
+			Component.onCompleted: root.accountSelectionDialog = this
+			Component.onDestruction: root.accountSelectionDialog = null
 		}
 	}
 
 	Component {
 		id: contactAdditionQrCodePage
 
-		ContactAdditionQrCodePage {}
+		ContactAdditionQrCodePage {
+			account: root.selectedAccount
+		}
+	}
+
+	Component {
+		id: contactAdditionDialog
+
+		ContactAdditionDialog {
+			account: root.selectedAccount
+		}
+	}
+
+	Component {
+		id: contactAdditionPage
+
+		ContactAdditionPage {
+			account: root.selectedAccount
+		}
 	}
 
 	Component {
 		id: groupChatCreationDialog
 
 		GroupChatCreationDialog {
-			accountJid: AccountController.account.jid
-			nickname: AccountController.account.displayName
+			account: root.selectedAccount
 		}
 	}
 
@@ -270,15 +384,30 @@ Kirigami.GlobalDrawer {
 		id: groupChatCreationPage
 
 		GroupChatCreationPage {
-			accountJid: AccountController.account.jid
-			nickname: AccountController.account.displayName
+			account: root.selectedAccount
 		}
 	}
 
 	Component {
-		id: searchPublicGroupChatDialog
+		id: groupChatJoiningDialog
 
-		SearchPublicGroupChatDialog {}
+		GroupChatJoiningDialog {
+			account: root.selectedAccount
+		}
+	}
+
+	Component {
+		id: groupChatJoiningPage
+
+		GroupChatJoiningPage {
+			account: root.selectedAccount
+		}
+	}
+
+	Component {
+		id: publicGroupChatSearchDialog
+
+		PublicGroupChatSearchDialog {}
 	}
 
 	Component {
@@ -293,35 +422,83 @@ Kirigami.GlobalDrawer {
 		AboutPage {}
 	}
 
-	function openContactAdditionView() {
-		return openViewFromGlobalDrawer(contactAdditionDialog, contactAdditionPage)
-	}
+	Connections {
+		target: MainController
 
-	function openOverlayFromGlobalDrawe(overlayComponent) {
-		close()
-		return openOverlay(overlayComponent)
-	}
-
-	function openPageFromGlobalDrawer(pageComponent) {
-		close()
-		return openPage(pageComponent)
-	}
-
-	function openViewFromGlobalDrawer(overlayComponent, pageComponent) {
-		close()
-		return openView(overlayComponent, pageComponent)
+		function onUserJidReceived(userJid) {
+			root.openContactAdditionView().jid = userJid
+		}
 	}
 
 	Connections {
-		target: Kaidan
+		target: AccountController
 
-		function onCredentialsNeeded() {
+		function onNoAccountAvailable() {
 			root.close()
 		}
+	}
 
-		function onXmppUriReceived(uriString) {
-			const xmppUriPrefix = `xmpp:`
-			root.openContactAdditionView().jid = uriString.substr(xmppUriPrefix.length)
+	// Needs to be outside of the DetailsDialog to not be destroyed with it.
+	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
+	Connections {
+		target: root.selectedAccount ? root.selectedAccount.blockingController : null
+
+		function onUnblocked(jid) {
+			// Show a passive notification when a JID that is not in the roster is unblocked and
+			// provide an option to undo that.
+			// JIDs in the roster can be blocked again via their details.
+			if (!RosterModel.hasItem(root.selectedAccount.settings.jid, jid)) {
+				showPassiveNotification(qsTr("Unblocked %1").arg(jid), "long", qsTr("Undo"), () => {
+					root.selectedAccount.blockingController.block(jid)
+				})
+			}
 		}
+
+		function onBlockingFailed(jid, errorText) {
+			showPassiveNotification(qsTr("Could not block %1: %2").arg(jid).arg(errorText))
+		}
+
+		function onUnblockingFailed(jid, errorText) {
+			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
+		}
+	}
+
+	function openContactAdditionView() {
+		openViewFromGlobalDrawer(contactAdditionDialog, contactAdditionPage)
+	}
+
+	function openViewFromGlobalDrawer(overlayComponent, pageComponent) {
+		if (Kirigami.Settings.isMobile) {
+			openPageFromGlobalDrawer(pageComponent)
+		} else {
+			openOverlayFromGlobalDrawer(overlayComponent)
+		}
+	}
+
+	function openOverlayFromGlobalDrawer(overlayComponent) {
+		nextOverlayToOpen = overlayComponent
+		selectAccount()
+	}
+
+	function openPageFromGlobalDrawer(pageComponent) {
+		nextPageToOpen = pageComponent
+		selectAccount()
+	}
+
+	function selectAccount() {
+		if (enabledAccountCount === 1) {
+			for (let i in accounts) {
+				const account = accounts[i]
+
+				if (account.settings.enabled) {
+					selectedAccount = account
+					break
+				}
+			}
+		} else {
+			openOverlay(accountSelectionDialog)
+		}
+
+		close()
 	}
 }

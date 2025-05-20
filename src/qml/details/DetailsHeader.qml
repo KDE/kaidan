@@ -17,24 +17,31 @@ FormInfoHeader {
 	id: root
 
 	default property alias __data: additionalInformationArea.data
+	property Account account
 	required property string jid
 	required property string displayName
+	property alias displayNameEditable: displayNameEditingButton.visible
 	property alias isGroupChat: avatar.isGroupChat
 	required property Kirigami.Action avatarAction
 
-	Avatar {
+	AccountRelatedAvatar {
 		id: avatar
+		account: root.account
 		jid: root.jid
 		name: root.displayName
+		implicitWidth: Kirigami.Units.gridUnit * 8
+		implicitHeight: Kirigami.Units.gridUnit * 8
+		accountAvatar.visible: root.account.settings.jid !== root.jid
 		Layout.alignment: Qt.AlignHCenter
-		Layout.preferredHeight: Kirigami.Units.gridUnit * 8
-		Layout.preferredWidth: Layout.preferredHeight
 
 		MouseArea {
 			id: avatarOverlay
-			visible: avatarAction.enabled
 			hoverEnabled: true
-			anchors.fill: parent
+			anchors.top: avatar.top
+			anchors.bottom: avatar.accountAvatar.bottom
+			anchors.left: avatar.left
+			anchors.right: avatar.accountAvatar.right
+			visible: avatarAction.enabled
 			onClicked: root.avatarAction.triggered()
 
 			Rectangle {
@@ -42,24 +49,24 @@ FormInfoHeader {
 				color: Kirigami.Theme.backgroundColor
 				opacity: avatarHoverIcon.opacity * 0.65
 			}
+		}
 
-			Kirigami.Icon {
-				id: avatarHoverIcon
-				source: root.avatarAction.icon.name
-				opacity: {
-					if (avatarOverlay.containsMouse) {
-						return avatar.source.toString() ? 1 : 0.8
-					}
-
-					return 0
+		Kirigami.Icon {
+			id: avatarHoverIcon
+			source: root.avatarAction.icon.name
+			opacity: {
+				if (avatarOverlay.containsMouse) {
+					return avatar.source.toString() ? 1 : 0.8
 				}
-				width: parent.width / 2
-				height: width
-				anchors.centerIn: parent
 
-				Behavior on opacity {
-					NumberAnimation {}
-				}
+				return 0
+			}
+			width: avatar.implicitWidth / 2
+			height: width
+			anchors.centerIn: avatar
+
+			Behavior on opacity {
+				NumberAnimation {}
 			}
 		}
 	}
@@ -80,6 +87,7 @@ FormInfoHeader {
 				checkable: true
 				checked: !displayNameText.visible
 				flat: !hovered && !displayNameMouseArea.containsMouse
+				visible: root.account.settings.enabled
 				Controls.ToolTip.text: text
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
@@ -98,16 +106,18 @@ FormInfoHeader {
 				}
 			}
 
-			Kirigami.Heading {
+			ScalableText {
 				id: displayNameText
 				text: root.displayName
 				textFormat: Text.PlainText
+				scaleFactor: 1.1
 				maximumLineCount: 1
 				elide: Text.ElideMiddle
 				visible: !displayNameTextField.visible
-				Layout.alignment: Qt.AlignVCenter
+				verticalAlignment: Text.AlignVCenter
+				leftPadding: displayNameTextField.Layout.leftMargin + displayNameTextField.leftPadding
+				Layout.preferredHeight: displayNameTextField.height
 				Layout.fillWidth: true
-				leftPadding: Kirigami.Units.largeSpacing
 				// TODO: Get update of current vCard by using Entity Capabilities
 				onTextChanged: handleDisplayNameChanged()
 
@@ -115,6 +125,7 @@ FormInfoHeader {
 					id: displayNameMouseArea
 					anchors.fill: displayNameText
 					hoverEnabled: true
+					enabled: displayNameEditingButton.visible
 					onClicked: displayNameEditingButton.clicked()
 				}
 			}
@@ -122,8 +133,9 @@ FormInfoHeader {
 			Controls.TextField {
 				id: displayNameTextField
 				text: displayNameText.text
+				font.pixelSize: displayNameText.font.pixelSize
 				visible: false
-				Layout.leftMargin: Kirigami.Units.largeSpacing
+				Layout.leftMargin: Kirigami.Units.smallSpacing
 				Layout.fillWidth: true
 				onAccepted: displayNameEditingButton.clicked()
 			}
@@ -132,7 +144,7 @@ FormInfoHeader {
 		ColumnLayout {
 			id: additionalInformationArea
 			spacing: parent.spacing
-			Layout.leftMargin: displayNameEditingButton.Layout.preferredWidth + displayNameTextField.Layout.leftMargin
+			Layout.leftMargin: (displayNameEditingButton.visible ? displayNameEditingButton.Layout.preferredWidth : 0) + displayNameText.leftPadding
 
 			Controls.Label {
 				text: root.jid

@@ -5,6 +5,7 @@
 #include "GroupChatUserKeyAuthenticationFilterModel.h"
 
 // Kaidan
+#include "AccountController.h"
 #include "Algorithms.h"
 #include "EncryptionController.h"
 #include "GroupChatUserModel.h"
@@ -33,21 +34,31 @@ bool GroupChatUserKeyAuthenticationFilterModel::filterAcceptsRow(int sourceRow, 
 void GroupChatUserKeyAuthenticationFilterModel::setUp()
 {
     const auto model = static_cast<GroupChatUserModel *>(sourceModel());
-    connect(model, &GroupChatUserModel::userJidsChanged, this, &GroupChatUserKeyAuthenticationFilterModel::updateJids);
-    connect(EncryptionController::instance(),
-            &EncryptionController::devicesChanged,
-            this,
-            &GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged,
-            Qt::UniqueConnection);
+
+    connect(model, &GroupChatUserModel::accountJidChanged, this, [this, model]() {
+        const auto accountJid = model->accountJid();
+
+        if (accountJid.isEmpty()) {
+            return;
+        }
+
+        m_encryptionController = AccountController::instance()->account(accountJid)->encryptionController();
+
+        connect(model, &GroupChatUserModel::userJidsChanged, this, &GroupChatUserKeyAuthenticationFilterModel::updateJids);
+        connect(m_encryptionController,
+                &EncryptionController::devicesChanged,
+                this,
+                &GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged,
+                Qt::UniqueConnection);
+    });
 }
 
-void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QString &accountJid, const QList<QString> &jids)
+void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QList<QString> &jids)
 {
     const auto model = static_cast<GroupChatUserModel *>(sourceModel());
     const auto userJids = model->userJids();
-    const QList<QString> userJidList = {userJids.cbegin(), userJids.cend()};
 
-    if (model->accountJid() == accountJid && containCommonElement(userJidList, jids)) {
+    if (containCommonElement(userJids, jids)) {
         updateJids();
     }
 }
@@ -63,7 +74,7 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
         return;
     }
 
-    EncryptionController::instance()->devices(model->accountJid(), model->userJids()).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    m_encryptionController->devices(model->userJids()).then(this, [this](QList<EncryptionController::Device> &&devices) {
         const auto jids = transformFilter<QList<QString>>(std::as_const(devices), [](const EncryptionController::Device &device) -> std::optional<QString> {
             if (TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel)) {
                 return device.jid;

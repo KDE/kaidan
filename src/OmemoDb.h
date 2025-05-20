@@ -10,6 +10,8 @@
 // Kaidan
 #include "DatabaseComponent.h"
 
+class AccountSettings;
+
 class OmemoDb : public DatabaseComponent, public QXmppOmemoStorage
 {
 public:
@@ -17,16 +19,7 @@ public:
     using PreKeyPairs = QHash<uint32_t, QByteArray>;
     using Devices = QHash<QString, QHash<uint32_t, Device>>;
 
-    OmemoDb(Database *db, QObject *xmppContext, QString accountJid, QObject *parent = nullptr);
-
-    inline auto accountJid() const
-    {
-        return m_accountJid;
-    }
-    inline void setAccountJid(QString accountJid)
-    {
-        m_accountJid = std::move(accountJid);
-    };
+    OmemoDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent = nullptr);
 
     auto allData() -> QXmppTask<OmemoData> override;
     auto resetAll() -> QXmppTask<void> override;
@@ -55,6 +48,8 @@ private:
     auto _preKeyPairs() -> PreKeyPairs;
     auto _devices() -> Devices;
 
+    inline QString accountJid() const;
+
+    AccountSettings *const m_accountSettings;
     QObject *const m_xmppContext;
-    QString m_accountJid;
 };

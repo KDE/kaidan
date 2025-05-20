@@ -22,6 +22,7 @@ MessageReactionButton {
 	property int deliveryState
 	property bool ownReactionIncluded: true
 	property bool isOwnMessage
+	property MessageModel messageModel
 
 	primaryColor: {
 		if (ownReactionIncluded) {
@@ -101,9 +102,9 @@ MessageReactionButton {
 		if (ownReactionIncluded &&
 			deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterSent &&
 			deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
-			MessageModel.removeMessageReaction(messageId, text)
+			messageModel.removeMessageReaction(messageId, text)
 		} else {
-			MessageModel.addMessageReaction(messageId, text)
+			messageModel.addMessageReaction(messageId, text)
 		}
 	}
 	Controls.ToolTip.text: {

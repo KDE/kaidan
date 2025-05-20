@@ -19,7 +19,7 @@ class DatabaseComponent : public QObject
 {
     Q_OBJECT
 public:
-    DatabaseComponent(Database *database, QObject *parent = nullptr);
+    explicit DatabaseComponent(QObject *parent = nullptr);
 
     void insert(const QString &tableName, const SqlUtils::QueryBindValues &values);
 
@@ -40,6 +40,12 @@ public:
 
 protected:
     QObject *dbWorker() const;
+
+    // TODO: Remove that method once MessageDb is no singleton anymore
+    Database *database() const
+    {
+        return m_database;
+    }
 
 private:
     Database *const m_database;

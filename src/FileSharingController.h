@@ -11,6 +11,9 @@
 #include <QXmppFileSharingManager.h>
 #include <QXmppTask.h>
 
+class AccountSettings;
+class ClientWorker;
+class Connection;
 struct File;
 class QXmppClient;
 
@@ -21,14 +24,18 @@ public:
     using SendFilesResult = std::variant<QList<File>, QXmppError>;
     using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
-    explicit FileSharingController(QXmppClient *client);
+    FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent = nullptr);
 
     auto sendFiles(QList<File> files, bool encrypt) -> QXmppTask<SendFilesResult>;
-    Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
-    Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);
+    Q_INVOKABLE void downloadFile(const QString &chatJid, const QString &messageId, const File &file);
+    Q_INVOKABLE void deleteFile(const QString &chatJid, const QString &messageId, const File &file);
 
     Q_SIGNAL void errorOccured(qint64, QXmppError);
 
 private:
     QFuture<UploadResult> sendFile(const File &file, bool encrypt);
+
+    AccountSettings *const m_accountSettings;
+    ClientWorker *const m_clientWorker;
+    QXmppFileSharingManager *const m_manager;
 };

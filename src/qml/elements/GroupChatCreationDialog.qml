@@ -10,9 +10,7 @@ import im.kaidan.kaidan
 Dialog {
 	id: root
 
-	property alias accountJid: content.accountJid
-	property alias groupChatName: content.groupChatName
-	property alias nickname: content.nickname
+	property alias account: content.account
 
 	title: qsTr("Create group chat")
 	padding: Kirigami.Units.mediumSpacing
@@ -20,20 +18,10 @@ Dialog {
 
 	GroupChatCreationContent {
 		id: content
-		groupChatNameField.inputField.onActiveFocusChanged: {
-			// The active focus is taken by another item after opening.
-			// Thus, it must be forced again.
-			if (!groupChatNameField.inputField.activeFocus && !groupChatIdField.inputField.activeFocus && !nicknameField.inputField.activeFocus) {
-				groupChatNameField.forceActiveFocus()
-				groupChatNameField.invalidHintMayBeShown = false
-			} else {
-				groupChatNameField.invalidHintMayBeShown = true
-			}
-		}
 	}
 
 	Connections {
-		target: Kaidan
+		target: MainController
 
 		function onOpenChatPageRequested(accountJid, chatJid) {
 			root.close()

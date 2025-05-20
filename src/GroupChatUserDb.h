@@ -13,7 +13,7 @@ class GroupChatUserDb : public DatabaseComponent
     Q_OBJECT
 
 public:
-    explicit GroupChatUserDb(Database *db, QObject *parent = nullptr);
+    explicit GroupChatUserDb(QObject *parent = nullptr);
     ~GroupChatUserDb() override;
 
     static GroupChatUserDb *instance();

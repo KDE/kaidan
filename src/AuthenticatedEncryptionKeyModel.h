@@ -22,8 +22,7 @@ protected:
     void setUp() override;
 
 private:
-    void handleOwnDeviceChanged(const QString &accountJid);
-    void handleDevicesChanged(const QString &accountJid, const QList<QString> &jids);
+    void handleDevicesChanged(const QList<QString> &jids);
 
     void updateOwnKey();
     void updateKeys();

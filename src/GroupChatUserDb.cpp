@@ -28,8 +28,8 @@ constexpr QStringView STATUS = u"status";
 
 GroupChatUserDb *GroupChatUserDb::s_instance = nullptr;
 
-GroupChatUserDb::GroupChatUserDb(Database *db, QObject *parent)
-    : DatabaseComponent(db, parent)
+GroupChatUserDb::GroupChatUserDb(QObject *parent)
+    : DatabaseComponent(parent)
 {
     Q_ASSERT(!GroupChatUserDb::s_instance);
     s_instance = this;

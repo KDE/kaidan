@@ -20,13 +20,16 @@ import "elements"
 
 SearchBarPage {
 	id: root
+
+	property ChatPage activeChatPage
+
 	listView: rosterListView
 	actions: [
 		Kirigami.Action {
 			text: qsTr("Filter")
 			icon.name: "filter-symbolic"
 			displayHint: Kirigami.DisplayHint.IconOnly
-			onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
+			onTriggered: openView(rosterFilterDialog, rosterFilterPage)
 		},
 
 		Kirigami.Action {
@@ -39,37 +42,58 @@ SearchBarPage {
 		}
 	]
 
-	Component {
-		id: rosterFilteringDialog
-
-		Dialog {
-			title: qsTr("Filter")
-			onClosed: root.searchField.forceActiveFocus()
-
-			RosterFilteringArea {
-				rosterFilterProxyModel: filterModel
-			}
-		}
-	}
-
-	Component {
-		id: rosterFilteringPage
-
-		Kirigami.ScrollablePage {
-			title: qsTr("Filter")
-			background: Rectangle {
-				color: Kirigami.Theme.alternateBackgroundColor
-			}
-			bottomPadding: 0
-
-			RosterFilteringArea {
-				rosterFilterProxyModel: filterModel
-			}
-		}
-	}
-
 	ListView {
 		id: rosterListView
+		model: RosterFilterModel {
+			id: filterModel
+			sourceModel: RosterModel
+		}
+		delegate: RosterItemDelegate {
+			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
+			width: rosterListView.width
+			listView: rosterListView
+			account: model.account
+			jid: model.jid
+			name: model.name
+			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === account.settings.jid && root.activeChatPage.chatController.jid === jid
+			isGroupChat: model.isGroupChat
+			isPublicGroupChat: model.isPublicGroupChat
+			isDeletedGroupChat: model.isDeletedGroupChat
+			lastMessageDateTime: model.lastMessageDateTime
+			lastMessage: model.lastMessage
+			lastMessageIsDraft: model.lastMessageIsDraft
+			lastMessageIsOwn: model.lastMessageIsOwn
+			lastMessageGroupChatSenderName: model.lastMessageGroupChatSenderName
+			unreadMessages: model.unreadMessages
+			pinModeActive: pinAction.checked
+			pinned: model.pinned
+			effectiveNotificationRule: model.effectiveNotificationRule
+			onClicked: {
+				// Open the chatPage.
+				if (checked) {
+					if (!pageStack.wideMode) {
+						pageStack.goForward()
+					}
+				} else {
+					// Emitting the signal is needed because there are slots in other places.
+					MainController.openChatPageRequested(account.settings.jid, jid)
+				}
+			}
+			onMoveRequested: (oldIndex, newIndex) => {
+				_previousMove.oldIndex = oldIndex
+				_previousMove.newIndex = newIndex
+			}
+			onDropRequested: (oldIndex, newIndex) => {
+				rosterListView.model.reorderPinnedItem(oldIndex, newIndex)
+				_previousMove.reset()
+			}
+		}
+		moveDisplaced: Transition {
+			YAnimator {
+				duration: Kirigami.Units.longDuration
+				easing.type: Easing.InOutQuad
+			}
+		}
 
 		QtObject {
 			id: _previousMove
@@ -83,63 +107,8 @@ SearchBarPage {
 			}
 		}
 
-		model: RosterFilterProxyModel {
-			id: filterModel
-			sourceModel: RosterModel
-		}
-
-		delegate: RosterListItem {
-			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
-			width: rosterListView.width
-			listView: rosterListView
-			accountJid: model ? model.accountJid : ""
-			jid: model ? model.jid : ""
-			name: model ? model.name : ""
-			isGroupChat: model ? model.isGroupChat : false
-			isPublicGroupChat: model ? model.isPublicGroupChat : false
-			isDeletedGroupChat: model ? model.isDeletedGroupChat : false
-			lastMessageDateTime: model ? model.lastMessageDateTime : ""
-			lastMessage: model ? model.lastMessage : ""
-			lastMessageIsDraft: model ? model.lastMessageIsDraft : false
-			lastMessageIsOwn: model ? model.lastMessageIsOwn : false
-			lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
-			unreadMessages: model ? model.unreadMessages : 0
-			pinModeActive: pinAction.checked
-			pinned: model ? model.pinned : false
-			notificationRule: model ? model.notificationRule : false
-
-			onClicked: {
-				// Open the chatPage.
-				if (selected) {
-					if (!pageStack.wideMode) {
-						pageStack.goForward()
-					}
-				} else {
-					// Emitting the signal is needed because there are slots in other places.
-					Kaidan.openChatPageRequested(accountJid, jid)
-				}
-			}
-
-			onMoveRequested: (oldIndex, newIndex) => {
-				_previousMove.oldIndex = oldIndex
-				_previousMove.newIndex = newIndex
-			}
-
-			onDropRequested: (oldIndex, newIndex) => {
-				rosterListView.model.reorderPinnedItem(accountJid, jid, oldIndex, newIndex)
-				_previousMove.reset()
-			}
-		}
-
-		moveDisplaced: Transition {
-			YAnimator {
-				duration: Kirigami.Units.longDuration
-				easing.type: Easing.InOutQuad
-			}
-		}
-
 		Connections {
-			target: Kaidan
+			target: MainController
 
 			/**
 			 * Opens the chat page for the chat JID currently set in the message model.
@@ -154,15 +123,24 @@ SearchBarPage {
 					root.searchField.clear()
 				}
 
-				ChatController.setChat(accountJid, chatJid)
+				if (!root.activeChatPage) {
+					closePagesExceptRosterPage()
+					popLayersAboveLowest()
+					root.activeChatPage = pageStack.push(chatPage)
+				}
 
-				closePagesExceptRosterPage()
-				popLayersAboveLowest()
-				pageStack.push(chatPage)
+				const account = AccountController.account(accountJid)
+				root.activeChatPage.chatController.initialize(account, chatJid)
+
+				if (!pageStack.wideMode && root.activeChatPage) {
+					pageStack.goForward()
+				}
+
+				root.activeChatPage.forceActiveFocus()
 			}
 
 			function onCloseChatPageRequested() {
-				ChatController.resetChat()
+				root.activeChatPage = null
 
 				closePagesExceptRosterPage()
 				resetChatView()
@@ -177,5 +155,57 @@ SearchBarPage {
 				}
 			}
 		}
+
+		Connections {
+			target: RosterModel
+			enabled: root.activeChatPage
+
+			function onItemRemoved(accountJid, chatJid) {
+				if (accountJid === root.activeChatPage.chatController.account.settings.jid && chatJid === root.activeChatPage.chatController.jid) {
+					MainController.closeChatPageRequested()
+				}
+			}
+
+			function onItemsRemoved(accountJid) {
+				if (accountJid === root.activeChatPage.chatController.account.settings.jid) {
+					MainController.closeChatPageRequested()
+				}
+			}
+		}
+	}
+
+	Component {
+		id: rosterFilterDialog
+
+		Dialog {
+			title: qsTr("Filter")
+			onClosed: root.searchField.forceActiveFocus()
+
+			RosterFilterArea {
+				rosterFilterModel: filterModel
+			}
+		}
+	}
+
+	Component {
+		id: rosterFilterPage
+
+		Kirigami.ScrollablePage {
+			title: qsTr("Filter")
+			background: Rectangle {
+				color: Kirigami.Theme.alternateBackgroundColor
+			}
+			bottomPadding: 0
+
+			RosterFilterArea {
+				rosterFilterModel: filterModel
+			}
+		}
+	}
+
+	Component {
+		id: chatPage
+
+		ChatPage {}
 	}
 }

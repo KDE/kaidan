@@ -18,6 +18,9 @@ import im.kaidan.kaidan
 import "fields"
 
 FormCard.FormCard {
+	id: root
+
+	property Account account
 	property alias title: header.title
 	property alias qrCodeButton: qrCodeButton
 
@@ -43,10 +46,9 @@ FormCard.FormCard {
 
 	FormCardCustomContentArea {
 		contentItem: ColumnLayout {
-			Component.onCompleted: AccountController.resetCustomConnectionSettings()
-
 			JidField {
 				id: jidField
+				text: root.account.settings.jid
 				inputField.focus: true
 				inputField.onAccepted: loginButton.clicked()
 				inputField.rightActions: [
@@ -68,6 +70,7 @@ FormCard.FormCard {
 
 			CustomConnectionSettings {
 				id: customConnectionSettings
+				account: root.account
 				confirmationButton: loginButton
 				visible: false
 			}
@@ -87,7 +90,7 @@ FormCard.FormCard {
 		id: loginButton
 		idleText: qsTr("Log in")
 		busyText: qsTr("Connecting…")
-		busy: Kaidan.connectionState === Enums.StateConnecting
+		busy: root.account && root.account.connection.state === Enums.StateConnecting
 		background: HighlightedFormButtonBackground {}
 		// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
 		onClicked: {
@@ -99,11 +102,12 @@ FormCard.FormCard {
 			} else if (!passwordField.valid) {
 				passwordField.forceActiveFocus()
 			} else {
-				AccountController.setNewAccount(jidField.text, passwordField.text,
-											 customConnectionSettings.hostField.text,
-											 customConnectionSettings.portField.value)
+				root.account.settings.jid = jidField.text
+				root.account.settings.password = passwordField.text
+				root.account.settings.host = customConnectionSettings.hostField.text
+				root.account.settings.port = customConnectionSettings.portField.value
 
-				Kaidan.logIn()
+				root.account.connection.logIn()
 			}
 		}
 	}

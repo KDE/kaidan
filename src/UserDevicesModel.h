@@ -11,11 +11,14 @@
 #include "PresenceCache.h"
 
 class QXmppVersionIq;
+class VersionController;
 
 class UserDevicesModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    Q_PROPERTY(VersionController *versionController MEMBER m_versionController WRITE setVersionController)
+    Q_PROPERTY(PresenceCache *presenceCache MEMBER m_presenceCache WRITE setPresenceCache)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 
 public:
@@ -32,12 +35,12 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
     int rowCount(const QModelIndex &parent) const override;
 
+    void setVersionController(VersionController *versionController);
+    void setPresenceCache(PresenceCache *presenceCache);
+
     QString jid() const;
     void setJid(const QString &jid);
-
-Q_SIGNALS:
-    void jidChanged();
-    void clientVersionsRequested(const QString &bareJid, const QString &resource = {});
+    Q_SIGNAL void jidChanged();
 
 private:
     void handleClientVersionReceived(const QXmppVersionIq &versionIq);
@@ -54,6 +57,9 @@ private:
         QString os;
     };
 
+    VersionController *m_versionController;
+    PresenceCache *m_presenceCache;
     QString m_jid;
+
     QList<DeviceInfo> m_devices;
 };

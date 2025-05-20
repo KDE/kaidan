@@ -12,20 +12,28 @@
 // Kaidan
 #include "Enums.h"
 
-class Database;
-class LogHandler;
-class OmemoDb;
-class QNetworkAccessManager;
+class AccountSettings;
+class AtmController;
+class EncryptionController;
+class MessageController;
+class PresenceCache;
 class QXmppAccountMigrationManager;
 class QXmppAtmManager;
+class QXmppBlockingManager;
 class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
+class QXmppMamManager;
+class QXmppMessageReceiptManager;
+class QXmppMixManager;
 class QXmppMovedManager;
+class QXmppOmemoManager;
 class QXmppRegistrationManager;
 class QXmppRosterManager;
+class QXmppUploadRequestManager;
 class QXmppVCardManager;
 class QXmppVersionManager;
+class RegistrationController;
 
 /**
  * The ClientWorker is used as a QObject-based worker on the ClientThread.
@@ -56,10 +64,7 @@ public:
     };
     Q_ENUM(ConnectionError)
 
-    /**
-     * @param parent Optional QObject-based parent.
-     */
-    explicit ClientWorker(Database *database, QObject *parent = nullptr);
+    ClientWorker(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     QXmppClient *xmppClient() const
     {
@@ -76,14 +81,39 @@ public:
         return m_atmManager;
     }
 
+    QXmppBlockingManager *blockingManager() const
+    {
+        return m_blockingManager;
+    }
+
     QXmppFileSharingManager *fileSharingManager() const
     {
         return m_fileSharingManager;
     }
 
+    QXmppMamManager *mamManager() const
+    {
+        return m_mamManager;
+    }
+
+    QXmppMessageReceiptManager *messageReceiptManager() const
+    {
+        return m_messageReceiptManager;
+    }
+
+    QXmppMixManager *mixManager() const
+    {
+        return m_mixManager;
+    }
+
     QXmppMovedManager *movedManager() const
     {
         return m_movedManager;
+    }
+
+    QXmppOmemoManager *omemoManager() const
+    {
+        return m_omemoManager;
     }
 
     QXmppRegistrationManager *registrationManager() const
@@ -96,6 +126,11 @@ public:
         return m_rosterManager;
     }
 
+    QXmppUploadRequestManager *uploadRequestManager() const
+    {
+        return m_uploadRequestManager;
+    }
+
     QXmppVCardManager *vCardManager() const
     {
         return m_vCardManager;
@@ -106,43 +141,21 @@ public:
         return m_versionManager;
     }
 
-    std::shared_ptr<QXmppEncryptedFileSharingProvider> encryptedHttpFileSharingProvider() const
-    {
-        return m_encryptedProvider;
-    }
-
     std::shared_ptr<QXmppHttpFileSharingProvider> httpFileSharingProvider() const
     {
         return m_httpProvider;
     }
 
-    /**
-     * Starts or enqueues a task which will be executed after successful login (e.g. a
-     * nickname change).
-     *
-     * This method is called by managers which must call "finishTask()" as soon as the
-     * task is completed.
-     *
-     * If the user is logged out when this method is called, a login is triggered, the
-     * task is started and a logout is triggered afterwards. However, if this method is
-     * called before a login with new credentials (e.g. during account registration), the
-     * task is started after the subsequent login.
-     *
-     * @param task task which is run directly if the user is logged in or enqueued to be
-     * run after an automatic login
-     */
-    void startTask(const std::function<void()> &task);
+    std::shared_ptr<QXmppEncryptedFileSharingProvider> encryptedHttpFileSharingProvider() const
+    {
+        return m_encryptedProvider;
+    }
 
-    /**
-     * Finishes a task started by "startTask()".
-     *
-     * This must be called after a possible completion of a pending task.
-     *
-     * A logout is triggered when this method is called after the second login with the
-     * same credentials or later. That means, a logout is not triggered after a login with
-     * new credentials (e.g. after a registration).
-     */
-    void finishTask();
+    void initialize(AtmController *atmController,
+                    EncryptionController *encryptionController,
+                    MessageController *messageController,
+                    RegistrationController *registrationController,
+                    PresenceCache *presenceCache);
 
     /**
      * Connects to the server and logs in with all needed configuration variables.
@@ -165,14 +178,6 @@ public:
      * @param isApplicationBeingClosed true if the application will be terminated directly after logging out, false otherwise
      */
     void logOut(bool isApplicationBeingClosed = false);
-
-    /**
-     * Emitted when an authenticated connection to the server is established with new
-     * credentials for the first time.
-     *
-     * The client will be in connected state when this is emitted.
-     */
-    Q_SIGNAL void loggedInWithNewCredentials();
 
     /**
      * Emitted when the client's connection state changed.
@@ -213,38 +218,32 @@ private:
      */
     void onConnectionError(const QXmppError &error);
 
-    /**
-     * Starts a pending (enqueued) task (e.g. a password change) if the variable (e.g. a
-     * password) could not be changed on the server before because the client was not
-     * logged in.
-     *
-     * @return true if at least one pending task is started on the second login with the
-     * same credentials or later, otherwise false
-     */
-    bool startPendingTasks();
-
-    QXmppClient *m_client;
-    LogHandler *m_logger;
-    QNetworkAccessManager *m_networkManager;
+    AccountSettings *const m_accountSettings;
+    AtmController *m_atmController;
+    EncryptionController *m_encryptionController;
+    MessageController *m_messageController;
+    RegistrationController *m_registrationController;
+    PresenceCache *m_presenceCache;
+    QXmppClient *const m_client;
 
     QXmppAccountMigrationManager *m_accountMigrationManager;
     QXmppAtmManager *m_atmManager;
+    QXmppBlockingManager *m_blockingManager;
     QXmppFileSharingManager *m_fileSharingManager;
+    QXmppMamManager *m_mamManager;
+    QXmppMessageReceiptManager *m_messageReceiptManager;
+    QXmppMixManager *m_mixManager;
     QXmppMovedManager *m_movedManager;
+    QXmppOmemoManager *m_omemoManager;
     QXmppRegistrationManager *m_registrationManager;
     QXmppRosterManager *m_rosterManager;
+    QXmppUploadRequestManager *m_uploadRequestManager;
     QXmppVCardManager *m_vCardManager;
     QXmppVersionManager *m_versionManager;
-
-    OmemoDb *m_omemoDb;
 
     std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
     std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
 
-    QList<std::function<void()>> m_pendingTasks;
-    uint m_activeTasks = 0;
-
-    bool m_isFirstLoginAfterStart = true;
     bool m_isReconnecting = false;
     bool m_isDisconnecting = false;
     QXmppConfiguration m_configToBeUsedOnNextConnect;

@@ -10,12 +10,18 @@
 // Qt
 #include <QImage>
 #include <QObject>
+// QXmpp
+#include <QXmppVCardIq.h>
 
-class AvatarFileStorage;
+struct RosterItem;
+
+class AccountSettings;
+class AvatarCache;
 class ClientWorker;
+class Connection;
+class PresenceCache;
 class QXmppClient;
 class QXmppPresence;
-class QXmppVCardIq;
 class QXmppVCardManager;
 
 class VCardController : public QObject
@@ -23,7 +29,13 @@ class VCardController : public QObject
     Q_OBJECT
 
 public:
-    VCardController(QObject *parent = nullptr);
+    VCardController(AccountSettings *accountSettings,
+                    Connection *connection,
+                    AvatarCache *avatarCache,
+                    PresenceCache *presenceCache,
+                    QXmppClient *client,
+                    QXmppVCardManager *vCardManager,
+                    QObject *parent = nullptr);
 
     /**
      * Requests the vCard of a given JID from the JID's server.
@@ -31,12 +43,15 @@ public:
      * @param jid JID for which the vCard is being requested
      */
     void requestVCard(const QString &jid);
-    Q_SIGNAL void vCardReceived(const QXmppVCardIq &vCard);
 
     /**
      * Requests the user's vCard from the server.
      */
-    Q_INVOKABLE void requestClientVCard();
+    Q_INVOKABLE void requestOwnVCard();
+
+    Q_SIGNAL void vCardReceived(const QXmppVCardIq &vCard);
+
+    void updateOwnVCard(const QXmppVCardIq &vCard);
 
     /**
      * Changes the user's nickname.
@@ -49,17 +64,27 @@ public:
     Q_SIGNAL void avatarChangeSucceeded();
 
 private:
+    void handleRosterItemsFetched(const QList<RosterItem> &items);
+    void handleRosterItemAdded(const RosterItem &rosterItem);
+
+    /**
+     * Requests the vCard of an unavailable contact.
+     *
+     * Available contacts are already covered by handlePresenceReceived().
+     */
+    void requestContactVCard(const QString &accountJid, const QString &jid, bool isGroupChat);
+
     /**
      * Handles an incoming vCard and processes it like saving a containing user avatar etc..
      *
-     * @param iq IQ stanza containing the vCard
+     * @param vCard IQ stanza containing the vCard
      */
-    void handleVCardReceived(const QXmppVCardIq &iq);
+    void handleVCardReceived(const QXmppVCardIq &vCard);
 
     /**
      * Handles the receiving of the user's vCard.
      */
-    void handleClientVCardReceived();
+    void handleOwnVCardReceived();
 
     /**
      * Handles an incoming presence stanza and checks if the user avatar needs to be refreshed.
@@ -78,10 +103,14 @@ private:
      */
     void changeAvatarAfterReceivingCurrentVCard();
 
-    ClientWorker *const m_clientWorker;
-    QXmppClient *const m_client;
+    void addAvatar(const QXmppVCardIq &vCard);
+
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+    AvatarCache *const m_avatarCache;
+    PresenceCache *const m_presenceCache;
     QXmppVCardManager *const m_manager;
-    AvatarFileStorage *const m_avatarStorage;
+
     QString m_nicknameToBeSetAfterReceivingCurrentVCard;
     QImage m_avatarToBeSetAfterReceivingCurrentVCard;
     bool m_isAvatarToBeReset = false;

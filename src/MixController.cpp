@@ -5,44 +5,50 @@
 #include "MixController.h"
 
 // QXmpp
-#include "QXmppMixParticipantItem.h"
 #include <QXmppClient.h>
 #include <QXmppMixInvitation.h>
+#include <QXmppMixParticipantItem.h>
 #include <QXmppTask.h>
 #include <QXmppUri.h>
 #include <QXmppUtils.h>
 // Kaidan
+#include "Account.h"
 #include "Algorithms.h"
 #include "ChatController.h"
 #include "ClientWorker.h"
+#include "GroupChatController.h"
 #include "GroupChatUser.h"
-#include "Kaidan.h"
+#include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterDb.h"
 
-MixController::MixController(QObject *parent)
+MixController::MixController(AccountSettings *accountSettings,
+                             GroupChatController *groupChatController,
+                             MessageController *messageController,
+                             QXmppMixManager *mixManager,
+                             QObject *parent)
     : QObject(parent)
+    , m_accountSettings(accountSettings)
+    , m_groupChatController(groupChatController)
+    , m_messageController(messageController)
+    , m_manager(mixManager)
 {
-    runOnThread(Kaidan::instance()->client(), [this]() {
-        auto manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>();
+    connect(m_manager, &QXmppMixManager::participantSupportChanged, this, &MixController::handleParticipantSupportChanged);
+    connect(m_manager, &QXmppMixManager::servicesChanged, this, &MixController::handleServicesChanged);
 
-        connect(manager, &QXmppMixManager::participantSupportChanged, this, &MixController::handleParticipantSupportChanged);
-        connect(manager, &QXmppMixManager::servicesChanged, this, &MixController::handleServicesChanged);
+    connect(m_manager, &QXmppMixManager::channelInformationUpdated, this, &MixController::handleChannelInformationUpdated);
 
-        connect(manager, &QXmppMixManager::channelInformationUpdated, this, &MixController::handleChannelInformationUpdated);
+    connect(m_manager, &QXmppMixManager::jidAllowed, this, &MixController::handleJidAllowed);
+    connect(m_manager, &QXmppMixManager::jidDisallowed, this, &MixController::handleJidDisallowed);
 
-        connect(manager, &QXmppMixManager::jidAllowed, this, &MixController::handleJidAllowed);
-        connect(manager, &QXmppMixManager::jidDisallowed, this, &MixController::handleJidDisallowed);
+    connect(m_manager, &QXmppMixManager::jidBanned, this, &MixController::handleJidBanned);
+    connect(m_manager, &QXmppMixManager::jidUnbanned, this, &MixController::handleJidUnbanned);
 
-        connect(manager, &QXmppMixManager::jidBanned, this, &MixController::handleJidBanned);
-        connect(manager, &QXmppMixManager::jidUnbanned, this, &MixController::handleJidUnbanned);
+    connect(m_manager, &QXmppMixManager::participantReceived, this, &MixController::handleParticipantReceived);
+    connect(m_manager, &QXmppMixManager::participantLeft, this, &MixController::handleParticipantLeft);
 
-        connect(manager, &QXmppMixManager::participantReceived, this, &MixController::handleParticipantReceived);
-        connect(manager, &QXmppMixManager::participantLeft, this, &MixController::handleParticipantLeft);
-
-        connect(manager, &QXmppMixManager::channelDeleted, this, &MixController::handleChannelDeleted);
-    });
+    connect(m_manager, &QXmppMixManager::channelDeleted, this, &MixController::handleChannelDeleted);
 }
 
 bool MixController::channelParticipationSupported() const
@@ -54,7 +60,6 @@ QList<GroupChatService> MixController::groupChatServices() const
 {
     return transform<QList<GroupChatService>>(m_services, [](const QXmppMixManager::Service &mixService) -> GroupChatService {
         return {
-            .accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare(),
             .jid = mixService.jid,
             .groupChatsSearchable = mixService.channelsSearchable,
             .groupChatCreationSupported = mixService.channelCreationAllowed,
@@ -65,12 +70,12 @@ QList<GroupChatService> MixController::groupChatServices() const
 void MixController::createPrivateChannel(const QString &serviceJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, serviceJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->createChannel(serviceJid), this};
+            return std::pair{m_manager->createChannel(serviceJid), this};
         },
         this,
-        [serviceJid](QXmppMixManager::CreationResult &&result) {
+        [this, serviceJid](QXmppMixManager::CreationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 QString errorMessage;
 
@@ -81,10 +86,10 @@ void MixController::createPrivateChannel(const QString &serviceJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance()->privateGroupChatCreationFailed(serviceJid, errorMessage);
+                Q_EMIT m_groupChatController->privateGroupChatCreationFailed(serviceJid, errorMessage);
             } else {
                 const auto channelJid = std::get<QXmppMixManager::ChannelJid>(result);
-                Q_EMIT GroupChatController::instance()->groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT m_groupChatController->groupChatCreated(channelJid);
             }
         });
 }
@@ -92,14 +97,12 @@ void MixController::createPrivateChannel(const QString &serviceJid)
 void MixController::createPublicChannel(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->createChannel(QXmppUtils::jidToDomain(channelJid),
-                                                                                                                         QXmppUtils::jidToUser(channelJid)),
-                             this};
+            return std::pair{m_manager->createChannel(QXmppUtils::jidToDomain(channelJid), QXmppUtils::jidToUser(channelJid)), this};
         },
         this,
-        [channelJid](QXmppMixManager::CreationResult &&result) {
+        [this, channelJid](QXmppMixManager::CreationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 QString errorMessage;
 
@@ -118,9 +121,9 @@ void MixController::createPublicChannel(const QString &channelJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance()->publicGroupChatCreationFailed(channelJid, errorMessage);
+                Q_EMIT m_groupChatController->publicGroupChatCreationFailed(channelJid, errorMessage);
             } else {
-                Q_EMIT GroupChatController::instance()->groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT m_groupChatController->groupChatCreated(channelJid);
             }
         });
 }
@@ -128,19 +131,20 @@ void MixController::createPublicChannel(const QString &channelJid)
 void MixController::requestChannelAccessibility(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
             const auto serviceJid = QXmppUtils::jidToDomain(channelJid);
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestChannelJids(serviceJid), this};
+            return std::pair{m_manager->requestChannelJids(serviceJid), this};
         },
         this,
-        [channelJid](QXmppMixManager::ChannelJidResult &&result) {
+        [this, channelJid](QXmppMixManager::ChannelJidResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Kaidan::instance()->passiveNotificationRequested(tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                    tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
             } else if (const auto channelJids = std::get<QList<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
-                GroupChatController::instance()->groupChatMadePublic(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                m_groupChatController->groupChatMadePublic(channelJid);
             } else {
-                GroupChatController::instance()->groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                m_groupChatController->groupChatMadePrivate(channelJid);
             }
         });
 }
@@ -148,14 +152,14 @@ void MixController::requestChannelAccessibility(const QString &channelJid)
 void MixController::requestChannelInformation(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestChannelInformation(channelJid), this};
+            return std::pair{m_manager->requestChannelInformation(channelJid), this};
         },
         this,
         [this, channelJid](QXmppMixManager::InformationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
                     tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
             } else {
                 handleChannelInformationUpdated(channelJid, std::get<QXmppMixInfoItem>(result));
@@ -165,19 +169,19 @@ void MixController::requestChannelInformation(const QString &channelJid)
 
 void MixController::renameChannel(const QString &channelJid, const QString &newChannelName)
 {
-    runOnThread(Kaidan::instance()->client(), [this, channelJid, newChannelName]() {
-        auto manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>();
-        manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName, manager](QXmppMixManager::InformationResult &&result) {
+    runOnThread(m_manager, [this, channelJid, newChannelName]() {
+        m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName](QXmppMixManager::InformationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
             } else {
                 auto information = std::get<QXmppMixInfoItem>(result);
                 information.setName(newChannelName);
 
-                auto future = manager->updateChannelInformation(channelJid, information);
+                auto future = m_manager->updateChannelInformation(channelJid, information);
                 future.then(this, [channelJid, newChannelName](QXmppClient::EmptyResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
-                        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(
+                            tr("Could not rename group %1: %2").arg(channelJid, error->description));
                     }
                 });
             }
@@ -188,12 +192,12 @@ void MixController::renameChannel(const QString &channelJid, const QString &newC
 void MixController::joinChannel(const QString &channelJid, const QString &nickname)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid, nickname]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->joinChannel(channelJid, nickname), this};
+            return std::pair{m_manager->joinChannel(channelJid, nickname), m_manager};
         },
         this,
-        [channelJid](QXmppMixManager::JoiningResult &&result) {
+        [this, channelJid](QXmppMixManager::JoiningResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 QString errorMessage;
 
@@ -221,19 +225,19 @@ void MixController::joinChannel(const QString &channelJid, const QString &nickna
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance()->groupChatJoiningFailed(channelJid, errorMessage);
+                Q_EMIT m_groupChatController->groupChatJoiningFailed(channelJid, errorMessage);
             } else {
-                Q_EMIT GroupChatController::instance()->groupChatJoined(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT m_groupChatController->groupChatJoined(channelJid);
             }
         });
 }
 
 void MixController::inviteContactToChannel(const QString &channelJid, const QString &contactJid, bool channelPublic)
 {
-    const auto ownJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    const auto accountJid = m_accountSettings->jid();
 
     GroupChatInvitation groupChatInvitation{
-        .inviterJid = ownJid,
+        .inviterJid = accountJid,
         .inviteeJid = contactJid,
         .groupChatJid = channelJid,
         .token = {},
@@ -244,48 +248,45 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
     groupChatUri.setQuery(QXmpp::Uri::Join());
 
     Message message;
-    message.accountJid = ownJid;
+    message.accountJid = accountJid;
     message.chatJid = contactJid;
     message.isOwn = true;
     message.id = QXmppUtils::generateStanzaUuid();
     message.originId = message.id;
     message.timestamp = QDateTime::currentDateTimeUtc();
     message.setPreparedBody(groupChatUri.toString());
-    message.encryption = ChatController::instance()->activeEncryption();
     message.deliveryState = DeliveryState::Pending;
     message.receiptRequested = true;
     message.groupChatInvitation = groupChatInvitation;
 
-    MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
-
-    auto sendInvitation = [message]() {
-        MessageController::instance()->sendPendingMessage(message);
+    auto sendInvitation = [this, message]() {
+        m_messageController->sendMessageWithUndecidedEncryption(std::move(message));
     };
 
     if (channelPublic) {
         sendInvitation();
     } else {
         callRemoteTask(
-            Kaidan::instance()->client(),
+            m_manager,
             [this, channelJid]() {
-                return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestChannelNodes(channelJid), this};
+                return std::pair{m_manager->requestChannelNodes(channelJid), this};
             },
             this,
             [this, sendInvitation, message, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
                 if (const auto error = std::get_if<QXmppError>(&result)) {
-                    Kaidan::instance()->passiveNotificationRequested(tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(
+                        tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
                 } else {
                     auto allowJid = [this, sendInvitation, message, channelJid, contactJid]() {
                         callRemoteTask(
-                            Kaidan::instance()->client(),
+                            m_manager,
                             [this, channelJid, contactJid]() {
-                                return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->allowJid(channelJid, contactJid),
-                                                 this};
+                                return std::pair{m_manager->allowJid(channelJid, contactJid), this};
                             },
                             this,
                             [sendInvitation, message, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
                                 if (const auto error = std::get_if<QXmppError>(&result)) {
-                                    Kaidan::instance()->passiveNotificationRequested(
+                                    Q_EMIT MainController::instance()->passiveNotificationRequested(
                                         tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
                                 } else {
                                     // Invitations are only sent to real users.
@@ -311,28 +312,28 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
 void MixController::requestChannelUsers(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestChannelNodes(channelJid), this};
+            return std::pair{m_manager->requestChannelNodes(channelJid), this};
         },
         this,
         [this, channelJid](QXmppMixManager::ChannelNodeResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Kaidan::instance()->passiveNotificationRequested(tr("Nodes of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                    tr("Nodes of %1 could not be retrieved: %2").arg(channelJid, error->description));
             } else {
                 const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
 
                 if (nodes.testFlag(QXmppMixConfigItem::Node::AllowedJids)) {
                     callRemoteTask(
-                        Kaidan::instance()->client(),
+                        m_manager,
                         [this, channelJid]() {
-                            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestAllowedJids(channelJid),
-                                             this};
+                            return std::pair{m_manager->requestAllowedJids(channelJid), this};
                         },
                         this,
                         [this, channelJid](QXmppMixManager::JidResult &&result) {
                             if (const auto error = std::get_if<QXmppError>(&result)) {
-                                Kaidan::instance()->passiveNotificationRequested(
+                                Q_EMIT MainController::instance()->passiveNotificationRequested(
                                     tr("Allowed users of %1 could not be retrieved: %2").arg(channelJid, error->description));
                             } else {
                                 const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
@@ -345,14 +346,14 @@ void MixController::requestChannelUsers(const QString &channelJid)
 
                 if (nodes.testFlag(QXmppMixConfigItem::Node::BannedJids)) {
                     callRemoteTask(
-                        Kaidan::instance()->client(),
+                        m_manager,
                         [this, channelJid]() {
-                            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestBannedJids(channelJid), this};
+                            return std::pair{m_manager->requestBannedJids(channelJid), this};
                         },
                         this,
                         [this, channelJid](QXmppMixManager::JidResult &&result) {
                             if (const auto error = std::get_if<QXmppError>(&result)) {
-                                Kaidan::instance()->passiveNotificationRequested(
+                                Q_EMIT MainController::instance()->passiveNotificationRequested(
                                     tr("Banned users of %1 could not be retrieved: %2").arg(channelJid, error->description));
                             } else {
                                 const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
@@ -366,14 +367,15 @@ void MixController::requestChannelUsers(const QString &channelJid)
         });
 
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->requestParticipants(channelJid), this};
+            return std::pair{m_manager->requestParticipants(channelJid), this};
         },
         this,
         [this, channelJid](QXmppMixManager::ParticipantResult result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Kaidan::instance()->passiveNotificationRequested(tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                    tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
             } else {
                 const auto participants = std::get<QList<QXmppMixParticipantItem>>(result);
                 for (const auto &participant : participants) {
@@ -385,32 +387,25 @@ void MixController::requestChannelUsers(const QString &channelJid)
 
 void MixController::banUser(const QString &channelJid, const QString &userJid)
 {
-    runOnThread(Kaidan::instance()->client(), [channelJid, userJid]() {
-        auto client = Kaidan::instance()->client();
-        auto manager = client->xmppClient()->findExtension<QXmppMixManager>();
-
-        manager->requestChannelConfiguration(channelJid).then(client, [channelJid, userJid, client, manager](QXmppMixManager::ConfigurationResult &&result) {
+    runOnThread(m_manager, [this, channelJid, userJid]() {
+        m_manager->requestChannelConfiguration(channelJid).then(m_manager, [this, channelJid, userJid](QXmppMixManager::ConfigurationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Kaidan::instance()->passiveNotificationRequested(tr("%1 could not be banned from %2: %3").arg(userJid, channelJid, error->description));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                    tr("%1 could not be banned from %2: %3").arg(userJid, channelJid, error->description));
             } else {
                 auto channelConfiguration = std::get<QXmppMixConfigItem>(result);
-                auto banJid = [channelJid, userJid, manager]() {
-                    manager->banJid(channelJid, userJid);
+                auto banJid = [this, channelJid, userJid]() {
+                    m_manager->banJid(channelJid, userJid);
                 };
 
                 if (channelConfiguration.nodes().testFlag(QXmppMixConfigItem::Node::BannedJids)) {
                     banJid();
                 } else {
                     channelConfiguration.setNodes(channelConfiguration.nodes() | QXmppMixConfigItem::Node::BannedJids);
-                    manager->updateChannelConfiguration(channelJid, channelConfiguration).then(client, [client, channelJid, banJid](auto) {
-                        Kaidan::instance()
-                            ->client()
-                            ->xmppClient()
-                            ->findExtension<QXmppMixManager>()
-                            ->updateSubscriptions(channelJid, {QXmppMixConfigItem::Node::BannedJids})
-                            .then(client, [banJid](auto) {
-                                banJid();
-                            });
+                    m_manager->updateChannelConfiguration(channelJid, channelConfiguration).then(m_manager, [this, channelJid, banJid](auto) {
+                        m_manager->updateSubscriptions(channelJid, {QXmppMixConfigItem::Node::BannedJids}).then(m_manager, [banJid](auto) {
+                            banJid();
+                        });
                     });
                 }
             }
@@ -421,18 +416,16 @@ void MixController::banUser(const QString &channelJid, const QString &userJid)
 void MixController::leaveChannel(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->leaveChannel(channelJid), this};
+            return std::pair{m_manager->leaveChannel(channelJid), this};
         },
         this,
-        [channelJid](QXmppClient::EmptyResult &&result) {
-            const auto ownJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
-
+        [this, channelJid](QXmppClient::EmptyResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT GroupChatController::instance()->groupChatLeavingFailed(ownJid, channelJid, error->description);
+                Q_EMIT m_groupChatController->groupChatLeavingFailed(channelJid, error->description);
             } else {
-                Q_EMIT GroupChatController::instance()->groupChatLeft(ownJid, channelJid);
+                Q_EMIT m_groupChatController->groupChatLeft(channelJid);
             }
         });
 }
@@ -440,9 +433,9 @@ void MixController::leaveChannel(const QString &channelJid)
 void MixController::deleteChannel(const QString &channelJid)
 {
     callRemoteTask(
-        Kaidan::instance()->client(),
+        m_manager,
         [this, channelJid]() {
-            return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->deleteChannel(channelJid), this};
+            return std::pair{m_manager->deleteChannel(channelJid), this};
         },
         this,
         [this, channelJid](QXmppClient::EmptyResult &&result) {
@@ -464,9 +457,7 @@ void MixController::deleteChannel(const QString &channelJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance()->groupChatDeletionFailed(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(),
-                                                                                channelJid,
-                                                                                errorMessage);
+                Q_EMIT m_groupChatController->groupChatDeletionFailed(channelJid, errorMessage);
             } else {
                 leaveChannel(channelJid);
             }
@@ -476,34 +467,34 @@ void MixController::deleteChannel(const QString &channelJid)
 void MixController::handleParticipantSupportChanged()
 {
     runOnThread(
-        Kaidan::instance()->client(),
-        []() {
-            return Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->participantSupport();
+        m_manager,
+        [this]() {
+            return m_manager->participantSupport();
         },
         this,
         [this](QXmppMixManager::Support participantSupport) {
             m_channelParticipationSupported = (participantSupport == QXmppMixManager::Support::Supported);
-            Q_EMIT GroupChatController::instance()->groupChatParticipationSupportedChanged();
+            Q_EMIT m_groupChatController->groupChatParticipationSupportedChanged();
         });
 }
 
 void MixController::handleServicesChanged()
 {
     runOnThread(
-        Kaidan::instance()->client(),
-        []() {
-            return Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->services();
+        m_manager,
+        [this]() {
+            return m_manager->services();
         },
         this,
         [this](const QList<QXmppMixManager::Service> &&services) {
             m_services = services;
-            Q_EMIT GroupChatController::instance()->groupChatServicesChanged();
+            Q_EMIT m_groupChatController->groupChatServicesChanged();
         });
 }
 
 void MixController::handleChannelInformationUpdated(const QString &channelJid, const QXmppMixInfoItem &information)
 {
-    RosterDb::instance()->updateItem(channelJid, [information](RosterItem &item) {
+    RosterDb::instance()->updateItem(m_accountSettings->jid(), channelJid, [information](RosterItem &item) {
         item.groupChatName = information.name();
         item.groupChatDescription = information.description();
     });
@@ -512,80 +503,80 @@ void MixController::handleChannelInformationUpdated(const QString &channelJid, c
 void MixController::handleChannelAccessibilityReceived(const QString &channelJid, const bool isPublic)
 {
     if (isPublic)
-        Q_EMIT GroupChatController::instance()->groupChatMadePublic(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+        Q_EMIT m_groupChatController->groupChatMadePublic(channelJid);
     else
-        Q_EMIT GroupChatController::instance()->groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+        Q_EMIT m_groupChatController->groupChatMadePrivate(channelJid);
 }
 
 void MixController::handleJidAllowed(const QString &channelJid, const QString &jid)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.jid = jid;
     user.status = GroupChatUser::Status::Allowed;
 
-    Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
+    Q_EMIT m_groupChatController->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidDisallowed(const QString &channelJid, const QString &jid)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.jid = jid;
     user.status = GroupChatUser::Status::Allowed;
 
-    Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
+    Q_EMIT m_groupChatController->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleJidBanned(const QString &channelJid, const QString &jid)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.jid = jid;
     user.status = GroupChatUser::Status::Banned;
 
-    Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
+    Q_EMIT m_groupChatController->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidUnbanned(const QString &channelJid, const QString &jid)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.jid = jid;
     user.status = GroupChatUser::Status::Banned;
 
-    Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
+    Q_EMIT m_groupChatController->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleParticipantReceived(const QString &channelJid, const QXmppMixParticipantItem &participantItem)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.id = participantItem.id();
     user.jid = participantItem.jid();
     user.name = participantItem.nick();
 
-    Q_EMIT GroupChatController::instance()->participantReceived(user);
+    Q_EMIT m_groupChatController->participantReceived(user);
 }
 
 void MixController::handleParticipantLeft(const QString &channelJid, const QString &participantId)
 {
     GroupChatUser user;
-    user.accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
+    user.accountJid = m_accountSettings->jid();
     user.chatJid = channelJid;
     user.id = participantId;
 
-    Q_EMIT GroupChatController::instance()->participantLeft(user);
+    Q_EMIT m_groupChatController->participantLeft(user);
 }
 
 void MixController::handleChannelDeleted(const QString &channelJid)
 {
-    Q_EMIT GroupChatController::instance()->groupChatDeleted(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+    Q_EMIT m_groupChatController->groupChatDeleted(channelJid);
 }
 
 #include "moc_MixController.cpp"

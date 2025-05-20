@@ -101,11 +101,11 @@ Item {
 		ScalableText {
 			text: {
 				if (root.message.encryption === Encryption.NoEncryption) {
-					if (ChatController.isEncryptionEnabled) {
+					if (root.message.chatController.isEncryptionEnabled) {
 						// Encryption is set for the current chat but this message is unencrypted.
 						return qsTr("Unencrypted")
 					}
-				} else if (ChatController.encryption !== Encryption.NoEncryption && root.message.trustLevel === Message.TrustLevel.Untrusted){
+				} else if (root.message.chatController !== Encryption.NoEncryption && root.message.trustLevel === Message.TrustLevel.Untrusted){
 					// Encryption is set for the current chat but the key of this message's sender
 					// is not trusted.
 					return qsTr("Untrusted")

@@ -11,32 +11,23 @@
 
 class QImage;
 
-class AbstractQrCodeGenerator : public QObject
+class QrCodeGenerator : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(int edgePixelCount MEMBER m_edgePixelCount WRITE setEdgePixelCount)
     Q_PROPERTY(QImage qrCode READ qrCode NOTIFY qrCodeChanged)
 
 public:
-    explicit AbstractQrCodeGenerator(QObject *parent = nullptr);
+    explicit QrCodeGenerator(QObject *parent = nullptr);
 
-    QString jid() const;
-    void setJid(const QString &jid);
-    Q_SIGNAL void jidChanged();
-
+    void setText(const QString &text);
     void setEdgePixelCount(int edgePixelCount);
 
     QImage qrCode() const;
     Q_SIGNAL void qrCodeChanged();
 
-protected:
-    void setText(const QString &text);
-
 private:
-    QString m_jid;
-
     // Text to be encoded as a QR code.
     QString m_text;
 

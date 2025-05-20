@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "AvatarFileStorage.h"
+#include "AvatarCache.h"
 
 // Qt
 #include <QCryptographicHash>
@@ -15,7 +15,7 @@
 // Kaidan
 #include "KaidanCoreLog.h"
 
-AvatarFileStorage::AvatarFileStorage(QObject *parent)
+AvatarCache::AvatarCache(QObject *parent)
     : QObject(parent)
 {
     // create avatar directory, if it doesn't exists
@@ -57,7 +57,7 @@ AvatarFileStorage::AvatarFileStorage(QObject *parent)
     }
 }
 
-AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &jid, const QByteArray &avatar)
+AvatarCache::AddAvatarResult AvatarCache::addAvatar(const QString &jid, const QByteArray &avatar)
 {
     AddAvatarResult result;
 
@@ -101,7 +101,7 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
     return result;
 }
 
-void AvatarFileStorage::clearAvatar(const QString &jid)
+void AvatarCache::clearAvatar(const QString &jid)
 {
     QString oldHash;
     if (m_jidAvatarMap.contains(jid))
@@ -117,7 +117,7 @@ void AvatarFileStorage::clearAvatar(const QString &jid)
     Q_EMIT avatarIdsChanged();
 }
 
-void AvatarFileStorage::cleanUp(QString &oldHash)
+void AvatarCache::cleanUp(QString &oldHash)
 {
     if (oldHash.isEmpty())
         return;
@@ -133,32 +133,32 @@ void AvatarFileStorage::cleanUp(QString &oldHash)
         dir.remove(oldHash);
 }
 
-QString AvatarFileStorage::getAvatarPath(const QString &hash) const
+QString AvatarCache::getAvatarPath(const QString &hash) const
 {
     return QStandardPaths::locate(QStandardPaths::CacheLocation, QStringLiteral("avatars") + QDir::separator() + hash, QStandardPaths::LocateFile);
 }
 
-QString AvatarFileStorage::getHashOfJid(const QString &jid) const
+QString AvatarCache::getHashOfJid(const QString &jid) const
 {
     return m_jidAvatarMap[jid];
 }
 
-QString AvatarFileStorage::getAvatarPathOfJid(const QString &jid) const
+QString AvatarCache::getAvatarPathOfJid(const QString &jid) const
 {
     return getAvatarPath(getHashOfJid(jid));
 }
 
-QUrl AvatarFileStorage::getAvatarUrl(const QString &jid) const
+QUrl AvatarCache::getAvatarUrl(const QString &jid) const
 {
     return QUrl::fromLocalFile(getAvatarPathOfJid(jid));
 }
 
-bool AvatarFileStorage::hasAvatarHash(const QString &hash) const
+bool AvatarCache::hasAvatarHash(const QString &hash) const
 {
     return !getAvatarPath(hash).isNull();
 }
 
-void AvatarFileStorage::saveAvatarsFile()
+void AvatarCache::saveAvatarsFile()
 {
     QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QDir::separator() + QStringLiteral("avatars") + QDir::separator()
         + QStringLiteral("avatar_list.sha1");
@@ -173,4 +173,4 @@ void AvatarFileStorage::saveAvatarsFile()
         out << m_jidAvatarMap[jid] << " " << jid << "\n";
 }
 
-#include "moc_AvatarFileStorage.cpp"
+#include "moc_AvatarCache.cpp"

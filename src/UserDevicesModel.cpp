@@ -9,16 +9,11 @@
 #include <QXmppUtils.h>
 #include <QXmppVersionIq.h>
 // Kaidan
-#include "Kaidan.h"
 #include "VersionController.h"
 
 UserDevicesModel::UserDevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(PresenceCache::instance(), &PresenceCache::presenceChanged, this, &UserDevicesModel::handlePresenceChanged);
-    connect(PresenceCache::instance(), &PresenceCache::presencesCleared, this, &UserDevicesModel::handlePresencesCleared);
-    connect(this, &UserDevicesModel::clientVersionsRequested, Kaidan::instance()->versionController(), &VersionController::fetchVersions);
-    connect(Kaidan::instance()->versionController(), &VersionController::clientVersionReceived, this, &UserDevicesModel::handleClientVersionReceived);
 }
 
 QHash<int, QByteArray> UserDevicesModel::roleNames() const
@@ -55,6 +50,23 @@ int UserDevicesModel::rowCount(const QModelIndex &parent) const
     return m_devices.size();
 }
 
+void UserDevicesModel::setVersionController(VersionController *versionController)
+{
+    if (m_versionController != versionController) {
+        m_versionController = versionController;
+        connect(m_versionController, &VersionController::clientVersionReceived, this, &UserDevicesModel::handleClientVersionReceived);
+    }
+}
+
+void UserDevicesModel::setPresenceCache(PresenceCache *presenceCache)
+{
+    if (m_presenceCache != presenceCache) {
+        m_presenceCache = presenceCache;
+        connect(m_presenceCache, &PresenceCache::presenceChanged, this, &UserDevicesModel::handlePresenceChanged);
+        connect(m_presenceCache, &PresenceCache::presencesCleared, this, &UserDevicesModel::handlePresencesCleared);
+    }
+}
+
 QString UserDevicesModel::jid() const
 {
     return m_jid;
@@ -69,7 +81,7 @@ void UserDevicesModel::setJid(const QString &jid)
     m_devices.clear();
 
     // Add DeviceInfo objects for each resource
-    const auto resources = PresenceCache::instance()->resources(jid);
+    const auto resources = m_presenceCache->resources(jid);
     m_devices.reserve(resources.size());
 
     std::transform(resources.cbegin(), resources.cend(), std::back_inserter(m_devices), [](const QString &resource) {
@@ -78,7 +90,7 @@ void UserDevicesModel::setJid(const QString &jid)
     endResetModel();
 
     // request version data for all available resources
-    Q_EMIT clientVersionsRequested(m_jid);
+    m_versionController->fetchVersions(m_jid, {});
 
     Q_EMIT jidChanged();
 }
@@ -115,7 +127,7 @@ void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, con
         m_devices.append(DeviceInfo(resource));
         endInsertRows();
 
-        Q_EMIT clientVersionsRequested(m_jid, resource);
+        m_versionController->fetchVersions(m_jid, resource);
         break;
     case PresenceCache::Disconnected:
         for (int i = 0; i < m_devices.size(); i++) {

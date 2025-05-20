@@ -15,6 +15,10 @@ import "../elements"
 
 DetailsContent {
 	id: root
+
+	property ChatController chatController
+
+	account: chatController.account
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
@@ -32,8 +36,8 @@ DetailsContent {
 		]
 		textRole: "display"
 		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(ChatController.rosterItem.automaticMediaDownloadsRule)
-		onActivated: RosterModel.setAutomaticMediaDownloadsRule(ChatController.accountJid, ChatController.chatJid, automaticMediaDownloadsDelegate.currentValue)
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(root.chatController.rosterItem.automaticMediaDownloadsRule)
+		onActivated: root.chatController.account.rosterController.setAutomaticMediaDownloadsRule(root.chatController.jid, automaticMediaDownloadsDelegate.currentValue)
 	}
 	vCardArea.visible: vCardRepeater.count
 	vCardExpansionButton {
@@ -41,71 +45,79 @@ DetailsContent {
 		checked: !visible
 	}
 	rosterGoupListView {
-		header: FormCard.FormCard {
+		header: Loader {
+			sourceComponent: root.chatController.account.settings.enabled ? rosterGroupComponent : null
 			width: ListView.view.width
-			Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-			FormCard.AbstractFormDelegate {
-				background: null
-				contentItem: RowLayout {
-					spacing: Kirigami.Units.largeSpacing * 3
+			Component {
+				id: rosterGroupComponent
 
-					Controls.TextField {
-						id: rosterGroupField
-						placeholderText: qsTr("New label")
-						enabled: !rosterGroupBusyIndicator.visible
-						Layout.fillWidth: true
-						onAccepted: rosterGroupAdditionButton.clicked()
-						onVisibleChanged: {
-							if (visible) {
-								clear()
-								forceActiveFocus()
+				FormCard.FormCard {
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+
+					FormCard.AbstractFormDelegate {
+						background: null
+						contentItem: RowLayout {
+							spacing: Kirigami.Units.largeSpacing * 3
+
+							Controls.TextField {
+								id: rosterGroupField
+								placeholderText: qsTr("New label")
+								enabled: !rosterGroupBusyIndicator.visible
+								Layout.fillWidth: true
+								onAccepted: rosterGroupAdditionButton.clicked()
+								onVisibleChanged: {
+									if (visible) {
+										clear()
+										forceActiveFocus()
+									}
+								}
 							}
-						}
-					}
 
-					Button {
-						id: rosterGroupAdditionButton
-						Controls.ToolTip.text: qsTr("Add label")
-						icon.name: "list-add-symbolic"
-						enabled: rosterGroupField.text.length
-						visible: !rosterGroupBusyIndicator.visible
-						flat: !hovered
-						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: rosterGroupField.implicitHeight
-						Layout.rightMargin: Kirigami.Units.largeSpacing
-						onClicked: {
-							let groups = ChatController.rosterItem.groups
+							Button {
+								id: rosterGroupAdditionButton
+								Controls.ToolTip.text: qsTr("Add label")
+								icon.name: "list-add-symbolic"
+								enabled: rosterGroupField.text.length
+								visible: !rosterGroupBusyIndicator.visible
+								flat: !hovered
+								Layout.preferredWidth: Layout.preferredHeight
+								Layout.preferredHeight: rosterGroupField.implicitHeight
+								Layout.rightMargin: Kirigami.Units.largeSpacing
+								onClicked: {
+									let groups = root.chatController.rosterItem.groups
 
-							if (groups.includes(rosterGroupField.text)) {
-								rosterGroupField.clear()
-							} else if (enabled) {
-								rosterGroupBusyIndicator.visible = true
+									if (groups.includes(rosterGroupField.text)) {
+										rosterGroupField.clear()
+									} else if (enabled) {
+										rosterGroupBusyIndicator.visible = true
 
-								groups.push(rosterGroupField.text)
-								Kaidan.rosterController.updateGroups(ChatController.chatJid, ChatController.rosterItem.name, groups)
+										groups.push(rosterGroupField.text)
+										root.chatController.account.rosterController.updateGroups(root.chatController.jid, root.chatController.rosterItem.name, groups)
 
-								rosterGroupField.clear()
-							} else {
-								rosterGroupField.forceActiveFocus()
+										rosterGroupField.clear()
+									} else {
+										rosterGroupField.forceActiveFocus()
+									}
+								}
 							}
-						}
-					}
 
-					Controls.BusyIndicator {
-						id: rosterGroupBusyIndicator
-						visible: false
-						Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
-						Layout.preferredHeight: Layout.preferredWidth
-						Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
-					}
+							Controls.BusyIndicator {
+								id: rosterGroupBusyIndicator
+								visible: false
+								Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
+								Layout.preferredHeight: Layout.preferredWidth
+								Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
+							}
 
-					Connections {
-						target: RosterModel
+							Connections {
+								target: root.chatController.account.rosterController
 
-						function onGroupsChanged() {
-							rosterGroupBusyIndicator.visible = false
-							rosterGroupField.forceActiveFocus()
+								function onGroupsChanged() {
+									rosterGroupBusyIndicator.visible = false
+									rosterGroupField.forceActiveFocus()
+								}
+							}
 						}
 					}
 				}
@@ -114,10 +126,11 @@ DetailsContent {
 		delegate: FormCard.FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
-			checked: ChatController.rosterItem.groups.includes(modelData)
+			enabled: root.chatController.account.settings.enabled
+			checked: root.chatController.rosterItem.groups.includes(modelData)
 			width: ListView.view.width
-			onToggled: {
-				let groups = ChatController.rosterItem.groups
+			onClicked: {
+				let groups = root.chatController.rosterItem.groups
 
 				if (checked) {
 					groups.push(modelData)
@@ -125,18 +138,18 @@ DetailsContent {
 					groups.splice(groups.indexOf(modelData), 1)
 				}
 
-				Kaidan.rosterController.updateGroups(ChatController.chatJid, ChatController.rosterItem.name, groups)
+				root.chatController.account.rosterController.updateGroups(root.chatController.jid, root.chatController.rosterItem.name, groups)
 			}
 
 			Connections {
-				target: ChatController
+				target: root.chatController
 
 				// TODO: Remove the following once fixed in Kirigami Addons.
 				function onRosterItemChanged() {
 					// Update the "checked" value of "rosterGroupDelegate" as a workaround because
 					// "FormCard.FormSwitchDelegate" does not listen to changes of
-					// "ChatController.rosterItem.groups".
-					rosterGroupDelegate.checked = ChatController.rosterItem.groups.includes(modelData)
+					// "root.chatController.rosterItem.groups".
+					rosterGroupDelegate.checked = root.chatController.rosterItem.groups.includes(modelData)
 				}
 			}
 		}

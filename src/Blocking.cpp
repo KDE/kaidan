@@ -9,10 +9,10 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
-#include "AccountController.h"
+#include "Account.h"
 #include "Algorithms.h"
+#include "ClientWorker.h"
 #include "Globals.h"
-#include "Kaidan.h"
 #include "KaidanCoreLog.h"
 #include "SqlUtils.h"
 
@@ -41,8 +41,8 @@ auto determineJidType(const QString &jid)
     return Type::BareJid;
 }
 
-BlockingDb::BlockingDb(Database *database, QObject *parent)
-    : DatabaseComponent(database, parent)
+BlockingDb::BlockingDb(QObject *parent)
+    : DatabaseComponent(parent)
 {
 }
 
@@ -99,10 +99,123 @@ QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QList<
     });
 }
 
-BlockingController::BlockingController(Database *database, QObject *parent)
+BlockingController::BlockingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent)
     : QObject(parent)
-    , m_db(std::make_unique<BlockingDb>(database))
+    , m_accountSettings(accountSettings)
+    , m_connection(connection)
+    , m_clientWorker(clientWorker)
+    , m_manager(m_clientWorker->blockingManager())
+    , m_db(std::make_unique<BlockingDb>())
 {
+}
+
+void BlockingController::subscribeToBlocklist()
+{
+    if (m_subscribed) {
+        return;
+    }
+    m_subscribed = true;
+
+    // load blocklist from database
+    m_db->blockedJids(m_accountSettings->jid()).then(this, [this](QList<QString> result) {
+        handleBlocklist({Blocklist::Db, std::move(result)});
+    });
+
+    // also load blocklist from XMPP if connected
+    if (m_connection->state() == Enums::ConnectionState::StateConnected) {
+        callRemoteTask(
+            m_manager,
+            [this]() {
+                return std::pair{m_manager->fetchBlocklist(), this};
+            },
+            this,
+            [this](auto &&result) {
+                handleXmppBlocklistResult(std::move(result));
+            });
+    }
+
+    // connect to signals
+    runOnThread(m_manager, [this]() {
+        connect(m_manager, &QXmppBlockingManager::blocked, this, &BlockingController::onJidsBlocked);
+        connect(m_manager, &QXmppBlockingManager::unblocked, this, &BlockingController::onJidsUnblocked);
+    });
+
+    // re-subscribe to blocklist on reconnect (without stream resumption)
+    connect(m_clientWorker, &ClientWorker::connectionStateChanged, this, [this](auto connState) {
+        if (connState != Enums::ConnectionState::StateConnected) {
+            return;
+        }
+
+        // connected again
+        runOnThread(m_clientWorker, [this]() {
+            if (m_manager->isSubscribed()) {
+                return;
+            }
+
+            m_manager->fetchBlocklist().then(this, [this](auto result) {
+                runOnThread(this, [this, result = std::move(result)]() mutable {
+                    handleXmppBlocklistResult(std::move(result));
+                });
+            });
+        });
+    });
+}
+
+std::optional<QXmppBlocklist> BlockingController::blocklist() const
+{
+    if (m_blocklist) {
+        return QXmppBlocklist(m_blocklist->jids);
+    }
+    return {};
+}
+
+void BlockingController::block(const QString &jid)
+{
+    qCDebug(KAIDAN_CORE_LOG) << "Blocking" << jid;
+    setRunning(m_runningActionCount + 1);
+    callRemoteTask(
+        m_manager,
+        [this, jid]() {
+            return std::pair{m_manager->block(jid), this};
+        },
+        this,
+        [this, jid](auto result) {
+            if (auto *error = std::get_if<QXmppError>(&result)) {
+                Q_EMIT blockingFailed(jid, error->description);
+            } else {
+                qCDebug(KAIDAN_CORE_LOG) << "Blocked" << jid;
+                Q_EMIT blocked(jid);
+            }
+
+            setRunning(m_runningActionCount - 1);
+        });
+}
+
+void BlockingController::unblock(const QString &jid)
+{
+    qCDebug(KAIDAN_CORE_LOG) << "Unblocking" << jid;
+    setRunning(m_runningActionCount + 1);
+    callRemoteTask(
+        m_manager,
+        [this, jid]() {
+            return std::pair{m_manager->unblock(jid), this};
+        },
+        this,
+        [this, jid](auto result) {
+            if (auto *error = std::get_if<QXmppError>(&result)) {
+                Q_EMIT unblockingFailed(jid, error->description);
+            } else {
+                qCDebug(KAIDAN_CORE_LOG) << "Unblocked" << jid;
+                Q_EMIT unblocked(jid);
+            }
+
+            setRunning(m_runningActionCount - 1);
+        });
+}
+
+bool BlockingController::busy() const
+{
+    return m_runningActionCount;
 }
 
 void BlockingController::registerModel(BlockingModel *model)
@@ -124,72 +237,14 @@ void BlockingController::unregisterModel(BlockingModel *model)
     m_registeredModels.erase(std::find(m_registeredModels.begin(), m_registeredModels.end(), model));
 }
 
-void BlockingController::subscribeToBlocklist()
+void BlockingController::setRunning(uint running)
 {
-    if (m_subscribed) {
-        return;
+    auto loadingOld = busy();
+    m_runningActionCount = running;
+
+    if (busy() != loadingOld) {
+        Q_EMIT busyChanged();
     }
-    m_subscribed = true;
-
-    // load blocklist from database
-    m_db->blockedJids(AccountController::instance()->account().jid).then(this, [this](QList<QString> result) {
-        handleBlocklist({Blocklist::Db, std::move(result)});
-    });
-
-    auto *client = Kaidan::instance()->client();
-
-    // also load blocklist from XMPP if connected
-    if (Kaidan::instance()->connected()) {
-        callRemoteTask(
-            client,
-            []() {
-                auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
-                Q_ASSERT(manager);
-
-                return std::pair{manager->fetchBlocklist(), manager};
-            },
-            this,
-            [this](auto result) {
-                handleXmppBlocklistResult(std::move(result));
-            });
-    }
-
-    // connect to signals
-    runOnThread(client, [this]() {
-        auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
-
-        connect(manager, &QXmppBlockingManager::blocked, this, &BlockingController::onJidsBlocked);
-        connect(manager, &QXmppBlockingManager::unblocked, this, &BlockingController::onJidsUnblocked);
-    });
-
-    // re-subscribe to blocklist on reconnect (without stream resumption)
-    connect(client, &ClientWorker::connectionStateChanged, this, [this](auto connState) {
-        if (connState != Enums::ConnectionState::StateConnected) {
-            return;
-        }
-
-        // connected again
-        runOnThread(Kaidan::instance()->client(), [this]() {
-            auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
-            if (manager->isSubscribed()) {
-                return;
-            }
-
-            manager->fetchBlocklist().then(this, [this](auto result) {
-                runOnThread(this, [this, result = std::move(result)]() mutable {
-                    handleXmppBlocklistResult(std::move(result));
-                });
-            });
-        });
-    });
-}
-
-std::optional<QXmppBlocklist> BlockingController::blocklist() const
-{
-    if (m_blocklist) {
-        return QXmppBlocklist(m_blocklist->jids);
-    }
-    return {};
 }
 
 void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::BlocklistResult &&result)
@@ -238,7 +293,7 @@ void BlockingController::updateDbBlocklist(const QList<QString> &blockedJids)
         // skip if we already know that the db version is up to date
         return;
     }
-    m_db->resetBlockedJids(AccountController::instance()->account().jid, blockedJids);
+    m_db->resetBlockedJids(m_accountSettings->jid(), blockedJids);
 }
 
 void BlockingController::onJidsBlocked(const QList<QString> &jids)
@@ -246,7 +301,7 @@ void BlockingController::onJidsBlocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->addBlockedJids(AccountController::instance()->account().jid, jids);
+    m_db->addBlockedJids(m_accountSettings->jid(), jids);
 
     m_blocklist->jids.append(jids);
     makeUnique(m_blocklist->jids);
@@ -263,7 +318,7 @@ void BlockingController::onJidsUnblocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->removeBlockedJids(AccountController::instance()->account().jid, jids);
+    m_db->removeBlockedJids(m_accountSettings->jid(), jids);
 
     for (const auto &jid : jids) {
         m_blocklist->jids.removeOne(jid);
@@ -279,12 +334,11 @@ void BlockingController::onJidsUnblocked(const QList<QString> &jids)
 BlockingModel::BlockingModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    Kaidan::instance()->blockingController()->registerModel(this);
 }
 
 BlockingModel::~BlockingModel()
 {
-    Kaidan::instance()->blockingController()->unregisterModel(this);
+    m_blockingController->unregisterModel(this);
 }
 
 QHash<int, QByteArray> BlockingModel::roleNames() const
@@ -331,6 +385,18 @@ QVariant BlockingModel::data(const QModelIndex &index, int role) const
         break;
     }
     return {};
+}
+
+void BlockingModel::setBlockingController(BlockingController *blockingController)
+{
+    if (m_blockingController != blockingController) {
+        if (m_blockingController) {
+            m_blockingController->unregisterModel(this);
+        }
+
+        m_blockingController = blockingController;
+        m_blockingController->registerModel(this);
+    }
 }
 
 bool BlockingModel::contains(const QString &jid)
@@ -384,8 +450,18 @@ void BlockingModel::handleUnblocked(const QList<QString> &jids)
 BlockingWatcher::BlockingWatcher(QObject *parent)
     : QObject(parent)
 {
-    auto *controller = Kaidan::instance()->blockingController();
-    connect(controller, &BlockingController::blocklistChanged, this, &BlockingWatcher::refreshState);
+}
+
+void BlockingWatcher::setBlockingController(BlockingController *blockingController)
+{
+    if (m_blockingController != blockingController) {
+        if (m_blockingController) {
+            disconnect(m_blockingController, &BlockingController::blocklistChanged, this, &BlockingWatcher::refreshState);
+        }
+
+        m_blockingController = blockingController;
+        connect(m_blockingController, &BlockingController::blocklistChanged, this, &BlockingWatcher::refreshState);
+    }
 }
 
 const QString &BlockingWatcher::jid() const
@@ -396,7 +472,7 @@ const QString &BlockingWatcher::jid() const
 void BlockingWatcher::setJid(const QString &jid)
 {
     if (!jid.isEmpty()) {
-        Kaidan::instance()->blockingController()->subscribeToBlocklist();
+        m_blockingController->subscribeToBlocklist();
     }
 
     if (m_jid != jid) {
@@ -418,7 +494,7 @@ void BlockingWatcher::refreshState()
     auto blockedOld = blocked();
 
     // get current blocklist
-    if (auto list = Kaidan::instance()->blockingController()->blocklist(); list && !m_jid.isEmpty()) {
+    if (auto list = m_blockingController->blocklist(); list && !m_jid.isEmpty()) {
         m_state = list->blockingState(m_jid);
     } else {
         m_state = QXmppBlocklist::NotBlocked();
@@ -427,67 +503,6 @@ void BlockingWatcher::refreshState()
 
     if (blockedOld != blocked()) {
         Q_EMIT blockedChanged();
-    }
-}
-
-BlockingAction::BlockingAction(QObject *parent)
-    : QObject(parent)
-{
-}
-
-void BlockingAction::block(const QString &jid)
-{
-    qCDebug(KAIDAN_CORE_LOG) << "Blocking" << jid;
-    setRunning(m_running + 1);
-    callRemoteTask(
-        Kaidan::instance()->client(),
-        [this, jid]() {
-            auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
-            return std::pair{manager->block(jid), this};
-        },
-        this,
-        [this, jid](auto result) {
-            if (auto *error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT errorOccurred(jid, true, error->description);
-            } else {
-                qCDebug(KAIDAN_CORE_LOG) << "Blocked" << jid;
-                Q_EMIT succeeded(jid, true);
-            }
-
-            setRunning(m_running - 1);
-        });
-}
-
-void BlockingAction::unblock(const QString &jid)
-{
-    qCDebug(KAIDAN_CORE_LOG) << "Unblocking" << jid;
-    setRunning(m_running + 1);
-    callRemoteTask(
-        Kaidan::instance()->client(),
-        [this, jid]() {
-            auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
-            return std::pair{manager->unblock(jid), this};
-        },
-        this,
-        [this, jid](auto result) {
-            if (auto *error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT errorOccurred(jid, false, error->description);
-            } else {
-                qCDebug(KAIDAN_CORE_LOG) << "Unblocked" << jid;
-                Q_EMIT succeeded(jid, false);
-            }
-
-            setRunning(m_running - 1);
-        });
-}
-
-void BlockingAction::setRunning(uint running)
-{
-    auto loadingOld = loading();
-    m_running = running;
-
-    if (loading() != loadingOld) {
-        Q_EMIT loadingChanged();
     }
 }
 

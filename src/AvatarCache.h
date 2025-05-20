@@ -10,12 +10,12 @@
 #include <QMap>
 #include <QObject>
 
-class AvatarFileStorage : public QObject
+class AvatarCache : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit AvatarFileStorage(QObject *parent = nullptr);
+    explicit AvatarCache(QObject *parent = nullptr);
 
     struct AddAvatarResult {
         /* SHA1 HEX Hash */
@@ -71,8 +71,7 @@ public:
      */
     Q_INVOKABLE QUrl getAvatarUrl(const QString &jid) const;
 
-Q_SIGNALS:
-    void avatarIdsChanged();
+    Q_SIGNAL void avatarIdsChanged();
 
 private:
     void saveAvatarsFile();

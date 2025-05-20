@@ -35,8 +35,6 @@ ecm_qt_declare_logging_category(
 
 target_sources(libkaidancore PRIVATE
     AbstractNotifier.h
-    AbstractQrCodeGenerator.cpp
-    AbstractQrCodeGenerator.h
     Account.cpp
     Account.h
     AccountController.cpp
@@ -56,8 +54,8 @@ target_sources(libkaidancore PRIVATE
     AuthenticatableEncryptionKeyModel.h
     AuthenticatedEncryptionKeyModel.cpp
     AuthenticatedEncryptionKeyModel.h
-    AvatarFileStorage.cpp
-    AvatarFileStorage.h
+    AvatarCache.cpp
+    AvatarCache.h
     BitsOfBinaryImageProvider.cpp
     BitsOfBinaryImageProvider.h
     Blocking.cpp
@@ -106,6 +104,8 @@ target_sources(libkaidancore PRIVATE
     Globals.h
     GroupChatController.cpp
     GroupChatController.h
+    GroupChatInviteeFilterModel.cpp
+    GroupChatInviteeFilterModel.h
     GroupChatQrCodeGenerator.cpp
     GroupChatQrCodeGenerator.h
     GroupChatUser.cpp
@@ -124,12 +124,12 @@ target_sources(libkaidancore PRIVATE
     HostCompletionProxyModel.cpp
     HostCompletionProxyModel.h
     JsonUtils.h
-    Kaidan.cpp
-    Kaidan.h
     LoginQrCodeGenerator.cpp
     LoginQrCodeGenerator.h
     LogHandler.cpp
     LogHandler.h
+    MainController.cpp
+    MainController.h
     MediaUtils.cpp
     MediaUtils.h
     MessageComposition.cpp
@@ -146,8 +146,8 @@ target_sources(libkaidancore PRIVATE
     MessageReactionModel.h
     MixController.cpp
     MixController.h
-    Notifications.cpp
-    Notifications.h
+    NotificationController.cpp
+    NotificationController.h
     OmemoController.cpp
     OmemoController.h
     OmemoDb.cpp
@@ -168,6 +168,8 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatSearchController.h
     QmlUtils.cpp
     QmlUtils.h
+    QrCodeGenerator.cpp
+    QrCodeGenerator.h
     RegistrationController.cpp
     RegistrationController.h
     RegistrationDataFormFilterModel.cpp
@@ -178,16 +180,14 @@ target_sources(libkaidancore PRIVATE
     RosterController.h
     RosterDb.cpp
     RosterDb.h
-    RosterFilterProxyModel.cpp
-    RosterFilterProxyModel.h
+    RosterFilterModel.cpp
+    RosterFilterModel.h
     RosterItem.cpp
     RosterItem.h
     RosterItemWatcher.cpp
     RosterItemWatcher.h
     RosterModel.cpp
     RosterModel.h
-    ServerFeaturesCache.cpp
-    ServerFeaturesCache.h
     Settings.cpp
     Settings.h
     SqlUtils.cpp
@@ -205,8 +205,6 @@ target_sources(libkaidancore PRIVATE
     TrustMessageUriGenerator.h
     UserDevicesModel.cpp
     UserDevicesModel.h
-    VCardCache.cpp
-    VCardCache.h
     VCardController.cpp
     VCardController.h
     VCardModel.cpp

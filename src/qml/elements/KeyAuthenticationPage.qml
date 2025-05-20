@@ -19,17 +19,17 @@ import im.kaidan.kaidan
 ExplanationOptionsTogglePage {
 	id: root
 
-	property string accountJid
+	property Account account
 	property string jid
 	property alias authenticatableKeysArea: authenticatableKeysArea
 
 	title: qsTr("Verify devices")
-	explanationInitiallyVisible: Kaidan.settings.keyAuthenticationPageExplanationVisible
+	explanationInitiallyVisible: Settings.keyAuthenticationPageExplanationVisible
 	primaryButton.text: state === "primaryAreaDisplayed" ? qsTr("Show explanation") : qsTr("Scan QR codes")
 	primaryButton.onClicked: {
-		if (Kaidan.settings.keyAuthenticationPageExplanationVisible) {
+		if (Settings.keyAuthenticationPageExplanationVisible) {
 			// Hide the explanation when this page is opened again in the future.
-			Kaidan.settings.keyAuthenticationPageExplanationVisible = false
+			Settings.keyAuthenticationPageExplanationVisible = false
 
 			if (!qrCodeScanningArea.scanner.cameraEnabled) {
 				qrCodeScanningArea.scanner.cameraEnabled = true
@@ -39,9 +39,9 @@ ExplanationOptionsTogglePage {
 	secondaryButton.text: state === "secondaryAreaDisplayed" ? qsTr("Show explanation") : qsTr("Verify manually")
 	primaryArea: QrCodeScanningArea {
 		id: qrCodeScanningArea
-		accountJid: root.accountJid
+		account: root.account
 		jid: root.jid
-		visible: !Kaidan.settings.keyAuthenticationPageExplanationVisible
+		visible: !Settings.keyAuthenticationPageExplanationVisible
 		anchors.centerIn: parent
 	}
 	secondaryArea: GridLayout {
@@ -91,7 +91,7 @@ ExplanationOptionsTogglePage {
 								if (Utils.validateEncryptionKeyId(keyId)) {
 									encryptionKeyBusyIndicator.visible = true
 
-									Kaidan.atmController.makeTrustDecisions(root.jid, [keyId], [])
+									root.account.atmController.makeTrustDecisions(root.jid, [keyId], [])
 									encryptionKeyField.clear()
 									passiveNotification(qsTr("Device verified"))
 
@@ -136,7 +136,8 @@ ExplanationOptionsTogglePage {
 		EncryptionKeysArea {
 			header.title: qsTr("Verified own devices")
 			listView.model: AuthenticatedEncryptionKeyModel {
-				accountJid: root.accountJid
+				encryptionController: root.account.encryptionController
+				accountJid: root.account.settings.jid
 			}
 			listView.delegate: FormCard.AbstractFormDelegate {
 				id: encryptionKeyDelegate
@@ -171,7 +172,7 @@ ExplanationOptionsTogglePage {
 	}
 
 	Component.onCompleted: {
-		if (!Kaidan.settings.keyAuthenticationPageExplanationVisible) {
+		if (!Settings.keyAuthenticationPageExplanationVisible) {
 			qrCodeScanningArea.scanner.cameraEnabled = true
 		}
 	}

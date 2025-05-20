@@ -5,12 +5,21 @@
 #include "EncryptionWatcher.h"
 
 // Kaidan
+#include "AccountController.h"
 #include "Algorithms.h"
 #include "EncryptionController.h"
 
 EncryptionWatcher::EncryptionWatcher(QObject *parent)
     : QObject(parent)
 {
+}
+
+void EncryptionWatcher::setEncryptionController(EncryptionController *encryptionController)
+{
+    if (m_encryptionController != encryptionController) {
+        m_encryptionController = encryptionController;
+        setUp();
+    }
 }
 
 QString EncryptionWatcher::accountJid() const
@@ -22,6 +31,7 @@ void EncryptionWatcher::setAccountJid(const QString &accountJid)
 {
     if (m_accountJid != accountJid) {
         m_accountJid = accountJid;
+        m_encryptionController = AccountController::instance()->account(accountJid)->encryptionController();
         Q_EMIT accountJidChanged();
         setUp();
     }
@@ -63,13 +73,13 @@ bool EncryptionWatcher::hasAuthenticatableDistrustedDevices() const
 
 void EncryptionWatcher::setUp()
 {
-    if (!m_accountJid.isEmpty() && !m_jids.isEmpty()) {
-        connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &EncryptionWatcher::handleDevicesChanged, Qt::UniqueConnection);
+    if (m_encryptionController && !m_accountJid.isEmpty() && !m_jids.isEmpty()) {
+        connect(m_encryptionController, &EncryptionController::devicesChanged, this, &EncryptionWatcher::handleDevicesChanged, Qt::UniqueConnection);
         update();
     }
 }
 
-void EncryptionWatcher::handleDevicesChanged(const QString &, QList<QString> jids)
+void EncryptionWatcher::handleDevicesChanged(QList<QString> jids)
 {
     if (containCommonElement(m_jids, jids)) {
         update();
@@ -78,7 +88,7 @@ void EncryptionWatcher::handleDevicesChanged(const QString &, QList<QString> jid
 
 void EncryptionWatcher::update()
 {
-    EncryptionController::instance()->devices(m_accountJid, m_jids).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    m_encryptionController->devices(m_jids).then(this, [this](QList<EncryptionController::Device> &&devices) {
         const auto distrustedDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
         });

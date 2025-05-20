@@ -20,11 +20,15 @@ import "elements"
  */
 ExplanationTogglePage {
 	id: root
+
+	property alias account: loginArea.account
+
 	title: qsTr("Scan a QR Code")
 	useMarginsForContent: false
 	primaryButton.text: explanationArea.visible ? qsTr("Scan QR code") : qsTr("Show explanation")
 	primaryButton.onClicked: {
 		if (!scanner.cameraEnabled) {
+			scanner.visible = true
 			scanner.cameraEnabled = true
 		}
 
@@ -72,6 +76,7 @@ ExplanationTogglePage {
 	}
 	content: QrCodeScanner {
 		id: scanner
+		visible: false
 		cornersRounded: false
 		anchors.fill: parent
 		zoomSlider.anchors.bottomMargin: Kirigami.Units.largeSpacing * 10
@@ -79,17 +84,17 @@ ExplanationTogglePage {
 		filter.onResultContentChanged: (result) => {
 			if (result.hasText && acceptingResult) {
 				// Try to log in by the data from the decoded QR code.
-				switch (Kaidan.logInByUri(result.text)) {
-				case Enums.Connecting:
+				switch (loginArea.account.logInWithUri(result.text)) {
+				case Account.LoginWithUriResult.Connecting:
 					acceptingResult = false
 					break
-				case Enums.PasswordNeeded:
+				case Account.LoginWithUriResult.PasswordNeeded:
 					root.primaryButton.clicked()
 					acceptingResult = false
 					loginArea.visible = true
 					loginArea.initialize()
 					break
-				case Enums.InvalidLoginUri:
+				case Account.LoginWithUriResult.InvalidLoginUri:
 					acceptingResult = false
 					resetAcceptingResultTimer.start()
 					showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
@@ -100,7 +105,7 @@ ExplanationTogglePage {
 
 		LoadingArea {
 			description: qsTr("Connecting…")
-			visible: Kaidan.connectionState === Enums.StateConnecting
+			visible: loginArea.account && loginArea.account.connection.state === Enums.StateConnecting
 			anchors.centerIn: parent
 		}
 	}

@@ -9,8 +9,6 @@
 // QXmpp
 #include <QXmppUtils.h>
 
-PresenceCache *PresenceCache::s_instance = nullptr;
-
 QString Presence::availabilityToIcon(Availability type)
 {
     switch (type) {
@@ -74,13 +72,6 @@ QColor Presence::availabilityToColor(Availability type)
 PresenceCache::PresenceCache(QObject *parent)
     : QObject(parent)
 {
-    Q_ASSERT(!s_instance);
-    s_instance = this;
-}
-
-PresenceCache::~PresenceCache()
-{
-    s_instance = nullptr;
 }
 
 QString PresenceCache::pickIdealResource(const QString &jid)
@@ -120,6 +111,11 @@ QList<QString> PresenceCache::resources(const QString &jid)
 int PresenceCache::resourcesCount(const QString &jid)
 {
     return m_presences.value(jid).size();
+}
+
+std::optional<QXmppPresence> PresenceCache::presence(const QString &jid)
+{
+    return presence(jid, pickIdealResource(jid));
 }
 
 std::optional<QXmppPresence> PresenceCache::presence(const QString &jid, const QString &resource)
@@ -216,11 +212,19 @@ bool PresenceCache::presenceMoreImportant(const QXmppPresence &a, const QXmppPre
 UserResourcesWatcher::UserResourcesWatcher(QObject *parent)
     : QObject(parent)
 {
-    connect(PresenceCache::instance(), &PresenceCache::presenceChanged, this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
-        Q_EMIT resourcesCountChanged();
-    });
+}
 
-    connect(PresenceCache::instance(), &PresenceCache::presencesCleared, this, &UserResourcesWatcher::resourcesCountChanged);
+void UserResourcesWatcher::setPresenceCache(PresenceCache *presenceCache)
+{
+    if (m_presenceCache != presenceCache) {
+        m_presenceCache = presenceCache;
+
+        connect(m_presenceCache, &PresenceCache::presenceChanged, this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
+            Q_EMIT resourcesCountChanged();
+        });
+
+        connect(m_presenceCache, &PresenceCache::presencesCleared, this, &UserResourcesWatcher::resourcesCountChanged);
+    }
 }
 
 /**
@@ -257,7 +261,7 @@ void UserResourcesWatcher::setJid(const QString &jid)
  */
 int UserResourcesWatcher::resourcesCount()
 {
-    return PresenceCache::instance()->resourcesCount(m_jid);
+    return m_presenceCache->resourcesCount(m_jid);
 }
 
 #include "moc_PresenceCache.cpp"

@@ -24,11 +24,13 @@ Controls.ItemDelegate {
 	property MessageReactionEmojiPicker reactionEmojiPicker
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
+	property ChatController chatController
 	property int modelIndex
 	property string msgId
 	property string senderJid
 	property string groupChatSenderId
 	property string senderName
+	property string chatJid
 	property string chatName
 	property bool isOwn
 	property bool isGroupChatMessage
@@ -58,7 +60,7 @@ Controls.ItemDelegate {
 	property bool ownReactionsFailed
 	property string groupChatInvitationJid
 	property var geoCoordinate
-	property bool isGroupBegin: determineMessageGroupDelimiter(MessageModel.rowCount() - 1, 1)
+	property bool isGroupBegin: determineMessageGroupDelimiter(chatController.messageModel.rowCount() - 1, 1)
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
@@ -77,9 +79,10 @@ Controls.ItemDelegate {
 
 			Avatar {
 				id: avatar
-				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin
+				account: root.chatController.account
 				jid: root.senderJid ? root.senderJid : root.groupChatSenderId
 				name: root.senderName
+				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin
 				Layout.alignment: Qt.AlignTop
 
 				MouseArea {
@@ -143,6 +146,7 @@ Controls.ItemDelegate {
 							id: referencedMessage
 
 							ReferencedMessage {
+								account: root.chatController.account
 								senderId: root.replyToJid ? root.replyToJid : root.replyToGroupChatParticipantId
 								senderName: root.replyToName
 								messageId: root.replyId
@@ -246,7 +250,7 @@ Controls.ItemDelegate {
 								}
 
 								if (root.geoCoordinate.isValid) {
-									if (AccountController.account.geoLocationMapPreviewEnabled) {
+									if (root.chatController.account.settings.geoLocationMapPreviewEnabled) {
 										return geoLocationMapPreview
 									}
 
@@ -355,6 +359,7 @@ Controls.ItemDelegate {
 								deliveryState: modelData.deliveryState
 								ownReactionIncluded: modelData.ownReactionIncluded
 								isOwnMessage: root.isOwn
+								messageModel: root.chatController.messageModel
 							}
 						}
 
@@ -374,6 +379,8 @@ Controls.ItemDelegate {
 								id: messageReactionDetailsButton
 
 								MessageReactionDetailsButton {
+									account: root.chatController.account
+									chatJid: root.chatController.jid
 									accentColor: bubble.backgroundColor
 									messageId: root.msgId
 									isOwnMessage: root.isOwn
@@ -437,7 +444,7 @@ Controls.ItemDelegate {
 
 		// Read marker text for own message
 		RowLayout {
-			visible: root.isLastReadOwnMessage && ChatController.accountJid !== ChatController.chatJid
+			visible: root.isLastReadOwnMessage && root.chatJid !== root.chatController.account.settings.jid
 			spacing: Kirigami.Units.smallSpacing * 3
 			Layout.topMargin: spacing
 			Layout.leftMargin: spacing
@@ -466,6 +473,7 @@ Controls.ItemDelegate {
 			id: contextMenu
 
 			ChatMessageContextMenu {
+				chatController: root.chatController
 				message: root
 			}
 		}
@@ -478,23 +486,24 @@ Controls.ItemDelegate {
 			}
 		}
 	}
+	Kirigami.Theme.inherit: false
 
 	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
 		if (modelIndex < 0 || modelIndex === delimitingIndex) {
 			return true
 		}
 
-		const nextMessageIndex = MessageModel.index(modelIndex + indexOffset, 0)
+		const nextMessageIndex = chatController.messageModel.index(modelIndex + indexOffset, 0)
 
 		if (isOwn) {
-			return !MessageModel.data(nextMessageIndex, MessageModel.IsOwn)
+			return !chatController.messageModel.data(nextMessageIndex, MessageModel.IsOwn)
 		}
 
 		if (senderJid) {
-			return MessageModel.data(nextMessageIndex, MessageModel.SenderJid) !== senderJid
+			return chatController.messageModel.data(nextMessageIndex, MessageModel.SenderJid) !== senderJid
 		}
 
-		return MessageModel.data(nextMessageIndex, MessageModel.GroupChatSenderId) !== groupChatSenderId
+		return chatController.messageModel.data(nextMessageIndex, MessageModel.GroupChatSenderId) !== groupChatSenderId
 	}
 
 	function showContextMenu(mouseArea, file) {
@@ -502,7 +511,7 @@ Controls.ItemDelegate {
 	}
 
 	function openGeoLocationMap() {
-		if (Utils.openGeoLocation(geoCoordinate)) {
+		if (root.chatController.account.openGeoLocation(geoCoordinate)) {
 			openPage(geoLocationMapPage)
 		}
 	}

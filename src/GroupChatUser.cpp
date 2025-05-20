@@ -9,7 +9,7 @@
 
 QString GroupChatUser::displayName() const
 {
-    if (const auto rosterItem = RosterModel::instance()->findItem(jid)) {
+    if (const auto rosterItem = RosterModel::instance()->item(accountJid, jid)) {
         return rosterItem->name;
     }
 

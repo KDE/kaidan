@@ -67,16 +67,11 @@ public:
     Q_ENUM(ChangeType)
 
     explicit PresenceCache(QObject *parent = nullptr);
-    ~PresenceCache() override;
-
-    static PresenceCache *instance()
-    {
-        return s_instance;
-    }
 
     QString pickIdealResource(const QString &jid);
     QList<QString> resources(const QString &jid);
     int resourcesCount(const QString &jid);
+    std::optional<QXmppPresence> presence(const QString &jid);
     std::optional<QXmppPresence> presence(const QString &jid, const QString &resource);
 
     /**
@@ -101,18 +96,19 @@ private:
     bool presenceMoreImportant(const QXmppPresence &a, const QXmppPresence &b);
 
     QMap<QString, QMap<QString, QXmppPresence>> m_presences;
-
-    static PresenceCache *s_instance;
 };
 
 class UserResourcesWatcher : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(PresenceCache *presenceCache MEMBER m_presenceCache WRITE setPresenceCache)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(int resourcesCount READ resourcesCount NOTIFY resourcesCountChanged)
 
 public:
     explicit UserResourcesWatcher(QObject *parent = nullptr);
+
+    void setPresenceCache(PresenceCache *presenceCache);
 
     QString jid() const;
     void setJid(const QString &jid);
@@ -123,5 +119,6 @@ public:
     Q_SIGNAL void resourcesCountChanged();
 
 private:
+    PresenceCache *m_presenceCache;
     QString m_jid;
 };

@@ -16,7 +16,7 @@ import im.kaidan.kaidan
 ColumnLayout {
 	id: root
 
-	property RosterFilterProxyModel rosterFilterProxyModel
+	property RosterFilterModel rosterFilterModel
 
 	spacing: 0
 
@@ -24,20 +24,20 @@ ColumnLayout {
 		id: typeListView
 		model: [
 			{
-				display: qsTr("Unavailable contacts"),
-				value: RosterFilterProxyModel.Type.UnavailableContact
+				display: qsTr("Available contacts"),
+				value: RosterFilterModel.Type.AvailableContact
 			},
 			{
-				display: qsTr("Available contacts"),
-				value: RosterFilterProxyModel.Type.AvailableContact
+				display: qsTr("Unavailable contacts"),
+				value: RosterFilterModel.Type.UnavailableContact
 			},
 			{
 				display: qsTr("Private groups"),
-				value: RosterFilterProxyModel.Type.PrivateGroupChat
+				value: RosterFilterModel.Type.PrivateGroupChat
 			},
 			{
 				display: qsTr("Public groups"),
-				value: RosterFilterProxyModel.Type.PublicGroupChat
+				value: RosterFilterModel.Type.PublicGroupChat
 			}
 		]
 		implicitWidth: largeButtonWidth
@@ -52,18 +52,18 @@ ColumnLayout {
 				text: qsTr("Filter by type")
 				description: qsTr("Show only entries of specific types")
 				enabled: checked
-				checked: root.rosterFilterProxyModel.displayedTypes
-				onToggled: root.rosterFilterProxyModel.resetDisplayedTypes()
+				checked: root.rosterFilterModel.displayedTypes
+				onToggled: root.rosterFilterModel.resetDisplayedTypes()
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
 				// "FormCard.FormSwitchDelegate" does not listen to changes of
-				// "root.rosterFilterProxyModel".
+				// "root.rosterFilterModel".
 				Connections {
-					target: root.rosterFilterProxyModel
+					target: root.rosterFilterModel
 
 					function onDisplayedTypesChanged() {
-						typeFilteringSwitch.checked = root.rosterFilterProxyModel.displayedTypes
+						typeFilteringSwitch.checked = root.rosterFilterModel.displayedTypes
 					}
 				}
 			}
@@ -71,25 +71,25 @@ ColumnLayout {
 		delegate: FormCard.FormSwitchDelegate {
 			id: typeDelegate
 			text: modelData.display
-			checked: root.rosterFilterProxyModel.displayedTypes & modelData.value
+			checked: root.rosterFilterModel.displayedTypes & modelData.value
 			width: ListView.view.width
 			onToggled: {
 				if (checked) {
-					root.rosterFilterProxyModel.addDisplayedType(modelData.value)
+					root.rosterFilterModel.addDisplayedType(modelData.value)
 				} else {
-					root.rosterFilterProxyModel.removeDisplayedType(modelData.value)
+					root.rosterFilterModel.removeDisplayedType(modelData.value)
 				}
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
 			// "FormCard.FormSwitchDelegate" does not listen to changes of
-			// "root.rosterFilterProxyModel".
+			// "root.rosterFilterModel".
 			Connections {
-				target: root.rosterFilterProxyModel
+				target: root.rosterFilterModel
 
 				function onDisplayedTypesChanged() {
-					typeDelegate.checked = root.rosterFilterProxyModel.displayedTypes & modelData.value
+					typeDelegate.checked = root.rosterFilterModel.displayedTypes & modelData.value
 				}
 			}
 		}
@@ -101,7 +101,7 @@ ColumnLayout {
 
 	InlineListView {
 		id: accountListView
-		model: RosterModel.accountJids
+		model: AccountController.accounts
 		visible: count > 1
 		implicitWidth: 570
 		implicitHeight: contentHeight
@@ -115,44 +115,44 @@ ColumnLayout {
 				text: qsTr("Filter by accounts")
 				description: qsTr("Show only chats of selected accounts")
 				enabled: checked
-				checked: root.rosterFilterProxyModel.selectedAccountJids.length
-				onToggled: root.rosterFilterProxyModel.selectedAccountJids = []
+				checked: root.rosterFilterModel.selectedAccountJids.length
+				onToggled: root.rosterFilterModel.selectedAccountJids = []
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
 				// "FormCard.FormSwitchDelegate" does not listen to changes of
-				// "root.rosterFilterProxyModel".
+				// "root.rosterFilterModel".
 				Connections {
-					target: root.rosterFilterProxyModel
+					target: root.rosterFilterModel
 
 					function onSelectedAccountJidsChanged() {
-						accountFilteringSwitch.checked = root.rosterFilterProxyModel.selectedAccountJids.length
+						accountFilteringSwitch.checked = root.rosterFilterModel.selectedAccountJids.length
 					}
 				}
 			}
 		}
 		delegate: FormCard.FormSwitchDelegate {
 			id: accountDelegate
-			text: modelData
-			checked: root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
+			text: modelData.settings.displayName
+			checked: root.rosterFilterModel.selectedAccountJids.includes(modelData.settings.jid)
 			width: ListView.view.width
 			onToggled: {
 				if(checked) {
-					root.rosterFilterProxyModel.selectedAccountJids.push(modelData)
+					root.rosterFilterModel.selectedAccountJids.push(modelData.settings.jid)
 				} else {
-					root.rosterFilterProxyModel.selectedAccountJids.splice(root.rosterFilterProxyModel.selectedAccountJids.indexOf(modelData), 1)
+					root.rosterFilterModel.selectedAccountJids.splice(root.rosterFilterModel.selectedAccountJids.indexOf(modelData.settings.jid), 1)
 				}
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
 			// "FormCard.FormSwitchDelegate" does not listen to changes of
-			// "root.rosterFilterProxyModel".
+			// "root.rosterFilterModel".
 			Connections {
-				target: root.rosterFilterProxyModel
+				target: root.rosterFilterModel
 
 				function onSelectedAccountJidsChanged() {
-					accountDelegate.checked = root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
+					accountDelegate.checked = root.rosterFilterModel.selectedAccountJids.includes(modelData.settings.jid)
 				}
 			}
 		}
@@ -178,18 +178,18 @@ ColumnLayout {
 				text: qsTr("Filter by labels")
 				description: qsTr("Show only chats with selected labels")
 				enabled: checked
-				checked: root.rosterFilterProxyModel.selectedGroups.length
-				onToggled: root.rosterFilterProxyModel.selectedGroups = []
+				checked: root.rosterFilterModel.selectedGroups.length
+				onToggled: root.rosterFilterModel.selectedGroups = []
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
 				// "FormCard.FormSwitchDelegate" does not listen to changes of
-				// "root.rosterFilterProxyModel".
+				// "root.rosterFilterModel".
 				Connections {
-					target: root.rosterFilterProxyModel
+					target: root.rosterFilterModel
 
 					function onSelectedGroupsChanged() {
-						groupFilteringSwitch.checked = root.rosterFilterProxyModel.selectedGroups.length
+						groupFilteringSwitch.checked = root.rosterFilterModel.selectedGroups.length
 					}
 				}
 			}
@@ -197,25 +197,25 @@ ColumnLayout {
 		delegate: FormCard.FormSwitchDelegate {
 			id: groupDelegate
 			text: modelData
-			checked: root.rosterFilterProxyModel.selectedGroups.includes(modelData)
+			checked: root.rosterFilterModel.selectedGroups.includes(modelData)
 			width: ListView.view.width
 			onToggled: {
 				if (checked) {
-					root.rosterFilterProxyModel.selectedGroups.push(modelData)
+					root.rosterFilterModel.selectedGroups.push(modelData)
 				} else {
-					root.rosterFilterProxyModel.selectedGroups.splice(root.rosterFilterProxyModel.selectedGroups.indexOf(modelData), 1)
+					root.rosterFilterModel.selectedGroups.splice(root.rosterFilterModel.selectedGroups.indexOf(modelData), 1)
 				}
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
 			// "FormCard.FormSwitchDelegate" does not listen to changes of
-			// "root.rosterFilterProxyModel".
+			// "root.rosterFilterModel".
 			Connections {
-				target: root.rosterFilterProxyModel
+				target: root.rosterFilterModel
 
 				function onSelectedGroupsChanged() {
-					groupDelegate.checked = root.rosterFilterProxyModel.selectedGroups.includes(modelData)
+					groupDelegate.checked = root.rosterFilterModel.selectedGroups.includes(modelData)
 				}
 			}
 		}

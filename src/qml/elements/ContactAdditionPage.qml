@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 Kirigami.ScrollablePage {
 	id: root
 
+	property alias account: content.account
 	property alias jid: content.jid
 	property alias name: content.name
 

@@ -15,7 +15,7 @@ class RosterDb : public DatabaseComponent
     Q_OBJECT
 
 public:
-    RosterDb(Database *db, QObject *parent = nullptr);
+    explicit RosterDb(QObject *parent = nullptr);
     ~RosterDb() override;
 
     static RosterDb *instance();
@@ -25,11 +25,11 @@ public:
     QFuture<void> addItem(RosterItem item);
     Q_SIGNAL void itemAdded(const RosterItem &item);
 
-    QFuture<void> updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
+    QFuture<void> updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
     Q_SIGNAL void itemUpdated(const RosterItem &item);
 
-    QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
-    Q_SIGNAL void itemsReplaced();
+    QFuture<void> replaceItems(const QString &accountJid, const QList<RosterItem> &items);
+    Q_SIGNAL void itemsReplaced(const QString &accountJid);
 
     QFuture<void> removeItem(const QString &accountJid, const QString &jid);
     Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
@@ -50,11 +50,11 @@ private:
     void fetchLastMessage(RosterItem &item, const QList<RosterItem> &items);
 
     void _addItem(const RosterItem &item);
-    void _updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
+    void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
     void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
     void _removeItem(const QString &accountJid, const QString &jid);
 
-    void updateItemByRecord(const QString &jid, const QSqlRecord &record);
+    void updateItemByRecord(const QString &accountJid, const QString &jid, const QSqlRecord &record);
 
     static RosterDb *s_instance;
 };

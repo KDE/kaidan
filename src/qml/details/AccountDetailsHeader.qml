@@ -12,10 +12,12 @@ DetailsHeader {
 
 	property Kirigami.Dialog dialog
 
-	displayName: AccountController.account.displayName
+	jid: account.settings.jid
+	displayName: account.settings.displayName
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")
 		icon.name: "camera-photo-symbolic"
+		enabled: root.account.settings.enabled
 		onTriggered: {
 			if (root.dialog) {
 				root.dialog.close()
@@ -26,12 +28,12 @@ DetailsHeader {
 	}
 
 	function changeDisplayName(newDisplayName) {
-		Kaidan.vCardController.changeNickname(newDisplayName)
+		account.vCardController.changeNickname(newDisplayName)
 	}
 
 	function handleDisplayNameChanged() {
-		if (Kaidan.connectionState === Enums.StateConnected) {
-			Kaidan.vCardController.requestClientVCard()
+		if (account.connection.state === Enums.StateConnected) {
+			account.vCardController.requestOwnVCard()
 		}
 	}
 }

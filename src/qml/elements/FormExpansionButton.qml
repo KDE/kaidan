@@ -3,34 +3,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
-import QtQuick.Layouts
-import QtQuick.Controls as Controls
-import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.formcard as FormCard
-
 /**
  * Used to expand and collapse form entries.
  */
-FormCard.AbstractFormDelegate {
+FormIconButton {
 	id: root
-	leftPadding: 0
-	rightPadding: 0
 	checkable: true
-	contentItem: RowLayout {
-		Item {
-			Layout.fillWidth: true
-		}
-
-		Kirigami.Icon {
-			source: root.checked ? "go-up-symbolic" : "go-down-symbolic"
-			implicitWidth: Kirigami.Units.iconSizes.small
-			implicitHeight: implicitWidth
-		}
-
-		Item {
-			Layout.fillWidth: true
-		}
-	}
-	Layout.fillWidth: true
+	icon.name: root.checked ? "go-up-symbolic" : "go-down-symbolic"
 }

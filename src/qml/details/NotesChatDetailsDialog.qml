@@ -3,30 +3,19 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import im.kaidan.kaidan
-
-import "../elements"
-
-FormInfoDialog {
+RosterItemDetailsDialog {
 	id: root
 	title: qsTr("Notes Details")
 
-	NotesChatDetailsHeader {}
+	NotesChatDetailsHeader {
+		chatController: root.chatController
+	}
 
 	NotesChatDetailsContent {
 		dialog: root
+		chatController: root.chatController
 		Layout.fillWidth: true
-	}
-
-	Connections {
-		target: Kaidan
-
-		// Close this dialog when the notes chat is removed.
-		function onCloseChatPageRequested() {
-			root.close()
-		}
 	}
 }

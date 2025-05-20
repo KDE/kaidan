@@ -22,7 +22,9 @@
         <file>details/ContactDetailsPage.qml</file>
         <file>details/ContactKeyAuthenticationButton.qml</file>
         <file>details/DetailsContent.qml</file>
+        <file>details/DetailsDialog.qml</file>
         <file>details/DetailsHeader.qml</file>
+        <file>details/DetailsPage.qml</file>
         <file>details/GroupChatDetailsContent.qml</file>
         <file>details/GroupChatDetailsDialog.qml</file>
         <file>details/GroupChatDetailsHeader.qml</file>
@@ -35,15 +37,20 @@
         <file>details/NotesChatDetailsHeader.qml</file>
         <file>details/NotesChatDetailsPage.qml</file>
         <file>details/RosterItemDetailsContent.qml</file>
+        <file>details/RosterItemDetailsDialog.qml</file>
         <file>details/RosterItemDetailsHeader.qml</file>
+        <file>details/RosterItemDetailsPage.qml</file>
         <file>details/UserDevicesArea.qml</file>
         <file>details/UserKeyAuthenticationButton.qml</file>
         <file>elements/AboutContent.qml</file>
         <file>elements/AboutHeader.qml</file>
         <file>elements/AccountKeyAuthenticationPage.qml</file>
         <file>elements/AccountQrCode.qml</file>
+        <file>elements/AccountRelatedAvatar.qml</file>
+        <file>elements/AccountSelectionDialog.qml</file>
         <file>elements/Audio.qml</file>
         <file>elements/Avatar.qml</file>
+        <file>elements/AvatarItemDelegate.qml</file>
         <file>elements/BusyIndicatorFormButton.qml</file>
         <file>elements/Button.qml</file>
         <file>elements/CameraStatus.qml</file>
@@ -66,6 +73,7 @@
         <file>elements/ContactAdditionDialog.qml</file>
         <file>elements/ContactAdditionPage.qml</file>
         <file>elements/ContactAdditionQrCodePage.qml</file>
+        <file>elements/ContactDelegate.qml</file>
         <file>elements/ContactKeyAuthenticationPage.qml</file>
         <file>elements/ContactQrCode.qml</file>
         <file>elements/CopyFormTextDelegate.qml</file>
@@ -73,6 +81,7 @@
         <file>elements/CustomContentFormCard.qml</file>
         <file>elements/DataForm.qml</file>
         <file>elements/Dialog.qml</file>
+        <file>elements/DisabledAccountHint.qml</file>
         <file>elements/EmojiPicker.qml</file>
         <file>elements/EncryptionKeysArea.qml</file>
         <file>elements/ExplainedContentPage.qml</file>
@@ -80,10 +89,12 @@
         <file>elements/ExplanationOptionsTogglePage.qml</file>
         <file>elements/ExplanationTogglePage.qml</file>
         <file>elements/ExtendedMessageContent.qml</file>
+        <file>elements/FormAdditionButton.qml</file>
         <file>elements/FormCardCustomContentArea.qml</file>
         <file>elements/FormComboBoxDelegate.qml</file>
         <file>elements/FormExpansionButton.qml</file>
         <file>elements/FormExpansionButtonBackground.qml</file>
+        <file>elements/FormIconButton.qml</file>
         <file>elements/FormInfoContent.qml</file>
         <file>elements/FormInfoDialog.qml</file>
         <file>elements/FormInfoHeader.qml</file>
@@ -95,22 +106,22 @@
         <file>elements/GeoLocationMapPreview.qml</file>
         <file>elements/GeoLocationPreview.qml</file>
         <file>elements/GeoLocationSharingDialog.qml</file>
-        <file>elements/GroupChatContactInvitationItem.qml</file>
         <file>elements/GroupChatCreationContent.qml</file>
         <file>elements/GroupChatCreationDialog.qml</file>
         <file>elements/GroupChatCreationPage.qml</file>
         <file>elements/GroupChatInvitation.qml</file>
+        <file>elements/GroupChatInviteeDelegate.qml</file>
         <file>elements/GroupChatJoiningContent.qml</file>
         <file>elements/GroupChatJoiningDialog.qml</file>
         <file>elements/GroupChatJoiningPage.qml</file>
         <file>elements/GroupChatParticipantPicker.qml</file>
         <file>elements/GroupChatQrCode.qml</file>
-        <file>elements/GroupChatUserItem.qml</file>
         <file>elements/GroupChatUserKeyAuthenticationPage.qml</file>
         <file>elements/HighlightedFormButtonBackground.qml</file>
         <file>elements/HorizontalSeparator.qml</file>
         <file>elements/ImageCaptureDialog.qml</file>
         <file>elements/InlineListView.qml</file>
+        <file>elements/ItemDelegateSelectionMarker.qml</file>
         <file>elements/KeyAuthenticationPage.qml</file>
         <file>elements/ListViewSearchField.qml</file>
         <file>elements/ListViewSectionDelegate.qml</file>
@@ -133,18 +144,17 @@
         <file>elements/NewMediaDialog.qml</file>
         <file>elements/NonInteractiveFormDelegateBackground.qml</file>
         <file>elements/OpacityChangingMouseArea.qml</file>
-        <file>elements/QrCode.qml</file>
+        <file>elements/PublicGroupChatSearchDialog.qml</file>
         <file>elements/QrCodeScanner.qml</file>
         <file>elements/QrCodeScanningArea.qml</file>
         <file>elements/RecordingIndicator.qml</file>
         <file>elements/ReferencedMessage.qml</file>
-        <file>elements/RosterFilteringArea.qml</file>
-        <file>elements/RosterListItem.qml</file>
+        <file>elements/RosterFilterArea.qml</file>
+        <file>elements/RosterItemDelegate.qml</file>
         <file>elements/RoundedImage.qml</file>
         <file>elements/RoundedRectangle.qml</file>
         <file>elements/ScalableText.qml</file>
         <file>elements/SearchBarPage.qml</file>
-        <file>elements/SearchPublicGroupChatDialog.qml</file>
         <file>elements/SelectablePreview.qml</file>
         <file>elements/SelectionMarker.qml</file>
         <file>elements/ShutterRelease.qml</file>
@@ -154,8 +164,6 @@
         <file>elements/TextFieldCompleter.qml</file>
         <file>elements/UrlFormButtonDelegate.qml</file>
         <file>elements/UserKeyAuthenticationPage.qml</file>
-        <file>elements/UserListItem.qml</file>
-        <file>elements/UserListItemSelectionMarker.qml</file>
         <file>elements/VideoRecordingDialog.qml</file>
         <file>elements/ZoomSlider.qml</file>
         <file>elements/fields/CredentialsField.qml</file>

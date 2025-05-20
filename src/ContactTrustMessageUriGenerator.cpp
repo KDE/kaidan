@@ -10,48 +10,12 @@
 ContactTrustMessageUriGenerator::ContactTrustMessageUriGenerator(QObject *parent)
     : TrustMessageUriGenerator(parent)
 {
-    connect(this, &ContactTrustMessageUriGenerator::jidChanged, this, &ContactTrustMessageUriGenerator::handleJidChanged);
-}
-
-void ContactTrustMessageUriGenerator::setAccountJid(const QString &accountJid)
-{
-    if (m_accountJid != accountJid) {
-        m_accountJid = accountJid;
-
-        if (!jid().isEmpty()) {
-            setUp();
-        }
-    }
-}
-
-void ContactTrustMessageUriGenerator::handleJidChanged()
-{
-    if (!m_accountJid.isEmpty()) {
-        setUp();
-    }
-}
-
-void ContactTrustMessageUriGenerator::setUp()
-{
-    connect(EncryptionController::instance(),
-            &EncryptionController::keysChanged,
-            this,
-            &ContactTrustMessageUriGenerator::handleKeysChanged,
-            Qt::UniqueConnection);
-    updateKeys();
-}
-
-void ContactTrustMessageUriGenerator::handleKeysChanged(const QString &accountJid, const QList<QString> &jids)
-{
-    if (m_accountJid == accountJid && jids.contains(jid())) {
-        updateKeys();
-    }
 }
 
 void ContactTrustMessageUriGenerator::updateKeys()
 {
-    EncryptionController::instance()
-        ->keys(m_accountJid, {jid()}, QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated)
+    encryptionController()
+        ->keys({jid()}, QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated)
         .then(this, [this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
             const auto keyIds = keys.value(jid());
 

@@ -25,6 +25,7 @@ import "details"
 ChatPageBase {
 	id: root
 
+	property ChatController chatController: ChatController {}
 	property alias searchBar: searchBar
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
 	property alias messageListView: messageListView
@@ -37,32 +38,42 @@ ChatPageBase {
 		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
 	}
 
-	titleDelegate: Controls.ToolButton {
+	titleDelegate: Controls.AbstractButton {
 		id: avatarActionButton
 		visible: !Kirigami.Settings.isMobile
 		focusPolicy: Qt.NoFocus
 		hoverEnabled: true
-		topPadding: Kirigami.Units.mediumSpacing
-		bottomPadding: Kirigami.Units.mediumSpacing
-		leftPadding: Kirigami.Units.largeSpacing
+		leftPadding: pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? Kirigami.Units.smallSpacing * 3 : - Kirigami.Units.smallSpacing
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		contentItem: RowLayout {
-			Avatar {
-				Layout.preferredHeight: pageStack.globalToolBar.preferredHeight - avatarActionButton.topPadding - avatarActionButton.bottomPadding
-				jid: ChatController.chatJid
-				name: ChatController.rosterItem.displayName
-				isGroupChat: ChatController.rosterItem.isGroupChat
+			AccountRelatedAvatar {
+				account: root.chatController.account
+				jid: root.chatController.jid
+				name: root.chatController.rosterItem.displayName
+				isGroupChat: root.chatController.rosterItem.isGroupChat
+				accountAvatarBorder.color: Kirigami.Theme.backgroundColor
+				opacity: avatarActionButton.hovered ? 0.7 : 1
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 			}
 
 			Kirigami.Heading {
+				id: chatTitle
+				text: root.chatController.rosterItem.displayName
 				Layout.fillWidth: true
-				text: ChatController.rosterItem.displayName
+				opacity: avatarActionButton.hovered ? 0.7 : 1
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 			}
 		}
 		onClicked: {
-			if (ChatController.accountJid === ChatController.chatJid) {
+			if (root.chatController.account.settings.jid === root.chatController.jid) {
 				openOverlay(notesChatDetailsDialog)
-			} else if (ChatController.rosterItem.isGroupChat) {
+			} else if (root.chatController.rosterItem.isGroupChat) {
 				openOverlay(groupChatDetailsDialog)
 			} else {
 				openOverlay(contactDetailsDialog)
@@ -80,9 +91,9 @@ ChatPageBase {
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
 			onTriggered: {
-				if (ChatController.accountJid === ChatController.chatJid) {
+				if (root.chatController.account.settings.jid === root.chatController.jid) {
 					openPage(notesChatDetailsPage)
-				} else if (ChatController.rosterItem.isGroupChat) {
+				} else if (root.chatController.rosterItem.isGroupChat) {
 					openPage(groupChatDetailsPage)
 				} else {
 					openPage(contactDetailsPage)
@@ -107,20 +118,24 @@ ChatPageBase {
 	Component {
 		id: notesChatDetailsDialog
 
-		NotesChatDetailsDialog {}
+		NotesChatDetailsDialog {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: notesChatDetailsPage
 
-		NotesChatDetailsPage {}
+		NotesChatDetailsPage {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: notesChatDetailsKeyAuthenticationPage
 
 		AccountKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
+			account: root.chatController.account
 			Component.onDestruction: openView(notesChatDetailsDialog, notesChatDetailsPage)
 		}
 	}
@@ -128,20 +143,24 @@ ChatPageBase {
 	Component {
 		id: contactDetailsDialog
 
-		ContactDetailsDialog {}
+		ContactDetailsDialog {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: contactDetailsPage
 
-		ContactDetailsPage {}
+		ContactDetailsPage {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: contactDetailsAccountKeyAuthenticationPage
 
 		AccountKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
+			account: root.chatController.account
 			Component.onDestruction: openView(contactDetailsDialog, contactDetailsPage)
 		}
 	}
@@ -150,8 +169,8 @@ ChatPageBase {
 		id: contactDetailsKeyAuthenticationPage
 
 		ContactKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
-			jid: ChatController.chatJid
+			account: root.chatController.account
+			jid: root.chatController.jid
 			Component.onDestruction: openView(contactDetailsDialog, contactDetailsPage)
 		}
 	}
@@ -159,20 +178,24 @@ ChatPageBase {
 	Component {
 		id: groupChatDetailsDialog
 
-		GroupChatDetailsDialog {}
+		GroupChatDetailsDialog {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: groupChatDetailsPage
 
-		GroupChatDetailsPage {}
+		GroupChatDetailsPage {
+			chatController: root.chatController
+		}
 	}
 
 	Component {
 		id: groupChatDetailsAccountKeyAuthenticationPage
 
 		AccountKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
+			account: root.chatController.account
 			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage)
 		}
 	}
@@ -181,13 +204,14 @@ ChatPageBase {
 		id: groupChatDetailsKeyAuthenticationPage
 
 		GroupChatUserKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
+			account: root.chatController.account
 			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage).openKeyAuthenticationUserListView()
 		}
 	}
 
 	MessageReactionEmojiPicker {
 		id: messageReactionEmojiPicker
+		messageModel: root.chatController.messageModel
 	}
 
 	// View containing the messages
@@ -291,7 +315,7 @@ ChatPageBase {
 		// Initially highlighted value
 		currentIndex: -1
 		// Connect to the database,
-		model: MessageModel
+		model: root.chatController.messageModel
 		visibleArea.onYPositionChanged: handleMessageRead()
 		onActiveFocusChanged: {
 			// This makes it possible on desktop devices to directly enter a message after opening
@@ -307,15 +331,17 @@ ChatPageBase {
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker
+			chatController: root.chatController
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.senderJid
 			groupChatSenderId: model.groupChatSenderId
 			senderName: model.senderName
-			chatName: ChatController.rosterItem.displayName
+			chatJid: root.chatController.jid
+			chatName: root.chatController.rosterItem.displayName
 			encryption: model.encryption
 			trustLevel: model.trustLevel
-			isGroupChatMessage: ChatController.rosterItem.isGroupChat
+			isGroupChatMessage: root.chatController.rosterItem.isGroupChat
 			isOwn: model.isOwn
 			replyToJid: model.replyToJid
 			replyToGroupChatParticipantId: model.replyToGroupChatParticipantId
@@ -343,14 +369,14 @@ ChatPageBase {
 		}
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
-			visible: ChatController.accountJid !== ChatController.chatJid
+			visible: root.chatController.account.settings.jid !== root.chatController.jid
 			anchors.left: parent.left
 			anchors.right: parent.right
 			height: Kirigami.Units.largeSpacing * 3
 
 			// chat state
 			Controls.Label {
-				text: Utils.chatStateDescription(ChatController.rosterItem.displayName, ChatController.chatState)
+				text: Utils.chatStateDescription(root.chatController.rosterItem.displayName, root.chatController.chatState)
 				elide: Qt.ElideMiddle
 				Layout.alignment: Qt.AlignCenter
 				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
@@ -457,7 +483,7 @@ ChatPageBase {
 
 			MessageCounter {
 				id: unreadMessageCounter
-				count: ChatController.rosterItem.unreadMessageCount
+				count: root.chatController.rosterItem.unreadMessageCount
 				anchors.horizontalCenter: parent.horizontalCenter
 				anchors.verticalCenter: parent.top
 				anchors.verticalCenterOffset: -2
@@ -498,7 +524,7 @@ ChatPageBase {
 					ChatInfo {
 						text: qsTr("Drop files to be sent")
 						level: 1
-						type: Kirigami.Heading.Type.Primary
+						font.weight: Font.Medium
 						wrapMode: Text.Wrap
 						horizontalAlignment: Text.AlignHCenter
 						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
@@ -553,17 +579,17 @@ ChatPageBase {
 		}
 
 		Connections {
-			target: MessageModel
+			target: root.chatController.messageModel
 
 			function onMessageFetchingFinished() {
 				// Skip the case when messages are fetched after the initial fetching because this
 				// function positioned the view at firstUnreadContactMessageIndex and that is close
 				// to the end of the loaded messages.
 				if (!root.viewPositioned) {
-					let unreadMessageCount = ChatController.rosterItem.unreadMessageCount
+					let unreadMessageCount = root.chatController.rosterItem.unreadMessageCount
 
 					if (unreadMessageCount) {
-						let firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
+						let firstUnreadContactMessageIndex = root.chatController.messageModel.firstUnreadContactMessageIndex()
 
 						if (firstUnreadContactMessageIndex > 0) {
 							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
@@ -604,7 +630,7 @@ ChatPageBase {
 		 * Sends a read marker for the latest visible/read message.
 		 */
 		function handleMessageReadOnPositionedView() {
-			MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
+			root.chatController.messageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
 		}
 
 		function highlightShortly(index) {
@@ -619,9 +645,10 @@ ChatPageBase {
 		verticalLayoutDirection: ListView.BottomToTop
 		interactive: false
 		headerPositioning: ListView.OverlayHeader
-		model: ChatHintModel
+		model: root.chatController.chatHintModel
 		delegate: ChatHintArea {
 			id: chatHintArea
+			chatHintModel: ListView.view.model
 			index: model.index
 			text: model.text
 			buttons: model.buttons
@@ -644,7 +671,7 @@ ChatPageBase {
 		header: ChatPageSendingPane {
 			chatPage: root
 			width: root.width
-			height: ChatController.rosterItem.isDeletedGroupChat ? 0 : undefined
+			height: root.chatController.rosterItem.isDeletedGroupChat ? 0 : undefined
 			Component.onCompleted: root.sendingPane = this
 		}
 
@@ -675,10 +702,35 @@ ChatPageBase {
 	}
 
 	Connections {
-		target: Kaidan.groupChatController
+		target: root.chatController.account ? root.chatController.account.groupChatController : null
 
 		function onGroupChatInviteeSelectionNeeded() {
-			openView(groupChatDetailsDialog, groupChatDetailsPage).openContactListView()
+			openView(groupChatDetailsDialog, groupChatDetailsPage).openInviteeListView()
+		}
+	}
+
+	// Needs to be outside of the DetailsDialog to not be destroyed with it.
+	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
+	Connections {
+		target: root.chatController.account ? root.chatController.account.blockingController : null
+
+		function onUnblocked(jid) {
+			// Show a passive notification when a JID that is not in the roster is unblocked and
+			// provide an option to undo that.
+			// JIDs in the roster can be blocked again via their details.
+			if (!RosterModel.hasItem(root.chatController.account.settings.jid, jid)) {
+				showPassiveNotification(qsTr("Unblocked %1").arg(jid), "long", qsTr("Undo"), () => {
+					root.chatController.account.blockingController.block(jid)
+				})
+			}
+		}
+
+		function onBlockingFailed(jid, errorText) {
+			showPassiveNotification(qsTr("Could not block %1: %2").arg(jid).arg(errorText))
+		}
+
+		function onUnblockingFailed(jid, errorText) {
+			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
 		}
 	}
 

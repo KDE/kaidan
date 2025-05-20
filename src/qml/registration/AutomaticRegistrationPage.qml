@@ -77,7 +77,7 @@ RegistrationPage {
 			CustomDataFormArea {
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
-				visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired
+				visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired
 				Layout.fillWidth: true
 				onVisibleChanged: {
 					if (visible) {
@@ -88,6 +88,7 @@ RegistrationPage {
 
 			RegistrationButton {
 				id: registrationButton
+				account: root.account
 				registrationFunction: register
 				loginFunction: logIn
 				Layout.fillWidth: true
@@ -100,11 +101,11 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan
+		target: root.account.connection
 
-		function onConnectionErrorChanged() {
-			if (Kaidan.connectionError !== ClientWorker.NoError) {
-				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
+		function onErrorChanged() {
+			if (root.account.connection.error !== ClientWorker.NoError) {
+				if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
 					loadingStackArea.busy = false
 				} else {
 					popLayer()
@@ -114,7 +115,7 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan.registrationController
+		target: root.account.registrationController
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			requestRegistrationFormFromAnotherProvider()
@@ -171,7 +172,7 @@ RegistrationPage {
 	function chooseProviderRandomly(providersMatchingSystemLocaleOnly = true) {
 		const chosenIndex = providerListModel.randomlyChooseIndex(triedProviderIndexes, providersMatchingSystemLocaleOnly)
 		triedProviderIndexes.push(chosenIndex)
-		provider = providerListModel.data(chosenIndex, ProviderListModel.JidRole)
+		root.account.settings.jid = providerListModel.data(chosenIndex, ProviderListModel.JidRole)
 	}
 
 	/**
@@ -219,6 +220,6 @@ RegistrationPage {
 	 */
 	function logIn() {
 		loadingStackArea.busy = true
-		Kaidan.logIn()
+		account.connection.logIn()
 	}
 }

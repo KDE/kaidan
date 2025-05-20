@@ -59,14 +59,14 @@ RegistrationPage {
 
 		CustomContentFormCard {
 			title: qsTr("Enter your desired credentials")
-			visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
+			visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
 			Layout.fillWidth: true
 
 			ColumnLayout {
 				Field {
 					id: displayNameField
 					labelText: qsTr("Display Name")
-					visible: Kaidan.accountMigrationController.migrationState === AccountMigrationController.MigrationState.Idle
+					visible: !AccountController.migrating
 					inputMethodHints: Qt.ImhPreferUppercase
 					inputField.onAccepted: usernameField.forceActiveFocus()
 				}
@@ -89,7 +89,7 @@ RegistrationPage {
 				RegistrationPasswordField {
 					id: passwordField
 					valid: !text || credentialsValidator.isPasswordValid(text)
-					inputField.onAccepted: customDataFormArea.forceActiveFocus()
+					inputField.onAccepted: customDataFormArea.visible ? customDataFormArea.forceActiveFocus() : registerWithoutClickingRegistrationButton()
 				}
 			}
 		}
@@ -98,12 +98,13 @@ RegistrationPage {
 			id: customDataFormArea
 			model: root.formFilterModel
 			lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
-			visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired && root.customFormFieldsAvailable
+			visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired && root.customFormFieldsAvailable
 			Layout.fillWidth: true
 		}
 
 		RegistrationButton {
 			id: registrationButton
+			account: root.account
 			loginFunction: logIn
 			registrationFunction: register
 			Layout.fillWidth: true
@@ -111,7 +112,7 @@ RegistrationPage {
 	}
 
 	Connections {
-		target: Kaidan.registrationController
+		target: root.account.registrationController
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			// Further processing is handled by ProviderPage.
@@ -208,12 +209,12 @@ RegistrationPage {
 
 	function logIn() {
 		changeNickname()
-		Kaidan.logIn()
+		account.connection.logIn()
 	}
 
 	function changeNickname() {
-		if (displayNameField.text && Kaidan.accountMigrationController.migrationState === AccountMigrationController.MigrationState.Idle) {
-			Kaidan.vCardController.changeNickname(displayNameField.text)
+		if (displayNameField.text && !AccountController.migrating) {
+			account.settings.name = displayNameField.text
 		}
 	}
 }

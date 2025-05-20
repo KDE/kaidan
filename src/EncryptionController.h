@@ -12,7 +12,10 @@
 // QXmpp
 #include <QXmppTrustLevel.h>
 
+class AccountSettings;
 class OmemoController;
+class PresenceCache;
+class QXmppOmemoManager;
 
 constexpr auto TRUST_LEVEL_DISTRUSTED = QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted;
 constexpr auto TRUST_LEVEL_USABLE = ~TRUST_LEVEL_DISTRUSTED;
@@ -39,28 +42,24 @@ public:
         bool operator==(const Device &other) const = default;
     };
 
-    static EncryptionController *instance();
-
-    explicit EncryptionController(QObject *parent = nullptr);
-    ~EncryptionController() override;
+    EncryptionController(AccountSettings *accountSettings, PresenceCache *presenceCache, QXmppOmemoManager *omemoManager, QObject *parent = nullptr);
 
     QFuture<void> load();
     QFuture<void> setUp();
 
-    Q_INVOKABLE void initializeAccountFromQml(const QString &accountJid);
-    QFuture<void> initializeAccount(const QString &accountJid);
-    QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &contactJids);
+    Q_INVOKABLE void initializeAccount();
+    void initializeChat(const QList<QString> &contactJids);
 
-    QFuture<QString> ownKey(const QString &accountJid);
+    QFuture<QString> ownKey();
 
-    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
-    Q_SIGNAL void keysChanged(const QString &accountJid, const QList<QString> &jids);
+    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+    Q_SIGNAL void keysChanged(const QList<QString> &jids);
 
-    QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
-    Q_SIGNAL void ownDeviceChanged(const QString &accountJid);
+    QFuture<EncryptionController::OwnDevice> ownDevice();
+    Q_SIGNAL void ownDeviceChanged();
 
-    QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
-    Q_SIGNAL void devicesChanged(const QString &accountJid, const QList<QString> &jids);
+    QFuture<QList<EncryptionController::Device>> devices(const QList<QString> &jids);
+    Q_SIGNAL void devicesChanged(const QList<QString> &jids);
     Q_SIGNAL void allDevicesChanged();
 
     QFuture<bool> hasUsableDevices(const QList<QString> &jids);
@@ -71,7 +70,5 @@ public:
     QFuture<void> resetLocally();
 
 private:
-    static EncryptionController *s_instance;
-
-    std::unique_ptr<OmemoController> m_omemoController;
+    OmemoController *const m_omemoController;
 };

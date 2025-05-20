@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2025 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -10,85 +11,36 @@
 // QXmpp
 #include <QXmppAccountMigrationManager.h>
 
-class ClientWorker;
-class QXmppClient;
-class QXmppConfiguration;
-class QXmppMovedManager;
-
 struct ClientSettings;
+
+class Account;
 
 class AccountMigrationController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(bool busy READ busy NOTIFY busyChanged FINAL)
-    Q_PROPERTY(AccountMigrationController::MigrationState migrationState READ migrationState NOTIFY migrationStateChanged FINAL)
-
 public:
-    enum class MigrationState {
-        Idle = 0,
-        Started,
-        Exporting,
-        ChoosingNewAccount,
-        Importing,
-        Finished,
-    };
-    Q_ENUM(MigrationState)
-
     explicit AccountMigrationController(QObject *parent = nullptr);
     ~AccountMigrationController() override;
 
-    AccountMigrationController::MigrationState migrationState() const;
-    Q_SIGNAL void migrationStateChanged();
-
-    Q_INVOKABLE void startMigration();
-    Q_INVOKABLE void cancelMigration();
-
-    bool busy() const;
-    Q_SIGNAL void busyChanged();
+    QFuture<bool> startMigration(Account *oldAccount);
+    QFuture<void> finalizeMigration(Account *newAccount);
 
 private:
-    void continueMigration(const QVariant &userData = {});
-    void handleError(const QString &error);
+    void informUser(const QString &notification);
 
-    QFuture<QString> diskAccountFilePath() const;
+    QString diskAccountFilePath() const;
     bool saveAccountDataToDisk(const QString &filePath, const QXmppExportData &data);
     bool restoreAccountDataFromDisk(const QString &filePath, QXmppExportData &data);
 
-    using ImportResult = std::variant<QXmpp::Success, QXmppError>;
     using ExportResult = std::variant<ClientSettings, QXmppError>;
+    using ImportResult = std::variant<QXmpp::Success, QXmppError>;
 
-    QFuture<void> importClientSettings(const ClientSettings &settings);
     ClientSettings exportClientSettings();
+    QFuture<void> importClientSettings(Account *newAccount, const ClientSettings &oldClientSettings);
 
-    QXmppTask<QXmppAccountMigrationManager::Result<>> publishMovedStatement(const QXmppConfiguration &configuration, const QString &newAccountJid);
-    QXmppTask<QXmppAccountMigrationManager::Result<>> notifyContacts(const QList<QString> &contactJids, const QString &oldAccountJid);
+    QXmppTask<QXmppAccountMigrationManager::Result<>> notifyContacts(Account *newAccount, const QList<QString> &contactJids);
 
-    template<typename Enum>
-    struct AbstractData {
-        using State = Enum;
-
-        State state = State::Idle;
-        QString error;
-
-        void advanceState()
-        {
-            using Integral = std::underlying_type_t<Enum>;
-            const Integral next = static_cast<Integral>(state) + 1;
-            Q_ASSERT(next <= static_cast<Integral>(Enum::Finished));
-            state = static_cast<Enum>(next);
-        }
-    };
-
-    struct MigrationData : AbstractData<AccountMigrationController::MigrationState> {
-        QXmppExportData account;
-    };
-
-    ClientWorker *const m_clientWorker;
-    QXmppClient *const m_client;
-    QXmppAccountMigrationManager *const m_migrationManager;
-    QXmppMovedManager *const m_movedManager;
-    std::optional<MigrationData> m_migrationData;
+    Account *m_oldAccount;
+    QXmppExportData m_exportData;
 };
-
-Q_DECLARE_METATYPE(AccountMigrationController::MigrationState)

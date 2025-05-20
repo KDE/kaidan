@@ -19,8 +19,10 @@ FormInfoContent {
 	id: root
 
 	property Kirigami.Dialog dialog
+	property Account account
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
+	property alias mediaAreaText: mediaAreaText.text
 	property alias mediaOverview: mediaOverview
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea
@@ -56,6 +58,11 @@ FormInfoContent {
 			title: qsTr("Media")
 		}
 
+		FormCard.FormSectionText {
+			id: mediaAreaText
+			visible: text
+		}
+
 		FormComboBoxDelegate {
 			id: automaticMediaDownloadsDelegate
 			text: qsTr("Automatic downloads")
@@ -64,28 +71,22 @@ FormInfoContent {
 
 		ColumnLayout {
 			visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
+			spacing: 0
 
-			FormCard.FormSectionText {
-				text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
+			Kirigami.Separator {
+				Layout.fillWidth: true
 			}
 
-			ColumnLayout {
-				visible: mediaOverview.totalFilesCount
-				spacing: 0
-
-				Kirigami.Separator {
-					Layout.fillWidth: true
-				}
-
-				MediaOverview {
-					id: mediaOverview
-					Layout.fillWidth: true
-				}
+			MediaOverview {
+				id: mediaOverview
+				Layout.fillWidth: true
+				Component.onCompleted: loadDownloadedFiles()
 			}
 		}
 
 		FormExpansionButton {
 			id: mediaOverviewExpansionButton
+			visible: mediaOverview.totalFilesCount
 			onCheckedChanged: {
 				if (checked) {
 					mediaOverview.selectionMode = false
@@ -95,8 +96,6 @@ FormInfoContent {
 					if (mediaOverview.tabBarCurrentIndex === -1) {
 						mediaOverview.tabBarCurrentIndex = 0
 					}
-
-					mediaOverview.loadDownloadedFiles()
 				}
 			}
 		}
@@ -144,7 +143,7 @@ FormInfoContent {
 
 		InlineListView {
 			id: rosterGoupListView
-			model: RosterModel.groups
+			model: root.account.rosterController.groups
 			visible: rosterGroupExpansionButton.checked
 			implicitHeight: contentHeight
 			Layout.fillWidth: true

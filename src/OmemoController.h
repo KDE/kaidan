@@ -13,12 +13,20 @@
 // Kaidan
 #include "EncryptionController.h"
 
+class AccountSettings;
+class PresenceCache;
+class QXmppOmemoManager;
+
 class OmemoController : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit OmemoController(QObject *parent = nullptr);
+    OmemoController(AccountSettings *accountSettings,
+                    EncryptionController *encryptionController,
+                    PresenceCache *presenceCache,
+                    QXmppOmemoManager *manager,
+                    QObject *parent = nullptr);
 
     QFuture<void> load();
     QFuture<void> setUp();
@@ -26,24 +34,24 @@ public:
     QFuture<void> reset();
     QFuture<void> resetLocally();
 
-    QFuture<void> initializeAccount(const QString &accountJid);
-    QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &jids);
+    void initializeAccount();
+    void initializeChat(const QList<QString> &jids);
 
     QFuture<bool> hasUsableDevices(const QList<QString> &jids);
 
     QFuture<void> requestDeviceLists(const QList<QString> &jids);
     QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
 
-    QFuture<QString> ownKey(const QString &accountJid);
-    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+    QFuture<QString> ownKey();
+    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
 
-    QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
-    QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
+    QFuture<EncryptionController::OwnDevice> ownDevice();
+    QFuture<QList<EncryptionController::Device>> devices(const QList<QString> &jids);
 
     void removeContactDevices(const QString &jid);
 
 private:
-    void buildMissingSessions(QFutureInterface<void> &interface, const QList<QString> &jids);
+    void buildMissingSessions(const QList<QString> &jids);
 
     /**
      * Enables session building for new devices even before sending a message.
@@ -51,6 +59,10 @@ private:
     void enableSessionBuildingForNewDevices();
 
     QFuture<void> unsubscribeFromDeviceLists();
+
+    AccountSettings *const m_accountSettings;
+    PresenceCache *const m_presenceCache;
+    QXmppOmemoManager *const m_manager;
 
     bool m_isLoaded = false;
 };

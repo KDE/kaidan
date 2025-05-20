@@ -3,18 +3,18 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import "../elements"
-
-FormInfoPage {
+RosterItemDetailsPage {
 	id: root
 	title: qsTr("Contact Details")
 
-	ContactDetailsHeader {}
+	ContactDetailsHeader  {
+		chatController: root.chatController
+	}
 
 	ContactDetailsContent {
+		chatController: root.chatController
 		Layout.fillWidth: true
 	}
 }

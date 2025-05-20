@@ -4,43 +4,22 @@
 
 #include "ContactQrCodeGenerator.h"
 
-// Qt
-#include <QUrl>
-
 ContactQrCodeGenerator::ContactQrCodeGenerator(QObject *parent)
-    : AbstractQrCodeGenerator(parent)
+    : QrCodeGenerator(parent)
 {
-    connect(this, &ContactQrCodeGenerator::jidChanged, this, &ContactQrCodeGenerator::updateUriJid);
-    connect(&m_uriGenerator, &TrustMessageUriGenerator::uriChanged, this, &ContactQrCodeGenerator::updateText);
 }
 
-QString ContactQrCodeGenerator::accountJid() const
+void ContactQrCodeGenerator::setUriGenerator(ContactTrustMessageUriGenerator *uriGenerator)
 {
-    return m_accountJid;
-}
-
-void ContactQrCodeGenerator::setAccountJid(const QString &accountJid)
-{
-    if (m_accountJid != accountJid) {
-        m_accountJid = accountJid;
-        Q_EMIT accountJidChanged();
-        updateUriAccountJid();
+    if (m_uriGenerator != uriGenerator) {
+        m_uriGenerator = uriGenerator;
+        connect(m_uriGenerator, &ContactTrustMessageUriGenerator::uriChanged, this, &ContactQrCodeGenerator::updateText);
     }
-}
-
-void ContactQrCodeGenerator::updateUriAccountJid()
-{
-    m_uriGenerator.setAccountJid(m_accountJid);
-}
-
-void ContactQrCodeGenerator::updateUriJid()
-{
-    m_uriGenerator.setJid(jid());
 }
 
 void ContactQrCodeGenerator::updateText()
 {
-    setText(m_uriGenerator.uri());
+    setText(m_uriGenerator->uri());
 }
 
 #include "moc_ContactQrCodeGenerator.cpp"

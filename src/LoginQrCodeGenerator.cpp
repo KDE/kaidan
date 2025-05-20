@@ -7,28 +7,33 @@
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
-#include "AccountController.h"
-#include "Kaidan.h"
+#include "Account.h"
 
 LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent)
-    : AbstractQrCodeGenerator(parent)
+    : QrCodeGenerator(parent)
 {
-    connect(this, &LoginQrCodeGenerator::jidChanged, this, &LoginQrCodeGenerator::updateText);
-    connect(AccountController::instance(), &AccountController::accountChanged, this, &LoginQrCodeGenerator::updateText);
+}
+
+void LoginQrCodeGenerator::setAccountSettings(AccountSettings *accountSettings)
+{
+    if (m_accountSettings != accountSettings) {
+        m_accountSettings = accountSettings;
+        connect(m_accountSettings, &AccountSettings::passwordChanged, this, &LoginQrCodeGenerator::updateText);
+        updateText();
+    }
 }
 
 void LoginQrCodeGenerator::updateText()
 {
-    const auto accountController = AccountController::instance();
     QXmpp::Uri::Login loginQuery;
 
-    if (accountController->account().passwordVisibility != Kaidan::PasswordInvisible) {
-        loginQuery.password = accountController->account().password;
+    if (m_accountSettings->passwordVisibility() != AccountSettings::PasswordVisibility::Invisible) {
+        loginQuery.password = m_accountSettings->password();
     }
 
     QXmppUri uri;
 
-    uri.setJid(jid());
+    uri.setJid(m_accountSettings->jid());
     uri.setQuery(std::move(loginQuery));
 
     setText(uri.toString());

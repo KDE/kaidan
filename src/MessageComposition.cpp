@@ -18,17 +18,17 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
+#include "Account.h"
 #include "Algorithms.h"
 #include "ChatController.h"
 #include "FileSharingController.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
-#include "Kaidan.h"
+#include "MainController.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterModel.h"
-#include "ServerFeaturesCache.h"
 
 MessageComposition::MessageComposition()
     : m_fileSelectionModel(new FileSelectionModel(this))
@@ -38,29 +38,33 @@ MessageComposition::MessageComposition()
     });
 }
 
-void MessageComposition::setAccountJid(const QString &accountJid)
+void MessageComposition::setChatController(ChatController *chatController)
 {
-    if (m_accountJid != accountJid) {
-        // Save the draft of the last chat when the current chat is changed.
-        saveDraft();
+    if (m_chatController != chatController) {
+        m_chatController = chatController;
 
-        m_accountJid = accountJid;
-        Q_EMIT accountJidChanged();
+        connect(m_chatController, &ChatController::aboutToChangeChat, this, [this]() {
+            if (m_chatController->account()) {
+                saveDraft();
+                clear();
+            }
+        });
 
-        loadDraft();
-    }
-}
+        connect(m_chatController, &ChatController::chatChanged, this, [this]() {
+            loadDraft().then(this, [this]() {
+                Q_EMIT preparedForNewChat();
+            });
+        });
 
-void MessageComposition::setChatJid(const QString &chatJid)
-{
-    if (m_chatJid != chatJid) {
-        // Save the draft of the last chat when the current chat is changed.
-        saveDraft();
+        connect(m_chatController, &ChatController::accountChanged, this, [this]() {
+            auto *account = m_chatController->account();
 
-        m_chatJid = chatJid;
-        Q_EMIT chatJidChanged();
+            m_connection = account->connection();
+            m_fileSharingController = account->fileSharingController();
+            m_messageController = account->messageController();
 
-        loadDraft();
+            m_fileSelectionModel->setAccountSettings(account->settings());
+        });
     }
 }
 
@@ -157,25 +161,21 @@ void MessageComposition::setIsDraft(bool isDraft)
     if (m_isDraft != isDraft) {
         m_isDraft = isDraft;
         Q_EMIT isDraftChanged();
-
-        if (!isDraft) {
-            MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
-        }
     }
 }
 
 void MessageComposition::send()
 {
-    Q_ASSERT(!m_accountJid.isNull());
-    Q_ASSERT(!m_chatJid.isNull());
+    Q_ASSERT(!m_chatController->account()->settings()->jid().isNull());
+    Q_ASSERT(!m_chatController->jid().isNull());
 
     Message message;
 
-    message.accountJid = m_accountJid;
-    message.chatJid = m_chatJid;
+    message.accountJid = m_chatController->account()->settings()->jid();
+    message.chatJid = m_chatController->jid();
     message.isOwn = true;
 
-    const auto rosterItem = RosterModel::instance()->findItem(m_chatJid);
+    const auto rosterItem = RosterModel::instance()->item(m_chatController->account()->settings()->jid(), m_chatController->jid());
 
     if (rosterItem->isGroupChat()) {
         message.groupChatSenderId = rosterItem->groupChatParticipantId;
@@ -187,7 +187,7 @@ void MessageComposition::send()
     setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
     message.timestamp = QDateTime::currentDateTimeUtc();
     message.setUnpreparedBody(m_body);
-    message.encryption = ChatController::instance()->activeEncryption();
+    message.encryption = m_chatController->activeEncryption();
     message.deliveryState = DeliveryState::Pending;
     message.isSpoiler = m_isSpoiler;
     message.spoilerHint = m_spoilerHint;
@@ -214,9 +214,8 @@ void MessageComposition::send()
         // whether to symmetrically encrypt the files
         bool encrypt = message.encryption != Encryption::NoEncryption;
 
-        auto *fSController = Kaidan::instance()->fileSharingController();
         // upload files
-        fSController->sendFiles(message.files, encrypt).then(fSController, [message = std::move(message)](auto result) mutable {
+        m_fileSharingController->sendFiles(message.files, encrypt).then(this, [this, message = std::move(message)](auto result) mutable {
             if (auto files = std::get_if<QList<File>>(&result)) {
                 // uploading succeeded
 
@@ -224,18 +223,18 @@ void MessageComposition::send()
                 message.files = std::move(*files);
 
                 // update message in database
-                MessageDb::instance()->updateMessage(message.id, [files = message.files](auto &message) {
+                MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.id, [files = message.files](auto &message) {
                     message.files = files;
                 });
 
                 // send message with file sources
-                MessageController::instance()->sendPendingMessage(std::move(message));
+                m_messageController->sendPendingMessage(std::move(message));
             } else {
                 // uploading did not succeed
                 auto errorText = std::get<QXmppError>(std::move(result)).description;
 
                 // set error text in database
-                MessageDb::instance()->updateMessage(message.id, [errorText](auto &message) {
+                MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.id, [errorText](auto &message) {
                     message.errorText = tr("Upload failed: %1").arg(errorText);
                 });
             }
@@ -243,15 +242,17 @@ void MessageComposition::send()
         m_fileSelectionModel->clear();
     } else {
         // directly send message
-        MessageController::instance()->sendPendingMessage(std::move(message));
+        m_messageController->sendPendingMessage(std::move(message));
     }
 
-    clear();
+    reset();
 }
 
 void MessageComposition::correct()
 {
     MessageDb::instance()->updateMessage(
+        m_chatController->account()->settings()->jid(),
+        m_chatController->jid(),
         m_replaceId,
         [this,
          replaceId = m_replaceId,
@@ -278,27 +279,37 @@ void MessageComposition::correct()
                 message.deliveryState = Enums::DeliveryState::Pending;
 
                 runOnThread(this, [this, message]() mutable {
-                    if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+                    if (m_connection->state() == Enums::ConnectionState::StateConnected) {
                         // the trick with the time is important for the servers
                         // this way they can tell which version of the message is the latest
                         message.timestamp = QDateTime::currentDateTimeUtc();
 
-                        MessageController::instance()->send(message.toQXmpp()).then(this, [messageId = message.id](QXmpp::SendResult &&result) {
-                            if (std::holds_alternative<QXmppError>(result)) {
-                                // TODO store in the database only error codes, assign text messages right in the QML
-                                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
+                        auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
+                            m_messageController->send(message.toQXmpp(), message.encryption, encryptionJids)
+                                .then(this, [accountJid = message.accountJid, chatJid = message.chatJid, messageId = message.id](QXmpp::SendResult &&result) {
+                                    if (std::holds_alternative<QXmppError>(result)) {
+                                        // TODO store in the database only error codes, assign text messages right in the
+                                        // QML
+                                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
 
-                                MessageDb::instance()->updateMessage(messageId, [](Message &message) {
-                                    message.deliveryState = DeliveryState::Error;
-                                    message.errorText = QStringLiteral("Message correction was not successful");
+                                        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &message) {
+                                            message.deliveryState = DeliveryState::Error;
+                                            message.errorText = QStringLiteral("Message correction was not successful");
+                                        });
+                                    } else {
+                                        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &message) {
+                                            message.deliveryState = DeliveryState::Sent;
+                                            message.errorText.clear();
+                                        });
+                                    }
                                 });
-                            } else {
-                                MessageDb::instance()->updateMessage(messageId, [](Message &message) {
-                                    message.deliveryState = DeliveryState::Sent;
-                                    message.errorText.clear();
-                                });
-                            }
-                        });
+                        };
+
+                        if (message.encryption != Encryption::NoEncryption && message.isGroupChatMessage()) {
+                            sendMessage(std::move(message), m_chatController->groupChatUserJids());
+                        } else {
+                            sendMessage(std::move(message));
+                        }
                     }
                 });
             } else if (message.replaceId.isEmpty()) {
@@ -306,7 +317,7 @@ void MessageComposition::correct()
             }
         });
 
-    clear();
+    reset();
 }
 
 void MessageComposition::clear()
@@ -317,10 +328,8 @@ void MessageComposition::clear()
     setReplyToName({});
     setReplyId({});
     setReplyQuote({});
-    setBody({});
     setOriginalBody({});
     setSpoiler(false);
-    setSpoilerHint({});
     setIsDraft(false);
 }
 
@@ -344,64 +353,64 @@ void MessageComposition::setReply(Message &message,
     }
 }
 
-void MessageComposition::loadDraft()
+QFuture<void> MessageComposition::loadDraft()
 {
-    if (m_accountJid.isEmpty() || m_chatJid.isEmpty()) {
-        return;
-    }
+    return MessageDb::instance()
+        ->fetchDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid())
+        .then(this, [this](std::optional<Message> &&message) {
+            if (message) {
+                if (const auto replaceId = message->replaceId; !replaceId.isEmpty()) {
+                    setReplaceId(replaceId);
 
-    auto future = MessageDb::instance()->fetchDraftMessage(m_accountJid, m_chatJid);
-    future.then(this, [this](std::optional<Message> &&message) {
-        if (message) {
-            if (const auto replaceId = message->replaceId; !replaceId.isEmpty()) {
-                setReplaceId(replaceId);
+                    MessageDb::instance()
+                        ->fetchMessage(m_chatController->account()->settings()->jid(), m_chatController->jid(), replaceId)
+                        .then(this, [this](std::optional<Message> &&message) {
+                            if (message) {
+                                if (const auto &reply = message->reply) {
+                                    setOriginalReplyId(reply->id);
+                                }
 
-                MessageDb::instance()->fetchMessage(m_accountJid, m_chatJid, replaceId).then(this, [this](std::optional<Message> &&message) {
-                    if (message) {
-                        if (const auto &reply = message->reply) {
-                            setOriginalReplyId(reply->id);
-                        }
+                                setOriginalBody(message->body());
 
-                        setOriginalBody(message->body());
-
-                        Q_EMIT isDraftChanged();
-                    }
-                });
-            }
-
-            if (const auto reply = message->reply) {
-                setReplyToJid(reply->toJid);
-                setReplyToGroupChatParticipantId(reply->toGroupChatParticipantId);
-
-                // Only process if it is not a reply to an own message.
-                if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {
-                    if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid); rosterItem->isGroupChat()) {
-                        GroupChatUserDb::instance()
-                            ->user(m_accountJid, m_chatJid, m_replyToGroupChatParticipantId)
-                            .then(this, [this](const std::optional<GroupChatUser> &user) {
-                                setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
                                 Q_EMIT isDraftChanged();
-                            });
-                    } else {
-                        setReplyToName(rosterItem->displayName());
-                    }
+                            }
+                        });
                 }
 
-                setReplyId(reply->id);
-                setReplyQuote(reply->quote);
-            }
+                if (const auto reply = message->reply) {
+                    setReplyToJid(reply->toJid);
+                    setReplyToGroupChatParticipantId(reply->toGroupChatParticipantId);
 
-            setBody(message->body());
-            setSpoiler(message->isSpoiler);
-            setSpoilerHint(message->spoilerHint);
-            setIsDraft(true);
-        }
-    });
+                    // Only process if it is not a reply to an own message.
+                    if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {
+                        if (const auto rosterItem = RosterModel::instance()->item(m_chatController->account()->settings()->jid(), m_chatController->jid());
+                            rosterItem->isGroupChat()) {
+                            GroupChatUserDb::instance()
+                                ->user(m_chatController->account()->settings()->jid(), m_chatController->jid(), m_replyToGroupChatParticipantId)
+                                .then(this, [this](const std::optional<GroupChatUser> &user) {
+                                    setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
+                                    Q_EMIT isDraftChanged();
+                                });
+                        } else {
+                            setReplyToName(rosterItem->displayName());
+                        }
+                    }
+
+                    setReplyId(reply->id);
+                    setReplyQuote(reply->quote);
+                }
+
+                setBody(message->body());
+                setSpoiler(message->isSpoiler);
+                setSpoilerHint(message->spoilerHint);
+                setIsDraft(true);
+            }
+        });
 }
 
 void MessageComposition::saveDraft()
 {
-    if (m_accountJid.isEmpty() || m_chatJid.isEmpty()) {
+    if (m_chatController->account()->settings()->jid().isEmpty() || m_chatController->jid().isEmpty()) {
         return;
     }
 
@@ -409,8 +418,8 @@ void MessageComposition::saveDraft()
 
     if (m_isDraft) {
         if (savingNeeded) {
-            MessageDb::instance()->updateDraftMessage(m_accountJid,
-                                                      m_chatJid,
+            MessageDb::instance()->updateDraftMessage(m_chatController->account()->settings()->jid(),
+                                                      m_chatController->jid(),
                                                       [this,
                                                        replaceId = m_replaceId,
                                                        replyToJid = m_replyToJid,
@@ -427,13 +436,14 @@ void MessageComposition::saveDraft()
                                                           message.isSpoiler = isSpoiler;
                                                           message.spoilerHint = spoilerHint;
                                                       });
+            setIsDraft(true);
         } else {
-            MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
+            MessageDb::instance()->removeDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid());
         }
     } else if (savingNeeded) {
         Message message;
-        message.accountJid = m_accountJid;
-        message.chatJid = m_chatJid;
+        message.accountJid = m_chatController->account()->settings()->jid();
+        message.chatJid = m_chatController->jid();
         message.replaceId = m_replaceId;
         setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
         message.timestamp = QDateTime::currentDateTimeUtc();
@@ -443,7 +453,18 @@ void MessageComposition::saveDraft()
         message.deliveryState = DeliveryState::Draft;
 
         MessageDb::instance()->addDraftMessage(message);
+
+        setIsDraft(true);
     }
+}
+
+void MessageComposition::reset()
+{
+    if (m_isDraft) {
+        MessageDb::instance()->removeDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid());
+    }
+
+    clear();
 }
 
 FileSelectionModel::FileSelectionModel(QObject *parent)
@@ -510,6 +531,11 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+void FileSelectionModel::setAccountSettings(AccountSettings *accountSettings)
+{
+    m_accountSettings = accountSettings;
+}
+
 void FileSelectionModel::selectFile()
 {
     const auto files = QFileDialog::getOpenFileUrls();
@@ -532,12 +558,12 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     }
 
     Q_ASSERT(localFileUrl.isLocalFile());
-    const auto limit = Kaidan::instance()->serverFeaturesCache()->httpUploadLimit();
+    const auto limit = m_accountSettings->httpUploadLimit();
     const QFileInfo fileInfo(localPath);
 
     if (fileInfo.size() > limit) {
-        Kaidan::instance()->passiveNotificationRequested(tr("'%1' cannot be sent because it is larger than %2")
-                                                             .arg(fileInfo.fileName(), Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), m_accountSettings->httpUploadLimitText()));
         return;
     }
 

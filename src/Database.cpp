@@ -29,8 +29,8 @@
 #include "Account.h"
 #include "AccountDb.h"
 #include "Globals.h"
-#include "Kaidan.h"
 #include "KaidanCoreLog.h"
+#include "MainController.h"
 #include "Settings.h"
 #include "SqlUtils.h"
 
@@ -42,8 +42,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 48
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(48)
+#define DATABASE_LATEST_VERSION 49
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(49)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -138,10 +138,20 @@ struct DatabasePrivate {
     bool tablesCreated = false;
 };
 
+Database *Database::s_instance = nullptr;
+
+Database *Database::instance()
+{
+    return s_instance;
+}
+
 Database::Database(QObject *parent)
     : QObject(parent)
     , d(new DatabasePrivate)
 {
+    Q_ASSERT(!s_instance);
+    s_instance = this;
+
     // start thread and set thread name
     d->dbThread.setObjectName(QStringLiteral("DB (SQLite)"));
     d->dbThread.start();
@@ -155,6 +165,8 @@ Database::~Database()
     // wait for finished
     d->dbThread.quit();
     d->dbThread.wait();
+
+    s_instance = nullptr;
 }
 
 void Database::createTables()
@@ -353,7 +365,7 @@ void Database::createNewDatabase()
                                    SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
                                        SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
                                            SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(online, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(password, SQL_TEXT)
+                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(password, SQL_TEXT)
                                                    SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT) SQL_ATTRIBUTE(port, SQL_BOOL)
                                                        SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER) SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER)
                                                            SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
@@ -1059,11 +1071,12 @@ void Database::convertDatabaseToV29()
 
     // Add the column "deliveryState" and remove the column "timestamp" from the primary key.
     execQuery(query,
-              SQL_CREATE_TABLE(
-                  "messageReactions_tmp",
-                  SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
-                      SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
-                          SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) "PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"));
+              SQL_CREATE_TABLE("messageReactions_tmp",
+                               SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
+                                   SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+                                       SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+                                           SQL_ATTRIBUTE(deliverySvoid convertDatabaseToV48();
+                                                         tate, SQL_INTEGER) "PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"));
 
     execQuery(query,
               QStringLiteral("INSERT INTO messageReactions_tmp SELECT messageSender, messageRecipient, messageId, "
@@ -1661,54 +1674,55 @@ void Database::convertDatabaseToV48()
         const QString Encryption = QStringLiteral("encryption");
         const QString AutomaticDownloadsRule = QStringLiteral("media/automaticDownloadsRule");
 
-        Settings settings;
-        const auto settingsAccount = [&]() -> std::optional<Account> {
-            const auto jid = settings.value<QString>(Jid);
+        auto *settings = Settings::instance();
+        const auto settingsAccount = [&]() -> std::optional<AccountSettings::Data> {
+            const auto jid = settings->value<QString>(Jid);
 
             if (jid.isEmpty()) {
                 return {};
             }
 
-            Account account;
+            AccountSettings::Data account;
 
             account.jid = jid;
-            account.online = settings.value<bool>(Online, true);
-            account.resourcePrefix = settings.value<QString>(JidResourcePrefix, QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
-            account.password = QString::fromUtf8(QByteArray::fromBase64(settings.value<QString>(Password).toUtf8()));
+            account.enabled = settings->value<bool>(Online, true);
+            account.jidResourcePrefix = settings->value<QString>(JidResourcePrefix, QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
+            account.password = QString::fromUtf8(QByteArray::fromBase64(settings->value<QString>(Password).toUtf8()));
             account.credentials = [&]() {
-                QXmlStreamReader r(settings.value<QString>(Credentials));
+                QXmlStreamReader r(settings->value<QString>(Credentials));
                 r.readNextStartElement();
                 return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
             }();
-            account.host = settings.value<QString>(Host);
-            account.port = settings.value<quint16>(Port, PORT_AUTODETECT);
-            account.tlsErrorsIgnored = settings.value<bool>(TlsErrorsIgnored, false);
-            account.tlsRequirement = settings.value<QXmppConfiguration::StreamSecurityMode>(TlsRequirement, QXmppConfiguration::TLSRequired);
-            account.passwordVisibility = settings.value<Kaidan::PasswordVisibility>(PasswordVisibility, Kaidan::PasswordVisible);
-            account.userAgentDeviceId = settings.value<QUuid>(UserAgentDeviceId);
-            account.encryption = settings.value<Encryption::Enum>(Encryption, Encryption::Omemo2);
+            account.host = settings->value<QString>(Host);
+            account.port = settings->value<quint16>(Port, PORT_AUTODETECT);
+            account.tlsErrorsIgnored = settings->value<bool>(TlsErrorsIgnored, false);
+            account.tlsRequirement = settings->value<QXmppConfiguration::StreamSecurityMode>(TlsRequirement, QXmppConfiguration::TLSRequired);
+            account.passwordVisibility = settings->value<AccountSettings::PasswordVisibility>(PasswordVisibility, AccountSettings::PasswordVisibility::Visible);
+            account.userAgentDeviceId = settings->value<QUuid>(UserAgentDeviceId);
+            account.encryption = settings->value<Encryption::Enum>(Encryption, Encryption::Omemo2);
             account.automaticMediaDownloadsRule =
-                settings.value<Account::AutomaticMediaDownloadsRule>(AutomaticDownloadsRule, Account::AutomaticMediaDownloadsRule::Default);
+                settings->value<AccountSettings::AutomaticMediaDownloadsRule>(AutomaticDownloadsRule,
+                                                                              AccountSettings::AutomaticMediaDownloadsRule::PresenceOnly);
 
             return account;
         }();
 
         if (settingsAccount) {
-            const auto sqlAccount = [&]() -> Account {
+            const auto sqlAccount = [&]() -> AccountSettings::Data {
                 execQuery(query, QStringLiteral("SELECT * FROM accounts"));
-                QList<Account> accounts;
+                QList<AccountSettings::Data> accounts;
                 AccountDb::parseAccountsFromQuery(query, accounts);
 
                 if (const auto it = std::find_if(accounts.cbegin(),
                                                  accounts.cend(),
-                                                 [jid = settingsAccount->jid](const Account &acc) {
+                                                 [jid = settingsAccount->jid](const AccountSettings::Data &acc) {
                                                      return jid == acc.jid;
                                                  });
                     it != accounts.cend()) {
                     auto acc = *it;
 
-                    acc.online = settingsAccount->online;
-                    acc.resourcePrefix = settingsAccount->resourcePrefix;
+                    acc.enabled = settingsAccount->enabled;
+                    acc.jidResourcePrefix = settingsAccount->jidResourcePrefix;
                     acc.password = settingsAccount->password;
                     acc.credentials = settingsAccount->credentials;
                     acc.host = settingsAccount->host;
@@ -1723,7 +1737,7 @@ void Database::convertDatabaseToV48()
 
                 return *settingsAccount;
             }();
-            const auto record = AccountDb::createUpdateRecord(Account(), sqlAccount);
+            const auto record = AccountDb::createUpdateRecord({}, sqlAccount);
             const auto updateAccountSQL = [&]() -> QString {
                 const auto driver = currentDatabase().driver();
                 return QString(driver->sqlStatement(QSqlDriver::InsertStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false))
@@ -1732,7 +1746,7 @@ void Database::convertDatabaseToV48()
 
             execQuery(query, updateAccountSQL);
 
-            settings.remove({
+            settings->remove({
                 Online,
                 Jid,
                 JidResourcePrefix,
@@ -1751,6 +1765,14 @@ void Database::convertDatabaseToV48()
     }
 
     d->version = 48;
+}
+
+void Database::convertDatabaseToV49()
+{
+    DATABASE_CONVERT_TO_VERSION(48)
+    QSqlQuery query(currentDatabase());
+    execQuery(query, QStringLiteral("ALTER TABLE accounts RENAME COLUMN online TO enabled"));
+    d->version = 49;
 }
 
 #include "moc_Database.cpp"

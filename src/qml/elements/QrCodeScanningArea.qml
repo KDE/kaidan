@@ -15,11 +15,11 @@ import im.kaidan.kaidan
 GridLayout {
 	id: root
 
-	property string accountJid
+	property Account account
 
 	// Used for authenticating or distrusting keys via QR code scanning.
 	property string jid
-	readonly property bool forOwnDevices: accountJid === jid
+	readonly property bool forOwnDevices: account.settings.jid === jid
 	readonly property bool onlyForTrustDecisions: forOwnDevices || jid
 
 	property alias scanner: scanner
@@ -42,14 +42,14 @@ GridLayout {
 
 				// Try to add a contact.
 				if (!root.onlyForTrustDecisions) {
-					switch (RosterModel.addContactByUri(root.accountJid, result.text)) {
-					case RosterModel.AddingContact:
+					switch (account.rosterController.addContactWithUri(result.text)) {
+					case RosterController.ContactAdditionWithUriResult.AddingContact:
 						showPassiveNotification(qsTr("Contact added - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
 						break
-					case RosterModel.ContactExists:
+					case RosterController.ContactAdditionWithUriResult.ContactExists:
 						processTrust = false
 						break
-					case RosterModel.InvalidUri:
+					case RosterController.ContactAdditionWithUriResult.InvalidUri:
 						processTrust = false
 						showPassiveNotification(qsTr("This QR code does not contain a contact"), Kirigami.Units.veryLongDuration * 4)
 					}
@@ -63,8 +63,8 @@ GridLayout {
 						expectedJid = root.jid
 					}
 
-					switch (Kaidan.makeTrustDecisionsByUri(result.text, expectedJid)) {
-					case Kaidan.MakingTrustDecisions:
+					switch (root.account.atmController.makeTrustDecisionsWithUri(result.text, expectedJid)) {
+					case AtmController.TrustDecisionWithUriResult.MakingTrustDecisions:
 						if (root.forOwnDevices) {
 							showPassiveNotification(qsTr("Trust decisions made for other own device - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
 						} else {
@@ -72,7 +72,7 @@ GridLayout {
 						}
 
 						break
-					case Kaidan.JidUnexpected:
+					case AtmController.TrustDecisionWithUriResult.JidUnexpected:
 						if (root.onlyForTrustDecisions) {
 							if (root.forOwnDevices) {
 								showPassiveNotification(qsTr("This QR code is not for your other device"), Kirigami.Units.veryLongDuration * 4)
@@ -81,7 +81,7 @@ GridLayout {
 							}
 						}
 						break
-					case Kaidan.InvalidUri:
+					case AtmController.TrustDecisionWithUriResult.InvalidUri:
 						if (root.onlyForTrustDecisions) {
 							showPassiveNotification(qsTr("This QR code is not for trust decisions"), Kirigami.Units.veryLongDuration * 4)
 						}
@@ -117,7 +117,10 @@ GridLayout {
 	}
 
 	AccountQrCode {
-		jid: root.accountJid
+		uriGenerator: AccountTrustMessageUriGenerator {
+			encryptionController: root.account.encryptionController
+			jid: root.account.settings.jid
+		}
 		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
 		Layout.fillHeight: parent.flow === GridLayout.LeftToRight
 		Layout.preferredWidth: height

@@ -15,6 +15,8 @@ import im.kaidan.kaidan
 MessageReactionButton {
 	id: root
 
+	property Account account
+	property string chatJid
 	property string messageId
 	property bool isOwnMessage
 	property var reactions
@@ -41,8 +43,8 @@ MessageReactionButton {
 		id: detailsDialogComponent
 
 		MessageReactionDetailsDialog {
-			accountJid: ChatController.accountJid
-			chatJid: ChatController.chatJid
+			account: root.account
+			chatJid: root.chatJid
 		}
 	}
 }

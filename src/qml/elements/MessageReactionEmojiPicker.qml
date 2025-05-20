@@ -17,6 +17,7 @@ EmojiPicker {
 	id: root
 
 	property string messageId
+	property MessageModel messageModel
 
 	parent: root.parent
 	anchors.centerIn: parent
@@ -25,7 +26,7 @@ EmojiPicker {
 		onTextChanged: {
 			// TODO: Refactor EmojiPicker to not append trailing whitespaces in this case
 			if (text.length) {
-				MessageModel.addMessageReaction(root.messageId, text.trim())
+				root.messageModel.addMessageReaction(root.messageId, text.trim())
 			}
 			clear()
 		}

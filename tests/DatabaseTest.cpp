@@ -13,6 +13,7 @@
 // Kaidan
 #include "Algorithms.h"
 #include "Database.h"
+#include "Settings.h"
 #include "SqlUtils.h"
 #include "Test.h"
 
@@ -52,6 +53,7 @@ private:
 
 void DatabaseTest::conversion()
 {
+    new Settings(this);
     Database db;
     auto sqlDb = db.currentDatabase();
 

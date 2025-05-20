@@ -10,10 +10,11 @@ import org.kde.kirigamiaddons.components as Components
 import im.kaidan.kaidan
 
 Components.Avatar {
+	property Account account
 	property string jid
 	property bool isGroupChat: false
 
-	source: jid ? Kaidan.avatarStorage.getAvatarUrl(jid) : ""
+	source: jid && account ? account.avatarCache.getAvatarUrl(jid) : ""
 	iconSource: isGroupChat ? "system-users-symbolic" : "avatar-default-symbolic"
 	color: Utils.userColor(jid, name)
 }

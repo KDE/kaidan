@@ -16,6 +16,7 @@ import im.kaidan.kaidan
 Rectangle {
 	id: root
 
+	property ChatHintModel chatHintModel
 	property int index
 	property string text
 	property var buttons
@@ -86,7 +87,7 @@ Rectangle {
 							focusPolicy: Qt.NoFocus
 							Layout.maximumWidth: parent.width / root.buttons.length
 							Layout.fillWidth: true
-							onClicked: ChatHintModel.handleButtonClicked(root.index, modelData.type)
+							onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
 						}
 					}
 				}

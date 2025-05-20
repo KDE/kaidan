@@ -8,6 +8,7 @@
 // Qt
 #include <QObject>
 
+class PresenceCache;
 class QXmppClient;
 class QXmppRosterManager;
 class QXmppVersionIq;
@@ -18,7 +19,7 @@ class VersionController : public QObject
     Q_OBJECT
 
 public:
-    explicit VersionController(QObject *parent = nullptr);
+    VersionController(PresenceCache *presenceCache, QXmppVersionManager *versionManager, QObject *parent = nullptr);
 
     /**
      * Fetches the version information of all resources of the given  bare JID
@@ -32,6 +33,6 @@ Q_SIGNALS:
     void clientVersionReceived(const QXmppVersionIq &versionIq);
 
 private:
-    QXmppRosterManager *const m_rosterManager;
+    PresenceCache *const m_presenceCache;
     QXmppVersionManager *const m_versionManager;
 };

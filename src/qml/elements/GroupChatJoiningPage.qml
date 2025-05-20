@@ -8,9 +8,8 @@ import org.kde.kirigami as Kirigami
 Kirigami.ScrollablePage {
 	id: root
 
-	property alias accountJid: content.accountJid
+	property alias account: content.account
 	property alias groupChatJid: content.groupChatJid
-	property alias nickname: content.nickname
 
 	title: qsTr("Join group chat")
 	Component.onCompleted: content.groupChatJidField.forceActiveFocus()

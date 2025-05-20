@@ -7,10 +7,13 @@
 // Qt
 #include <QObject>
 
+class EncryptionController;
+
 class EncryptionWatcher : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(EncryptionController *encryptionController MEMBER m_encryptionController WRITE setEncryptionController)
     Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QList<QString> jids READ jids WRITE setJids NOTIFY jidsChanged)
 
@@ -21,6 +24,8 @@ class EncryptionWatcher : public QObject
 
 public:
     explicit EncryptionWatcher(QObject *parent = nullptr);
+
+    void setEncryptionController(EncryptionController *encryptionController);
 
     QString accountJid() const;
     void setAccountJid(const QString &accountJid);
@@ -44,9 +49,10 @@ public:
 
 private:
     void setUp();
-    void handleDevicesChanged(const QString &accountJid, QList<QString> jids);
+    void handleDevicesChanged(QList<QString> jids);
     void update();
 
+    EncryptionController *m_encryptionController;
     QString m_accountJid;
     QList<QString> m_jids;
 

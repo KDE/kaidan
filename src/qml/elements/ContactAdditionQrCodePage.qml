@@ -11,12 +11,15 @@ import im.kaidan.kaidan
  */
 ExplanationTogglePage {
 	id: root
+
+	property alias account: qrCodeScanningArea.account
+
 	title: qsTr("Add contact")
 	primaryButton.text: explanationArea.visible ? qsTr("Scan QR codes") : qsTr("Show explanation")
 	primaryButton.onClicked: {
-		if (Kaidan.settings.contactAdditionQrCodePageExplanationVisible) {
+		if (Settings.contactAdditionQrCodePageExplanationVisible) {
 			// Hide the explanation when this page is opened again in the future.
-			Kaidan.settings.contactAdditionQrCodePageExplanationVisible = false
+			Settings.contactAdditionQrCodePageExplanationVisible = false
 
 			if (!qrCodeScanningArea.scanner.cameraEnabled) {
 				qrCodeScanningArea.scanner.cameraEnabled = true
@@ -30,15 +33,14 @@ ExplanationTogglePage {
 		secondaryExplanationText.text: qsTr("Step 2: Let your contact scan <b>your</b> QR code")
 		secondaryExplanationImage.source: Utils.getResourcePath("images/qr-code-scan-2.svg")
 	}
-	explanationArea.visible: Kaidan.settings.contactAdditionQrCodePageExplanationVisible
+	explanationArea.visible: Settings.contactAdditionQrCodePageExplanationVisible
 	content: QrCodeScanningArea {
 		id: qrCodeScanningArea
-		accountJid: AccountController.account.jid
 		anchors.centerIn: parent
-		visible: !Kaidan.settings.contactAdditionQrCodePageExplanationVisible
+		visible: !Settings.contactAdditionQrCodePageExplanationVisible
 	}
 	Component.onCompleted: {
-		if (!Kaidan.settings.contactAdditionQrCodePageExplanationVisible) {
+		if (!Settings.contactAdditionQrCodePageExplanationVisible) {
 			qrCodeScanningArea.scanner.cameraEnabled = true
 		}
 	}

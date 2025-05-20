@@ -10,7 +10,6 @@
 // std
 #include <optional>
 // Qt
-#include <QMutex>
 #include <QObject>
 #include <QPoint>
 #include <QSettings>
@@ -37,7 +36,10 @@ class Settings : public QObject
     friend class Database;
 
 public:
+    static Settings *instance();
+
     explicit Settings(QObject *parent = nullptr);
+    ~Settings();
 
     ///
     /// Avoid using this in favour of adding methods here,
@@ -73,8 +75,6 @@ private:
     template<typename T>
     T value(const QString &key, const std::optional<T> &defaultValue = {}) const
     {
-        QMutexLocker locker(&m_mutex);
-
         if (defaultValue) {
             return m_settings.value(key, QVariant::fromValue(*defaultValue)).template value<T>();
         }
@@ -85,7 +85,6 @@ private:
     template<typename T>
     void setValue(const QString &key, const T &value)
     {
-        QMutexLocker locker(&m_mutex);
         if constexpr (!has_enum_type<T>::value && std::is_enum<T>::value) {
             m_settings.setValue(key, static_cast<std::underlying_type_t<T>>(value));
         } else if constexpr (has_enum_type<T>::value) {
@@ -110,13 +109,11 @@ private:
     template<typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) == 0, S> * = nullptr>
     void remove(const QString &key, S s)
     {
-        QMutexLocker locker(&m_mutex);
         m_settings.remove(key);
-        locker.unlock();
-
         Q_EMIT(this->*s)();
     }
 
     QSettings m_settings;
-    mutable QMutex m_mutex;
+
+    static Settings *s_instance;
 };

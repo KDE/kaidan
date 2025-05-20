@@ -224,7 +224,7 @@ void GroupChatUserModel::removeAllUsers()
 
 bool GroupChatUserModel::shouldUserBeProcessed(const GroupChatUser &user)
 {
-    if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid)) {
+    if (const auto rosterItem = RosterModel::instance()->item(m_accountJid, m_chatJid)) {
         return rosterItem->groupChatParticipantId != user.id;
     }
 

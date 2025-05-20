@@ -26,9 +26,10 @@ struct DatabasePrivate;
 class Database : public QObject
 {
     Q_OBJECT
-    friend class DatabaseComponent;
 
 public:
+    static Database *instance();
+
     explicit Database(QObject *parent = nullptr);
     ~Database();
 
@@ -134,8 +135,14 @@ private:
     void convertDatabaseToV46();
     void convertDatabaseToV47();
     void convertDatabaseToV48();
+    void convertDatabaseToV49();
 
     std::unique_ptr<DatabasePrivate> d;
 
+    static Database *s_instance;
+
+    friend class DatabaseComponent;
     friend class DatabaseTest;
+    // TODO: Remove TrustDb as friend class once MessageDb is no singleton anymore
+    friend class TrustDb;
 };

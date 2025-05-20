@@ -18,6 +18,7 @@ import im.kaidan.kaidan
 Kirigami.Dialog {
 	id: root
 
+	property ChatController chatController
 	required property Item message
 	property var file: null
 	property bool localFileAvailable: file && file.localFilePath
@@ -50,7 +51,7 @@ Kirigami.Dialog {
 			source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
-			onClicked: Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
+			onClicked: deleteFile()
 		}
 
 		ChatMessageContextMenuButton {
@@ -80,7 +81,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
+				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !root.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: {
 				root.message.reactionEmojiPicker.messageId = root.message.msgId
@@ -101,7 +102,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
+				return !root.message.groupChatInvitationJid && !root.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: root.message.sendingPane.prepareReply(root.message.senderJid, root.message.groupChatSenderId, root.message.senderName, root.message.msgId, root.message.messageBody)
 		}
@@ -110,7 +111,7 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Quote")
 			source: "mail-reply-all-symbolic"
 			contextMenu: root
-			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
+			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !root.chatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareQuote(root.message.messageBody)
 		}
 
@@ -132,7 +133,7 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Edit")
 			source: "document-edit-symbolic"
 			contextMenu: root
-			shown: !root.message.groupChatInvitationJid && MessageModel.canCorrectMessage(root.message.modelIndex) && !ChatController.rosterItem.isDeletedGroupChat
+			shown: !root.message.groupChatInvitationJid && root.chatController.messageModel.canCorrectMessage(root.message.modelIndex) && !root.chatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareCorrection(root.message.msgId, root.message.replyToJid, root.message.replyToGroupChatParticipantId, root.message.replyToName, root.message.replyId, root.message.replyQuote, root.message.messageBody, root.message.spoilerHint)
 		}
 
@@ -142,8 +143,8 @@ Kirigami.Dialog {
 			contextMenu: root
 			shown: !root.message.isOwn
 			onClicked: {
-				MessageModel.markMessageAsFirstUnread(message.modelIndex);
-				Kaidan.closeChatPageRequested()
+				root.chatController.messageModel.markMessageAsFirstUnread(message.modelIndex);
+				MainController.closeChatPageRequested()
 			}
 		}
 
@@ -152,13 +153,17 @@ Kirigami.Dialog {
 			source: "edit-delete-symbolic"
 			contextMenu: root
 			onClicked: {
-				MessageModel.removeMessage(root.message.msgId)
+				root.chatController.messageModel.removeMessage(root.message.msgId)
 
 				if (root.file && root.file.localFilePath) {
-					Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
+					deleteFile()
 				}
 			}
 		}
+	}
+
+	function deleteFile() {
+		message.chatController.account.fileSharingController.deleteFile(message.chatController.jid, message.msgId, file)
 	}
 
 	function expandButtons() {

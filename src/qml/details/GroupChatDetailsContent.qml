@@ -16,7 +16,7 @@ import "../elements"
 RosterItemDetailsContent {
 	id: root
 
-	property SimpleListViewSearchField contactSearchField
+	property SimpleListViewSearchField inviteeSearchField
 	property SimpleListViewSearchField userSearchField
 	property SimpleListViewSearchField keyAuthenticationUserSearchField
 	property int contactsBeingInvitedCount: 0
@@ -30,13 +30,13 @@ RosterItemDetailsContent {
 			}
 
 			InlineListView {
-				id: contactListView
-				model: RosterFilterProxyModel {
+				id: inviteeListView
+				model: GroupChatInviteeFilterModel {
 					sourceModel: RosterModel
-					groupChatsExcluded: true
-					groupChatUsersExcluded: true
+					accountJid: root.chatController.account.settings.jid
+					groupChatUserJids: root.chatController.groupChatUserJids
 				}
-				visible: contactExpansionButton.checked
+				visible: inviteeExpansionButton.checked
 				implicitHeight: contentHeight
 				Layout.fillWidth: true
 				header: FormCard.FormCard {
@@ -49,9 +49,9 @@ RosterItemDetailsContent {
 							spacing: Kirigami.Units.largeSpacing * 2
 
 							SimpleListViewSearchField {
-								id: contactSearchField
-								listView: contactListView
-								enabled: contactButton.visible
+								id: inviteeSearchField
+								listView: inviteeListView
+								enabled: inviteeButton.visible
 								Layout.fillWidth: true
 								onVisibleChanged: {
 									if (visible) {
@@ -59,78 +59,78 @@ RosterItemDetailsContent {
 										forceActiveFocus()
 									}
 								}
-								Component.onCompleted: root.contactSearchField = this
+								Component.onCompleted: root.inviteeSearchField = this
 							}
 
 							Button {
-								id: contactButton
+								id: inviteeButton
 								Controls.ToolTip.text: qsTr("Invite selected contacts")
 								icon.name: "go-next-symbolic"
 								flat: !hovered
 								Layout.preferredWidth: Layout.preferredHeight
-								Layout.preferredHeight: contactSearchField.implicitHeight
+								Layout.preferredHeight: inviteeSearchField.implicitHeight
 								onClicked: {
 									visible = false
-									contactListView.inviteSelectedContacts()
+									inviteeListView.inviteSelectedContacts()
 									visible = true
 								}
 							}
 
 							Controls.BusyIndicator {
-								visible: !contactButton.visible
-								Layout.preferredWidth: contactButton.Layout.preferredWidth
+								visible: !inviteeButton.visible
+								Layout.preferredWidth: inviteeButton.Layout.preferredWidth
 								Layout.preferredHeight: Layout.preferredWidth
-								Layout.rightMargin: contactButton.Layout.rightMargin
+								Layout.rightMargin: inviteeButton.Layout.rightMargin
 							}
 						}
 					}
 				}
-				delegate: GroupChatContactInvitationItem {
-					id: contactDelegate
-					accountJid: model.accountJid
+				delegate: GroupChatInviteeDelegate {
+					id: inviteeDelegate
+					account: model.account
 					jid: model.jid
 					name: model.name
-					selected: model.selected
+					checked: model.selected
 					width: ListView.view.width
 					onClicked: {
-						contactListView.model.sourceModel.toggleSelected(model.accountJid, model.jid)
-						root.contactSearchField.forceActiveFocus()
+						inviteeListView.model.sourceModel.toggleSelected(model.account.settings.jid, model.jid)
+						root.inviteeSearchField.forceActiveFocus()
 					}
 					onActiveFocusChanged: {
 						if (activeFocus) {
-							root.contactSearchField.forceActiveFocus()
+							root.inviteeSearchField.forceActiveFocus()
 						}
 					}
 				}
 				onVisibleChanged: {
 					if (visible) {
-						contactListView.model.sourceModel.resetSelected()
+						inviteeListView.model.sourceModel.resetSelected()
 					}
 				}
 
 				function inviteSelectedContacts() {
-					var groupChatPublic = ChatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
-					var sourceModel = contactListView.model.sourceModel
+					var groupChatPublic = root.chatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
+					var sourceModel = inviteeListView.model.sourceModel
 
 					for (var i = 0; i < sourceModel.rowCount(); i++) {
 						if (sourceModel.data(sourceModel.index(i, 0), RosterModel.SelectedRole)) {
 							var inviteeJid = sourceModel.data(sourceModel.index(i, 0), RosterModel.JidRole)
-							GroupChatController.inviteContactToGroupChat(ChatController.accountJid, ChatController.chatJid, inviteeJid, groupChatPublic)
+							root.chatController.account.groupChatController.inviteContactToGroupChat(root.chatController.jid, inviteeJid, groupChatPublic)
 							root.contactsBeingInvitedCount++
 						}
 					}
 
 					if (root.contactsBeingInvitedCount) {
-						contactExpansionButton.toggle()
+						inviteeExpansionButton.toggle()
 					} else {
-						root.contactSearchField.forceActiveFocus()
+						root.inviteeSearchField.forceActiveFocus()
 						passiveNotification(qsTr("Select at least one contact"))
 					}
 				}
 			}
 
 			FormExpansionButton {
-				id: contactExpansionButton
+				id: inviteeExpansionButton
 			}
 		},
 
@@ -150,8 +150,8 @@ RosterItemDetailsContent {
 				id: userListView
 				model: GroupChatUserFilterModel {
 					sourceModel: GroupChatUserModel {
-						accountJid: ChatController.accountJid
-						chatJid: ChatController.chatJid
+						accountJid: root.chatController.account.settings.jid
+						chatJid: root.chatController.jid
 					}
 				}
 				visible: userExpansionButton.checked
@@ -166,13 +166,13 @@ RosterItemDetailsContent {
 						contentItem: RowLayout {
 							Controls.Label {
 								text: qsTr("You must be connected to change the participants")
-								visible: Kaidan.connectionState !== Enums.StateConnected
+								visible: root.chatController.account.connection.state !== Enums.StateConnected
 								Layout.fillWidth: true
 							}
 
 							SimpleListViewSearchField {
 								listView: userListView
-								visible: Kaidan.connectionState === Enums.StateConnected
+								visible: root.chatController.account.connection.state === Enums.StateConnected
 								Layout.fillWidth: true
 								onVisibleChanged: {
 									if (visible) {
@@ -187,9 +187,9 @@ RosterItemDetailsContent {
 				}
 				section.property: "statusText"
 				section.delegate: ListViewSectionDelegate {}
-				delegate: GroupChatUserItem {
+				delegate: ContactDelegate {
 					id: userDelegate
-					accountJid: ChatController.accountJid
+					account: root.chatController.account
 					jid: model.jid
 					name: model.name
 					width: ListView.view.width
@@ -202,12 +202,12 @@ RosterItemDetailsContent {
 					Button {
 						text: qsTr("Ban")
 						icon.name: "edit-delete-symbolic"
-						visible: Kaidan.connectionState === Enums.StateConnected
+						visible: root.chatController.account.settings.enabled && root.chatController.account.connection.state === Enums.StateConnected
 						display: Controls.AbstractButton.IconOnly
 						flat: !userDelegate.hovered
 						Controls.ToolTip.text: text
 						Layout.rightMargin: Kirigami.Units.smallSpacing * 3
-						onClicked: GroupChatController.banUser(ChatController.accountJid, ChatController.chatJid, userDelegate.jid)
+						onClicked: root.chatController.account.groupChatController.banUser(root.chatController.account.settings.jid, root.chatController.jid, userDelegate.jid)
 					}
 				}
 			}
@@ -218,8 +218,8 @@ RosterItemDetailsContent {
 		}
 	]
 	mediaOverview {
-		accountJid: ChatController.accountJid
-		chatJid: ChatController.chatJid
+		accountJid: root.chatController.account.settings.jid
+		chatJid: root.chatController.jid
 	}
 	encryptionArea.delegates: [
 		FormCard.FormHeader {
@@ -229,22 +229,23 @@ RosterItemDetailsContent {
 		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
-			checked: enabled && ChatController.encryption === Encryption.Omemo2
+			enabled: root.chatController.chatEncryptionWatcher.hasUsableDevices
+			checked: enabled && root.chatController.encryption === Encryption.Omemo2
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
+			onClicked: root.chatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		},
 
 		AccountKeyAuthenticationButton {
-			jid: ChatController.accountJid
-			encryptionWatcher: ChatController.accountEncryptionWatcher
+			presenceCache: root.chatController.account.presenceCache
+			jid: root.chatController.account.settings.jid
+			encryptionWatcher: root.chatController.accountEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(groupChatDetailsAccountKeyAuthenticationPage)
 		},
 
 		GroupChatUserKeyAuthenticationButton {
 			id: keyAuthenticationButton
-			encryptionWatcher: ChatController.chatEncryptionWatcher
+			encryptionWatcher: root.chatController.chatEncryptionWatcher
 			checkable: true
 		},
 
@@ -252,8 +253,8 @@ RosterItemDetailsContent {
 			id: keyAuthenticationUserListView
 			model: GroupChatUserKeyAuthenticationFilterModel {
 				sourceModel: GroupChatUserModel {
-					accountJid: ChatController.accountJid
-					chatJid: ChatController.chatJid
+					accountJid: root.chatController.account.settings.jid
+					chatJid: root.chatController.jid
 				}
 			}
 			visible: keyAuthenticationButton.visible && keyAuthenticationButton.checked
@@ -282,9 +283,9 @@ RosterItemDetailsContent {
 					}
 				}
 			}
-			delegate: GroupChatUserItem {
+			delegate: ContactDelegate {
 				id: keyAuthenticationUserDelegate
-				accountJid: ChatController.accountJid
+				account: root.chatController.account
 				jid: model.jid
 				name: model.name
 				width: ListView.view.width
@@ -299,7 +300,7 @@ RosterItemDetailsContent {
 	]
 	qrCodeExpansionButton.description: qsTr("Share this group's chat address via QR code")
 	qrCode: GroupChatQrCode {
-		jid: ChatController.chatJid
+		jid: root.chatController.jid
 	}
 	qrCodeButton {
 		description: qsTr("Share this group's chat address via QR code")
@@ -308,13 +309,13 @@ RosterItemDetailsContent {
 	uriButton {
 		description: qsTr("Share this group's chat address via text")
 		onClicked: {
-			Utils.copyToClipboard(Utils.groupChatUri(ChatController.chatJid))
+			Utils.copyToClipboard(Utils.groupChatUri(root.chatController.jid))
 			passiveNotification(qsTr("Group address copied to clipboard"))
 		}
 	}
 	invitationButton {
 		description: qsTr("Share this group's chat address via a web page with usage help")
-		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(ChatController.chatJid).toString()))
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(root.chatController.jid).toString()))
 	}
 
 	FormCard.FormCard {
@@ -347,8 +348,8 @@ RosterItemDetailsContent {
 			]
 			textRole: "display"
 			valueRole: "value"
-			currentIndex: indexOf(ChatController.rosterItem.notificationRule)
-			onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
+			currentIndex: indexOf(root.chatController.rosterItem.notificationRule)
+			onActivated: root.chatController.account.rosterController.setNotificationRule(root.chatController.jid, currentValue)
 		}
 	}
 
@@ -362,31 +363,22 @@ RosterItemDetailsContent {
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Send typing notifications")
 			description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-			checked: ChatController.rosterItem.chatStateSendingEnabled
-			onToggled: {
-				RosterModel.setChatStateSendingEnabled(
-					ChatController.accountJid,
-					ChatController.chatJid,
-					checked)
-			}
+			checked: root.chatController.rosterItem.chatStateSendingEnabled
+			onToggled: root.chatController.account.rosterController.setChatStateSendingEnabled(root.chatController.jid, checked)
 		}
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Send read notifications")
 			description: qsTr("Indicate which messages you have read")
-			checked: ChatController.rosterItem.readMarkerSendingEnabled
-			onToggled: {
-				RosterModel.setReadMarkerSendingEnabled(
-					ChatController.accountJid,
-					ChatController.chatJid,
-					checked)
-			}
+			checked: root.chatController.rosterItem.readMarkerSendingEnabled
+			onToggled: root.chatController.account.rosterController.setReadMarkerSendingEnabled(root.chatController.jid, checked)
 		}
 	}
 
 	FormCard.FormCard {
 		id: removalArea
 		Layout.fillWidth: true
+		visible: root.chatController.account.settings.enabled
 		enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
 
 		FormCard.FormHeader {
@@ -403,15 +395,15 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				groupChatDeletionButton.confirmationButton.visible = false
-				GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
+				root.chatController.account.groupChatController.leaveGroupChat(root.chatController.jid)
 			}
-			busy: GroupChatController.busy
+			busy: root.chatController.account.groupChatController.busy
 			busyText: qsTr("Leaving group chat…")
 
 			Connections {
-				target: GroupChatController
+				target: root.chatController.account.groupChatController
 
-				function onGroupChatLeavingFailed(accountJid, groupChatJid, errorMessage) {
+				function onGroupChatLeavingFailed(groupChatJid, errorMessage) {
 					passiveNotification(qsTr("The group %1 could not be left%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
@@ -427,23 +419,23 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				groupChatLeavingButton.confirmationButton.visible = false
-				GroupChatController.deleteGroupChat(ChatController.accountJid, ChatController.chatJid)
+				root.chatController.account.groupChatController.deleteGroupChat(root.chatController.jid)
 			}
-			busy: GroupChatController.busy
+			busy: root.chatController.account.groupChatController.busy
 			busyText: qsTr("Deleting group chat…")
 
 			Connections {
-				target: GroupChatController
+				target: root.chatController.account.groupChatController
 
-				function onGroupChatDeletionFailed(accountJid, groupChatJid, errorMessage) {
+				function onGroupChatDeletionFailed(groupChatJid, errorMessage) {
 					passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
 		}
 	}
 
-	function openContactListView() {
-		contactExpansionButton.toggle()
+	function openInviteeListView() {
+		inviteeExpansionButton.toggle()
 	}
 
 	function openKeyAuthenticationUserListView() {

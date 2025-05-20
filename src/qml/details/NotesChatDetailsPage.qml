@@ -2,20 +2,18 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import im.kaidan.kaidan
-
-import "../elements"
-
-FormInfoPage {
+RosterItemDetailsPage {
 	id: root
 	title: qsTr("Notes Details")
 
-	NotesChatDetailsHeader {}
+	NotesChatDetailsHeader {
+		chatController: root.chatController
+	}
 
 	NotesChatDetailsContent {
+		chatController: root.chatController
 		Layout.fillWidth: true
 	}
 }

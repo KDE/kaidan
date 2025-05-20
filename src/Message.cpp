@@ -233,7 +233,7 @@ QXmppMessage Message::toQXmpp() const
         // "toJid" and "toGroupChatParticipantId" are empty if the reply is to an own message.
         if (toJid.isEmpty() && toGroupChatParticipantId.isEmpty()) {
             if (isGroupChatMessage()) {
-                qxmppReply.to = RosterModel::instance()->findItem(chatJid)->groupChatParticipantId;
+                qxmppReply.to = RosterModel::instance()->item(accountJid, chatJid)->groupChatParticipantId;
             } else {
                 qxmppReply.to = accountJid;
             }

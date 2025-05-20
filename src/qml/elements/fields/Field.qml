@@ -51,6 +51,7 @@ ColumnLayout {
 	// completed text
 	readonly property alias input: inputField.input
 
+	onInvalidHintMayBeShownChanged: toggleHintForInvalidText()
 	onValidChanged: toggleHintForInvalidText()
 
 	// label for the input field
@@ -63,12 +64,10 @@ ColumnLayout {
 		id: inputField
 		Layout.fillWidth: true
 		selectByMouse: true
-
 		// Show a hint for the first time if the entered text is not valid as soon as the input field loses the focus.
 		onFocusChanged: {
 			if (!focus && !invalidHintMayBeShown) {
 				invalidHintMayBeShown = true
-				toggleHintForInvalidText()
 			}
 		}
 	}
@@ -89,7 +88,7 @@ ColumnLayout {
 	 * If invalidHintMayBeShown was initially set to false, that is only done if the input field has lost the focus at least one time because of its onFocusChanged().
 	 */
 	function toggleHintForInvalidText() {
-		invalidHint.visible = !valid && invalidHintMayBeShown && invalidHintText.length > 0;
+		invalidHint.visible = !valid && invalidHintMayBeShown && invalidHintText.length
 	}
 
 	/**
@@ -97,8 +96,9 @@ ColumnLayout {
 	 * If the input field is already focused, the focusing is executed again to trigger its onFocusChanged().
 	 */
 	function forceActiveFocus() {
-		if (inputField.focus)
+		if (inputField.focus) {
 			inputField.focus = false
+		}
 
 		inputField.selectAll()
 		inputField.forceActiveFocus()

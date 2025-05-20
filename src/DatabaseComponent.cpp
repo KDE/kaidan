@@ -12,9 +12,9 @@
 // Kaidan
 #include "Database.h"
 
-DatabaseComponent::DatabaseComponent(Database *database, QObject *parent)
+DatabaseComponent::DatabaseComponent(QObject *parent)
     : QObject(parent)
-    , m_database(database)
+    , m_database(Database::instance())
 {
 }
 

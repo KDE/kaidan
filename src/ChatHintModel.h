@@ -6,7 +6,14 @@
 
 #include <QAbstractItemModel>
 
+class Account;
+class AccountSettings;
+class ChatController;
+class Connection;
+class GroupChatController;
+class NotificationController;
 class QXmppPresence;
+class RosterController;
 
 class ChatHintButton
 {
@@ -18,7 +25,7 @@ class ChatHintButton
 public:
     enum Type {
         Dismiss,
-        ConnectToServer,
+        EnableAccount,
         AllowPresenceSubscription,
         InviteContacts,
         Leave,
@@ -46,10 +53,7 @@ public:
         LoadingDescription,
     };
 
-    static ChatHintModel *instance();
-
-    explicit ChatHintModel(QObject *parent = nullptr);
-    ~ChatHintModel();
+    ChatHintModel(Account *account, ChatController *chatController, QObject *parent = nullptr);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QHash<int, QByteArray> roleNames() const override;
@@ -66,18 +70,17 @@ private:
         bool operator==(const ChatHint &other) const = default;
     };
 
-    void handleConnectionStateChanged();
+    void handleAccountEnabledChanged();
     void handleConnectionErrorChanged();
-    void handleConnectionErrorChanged(int i);
 
     void handleUnrespondedPresenceSubscriptionRequests();
-    void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request);
+    void handlePresenceSubscriptionRequestReceived(const QXmppPresence &request);
 
     void handleNoGroupChatUsers();
     void checkGroupChatDeleted();
-    void handleGroupChatDeleted(const QString &accountJid, const QString &groupChatJid);
+    void handleGroupChatDeleted(const QString &groupChatJid);
 
-    int addConnectToServerChatHint(bool loading = false);
+    int addEnableAccountChatHint();
     void addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
     int addInviteContactsChatHint();
     void addLeaveChatHint();
@@ -94,7 +97,16 @@ private:
     int chatHintIndex(ChatHintButton::Type buttonType) const;
     bool hasButton(int i, ChatHintButton::Type buttonType) const;
 
-    QList<ChatHint> m_chatHints;
+    Account *const m_account;
 
-    static ChatHintModel *s_instance;
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+
+    GroupChatController *const m_groupChatController;
+    NotificationController *const m_notificationController;
+    RosterController *const m_rosterController;
+
+    ChatController *const m_chatController;
+
+    QList<ChatHint> m_chatHints;
 };

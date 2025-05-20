@@ -5,30 +5,19 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import im.kaidan.kaidan
-
-import "../elements"
-
-FormInfoDialog {
+RosterItemDetailsDialog {
 	id: root
 	title: qsTr("Contact Details")
 
-	ContactDetailsHeader {}
+	ContactDetailsHeader {
+		chatController: root.chatController
+	}
 
 	ContactDetailsContent {
 		dialog: root
+		chatController: root.chatController
 		Layout.fillWidth: true
-	}
-
-	Connections {
-		target: Kaidan
-
-		// Close this dialog when the contact is removed.
-		function onCloseChatPageRequested() {
-			root.close()
-		}
 	}
 }

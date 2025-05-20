@@ -18,6 +18,7 @@ MessageReactionButton {
 
 	property string messageId
 	property bool isOwnMessage
+	property MessageModel messageModel
 
 	text: qsTr("Retry updating reactions")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
@@ -27,6 +28,6 @@ MessageReactionButton {
 	contentItem: Kirigami.Icon {
 		source: "view-refresh-symbolic"
 	}
-	onClicked: MessageModel.resendMessageReactions(root.messageId)
+	onClicked: messageModel.resendMessageReactions(root.messageId)
 	Controls.ToolTip.text: text
 }

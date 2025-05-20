@@ -7,35 +7,46 @@
 
 // QXmpp
 #include <QXmppAtmManager.h>
-#include <QXmppClient.h>
 #include <QXmppUri.h>
 // Kaidan
+#include "CredentialsValidator.h"
+#include "FutureUtils.h"
 #include "Globals.h"
-#include "Kaidan.h"
-#include "TrustDb.h"
 
-AtmController::AtmController(QObject *parent)
+AtmController::AtmController(QXmppAtmManager *manager, QObject *parent)
     : QObject(parent)
-    , m_manager(Kaidan::instance()->client()->atmManager())
+    , m_manager(manager)
 {
 }
 
 AtmController::~AtmController() = default;
 
-void AtmController::setAccountJid(const QString &accountJid)
+AtmController::TrustDecisionWithUriResult AtmController::makeTrustDecisionsWithUri(const QString &uriString, const QString &expectedJid)
 {
-    TrustDb::instance()->setAccountJid(accountJid);
-}
+    if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+        const auto uri = std::get<QXmppUri>(uriParsingResult);
+        const auto jid = uri.jid();
+        const auto query = uri.query();
 
-void AtmController::makeTrustDecisionsByUri(const QXmppUri &uri)
-{
-    runOnThread(m_manager, [this, uri]() {
-        const auto trustMessageQuery = std::any_cast<QXmpp::Uri::TrustMessage>(uri.query());
-        m_manager->makeTrustDecisions(trustMessageQuery.encryption,
-                                      uri.jid(),
-                                      keyIdsFromHex(trustMessageQuery.trustKeyIds),
-                                      keyIdsFromHex(trustMessageQuery.distrustKeyIds));
-    });
+        if (query.type() != typeid(QXmpp::Uri::TrustMessage) || !CredentialsValidator::isUserJidValid(jid)) {
+            return TrustDecisionWithUriResult::InvalidUri;
+        }
+
+        if (expectedJid.isEmpty() || jid == expectedJid) {
+            const auto trustMessageQuery = std::any_cast<QXmpp::Uri::TrustMessage>(query);
+
+            if (trustMessageQuery.encryption != XMLNS_OMEMO_2 || (trustMessageQuery.trustKeyIds.isEmpty() && trustMessageQuery.distrustKeyIds.isEmpty())) {
+                return TrustDecisionWithUriResult::InvalidUri;
+            }
+
+            makeTrustDecisions(uri.jid(), trustMessageQuery.trustKeyIds, trustMessageQuery.distrustKeyIds);
+            return TrustDecisionWithUriResult::MakingTrustDecisions;
+        }
+
+        return TrustDecisionWithUriResult::JidUnexpected;
+    }
+
+    return TrustDecisionWithUriResult::InvalidUri;
 }
 
 void AtmController::makeTrustDecisions(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting)
@@ -43,6 +54,23 @@ void AtmController::makeTrustDecisions(const QString &jid, const QList<QString> 
     runOnThread(m_manager, [this, jid, keyIdsForAuthentication, keyIdsForDistrusting]() {
         m_manager->makeTrustDecisions(XMLNS_OMEMO_2, jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
     });
+}
+
+QFuture<QXmpp::TrustLevel> AtmController::trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
+{
+    QFutureInterface<QXmpp::TrustLevel> interface(QFutureInterfaceBase::Started);
+
+    callRemoteTask(
+        m_manager,
+        [this, encryption, keyOwnerJid, keyId]() {
+            return std::pair{m_manager->trustLevel(encryption, keyOwnerJid, keyId), this};
+        },
+        this,
+        [interface](QXmpp::TrustLevel &&trustLevel) mutable {
+            reportFinishedResult(interface, std::move(trustLevel));
+        });
+
+    return interface.future();
 }
 
 QList<QByteArray> AtmController::keyIdsFromHex(const QList<QString> &keyIds)

@@ -14,32 +14,42 @@
 // Kaidan
 #include "Message.h"
 
+class AccountSettings;
+class ClientWorker;
+class Connection;
+class EncryptionController;
+class QXmppClient;
+class QXmppMamManager;
 class QXmppMessage;
+class QXmppMessageReceiptManager;
+class RosterController;
 
 class MessageController : public QObject
 {
     Q_OBJECT
 
 public:
-    static MessageController *instance();
+    MessageController(AccountSettings *accountSettings,
+                      Connection *connection,
+                      EncryptionController *encryptionController,
+                      RosterController *rosterController,
+                      QXmppClient *client,
+                      QXmppMamManager *mamManager,
+                      QXmppMessageReceiptManager *messageReceiptManager,
+                      QObject *parent = nullptr);
 
-    explicit MessageController(QObject *parent = nullptr);
-    ~MessageController() override;
+    QFuture<QXmpp::SendResult> send(QXmppMessage &&message, Encryption::Enum encryption, const QList<QString> &encryptionGroupChatUserJids = {});
 
-    QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
+    void sendMessageWithUndecidedEncryption(Message message);
 
-    /**
-     * Sends pending messages again after searching them in the database.
-     */
-    void sendPendingMessages();
+    void sendPendingData();
 
-    void sendPendingMessageReactions(const QString &accountJid);
-    void updateMessageReactionsAfterSending(const QString &messageId, const QString &senderJid);
-
-    /**
-     * Sends a chat state notification to the server.
-     */
-    void sendChatState(const QString &toJid, bool isGroupChat, const QXmppMessage::State state);
+    void sendChatState(const QString &chatJid,
+                       bool isGroupChat,
+                       const QXmppMessage::State state,
+                       Encryption::Enum encryption,
+                       const QList<QString> &encryptionJids = {});
+    Q_SIGNAL void chatStateReceived(const QString &senderJid, QXmppMessage::State state);
 
     /**
      * Sends a chat marker for a read message.
@@ -47,16 +57,28 @@ public:
      * @param chatJid bare JID of the chat that contains the read message
      * @param messageId ID of the read message
      */
-    void sendReadMarker(const QString &chatJid, const QString &messageId);
+    void sendReadMarker(const QString &chatJid,
+                        const QString &messageId,
+                        Encryption::Enum encryption = Encryption::NoEncryption,
+                        const QList<QString> &encryptionJids = {});
 
-    QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QList<QString> &emojis);
+    Q_SIGNAL void contactMessageRead(const QString &accountJid, const QString &chatJid);
+
+    QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid,
+                                                   const QString &messageId,
+                                                   bool isGroupChatMessage,
+                                                   const QList<QString> &emojis,
+                                                   Encryption::Enum encryption,
+                                                   const QList<QString> &encryptionJids);
+
+    void updateMessageReactionsAfterSending(const QString &chatJid, const QString &messageId, const QString &senderJid);
 
     void sendPendingMessage(Message message);
 
     QFuture<bool> retrieveBacklogMessages(const QString &jid, bool isGroupChat, const QString &oldestMessageStanzaId = QLatin1String(""));
 
 private:
-    void handleRosterReceived();
+    void handleRosterReceived(const QString &accountJid);
     void retrieveInitialMessages();
 
     /**
@@ -74,8 +96,7 @@ private:
      */
     void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
 
-    void
-    updateLatestMessage(const QString &accountJid, const QString &chatJid, const QString &stanzaId, const QDateTime &timestamp, bool receivedFromGroupChat);
+    void updateLatestMessage(const QString &chatJid, const QString &stanzaId, const QDateTime &timestamp, bool receivedFromGroupChat);
 
     /**
      * Handles a message that may contain a read marker.
@@ -84,12 +105,22 @@ private:
      */
     bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
 
-    bool handleReaction(const QXmppMessage &message, const QString &senderJid);
+    bool handleReaction(const QXmppMessage &message, const QString &chatJid, const QString &senderJid);
     bool handleFileSourcesAttachments(const QXmppMessage &message, const QString &chatJid);
 
     static std::optional<EncryptedSource> parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source);
     static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
     static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
-    static MessageController *s_instance;
+    void sendPendingMessages();
+    void sendPendingMessageReactions();
+    void sendPendingReadMarkers();
+
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+    EncryptionController *const m_encryptionController;
+    RosterController *const m_rosterController;
+    QXmppClient *const m_client;
+    QXmppMamManager *const m_mamManager;
+    QXmppMessageReceiptManager *const m_messageReceiptManager;
 };

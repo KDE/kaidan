@@ -7,21 +7,29 @@ import QtQuick.Layouts
 
 import im.kaidan.kaidan
 
-import "../elements"
-
-FormInfoPage {
+DetailsPage {
 	id: root
-
-	property string jid
-
 	title: qsTr("Account Details")
+	Component.onCompleted: AccountController.setActiveAccount(account)
+	Component.onDestruction: AccountController.resetActiveAccount()
 
 	AccountDetailsHeader {
-		jid: root.jid
+		account: root.account
 	}
 
 	AccountDetailsContent {
-		jid: root.jid
+		account: root.account
 		Layout.fillWidth: true
+	}
+
+	Connections {
+		target: AccountController
+
+		// Close this dialog when the account is removed.
+		function onAccountRemoved(jid) {
+			if (jid === root.account.settings.jid) {
+				popLayer()
+			}
+		}
 	}
 }

@@ -21,25 +21,23 @@ import "fields"
 ConfirmationArea {
 	id: root
 
-	property string accountJid: AccountController.account.jid
+	property Account account
 	property alias jidField: jidField
 	property alias jid: jidField.text
-	property alias nameField: nameField
 	property alias name: nameField.text
-	property alias messageField: messageField
 
 	confirmationButton.text: qsTr("Add")
 	confirmationButton.onClicked: {
-		if (RosterModel.hasItem(jid)) {
+		if (RosterModel.hasItem(account.settings.jid, jid)) {
 			showPassiveNotification(qsTr("Contact already exists"),
 									"long",
 									qsTr("Open chat"),
 									function () {
-										Kaidan.openChatPageRequested(accountJid, jid)
+										MainController.openChatPageRequested(account.settings.jid, jid)
 									})
 		} else if (jidField.valid) {
 			busy = true
-			Kaidan.rosterController.addContact(jid, name, messageField.text)
+			account.rosterController.addContact(jid, name, messageField.text)
 		} else {
 			jidField.forceActiveFocus()
 		}
@@ -48,7 +46,6 @@ ConfirmationArea {
 
 	JidField {
 		id: jidField
-		text: ""
 		inputField.onAccepted: valid ? nameField.forceActiveFocus() : forceActiveFocus()
 		Layout.fillWidth: true
 	}
@@ -63,7 +60,7 @@ ConfirmationArea {
 
 	ColumnLayout {
 		Controls.Label {
-			text: qsTr("Message (optional):")
+			text: qsTr("Message (optional, unencrypted):")
 			textFormat: Text.PlainText
 			Layout.fillWidth: true
 		}
@@ -88,9 +85,12 @@ ConfirmationArea {
 	Connections {
 		target: RosterModel
 
-		function onItemAdded(accountJid, jid) {
-			if (accountJid === root.accountJid && jid === root.jid) {
-				Kaidan.openChatPageRequested(accountJid, jid)
+		function onItemAdded(item) {
+			const accountJid = item.accountJid
+			const jid = item.jid
+
+			if (accountJid === root.account.settings.jid && jid === root.jid) {
+				MainController.openChatPageRequested(accountJid, jid)
 			}
 		}
 	}

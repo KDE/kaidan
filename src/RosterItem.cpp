@@ -8,6 +8,8 @@
 
 // QXmpp
 #include <QXmppUtils.h>
+// Kaidan
+#include "AccountController.h"
 
 RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item)
     : accountJid(accountJid)
@@ -20,7 +22,7 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
     }
 
     const auto rosterGroups = item.groups();
-    groups = QList(rosterGroups.cbegin(), rosterGroups.cend());
+    groups = {rosterGroups.cbegin(), rosterGroups.cend()};
 }
 
 QString RosterItem::displayName() const
@@ -79,14 +81,63 @@ bool RosterItem::isDeletedGroupChat() const
     return groupChatFlags.testFlag(GroupChatFlag::Deleted);
 }
 
+RosterItem::EffectiveNotificationRule RosterItem::effectiveNotificationRule() const
+{
+    switch (notificationRule) {
+    case NotificationRule::Account: {
+        const auto *accountSettings = AccountController::instance()->account(accountJid)->settings();
+
+        if (isGroupChat()) {
+            switch (accountSettings->groupChatNotificationRule()) {
+            case AccountSettings::GroupChatNotificationRule::Never:
+                return EffectiveNotificationRule::Never;
+            case AccountSettings::GroupChatNotificationRule::Mentioned:
+                return EffectiveNotificationRule::Mentioned;
+            case AccountSettings::GroupChatNotificationRule::Always:
+                return EffectiveNotificationRule::Always;
+            }
+        }
+
+        switch (accountSettings->contactNotificationRule()) {
+        case AccountSettings::ContactNotificationRule::Never:
+            return EffectiveNotificationRule::Never;
+        case AccountSettings::ContactNotificationRule::PresenceOnly:
+            if (isReceivingPresence()) {
+                return EffectiveNotificationRule::Always;
+            }
+
+            return EffectiveNotificationRule::Never;
+        case AccountSettings::ContactNotificationRule::Always:
+            return EffectiveNotificationRule::Always;
+        }
+
+        Q_UNREACHABLE();
+    }
+    case NotificationRule::Never:
+        return EffectiveNotificationRule::Never;
+    case NotificationRule::Mentioned:
+        return EffectiveNotificationRule::Mentioned;
+    case NotificationRule::Always:
+        return EffectiveNotificationRule::Always;
+    }
+
+    Q_UNREACHABLE();
+}
+
 bool RosterItem::operator<(const RosterItem &other) const
 {
     if (pinningPosition == -1 && other.pinningPosition == -1) {
         if (lastMessageDateTime != other.lastMessageDateTime) {
             return lastMessageDateTime > other.lastMessageDateTime;
         }
-        return displayName().toUpper() < other.displayName().toUpper();
+
+        if (displayName() != other.displayName()) {
+            return displayName() < other.displayName();
+        }
+
+        return accountJid < other.accountJid;
     }
+
     return pinningPosition > other.pinningPosition;
 }
 
@@ -96,8 +147,14 @@ bool RosterItem::operator>(const RosterItem &other) const
         if (lastMessageDateTime != other.lastMessageDateTime) {
             return lastMessageDateTime < other.lastMessageDateTime;
         }
-        return displayName().toUpper() > other.displayName().toUpper();
+
+        if (displayName() != other.displayName()) {
+            return displayName() > other.displayName();
+        }
+
+        return accountJid > other.accountJid;
     }
+
     return pinningPosition < other.pinningPosition;
 }
 
@@ -107,8 +164,14 @@ bool RosterItem::operator<=(const RosterItem &other) const
         if (lastMessageDateTime != other.lastMessageDateTime) {
             return lastMessageDateTime >= other.lastMessageDateTime;
         }
-        return displayName().toUpper() <= other.displayName().toUpper();
+
+        if (displayName() != other.displayName()) {
+            return displayName() <= other.displayName();
+        }
+
+        return accountJid <= other.accountJid;
     }
+
     return pinningPosition >= other.pinningPosition;
 }
 
@@ -118,8 +181,14 @@ bool RosterItem::operator>=(const RosterItem &other) const
         if (lastMessageDateTime != other.lastMessageDateTime) {
             return lastMessageDateTime <= other.lastMessageDateTime;
         }
-        return displayName().toUpper() >= other.displayName().toUpper();
+
+        if (displayName() != other.displayName()) {
+            return displayName() >= other.displayName();
+        }
+
+        return accountJid >= other.accountJid;
     }
+
     return pinningPosition <= other.pinningPosition;
 }
 

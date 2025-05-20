@@ -43,7 +43,7 @@ RegistrationRequestPage {
 	signal formUpdated
 
 	Connections {
-		target: Kaidan.registrationController
+		target: root.account.registrationController
 
 		function onRegistrationFormReceived(dataFormModel) {
 			root.formModel = dataFormModel
@@ -86,6 +86,6 @@ RegistrationRequestPage {
 			formModel.setPassword(password)
 		}
 
-		Kaidan.registrationController.sendRegistrationForm()
+		account.registrationController.sendRegistrationForm()
 	}
 }

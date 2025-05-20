@@ -17,10 +17,10 @@ import "../elements/fields"
 /**
  * This view is used for choosing a provider.
  */
-RegistrationPage {
+RegistrationRequestPage {
 	id: root
 	title: qsTr("Choose a Provider")
-	onBackRequested: AccountController.resetCustomConnectionSettings()
+	onBackRequested: account.settings.resetCustomConnectionSettings()
 
 	ListView {
 		id: providerListView
@@ -136,6 +136,7 @@ RegistrationPage {
 
 											CustomConnectionSettings {
 												id: customConnectionSettings
+												account: root.account
 												confirmationButton: choiceButton
 												visible: false
 												Layout.topMargin: Kirigami.Units.largeSpacing
@@ -209,7 +210,7 @@ RegistrationPage {
 								id: choiceButton
 								idleText: qsTr("Choose")
 								busyText: qsTr("Requesting registration…")
-								busy: Kaidan.connectionState === Enums.StateConnecting && providerListView.lastClickedButton === this
+								busy: root.account.connection.state === Enums.StateConnecting && providerListView.lastClickedButton === this
 								background: HighlightedFormButtonBackground {
 									corners {
 										topLeftRadius: 0
@@ -227,10 +228,10 @@ RegistrationPage {
 										const chosenProvider = providerField.text
 
 										if (chosenProvider) {
-											root.provider = chosenProvider
+											root.account.settings.jid = chosenProvider
 
-											AccountController.setNewAccountHost(loadedCustomProviderArea.hostField.text,
-																			  loadedCustomProviderArea.portField.value)
+											root.account.settings.host = loadedCustomProviderArea.hostField.text
+											root.account.settings.port = loadedCustomProviderArea.portField.value
 
 											requestRegistrationForm()
 										} else {
@@ -238,8 +239,8 @@ RegistrationPage {
 											providerField.forceActiveFocus()
 										}
 									} else {
-										root.provider = model.jid
-										AccountController.resetCustomConnectionSettings()
+										root.account.settings.jid = model.jid
+										root.account.settings.resetCustomConnectionSettings()
 
 										if (model.supportsInBandRegistration) {
 											requestRegistrationForm()
@@ -265,29 +266,33 @@ RegistrationPage {
 	Component {
 		id: manualRegistrationPage
 
-		ManualRegistrationPage {}
+		ManualRegistrationPage {
+			account: root.account
+		}
 	}
 
 	Component {
 		id: webRegistrationPage
 
-		WebRegistrationPage {}
+		WebRegistrationPage {
+			account: root.account
+		}
 	}
 
 	Connections {
-		target: Kaidan.registrationController
+		target: root.account.registrationController
 		enabled: pageStack.layers.currentItem === root
 
 		function onRegistrationFormReceived(dataFormModel) {
 			let page = pushLayer(manualRegistrationPage)
-			page.provider = root.provider
+			page.account = root.account
 			page.formModel = dataFormModel
 			page.formUpdated()
 		}
 	}
 
 	Connections {
-		target: Kaidan.registrationController
+		target: root.account.registrationController
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			openWebRegistrationPage(outOfBandUrl)
@@ -307,7 +312,7 @@ RegistrationPage {
 
 	function openWebRegistrationPage(registrationWebPage) {
 		let page = pushLayer(webRegistrationPage)
-		page.provider = provider
+		page.account = account
 		page.registrationWebPage = registrationWebPage
 	}
 }

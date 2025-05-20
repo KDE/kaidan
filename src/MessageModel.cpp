@@ -16,21 +16,19 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
-#include "AccountController.h"
+#include "Account.h"
+#include "AtmController.h"
 #include "ChatController.h"
 #include "EncryptionController.h"
 #include "Globals.h"
-#include "GroupChatUser.h"
-#include "GroupChatUserDb.h"
-#include "Kaidan.h"
 #include "KaidanCoreLog.h"
+#include "MainController.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "MessageDb.h"
-#include "Notifications.h"
+#include "NotificationController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
-#include "TrustDb.h"
 
 // defines that the message is suitable for correction only if it is among the N latest messages
 constexpr int MAX_CORRECTION_MESSAGE_COUNT_DEPTH = 20;
@@ -47,35 +45,33 @@ bool DetailedMessageReaction::operator<(const DetailedMessageReaction &other) co
     return senderName < other.senderName;
 }
 
-MessageModel *MessageModel::s_instance = nullptr;
-
-MessageModel *MessageModel::instance()
-{
-    return s_instance;
-}
-
-MessageModel::MessageModel(QObject *parent)
+MessageModel::MessageModel(AccountSettings *accountSettings,
+                           Connection *connection,
+                           AtmController *atmController,
+                           ChatController *chatController,
+                           EncryptionController *encryptionController,
+                           MessageController *messageController,
+                           NotificationController *notificationController,
+                           QObject *parent)
     : QAbstractListModel(parent)
+    , m_accountSettings(accountSettings)
+    , m_connection(connection)
+    , m_atmController(atmController)
+    , m_chatController(chatController)
+    , m_messageController(messageController)
+    , m_notificationController(notificationController)
 {
-    Q_ASSERT(!s_instance);
-    s_instance = this;
-
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
     connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::handleMessageUpdated);
-    connect(MessageDb::instance(), &MessageDb::allMessagesRemovedFromChat, this, &MessageModel::removeMessages);
+    connect(MessageDb::instance(), &MessageDb::messagesRemoved, this, &MessageModel::removeMessages);
 
-    connect(ChatController::instance(), &ChatController::rosterItemChanged, this, [this]() {
-        if (m_lastReadOwnMessageId != ChatController::instance()->rosterItem().lastReadOwnMessageId) {
+    connect(m_chatController, &ChatController::rosterItemChanged, this, [this]() {
+        if (m_lastReadOwnMessageId != m_chatController->rosterItem().lastReadOwnMessageId) {
             updateLastReadOwnMessageId();
         }
     });
 
-    connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &MessageModel::handleDevicesChanged);
-}
-
-MessageModel::~MessageModel()
-{
-    s_instance = nullptr;
+    connect(encryptionController, &EncryptionController::devicesChanged, this, &MessageModel::handleDevicesChanged);
 }
 
 int MessageModel::rowCount(const QModelIndex &) const
@@ -153,10 +149,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
 
         if (msg.isGroupChatMessage()) {
-            return determineGroupChatSenderName(msg);
+            return msg.groupChatSenderName;
         }
 
-        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+        const auto rosterItem = RosterModel::instance()->item(msg.accountJid, msg.chatJid);
 
         // On the first received message from a stranger, a new roster item is added.
         Q_ASSERT(rosterItem);
@@ -233,7 +229,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return QString();
         }
 
-        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+        const auto rosterItem = RosterModel::instance()->item(msg.accountJid, msg.chatJid);
 
         // On the first received message from a stranger, a new roster item is added.
         Q_ASSERT(rosterItem);
@@ -302,7 +298,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
         const auto &reactionSenders = msg.reactionSenders;
         for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
-            const auto ownReactionsIterated = itr.key() == ChatController::instance()->accountJid();
+            const auto ownReactionsIterated = itr.key() == m_accountSettings->jid();
 
             for (const auto &reaction : std::as_const(itr->reactions)) {
                 auto reactionItr = std::find_if(displayedMessageReactions.begin(),
@@ -340,7 +336,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             const auto &reactionSenders = msg.reactionSenders;
             for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
                 // Skip own reactions.
-                if (itr.key() != ChatController::instance()->accountJid()) {
+                if (itr.key() != m_accountSettings->jid()) {
                     QStringList emojis;
 
                     for (const auto &reaction : std::as_const(itr->reactions)) {
@@ -359,7 +355,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return {};
     }
     case OwnReactionsFailed: {
-        const auto &ownReactions = msg.reactionSenders.value(ChatController::instance()->accountJid()).reactions;
+        const auto &ownReactions = msg.reactionSenders.value(m_accountSettings->jid()).reactions;
         return std::any_of(ownReactions.cbegin(), ownReactions.cend(), [](const MessageReaction &reaction) {
             switch (reaction.deliveryState) {
             case MessageReactionDeliveryState::ErrorOnAddition:
@@ -387,40 +383,38 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 void MessageModel::fetchMore(const QModelIndex &)
 {
     if (!m_fetchedAllFromDb) {
-        const auto accountJid = AccountController::instance()->account().jid;
+        const auto accountJid = m_accountSettings->jid();
         if (m_messages.isEmpty()) {
             // If there are unread messages, all messages until the first unread message are
             // fetched.
             // Otherwise, the messages are fetched by their regular limit.
-            if (ChatController::instance()->rosterItem().unreadMessages > 0) {
-                const auto lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
+            if (m_chatController->rosterItem().unreadMessages > 0) {
+                const auto lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
 
                 // lastReadContactMessageId can be empty if there is no contact message stored or
                 // the oldest stored contact message is marked as first unread.
                 if (lastReadContactMessageId.isEmpty()) {
                     MessageDb::instance()
-                        ->fetchMessagesUntilFirstContactMessage(accountJid, ChatController::instance()->chatJid(), 0)
+                        ->fetchMessagesUntilFirstContactMessage(accountJid, m_chatController->jid(), 0)
                         .then(this, [this](QList<Message> &&messages) {
                             handleMessagesFetched(messages);
                         });
                 } else {
                     MessageDb::instance()
-                        ->fetchMessagesUntilId(accountJid, ChatController::instance()->chatJid(), 0, lastReadContactMessageId)
+                        ->fetchMessagesUntilId(accountJid, m_chatController->jid(), 0, lastReadContactMessageId)
                         .then(this, [this](MessageDb::MessageResult &&result) {
                             handleMessagesFetched(result.messages);
                         });
                 }
             } else {
-                MessageDb::instance()->fetchMessages(accountJid, ChatController::instance()->chatJid(), 0).then(this, [this](QList<Message> &&messages) {
+                MessageDb::instance()->fetchMessages(accountJid, m_chatController->jid(), 0).then(this, [this](QList<Message> &&messages) {
                     handleMessagesFetched(messages);
                 });
             }
         } else {
-            MessageDb::instance()
-                ->fetchMessages(accountJid, ChatController::instance()->chatJid(), m_messages.size())
-                .then(this, [this](QList<Message> &&messages) {
-                    handleMessagesFetched(messages);
-                });
+            MessageDb::instance()->fetchMessages(accountJid, m_chatController->jid(), m_messages.size()).then(this, [this](QList<Message> &&messages) {
+                handleMessagesFetched(messages);
+            });
         }
     } else if (!m_fetchedAllFromMam) {
         // Skip unneeded steps when 'canFetchMore()' has not been called before calling
@@ -428,15 +422,15 @@ void MessageModel::fetchMore(const QModelIndex &)
         if (!m_mamLoading) {
             setMamLoading(true);
 
-            const auto chatJid = ChatController::instance()->chatJid();
-            const auto isGroupChat = ChatController::instance()->rosterItem().isGroupChat();
+            const auto chatJid = m_chatController->jid();
+            const auto isGroupChat = m_chatController->rosterItem().isGroupChat();
 
             if (m_messages.isEmpty()) {
-                MessageController::instance()->retrieveBacklogMessages(chatJid, isGroupChat).then(this, [this](bool complete) {
+                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat).then(this, [this](bool complete) {
                     handleMamBacklogRetrieved(complete);
                 });
             } else {
-                MessageController::instance()->retrieveBacklogMessages(chatJid, isGroupChat, m_messages.constLast().stanzaId).then(this, [this](bool complete) {
+                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat, m_messages.constLast().stanzaId).then(this, [this](bool complete) {
                     handleMamBacklogRetrieved(complete);
                 });
             }
@@ -458,7 +452,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
         return;
     }
 
-    const auto &lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
+    const auto &lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
 
     // Skip messages that are read but older than the last read message.
     for (int i = 0; i != m_messages.size(); ++i) {
@@ -498,18 +492,18 @@ void MessageModel::handleMessageRead(int readMessageIndex)
     const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
     if (lastReadContactMessageId != readMessageId && isApplicationActive) {
-        Notifications::instance()->closeMessageNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
+        m_notificationController->closeMessageNotification(m_chatController->jid());
 
         bool readMarkerPending = true;
-        if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-            if (ChatController::instance()->rosterItem().readMarkerSendingEnabled) {
-                MessageController::instance()->sendReadMarker(ChatController::instance()->chatJid(), readMessageId);
+        if (Enums::ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
+            if (m_chatController->rosterItem().readMarkerSendingEnabled) {
+                m_messageController->sendReadMarker(m_chatController->jid(), readMessageId);
             }
 
             readMarkerPending = false;
         }
 
-        RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=, this](RosterItem &item) {
+        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, this](RosterItem &item) {
             item.lastReadContactMessageId = readMessageId;
             item.readMarkerPending = readMarkerPending;
 
@@ -570,16 +564,15 @@ void MessageModel::markMessageAsFirstUnread(int index)
     // That is needed if a message is marked as the first unread message while the previous message
     // of the contact is not fetched from the database and thus not in m_messages.
     if (lastReadContactMessageId.isEmpty()) {
-        auto future =
-            MessageDb::instance()->firstContactMessageId(ChatController::instance()->accountJid(), ChatController::instance()->chatJid(), unreadMessageCount);
-        future.then(this, [=, currentChatJid = ChatController::instance()->chatJid()](QString &&firstContactMessageId) {
-            RosterDb::instance()->updateItem(currentChatJid, [=](RosterItem &item) {
+        auto future = MessageDb::instance()->firstContactMessageId(m_accountSettings->jid(), m_chatController->jid(), unreadMessageCount);
+        future.then(this, [this, currentChatJid = m_chatController->jid(), unreadMessageCount](QString &&firstContactMessageId) {
+            RosterDb::instance()->updateItem(m_accountSettings->jid(), currentChatJid, [=](RosterItem &item) {
                 item.unreadMessages = unreadMessageCount;
                 item.lastReadContactMessageId = firstContactMessageId;
             });
         });
     } else {
-        RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
+        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
             item.unreadMessages = unreadMessageCount;
             item.lastReadContactMessageId = lastReadContactMessageId;
         });
@@ -593,31 +586,34 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
     });
 
     if (itr != m_messages.cend()) {
-        const auto rosterItem = ChatController::instance()->rosterItem();
-        const auto senderId = ChatController::instance()->accountJid();
+        const auto rosterItem = m_chatController->rosterItem();
+        const auto senderId = m_accountSettings->jid();
         const auto reactions = itr->reactionSenders.value(senderId).reactions;
 
         if (undoMessageReactionRemoval(messageId, senderId, emoji, reactions)) {
             return;
         }
 
-        auto addReaction = [messageId, senderId, emoji](MessageReactionDeliveryState::Enum deliveryState) -> QFuture<void> {
-            return MessageDb::instance()->updateMessage(messageId, [senderId, emoji, deliveryState](Message &message) {
-                auto &reactionSender = message.reactionSenders[senderId];
-                reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+        auto addReaction = [this, messageId, senderId, emoji](MessageReactionDeliveryState::Enum deliveryState) -> QFuture<void> {
+            return MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                                        m_chatController->jid(),
+                                                        messageId,
+                                                        [senderId, emoji, deliveryState](Message &message) {
+                                                            auto &reactionSender = message.reactionSenders[senderId];
+                                                            reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
-                MessageReaction reaction;
-                reaction.emoji = emoji;
-                reaction.deliveryState = deliveryState;
+                                                            MessageReaction reaction;
+                                                            reaction.emoji = emoji;
+                                                            reaction.deliveryState = deliveryState;
 
-                auto &reactions = reactionSender.reactions;
-                reactions.append(reaction);
-            });
+                                                            auto &reactions = reactionSender.reactions;
+                                                            reactions.append(reaction);
+                                                        });
         };
 
         auto future = addReaction(MessageReactionDeliveryState::PendingAddition);
-        future.then(this, [=, this, chatJid = ChatController::instance()->chatJid()]() {
-            if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+        future.then(this, [=, this, chatJid = m_chatController->jid()]() {
+            if (ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
                 QList<QString> emojis;
 
                 for (const auto &reaction : reactions) {
@@ -635,27 +631,36 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 
                 emojis.append(emoji);
 
-                MessageController::instance()
-                    ->sendMessageReaction(chatJid, messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis)
-                    .then(this, [addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
+                m_messageController
+                    ->sendMessageReaction(chatJid,
+                                          messageId,
+                                          m_chatController->rosterItem().isGroupChat(),
+                                          emojis,
+                                          m_chatController->activeEncryption(),
+                                          m_chatController->groupChatUserJids())
+                    .then(this, [this, addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
-                            Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
-                            MessageDb::instance()->updateMessage(messageId, [senderId, emoji](Message &message) {
-                                auto &reactionSender = message.reactionSenders[senderId];
-                                reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
-                                auto &reactions = reactionSender.reactions;
+                            MessageDb::instance()->updateMessage(
+                                m_chatController->account()->settings()->jid(),
+                                m_chatController->jid(),
+                                messageId,
+                                [senderId, emoji](Message &message) {
+                                    auto &reactionSender = message.reactionSenders[senderId];
+                                    reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+                                    auto &reactions = reactionSender.reactions;
 
-                                auto itr = std::find_if(reactions.begin(), reactions.end(), [emoji](const MessageReaction &reaction) {
-                                    return reaction.emoji == emoji;
+                                    auto itr = std::find_if(reactions.begin(), reactions.end(), [emoji](const MessageReaction &reaction) {
+                                        return reaction.emoji == emoji;
+                                    });
+
+                                    if (itr != reactions.end()) {
+                                        itr->deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+                                    }
                                 });
-
-                                if (itr != reactions.end()) {
-                                    itr->deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
-                                }
-                            });
                         } else {
-                            MessageController::instance()->updateMessageReactionsAfterSending(messageId, senderId);
+                            m_messageController->updateMessageReactionsAfterSending(m_chatController->jid(), messageId, senderId);
                         }
                     });
             }
@@ -670,36 +675,40 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
     });
 
     if (itr != m_messages.cend()) {
-        const auto rosterItem = ChatController::instance()->rosterItem();
-        const auto senderId = ChatController::instance()->accountJid();
+        const auto rosterItem = m_chatController->rosterItem();
+        const auto senderId = m_accountSettings->jid();
         const auto &reactions = itr->reactionSenders.value(senderId).reactions;
 
         if (undoMessageReactionAddition(messageId, senderId, emoji, reactions)) {
             return;
         }
 
-        auto future = MessageDb::instance()->updateMessage(messageId, [senderId, emoji](Message &message) {
-            auto &reactionSenders = message.reactionSenders;
-            auto &reactions = reactionSenders[senderId].reactions;
+        auto future = MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                                           m_chatController->jid(),
+                                                           messageId,
+                                                           [senderId, emoji](Message &message) {
+                                                               auto &reactionSenders = message.reactionSenders;
+                                                               auto &reactions = reactionSenders[senderId].reactions;
 
-            const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                return reaction.emoji == emoji;
-            });
+                                                               const auto itr =
+                                                                   std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                                       return reaction.emoji == emoji;
+                                                                   });
 
-            switch (auto &deliveryState = itr->deliveryState) {
-            case MessageReactionDeliveryState::Sent:
-                deliveryState = MessageReactionDeliveryState::PendingRemovalAfterSent;
-                break;
-            case MessageReactionDeliveryState::Delivered:
-                deliveryState = MessageReactionDeliveryState::PendingRemovalAfterDelivered;
-                break;
-            default:
-                break;
-            }
-        });
+                                                               switch (auto &deliveryState = itr->deliveryState) {
+                                                               case MessageReactionDeliveryState::Sent:
+                                                                   deliveryState = MessageReactionDeliveryState::PendingRemovalAfterSent;
+                                                                   break;
+                                                               case MessageReactionDeliveryState::Delivered:
+                                                                   deliveryState = MessageReactionDeliveryState::PendingRemovalAfterDelivered;
+                                                                   break;
+                                                               default:
+                                                                   break;
+                                                               }
+                                                           });
 
-        future.then(this, [=, this, chatJid = ChatController::instance()->chatJid()]() {
-            if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+        future.then(this, [this, messageId, senderId, emoji, itr, chatJid = m_chatController->jid()]() {
+            if (ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
                 const auto &reactionSenders = itr->reactionSenders;
                 const auto &reactions = reactionSenders[senderId].reactions;
                 QList<QString> emojis;
@@ -720,32 +729,41 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                     }
                 }
 
-                MessageController::instance()
-                    ->sendMessageReaction(chatJid, messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis)
-                    .then(this, [messageId, senderId, emoji](QXmpp::SendResult &&result) {
+                m_messageController
+                    ->sendMessageReaction(chatJid,
+                                          messageId,
+                                          m_chatController->rosterItem().isGroupChat(),
+                                          emojis,
+                                          m_chatController->activeEncryption(),
+                                          m_chatController->groupChatUserJids())
+                    .then(this, [this, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
-                            Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
-                            MessageDb::instance()->updateMessage(messageId, [senderId, emoji](Message &message) {
-                                auto &reactions = message.reactionSenders[senderId].reactions;
+                            MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                                                 m_chatController->jid(),
+                                                                 messageId,
+                                                                 [senderId, emoji](Message &message) {
+                                                                     auto &reactions = message.reactionSenders[senderId].reactions;
 
-                                const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                                    return reaction.emoji == emoji;
-                                });
+                                                                     const auto itr =
+                                                                         std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                                             return reaction.emoji == emoji;
+                                                                         });
 
-                                switch (auto &deliveryState = itr->deliveryState) {
-                                case MessageReactionDeliveryState::Sent:
-                                    deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
-                                    break;
-                                case MessageReactionDeliveryState::Delivered:
-                                    deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
-                                    break;
-                                default:
-                                    break;
-                                }
-                            });
+                                                                     switch (auto &deliveryState = itr->deliveryState) {
+                                                                     case MessageReactionDeliveryState::Sent:
+                                                                         deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
+                                                                         break;
+                                                                     case MessageReactionDeliveryState::Delivered:
+                                                                         deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
+                                                                         break;
+                                                                     default:
+                                                                         break;
+                                                                     }
+                                                                 });
                         } else {
-                            MessageController::instance()->updateMessageReactionsAfterSending(messageId, senderId);
+                            m_messageController->updateMessageReactionsAfterSending(m_chatController->jid(), messageId, senderId);
                         }
                     });
             }
@@ -760,10 +778,10 @@ void MessageModel::resendMessageReactions(const QString &messageId)
     });
 
     if (itr != m_messages.cend()) {
-        const auto rosterItem = ChatController::instance()->rosterItem();
-        const auto senderId = ChatController::instance()->accountJid();
+        const auto rosterItem = m_chatController->rosterItem();
+        const auto senderId = m_accountSettings->jid();
 
-        MessageDb::instance()->updateMessage(messageId, [senderId](Message &message) {
+        MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(), m_chatController->jid(), messageId, [senderId](Message &message) {
             auto &reactionSender = message.reactionSenders[senderId];
             reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
@@ -784,7 +802,7 @@ void MessageModel::resendMessageReactions(const QString &messageId)
             }
         });
 
-        if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+        if (ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
             QList<QString> emojis;
 
             for (const auto &reaction : itr->reactionSenders.value(senderId).reactions) {
@@ -796,34 +814,42 @@ void MessageModel::resendMessageReactions(const QString &messageId)
                 }
             }
 
-            MessageController::instance()
-                ->sendMessageReaction(ChatController::instance()->chatJid(), messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis)
-                .then(this, [messageId, senderId](QXmpp::SendResult &&result) {
+            m_messageController
+                ->sendMessageReaction(m_chatController->jid(),
+                                      messageId,
+                                      m_chatController->rosterItem().isGroupChat(),
+                                      emojis,
+                                      m_chatController->activeEncryption(),
+                                      m_chatController->groupChatUserJids())
+                .then(this, [this, messageId, senderId](QXmpp::SendResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
-                        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
 
-                        MessageDb::instance()->updateMessage(messageId, [senderId](Message &message) {
-                            auto &reactionSender = message.reactionSenders[senderId];
-                            reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+                        MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                                             m_chatController->jid(),
+                                                             messageId,
+                                                             [senderId](Message &message) {
+                                                                 auto &reactionSender = message.reactionSenders[senderId];
+                                                                 reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
-                            for (auto &reaction : reactionSender.reactions) {
-                                switch (auto &deliveryState = reaction.deliveryState) {
-                                case MessageReactionDeliveryState::PendingAddition:
-                                    deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
-                                    break;
-                                case MessageReactionDeliveryState::PendingRemovalAfterSent:
-                                    deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
-                                    break;
-                                case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
-                                    deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
-                                    break;
-                                default:
-                                    break;
-                                }
-                            }
-                        });
+                                                                 for (auto &reaction : reactionSender.reactions) {
+                                                                     switch (auto &deliveryState = reaction.deliveryState) {
+                                                                     case MessageReactionDeliveryState::PendingAddition:
+                                                                         deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+                                                                         break;
+                                                                     case MessageReactionDeliveryState::PendingRemovalAfterSent:
+                                                                         deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
+                                                                         break;
+                                                                     case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
+                                                                         deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
+                                                                         break;
+                                                                     default:
+                                                                         break;
+                                                                     }
+                                                                 }
+                                                             });
                     } else {
-                        MessageController::instance()->updateMessageReactionsAfterSending(messageId, senderId);
+                        m_messageController->updateMessageReactionsAfterSending(m_chatController->jid(), messageId, senderId);
                     }
                 });
         }
@@ -867,8 +893,8 @@ void MessageModel::removeMessage(const QString &messageId)
     if (itr != m_messages.cend()) {
         int readMessageIndex = std::distance(m_messages.cbegin(), itr);
 
-        const QString &lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
-        const QString &lastReadOwnMessageId = ChatController::instance()->rosterItem().lastReadOwnMessageId;
+        const QString &lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
+        const QString &lastReadOwnMessageId = m_chatController->rosterItem().lastReadOwnMessageId;
 
         if (lastReadContactMessageId == messageId || lastReadOwnMessageId == messageId) {
             handleMessageRead(readMessageIndex);
@@ -881,7 +907,7 @@ void MessageModel::removeMessage(const QString &messageId)
                 isNewLastReadMessageIdValid && newLastReadMessageIndex < m_messages.size() ? m_messages.at(newLastReadMessageIndex).id : QString()};
 
             if (newLastReadMessageId.isEmpty()) {
-                RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
+                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
                     item.lastReadContactMessageId.clear();
                     item.lastReadOwnMessageId.clear();
                     item.lastMessage.clear();
@@ -889,7 +915,7 @@ void MessageModel::removeMessage(const QString &messageId)
                     item.unreadMessages = 0;
                 });
             } else {
-                RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
+                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
                     if (itr->isOwn) {
                         item.lastReadOwnMessageId = newLastReadMessageId;
                     } else {
@@ -938,7 +964,7 @@ int MessageModel::searchMessageById(const QString &messageId)
     }
 
     MessageDb::instance()
-        ->fetchMessagesUntilId(AccountController::instance()->account().jid, ChatController::instance()->chatJid(), i, messageId, 0)
+        ->fetchMessagesUntilId(m_accountSettings->jid(), m_chatController->jid(), i, messageId, 0)
         .then(this, [this](MessageDb::MessageResult &&result) {
             if (const auto messages = result.messages; !messages.isEmpty()) {
                 handleMessagesFetched(messages);
@@ -962,7 +988,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
         }
 
         MessageDb::instance()
-            ->fetchMessagesUntilQueryString(AccountController::instance()->account().jid, ChatController::instance()->chatJid(), foundIndex, searchString)
+            ->fetchMessagesUntilQueryString(m_accountSettings->jid(), m_chatController->jid(), foundIndex, searchString)
             .then(this, [this](MessageDb::MessageResult &&result) {
                 handleMessagesFetched(result.messages);
                 Q_EMIT messageSearchFinished(result.queryIndex);
@@ -1019,7 +1045,7 @@ void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
 
     for (auto msg : msgs) {
         // Skip messages that were not fetched for the current chat.
-        if (msg.accountJid != ChatController::instance()->accountJid() || msg.chatJid != ChatController::instance()->chatJid()) {
+        if (msg.accountJid != m_accountSettings->jid() || msg.chatJid != m_chatController->jid()) {
             continue;
         }
 
@@ -1043,10 +1069,10 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
         m_fetchedAllFromMam = true;
     }
 
-    if (ChatController::instance()->rosterItem().lastReadContactMessageId.isEmpty()) {
+    if (m_chatController->rosterItem().lastReadContactMessageId.isEmpty()) {
         for (const auto &message : std::as_const(m_messages)) {
             if (!message.isOwn) {
-                RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=, messageId = message.id](RosterItem &item) {
+                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, messageId = message.id](RosterItem &item) {
                     item.lastReadContactMessageId = messageId;
                 });
                 break;
@@ -1057,17 +1083,19 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
     Q_EMIT messageFetchingFinished();
 }
 
-void MessageModel::handleMessage(Message msg, MessageOrigin origin)
+void MessageModel::handleMessage(Message msg, MessageOrigin)
 {
-    showMessageNotification(msg, origin);
-
-    if (msg.accountJid == ChatController::instance()->accountJid() && msg.chatJid == ChatController::instance()->chatJid()) {
+    if (msg.accountJid == m_accountSettings->jid() && msg.chatJid == m_chatController->jid()) {
         addMessage(std::move(msg));
     }
 }
 
 void MessageModel::handleMessageUpdated(Message message)
 {
+    if (message.accountJid != m_accountSettings->jid()) {
+        return;
+    }
+
     for (int i = 0; i < m_messages.size(); i++) {
         const auto oldMessage = m_messages.at(i);
         const auto oldId = oldMessage.id;
@@ -1078,12 +1106,6 @@ void MessageModel::handleMessageUpdated(Message message)
         if ((!oldId.isEmpty() && (oldId == message.id || oldId == message.replaceId || oldId == message.originId))
             || (!oldReplaceId.isEmpty() && oldReplaceId == message.replaceId)) {
             const auto oldMessageTimestamp = m_messages.at(i).timestamp;
-
-            // Keep the variables that are only stored in memory.
-            // Otherwise, they would be removed by the updated message.
-            message.groupChatSenderJid = oldMessage.groupChatSenderJid;
-            message.groupChatSenderName = oldMessage.groupChatSenderName;
-            message.preciseTrustLevel = oldMessage.preciseTrustLevel;
 
             beginRemoveRows(QModelIndex(), i, i);
             m_messages.removeAt(i);
@@ -1097,23 +1119,26 @@ void MessageModel::handleMessageUpdated(Message message)
                 addMessage(message);
             }
 
-            showMessageNotification(message, MessageOrigin::Stream);
-
             break;
         }
     }
 }
 
-void MessageModel::handleDevicesChanged(const QString &accountJid, QList<QString> jids)
+void MessageModel::handleDevicesChanged(QList<QString> jids)
 {
+    // TODO: Search through all messages and only fetch trust levels for relevant keys, set those collected trust levels afterwards via another loop through all
+    // messages
+
     for (auto itr = m_messages.begin(); itr != m_messages.end(); ++itr) {
-        if (const auto senderJid = itr->senderJid(); itr->accountJid == accountJid && jids.contains(senderJid)) {
+        if (const auto senderJid = itr->senderJid(); jids.contains(senderJid)) {
             // Do not retrieve the trust level of this device and for unencrypted messages.
             if (const auto senderKey = itr->senderKey; senderKey.isEmpty()) {
                 continue;
             }
 
-            TrustDb::instance()->trustLevel(XMLNS_OMEMO_2, senderJid, itr->senderKey).then(this, [this, itr](QXmpp::TrustLevel trustLevel) {
+            m_atmController->trustLevel(XMLNS_OMEMO_2, senderJid, itr->senderKey).then(this, [this, itr](QXmpp::TrustLevel trustLevel) {
+                // TODO: Search message again here because itr may not be up-to-date
+
                 itr->preciseTrustLevel = trustLevel;
 
                 const auto i = std::distance(m_messages.begin(), itr);
@@ -1151,7 +1176,7 @@ void MessageModel::insertMessage(int idx, const Message &msg)
 
 void MessageModel::removeMessages(const QString &accountJid, const QString &chatJid)
 {
-    if (accountJid == ChatController::instance()->accountJid() && chatJid == ChatController::instance()->chatJid()) {
+    if (accountJid == m_accountSettings->jid() && chatJid == m_chatController->jid()) {
         removeAllMessages();
     }
 }
@@ -1188,7 +1213,7 @@ void MessageModel::addVideoThumbnails(const Message &message)
 void MessageModel::updateLastReadOwnMessageId()
 {
     const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
-    m_lastReadOwnMessageId = ChatController::instance()->rosterItem().lastReadOwnMessageId;
+    m_lastReadOwnMessageId = m_chatController->rosterItem().lastReadOwnMessageId;
     emitMessagesUpdated({formerLastReadOwnMessageId, m_lastReadOwnMessageId}, IsLastReadOwnMessage);
 }
 
@@ -1199,7 +1224,7 @@ void MessageModel::updateFirstUnreadContactMessageIndex()
     for (auto i = 0; i < m_messages.size(); ++i) {
         const auto &message = m_messages.at(i);
         const auto &messageId = message.id;
-        const auto lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
+        const auto lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
 
         // lastReadContactMessageId can be empty if there is no contact message stored or the oldest
         // stored contact message is marked as first unread.
@@ -1240,102 +1265,6 @@ void MessageModel::emitMessagesUpdated(const QList<QString> &messageIds, Message
     }
 }
 
-void MessageModel::showMessageNotification(const Message &message, MessageOrigin origin)
-{
-    // Send a notification in the following cases:
-    // * The message was not sent by the user from another resource and
-    //   received via Message Carbons.
-    // * Notifications are allowed according to the set rule.
-    // * The corresponding chat is not opened while the application window
-    //   is active.
-
-    switch (origin) {
-    case MessageOrigin::UserInput:
-    case MessageOrigin::MamInitial:
-    case MessageOrigin::MamBacklog:
-        // no notifications
-        return;
-    case MessageOrigin::Stream:
-    case MessageOrigin::MamCatchUp:
-        break;
-    }
-
-    if (!message.isOwn) {
-        const auto accountJid = AccountController::instance()->account().jid;
-        const auto chatJid = message.chatJid;
-
-        const auto rosterItem = RosterModel::instance()->findItem(chatJid).value_or(RosterItem{});
-
-        // auto notificationsAllowedByRule = true;
-
-        auto sendNotification = [this, accountJid, chatJid, message]() {
-            const auto chatActive =
-                ChatController::instance()->isChatCurrentChat(accountJid, chatJid) && QGuiApplication::applicationState() == Qt::ApplicationActive;
-            const auto previewText = message.previewText();
-            const auto notificationBody =
-                message.isGroupChatMessage() ? determineGroupChatSenderName(message) + QStringLiteral(": ") + previewText : previewText;
-
-            if (!chatActive) {
-                Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, notificationBody);
-            }
-        };
-
-        auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
-            GroupChatUserDb::instance()
-                ->user(accountJid, chatJid, rosterItem.groupChatParticipantId)
-                .then(this, [body = message.body(), sendNotification](const std::optional<GroupChatUser> user) {
-                    if (user && (body.contains(user->id) || body.contains(user->jid) || body.contains(user->name))) {
-                        sendNotification();
-                    }
-                });
-        };
-
-        if (const auto notificationRule = rosterItem.notificationRule; notificationRule == RosterItem::NotificationRule::Account) {
-            if (message.isGroupChatMessage()) {
-                switch (AccountController::instance()->account().groupChatNotificationRule) {
-                case Account::GroupChatNotificationRule::Mentioned:
-                    sendNotificationOnMention();
-                    break;
-                case Account::GroupChatNotificationRule::Always:
-                    sendNotification();
-                    break;
-                default:
-                    break;
-                }
-            } else {
-                switch (AccountController::instance()->account().contactNotificationRule) {
-                case Account::ContactNotificationRule::PresenceOnly:
-                    if (rosterItem.isReceivingPresence()) {
-                        sendNotification();
-                    }
-                    break;
-                case Account::ContactNotificationRule::Always:
-                    sendNotification();
-                    break;
-                default:
-                    break;
-                }
-            }
-        } else {
-            switch (notificationRule) {
-            case RosterItem::NotificationRule::PresenceOnly:
-                if (rosterItem.isReceivingPresence()) {
-                    sendNotification();
-                }
-                break;
-            case RosterItem::NotificationRule::Mentioned:
-                sendNotificationOnMention();
-                break;
-            case RosterItem::NotificationRule::Always:
-                sendNotification();
-                break;
-            default:
-                break;
-            }
-        }
-    }
-}
-
 bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QList<MessageReaction> &reactions)
 {
     const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
@@ -1343,26 +1272,29 @@ bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QS
     });
 
     if (reactionItr != reactions.end()) {
-        MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
-            auto &reactions = message.reactionSenders[senderJid].reactions;
+        MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                             m_chatController->jid(),
+                                             messageId,
+                                             [senderJid, emoji](Message &message) {
+                                                 auto &reactions = message.reactionSenders[senderJid].reactions;
 
-            const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                return reaction.emoji == emoji;
-            });
+                                                 const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                     return reaction.emoji == emoji;
+                                                 });
 
-            switch (auto &deliveryState = itr->deliveryState) {
-            case MessageReactionDeliveryState::PendingRemovalAfterSent:
-            case MessageReactionDeliveryState::ErrorOnRemovalAfterSent:
-                deliveryState = MessageReactionDeliveryState::Sent;
-                break;
-            case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
-            case MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered:
-                deliveryState = MessageReactionDeliveryState::Delivered;
-                break;
-            default:
-                break;
-            }
-        });
+                                                 switch (auto &deliveryState = itr->deliveryState) {
+                                                 case MessageReactionDeliveryState::PendingRemovalAfterSent:
+                                                 case MessageReactionDeliveryState::ErrorOnRemovalAfterSent:
+                                                     deliveryState = MessageReactionDeliveryState::Sent;
+                                                     break;
+                                                 case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
+                                                 case MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered:
+                                                     deliveryState = MessageReactionDeliveryState::Delivered;
+                                                     break;
+                                                 default:
+                                                     break;
+                                                 }
+                                             });
 
         return true;
     }
@@ -1382,29 +1314,32 @@ bool MessageModel::undoMessageReactionAddition(const QString &messageId,
     });
 
     if (reactionItr != reactions.end()) {
-        MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
-            auto &reactionSenders = message.reactionSenders;
-            auto &reactions = reactionSenders[senderJid].reactions;
+        MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                             m_chatController->jid(),
+                                             messageId,
+                                             [senderJid, emoji](Message &message) {
+                                                 auto &reactionSenders = message.reactionSenders;
+                                                 auto &reactions = reactionSenders[senderJid].reactions;
 
-            const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                return reaction.emoji == emoji;
-            });
+                                                 const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                     return reaction.emoji == emoji;
+                                                 });
 
-            switch (itr->deliveryState) {
-            case MessageReactionDeliveryState::PendingAddition:
-            case MessageReactionDeliveryState::ErrorOnAddition:
-                reactions.erase(itr);
+                                                 switch (itr->deliveryState) {
+                                                 case MessageReactionDeliveryState::PendingAddition:
+                                                 case MessageReactionDeliveryState::ErrorOnAddition:
+                                                     reactions.erase(itr);
 
-                // Remove the reaction sender if it has no reactions anymore.
-                if (reactions.isEmpty()) {
-                    reactionSenders.remove(senderJid);
-                }
+                                                     // Remove the reaction sender if it has no reactions anymore.
+                                                     if (reactions.isEmpty()) {
+                                                         reactionSenders.remove(senderJid);
+                                                     }
 
-                break;
-            default:
-                break;
-            }
-        });
+                                                     break;
+                                                 default:
+                                                     break;
+                                                 }
+                                             });
 
         return true;
     }
@@ -1445,23 +1380,10 @@ QString MessageModel::formatDate(QDate localDate) const
     }
 }
 
-QString MessageModel::determineGroupChatSenderName(const Message &message) const
-{
-    const auto groupChatSenderJid = message.groupChatSenderJid;
-
-    if (!groupChatSenderJid.isEmpty()) {
-        if (const auto rosterItem = RosterModel::instance()->findItem(groupChatSenderJid)) {
-            return rosterItem->displayName();
-        }
-    }
-
-    return message.groupChatSenderName;
-}
-
 QString MessageModel::determineReplyToName(const Message::Reply &reply) const
 {
     if (const auto replyToJid = reply.toJid; !replyToJid.isEmpty()) {
-        if (const auto rosterItem = RosterModel::instance()->findItem(replyToJid)) {
+        if (const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), replyToJid)) {
             return rosterItem->displayName();
         }
     }

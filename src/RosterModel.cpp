@@ -11,12 +11,10 @@
 
 #include "RosterModel.h"
 
-// QXmpp
-#include <QXmppUri.h>
 // Kaidan
 #include "AccountController.h"
-#include "ChatController.h"
 #include "KaidanCoreLog.h"
+#include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterController.h"
@@ -48,17 +46,15 @@ RosterModel::RosterModel(QObject *parent)
     connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
     connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &RosterModel::handleMessageRemoved);
 
-    connect(Kaidan::instance(), &Kaidan::openChatViewRequested, this, [this] {
-        beginResetModel();
-        m_items.clear();
-        endResetModel();
+    connect(AccountController::instance(), &AccountController::accountAdded, this, qOverload<Account *>(&RosterModel::initializeNotificationRuleUpdates));
+
+    connect(AccountController::instance(), &AccountController::accountAvailable, this, [this]() {
+        initializeNotificationRuleUpdates();
 
         RosterDb::instance()->fetchItems().then(this, [this](const QList<RosterItem> &items) {
             handleItemsFetched(items);
         });
     });
-
-    connect(AccountController::instance(), &AccountController::accountChanged, this, &RosterModel::handleAccountChanged);
 }
 
 RosterModel::~RosterModel()
@@ -74,7 +70,7 @@ int RosterModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> RosterModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[AccountJidRole] = QByteArrayLiteral("accountJid");
+    roles[AccountRole] = QByteArrayLiteral("account");
     roles[JidRole] = QByteArrayLiteral("jid");
     roles[NameRole] = QByteArrayLiteral("name");
     roles[GroupsRole] = QByteArrayLiteral("groups");
@@ -89,7 +85,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
     roles[LastMessageGroupChatSenderNameRole] = QByteArrayLiteral("lastMessageGroupChatSenderName");
     roles[PinnedRole] = QByteArrayLiteral("pinned");
     roles[SelectedRole] = QByteArrayLiteral("selected");
-    roles[NotificationRuleRole] = QByteArrayLiteral("notificationRule");
+    roles[EffectiveNotificationRuleRole] = QByteArrayLiteral("effectiveNotificationRule");
     return roles;
 }
 
@@ -103,8 +99,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
     const auto &item = m_items.at(index.row());
 
     switch (role) {
-    case AccountJidRole:
-        return item.accountJid;
+    case AccountRole:
+        return QVariant::fromValue(AccountController::instance()->account(item.accountJid));
     case JidRole:
         return item.jid;
     case NameRole:
@@ -143,56 +139,15 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         return item.pinningPosition >= 0;
     case SelectedRole:
         return item.selected;
-    case NotificationRuleRole:
-        if (item.notificationRule == RosterItem::NotificationRule::Account) {
-            if (item.isGroupChat()) {
-                switch (AccountController::instance()->account().groupChatNotificationRule) {
-                case Account::GroupChatNotificationRule::Never:
-                    return QVariant::fromValue(RosterItem::NotificationRule::Never);
-                case Account::GroupChatNotificationRule::Mentioned:
-                    return QVariant::fromValue(RosterItem::NotificationRule::Mentioned);
-                case Account::GroupChatNotificationRule::Always:
-                    return QVariant::fromValue(RosterItem::NotificationRule::Always);
-                }
-            }
-
-            switch (AccountController::instance()->account().contactNotificationRule) {
-            case Account::ContactNotificationRule::Never:
-                return QVariant::fromValue(RosterItem::NotificationRule::Never);
-            case Account::ContactNotificationRule::PresenceOnly:
-                if (item.isReceivingPresence()) {
-                    return QVariant::fromValue(RosterItem::NotificationRule::Always);
-                } else {
-                    return QVariant::fromValue(RosterItem::NotificationRule::Never);
-                }
-            case Account::ContactNotificationRule::Always:
-                return QVariant::fromValue(RosterItem::NotificationRule::Always);
-            }
-        }
-
-        return QVariant::fromValue(item.notificationRule);
+    case EffectiveNotificationRuleRole:
+        return QVariant::fromValue(item.effectiveNotificationRule());
     }
     return {};
 }
 
-bool RosterModel::hasItem(const QString &jid) const
+bool RosterModel::hasItem(const QString &accountJid, const QString &jid) const
 {
-    return findItem(jid).has_value();
-}
-
-QStringList RosterModel::accountJids() const
-{
-    QStringList accountJids;
-
-    std::for_each(m_items.cbegin(), m_items.cend(), [&accountJids](const RosterItem &item) {
-        if (const auto accountJid = item.accountJid; !accountJids.contains(accountJid)) {
-            accountJids.append(accountJid);
-        }
-    });
-
-    std::sort(accountJids.begin(), accountJids.end());
-
-    return accountJids;
+    return item(accountJid, jid).has_value();
 }
 
 QStringList RosterModel::groups() const
@@ -212,119 +167,56 @@ QStringList RosterModel::groups() const
     return groups;
 }
 
-void RosterModel::updateGroup(const QString &oldGroup, const QString &newGroup)
+bool RosterModel::isPresenceSubscribedByItem(const QString &accountJid, const QString &jid) const
 {
-    for (const auto &item : std::as_const(m_items)) {
-        if (auto groups = item.groups; groups.contains(oldGroup)) {
-            groups.removeOne(oldGroup);
-            groups.append(newGroup);
-
-            Kaidan::instance()->rosterController()->updateGroups(item.jid, item.name, groups);
-        }
-    }
-}
-
-void RosterModel::removeGroup(const QString &group)
-{
-    for (const auto &item : std::as_const(m_items)) {
-        if (auto groups = item.groups; groups.contains(group)) {
-            groups.removeOne(group);
-
-            Kaidan::instance()->rosterController()->updateGroups(item.jid, item.name, groups);
-        }
-    }
-}
-
-bool RosterModel::isPresenceSubscribedByItem(const QString &, const QString &jid) const
-{
-    if (auto item = findItem(jid)) {
-        return item->subscription == QXmppRosterIq::Item::From || item->subscription == QXmppRosterIq::Item::Both;
+    if (auto foundItem = item(accountJid, jid)) {
+        return foundItem->subscription == QXmppRosterIq::Item::From || foundItem->subscription == QXmppRosterIq::Item::Both;
     }
     return false;
 }
 
-std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, const QString &jid) const
+std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &accountJid, const QString &jid) const
 {
-    if (auto item = findItem(jid)) {
-        return item->encryption;
+    if (auto foundItem = item(accountJid, jid)) {
+        return foundItem->encryption;
     }
     return {};
 }
 
-void RosterModel::setItemEncryption(const QString &, const QString &jid, Encryption::Enum encryption)
+void RosterModel::setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption)
 {
-    RosterDb::instance()->updateItem(jid, [encryption](RosterItem &item) {
+    RosterDb::instance()->updateItem(accountJid, jid, [encryption](RosterItem &item) {
         item.encryption = encryption;
     });
 }
 
-void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption)
+void RosterModel::setItemEncryption(const QString &accountJid, Encryption::Enum encryption)
 {
     for (const auto &item : std::as_const(m_items)) {
-        RosterDb::instance()->updateItem(item.jid, [encryption](RosterItem &item) {
+        RosterDb::instance()->updateItem(accountJid, item.jid, [encryption](RosterItem &item) {
             item.encryption = encryption;
         });
     }
 }
 
-RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &accountJid, const QString &uriString)
+QString RosterModel::lastReadOwnMessageId(const QString &accountJid, const QString &jid) const
 {
-    if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
-        const auto uri = std::get<QXmppUri>(uriParsingResult);
-        const auto jid = uri.jid();
-
-        if (jid.isEmpty()) {
-            return AddContactByUriResult::InvalidUri;
-        }
-
-        if (RosterModel::instance()->hasItem(jid)) {
-            Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, jid);
-            return AddContactByUriResult::ContactExists;
-        }
-
-        Kaidan::instance()->rosterController()->addContact(jid);
-
-        return AddContactByUriResult::AddingContact;
-    }
-
-    return AddContactByUriResult::InvalidUri;
-}
-
-QString RosterModel::lastReadOwnMessageId(const QString &, const QString &jid) const
-{
-    if (auto item = findItem(jid))
-        return item->lastReadOwnMessageId;
+    if (auto foundItem = item(accountJid, jid))
+        return foundItem->lastReadOwnMessageId;
     return {};
 }
 
-QString RosterModel::lastReadContactMessageId(const QString &, const QString &jid) const
+QString RosterModel::lastReadContactMessageId(const QString &accountJid, const QString &jid) const
 {
-    if (auto item = findItem(jid))
-        return item->lastReadContactMessageId;
+    if (auto foundItem = item(accountJid, jid))
+        return foundItem->lastReadContactMessageId;
     return {};
 }
 
-void RosterModel::sendPendingReadMarkers(const QString &)
+std::optional<RosterItem> RosterModel::item(const QString &accountJid, const QString &jid) const
 {
     for (const auto &item : std::as_const(m_items)) {
-        if (const auto messageId = item.lastReadContactMessageId; item.readMarkerPending && !messageId.isEmpty()) {
-            const auto chatJid = item.jid;
-
-            if (item.readMarkerSendingEnabled) {
-                MessageController::instance()->sendReadMarker(chatJid, messageId);
-            }
-
-            RosterDb::instance()->updateItem(chatJid, [](RosterItem &item) {
-                item.readMarkerPending = false;
-            });
-        }
-    }
-}
-
-std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
-{
-    for (const auto &item : std::as_const(m_items)) {
-        if (item.jid == jid) {
+        if (item.accountJid == accountJid && item.jid == jid) {
             return item;
         }
     }
@@ -337,34 +229,47 @@ const QList<RosterItem> &RosterModel::items() const
     return m_items;
 }
 
-void RosterModel::pinItem(const QString &, const QString &jid)
+const QList<RosterItem> RosterModel::items(const QString &accountJid) const
 {
-    RosterDb::instance()->updateItem(jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
+    QList<RosterItem> items;
+
+    for (const auto &item : std::as_const(m_items)) {
+        if (item.accountJid == accountJid) {
+            items.append(item);
+        }
+    }
+
+    return items;
+}
+
+void RosterModel::pinItem(const QString &accountJid, const QString &jid)
+{
+    RosterDb::instance()->updateItem(accountJid, jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
         item.pinningPosition = highestPinningPosition + 1;
     });
 }
 
-void RosterModel::unpinItem(const QString &, const QString &jid)
+void RosterModel::unpinItem(const QString &accountJid, const QString &jid)
 {
-    if (const auto itemBeingUnpinned = findItem(jid)) {
+    if (const auto itemBeingUnpinned = item(accountJid, jid)) {
         for (const auto &item : std::as_const(m_items)) {
             // Decrease the pinning position of the pinned items with higher pinning positions than
             // the pinning position of the item being pinned.
             if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
-                RosterDb::instance()->updateItem(item.jid, [](RosterItem &item) {
+                RosterDb::instance()->updateItem(accountJid, item.jid, [](RosterItem &item) {
                     item.pinningPosition -= 1;
                 });
             }
         }
 
         // Reset the pinning position of the item being unpinned.
-        RosterDb::instance()->updateItem(jid, [](RosterItem &item) {
+        RosterDb::instance()->updateItem(accountJid, jid, [](RosterItem &item) {
             item.pinningPosition = -1;
         });
     }
 }
 
-void RosterModel::reorderPinnedItem(const QString &, const QString &, int oldIndex, int newIndex)
+void RosterModel::reorderPinnedItem(int oldIndex, int newIndex)
 {
     if (oldIndex < 0 || oldIndex >= m_items.size() || newIndex < 0 || newIndex >= m_items.size() || oldIndex == newIndex) {
         return;
@@ -385,7 +290,7 @@ void RosterModel::reorderPinnedItem(const QString &, const QString &, int oldInd
     for (int i = min; i <= max; ++i) {
         const auto &item = m_items[i];
 
-        RosterDb::instance()->updateItem(item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
+        RosterDb::instance()->updateItem(item.accountJid, item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
             if (i == oldIndex) {
                 // Set the new moved item's pinningPosition.
                 item.pinningPosition = pinningPosition;
@@ -402,10 +307,10 @@ void RosterModel::reorderPinnedItem(const QString &, const QString &, int oldInd
     }
 }
 
-void RosterModel::toggleSelected(const QString &, const QString &jid)
+void RosterModel::toggleSelected(const QString &accountJid, const QString &jid)
 {
     for (int i = 0; i < m_items.size(); i++) {
-        if (auto &item = m_items[i]; item.jid == jid) {
+        if (auto &item = m_items[i]; item.accountJid == accountJid && item.jid == jid) {
             item.selected = !item.selected;
             Q_EMIT dataChanged(index(i), index(i), {SelectedRole});
             return;
@@ -423,34 +328,6 @@ void RosterModel::resetSelected()
     }
 }
 
-void RosterModel::setChatStateSendingEnabled(const QString &, const QString &jid, bool chatStateSendingEnabled)
-{
-    RosterDb::instance()->updateItem(jid, [=](RosterItem &item) {
-        item.chatStateSendingEnabled = chatStateSendingEnabled;
-    });
-}
-
-void RosterModel::setReadMarkerSendingEnabled(const QString &, const QString &jid, bool readMarkerSendingEnabled)
-{
-    RosterDb::instance()->updateItem(jid, [=](RosterItem &item) {
-        item.readMarkerSendingEnabled = readMarkerSendingEnabled;
-    });
-}
-
-void RosterModel::setNotificationRule(const QString &, const QString &jid, RosterItem::NotificationRule notificationRule)
-{
-    RosterDb::instance()->updateItem(jid, [=](RosterItem &item) {
-        item.notificationRule = notificationRule;
-    });
-}
-
-void RosterModel::setAutomaticMediaDownloadsRule(const QString &, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule)
-{
-    RosterDb::instance()->updateItem(jid, [rule](RosterItem &item) {
-        item.automaticMediaDownloadsRule = rule;
-    });
-}
-
 void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
 {
     beginResetModel();
@@ -459,10 +336,10 @@ void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
     endResetModel();
 
     for (const auto &item : std::as_const(m_items)) {
-        RosterItemNotifier::instance().notifyWatchers(item.jid, item);
+        RosterItemNotifier::instance().notifyWatchers(item.accountJid, item.jid, item);
     }
 
-    Q_EMIT accountJidsChanged();
+    Q_EMIT itemsFetched(items);
     Q_EMIT groupsChanged();
 }
 
@@ -474,8 +351,10 @@ void RosterModel::addItem(const RosterItem &item)
 void RosterModel::updateItem(const RosterItem &item)
 {
     for (int i = 0; i < m_items.size(); i++) {
+        const auto accountJid = item.accountJid;
         const auto jid = item.jid;
-        if (const auto oldItem = m_items.at(i); oldItem.jid == jid) {
+
+        if (const auto oldItem = m_items.at(i); oldItem.accountJid == accountJid && oldItem.jid == jid) {
             const auto oldGroups = groups();
 
             m_items.replace(i, item);
@@ -486,7 +365,7 @@ void RosterModel::updateItem(const RosterItem &item)
             newItem.selected = oldItem.selected;
 
             Q_EMIT dataChanged(index(i), index(i));
-            RosterItemNotifier::instance().notifyWatchers(jid, item);
+            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, item);
             updateItemPosition(i);
 
             if (oldGroups != groups()) {
@@ -514,21 +393,13 @@ void RosterModel::removeItem(const QString &accountJid, const QString &jid)
             m_items.remove(i);
             endRemoveRows();
 
-            RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
-
-            if (!accountJids().contains(accountJid)) {
-                Q_EMIT accountJidsChanged();
-            }
+            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, std::nullopt);
 
             if (oldGroupCount < groups().size()) {
                 Q_EMIT groupsChanged();
             }
 
-            if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
-                Q_EMIT Kaidan::instance()->closeChatPageRequested();
-            }
-
-            Q_EMIT itemRemoved(item.accountJid, jid);
+            Q_EMIT itemRemoved(accountJid, jid);
 
             return;
         }
@@ -537,45 +408,56 @@ void RosterModel::removeItem(const QString &accountJid, const QString &jid)
 
 void RosterModel::removeItems(const QString &accountJid)
 {
-    for (int i = 0; i < m_items.size(); i++) {
-        const RosterItem &item = m_items.at(i);
+    auto oldGroupCount = groups().size();
 
-        if (item.accountJid == accountJid) {
-            auto oldGroupCount = groups().size();
+    beginResetModel();
 
-            beginRemoveRows(QModelIndex(), i, i);
-            m_items.remove(i);
-            endRemoveRows();
-
-            const auto &jid = item.jid;
-            RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
-
-            if (!accountJids().contains(accountJid)) {
-                Q_EMIT accountJidsChanged();
-            }
-
-            if (oldGroupCount < groups().size()) {
-                Q_EMIT groupsChanged();
-            }
-
-            if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
-                Q_EMIT Kaidan::instance()->closeChatPageRequested();
-            }
+    for (auto itr = m_items.begin(); itr != m_items.end();) {
+        if (itr->accountJid == accountJid) {
+            itr = m_items.erase(itr);
+        } else {
+            ++itr;
         }
+    }
+
+    endResetModel();
+
+    Q_EMIT itemsRemoved(accountJid);
+
+    if (oldGroupCount < groups().size()) {
+        Q_EMIT groupsChanged();
     }
 }
 
-void RosterModel::handleAccountChanged()
+void RosterModel::initializeNotificationRuleUpdates()
+{
+    std::ranges::for_each(AccountController::instance()->accounts(), [this](Account *account) {
+        initializeNotificationRuleUpdates(account);
+    });
+}
+
+void RosterModel::initializeNotificationRuleUpdates(Account *account)
+{
+    connect(account->settings(), &AccountSettings::contactNotificationRuleChanged, this, [this] {
+        handleAccountNotificationRuleChanged();
+    });
+
+    connect(account->settings(), &AccountSettings::groupChatNotificationRuleChanged, this, [this] {
+        handleAccountNotificationRuleChanged();
+    });
+}
+
+void RosterModel::handleAccountNotificationRuleChanged()
 {
     if (!m_items.isEmpty()) {
-        Q_EMIT dataChanged(index(0), index(m_items.size() - 1), {NotificationRuleRole});
+        Q_EMIT dataChanged(index(0), index(m_items.size() - 1), {EffectiveNotificationRuleRole});
     }
 }
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)
 {
     auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.jid == message.chatJid;
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
     // roster item not found
@@ -607,7 +489,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
             itr->unreadMessages = *newUnreadMessages;
             changedRoles << int(UnreadMessagesRole);
 
-            RosterDb::instance()->updateItem(message.chatJid, [newCount = *newUnreadMessages](RosterItem &item) {
+            RosterDb::instance()->updateItem(message.accountJid, message.chatJid, [newCount = *newUnreadMessages](RosterItem &item) {
                 item.unreadMessages = newCount;
             });
         }
@@ -621,7 +503,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 void RosterModel::handleMessageUpdated(const Message &message)
 {
     auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.jid == message.chatJid;
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
     // Skip further processing if the contact could not be found.
@@ -639,7 +521,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
 void RosterModel::handleDraftMessageAdded(const Message &message)
 {
     auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.jid == message.chatJid;
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
     // roster item not found
@@ -657,7 +539,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 void RosterModel::handleDraftMessageUpdated(const Message &message)
 {
     auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.jid == message.chatJid;
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
     // roster item not found
@@ -692,7 +574,7 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 {
     auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
-        return item.jid == newLastMessage.chatJid;
+        return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
     });
 
     // Skip further processing if the contact could not be found.
@@ -728,7 +610,7 @@ QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &
         itr->lastMessageIsOwn = message.isOwn;
 
         if (itr->isGroupChat()) {
-            itr->lastMessageGroupChatSenderName = determineGroupChatSenderName(message);
+            itr->lastMessageGroupChatSenderName = message.groupChatSenderName;
         } else {
             itr->lastMessageGroupChatSenderName.clear();
         }
@@ -761,27 +643,22 @@ int RosterModel::informAboutChangedData(QList<RosterItem>::Iterator &itr, const 
     const auto modelIndex = index(i);
     Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 
-    RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+    RosterItemNotifier::instance().notifyWatchers(itr->accountJid, itr->jid, *itr);
 
     return i;
 }
 
 void RosterModel::insertItem(int index, const RosterItem &item)
 {
-    auto newAccountJidAdded = !accountJids().contains(item.accountJid);
+    const auto accountJid = item.accountJid;
     auto oldGroupCount = groups().size();
 
     beginInsertRows(QModelIndex(), index, index);
     m_items.insert(index, item);
     endInsertRows();
 
-    const auto jid = item.jid;
-    RosterItemNotifier::instance().notifyWatchers(jid, item);
-    Q_EMIT itemAdded(item.accountJid, jid);
-
-    if (newAccountJidAdded) {
-        Q_EMIT accountJidsChanged();
-    }
+    RosterItemNotifier::instance().notifyWatchers(accountJid, item.jid, item);
+    Q_EMIT itemAdded(item);
 
     if (oldGroupCount < groups().size()) {
         Q_EMIT groupsChanged();
@@ -864,19 +741,6 @@ QString RosterModel::formatLastMessageDateTime(const QDateTime &lastMessageDateT
         // Older than seven days before today: Return the date.
         return QLocale::system().toString(lastMessageLocalDateTime.date(), QLocale::ShortFormat);
     }
-}
-
-QString RosterModel::determineGroupChatSenderName(const Message &message) const
-{
-    const auto groupChatSenderJid = message.groupChatSenderJid;
-
-    if (!groupChatSenderJid.isEmpty()) {
-        if (const auto item = findItem(groupChatSenderJid)) {
-            return item->displayName();
-        }
-    }
-
-    return message.groupChatSenderName;
 }
 
 #include "moc_RosterModel.cpp"

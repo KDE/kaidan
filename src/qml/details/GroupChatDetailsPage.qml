@@ -3,24 +3,24 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import "../elements"
-
-FormInfoPage {
+RosterItemDetailsPage {
 	id: root
 	title: qsTr("Group Details")
 
-	GroupChatDetailsHeader {}
+	GroupChatDetailsHeader {
+		chatController: root.chatController
+	}
 
 	GroupChatDetailsContent {
 		id: content
+		chatController: root.chatController
 		Layout.fillWidth: true
 	}
 
-	function openContactListView() {
-		content.openContactListView()
+	function openInviteeListView() {
+		content.openInviteeListView()
 	}
 
 	function openKeyAuthenticationUserListView() {

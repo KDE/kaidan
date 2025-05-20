@@ -37,7 +37,7 @@ public:
         int queryIndex = -1;
     };
 
-    explicit MessageDb(Database *db, QObject *parent = nullptr);
+    explicit MessageDb(QObject *parent = nullptr);
     ~MessageDb() override;
 
     static MessageDb *instance();
@@ -213,15 +213,28 @@ public:
     /**
      * Updates a stored message or adds it if it is not stored.
      */
-    QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const QString &originId, const std::function<void(Message &)> &updateMsg);
+    QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &updateMsg);
+
+    /**
+     * Loads a message, runs the update lambda and writes it to the DB again.
+     *
+     * A message can be found by its regular "id" or by its "replaceId" passed as the parameter
+     * "id".
+     *
+     * @param accountJid JID of account
+     * @param chatJid JID of the chat
+     * @param messageId ID of the message
+     * @param updateMsg Function that changes the message
+     */
+    QFuture<void> updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
+    Q_SIGNAL void messageUpdated(const Message &message);
 
     /**
      * Removes all messages from an account.
      *
      * @param accountJid JID of the account whose messages are being removed
      */
-    QFuture<void> removeAllMessagesFromAccount(const QString &accountJid);
-    Q_SIGNAL void allMessagesRemovedFromAccount(const QString &accountJid);
+    QFuture<void> removeMessages(const QString &accountJid);
 
     /**
      * Removes all messages from an account's chat.
@@ -229,8 +242,8 @@ public:
      * @param accountJid JID of the account whose messages are being removed
      * @param chatJid JID of the chat whose messages are being removed
      */
-    QFuture<void> removeAllMessagesFromChat(const QString &accountJid, const QString &chatJid);
-    Q_SIGNAL void allMessagesRemovedFromChat(const QString &accountJid, const QString &chatJid);
+    QFuture<void> removeMessages(const QString &accountJid, const QString &chatJid);
+    Q_SIGNAL void messagesRemoved(const QString &accountJid, const QString &chatJid);
 
     /**
      * Removes a chat message locally.
@@ -241,18 +254,6 @@ public:
      */
     QFuture<void> removeMessage(const QString &accountJid, const QString &chatJid, const QString &messageId);
     Q_SIGNAL void messageRemoved(const Message &newLastMessage);
-
-    /**
-     * Loads a message, runs the update lambda and writes it to the DB again.
-     *
-     * A message can be found by its regular "id" or by its "replaceId" passed as the parameter
-     * "id".
-     *
-     * @param id ID of the message to be updated
-     * @param updateMsg Function that changes the message
-     */
-    QFuture<void> updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg);
-    Q_SIGNAL void messageUpdated(const Message &message);
 
     /**
      * Adds additional file sources to a file.
@@ -293,7 +294,7 @@ public:
 private:
     void _addMessage(Message message, MessageOrigin origin);
     void _addMessage(const Message &message);
-    void _updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg);
+    void _updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
 
     // Setters do INSERT OR REPLACE INTO
     void _fetchLatestFileId();

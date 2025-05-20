@@ -17,10 +17,11 @@ import "../elements"
 Kirigami.Page {
 	id: root
 
-	property url imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountController.account.jid)
+	property Account account
+	property url imagePath: account.avatarCache.getAvatarUrl(account.settings.jid)
 
 	title: qsTr("Change profile image")
-	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).jid = AccountController.account.jid
+	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).account = account
 
 	Controls.BusyIndicator {
 		id: busyIndicator
@@ -94,7 +95,7 @@ Kirigami.Page {
 			CenteredAdaptiveButton {
 				text: qsTr("Remove current profile image")
 				visible: root.imagePath.toString()
-				onClicked: Kaidan.vCardController.changeAvatar()
+				onClicked: root.account.vCardController.changeAvatar()
 			}
 
 			CenteredAdaptiveHighlightedButton {
@@ -108,7 +109,7 @@ Kirigami.Page {
 						selectionTool.selectionHeight / editImage.ratioY
 					)
 
-					Kaidan.vCardController.changeAvatar(imageDoc.image)
+					root.account.vCardController.changeAvatar(imageDoc.image)
 					busyIndicator.visible = true
 				}
 			}
@@ -116,7 +117,7 @@ Kirigami.Page {
 	}
 
 	Connections {
-		target: Kaidan.vCardController
+		target: root.account.vCardController
 
 		function onAvatarChangeSucceeded() {
 			busyIndicator.visible = false

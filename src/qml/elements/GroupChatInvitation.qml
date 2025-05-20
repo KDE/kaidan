@@ -22,7 +22,7 @@ ExtendedMessageContent {
 				const chatJid = root.message.groupChatInvitationJid
 
 				if (groupChatWatcher.item.isGroupChat) {
-					Kaidan.openChatPageRequested(ChatController.accountJid, chatJid)
+					MainController.openChatPageRequested(root.message.chatController.account.settings.jid, chatJid)
 				} else {
 					openView(groupChatJoiningDialog, groupChatJoiningPage).groupChatJid = chatJid
 				}
@@ -51,8 +51,25 @@ ExtendedMessageContent {
 		}
 	]
 
+	Component {
+		id: groupChatJoiningDialog
+
+		GroupChatJoiningDialog {
+			account: root.message.chatController.account
+		}
+	}
+
+	Component {
+		id: groupChatJoiningPage
+
+		GroupChatJoiningPage {
+			account: root.message.chatController.account
+		}
+	}
+
 	RosterItemWatcher {
 		id: groupChatWatcher
+		accountJid: root.message.chatController.account.settings.jid
 		jid: root.message.groupChatInvitationJid
 	}
 }

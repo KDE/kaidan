@@ -8,37 +8,31 @@ import QtQuick.Layouts
 
 import im.kaidan.kaidan
 
-import "../elements"
-
-FormInfoDialog {
+DetailsDialog {
 	id: root
-
-	property string jid
-
 	title: qsTr("Account Details")
+	Component.onCompleted: AccountController.setActiveAccount(account)
+	Component.onDestruction: AccountController.resetActiveAccount()
 
 	AccountDetailsHeader {
 		dialog: root
-		jid: root.jid
+		account: root.account
 	}
 
 	AccountDetailsContent {
 		dialog: root
-		jid: root.jid
+		account: root.account
 		Layout.fillWidth: true
 	}
 
 	Connections {
-		target: Kaidan
+		target: AccountController
 
 		// Close this dialog when the account is removed.
-		function onCredentialsNeeded() {
-			root.close()
-		}
-
-		// Close this dialog when the chat with oneself is added via it.
-		function onOpenChatPageRequested(accountJid, chatJid) {
-			root.close()
+		function onAccountRemoved(jid) {
+			if (jid === root.account.settings.jid) {
+				root.close()
+			}
 		}
 	}
 }

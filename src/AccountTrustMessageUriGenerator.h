@@ -15,7 +15,5 @@ public:
     explicit AccountTrustMessageUriGenerator(QObject *parent = nullptr);
 
 private:
-    void setUp();
-    void handleKeysChanged(const QString &accountJid, const QList<QString> &jids);
-    void updateKeys();
+    void updateKeys() override;
 };

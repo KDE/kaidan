@@ -6,7 +6,7 @@
 #include <QSignalSpy>
 #include <QTest>
 // Kaidan
-#include "Kaidan.h"
+#include "MainController.h"
 #include "RosterItemWatcher.h"
 #include "Test.h"
 
@@ -49,24 +49,29 @@ void checkEmitted(vector<pair<RosterItemWatcher *, int>> watchers, function<void
 void RosterItemWatcherTest::notifications()
 {
     // This test requires a RosterModel instance, so we init kaidan
-    Kaidan kaidan(this);
+    MainController mainController(this);
     RosterItem item;
+
+    const auto accountJid = QStringLiteral("alice@example.org");
 
     auto &notifier = RosterItemNotifier::instance();
     RosterItemWatcher watcher1;
+    watcher1.setAccountJid(accountJid);
     watcher1.setJid(QStringLiteral("hello@kaidan.im"));
     RosterItemWatcher watcher2;
+    watcher2.setAccountJid(accountJid);
     watcher2.setJid(QStringLiteral("hello@kaidan.im"));
     RosterItemWatcher watcher3;
+    watcher3.setAccountJid(accountJid);
     watcher3.setJid(QStringLiteral("user@kaidan.im"));
 
     vector<pair<RosterItemWatcher *, int>> expected({{pair{&watcher1, 2}}, {pair{&watcher2, 2}}, {pair{&watcher3, 1}}});
     checkEmitted(expected, [&]() {
-        notifier.notifyWatchers(QStringLiteral("hello@kaidan.im"), item);
-        notifier.notifyWatchers(QStringLiteral("not-found"), item);
-        notifier.notifyWatchers(QStringLiteral("user@kaidan.im"), item);
-        notifier.notifyWatchers(QStringLiteral("hello@kaidan.im"), item);
-        notifier.notifyWatchers(QStringLiteral("not-found"), item);
+        notifier.notifyWatchers(accountJid, QStringLiteral("hello@kaidan.im"), item);
+        notifier.notifyWatchers(accountJid, QStringLiteral("not-found"), item);
+        notifier.notifyWatchers(accountJid, QStringLiteral("user@kaidan.im"), item);
+        notifier.notifyWatchers(accountJid, QStringLiteral("hello@kaidan.im"), item);
+        notifier.notifyWatchers(accountJid, QStringLiteral("not-found"), item);
     });
 }
 

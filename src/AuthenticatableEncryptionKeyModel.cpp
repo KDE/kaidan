@@ -70,10 +70,10 @@ bool AuthenticatableEncryptionKeyModel::contains(const QString &keyId)
 
 void AuthenticatableEncryptionKeyModel::setUp()
 {
-    // Avoid setup when EncryptionKeyModel::setAccountJid() is called before setChatJid() is called
+    // Avoid setup when EncryptionKeyModel::setAccountJid() or EncryptionKeyModel::setEncryptionController() are called before setChatJid() is called
     // once.
-    if (!m_chatJid.isEmpty()) {
-        connect(EncryptionController::instance(),
+    if (!accountJid().isEmpty() && !m_chatJid.isEmpty() && encryptionController()) {
+        connect(encryptionController(),
                 &EncryptionController::devicesChanged,
                 this,
                 &AuthenticatableEncryptionKeyModel::handleDevicesChanged,
@@ -82,16 +82,16 @@ void AuthenticatableEncryptionKeyModel::setUp()
     }
 }
 
-void AuthenticatableEncryptionKeyModel::handleDevicesChanged(const QString &accountJid, QList<QString> jids)
+void AuthenticatableEncryptionKeyModel::handleDevicesChanged(QList<QString> jids)
 {
-    if (this->accountJid() == accountJid && jids.contains(m_chatJid)) {
+    if (jids.contains(m_chatJid)) {
         updateKeys();
     }
 }
 
 void AuthenticatableEncryptionKeyModel::updateKeys()
 {
-    EncryptionController::instance()->devices(accountJid(), {m_chatJid}).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    encryptionController()->devices({m_chatJid}).then(this, [this](QList<EncryptionController::Device> &&devices) {
         beginResetModel();
 
         m_keys = transformFilter<QList<Key>>(devices, [](const EncryptionController::Device &device) -> std::optional<Key> {

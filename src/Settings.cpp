@@ -7,16 +7,28 @@
 
 #include "Settings.h"
 
-// Qt
-#include <QMutexLocker>
 // Kaidan
 #include "Globals.h"
-#include "Kaidan.h"
+#include "MainController.h"
+
+Settings *Settings::s_instance = nullptr;
+
+Settings *Settings::instance()
+{
+    return s_instance;
+}
 
 Settings::Settings(QObject *parent)
     : QObject(parent)
     , m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
 {
+    Q_ASSERT(!s_instance);
+    s_instance = this;
+}
+
+Settings::~Settings()
+{
+    s_instance = nullptr;
 }
 
 QSettings &Settings::raw()
@@ -80,7 +92,6 @@ void Settings::setWindowSize(const QSize &windowSize)
 
 void Settings::remove(const QStringList &keys)
 {
-    QMutexLocker locker(&m_mutex);
     for (const QString &key : keys)
         m_settings.remove(key);
 }

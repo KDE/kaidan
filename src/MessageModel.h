@@ -15,7 +15,13 @@
 // Kaidan
 #include "Message.h"
 
-class Kaidan;
+class AccountSettings;
+class AtmController;
+class ChatController;
+class Connection;
+class EncryptionController;
+class MessageController;
+class NotificationController;
 
 struct DisplayedMessageReaction {
     Q_GADGET
@@ -89,10 +95,14 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    static MessageModel *instance();
-
-    explicit MessageModel(QObject *parent = nullptr);
-    ~MessageModel() override;
+    MessageModel(AccountSettings *accountSettings,
+                 Connection *connection,
+                 AtmController *atmController,
+                 ChatController *chatController,
+                 EncryptionController *encryptionController,
+                 MessageController *messageController,
+                 NotificationController *notificationController,
+                 QObject *parent = nullptr);
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
@@ -201,10 +211,10 @@ private:
     void handleMessagesFetched(const QList<Message> &m_messages);
     void handleMamBacklogRetrieved(bool complete);
 
-    void handleMessage(Message msg, MessageOrigin origin);
+    void handleMessage(Message msg, MessageOrigin);
     void handleMessageUpdated(Message message);
 
-    void handleDevicesChanged(const QString &accountJid, QList<QString> jids);
+    void handleDevicesChanged(QList<QString> jids);
 
     void addMessage(const Message &msg);
     void insertMessage(int i, const Message &msg);
@@ -223,13 +233,6 @@ private:
     void updateFirstUnreadContactMessageIndex();
 
     void emitMessagesUpdated(const QList<QString> &messageIds, MessageRoles role);
-
-    /**
-     * Shows a notification for the message when needed
-     *
-     * @param message message for which a notification might be shown
-     */
-    void showMessageNotification(const Message &message, MessageOrigin origin);
 
     /**
      * Undoes a pending or failed removal of a message reaction.
@@ -278,8 +281,15 @@ private:
     QDate searchNextDate(int messageStartIndex) const;
 
     QString formatDate(QDate localDate) const;
-    QString determineGroupChatSenderName(const Message &message) const;
     QString determineReplyToName(const Message::Reply &reply) const;
+
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+
+    AtmController *const m_atmController;
+    ChatController *const m_chatController;
+    MessageController *const m_messageController;
+    NotificationController *const m_notificationController;
 
     QList<Message> m_messages;
     QString m_lastReadOwnMessageId;
@@ -287,6 +297,4 @@ private:
     bool m_fetchedAllFromDb = false;
     bool m_fetchedAllFromMam = false;
     bool m_mamLoading = false;
-
-    static MessageModel *s_instance;
 };

@@ -13,17 +13,13 @@ import "fields"
 ConfirmationArea {
 	id: root
 
-	required property string accountJid
+	property Account account
 	property alias groupChatNameField: groupChatNameField
-	property alias groupChatName: groupChatNameField.text
-	property alias groupChatIdField: groupChatIdField
-	property alias nicknameField: nicknameField
-	property alias nickname: nicknameField.text
 
 	confirmationButton.text: qsTr("Create")
 	confirmationButton.onClicked: createGroupChat()
 	loadingArea.description: qsTr("Creating group chat…")
-	busy: GroupChatController.busy
+	busy: account.groupChatController.busy
 
 	Field {
 		id: groupChatNameField
@@ -63,7 +59,7 @@ ConfirmationArea {
 
 	Controls.ComboBox {
 		id: groupChatServiceJidComboBox
-		model: GroupChatController.groupChatServiceJids(root.accountJid)
+		model: root.account.groupChatController.groupChatServiceJids()
 		visible: publicGroupChatCheckBox.checked && count > 1
 		Layout.fillWidth: true
 	}
@@ -71,6 +67,7 @@ ConfirmationArea {
 	Field {
 		id: nicknameField
 		labelText: qsTr("Nickname (optional):")
+		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		visible: publicGroupChatCheckBox.checked
 		Layout.fillWidth: true
@@ -78,11 +75,11 @@ ConfirmationArea {
 	}
 
 	Connections {
-		target: GroupChatController
+		target: root.account.groupChatController
 
-		function onGroupChatCreated(accountJid, groupChatJid) {
-			GroupChatController.renameGroupChat(accountJid, groupChatJid, root.groupChatName)
-			GroupChatController.joinGroupChat(accountJid, groupChatJid, root.nickname)
+		function onGroupChatCreated(groupChatJid) {
+			root.account.groupChatController.renameGroupChat(groupChatJid, groupChatNameField.text)
+			root.account.groupChatController.joinGroupChat(groupChatJid, nicknameField.text)
 		}
 
 		function onPrivateGroupChatCreationFailed(serviceJid, errorMessage) {
@@ -108,9 +105,9 @@ ConfirmationArea {
 		const serviceJid = groupChatServiceJidComboBox.textAt(groupChatServiceJidComboBox.currentIndex)
 
 		if (publicGroupChatCheckBox.checked) {
-			GroupChatController.createPublicGroupChat(accountJid, groupChatIdField.text + "@" + serviceJid)
+			account.groupChatController.createPublicGroupChat(groupChatIdField.text + "@" + serviceJid)
 		} else {
-			GroupChatController.createPrivateGroupChat(accountJid, serviceJid)
+			account.groupChatController.createPrivateGroupChat(serviceJid)
 		}
 
 	}

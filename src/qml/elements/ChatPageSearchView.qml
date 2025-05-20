@@ -101,7 +101,7 @@ Item {
 	}
 
 	Connections {
-		target: MessageModel
+		target: root.messageListView.model
 
 		function onMessageSearchFinished(queryStringMessageIndex) {
 			if (queryStringMessageIndex !== -1) {
@@ -163,12 +163,13 @@ Item {
 
 		if (searchedString) {
 			searchFieldBusyIndicator.running = true
+			let messageModel = messageListView.model
 
 			if (searchUpwards) {
 				if (startIndex === 0) {
-					messageListView.currentIndex = MessageModel.searchForMessageFromNewToOld(searchedString)
+					messageListView.currentIndex = messageModel.searchForMessageFromNewToOld(searchedString)
 				} else {
-					newIndex = MessageModel.searchForMessageFromNewToOld(searchedString, startIndex)
+					newIndex = messageModel.searchForMessageFromNewToOld(searchedString, startIndex)
 					if (newIndex !== -1) {
 						messageListView.currentIndex = newIndex
 					}
@@ -178,7 +179,7 @@ Item {
 					searchFieldBusyIndicator.running = false
 				}
 			} else {
-				newIndex = MessageModel.searchForMessageFromOldToNew(searchedString, startIndex)
+				newIndex = messageModel.searchForMessageFromOldToNew(searchedString, startIndex)
 
 				if (newIndex !== -1) {
 					messageListView.currentIndex = newIndex

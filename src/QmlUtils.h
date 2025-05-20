@@ -50,13 +50,6 @@ public:
     Q_INVOKABLE static QString systemCountryCode();
 
     /**
-     * Returns an error message for a connection error.
-     *
-     * @param error error for which an error message should be returned
-     */
-    Q_INVOKABLE static QString connectionErrorMessage(ClientWorker::ConnectionError error);
-
-    /**
      * Returns a URL to a given resource file name
      *
      * This will check various paths which could contain the searched file.
@@ -180,11 +173,4 @@ public:
 
     Q_INVOKABLE static QString geoUri(const QGeoCoordinate &geoCoordinate);
     Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &geoUri);
-
-    /**
-     * Opens a geo location as preferred by the user.
-     *
-     * @return whether the location should be opened within Kaidan
-     */
-    Q_INVOKABLE static bool openGeoLocation(const QGeoCoordinate &geoCoordinate);
 };

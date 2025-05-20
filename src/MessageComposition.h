@@ -9,16 +9,28 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QFuture>
+// Kaidan
+#include "Encryption.h"
 
 struct File;
+
+class AccountSettings;
+class ChatController;
+class Connection;
 class FileSelectionModel;
+class FileSharingController;
 class Message;
+class MessageController;
 
 class MessageComposition : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
-    Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)
+
+    Q_PROPERTY(ChatController *chatController MEMBER m_chatController WRITE setChatController)
+
+    Q_PROPERTY(FileSelectionModel *fileSelectionModel MEMBER m_fileSelectionModel CONSTANT)
+
     Q_PROPERTY(QString replaceId READ replaceId WRITE setReplaceId NOTIFY replaceIdChanged)
     Q_PROPERTY(QString replyToJid READ replyToJid WRITE setReplyToJid NOTIFY replyToJidChanged)
     Q_PROPERTY(QString replyToGroupChatParticipantId READ replyToGroupChatParticipantId WRITE setReplyToGroupChatParticipantId NOTIFY
@@ -32,23 +44,12 @@ class MessageComposition : public QObject
     Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
     Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
     Q_PROPERTY(bool isDraft READ isDraft WRITE setIsDraft NOTIFY isDraftChanged)
-    Q_PROPERTY(FileSelectionModel *fileSelectionModel MEMBER m_fileSelectionModel CONSTANT)
 
 public:
     MessageComposition();
     ~MessageComposition() override = default;
 
-    [[nodiscard]] QString accountJid() const
-    {
-        return m_accountJid;
-    }
-    void setAccountJid(const QString &accountJid);
-
-    [[nodiscard]] QString chatJid() const
-    {
-        return m_chatJid;
-    }
-    void setChatJid(const QString &chatJid);
+    void setChatController(ChatController *chatController);
 
     [[nodiscard]] QString replaceId() const
     {
@@ -142,13 +143,16 @@ public:
     Q_SIGNAL void spoilerHintChanged();
     Q_SIGNAL void isDraftChanged();
 
+    Q_SIGNAL void draftSaved();
+    Q_SIGNAL void preparedForNewChat();
+
 private:
     void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
-    void loadDraft();
+    QFuture<void> loadDraft();
     void saveDraft();
 
-    QString m_accountJid;
-    QString m_chatJid;
+    void reset();
+
     QString m_replaceId;
     QString m_replyToJid;
     QString m_replyToGroupChatParticipantId;
@@ -161,6 +165,12 @@ private:
     bool m_isSpoiler = false;
     QString m_spoilerHint;
     bool m_isDraft = false;
+
+    Connection *m_connection = nullptr;
+
+    ChatController *m_chatController = nullptr;
+    FileSharingController *m_fileSharingController = nullptr;
+    MessageController *m_messageController = nullptr;
 
     FileSelectionModel *const m_fileSelectionModel;
 };
@@ -186,6 +196,8 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
+    void setAccountSettings(AccountSettings *accountSettings);
+
     Q_INVOKABLE void selectFile();
     Q_INVOKABLE void addFile(const QUrl &localFileUrl, bool isNew = false);
     Q_INVOKABLE void removeFile(int index);
@@ -203,5 +215,6 @@ private:
     // Deletes a file that the user created via Kaidan.
     static void deleteNewFile(const File &file);
 
+    AccountSettings *m_accountSettings;
     QList<File> m_files;
 };

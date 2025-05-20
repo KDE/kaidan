@@ -14,7 +14,7 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-UserListItem {
+AvatarItemDelegate {
 	id: root
 
 	property ListView listView
@@ -28,16 +28,11 @@ UserListItem {
 	property int unreadMessages
 	property bool pinModeActive
 	property bool pinned
-	property int notificationRule
+	property int effectiveNotificationRule
 
 	signal moveRequested(int oldIndex, int newIndex)
 	signal dropRequested(int oldIndex, int newIndex)
 
-	selected: {
-		return !Kirigami.Settings.isMobile &&
-			ChatController.accountJid === accountJid &&
-			ChatController.chatJid === jid
-	}
 	dragged: dragHandle.dragActive
 
 	ColumnLayout {
@@ -64,7 +59,7 @@ UserListItem {
 				textFormat: Text.PlainText
 				elide: Text.ElideRight
 				maximumLineCount: 1
-				type: root.unreadMessages ? Kirigami.Heading.Type.Primary : Kirigami.Heading.Type.Normal
+				font.weight: root.unreadMessages ? Font.Medium : Font.Normal
 				level: 4
 				Layout.fillWidth: true
 			}
@@ -175,7 +170,7 @@ UserListItem {
 			Kirigami.Icon {
 				id: mutedIcon
 				source: "notifications-disabled-symbolic"
-				visible: root.notificationRule === RosterItem.NotificationRule.Never
+				visible: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: counter.height
 			}
@@ -185,7 +180,7 @@ UserListItem {
 			ScalableText {
 				id: mentionIcon
 				text: "@"
-				visible: root.notificationRule === RosterItem.NotificationRule.Mentioned
+				visible: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
 				scaleFactor: counter.height * 0.065
 				Layout.topMargin: - 2
 			}
@@ -194,8 +189,8 @@ UserListItem {
 			MessageCounter {
 				id: counter
 				count: root.unreadMessages
-				muted: root.notificationRule === RosterItem.NotificationRule.Never ||
-					   root.notificationRule === RosterItem.NotificationRule.Mentioned
+				muted: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never ||
+					   root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
 			}
 		}
 	}
@@ -223,9 +218,9 @@ UserListItem {
 		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 		onClicked: {
 			if (root.pinned) {
-				RosterModel.unpinItem(root.accountJid, root.jid)
+				RosterModel.unpinItem(root.account.settings.jid, root.jid)
 			} else {
-				RosterModel.pinItem(root.accountJid, root.jid)
+				RosterModel.pinItem(root.account.settings.jid, root.jid)
 			}
 		}
 	}

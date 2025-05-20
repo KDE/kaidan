@@ -11,6 +11,7 @@
 // Kaidan
 #include "DatabaseComponent.h"
 
+class AccountSettings;
 class Database;
 struct Key;
 struct UnprocessedKey;
@@ -28,20 +29,7 @@ public:
     using TrustChanges = QHash<QString, QMultiHash<QString, QByteArray>>;
     using SecurityPolicy = QXmpp::TrustSecurityPolicy;
 
-    explicit TrustDb(Database *database, QObject *xmppContext, QString accountJid, QObject *parent = nullptr);
-    ~TrustDb() override;
-
-    static TrustDb *instance();
-
-    // Not thread-safe (but this shouldn't be a problem if it's only used from one place)
-    inline QString accountJid() const
-    {
-        return m_accountJid;
-    }
-    inline void setAccountJid(QString newAccountJid)
-    {
-        m_accountJid = std::move(newAccountJid);
-    }
+    TrustDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent = nullptr);
 
     auto securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy> override;
     auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void> override;
@@ -64,6 +52,9 @@ public:
 
     auto trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId) -> QXmppTask<QXmpp::TrustLevel> override;
     auto _trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId) -> QXmpp::TrustLevel;
+    static auto _trustLevel(Database *database, const QString &accountJid, const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
+        -> QXmpp::TrustLevel;
+
     auto setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, QXmpp::TrustLevel trustLevel)
         -> QXmppTask<TrustChanges> override;
     auto setTrustLevel(const QString &encryption, const QList<QString> &keyOwnerJids, QXmpp::TrustLevel oldTrustLevel, QXmpp::TrustLevel newTrustLevel)
@@ -95,8 +86,8 @@ private:
     void _resetOwnKey(const QString &encryption);
     void _setTrustLevel(QXmpp::TrustLevel trustLevel, qint64 rowId);
 
-    QObject *m_xmppContext;
-    QString m_accountJid;
+    inline QString accountJid() const;
 
-    static TrustDb *s_instance;
+    AccountSettings *const m_accountSettings;
+    QObject *m_xmppContext;
 };

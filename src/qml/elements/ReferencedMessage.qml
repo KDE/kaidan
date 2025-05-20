@@ -12,6 +12,7 @@ import im.kaidan.kaidan
 RowLayout {
 	id: root
 
+	property Account account
 	property string senderId
 	property string senderName
 	property string messageId
@@ -63,8 +64,9 @@ RowLayout {
 
 			Avatar {
 				id: avatar
-				jid: root.senderId ? root.senderId : ChatController.accountJid
-				name: root.senderName ? root.senderName : AccountController.account.displayName
+				account: root.account
+				jid: root.senderId ? root.senderId : root.account.settings.jid
+				name: root.senderName ? root.senderName : root.account.settings.displayName
 			}
 
 			ColumnLayout {
@@ -73,7 +75,7 @@ RowLayout {
 					textFormat: Text.PlainText
 					font.weight: Font.Medium
 					font.italic: !root.senderName
-					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(ChatController.accountJid, AccountController.account.displayName)
+					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(root.account.settings.jid, root.account.settings.displayName)
 
 					TextMetrics {
 						id: senderNameTextMetrics
@@ -107,12 +109,12 @@ RowLayout {
 
 		OpacityChangingMouseArea {
 			opacityItem: parent.background
-			onClicked: root.jumpToMessage(MessageModel.searchMessageById(root.messageId))
+			onClicked: root.jumpToMessage(root.messageListView.model.searchMessageById(root.messageId))
 		}
 	}
 
 	Connections {
-		target: MessageModel
+		target: root.messageListView.model
 
 		function onMessageSearchByIdInDbFinished(foundMessageIndex) {
 			root.jumpToMessage(foundMessageIndex)

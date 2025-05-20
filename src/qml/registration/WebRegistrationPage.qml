@@ -20,7 +20,7 @@ import "../elements"
 ImageBackgroundPage {
 	id: root
 
-	property string provider
+	property Account account
 	property url registrationWebPage
 
 	title: qsTr("Web Registration")
@@ -69,13 +69,13 @@ ImageBackgroundPage {
 		LoginArea {
 			id: loginArea
 			title: qsTr("Step 2: Log in with your registered account")
+			account: root.account
 			visible: false
 			Layout.fillWidth: true
 		}
 	}
 
 	function showLoginArea() {
-		AccountController.setNewAccountJid(provider)
 		loginArea.visible = true
 		loginArea.initialize()
 	}

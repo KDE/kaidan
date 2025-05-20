@@ -31,14 +31,12 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
-#include "AccountDb.h"
 #include "Algorithms.h"
 #include "FileProgressCache.h"
 #include "FutureUtils.h"
-#include "Kaidan.h"
 #include "KaidanCoreLog.h"
+#include "MainController.h"
 #include "MessageDb.h"
-#include "ServerFeaturesCache.h"
 #include "SystemUtils.h"
 
 template<typename T, typename Lambda>
@@ -161,27 +159,27 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
     return std::pair{filename, fileExtension};
 }
 
-FileSharingController::FileSharingController(QXmppClient *client)
+FileSharingController::FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent)
+    : QObject(parent)
+    , m_accountSettings(accountSettings)
+    , m_clientWorker(clientWorker)
+    , m_manager(clientWorker->fileSharingManager())
 {
-    runOnThread(client, [client]() {
-        auto reqMan = client->findExtension<QXmppUploadRequestManager>();
-        Q_ASSERT(reqMan);
+    auto *uploadRequestManager = m_clientWorker->uploadRequestManager();
 
-        connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [client, reqMan]() {
-            bool supported = reqMan->serviceFound();
-            Kaidan::instance()->serverFeaturesCache()->setHttpUploadSupported(supported);
-
-            if (client->isConnected()) {
-                const auto services = reqMan->uploadServices();
-                const auto limit = services.isEmpty() ? 0 : services.constFirst().sizeLimit();
-
-                AccountDb::instance()->updateAccount(client->configuration().jidBare(), [limit](Account &account) {
-                    account.httpUploadLimit = limit;
+    connect(uploadRequestManager, &QXmppUploadRequestManager::serviceFoundChanged, this, [this, uploadRequestManager, connection]() {
+        if (connection->state() == Enums::ConnectionState::StateConnected) {
+            runOnThread(
+                uploadRequestManager,
+                [uploadRequestManager]() {
+                    return uploadRequestManager->uploadServices();
+                },
+                this,
+                [this](QVector<QXmppUploadService> &&uploadServices) {
+                    const auto limit = uploadServices.isEmpty() ? 0 : uploadServices.constFirst().sizeLimit();
+                    m_accountSettings->setHttpUploadLimit(limit);
                 });
-
-                Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
-            }
-        });
+        }
     });
 }
 
@@ -267,13 +265,11 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
 {
     QFutureInterface<UploadResult> interface;
 
-    auto *client = Kaidan::instance()->client();
+    runOnThread(m_manager, [this, file, encrypt, interface]() mutable {
+        auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
+                                : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
 
-    runOnThread(client, [this, client, file, encrypt, interface]() mutable {
-        auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(client->encryptedHttpFileSharingProvider())
-                                : std::static_pointer_cast<QXmppFileSharingProvider>(client->httpFileSharingProvider());
-
-        auto upload = client->fileSharingManager()->uploadFile(provider, file.localFilePath, file.description);
+        auto upload = m_manager->uploadFile(provider, file.localFilePath, file.description);
 
         FileProgressCache::instance().reportProgress(file.id, FileProgress{0, quint64(upload->bytesTotal()), 0.0F});
 
@@ -303,11 +299,9 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
     return interface.future();
 }
 
-void FileSharingController::downloadFile(const QString &messageId, const File &file)
+void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)
 {
-    auto *client = Kaidan::instance()->client();
-
-    runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
+    runOnThread(m_manager, [this, chatJid, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
         QString dirPath = SystemUtils::downloadDirectory();
 
         if (auto dir = QDir(dirPath); !dir.exists()) {
@@ -350,7 +344,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
             return;
         }
 
-        auto download = client->fileSharingManager()->downloadFile(fileShare, std::move(output));
+        auto download = m_manager->downloadFile(fileShare, std::move(output));
 
         std::weak_ptr<QXmppFileDownload> downloadPtr = download;
         connect(download.get(), &QXmppFileDownload::progressChanged, this, [=]() {
@@ -360,15 +354,15 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
             }
         });
 
-        connect(download.get(), &QXmppFileDownload::finished, this, [=]() mutable {
+        connect(download.get(), &QXmppFileDownload::finished, this, [this, chatJid, messageId, fileId, filePath, download]() mutable {
             auto result = download->result();
             if (std::holds_alternative<QXmppError>(result)) {
                 auto errorText = std::get<QXmppError>(result).description;
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
-                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
             } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
-                MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
+                MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
                     auto file = find_if(message.files, [=](const auto &file) {
                         return file.id == fileId;
                     });
@@ -388,9 +382,9 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
     });
 }
 
-void FileSharingController::deleteFile(const QString &messageId, const File &file)
+void FileSharingController::deleteFile(const QString &chatJid, const QString &messageId, const File &file)
 {
-    MessageDb::instance()->updateMessage(messageId, [fileId = file.id](Message &message) {
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [fileId = file.id](Message &message) {
         auto it = find_if(message.files, [fileId](const auto &file) {
             return file.id == fileId;
         });

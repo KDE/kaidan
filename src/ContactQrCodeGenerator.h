@@ -5,8 +5,8 @@
 #pragma once
 
 // Kaidan
-#include "AbstractQrCodeGenerator.h"
 #include "ContactTrustMessageUriGenerator.h"
+#include "QrCodeGenerator.h"
 
 /**
  * Gerenates a QR code encoding the Trust Message URI of a contact.
@@ -14,24 +14,19 @@
  * If no keys for the Trust Message URI can be found, an XMPP URI containing only the contact's bare
  * JID is used.
  */
-class ContactQrCodeGenerator : public AbstractQrCodeGenerator
+class ContactQrCodeGenerator : public QrCodeGenerator
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
+    Q_PROPERTY(ContactTrustMessageUriGenerator *uriGenerator MEMBER m_uriGenerator WRITE setUriGenerator)
 
 public:
     explicit ContactQrCodeGenerator(QObject *parent = nullptr);
 
-    QString accountJid() const;
-    void setAccountJid(const QString &accountJid);
-    Q_SIGNAL void accountJidChanged();
+    void setUriGenerator(ContactTrustMessageUriGenerator *uriGenerator);
 
 private:
-    void updateUriAccountJid();
-    void updateUriJid();
     void updateText();
 
-    QString m_accountJid;
-    ContactTrustMessageUriGenerator m_uriGenerator;
+    ContactTrustMessageUriGenerator *m_uriGenerator = nullptr;
 };

@@ -4,13 +4,15 @@
 
 import im.kaidan.kaidan
 
-QrCode {
+RoundedImage {
 	id: root
+
+	property alias accountSettings: qrCodeGenerator.accountSettings
+
 	source: qrCodeGenerator.qrCode
 
 	LoginQrCodeGenerator {
 		id: qrCodeGenerator
-		jid: root.jid
 		edgePixelCount: root.width
 	}
 }

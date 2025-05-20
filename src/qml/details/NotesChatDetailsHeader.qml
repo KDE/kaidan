@@ -13,8 +13,6 @@ import "../elements"
 
 ContactDetailsHeader {
 	id: root
-	description {
-		text: qsTr("Messages in this chat are synchronized as notes across all your devices")
-		visible: ChatController.accountJid === root.jid
-	}
+	displayNameEditable: false
+	description: qsTr("Messages in this chat are synchronized as notes across all your devices")
 }

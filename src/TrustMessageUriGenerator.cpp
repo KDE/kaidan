@@ -7,6 +7,7 @@
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
+#include "EncryptionController.h"
 #include "Globals.h"
 
 TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent)
@@ -14,11 +15,35 @@ TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent)
 {
 }
 
+EncryptionController *TrustMessageUriGenerator::encryptionController() const
+{
+    return m_encryptionController;
+}
+
+void TrustMessageUriGenerator::setEncryptionController(EncryptionController *encryptionController)
+{
+    if (m_encryptionController != encryptionController) {
+        m_encryptionController = encryptionController;
+
+        if (!m_jid.isEmpty()) {
+            setUp();
+        }
+    }
+}
+
+QString TrustMessageUriGenerator::jid() const
+{
+    return m_jid;
+}
+
 void TrustMessageUriGenerator::setJid(const QString &jid)
 {
     if (m_jid != jid) {
         m_jid = jid;
-        Q_EMIT jidChanged();
+
+        if (m_encryptionController) {
+            setUp();
+        }
     }
 }
 
@@ -41,11 +66,6 @@ QString TrustMessageUriGenerator::uri() const
     return uri.toString();
 }
 
-QString TrustMessageUriGenerator::jid() const
-{
-    return m_jid;
-}
-
 void TrustMessageUriGenerator::setKeys(const QList<QString> &authenticatedKeys, const QList<QString> &distrustedKeys)
 {
     bool changed = false;
@@ -63,6 +83,19 @@ void TrustMessageUriGenerator::setKeys(const QList<QString> &authenticatedKeys, 
     // If a contact has no keys, uriChanged() must be emitted as well for the initial update.
     if (changed || (m_authenticatedKeys.isEmpty() && m_distrustedKeys.isEmpty())) {
         Q_EMIT uriChanged();
+    }
+}
+
+void TrustMessageUriGenerator::setUp()
+{
+    connect(m_encryptionController, &EncryptionController::keysChanged, this, &TrustMessageUriGenerator::handleKeysChanged, Qt::UniqueConnection);
+    updateKeys();
+}
+
+void TrustMessageUriGenerator::handleKeysChanged(const QList<QString> &jids)
+{
+    if (jids.contains(jid())) {
+        updateKeys();
     }
 }
 

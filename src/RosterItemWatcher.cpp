@@ -13,26 +13,33 @@ RosterItemNotifier &RosterItemNotifier::instance()
     return notifier;
 }
 
-void RosterItemNotifier::notifyWatchers(const QString &jid, const std::optional<RosterItem> &item)
+void RosterItemNotifier::notifyWatchers(const QString &accountJid, const QString &jid, const std::optional<RosterItem> &item)
 {
-    auto [keyBegin, keyEnd] = m_itemWatchers.equal_range(jid);
-    std::for_each(keyBegin, keyEnd, [&](const auto &pair) {
-        pair.second->notify(item);
+    std::ranges::for_each(m_itemWatchers, [&](RosterItemWatcher *rosterItemWatcher) {
+        if (rosterItemWatcher->accountJid() == accountJid && rosterItemWatcher->jid() == jid) {
+            rosterItemWatcher->notify(item);
+        }
     });
 }
 
-void RosterItemNotifier::registerItemWatcher(const QString &jid, RosterItemWatcher *watcher)
+void RosterItemNotifier::registerItemWatcher(RosterItemWatcher *watcher)
 {
-    m_itemWatchers.emplace(jid, watcher);
+    auto itr = std::ranges::find_if(m_itemWatchers, [watcher](RosterItemWatcher *rosterItemWatcher) {
+        return rosterItemWatcher == watcher;
+    });
+
+    if (itr == m_itemWatchers.end()) {
+        m_itemWatchers.append(watcher);
+    }
 }
 
-void RosterItemNotifier::unregisterItemWatcher(const QString &jid, RosterItemWatcher *watcher)
+void RosterItemNotifier::unregisterItemWatcher(RosterItemWatcher *watcher)
 {
-    auto [keyBegin, keyEnd] = m_itemWatchers.equal_range(jid);
-    auto itr = std::find_if(keyBegin, keyEnd, [watcher](const auto &pair) {
-        return pair.second == watcher;
+    auto itr = std::ranges::find_if(m_itemWatchers, [watcher](RosterItemWatcher *rosterItemWatcher) {
+        return rosterItemWatcher == watcher;
     });
-    if (itr != keyEnd) {
+
+    if (itr != m_itemWatchers.end()) {
         m_itemWatchers.erase(itr);
     }
 }
@@ -47,6 +54,22 @@ RosterItemWatcher::~RosterItemWatcher()
     unregister();
 }
 
+const QString &RosterItemWatcher::accountJid() const
+{
+    return m_accountJid;
+}
+
+void RosterItemWatcher::setAccountJid(const QString &accountJid)
+{
+    if (accountJid != m_accountJid) {
+        unregister();
+        m_accountJid = accountJid;
+        RosterItemNotifier::instance().registerItemWatcher(this);
+        Q_EMIT accountJidChanged();
+        notify(RosterModel::instance()->item(m_accountJid, m_jid));
+    }
+}
+
 const QString &RosterItemWatcher::jid() const
 {
     return m_jid;
@@ -57,9 +80,9 @@ void RosterItemWatcher::setJid(const QString &jid)
     if (jid != m_jid) {
         unregister();
         m_jid = jid;
-        RosterItemNotifier::instance().registerItemWatcher(m_jid, this);
+        RosterItemNotifier::instance().registerItemWatcher(this);
         Q_EMIT jidChanged();
-        notify(RosterModel::instance()->findItem(m_jid));
+        notify(RosterModel::instance()->item(m_accountJid, m_jid));
     }
 }
 
@@ -70,8 +93,8 @@ const RosterItem &RosterItemWatcher::item() const
 
 void RosterItemWatcher::unregister()
 {
-    if (!m_jid.isNull()) {
-        RosterItemNotifier::instance().unregisterItemWatcher(m_jid, this);
+    if (!m_accountJid.isNull() && !m_jid.isNull()) {
+        RosterItemNotifier::instance().unregisterItemWatcher(this);
     }
 }
 

@@ -23,7 +23,8 @@ RowLayout {
 		source: "media-record-symbolic"
 		color: Kirigami.Theme.negativeTextColor
 		isMask: true
-		Layout.preferredWidth: Kirigami.Units.iconSizes.small
+		implicitWidth: Kirigami.Units.iconSizes.small
+		implicitHeight: Kirigami.Units.iconSizes.small
 
 		Timer {
 			interval: Kirigami.Units.veryLongDuration

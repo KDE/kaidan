@@ -4,13 +4,13 @@
 
 import im.kaidan.kaidan
 
-QrCode {
-	id: root
+RoundedImage {
+	property alias uriGenerator: qrCodeGenerator.uriGenerator
+
 	source: qrCodeGenerator.qrCode
 
 	AccountQrCodeGenerator {
 		id: qrCodeGenerator
-		jid: root.jid
-		edgePixelCount: root.width
+		edgePixelCount: parent.width
 	}
 }

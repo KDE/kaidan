@@ -70,7 +70,7 @@ Controls.Control {
 						text: qsTr("Images")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
-						font.bold: parent.checked
+						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
 				}
 
@@ -87,7 +87,7 @@ Controls.Control {
 						text: qsTr("Videos")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
-						font.bold: parent.checked
+						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
 				}
 
@@ -105,7 +105,7 @@ Controls.Control {
 						text: qsTr("Other")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
-						font.bold: parent.checked
+						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
 				}
 
@@ -401,7 +401,7 @@ Controls.Control {
 						Controls.Label {
 							text: model.file.name
 							elide: Qt.ElideRight
-							font.bold: true
+							font.weight: Font.Medium
 							Layout.row: 0
 							Layout.column: 1
 							Layout.fillWidth: true

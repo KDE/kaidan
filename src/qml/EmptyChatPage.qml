@@ -22,7 +22,7 @@ ChatPageBase {
 		ChatInfo {
 			text: qsTr("Select a chat to start")
 			level: 1
-			type: Kirigami.Heading.Type.Primary
+			font.weight: Font.Medium
 			wrapMode: Text.Wrap
 			horizontalAlignment: Text.AlignHCenter
 			Layout.maximumWidth: parent.width

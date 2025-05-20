@@ -25,9 +25,6 @@ import "registration"
 Kirigami.ApplicationWindow {
 	id: root
 
-	minimumHeight: 300
-	minimumWidth: 300
-
 	property bool loggingOutToQuit: false
 	property bool quitForced: false
 
@@ -52,32 +49,60 @@ Kirigami.ApplicationWindow {
 	readonly property int largeButtonWidth: Kirigami.Units.gridUnit * 25
 	readonly property int smallButtonWidth: Kirigami.Theme.defaultFont.pixelSize * 2.9
 
+	minimumHeight: 300
+	minimumWidth: 300
+	pageStack.globalToolBar {
+		showNavigationButtons: pageStack.wideMode || pageStack.currentIndex === 0 ? Kirigami.ApplicationHeaderStyle.NoNavigationButtons : Kirigami.ApplicationHeaderStyle.ShowBackButton
+		preferredHeight: Kirigami.Units.iconSizes.large + Kirigami.Units.smallSpacing * 3
+	}
+	globalDrawer: GlobalDrawer {}
+	onClosing: close => {
+		// Disconnect from the server when the application window is closed but before the application
+		// is quit.
+		if (!quitForced) {
+			if (AccountController.logOutAllAccountsToQuit()) {
+				loggingOutToQuit = true
+				close.accepted = false
+				forcedClosingTimer.start()
+			}
+		}
+	}
+	Component.onCompleted: {
+		HostCompletionModel.rosterModel = RosterModel;
+		HostCompletionModel.aggregateKnownProviders();
+
+		// Restore the latest application window state if it is stored.
+		if (!Kirigami.Settings.isMobile) {
+			const latestPosition = Settings.windowPosition
+			root.x = latestPosition.x
+			root.y = latestPosition.y
+
+			const latestSize = Settings.windowSize
+			if (latestSize.width > 0) {
+				root.width = latestSize.width
+				root.height = latestSize.height
+			} else {
+				root.width = Kirigami.Units.gridUnit * 85
+				root.height = Kirigami.Units.gridUnit * 55
+			}
+		}
+	}
+	Component.onDestruction: {
+		// Store the application window state for restoring the latest state on the next start.
+		if (!Kirigami.Settings.isMobile) {
+			Settings.windowPosition = Qt.point(x, y)
+			Settings.windowSize = Qt.size(width, height)
+		}
+	}
+
 	StatusBar {
 		color: Material.Material.color(Material.Material.Green, Material.Material.Shade700)
 	}
 
-	pageStack.globalToolBar {
-		preferredHeight: Kirigami.Units.gridUnit * 3
-		showNavigationButtons: pageStack.currentIndex === 0 ? Kirigami.ApplicationHeaderStyle.NoNavigationButtons : Kirigami.ApplicationHeaderStyle.ShowBackButton
-	}
-
-	// Global and Contextual Drawers
-	// It is initialized as invisible.
-	// That way, it does not pop up for a moment before the startPage is opened.
-	globalDrawer: GlobalDrawer {
-		enabled: false
-	}
-
-	onClosing: close => {
-		// Disconnect from the server when the application window is closed but before the application
-		// is quit.
-		if (!quitForced && Kaidan.connectionState !== Enums.StateDisconnected) {
-			loggingOutToQuit = true
-			close.accepted = false
-			Kaidan.logOutRequested(true)
-			forcedClosingTimer.start()
-		}
-	}
+	// components for all main pages
+	Component {id: startPage; StartPage {}}
+	Component {id: rosterPage; RosterPage {}}
+	Component {id: emptyChatPage; EmptyChatPage {}}
 
 	// Forces closing the application if the client does not disconnect from the server.
 	// That can happen if there are connection problems.
@@ -90,75 +115,52 @@ Kirigami.ApplicationWindow {
 		}
 	}
 
-	// Needed to be outside of the DetailsDialog to not be destroyed with it.
-	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
-	BlockingAction {
-		id: blockingAction
-		onSucceeded: (jid, block) => {
-			// Show a passive notification when a JID that is not in the roster is blocked and
-			// provide an option to undo that.
-			// JIDs in the roster can be blocked again via their details.
-			if (!block && !RosterModel.hasItem(jid)) {
-				showPassiveNotification(qsTr("Unblocked %1").arg(jid), "long", qsTr("Undo"), () => {
-					blockingAction.block(jid)
-				})
+	Connections {
+		target: MainController
+
+		function onRaiseWindowRequested() {
+			if (!root.active) {
+				root.raise()
+				root.requestActivate()
 			}
 		}
-		onErrorOccurred: (jid, block, errorText) => {
-			if (block) {
-				showPassiveNotification(qsTr("Could not block %1: %2").arg(jid).arg(errorText))
+
+		function onPassiveNotificationRequested(text, duration) {
+			if (duration.length) {
+				showPassiveNotification(text, duration)
 			} else {
-				showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
+				passiveNotification(text)
 			}
 		}
-	}
 
-	// components for all main pages
-	Component {id: startPage; StartPage {}}
-	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
-	Component {id: rosterPage; RosterPage {}}
-	Component {id: chatPage; ChatPage {}}
-	Component {id: emptyChatPage; EmptyChatPage {}}
-
-	Component {
-		id: contactAdditionDialog
-
-		ContactAdditionDialog {}
-	}
-
-	Component {
-		id: contactAdditionPage
-
-		ContactAdditionPage {}
-	}
-
-	Component {
-		id: groupChatJoiningDialog
-
-		GroupChatJoiningDialog {
-			accountJid: AccountController.account.jid
-			nickname: AccountController.account.displayName
-		}
-	}
-
-	Component {
-		id: groupChatJoiningPage
-
-		GroupChatJoiningPage {
-			accountJid: AccountController.account.jid
-			nickname: AccountController.account.displayName
+		function onOpenStartPageRequested() {
+			openStartPage(true)
 		}
 	}
 
 	Connections {
-		target: Kaidan
+		target: AccountController
+
+		function onAccountAvailable() {
+			openChatView()
+		}
+
+		function onNoAccountAvailable() {
+			openStartPage()
+		}
+
+		function onAccountAdded(account) {
+			openChatView()
+		}
+	}
+
+	Connections {
+		target: AccountController
 		enabled: root.loggingOutToQuit
 
-		function onConnectionStateChanged() {
-			if (Kaidan.connectionState === Enums.StateDisconnected) {
-				root.loggingOutToQuit = false
-				root.close()
-			}
+		function onAllAccountsLoggedOutToQuit() {
+			root.loggingOutToQuit = false
+			root.close()
 		}
 	}
 
@@ -166,7 +168,7 @@ Kirigami.ApplicationWindow {
 		target: pageStack
 
 		function onWideModeChanged() {
-			showRosterPageForNarrowWindow()
+			showProperPageForNarrorWindow()
 		}
 	}
 
@@ -189,8 +191,6 @@ Kirigami.ApplicationWindow {
 	}
 
 	function openStartPage(accountAvailable = false) {
-		globalDrawer.enabled = false
-
 		if (accountAvailable) {
 			openPage(startPage)
 		} else {
@@ -204,8 +204,6 @@ Kirigami.ApplicationWindow {
 	 * Opens the view with the roster and chat page.
 	 */
 	function openChatView() {
-		globalDrawer.enabled = true
-
 		popLayersAboveLowest()
 		popAllPages()
 		pageStack.push(rosterPage)
@@ -217,7 +215,7 @@ Kirigami.ApplicationWindow {
 			pageStack.push(emptyChatPage)
 		}
 
-		showRosterPageForNarrowWindow()
+		showProperPageForNarrorWindow()
 	}
 
 	/**
@@ -248,10 +246,13 @@ Kirigami.ApplicationWindow {
 		return pushLayer(pageComponent)
 	}
 
-	// Show the rosterPage instead of the emptyChatPage if the window is narrow.
-	function showRosterPageForNarrowWindow() {
-		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && !pageStack.wideMode) {
-			pageStack.goBack()
+	function showProperPageForNarrorWindow() {
+		if (!pageStack.wideMode && pageStack.layers.depth === 1) {
+			if (pageStack.currentItem instanceof EmptyChatPage) {
+				pageStack.goBack()
+			} else if (pageStack.lastItem instanceof ChatPage && pageStack.currentItem instanceof RosterPage) {
+				pageStack.goForward()
+			}
 		}
 	}
 
@@ -287,69 +288,5 @@ Kirigami.ApplicationWindow {
 	function popAllPages() {
 		while (pageStack.depth > 0)
 			pageStack.pop()
-	}
-
-	Connections {
-		target: Kaidan
-
-		function onRaiseWindowRequested() {
-			if (!root.active) {
-				root.raise()
-				root.requestActivate()
-			}
-		}
-
-		function onPassiveNotificationRequested(text, duration) {
-			if (duration.length) {
-				showPassiveNotification(text, duration)
-			} else {
-				passiveNotification(text)
-			}
-		}
-
-		function onCredentialsNeeded() {
-			openStartPage()
-		}
-
-		function onOpenStartPageRequested() {
-			openStartPage(true)
-		}
-
-		function onOpenChatViewRequested() {
-			openChatView()
-		}
-	}
-
-	Component.onCompleted: {
-		HostCompletionModel.rosterModel = RosterModel;
-		HostCompletionModel.aggregateKnownProviders();
-
-		// Restore the latest application window state if it is stored.
-		if (!Kirigami.Settings.isMobile) {
-			const latestPosition = Kaidan.settings.windowPosition
-			root.x = latestPosition.x
-			root.y = latestPosition.y
-
-			const latestSize = Kaidan.settings.windowSize
-			if (latestSize.width > 0) {
-				root.width = latestSize.width
-				root.height = latestSize.height
-			} else {
-				root.width = Kirigami.Units.gridUnit * 85
-				root.height = Kirigami.Units.gridUnit * 55
-			}
-		}
-
-		openStartPage()
-
-		AccountController.loadConnectionData()
-	}
-
-	Component.onDestruction: {
-		// Store the application window state for restoring the latest state on the next start.
-		if (!Kirigami.Settings.isMobile) {
-			Kaidan.settings.windowPosition = Qt.point(x, y)
-			Kaidan.settings.windowSize = Qt.size(width, height)
-		}
 	}
 }

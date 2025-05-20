@@ -10,6 +10,7 @@
 // QXmpp
 #include <QXmppLogger.h>
 
+class AccountSettings;
 class QXmppClient;
 
 class LogHandler : public QObject
@@ -17,10 +18,7 @@ class LogHandler : public QObject
     Q_OBJECT
 
 public:
-    /**
-     * Default constructor
-     */
-    explicit LogHandler(QXmppClient *client, QObject *parent = nullptr);
+    LogHandler(AccountSettings *accountSettings, QXmppClient *client, QObject *parent = nullptr);
 
     /**
      * Handles logging messages and processes them (currently only output
@@ -34,5 +32,6 @@ private:
      */
     static QString makeXmlPretty(QString inputXml);
 
+    AccountSettings *const m_accountSettings;
     QXmppClient *const m_client;
 };

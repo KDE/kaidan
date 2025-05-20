@@ -9,23 +9,25 @@ import org.kde.kirigami as Kirigami
 import im.kaidan.kaidan
 
 /**
- * Used to select a UserlistItem inside of it.
+ * Used to select a Controls.ItemDelegate inside of it.
  */
 Rectangle {
-	property Item userListItem
+	id: root
+
+	property Controls.ItemDelegate itemDelegate
 
 	color: {
 		let colorOpacity = 0;
 
-		if (userListItem.pressed) {
+		if (itemDelegate.pressed) {
 			colorOpacity = 0.35
-		} else if (userListItem.selected) {
-			if (userListItem.hovered) {
+		} else if (itemDelegate.checked) {
+			if (itemDelegate.hovered) {
 				colorOpacity = 0.3
 			} else {
 				colorOpacity = 0.25
 			}
-		} else if (userListItem.hovered) {
+		} else if (itemDelegate.hovered) {
 			colorOpacity = 0.1
 		}
 
@@ -45,6 +47,7 @@ Rectangle {
 		color: Kirigami.Theme.backgroundColor
 		implicitWidth: Kirigami.Units.iconSizes.small
 		implicitHeight: Kirigami.Units.iconSizes.small
+		visible: root.itemDelegate.hovered || root.itemDelegate.checked
 		anchors.centerIn: parent
 	}
 }

@@ -15,21 +15,34 @@
 #include <QXmppRegistrationManager.h>
 // Kaidan
 #include "AccountController.h"
+#include "AccountDb.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
+#include "EncryptionController.h"
 #include "FutureUtils.h"
+#include "MessageDb.h"
 #include "RegistrationDataFormModel.h"
-#include "ServerFeaturesCache.h"
+#include "RosterDb.h"
+#include "VCardController.h"
 
 using namespace std::chrono_literals;
 
 constexpr auto ACCOUNT_DELETION_TIMEOUT = 5s;
 
-RegistrationController::RegistrationController(QObject *parent)
+RegistrationController::RegistrationController(AccountSettings *accountSettings,
+                                               Connection *connection,
+                                               EncryptionController *encryptionController,
+                                               VCardController *vCardController,
+                                               ClientWorker *clientWorker,
+                                               QObject *parent)
     : QObject(parent)
-    , m_clientWorker(Kaidan::instance()->client())
-    , m_client(m_clientWorker->xmppClient())
-    , m_manager(m_clientWorker->registrationManager())
+    , m_accountSettings(accountSettings)
+    , m_connection(connection)
+    , m_encryptionController(encryptionController)
+    , m_vCardController(vCardController)
+    , m_clientWorker(clientWorker)
+    , m_client(clientWorker->xmppClient())
+    , m_manager(clientWorker->registrationManager())
 {
     connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationController::handleInBandRegistrationSupportedChanged);
 
@@ -39,11 +52,8 @@ RegistrationController::RegistrationController(QObject *parent)
     connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationController::handleRegistrationFailed);
 
     // account deletion
-    connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountController::instance(), &AccountController::handleAccountDeletedFromServer);
-    connect(m_manager,
-            &QXmppRegistrationManager::accountDeletionFailed,
-            AccountController::instance(),
-            &AccountController::handleAccountDeletionFromServerFailed);
+    connect(m_manager, &QXmppRegistrationManager::accountDeleted, this, &RegistrationController::handleAccountDeletedFromServer);
+    connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, this, &RegistrationController::handleAccountDeletionFromServerFailed);
 
     // password change
     connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationController::handlePasswordChanged);
@@ -59,41 +69,26 @@ QFuture<bool> RegistrationController::registerOnConnectEnabled()
 
 void RegistrationController::requestRegistrationForm()
 {
-    auto connectToRegister = [this]() {
-        setRegisterOnConnectEnabled(true);
-
-        runOnThread(m_clientWorker, [this]() {
-            m_clientWorker->connectToServer();
-        });
-    };
-
-    auto reconnectToRegister = [this, connectToRegister]() {
-        m_client->disconnectFromServer();
-        connectToRegister();
-    };
-
-    if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
-        registerOnConnectEnabled().then(this, [this, reconnectToRegister](bool registerOnConnectEnabled) {
-            if (registerOnConnectEnabled) {
-                runOnThread(
-                    m_client,
-                    [this]() {
-                        return m_client->configuration().jidBare();
-                    },
-                    this,
-                    [this, reconnectToRegister](QString &&accountJid) {
-                        if (accountJid == AccountController::instance()->account().jid) {
-                            m_manager->requestRegistrationForm();
-                        } else {
-                            reconnectToRegister();
-                        }
-                    });
+    if (m_connection->state() != Enums::ConnectionState::StateDisconnected) {
+        runOnThread(m_manager, [this, accountJid = m_accountSettings->jid()]() {
+            if (m_manager->registerOnConnectEnabled()) {
+                if (m_client->configuration().jidBare() == accountJid) {
+                    m_manager->requestRegistrationForm();
+                } else {
+                    m_client->disconnectFromServer();
+                    m_clientWorker->connectToServer();
+                }
             } else {
-                reconnectToRegister();
+                m_client->disconnectFromServer();
+                m_manager->setRegisterOnConnectEnabled(true);
+                m_clientWorker->connectToServer();
             }
         });
     } else {
-        connectToRegister();
+        runOnThread(m_manager, [this]() {
+            m_manager->setRegisterOnConnectEnabled(true);
+            m_clientWorker->connectToServer();
+        });
     }
 }
 
@@ -114,12 +109,10 @@ void RegistrationController::sendRegistrationForm()
         });
     }
 
-    setRegisterOnConnectEnabled(true);
-
     // If the client is still connected/connecting to the server, send the registration form
     // directly.
     // Otherwise, reconnect to the server beforehand.
-    if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
+    if (m_connection->state() != Enums::ConnectionState::StateDisconnected) {
         runOnThread(m_manager, [this]() {
             m_manager->sendCachedRegistrationForm();
         });
@@ -130,26 +123,114 @@ void RegistrationController::sendRegistrationForm()
     }
 }
 
-void RegistrationController::changePassword(const QString &newPassword)
+void RegistrationController::abortRegistration()
 {
-    runOnThread(m_clientWorker, [this, newPassword]() {
-        m_clientWorker->startTask([this, newPassword] {
-            m_manager->changePassword(newPassword);
-        });
+    // Reset the registration steps if the client connected to a server for registration.
+    registerOnConnectEnabled().then(this, [this](bool registerOnConnectEnabled) {
+        if (registerOnConnectEnabled) {
+            // Disconnect from any server that the client is still connected to.
+            if (m_connection->state() != Enums::ConnectionState::StateDisconnected) {
+                runOnThread(m_client, [this]() {
+                    m_client->disconnectFromServer();
+                });
+            }
+
+            cleanUpLastForm();
+            setRegisterOnConnectEnabled(false);
+        }
     });
 }
 
-void RegistrationController::deleteAccount()
+void RegistrationController::changePassword(const QString &newPassword)
 {
-    runOnThread(m_manager, [this]() {
-        m_manager->deleteAccount();
+    runOnThread(m_clientWorker, [this, newPassword]() {
+        m_manager->changePassword(newPassword);
     });
+}
 
-    // Start a timer to disconnect from the server after a specified timeout triggering
-    // QXmppRegistrationManager::accountDeleted to be emitted.
-    // Considering an account as deleted after a timeout is needed because some servers do not
-    // respond to the deletion request within a reasonable time period.
-    QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, m_client, &QXmppClient::disconnectFromServer);
+void RegistrationController::deleteAccountFromClient()
+{
+    m_deletionStates = DeletionState::ToBeDeletedFromClient;
+
+    // If the client is not yet disconnected, disconnect first and delete the account afterwards.
+    // Otherwise, delete the account directly from the client.
+    runOnThread(
+        m_clientWorker,
+        [this]() {
+            return m_clientWorker->xmppClient()->isAuthenticated();
+        },
+        this,
+        [this](bool authenticated) {
+            if (authenticated) {
+                m_encryptionController->reset().then(this, [this]() {
+                    runOnThread(m_clientWorker, [this]() {
+                        m_clientWorker->logOut();
+                    });
+                });
+            } else {
+                m_connection->logIn();
+            }
+        });
+}
+
+void RegistrationController::deleteAccountFromClientAndServer()
+{
+    m_deletionStates = DeletionState::ToBeDeletedFromClient | DeletionState::ToBeDeletedFromServer;
+
+    // If the client is already connected, delete the account directly from the server.
+    // Otherwise, connect first and delete the account afterwards.
+    runOnThread(
+        m_clientWorker,
+        [this]() {
+            return m_clientWorker->xmppClient()->isAuthenticated();
+        },
+        this,
+        [this](bool authenticated) {
+            if (authenticated) {
+                runOnThread(m_manager, [this]() {
+                    m_manager->deleteAccount();
+                });
+
+                // Start a timer to disconnect from the server after a specified timeout triggering
+                // QXmppRegistrationManager::accountDeleted to be emitted.
+                // Considering an account as deleted after a timeout is needed because some servers do not
+                // respond to the deletion request within a reasonable time period.
+                QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, m_client, &QXmppClient::disconnectFromServer);
+            } else {
+                m_deletionStates |= DeletionState::ClientDisconnectedBeforeDeletionFromServer;
+                m_connection->logIn();
+            }
+        });
+}
+
+bool RegistrationController::handleConnected()
+{
+    // If the account could not be deleted because the client was disconnected, delete it now.
+    if (m_deletionStates.testFlags(DeletionState::ToBeDeletedFromClient | DeletionState::ToBeDeletedFromServer)) {
+        deleteAccountFromClientAndServer();
+
+        return true;
+    } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
+        deleteAccountFromClient();
+        return true;
+    }
+
+    return false;
+}
+
+void RegistrationController::handleDisconnected()
+{
+    // Delete the account from the client if the account was deleted from the server or the client
+    // was connected and had to disconnect first.
+    if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
+        m_encryptionController->resetLocally().then(this, [this]() {
+            removeLocalAccountData();
+        });
+    } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
+        removeLocalAccountData();
+    }
+
+    m_deletionStates = DeletionState::NotToBeDeleted;
 }
 
 void RegistrationController::setRegisterOnConnectEnabled(bool registerOnConnect)
@@ -161,15 +242,15 @@ void RegistrationController::setRegisterOnConnectEnabled(bool registerOnConnect)
 
 void RegistrationController::handleInBandRegistrationSupportedChanged()
 {
-    if (Kaidan::instance()->connectionState() == Enums::ConnectionState::StateConnected) {
+    if (m_connection->state() == Enums::ConnectionState::StateConnected) {
         runOnThread(
             m_manager,
             [this]() {
                 return m_manager->supportedByServer();
             },
             this,
-            [](bool supportedByServer) {
-                Kaidan::instance()->serverFeaturesCache()->setInBandRegistrationSupported(supportedByServer);
+            [this](bool supportedByServer) {
+                m_accountSettings->setInBandRegistrationFeaturesSupported(supportedByServer);
             });
     }
 }
@@ -225,20 +306,31 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
 
 void RegistrationController::handleRegistrationSucceeded()
 {
-    AccountController::instance()->setNewAccount(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()),
-                                                 m_dataFormModel->extractPassword());
+    m_accountSettings->setJid(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()));
+    m_accountSettings->setPassword(m_dataFormModel->extractPassword());
+    m_accountSettings->storeTemporaryData();
 
-    runOnThread(m_client, [this]() {
-        m_client->disconnectFromServer();
-    });
+    runOnThread(
+        m_client,
+        [this]() {
+            m_client->disconnectFromServer();
+            m_manager->setRegisterOnConnectEnabled(false);
 
-    setRegisterOnConnectEnabled(false);
+            connect(
+                m_connection,
+                &Connection::connected,
+                this,
+                [this]() {
+                    m_vCardController->changeNickname(m_accountSettings->name());
+                },
+                Qt::SingleShotConnection);
 
-    runOnThread(m_clientWorker, [this]() {
-        m_clientWorker->logIn();
-    });
-
-    cleanUpLastForm();
+            m_clientWorker->logIn();
+        },
+        this,
+        [this]() {
+            cleanUpLastForm();
+        });
 }
 
 void RegistrationController::handleRegistrationFailed(const QXmppStanza::Error &error)
@@ -292,27 +384,18 @@ void RegistrationController::handleRegistrationFailed(const QXmppStanza::Error &
         break;
     }
 
-    Q_EMIT registrationFailed(quint8(registrationError), error.text());
+    Q_EMIT registrationFailed(registrationError, error.text());
 }
 
 void RegistrationController::handlePasswordChanged(const QString &newPassword)
 {
-    AccountController::instance()->setAuthPassword(newPassword);
-
-    runOnThread(m_clientWorker, [this]() {
-        m_clientWorker->finishTask();
-    });
-
+    m_accountSettings->setPassword(newPassword);
     Q_EMIT passwordChangeSucceeded();
 }
 
 void RegistrationController::handlePasswordChangeFailed(const QXmppStanza::Error &error)
 {
     Q_EMIT passwordChangeFailed(error.text());
-
-    runOnThread(m_clientWorker, [this]() {
-        m_clientWorker->finishTask();
-    });
 }
 
 QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm)
@@ -351,27 +434,6 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
     }
 
     return newDataForm;
-}
-
-void RegistrationController::abortRegistration()
-{
-    const auto accountController = AccountController::instance();
-
-    // Reset the registration steps if the client connected to a server for registration.
-    if (accountController->hasNewAccount()) {
-        // Resetting the cached JID is needed to clear the JID field of LoginArea.
-        accountController->resetNewAccount();
-
-        // Disconnect from any server that the client is still connected to.
-        if (Kaidan::instance()->connectionState() != Enums::ConnectionState::StateDisconnected) {
-            runOnThread(m_client, [this]() {
-                m_client->disconnectFromServer();
-            });
-        }
-
-        setRegisterOnConnectEnabled(false);
-        cleanUpLastForm();
-    }
 }
 
 void RegistrationController::updateLastForm(const QXmppDataForm &newDataForm)
@@ -416,6 +478,33 @@ void RegistrationController::removeOldContentIds()
             ++itr;
         }
     }
+}
+
+void RegistrationController::handleAccountDeletedFromServer()
+{
+    m_deletionStates = DeletionState::DeletedFromServer;
+}
+
+void RegistrationController::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
+{
+    Q_EMIT accountDeletionFromClientAndServerFailed(error.text());
+
+    if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
+        m_deletionStates = DeletionState::NotToBeDeleted;
+
+        runOnThread(m_clientWorker, [this]() {
+            m_clientWorker->logOut();
+        });
+    } else {
+        m_deletionStates = DeletionState::NotToBeDeleted;
+    }
+}
+
+void RegistrationController::removeLocalAccountData()
+{
+    MessageDb::instance()->removeMessages(m_accountSettings->jid());
+    RosterDb::instance()->removeItems(m_accountSettings->jid());
+    AccountDb::instance()->removeAccount(m_accountSettings->jid());
 }
 
 #include "moc_RegistrationController.cpp"

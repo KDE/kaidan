@@ -15,14 +15,13 @@ Controls.ItemDelegate {
 	id: root
 
 	default property alias __data: content.data
-	property alias avatar: avatar
-	property string accountJid
+	property Account account
 	property string jid
 	property string name
 	property bool isGroupChat
-	property bool selected: false
 	property bool dragged: false
-	property bool first: model ? model.index === 0 : true
+	property bool first: model === undefined || model.index === 0
+	property alias avatar: avatar
 
 	topPadding: 0
 	leftPadding: 0
@@ -40,6 +39,7 @@ Controls.ItemDelegate {
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		bottomPadding: Kirigami.Units.smallSpacing
 		background: Rectangle {
+			id: interactiveBackground
 			radius: roundedCornersRadius
 			color: {
 				let colorOpacity = 0
@@ -50,13 +50,13 @@ Controls.ItemDelegate {
 					colorOpacity = 0.2
 				} else if(root.highlighted) {
 					colorOpacity = 0.5
-				} else if (root.pressed) {
+				} else if (root.down || root.pressed) {
 					colorOpacity = 0.2
 				} else if (root.visualFocus) {
 					colorOpacity = 0.1
 				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
 					colorOpacity = 0.07
-				} else if (root.selected) {
+				} else if (root.checked) {
 					colorOpacity = 0.05
 				}
 
@@ -74,13 +74,15 @@ Controls.ItemDelegate {
 			id: content
 			spacing: Kirigami.Units.largeSpacing
 
-			// left: avatar
-			Avatar {
+			AccountRelatedAvatar {
 				id: avatar
+				account: root.account
 				jid: root.jid
 				name: root.name
 				isGroupChat: root.isGroupChat
+				accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
 			}
 		}
 	}
+	Kirigami.Theme.inherit: false
 }

@@ -13,9 +13,13 @@
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppStanza.h>
 
+class AccountSettings;
 class ClientWorker;
+class Connection;
 class DataFormModel;
+class EncryptionController;
 class RegistrationDataFormModel;
+class VCardController;
 class QXmppClient;
 class QXmppDataForm;
 class QXmppRegisterIq;
@@ -37,7 +41,24 @@ public:
     };
     Q_ENUM(RegistrationError)
 
-    RegistrationController(QObject *parent = nullptr);
+    /**
+     * State of an ongoing account deletion.
+     */
+    enum class DeletionState {
+        NotToBeDeleted = 1 << 0,
+        ToBeDeletedFromClient = 1 << 1,
+        ToBeDeletedFromServer = 1 << 2,
+        DeletedFromServer = 1 << 3,
+        ClientDisconnectedBeforeDeletionFromServer = 1 << 4,
+    };
+    Q_DECLARE_FLAGS(DeletionStates, DeletionState)
+
+    RegistrationController(AccountSettings *accountSettings,
+                           Connection *connection,
+                           EncryptionController *encryptionController,
+                           VCardController *vCardController,
+                           ClientWorker *clientWorker,
+                           QObject *parent = nullptr);
 
     QFuture<bool> registerOnConnectEnabled();
 
@@ -72,7 +93,12 @@ public:
      * @param error received error
      * @param errorMessage message describing the error
      */
-    Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
+    Q_SIGNAL void registrationFailed(RegistrationError error, const QString &errorMessage);
+
+    /**
+     * Aborts an ongoing registration.
+     */
+    Q_INVOKABLE void abortRegistration();
 
     /**
      * Changes the user's password.
@@ -94,9 +120,19 @@ public:
     Q_SIGNAL void passwordChangeFailed(const QString &errorMessage);
 
     /**
-     * Deletes the account from the server.
+     * Deletes the account data from the configuration file and database after removing possible
+     * client data from the server.
      */
-    void deleteAccount();
+    Q_INVOKABLE void deleteAccountFromClient();
+
+    /**
+     * Deletes the account from the client and server.
+     */
+    Q_INVOKABLE void deleteAccountFromClientAndServer();
+    Q_SIGNAL void accountDeletionFromClientAndServerFailed(const QString &errorMessage);
+
+    bool handleConnected();
+    void handleDisconnected();
 
 private:
     /**
@@ -161,11 +197,6 @@ private:
     static QXmppDataForm extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm);
 
     /**
-     * Aborts an ongoing registration.
-     */
-    void abortRegistration();
-
-    /**
      * Updates the last form used for registration.
      */
     void updateLastForm(const QXmppDataForm &newDataForm);
@@ -188,9 +219,31 @@ private:
      */
     void removeOldContentIds();
 
+    /**
+     * Called when the account is deleted from the server.
+     */
+    void handleAccountDeletedFromServer();
+
+    /**
+     * Called when the account could not be deleted from the server.
+     *
+     * @param error error of the failed account deletion
+     */
+    void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
+
+    void removeLocalAccountData();
+
+    AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
+    EncryptionController *const m_encryptionController;
+    VCardController *const m_vCardController;
     ClientWorker *const m_clientWorker;
     QXmppClient *const m_client;
     QXmppRegistrationManager *const m_manager;
+
     RegistrationDataFormModel *m_dataFormModel = nullptr;
     QList<QXmppBitsOfBinaryContentId> m_contentIdsToRemove;
+    DeletionStates m_deletionStates = DeletionState::NotToBeDeleted;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(RegistrationController::DeletionStates)

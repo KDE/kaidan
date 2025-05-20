@@ -46,8 +46,8 @@ public:
     Files files() const;
     void setFiles(const Files &files);
 
-    Q_SLOT void loadFiles();
-    Q_SLOT void loadDownloadedFiles();
+    Q_INVOKABLE void loadFiles();
+    Q_INVOKABLE void loadDownloadedFiles();
 
     Q_SIGNAL void rowCountChanged();
 

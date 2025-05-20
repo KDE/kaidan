@@ -7,16 +7,17 @@
 #include "OmemoDb.h"
 
 // Kaidan
+#include "Account.h"
 #include "SqlUtils.h"
 
 using namespace SqlUtils;
 
 constexpr std::initializer_list<QStringView> OMEMO_TABLES = {u"omemoDevicesOwn", u"omemoDevices", u"omemoPreKeyPairs", u"omemoPreKeyPairsSigned"};
 
-OmemoDb::OmemoDb(Database *db, QObject *xmppContext, QString accountJid, QObject *parent)
-    : DatabaseComponent(db, parent)
+OmemoDb::OmemoDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent)
+    : DatabaseComponent(parent)
+    , m_accountSettings(accountSettings)
     , m_xmppContext(xmppContext)
-    , m_accountJid(std::move(accountJid))
 {
 }
 
@@ -396,4 +397,9 @@ auto OmemoDb::_devices() -> QHash<QString, QHash<uint32_t, Device>>
         output[query.value(UserJid).toString()][query.value(Id).toUInt()] = parse();
     }
     return output;
+}
+
+QString OmemoDb::accountJid() const
+{
+    return m_accountSettings->jid();
 }

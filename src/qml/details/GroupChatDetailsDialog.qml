@@ -5,36 +5,25 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
 
-import im.kaidan.kaidan
-
-import "../elements"
-
-FormInfoDialog {
+RosterItemDetailsDialog {
 	id: root
 	title: qsTr("Group Details")
 
-	GroupChatDetailsHeader {}
+	GroupChatDetailsHeader {
+		chatController: root.chatController
+	}
 
 	GroupChatDetailsContent {
 		id: content
 		dialog: root
+		chatController: root.chatController
 		Layout.fillWidth: true
 	}
 
-	Connections {
-		target: Kaidan
-
-		// Close this dialog when the group chat is removed.
-		function onCloseChatPageRequested() {
-			root.close()
-		}
-	}
-
-	function openContactListView() {
-		content.openContactListView()
+	function openInviteeListView() {
+		content.openInviteeListView()
 	}
 
 	function openKeyAuthenticationUserListView() {

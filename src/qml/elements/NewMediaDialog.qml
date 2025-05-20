@@ -16,7 +16,7 @@ Dialog {
 	id: root
 
 	default property alias __data: contentArea.data
-	property MessageComposition messageComposition
+	property FileSelectionModel fileSelectionModel
 	property alias captureSession: captureSession
 	property alias shutterRelease: shutterRelease
 
@@ -105,7 +105,7 @@ Dialog {
 	}
 
 	function addFile(localFileUrl) {
-		messageComposition.fileSelectionModel.addFile(localFileUrl, true)
+		fileSelectionModel.addFile(localFileUrl, true)
 		close()
 	}
 }

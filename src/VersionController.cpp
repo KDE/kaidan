@@ -6,17 +6,16 @@
 #include "VersionController.h"
 
 // QXmpp
-#include <QXmppRosterManager.h>
 #include <QXmppVersionManager.h>
 // Kaidan
 #include "FutureUtils.h"
 #include "Globals.h"
-#include "Kaidan.h"
+#include "PresenceCache.h"
 
-VersionController::VersionController(QObject *parent)
+VersionController::VersionController(PresenceCache *presenceCache, QXmppVersionManager *versionManager, QObject *parent)
     : QObject(parent)
-    , m_rosterManager(Kaidan::instance()->client()->rosterManager())
-    , m_versionManager(Kaidan::instance()->client()->versionManager())
+    , m_presenceCache(presenceCache)
+    , m_versionManager(versionManager)
 {
     // Publish the own operating system and client information.
     m_versionManager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
@@ -34,7 +33,7 @@ void VersionController::fetchVersions(const QString &bareJid, const QString &res
 
     if (resource.isEmpty()) {
         runOnThread(m_versionManager, [this, bareJid, resource, fetchVersion]() {
-            const auto resources = m_rosterManager->getResources(bareJid);
+            const auto resources = m_presenceCache->resources(bareJid);
             std::for_each(resources.cbegin(), resources.cend(), fetchVersion);
         });
     } else {

@@ -17,6 +17,7 @@
 // Kaidan
 #include "RosterItem.h"
 
+class Account;
 class Message;
 enum class MessageOrigin : quint8;
 
@@ -24,12 +25,11 @@ class RosterModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(QStringList accountJids READ accountJids NOTIFY accountJidsChanged)
     Q_PROPERTY(QStringList groups READ groups NOTIFY groupsChanged)
 
 public:
     enum RosterItemRoles {
-        AccountJidRole,
+        AccountRole,
         JidRole,
         NameRole,
         GroupsRole,
@@ -44,19 +44,9 @@ public:
         LastMessageGroupChatSenderNameRole,
         PinnedRole,
         SelectedRole,
-        NotificationRuleRole,
+        EffectiveNotificationRuleRole,
     };
     Q_ENUM(RosterItemRoles)
-
-    /**
-     * Result for adding a contact by an XMPP URI specifying how the URI is used
-     */
-    enum AddContactByUriResult {
-        AddingContact, ///< The contact is being added to the roster.
-        ContactExists, ///< The contact is already in the roster.
-        InvalidUri ///< The URI cannot be used for contact addition.
-    };
-    Q_ENUM(AddContactByUriResult)
 
     static RosterModel *instance();
 
@@ -74,18 +64,12 @@ public:
      *
      * @return true if a roster item with the passed properties exists, otherwise false
      */
-    Q_INVOKABLE bool hasItem(const QString &jid) const;
+    Q_INVOKABLE bool hasItem(const QString &accountJid, const QString &jid) const;
 
-    Q_SIGNAL void itemAdded(const QString &accountJid, const QString &jid);
+    Q_SIGNAL void itemsFetched(const QList<RosterItem> &items);
+    Q_SIGNAL void itemAdded(const RosterItem &item);
     Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
-
-    /**
-     * Returns the account JIDs of all roster items.
-     *
-     * @return all account JIDs
-     */
-    QStringList accountJids() const;
-    Q_SIGNAL void accountJidsChanged();
+    Q_SIGNAL void itemsRemoved(const QString &accountJid);
 
     /**
      * Returns the roster groups of all roster items.
@@ -94,9 +78,6 @@ public:
      */
     QStringList groups() const;
     Q_SIGNAL void groupsChanged();
-
-    Q_INVOKABLE void updateGroup(const QString &oldGroup, const QString &newGroup);
-    Q_INVOKABLE void removeGroup(const QString &group);
 
     /**
      * Returns whether an account's presence is subscribed by a roster item.
@@ -112,46 +93,23 @@ public:
     void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);
     Q_INVOKABLE void setItemEncryption(const QString &accountJid, Encryption::Enum encryption);
 
-    /**
-     * Adds a contact (bare JID) by a given XMPP URI (e.g., from a scanned QR
-     * code) such as "xmpp:user@example.org".
-     *
-     * @param uriString XMPP URI string that contains only a JID
-     */
-    Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &accountJid, const QString &uriString);
-
     QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
     QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
 
     /**
-     * Sends read markers for all roster items that have unsent (pending) ones.
-     *
-     * This method must only be called while being logged in.
-     * Otherwise, the pending states of the read markers would be reset even if the pending read
-     * markers could not be sent.
-     *
-     * @param accountJid bare JID of the user's account
-     */
-    void sendPendingReadMarkers(const QString &accountJid);
-
-    /**
      * Searches for the roster item with a given JID.
      */
-    std::optional<RosterItem> findItem(const QString &jid) const;
+    std::optional<RosterItem> item(const QString &accountJid, const QString &jid) const;
 
     const QList<RosterItem> &items() const;
+    const QList<RosterItem> items(const QString &accountJid) const;
 
     Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
     Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
-    Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
+    Q_INVOKABLE void reorderPinnedItem(int oldIndex, int newIndex);
 
     Q_INVOKABLE void toggleSelected(const QString &accountJid, const QString &jid);
     Q_INVOKABLE void resetSelected();
-
-    Q_INVOKABLE void setChatStateSendingEnabled(const QString &accountJid, const QString &jid, bool chatStateSendingEnabled);
-    Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &accountJid, const QString &jid, bool readMarkerSendingEnabled);
-    Q_INVOKABLE void setNotificationRule(const QString &accountJid, const QString &jid, RosterItem::NotificationRule notificationRule);
-    Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
 private:
     void handleItemsFetched(const QList<RosterItem> &items);
@@ -161,7 +119,9 @@ private:
     void removeItem(const QString &accountJid, const QString &jid);
     void removeItems(const QString &accountJid);
 
-    void handleAccountChanged();
+    void initializeNotificationRuleUpdates();
+    void initializeNotificationRuleUpdates(Account *account);
+    void handleAccountNotificationRuleChanged();
 
     void handleMessageAdded(const Message &message, MessageOrigin origin);
     void handleMessageUpdated(const Message &message);
@@ -180,7 +140,6 @@ private:
     int positionToMove(int currentIndex);
 
     QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
-    QString determineGroupChatSenderName(const Message &message) const;
 
     QList<RosterItem> m_items;
 

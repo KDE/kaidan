@@ -15,17 +15,20 @@ import "../elements"
  * This is an area containing a button used for confirming a registration.
  */
 FormCard.FormCard {
+	id: root
+
+	property Account account
 	property var registrationFunction
 	property var loginFunction
 	property alias busy: button.busy
 
 	BusyIndicatorFormButton {
 		id: button
-		idleText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
-		busyText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
+		idleText: root.account.connection.error === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
+		busyText: root.account.connection.error === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
 		background: HighlightedFormButtonBackground {}
 		onClicked: {
-			if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
+			if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
 				loginFunction()
 			} else {
 				registrationFunction()
@@ -35,13 +38,17 @@ FormCard.FormCard {
 		}
 
 		Connections {
-			target: Kaidan.registrationController
+			target: root.account.connection
 
-			function onRegistrationFailed(error, errorMessage) {
+			function onErrorChanged(error) {
 				button.busy = false
 			}
+		}
 
-			function onConnectionErrorChanged(error) {
+		Connections {
+			target: root.account.registrationController
+
+			function onRegistrationFailed(error, errorMessage) {
 				button.busy = false
 			}
 		}

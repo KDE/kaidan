@@ -18,7 +18,7 @@ Dialog {
 	property string errorMessage
 
 	title: qsTr("Search public groups (%1)")
-		.arg("%1/%2".arg(groupChatsProxy.count).arg(groupChatsModel.count))
+		.arg("%1/%2".arg(publicGroupChatProxyModel.count).arg(publicGroupChatModel.count))
 	// "implicitHeight" is needed in addition to "preferredHeight" to avoid a binding loop.
 	implicitHeight: maximumHeight
 	preferredHeight: maximumHeight
@@ -27,21 +27,21 @@ Dialog {
 			searchField.forceActiveFocus()
 		}
 
-		groupChatsManager.requestAll()
+		publicGroupChatSearchController.requestAll()
 	}
 
 	ListView {
 		id: groupChatListView
 		clip: true
 		model: PublicGroupChatProxyModel {
-			id: groupChatsProxy
+			id: publicGroupChatProxyModel
 			filterCaseSensitivity: Qt.CaseInsensitive
 			filterRole: PublicGroupChatModel.CustomRole.GlobalSearch
 			sortCaseSensitivity: Qt.CaseInsensitive
 			sortRole: PublicGroupChatModel.CustomRole.Users
 			sourceModel: PublicGroupChatModel {
-				id: groupChatsModel
-				groupChats: groupChatsManager.cachedGroupChats
+				id: publicGroupChatModel
+				groupChats: publicGroupChatSearchController.cachedGroupChats
 			}
 			Component.onCompleted: sort(0, Qt.DescendingOrder)
 		}
@@ -56,7 +56,7 @@ Dialog {
 					ListViewSearchField {
 						listView: groupChatListView
 						Layout.fillWidth: true
-						onTextChanged: groupChatsProxy.setFilterWildcard(text)
+						onTextChanged: publicGroupChatProxyModel.setFilterWildcard(text)
 						onActiveFocusChanged: {
 							// Force the active focus when it is lost.
 							if (!Kirigami.Settings.isMobile && !activeFocus) {
@@ -70,7 +70,7 @@ Dialog {
 						visible: busy || root.errorMessage
 						loadingArea.background.visible: false
 						loadingArea.description: qsTr("Downloading…")
-						busy: groupChatsManager.isRunning
+						busy: publicGroupChatSearchController.isRunning
 
 						RowLayout {
 							spacing: 0
@@ -81,7 +81,7 @@ Dialog {
 
 							Controls.Label {
 								text: root.errorMessage
-								font.bold: true
+								font.weight: Font.Medium
 								wrapMode: Text.Wrap
 								padding: Kirigami.Units.largeSpacing * 2
 								rightPadding: retryButton.width + retryButton.anchors.rightMargin * 2
@@ -102,7 +102,7 @@ Dialog {
 									anchors.verticalCenter: parent.verticalCenter
 									onClicked: {
 										root.errorMessage = ""
-										groupChatsManager.requestAll()
+										publicGroupChatSearchController.requestAll()
 									}
 								}
 							}
@@ -137,7 +137,7 @@ Dialog {
 
 						Controls.Label {
 							text: model.users.toString()
-							font.bold: true
+							font.weight: Font.Medium
 						}
 					}
 				}
@@ -147,7 +147,7 @@ Dialog {
 						Controls.Label {
 							text: model.name
 							wrapMode: Text.Wrap
-							font.bold: true
+							font.weight: Font.Medium
 							Layout.fillWidth: true
 						}
 
@@ -177,7 +177,15 @@ Dialog {
 	}
 
 	PublicGroupChatSearchController {
-		id: groupChatsManager
+		id: publicGroupChatSearchController
 		onError: root.errorMessage = qsTr("The public groups could not be retrieved: %1").arg(error)
+	}
+
+	Connections {
+		target: MainController
+
+		function onOpenChatPageRequested(accountJid, chatJid) {
+			root.close()
+		}
 	}
 }
