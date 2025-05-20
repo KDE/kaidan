@@ -114,7 +114,7 @@ private:
     std::future<void> m_future;
 };
 
-Kaidan::Kaidan(bool enableLogging, QObject *parent)
+Kaidan::Kaidan(QObject *parent)
     : QObject(parent)
 {
     Q_ASSERT(!s_instance);
@@ -143,7 +143,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
     // create xmpp thread
     m_cltThrd = ClientThread::create([&] {
-        m_client = new ClientWorker(m_database, enableLogging);
+        m_client = new ClientWorker(m_database);
     });
     m_cltThrd->setObjectName("XmppClient");
     m_cltThrd->waitForStarted();

@@ -49,7 +49,7 @@ void checkEmitted(vector<pair<RosterItemWatcher *, int>> watchers, function<void
 void RosterItemWatcherTest::notifications()
 {
     // This test requires a RosterModel instance, so we init kaidan
-    Kaidan kaidan(false, this);
+    Kaidan kaidan(this);
     RosterItem item;
 
     auto &notifier = RosterItemNotifier::instance();

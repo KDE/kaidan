@@ -56,10 +56,10 @@
 #include "ServerFeaturesCache.h"
 #include "TrustDb.h"
 
-ClientWorker::ClientWorker(Database *database, bool enableLogging, QObject *parent)
+ClientWorker::ClientWorker(Database *database, QObject *parent)
     : QObject(parent)
     , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
-    , m_logger(new LogHandler(m_client, enableLogging, this))
+    , m_logger(new LogHandler(m_client, this))
     , m_networkManager(new QNetworkAccessManager(this))
     , m_omemoDb(new OmemoDb(database, this, {}, this))
 {

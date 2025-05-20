@@ -106,10 +106,8 @@ public:
 
     /**
      * Constructs Kaidan's main object and initializes all components / threads.
-     *
-     * @param enableLogging true to enable logging, otherwise false
      */
-    Kaidan(bool enableLogging = true, QObject *parent = nullptr);
+    explicit Kaidan(QObject *parent = nullptr);
 
     ~Kaidan() override;
 

@@ -20,12 +20,7 @@ public:
     /**
      * Default constructor
      */
-    LogHandler(QXmppClient *client, bool enable, QObject *parent = nullptr);
-
-    /**
-     * Enable/disable logging to stdout (default: disabled)
-     */
-    void enableLogging(bool enable);
+    explicit LogHandler(QXmppClient *client, QObject *parent = nullptr);
 
     /**
      * Handles logging messages and processes them (currently only output
@@ -40,5 +35,4 @@ private:
     static QString makeXmlPretty(QString inputXml);
 
     QXmppClient *const m_client;
-    bool enabled = false;
 };

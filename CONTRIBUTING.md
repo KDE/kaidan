@@ -108,9 +108,9 @@ You can specify a category and type (i.e., log level) to print only specific log
 Once you inserted `kaidan/build/kaidan.categories`, you can manage how to log for Kaidan there.
 
 Kaidan prints QXmpp's log messages as well.
-[LogHandler](src/LogHandler.cpp) specifies the logging type.
+You can disable that by setting `QT_LOGGING_RULES=im.kaidan.xmpp.*=false`.
+[LogHandler](src/LogHandler.cpp) specifies the QXmpp-specific logging type.
 QXmpp mainly logs the XML data exchanged between Kaidan and the XMPP servers it is connected to.
-The command-line argument `--disable-xml-log` disables that.
 
 ## Styles
 

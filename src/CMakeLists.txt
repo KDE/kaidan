@@ -24,6 +24,15 @@ ecm_qt_declare_logging_category(
     EXPORT KAIDAN
 )
 
+ecm_qt_declare_logging_category(
+    libkaidancore
+    HEADER KaidanXmppLog.h
+    IDENTIFIER KAIDAN_XMPP_LOG
+    CATEGORY_NAME im.kaidan.xmpp
+    DESCRIPTION "Kaidan XMPP"
+    EXPORT KAIDAN
+)
+
 target_sources(libkaidancore PRIVATE
     AbstractNotifier.h
     AbstractQrCodeGenerator.cpp

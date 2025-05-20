@@ -161,7 +161,6 @@ CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *err
     // add all possible arguments
     QCommandLineOption helpOption = parser.addHelpOption();
     QCommandLineOption versionOption = parser.addVersionOption();
-    parser.addOption({QStringLiteral("disable-xml-log"), QStringLiteral("Disable output of full XMPP XML stream.")});
 #ifndef NDEBUG
     parser.addOption({{QStringLiteral("m"), QStringLiteral("multiple")}, QStringLiteral("Allow multiple instances to be started.")});
 #endif
@@ -391,7 +390,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     //
     // Kaidan back-end
     //
-    Kaidan kaidan(!parser.isSet(QStringLiteral("disable-xml-log")));
+    Kaidan kaidan;
 
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     // receive messages from other instances of Kaidan

@@ -57,10 +57,9 @@ public:
     Q_ENUM(ConnectionError)
 
     /**
-     * @param enableLogging If logging of the XMPP stream should be done.
      * @param parent Optional QObject-based parent.
      */
-    ClientWorker(Database *database, bool enableLogging, QObject *parent = nullptr);
+    explicit ClientWorker(Database *database, QObject *parent = nullptr);
 
     QXmppClient *xmppClient() const
     {

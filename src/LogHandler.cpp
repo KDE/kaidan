@@ -11,44 +11,28 @@
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan
-#include "KaidanCoreLog.h"
+#include "KaidanXmppLog.h"
 
-LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
+LogHandler::LogHandler(QXmppClient *client, QObject *parent)
     : QObject(parent)
     , m_client(client)
 {
     client->logger()->setLoggingType(QXmppLogger::SignalLogging);
-    enableLogging(enable);
-}
-
-void LogHandler::enableLogging(bool enabled)
-{
-    // check if we need to change something
-    if (this->enabled == enabled)
-        return;
-    // update enabled status
-    this->enabled = enabled;
-
-    // apply change: enable or disable
-    if (enabled)
-        connect(m_client->logger(), &QXmppLogger::message, this, &LogHandler::handleLog);
-    else
-        disconnect(m_client->logger(), &QXmppLogger::message, this, &LogHandler::handleLog);
 }
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
     switch (type) {
     case QXmppLogger::ReceivedMessage:
-        qCDebug(KAIDAN_CORE_LOG).noquote() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" << Qt::endl
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" << Qt::endl
                                            << makeXmlPretty(text);
         break;
     case QXmppLogger::SentMessage:
-        qCDebug(KAIDAN_CORE_LOG).noquote() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << Qt::endl
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << Qt::endl
                                            << makeXmlPretty(text);
         break;
     case QXmppLogger::WarningMessage:
-        qCDebug(KAIDAN_CORE_LOG).noquote() << "[client] [warn]" << text;
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << "[client] [warn]" << text;
         break;
     default:
         break;
