@@ -87,17 +87,6 @@ ImageBackgroundPage {
 			}
 
 			Connections {
-				target: pageStack
-
-				function onCurrentItemChanged() {
-					// Initialize loginArea when Kaidan is started.
-					if (pageStack.currentItem === root) {
-						loginArea.initialize()
-					}
-				}
-			}
-
-			Connections {
 				target: applicationWindow()
 
 				function onActiveFocusItemChanged() {

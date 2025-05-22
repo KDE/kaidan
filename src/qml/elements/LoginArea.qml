@@ -47,6 +47,7 @@ FormCard.FormCard {
 
 			JidField {
 				id: jidField
+				inputField.focus: true
 				inputField.onAccepted: loginButton.clicked()
 				inputField.rightActions: [
 					Kirigami.Action {
