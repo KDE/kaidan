@@ -53,6 +53,7 @@ The following dependencies are needed by Kaidan:
 * [KDSingleApplication][kdsingleapplication]
 * [Kirigami Addons][kirigami-addons] >= 1.4.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
+* [ICU (International Components for Unicode)][icu] >= 61
 * [QXmpp][qxmpp] (with OMEMO) >= 1.10.3
 
 ## Optional Dependencies
@@ -78,6 +79,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [downloads]: https://www.kaidan.im/download/
 [ecm]: https://api.kde.org/ecm/manual/ecm.7.html
 [ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
+[icu]: https://icu.unicode.org
 [kaidan-website]: https://kaidan.im
 [kaidan-website-repo]: https://invent.kde.org/websites/kaidan-im
 [kcrash]: https://api.kde.org/frameworks/kcrash/html/index.html
