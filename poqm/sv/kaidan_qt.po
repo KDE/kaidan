@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-04-06 09:50+0200\n"
+"PO-Revision-Date: 2025-05-30 21:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -20,26 +20,16 @@ msgid "Generating the QR code failed: %1"
 msgstr "Misslyckades skapa QR-kod: %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Kontot kunde inte överföras: En annan överföring pågår redan."
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Kontot kunde inte överföras: Kunde inte läsa in exporterad kontodata."
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Kontot kunde inte överföras. Du måste vara ansluten."
@@ -3293,45 +3283,30 @@ msgid "%1 paused typing"
 msgstr "%1 slutade skriva"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 "Kunde inte lägga till kontakt som ett resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3341,17 +3316,13 @@ msgstr ""
 "anslutningsproblem: %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
