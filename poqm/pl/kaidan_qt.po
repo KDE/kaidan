@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-03-22 12:40+0100\n"
+"PO-Revision-Date: 2025-06-08 07:37+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -12,6 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
@@ -21,27 +22,17 @@ msgid "Generating the QR code failed: %1"
 msgstr "Nie udało utworzyć kodu QR: %1"
 
 #: src/AccountMigrationController.cpp:432
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Nie można przenieść konta: Już trwa jakieś przenoszenie"
 
 #: src/AccountMigrationController.cpp:452
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "Nie można przenieść konta: Nie można wczytać wyeksportowanych danych konta"
 
 #: src/AccountMigrationController.cpp:462
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Nie można przenieść konta: Musisz być podłączonym"
@@ -105,18 +96,14 @@ msgstr ""
 "inne dane osobowe %2"
 
 #: src/ChatHintModel.cpp:295
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"Twój kontakt %1 jest teraz %2 i chciałby ponownie otrzymać twoje dane "
-"osobiste takie jak dostępność, urządzenia i inne dane osobowe %3"
+"Twój kontakt %1 (%2) jest teraz %3 (%4) i chciałby ponownie otrzymać twoje "
+"dane osobiste takie jak dostępność, urządzenia i inne dane osobowe %5"
 
 #: src/ChatHintModel.cpp:302
 msgctxt "ChatHintModel|"
@@ -1050,71 +1037,40 @@ msgid "Connection settings changed"
 msgstr "Zmieniono ustawienia połączenia"
 
 #: src/qml/details/AccountDetailsContent.qml:957
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr "Zmień urządzenie"
+msgstr "Przełącz urządzenie"
 
 #: src/qml/details/AccountDetailsContent.qml:961
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Nigdy nie pokazuj tego kodu QR nikomu. Umożliwiłoby to nieograniczony dostęp "
-"do twojego konta!"
+"Nigdy nie pokazuj danych z tego okna nikomu. Umożliwiłoby to nieograniczony "
+"dostęp do twojego konta!"
 
 #: src/qml/details/AccountDetailsContent.qml:967
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Zeskanuj kod QR do zalogowania"
+msgstr "Pokaż kod QR do zalogowania"
 
 #: src/qml/details/AccountDetailsContent.qml:968
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Zeskanuj kod QR lub wpisz dane dostępowe tekstowo na innym urządzeniu, aby "
-"się na nim zalogować."
+msgstr "Zeskanuj kod QR na innym urządzeniu, aby się na nim zalogować"
 
 #: src/qml/details/AccountDetailsContent.qml:988
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Pokaż szczegóły"
+msgstr "Pokaż dane dostępowe"
 
 #: src/qml/details/AccountDetailsContent.qml:989
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"Zeskanuj kod QR lub wpisz dane dostępowe tekstowo na innym urządzeniu, aby "
-"się na nim zalogować."
+msgstr "Wpisz dane dostępowe na innym urządzeniu, aby się na nim zalogować"
 
 #: src/qml/details/AccountDetailsContent.qml:995
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adres czatu"
@@ -2323,9 +2279,6 @@ msgid "Unverified contact devices"
 msgstr "Niesprawdzone urządzenia kontaktów"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Skopiuj"
@@ -2872,28 +2825,19 @@ msgid "Accounts"
 msgstr "Konta"
 
 #: src/qml/GlobalDrawer.qml:83
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Hasło"
 
 #: src/qml/GlobalDrawer.qml:84
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Wpisz swoje bieżące hasło"
 
 #: src/qml/GlobalDrawer.qml:94
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Skopiuj hasło"
+msgstr "Potwierdź hasło"
 
 #: src/qml/GlobalDrawer.qml:163
 msgctxt "GlobalDrawer|"
@@ -2969,12 +2913,9 @@ msgid "Show explanation"
 msgstr "Wyświetl wyjaśnienie"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Zeskanuj kod QR ze swojego starego urządzenia"
+msgstr "Zeskanuj kod QR logowania ze swojego starego urządzenia"
 
 #: src/qml/QrCodeOnboardingPage.qml:54
 msgctxt "QrCodeOnboardingPage|"
@@ -2982,6 +2923,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Możesz pokazać kod QR w szczegółach konta swojego starego urządzenia poprzez "
+"Pokaż kod QR logowania"
 
 #: src/qml/QrCodeOnboardingPage.qml:95
 msgctxt "QrCodeOnboardingPage|"
@@ -3358,43 +3301,28 @@ msgid "%1 paused typing"
 msgstr "%1 wstrzymał pisanie"
 
 #: src/RosterController.cpp:235
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Nie udało się dodać %1: %2"
 
 #: src/RosterController.cpp:245
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Nie można dodać kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterController.cpp:257
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Nie można usunąć kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterController.cpp:269
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Nie można zmienić nazwy kontaktu, bo nie jesteś podłączony."
 
 #: src/RosterController.cpp:285
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3404,17 +3332,13 @@ msgstr ""
 "z połączeniem: %2"
 
 #: src/RosterController.cpp:301
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Nie udało się zezwolić %1 na oglądane twoich danych osobowych"
 
 #: src/RosterController.cpp:318
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Nie udało się zaprzestać pokazywania twoich danych osobowych %1"
