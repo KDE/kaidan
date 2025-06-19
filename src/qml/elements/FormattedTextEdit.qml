@@ -21,9 +21,9 @@ TextEdit {
 	property alias enhancedFormatting: formatter.enhancedFormatting
 
 	color: Kirigami.Theme.textColor
-	enabled: false
 	wrapMode: Text.Wrap
 	readOnly: true
+	selectByMouse: false
 	activeFocusOnPress: false
 	onLinkActivated: Qt.openUrlExternally(link)
 

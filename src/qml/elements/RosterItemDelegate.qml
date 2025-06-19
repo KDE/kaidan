@@ -164,6 +164,19 @@ AvatarItemDelegate {
 						return width
 					}
 				}
+
+				// Allow presses because FormattedTextEdit would prevent them (as long as it is enabled).
+				MouseArea {
+					anchors.fill: parent
+					onContainsPressChanged: {
+						if (containsPress) {
+							root.down = true
+						} else {
+							root.down = false
+							root.click()
+						}
+					}
+				}
 			}
 
 			// icon for muted roster item
