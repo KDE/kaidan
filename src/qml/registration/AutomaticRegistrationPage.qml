@@ -107,7 +107,10 @@ RegistrationPage {
 			if (root.account.connection.error !== ClientWorker.NoError) {
 				if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
 					loadingStackArea.busy = false
+				} else if (root.triedProviderIndexes.length < providerListModel.rowCount()){
+					requestRegistrationFormFromAnotherProvider()
 				} else {
+					passiveNotification(qsTr("Automatic registration failed because of problems with all providers"))
 					popLayer()
 				}
 			}
@@ -195,11 +198,11 @@ RegistrationPage {
 	function requestRegistrationFormFromAnotherProvider() {
 		if (triedProviderIndexes.length < providerListModel.providersMatchingSystemLocaleMinimumCount) {
 			chooseProviderRandomly()
-			requestRegistrationForm()
 		} else {
 			chooseProviderRandomly(false)
-			requestRegistrationForm()
 		}
+
+		requestRegistrationForm()
 	}
 
 	function registerWithoutClickingRegistrationButton() {
