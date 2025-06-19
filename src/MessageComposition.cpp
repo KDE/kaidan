@@ -28,6 +28,7 @@
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "QmlUtils.h"
 #include "RosterModel.h"
 
 MessageComposition::MessageComposition()
@@ -52,6 +53,22 @@ void MessageComposition::setChatController(ChatController *chatController)
 
         connect(m_chatController, &ChatController::chatChanged, this, [this]() {
             loadDraft().then(this, [this]() {
+                if (const auto messageBodyToForward = m_chatController->messageBodyToForward(); !messageBodyToForward.isEmpty()) {
+                    const auto forwardedMessage = [this, messageBodyToForward]() {
+                        const QString quotedBody = m_chatController->account()->settings()->displayName() + u":\n" + QmlUtils::quote(messageBodyToForward);
+
+                        if (m_body.isEmpty()) {
+                            return quotedBody;
+                        } else {
+                            return QString{m_body + u"\n" + quotedBody};
+                        }
+                    }();
+
+                    setBody(forwardedMessage);
+                    m_chatController->setMessageBodyToForward({});
+                    setIsForwarding(true);
+                }
+
                 Q_EMIT preparedForNewChat();
             });
         });
@@ -331,6 +348,7 @@ void MessageComposition::clear()
     setOriginalBody({});
     setSpoiler(false);
     setIsDraft(false);
+    setIsForwarding(false);
 }
 
 void MessageComposition::setReply(Message &message,
@@ -455,6 +473,14 @@ void MessageComposition::saveDraft()
         MessageDb::instance()->addDraftMessage(message);
 
         setIsDraft(true);
+    }
+}
+
+void MessageComposition::setIsForwarding(bool isForwarding)
+{
+    if (m_isForwarding != isForwarding) {
+        m_isForwarding = isForwarding;
+        Q_EMIT isForwardingChanged();
     }
 }
 

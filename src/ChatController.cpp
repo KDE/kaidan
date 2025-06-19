@@ -238,6 +238,19 @@ void ChatController::sendChatState(QXmppMessage::State state)
     }
 }
 
+QString ChatController::messageBodyToForward() const
+{
+    return m_messageBodyToForward;
+}
+
+void ChatController::setMessageBodyToForward(const QString &messageBodyToForward)
+{
+    if (m_messageBodyToForward != messageBodyToForward) {
+        m_messageBodyToForward = messageBodyToForward;
+        Q_EMIT messageBodyToForwardChanged();
+    }
+}
+
 void ChatController::initializeEncryption()
 {
     m_encryptionController = m_account->encryptionController();

@@ -47,6 +47,7 @@ SearchBarPage {
 		model: RosterFilterModel {
 			id: filterModel
 			sourceModel: RosterModel
+			selectedAccountJids: root.activeChatPage && root.activeChatPage.chatController.messageBodyToForward ? root.activeChatPage.chatController.account.settings.jid : []
 		}
 		delegate: RosterItemDelegate {
 			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index

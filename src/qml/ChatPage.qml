@@ -491,6 +491,59 @@ ChatPageBase {
 		}
 
 		Rectangle {
+			id: forwardingInfo
+			color: secondaryBackgroundColor
+			opacity: root.chatController.messageBodyToForward ? 0.9 : 0
+			anchors.fill: parent
+
+			Behavior on opacity {
+				NumberAnimation {}
+			}
+
+			ColumnLayout {
+				spacing: Kirigami.Units.largeSpacing
+				anchors.fill: parent
+
+				Item {
+					Layout.fillHeight: true
+				}
+
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Cancel forwarding")
+					source: "window-close-symbolic"
+					height: Kirigami.Units.iconSizes.enormous
+					Layout.alignment: Qt.AlignHCenter
+					onClicked: root.chatController.messageBodyToForward = ""
+				}
+
+				RowLayout {
+					spacing: 0
+
+					Item {
+						Layout.fillWidth: true
+					}
+
+					ChatInfo {
+						text: qsTr("Select a chat to forward the message")
+						level: 1
+						font.weight: Font.Medium
+						wrapMode: Text.Wrap
+						horizontalAlignment: Text.AlignHCenter
+						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
+					}
+
+					Item {
+						Layout.fillWidth: true
+					}
+				}
+
+				Item {
+					Layout.fillHeight: true
+				}
+			}
+		}
+
+		Rectangle {
 			id: dropAreaInfo
 			color: secondaryBackgroundColor
 			opacity: 0

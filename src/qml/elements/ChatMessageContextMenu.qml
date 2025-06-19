@@ -119,6 +119,14 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
+			Controls.ToolTip.text: qsTr("Forward")
+			source: "mail-forward-symbolic"
+			contextMenu: root
+			shown: root.message.messageBody
+			onClicked: root.chatController.messageBodyToForward = root.message.messageBody
+		}
+
+		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Copy")
 			source: "edit-copy-symbolic"
 			contextMenu: root

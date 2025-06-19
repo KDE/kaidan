@@ -43,7 +43,14 @@ Controls.Pane {
 			}
 		}
 		onPreparedForNewChat: {
-			if (!isDraft) {
+			if (isForwarding) {
+				messageArea.text = body
+
+				// Position the cursor after the forwarded message's body.
+				messageArea.cursorPosition = messageArea.text.length
+			}
+
+			if (!isDraft && !isForwarding) {
 				root.clear()
 			}
 		}

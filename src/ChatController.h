@@ -64,6 +64,7 @@ class ChatController : public QObject
     Q_PROPERTY(Encryption::Enum activeEncryption READ activeEncryption NOTIFY encryptionChanged)
     Q_PROPERTY(QList<QString> groupChatUserJids READ groupChatUserJids NOTIFY groupChatUserJidsChanged)
     Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
+    Q_PROPERTY(QString messageBodyToForward READ messageBodyToForward WRITE setMessageBodyToForward NOTIFY messageBodyToForwardChanged)
 
 public:
     explicit ChatController(QObject *parent = nullptr);
@@ -112,6 +113,10 @@ public:
     Q_INVOKABLE void sendChatState(ChatState::State state);
     void sendChatState(QXmppMessage::State state);
 
+    QString messageBodyToForward() const;
+    void setMessageBodyToForward(const QString &messageBodyToForward);
+    Q_SIGNAL void messageBodyToForwardChanged();
+
 private:
     void initializeEncryption();
     bool hasUsableEncryptionDevices() const;
@@ -152,5 +157,7 @@ private:
     QMap<QString, QXmppMessage::State> m_chatStateCache;
 
     QList<QString> m_groupChatUserJids;
+    QString m_messageBodyToForward;
+
     QList<QMetaObject::Connection> m_offlineConnections;
 };

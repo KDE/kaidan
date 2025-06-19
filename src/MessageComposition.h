@@ -44,6 +44,7 @@ class MessageComposition : public QObject
     Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
     Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
     Q_PROPERTY(bool isDraft READ isDraft WRITE setIsDraft NOTIFY isDraftChanged)
+    Q_PROPERTY(bool isForwarding READ isForwarding NOTIFY isForwardingChanged)
 
 public:
     MessageComposition();
@@ -123,6 +124,11 @@ public:
     }
     void setIsDraft(bool isDraft);
 
+    [[nodiscard]] bool isForwarding() const
+    {
+        return m_isForwarding;
+    }
+
     Q_INVOKABLE void send();
     Q_INVOKABLE void correct();
 
@@ -142,6 +148,7 @@ public:
     Q_SIGNAL void isSpoilerChanged();
     Q_SIGNAL void spoilerHintChanged();
     Q_SIGNAL void isDraftChanged();
+    Q_SIGNAL void isForwardingChanged();
 
     Q_SIGNAL void draftSaved();
     Q_SIGNAL void preparedForNewChat();
@@ -150,6 +157,7 @@ private:
     void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
     QFuture<void> loadDraft();
     void saveDraft();
+    void setIsForwarding(bool isForwarding);
 
     void reset();
 
@@ -165,6 +173,7 @@ private:
     bool m_isSpoiler = false;
     QString m_spoilerHint;
     bool m_isDraft = false;
+    bool m_isForwarding = false;
 
     Connection *m_connection = nullptr;
 
