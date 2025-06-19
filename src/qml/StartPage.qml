@@ -126,7 +126,6 @@ ImageBackgroundPage {
 		function onErrorChanged() {
 			if (root.account.connection.error !== ClientWorker.NoError && !(pageStack.currentItem instanceof AutomaticRegistrationPage)) {
 				passiveNotification(root.account.connection.errorText)
-				loginArea.initialize()
 			}
 		}
 	}
