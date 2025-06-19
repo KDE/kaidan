@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
@@ -42,9 +43,11 @@ Kirigami.Dialog {
 		}
 	}
 
-	Row {
+	RowLayout {
 		id: contentArea
 		spacing: Kirigami.Units.largeSpacing * 2
+		// Fix no buttons being shown.
+		implicitHeight: 1
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Remove selected file")
@@ -64,7 +67,7 @@ Kirigami.Dialog {
 
 		Kirigami.Separator {
 			visible: root.localFileAvailable
-			height: parent.height
+			Layout.fillHeight: true
 		}
 
 		ChatMessageContextMenuButton {
