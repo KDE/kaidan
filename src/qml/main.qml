@@ -27,25 +27,17 @@ Kirigami.ApplicationWindow {
 
 	property bool loggingOutToQuit: false
 	property bool quitForced: false
-
-	readonly property color primaryBackgroundColor: {
-		Kirigami.Theme.colorSet = Kirigami.Theme.View
-		return Kirigami.Theme.backgroundColor
-	}
-
+	readonly property color primaryBackgroundColor: Kirigami.Theme.backgroundColor
 	readonly property color secondaryBackgroundColor: {
-		Kirigami.Theme.colorSet = Kirigami.Theme.Window
-		return Kirigami.Theme.backgroundColor
+		const accentColor = Kirigami.Theme.textColor
+		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.05))
 	}
-
 	readonly property color tertiaryBackgroundColor: {
 		const accentColor = secondaryBackgroundColor
-		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.7))
+		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.8))
 	}
-
 	// radius for using rounded corners
 	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 1.5
-
 	readonly property int largeButtonWidth: Kirigami.Units.gridUnit * 25
 	readonly property int smallButtonWidth: Kirigami.Theme.defaultFont.pixelSize * 2.9
 
