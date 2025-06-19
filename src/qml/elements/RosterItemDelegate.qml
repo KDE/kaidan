@@ -37,13 +37,8 @@ AvatarItemDelegate {
 
 	ColumnLayout {
 		id: middleArea
-		spacing: 0
-		Layout.topMargin: parent.spacing
-		Layout.bottomMargin: Layout.topMargin
 
 		RowLayout {
-			Layout.preferredHeight: parent.height / 2
-
 			// group chat icon
 			Kirigami.Icon {
 				source: "system-users-symbolic"
@@ -82,14 +77,9 @@ AvatarItemDelegate {
 			}
 		}
 
-		Item {
-			Layout.fillHeight: true
-		}
-
 		RowLayout {
 			id: secondRow
 			width: parent.width
-			Layout.preferredHeight: parent.height / 2
 
 			// placeholder if no messages have been exchanged yet
 			Controls.Label {
@@ -215,12 +205,10 @@ AvatarItemDelegate {
 		listItem: root.contentItem
 		listView: root.listView
 		incrementalMoves: false
-
-		onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
-		onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
-
 		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
 		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+		onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
+		onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
 	}
 
 	ClickableIcon {

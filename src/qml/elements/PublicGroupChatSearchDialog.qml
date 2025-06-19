@@ -116,60 +116,58 @@ Dialog {
 			}
 		}
 		headerPositioning: ListView.OverlayHeader
-		delegate: FormCard.AbstractFormDelegate {
+		delegate: ClickableItemDelegate {
 			width: ListView.view.width
-			contentItem: RowLayout {
-				spacing: 12
 
-				ColumnLayout {
-					Avatar {
-						iconSource: "group"
-						jid: model.address
-						name: model.name
+			ColumnLayout {
+				Avatar {
+					iconSource: "group"
+					jid: model.address
+					name: model.name
+				}
+
+				RowLayout {
+					Kirigami.Icon {
+						source: "group"
+						Layout.preferredWidth: Kirigami.Units.iconSizes.small
+						Layout.preferredHeight: Layout.preferredWidth
 					}
 
-					RowLayout {
-						Kirigami.Icon {
-							source: "group"
-							Layout.preferredWidth: Kirigami.Units.iconSizes.small
-							Layout.preferredHeight: Layout.preferredWidth
-						}
+					ScalableText {
+						text: model.users.toString()
+						scaleFactor: 0.8
+						font.weight: Font.Medium
+					}
+				}
+			}
 
-						Controls.Label {
-							text: model.users.toString()
-							font.weight: Font.Medium
-						}
+			ColumnLayout {
+				RowLayout {
+					Controls.Label {
+						text: model.name
+						wrapMode: Text.Wrap
+						font.weight: Font.Medium
+						Layout.fillWidth: true
+					}
+
+					Controls.Label {
+						text: model.languages.join(" ")
+						color: Kirigami.Theme.disabledTextColor
+						Layout.alignment: Qt.AlignTop
 					}
 				}
 
-				ColumnLayout {
-					RowLayout {
-						Controls.Label {
-							text: model.name
-							wrapMode: Text.Wrap
-							font.weight: Font.Medium
-							Layout.fillWidth: true
-						}
+				Controls.Label {
+					text: model.description
+					wrapMode: Text.Wrap
+					Layout.fillWidth: true
+				}
 
-						Controls.Label {
-							text: model.languages.join(" ")
-							color: Kirigami.Theme.disabledTextColor
-							Layout.alignment: Qt.AlignTop
-						}
-					}
-
-					Controls.Label {
-						text: model.description
-						wrapMode: Text.Wrap
-						Layout.fillWidth: true
-					}
-
-					Controls.Label {
-						text: model.address
-						wrapMode: Text.Wrap
-						color: Kirigami.Theme.disabledTextColor
-						Layout.fillWidth: true
-					}
+				Controls.Label {
+					text: model.address
+					wrapMode: Text.Wrap
+					color: Kirigami.Theme.disabledTextColor
+					Layout.fillWidth: true
 				}
 			}
 			onClicked: Qt.openUrlExternally(Utils.groupChatUri(model.address))
