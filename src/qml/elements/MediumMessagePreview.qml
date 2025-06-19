@@ -20,46 +20,39 @@ MediumPreview {
 	size: file.formattedSize
 	localFileUrl: file.localFileUrl
 	type: file.type
-	mainArea.data: OpacityChangingMouseArea {
-		opacityItem: parent.background
-		acceptedButtons: Qt.LeftButton | Qt.RightButton
-		onClicked: (event) => {
-			if (event.button === Qt.LeftButton) {
-				if (root.localFileUrl.toString()) {
-					root.open()
-				} else if (!transferWatcher.isLoading) {
-					root.message.chatController.account.fileSharingController.downloadFile(root.message.msgId, root.file)
+	mainArea {
+		data: OpacityChangingMouseArea {
+			id: opacityChangingMouseArea
+			opacityItem: parent.background
+			acceptedButtons: Qt.LeftButton | Qt.RightButton
+			onClicked: (event) => {
+				if (event.button === Qt.LeftButton) {
+					if (root.localFileUrl.toString()) {
+						root.open()
+					} else if (!transferWatcher.isLoading) {
+						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
+					}
+				} else if (event.button === Qt.RightButton) {
+				   if (root.localFileUrl.toString()) {
+					   root.message.showContextMenu(this, root.file)
+				   } else {
+					   root.message.showContextMenu(this)
+				   }
 				}
-			} else if (event.button === Qt.RightButton) {
-			   if (root.localFileUrl.toString()) {
-				   root.message.showContextMenu(this, root.file)
-			   } else {
-				   root.message.showContextMenu(this)
-			   }
 			}
-		}
-	}
-	mainAreaBackground {
-		data: Controls.ProgressBar {
-			id: transferProgressBar
-			value: transferWatcher.progress
-			visible: value
-			opacity: 0.3
-			background: null
-			contentItem: Rectangle {
-				width: transferProgressBar.visualPosition * parent.width
-				height: parent.height
-				color: Kirigami.Theme.activeTextColor
-				radius: root.mainAreaBackground.radius
-			}
-			anchors.fill: parent
 		}
 
 		Behavior on opacity {
 			NumberAnimation {}
 		}
 	}
+	mainAreaBackground {
+		Behavior on opacity {
+			NumberAnimation {}
+		}
+	}
 	previewImage {
+		opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? 1 : mainAreaBackground.opacity
 		source: {
 			const image = file.previewImage
 
@@ -69,23 +62,22 @@ MediumPreview {
 
 			return file.mimeTypeIcon
 		}
-		data: Rectangle {
-			anchors.fill: parent
-			color: Kirigami.Theme.backgroundColor
-			visible: !root.file.localFileUrl.toString()
-			opacity: mainAreaBackground.opacity < 1 ? 0.8 : 0.5
+		data: CircleProgressBar {
+			value: transferWatcher.progress
+			opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? (opacityChangingMouseArea.containsMouse ?  0.8 : 0.5 ): 0
 			// Do not apply the opacity to child items.
 			layer.enabled: true
+			anchors.fill: parent
+			anchors.margins: Kirigami.Units.smallSpacing
 
 			Behavior on opacity {
 				NumberAnimation {}
 			}
 
 			Kirigami.Icon {
-				source: "folder-download-symbolic"
-				color: Kirigami.Theme.textColor
-				width: Kirigami.Units.iconSizes.medium
-				height: Kirigami.Units.iconSizes.medium
+				source: root.file.localFileUrl.toString() ? "content-loading-symbolic" : "folder-download-symbolic"
+				color: transferWatcher.isLoading ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+				isMask: true
 				anchors.centerIn: parent
 			}
 		}

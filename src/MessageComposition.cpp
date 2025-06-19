@@ -573,6 +573,11 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     file.size = fileInfo.size();
     file.isNew = isNew;
 
+    if (const auto image = QImage(localPath); !image.isNull()) {
+        file.width = image.width();
+        file.height = image.height();
+    }
+
     auto insertFile = [this](File &&file) mutable {
         beginInsertRows({}, m_files.size(), m_files.size());
         m_files.append(std::move(file));

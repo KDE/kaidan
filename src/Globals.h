@@ -109,10 +109,10 @@ constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
  */
 #define BITS_OF_BINARY_IMAGE_PROVIDER_NAME "bits-of-binary"
 
-// JPEG export quality used when saving images lossy (e.g. when saving images from clipboard)
-constexpr auto JPEG_EXPORT_QUALITY = 85;
+// Quality of generated file thumbnails.
+constexpr auto THUMBNAIL_QUALITY = 85;
 // Width and height of generated file thumbnails.
-constexpr auto THUMBNAIL_EDGE_PIXEL_COUNT = 15;
+constexpr auto THUMBNAIL_EDGE_PIXEL_COUNT = 30;
 // Width and height of generated video thumbnails.
 constexpr auto VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT = 500;
 

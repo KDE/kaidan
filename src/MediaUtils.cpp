@@ -29,8 +29,10 @@
 #include "KaidanCoreLog.h"
 #include "SystemUtils.h"
 
+const auto THUMBNAIL_FORMAT = "PNG";
+
 const auto IMAGE_FILE_EXTENSION = QStringLiteral("jpg");
-const auto AUDIO_FILE_EXTENSION = QStringLiteral("mp3");
+const auto AUDIO_FILE_EXTENSION = QStringLiteral("m4a");
 const auto VIDEO_FILE_EXTENSION = QStringLiteral("mp4");
 
 const auto FILE_PATH = QStringLiteral("%1/%2.%3");
@@ -525,11 +527,16 @@ Enums::MessageType MediaUtils::messageType(const QMimeType &mimeType)
     return Enums::MessageType::MessageFile;
 }
 
+bool MediaUtils::hasAlphaChannel(const QImage &image)
+{
+    return image.hasAlphaChannel();
+}
+
 QByteArray MediaUtils::encodeImageThumbnail(const QPixmap &pixmap)
 {
     QByteArray output;
     QBuffer buffer(&output);
-    pixmap.save(&buffer, "PNG");
+    pixmap.save(&buffer, THUMBNAIL_FORMAT);
     return output;
 }
 
@@ -537,7 +544,7 @@ QByteArray MediaUtils::encodeImageThumbnail(const QImage &image)
 {
     QByteArray output;
     QBuffer buffer(&output);
-    image.save(&buffer, "PNG");
+    image.save(&buffer, THUMBNAIL_FORMAT);
     return output;
 }
 
@@ -566,7 +573,8 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
     connect(job, &KIO::PreviewJob::gotPreview, job, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
         QByteArray thumbnailData;
         QBuffer thumbnailBuffer(&thumbnailData);
-        image.save(&thumbnailBuffer, "JPG", JPEG_EXPORT_QUALITY);
+
+        image.save(&thumbnailBuffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
 
         if (const QImageReader reader(file->fileName()); reader.canRead()) {
             if (const QSize size = reader.size(); !size.isEmpty()) {

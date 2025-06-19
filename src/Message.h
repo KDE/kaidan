@@ -83,6 +83,8 @@ public:
     std::optional<QString> description;
     QMimeType mimeType;
     std::optional<qint64> size;
+    uint32_t width;
+    uint32_t height;
     QDateTime lastModified;
     QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
     QString localFilePath;

@@ -537,7 +537,6 @@ Controls.Pane {
 
 					property bool recordingCanceled: false
 
-					mediaFormat.fileFormat: MediaFormat.MP3
 					onRecorderStateChanged: {
 						if (recorderState === MediaRecorder.StoppedState) {
 							// Delete or send the recorded voice message once its data is completely

@@ -74,10 +74,16 @@ QXmppFileShare File::toQXmpp() const
     metadata.setLastModified(lastModified);
     metadata.setMediaType(mimeType);
     metadata.setSize(size);
+    metadata.setWidth(width);
+    metadata.setHeight(height);
+
+    const auto thumbnailImage = QImage::fromData(thumbnail);
 
     QXmppThumbnail thumb;
     thumb.setMediaType(QMimeDatabase().mimeTypeForData(thumbnail));
     thumb.setUri(QXmppBitsOfBinaryData::fromByteArray(thumbnail).cid().toCidUrl());
+    thumb.setWidth(thumbnailImage.width());
+    thumb.setHeight(thumbnailImage.height());
     metadata.setThumbnails({thumb});
 
     QXmppFileShare fs;
