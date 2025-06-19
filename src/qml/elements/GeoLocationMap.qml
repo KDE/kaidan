@@ -23,17 +23,16 @@ Map {
 	zoomLevel: Math.max(minimumZoomLevel, Math.round(maximumZoomLevel * zoomLevelFactor))
 	plugin: Plugin {
 		name: "osm"
-		parameters: [
-			PluginParameter {
-				name: "osm.useragent"
-				value: Utils.osmUserAgent()
-			},
 
-			PluginParameter {
-				name: "osm.mapping.providersrepository.address"
-				value: "https://autoconfig.kde.org/qtlocation/"
-			}
-		]
+		PluginParameter {
+			name: "osm.useragent"
+			value: Utils.osmUserAgent()
+		}
+
+		PluginParameter {
+			name: "osm.mapping.providersrepository.address"
+			value: "https://autoconfig.kde.org/qtlocation/"
+		}
 	}
 	copyrightsVisible: false
 	onErrorChanged: {

@@ -26,7 +26,7 @@ GeoLocationMap {
 		acceptedButtons: Qt.LeftButton | Qt.RightButton
 		onClicked: (event) => {
 			if (event.button === Qt.LeftButton) {
-				message.openGeoLocationMap()
+				root.message.openGeoLocationMap()
 			} else if (event.button === Qt.RightButton) {
 				root.message.showContextMenu(this)
 			}

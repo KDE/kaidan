@@ -240,7 +240,7 @@ QString QmlUtils::chatStateDescription(const QString &displayName, const QXmppMe
 
 QString QmlUtils::osmUserAgent()
 {
-    return u"" APPLICATION_NAME % QChar(u'/') % u"" VERSION_STRING;
+    return u"" APPLICATION_NAME + QChar(u'/') + u"" VERSION_STRING;
 }
 
 QString QmlUtils::geoUri(const QGeoCoordinate &geoCoordinate)
