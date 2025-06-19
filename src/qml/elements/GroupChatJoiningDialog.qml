@@ -14,6 +14,7 @@ Dialog {
 	property alias groupChatJid: content.groupChatJid
 
 	title: qsTr("Join group chat")
+	bottomInset: 0
 	padding: Kirigami.Units.mediumSpacing
 	onOpened: content.groupChatJidField.forceActiveFocus()
 

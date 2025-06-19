@@ -40,7 +40,6 @@ ColumnLayout {
 				value: RosterFilterModel.Type.PublicGroupChat
 			}
 		]
-		implicitWidth: largeButtonWidth
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
 		header: FormCard.FormCard {
@@ -103,7 +102,6 @@ ColumnLayout {
 		id: accountListView
 		model: AccountController.accounts
 		visible: count > 1
-		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
 		header: FormCard.FormCard {
@@ -166,7 +164,6 @@ ColumnLayout {
 		id: groupListView
 		model: RosterModel.groups
 		visible: count
-		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
 		header: FormCard.FormCard {

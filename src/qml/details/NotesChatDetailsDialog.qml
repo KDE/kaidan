@@ -10,6 +10,7 @@ RosterItemDetailsDialog {
 	title: qsTr("Notes Details")
 
 	NotesChatDetailsHeader {
+		dialog: root
 		chatController: root.chatController
 	}
 

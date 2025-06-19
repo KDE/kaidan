@@ -12,6 +12,7 @@ RosterItemDetailsDialog {
 	title: qsTr("Contact Details")
 
 	ContactDetailsHeader {
+		dialog: root
 		chatController: root.chatController
 	}
 

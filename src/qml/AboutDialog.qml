@@ -9,10 +9,15 @@ import im.kaidan.kaidan
 import "elements"
 
 FormInfoDialog {
+	id: root
 	title: qsTr("About Kaidan")
 
-	AboutHeader {}
+	AboutHeader {
+		dialog: root
+	}
+
 	AboutContent {
+		dialog: root
 		Layout.fillWidth: true
 	}
 }

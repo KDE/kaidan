@@ -18,7 +18,6 @@ import "../elements"
 FormInfoContent {
 	id: root
 
-	property Kirigami.Dialog dialog
 	property Account account
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate

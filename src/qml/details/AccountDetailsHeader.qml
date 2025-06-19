@@ -9,9 +9,6 @@ import im.kaidan.kaidan
 
 DetailsHeader {
 	id: root
-
-	property Kirigami.Dialog dialog
-
 	jid: account.settings.jid
 	displayName: account.settings.displayName
 	avatarAction: Kirigami.Action {

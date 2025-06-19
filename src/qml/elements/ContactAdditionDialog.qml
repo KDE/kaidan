@@ -15,6 +15,7 @@ Dialog {
 	property alias name: content.name
 
 	title: qsTr("Add contact")
+	bottomInset: 0
 	padding: Kirigami.Units.mediumSpacing
 	onOpened: content.jidField.forceActiveFocus()
 

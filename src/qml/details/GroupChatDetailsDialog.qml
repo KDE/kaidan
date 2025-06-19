@@ -12,6 +12,7 @@ RosterItemDetailsDialog {
 	title: qsTr("Group Details")
 
 	GroupChatDetailsHeader {
+		dialog: root
 		chatController: root.chatController
 	}
 
