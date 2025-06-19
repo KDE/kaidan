@@ -22,12 +22,12 @@ Kirigami.Dialog {
 	property ChatController chatController
 	required property Item message
 	property var file: null
-	property bool localFileAvailable: file && file.localFilePath
+	readonly property bool localFileAvailable: file && file.localFilePath
 
 	padding: Kirigami.Units.smallSpacing * 3
 	background: Kirigami.ShadowedRectangle {
 		color: primaryBackgroundColor
-		radius: height
+		radius: height / 2
 		shadow.color: Qt.darker(color, 2)
 		shadow.size: 6
 	}
