@@ -527,9 +527,39 @@ Enums::MessageType MediaUtils::messageType(const QMimeType &mimeType)
     return Enums::MessageType::MessageFile;
 }
 
-bool MediaUtils::hasAlphaChannel(const QImage &image)
+bool MediaUtils::hasAlphaChannel(const QVariant &source)
 {
-    return image.hasAlphaChannel();
+    const auto determineAlphaChannel = [](const auto &image) {
+        return image.hasAlphaChannel();
+    };
+
+    const auto determineIconAlphaChannel = [determineAlphaChannel](const QIcon &icon) {
+        return determineAlphaChannel(icon.pixmap(64, 64));
+    };
+
+    switch (source.typeId()) {
+    case QMetaType::Type::QImage:
+        return determineAlphaChannel(source.value<QImage>());
+    case QMetaType::Type::QPixmap:
+        return determineAlphaChannel(source.value<QPixmap>());
+    case QMetaType::Type::QIcon:
+        return determineIconAlphaChannel(source.value<QIcon>());
+    case QMetaType::Type::QUrl:
+        qCDebug(KAIDAN_CORE_LOG, "Alpha channel of source specified by QUrl cannot be determined");
+        break;
+    case QMetaType::Type::QString: {
+        if (const auto image = QImage(source.toString()); !image.isNull()) {
+            return determineAlphaChannel(image);
+        } else if (const auto icon = QIcon::fromTheme(source.toString()); !icon.isNull()) {
+            return determineIconAlphaChannel(icon);
+        }
+
+        qCDebug(KAIDAN_CORE_LOG, "Alpha channel could not be determined because no valid image data could be loaded from QString");
+        break;
+    }
+    }
+
+    return false;
 }
 
 QByteArray MediaUtils::encodeImageThumbnail(const QPixmap &pixmap)

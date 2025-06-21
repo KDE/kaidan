@@ -105,7 +105,7 @@ public:
         return mimeType(url).name();
     }
 
-    Q_INVOKABLE static bool hasAlphaChannel(const QImage &image);
+    Q_INVOKABLE static bool hasAlphaChannel(const QVariant &source);
 
     static QByteArray encodeImageThumbnail(const QPixmap &pixmap);
     static QByteArray encodeImageThumbnail(const QImage &image);
