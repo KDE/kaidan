@@ -16,67 +16,41 @@ msgstr ""
 "X-Crowdin-File-ID: 57154\n"
 
 #: src/Account.cpp:446
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "连接"
+msgstr ""
 
 #: src/Account.cpp:448
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
 #: src/Account.cpp:450
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "连接"
+msgstr ""
 
 #: src/Account.cpp:461
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "用户名或密码无效。"
 
 #: src/Account.cpp:463
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "无法连接到服务器。请检查您的互联网连接。"
 
 #: src/Account.cpp:465
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "尝试安全连接时出错。"
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "服务器不支持安全连接。"
 
 #: src/Account.cpp:469
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "Could not connect to the server. Please check your internet connection or "
-#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -84,35 +58,21 @@ msgid ""
 msgstr "无法连接到服务器。请检查您的互联网连接或服务器名称。"
 
 #: src/Account.cpp:471
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
 #: src/Account.cpp:473
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
 
 #: src/Account.cpp:475
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "无法刷新连接。"
 
 #: src/Account.cpp:477
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "The internet access is not permitted. Please check your system's internet "
-#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -120,25 +80,16 @@ msgid ""
 msgstr "不允许访问互联网。请检查系统的互联网访问配置。"
 
 #: src/Account.cpp:479
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "此服务器不支持注册。"
 
 #: src/Account.cpp:481
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "无法登录。请先确认您收到的电子邮件。"
 
 #: src/Account.cpp:483
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
@@ -154,12 +105,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
 
 #: src/AccountMigrationController.cpp:403
-#, fuzzy, qt-format
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "账号迁移"
+msgstr ""
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -187,14 +136,10 @@ msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
 #: src/ChatHintModel.cpp:233
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
-msgstr "您未连接 — 连接后即可发送和接收消息"
+msgstr ""
 
 #: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
 #: src/ChatHintModel.cpp:299
@@ -208,12 +153,9 @@ msgid "Enable"
 msgstr ""
 
 #: src/ChatHintModel.cpp:236
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "正在加载…"
+msgstr ""
 
 #: src/ChatHintModel.cpp:249
 #, qt-format
@@ -592,25 +534,16 @@ msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
 #: src/NotificationController.cpp:151
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
 #: src/NotificationController.cpp:165 src/NotificationController.cpp:300
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "打开"
 
 #: src/NotificationController.cpp:304
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
@@ -695,41 +628,30 @@ msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
 #: src/qml/ChatPage.qml:722
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
 #: src/qml/ChatPage.qml:722
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
 #: src/qml/ChatPage.qml:729
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
 #: src/qml/ChatPage.qml:733
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "无法取消屏蔽 %1：%2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "DetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "您最多可以分享 %1 媒体。"
@@ -2322,12 +2244,9 @@ msgid "Name (optional):"
 msgstr "名称（选填）："
 
 #: src/qml/elements/ContactAdditionContent.qml:63
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "消息（选填）："
+msgstr ""
 
 #: src/qml/elements/ContactAdditionContent.qml:70
 msgctxt "ContactAdditionContent|"
@@ -2741,33 +2660,23 @@ msgid "Retry updating reactions"
 msgstr "重试更新回应"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "搜索公开群聊（%1）"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "正在下载…"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "重试"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "无法检索公开群聊：%1"
@@ -2833,137 +2742,87 @@ msgid "Media"
 msgstr "媒体"
 
 #: src/qml/elements/RosterFilterArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "已在线的联系人"
 
 #: src/qml/elements/RosterFilterArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "已离线的联系人"
 
 #: src/qml/elements/RosterFilterArea.qml:35
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "私人群聊"
 
 #: src/qml/elements/RosterFilterArea.qml:39
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "公开群聊"
 
 #: src/qml/elements/RosterFilterArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "按类型筛选"
 
 #: src/qml/elements/RosterFilterArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "仅显示特定类型的条目"
 
 #: src/qml/elements/RosterFilterArea.qml:113
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "按账号筛选"
 
 #: src/qml/elements/RosterFilterArea.qml:114
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "仅显示所选账号的聊天"
 
 #: src/qml/elements/RosterFilterArea.qml:175
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "按标签筛选"
 
 #: src/qml/elements/RosterFilterArea.qml:176
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "仅显示具有所选标签的聊天"
 
 #: src/qml/elements/RosterItemDelegate.qml:73
-#, fuzzy
-#| msgctxt "GroupChatDetailsHeader|"
-#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "已删除"
 
 #: src/qml/elements/RosterItemDelegate.qml:86
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "还没有消息"
 
 #: src/qml/elements/RosterItemDelegate.qml:102
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
 #: src/qml/elements/RosterItemDelegate.qml:105
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
 #: src/qml/elements/RosterItemDelegate.qml:109
-#, fuzzy, qt-format
-#| msgctxt "RosterListItem|"
-#| msgid "%1:"
+#, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
 #: src/qml/elements/RosterItemDelegate.qml:215
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消置顶"
 
 #: src/qml/elements/RosterItemDelegate.qml:215
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "置顶"
@@ -3039,12 +2898,9 @@ msgid "Create group"
 msgstr "创建群聊"
 
 #: src/qml/GlobalDrawer.qml:198
-#, fuzzy
-#| msgctxt "GroupChatCreationDialog|"
-#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "创建群聊"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -3052,12 +2908,9 @@ msgid "Join group"
 msgstr "加入群聊"
 
 #: src/qml/GlobalDrawer.qml:224
-#, fuzzy
-#| msgctxt "GroupChatJoiningDialog|"
-#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "加入群聊"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3070,33 +2923,24 @@ msgid "About"
 msgstr "关于"
 
 #: src/qml/GlobalDrawer.qml:451
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
 #: src/qml/GlobalDrawer.qml:451
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "撤销"
 
 #: src/qml/GlobalDrawer.qml:458
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
 #: src/qml/GlobalDrawer.qml:462
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
 msgstr "无法取消屏蔽 %1：%2"
@@ -3392,12 +3236,9 @@ msgid "Account Migration"
 msgstr "账号迁移"
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "账号迁移"
+msgstr ""
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3443,9 +3284,7 @@ msgid "%1 paused typing"
 msgstr "%1 已暂停输入"
 
 #: src/QrCodeGenerator.cpp:46
-#, fuzzy, qt-format
-#| msgctxt "AbstractQrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
@@ -3530,32 +3369,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "AccountMigrationController|"
-#~ msgid ""
-#~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "无法迁移账号：另一项迁移已在进行中"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Online"
-#~ msgstr "在线"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Connecting…"
-#~ msgstr "正在连接…"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Offline"
-#~ msgstr "离线"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "The link will be opened after you have connected."
-#~ msgstr "将在您连接后打开链接。"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "That can take long"
-#~ msgstr "这可能需要很久"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Deleted"
-#~ msgstr "已删除"
