@@ -23,8 +23,10 @@
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QQmlApplicationEngine>
+#include <QRegularExpression>
 #include <QTranslator>
 #include <QWindow>
+#include <QtLogging>
 #include <qqml.h>
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
@@ -147,6 +149,18 @@ const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
 const auto QUICK_CONTROLS_DEFAULT_MOBILE_STYLE = QStringLiteral("Material");
 
+// Environment variable containing strings used to filter out log messages that contain them.
+// The strings must be separated by semicolons.
+const auto KAIDAN_LOG_FILTER_VARIABLE = "KAIDAN_LOG_FILTER";
+constexpr auto KAIDAN_LOG_FILTER_SEPARATOR = QLatin1Char(';');
+// Strings used to always filter out log messages containing them.
+const QStringList KAIDAN_DEFAULT_FILTER_STRINGS = {
+    QStringLiteral("Previously registered enum will be overwritten due to name clash"),
+    QStringLiteral("Possible conflicting items"),
+    QStringLiteral("from scope * injected by *"),
+};
+QtMessageHandler originalLogMessageHandler = nullptr;
+
 enum CommandLineParseResult {
     CommandLineOk,
     CommandLineError,
@@ -183,8 +197,44 @@ CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *err
     return CommandLineOk;
 }
 
+void filterLog(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    using namespace Qt::Literals::StringLiterals;
+    static QAtomicInt initialized;
+    static QMutex mutex;
+    static QStringList filterStrings;
+
+    if (initialized == 0) {
+        QMutexLocker locker(&mutex);
+
+        if (initialized == 0) {
+            filterStrings = qEnvironmentVariable(KAIDAN_LOG_FILTER_VARIABLE).split(KAIDAN_LOG_FILTER_SEPARATOR, Qt::SkipEmptyParts);
+            filterStrings.append(KAIDAN_DEFAULT_FILTER_STRINGS);
+
+            initialized = 1;
+        }
+    }
+
+    if (const auto match = std::find_if(filterStrings.cbegin(),
+                                        filterStrings.cend(),
+                                        [&msg](const QString &filter) {
+                                            const auto rx =
+                                                QRegularExpression::fromWildcard(filter, Qt::CaseInsensitive, QRegularExpression::UnanchoredWildcardConversion);
+                                            return msg.contains(rx);
+                                        });
+        match != filterStrings.cend()) {
+        return;
+    }
+
+    if (originalLogMessageHandler) {
+        (*originalLogMessageHandler)(type, context, msg);
+    }
+}
+
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
+    originalLogMessageHandler = qInstallMessageHandler(filterLog);
+
 #ifdef Q_OS_WIN
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
         freopen("CONOUT$", "w", stdout);

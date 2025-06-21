@@ -104,6 +104,9 @@ The environment variable [`QT_LOGGING_RULES`](https://doc.qt.io/qt-6/qloggingcat
 In order to print all log messages, you can set `QT_LOGGING_RULES=im.kaidan.*=true`.
 You can specify a category and type (i.e., log level) to print only specific log messages via `QT_LOGGING_RULES=im.kaidan.<category>.<type>=true` (replace `<category>` and `<type>` with the desired values).
 
+Log messages containing any of the strings defined in the environment variable `KAIDAN_LOG_FILTER` are filtered out of the log.
+The strings need to be separated by semicolons (e.g., `KAIDAN_LOG_FILTER=a log message part;another log message part`).
+
 [KDebugSettings](https://apps.kde.org/de/kdebugsettings/) can be used as a graphical alternative.
 Once you inserted `kaidan/build/kaidan.categories`, you can manage how to log for Kaidan there.
 
