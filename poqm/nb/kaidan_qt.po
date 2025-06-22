@@ -21,16 +21,12 @@ msgstr ""
 
 #: src/Account.cpp:446
 #, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Kobler til …"
 
 #: src/Account.cpp:448
 #, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Kobler til …"
@@ -76,8 +72,6 @@ msgstr ""
 
 #: src/Account.cpp:471
 #, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Tjeneren er nede eller blokkert av en brannmur."
@@ -90,8 +84,6 @@ msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
 
 #: src/Account.cpp:475
 #, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
@@ -106,8 +98,6 @@ msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
 
 #: src/Account.cpp:479
 #, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Denne tjeneren støtter ikke registrering."
@@ -2690,8 +2680,6 @@ msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
 #, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
@@ -3395,15 +3383,3 @@ msgstr "Geburtsdag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Nettside"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Online"
-#~ msgstr "Tilkoblet"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Offline"
-#~ msgstr "Frakoblet"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "The link will be opened after you have connected."
-#~ msgstr "Lenken vil åpnes etter at du har koblet til."
