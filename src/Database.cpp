@@ -42,8 +42,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 49
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(49)
+#define DATABASE_LATEST_VERSION 50
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(50)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -1773,6 +1773,25 @@ void Database::convertDatabaseToV49()
     QSqlQuery query(currentDatabase());
     execQuery(query, QStringLiteral("ALTER TABLE accounts RENAME COLUMN online TO enabled"));
     d->version = 49;
+}
+
+void Database::convertDatabaseToV50()
+{
+    DATABASE_CONVERT_TO_VERSION(49)
+    QSqlQuery query(currentDatabase());
+    execQuery(query, QStringLiteral("SELECT * FROM accounts"));
+    QList<AccountSettings::Data> accounts;
+    AccountDb::parseAccountsFromQuery(query, accounts);
+
+    for (auto i = accounts.size() - 1; i >= 0; --i) {
+        auto &account = accounts[i];
+
+        if (auto decodedPassword = QByteArray::fromBase64Encoding(account.password.toUtf8())) {
+            execQuery(query, QStringLiteral("UPDATE accounts SET password = '%1' WHERE jid = '%2'").arg(QString::fromUtf8(*decodedPassword), account.jid));
+        }
+    }
+
+    d->version = 50;
 }
 
 #include "moc_Database.cpp"

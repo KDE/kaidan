@@ -72,7 +72,6 @@ AccountDb::~AccountDb()
 QFuture<void> AccountDb::addAccount(const AccountSettings::Data &account)
 {
     return run([this, account] {
-        auto query = createQuery();
         insert(QString::fromLatin1(DB_TABLE_ACCOUNTS),
                {
                    {u"jid", account.jid},
