@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-21 12:24+0200\n"
+"PO-Revision-Date: 2025-06-22 11:54+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: src/Account.cpp:446
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Conectar"
+msgstr "Conectouse"
 
 #: src/Account.cpp:448
 msgctxt "Connection|"
@@ -25,12 +25,9 @@ msgid "Connecting…"
 msgstr "Conectando…"
 
 #: src/Account.cpp:450
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Conectar"
+msgstr "Desconectouse"
 
 #: src/Account.cpp:461
 msgctxt "Connection|"
@@ -115,12 +112,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Non foi posíbel migrar a conta: necesita conexión."
 
 #: src/AccountMigrationController.cpp:403
-#, fuzzy, qt-format
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "Migración de conta"
+msgstr "A conta «%1» migrouse a «%2»."
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -148,15 +143,12 @@ msgid "Devices on Servers"
 msgstr "Dispositivos en servidores"
 
 #: src/ChatHintModel.cpp:233
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Non ten conexión. As mensaxes enviaranse and recibiranse cando se conecte."
+"A súa conta non está activada. As mensaxes envíanse e recíbense unha vez "
+"activada."
 
 #: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
 #: src/ChatHintModel.cpp:299
@@ -167,15 +159,12 @@ msgstr "Descartar"
 #: src/ChatHintModel.cpp:234
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 #: src/ChatHintModel.cpp:236
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Inicializando…"
+msgstr "Activando…"
 
 #: src/ChatHintModel.cpp:249
 #, qt-format
@@ -188,18 +177,14 @@ msgstr ""
 "dispoñibilidade, dispositivos, etc.%2"
 
 #: src/ChatHintModel.cpp:254
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 is %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"O seu contacto %1 agora é %2 e quere volver recibir información persoal "
-"sobre vostede como a súa dispoñibilidade, dispositivos, etc.%3"
+"O seu contacto %1 (%2) agora é %3 (%4) e quere volver recibir información "
+"persoal sobre vostede como a súa dispoñibilidade, dispositivos, etc.%5"
 
 #: src/ChatHintModel.cpp:261
 msgctxt "ChatHintModel|"
@@ -1141,66 +1126,38 @@ msgid "Connection settings changed"
 msgstr "Cambiouse a configuración de conexión."
 
 #: src/qml/details/AccountDetailsContent.qml:977
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Switch device"
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Cambiar de dispositivo"
 
 #: src/qml/details/AccountDetailsContent.qml:981
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Nunca lle amose este código QR a ninguén. Permitiríalle acceso ilimitado á "
-"súa conta!"
+"Nunca lle amose a información desta sección a ninguén. Permitiríalle acceso "
+"ilimitado á súa conta!"
 
 #: src/qml/details/AccountDetailsContent.qml:987
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Scan login QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Escanear o código QR de acceso"
+msgstr "Amosar código QR de acceso"
 
 #: src/qml/details/AccountDetailsContent.qml:988
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
-"Escanee o código QR ou escriba as credenciais noutro dispositivo para "
-"acceder desde el."
+msgstr "Escanee o código QR con outro dispositivo para acceder desde el."
 
 #: src/qml/details/AccountDetailsContent.qml:1008
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Amosar os detalles"
+msgstr "Amosar as credenciais"
 
 #: src/qml/details/AccountDetailsContent.qml:1009
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it."
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
-msgstr ""
-"Escanee o código QR ou escriba as credenciais noutro dispositivo para "
-"acceder desde el."
+msgstr "Insira as credenciais noutro dispositivo para acceder desde el."
 
 #: src/qml/details/AccountDetailsContent.qml:1015
 msgctxt "AccountDetailsContent|"
@@ -1225,7 +1182,7 @@ msgstr "Preparando a migración da conta…"
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "Isto pode levar un tempo…"
 
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
@@ -2135,7 +2092,7 @@ msgstr "Dispositivos propios sen verificar"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "A funcionalidade non está dispoñíbel"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2349,12 +2306,9 @@ msgid "Name (optional):"
 msgstr "Nome (opcional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:63
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "Mensaxe (opcional):"
+msgstr "Mensaxe (opcional, sen cifrar):"
 
 #: src/qml/elements/ContactAdditionContent.qml:70
 msgctxt "ContactAdditionContent|"
@@ -2436,7 +2390,7 @@ msgstr "Porto:"
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr ""
+msgstr "Algunhas funcionalidades volveranse visíbeis cando active a conta."
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2976,20 +2930,14 @@ msgid "Password"
 msgstr "Contrasinal"
 
 #: src/qml/GlobalDrawer.qml:120
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Escriba o seu contrasinal actual"
+msgstr "Escriba o contrasinal correcto."
 
 #: src/qml/GlobalDrawer.qml:130
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Copiar contrasinal"
+msgstr "Confirme o contrasinal."
 
 #: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
@@ -2999,12 +2947,12 @@ msgstr "Accións"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "Active a súa conta para usar todas as accións dispoñíbeis."
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "Active unha conta para usar todas as accións dispoñíbeis."
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -3022,12 +2970,9 @@ msgid "Create group"
 msgstr "Crear un grupo"
 
 #: src/qml/GlobalDrawer.qml:198
-#, fuzzy
-#| msgctxt "GroupChatCreationDialog|"
-#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Crear unha conversa de grupo"
+msgstr "Crear un grupo (non se permite)"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -3035,12 +2980,9 @@ msgid "Join group"
 msgstr "Unirse ao grupo"
 
 #: src/qml/GlobalDrawer.qml:224
-#, fuzzy
-#| msgctxt "GroupChatJoiningDialog|"
-#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Unirse á conversa de grupo"
+msgstr "Unirse ao grupo (non se permite)"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3091,12 +3033,9 @@ msgid "Show explanation"
 msgstr "Amosar explicación"
 
 #: src/qml/QrCodeOnboardingPage.qml:51
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan your old device's QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Escanee o código QR do seu dispositivo anterior"
+msgstr "Escanee o código QR de acceso do seu dispositivo anterior"
 
 #: src/qml/QrCodeOnboardingPage.qml:58
 msgctxt "QrCodeOnboardingPage|"
@@ -3104,6 +3043,8 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"Pode amosar o código QR nos detalles da conta do dispositivo anterior "
+"mediante «Amosar o código QR de acceso»."
 
 #: src/qml/QrCodeOnboardingPage.qml:100
 msgctxt "QrCodeOnboardingPage|"
@@ -3133,7 +3074,7 @@ msgstr "Completar o rexistro!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:113
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
-msgstr ""
+msgstr "O rexistro automático fallou por problemas con todos os fornecedores."
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3373,12 +3314,9 @@ msgid "Account Migration"
 msgstr "Migración de conta"
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Migración de conta"
+msgstr "Creación de conta"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
