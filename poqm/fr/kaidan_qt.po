@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-06-21 18:07+0200\n"
+"PO-Revision-Date: 2025-06-22 10:22+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -164,7 +164,7 @@ msgstr "Rejeter"
 #: src/ChatHintModel.cpp:234
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 #: src/ChatHintModel.cpp:236
 msgctxt "ChatHintModel|"
@@ -1205,7 +1205,7 @@ msgstr "Préparation de la migration du compte"
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "Ceci peut prendre un certain temps..."
 
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
@@ -2145,7 +2145,7 @@ msgstr "Périphériques personnels non vérifiés"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "Fonctionnalité non prise en charge"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2442,6 +2442,7 @@ msgstr "Port :"
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
 msgstr ""
+"Certaines fonctionnalités deviendront visibles une fois votre compte activé."
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2997,12 +2998,12 @@ msgstr "Actions"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "Activez votre compte pour utiliser toutes les actions disponibles."
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "Activer un compte pour utiliser toutes les actions disponibles."
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -3125,6 +3126,8 @@ msgstr "Terminer l'inscription !"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
+"Échec de l'enregistrement automatique en raison de problèmes avec tous les "
+"fournisseurs"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
