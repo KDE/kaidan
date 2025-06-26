@@ -18,7 +18,7 @@ msgstr ""
 #: src/Account.cpp:446
 msgctxt "Connection|"
 msgid "Connected"
-msgstr ""
+msgstr "已连接"
 
 #: src/Account.cpp:448
 msgctxt "Connection|"
@@ -28,7 +28,7 @@ msgstr "正在连接…"
 #: src/Account.cpp:450
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr ""
+msgstr "已断开连接"
 
 #: src/Account.cpp:461
 msgctxt "Connection|"
@@ -108,7 +108,7 @@ msgstr "无法迁移账号：您需要连接"
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr ""
+msgstr "账号“%1”已迁移到“%2”"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -139,7 +139,7 @@ msgstr "服务器上的设备"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
-msgstr ""
+msgstr "您的账号未启用 — 启用后即可发送和接收消息"
 
 #: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
 #: src/ChatHintModel.cpp:299
@@ -150,12 +150,12 @@ msgstr "关闭"
 #: src/ChatHintModel.cpp:234
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 #: src/ChatHintModel.cpp:236
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr ""
+msgstr "正在启用…"
 
 #: src/ChatHintModel.cpp:249
 #, qt-format
@@ -1152,7 +1152,7 @@ msgstr "正在准备账号迁移…"
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "这可能需要一段时间"
 
 #: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
@@ -1269,12 +1269,12 @@ msgstr "您有需要验证才能为其加密的其他设备"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:58
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr "您还有未经验证的其他设备"
+msgstr "您还有未验证的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:60
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr "您的所有其他已知设备都经过验证"
+msgstr "您的所有其他已知设备都已通过验证"
 
 #: src/qml/details/AvatarChangePage.qml:23
 msgctxt "AvatarChangePage|"
@@ -1499,12 +1499,12 @@ msgstr "您的联系人有需要验证才能为其加密的设备"
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr "您的联系人有未经验证的设备"
+msgstr "您的联系人有未验证的设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "您联系人的所有已知设备都经过验证"
+msgstr "您联系人的所有已知设备都已通过验证"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1825,17 +1825,17 @@ msgstr "没有参与者有使用 OMEMO 2 的已知设备"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "一些参与者有需要验证才能为其加密的设备"
+msgstr "部分参与者有需要验证才能为其加密的设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr "一些参与者的设备未经验证"
+msgstr "部分参与者有未验证的设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "所有参与者的已知设备都经过验证"
+msgstr "所有参与者的已知设备都已通过验证"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -2025,12 +2025,12 @@ msgstr "步骤 2：用您的其他设备扫描<b>此设备的</b>二维码"
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "未经验证的自己的设备"
+msgstr "未验证的自己的设备"
 
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "功能不受支持"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2246,7 +2246,7 @@ msgstr "名称（选填）："
 #: src/qml/elements/ContactAdditionContent.qml:63
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr ""
+msgstr "消息（可选，未加密）："
 
 #: src/qml/elements/ContactAdditionContent.qml:70
 msgctxt "ContactAdditionContent|"
@@ -2301,7 +2301,7 @@ msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr "未经验证的联系人设备"
+msgstr "未验证的联系人设备"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
 msgctxt "CopyFormTextDelegate|"
@@ -2326,7 +2326,7 @@ msgstr "端口："
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr ""
+msgstr "启用您的账号后，部分功能将可见"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2510,7 +2510,7 @@ msgstr "步骤 2：让参与者扫描<b>您的</b>二维码"
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr "未经验证的参与者设备"
+msgstr "未验证的参与者设备"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
@@ -2875,12 +2875,12 @@ msgstr "操作"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "请启用您的账号以使用所有可用操作"
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "启用账号以使用所有可用操作"
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -2900,7 +2900,7 @@ msgstr "创建群聊"
 #: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr ""
+msgstr "创建群聊（不支持）"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -2910,7 +2910,7 @@ msgstr "加入群聊"
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr ""
+msgstr "加入群聊（不支持）"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3000,7 +3000,7 @@ msgstr "完成注册！"
 #: src/qml/registration/AutomaticRegistrationPage.qml:113
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
-msgstr ""
+msgstr "由于所有提供者都有问题，自动注册失败"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3238,7 +3238,7 @@ msgstr "账号迁移"
 #: src/qml/StartPage.qml:27
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr ""
+msgstr "账号创建"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
