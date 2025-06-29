@@ -68,6 +68,13 @@ set_package_properties(ICU PROPERTIES
     PURPOSE "Unicode library (used for emoji support)"
 )
 
+find_package(Qt6Keychain 0.15 REQUIRED)
+set_package_properties(Qt6Keychain PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Secure credential storage"
+    URL "https://github.com/frankosterfeld/qtkeychain"
+)
+
 ecm_set_disabled_deprecation_versions(
     QT 6.8.0
     KF 6.12.0

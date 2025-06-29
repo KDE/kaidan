@@ -30,6 +30,7 @@
 #include "AccountDb.h"
 #include "Globals.h"
 #include "KaidanCoreLog.h"
+#include "Keychain.h"
 #include "MainController.h"
 #include "Settings.h"
 #include "SqlUtils.h"
@@ -42,8 +43,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 50
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(50)
+#define DATABASE_LATEST_VERSION 51
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(51)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -365,12 +366,11 @@ void Database::createNewDatabase()
                                    SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
                                        SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
                                            SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(password, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT) SQL_ATTRIBUTE(port, SQL_BOOL)
-                                                       SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER) SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER)
-                                                           SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
-                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
+                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(credentials, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(host, SQL_TEXT) SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
+                                                       SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER)
+                                                           SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                                               SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
 
     // roster
     execQuery(query,
@@ -1792,6 +1792,40 @@ void Database::convertDatabaseToV50()
     }
 
     d->version = 50;
+}
+
+void Database::convertDatabaseToV51()
+{
+    using namespace QKeychain;
+
+    if (!QKeychain::isAvailable()) {
+        qCWarning(KAIDAN_CORE_LOG, "The passwords will be moved from the database to an unencrypted file since there is no usable backend.");
+        QKeychainFuture::setInsecureFallback(true);
+    }
+
+    DATABASE_CONVERT_TO_VERSION(50)
+    QSqlQuery query(currentDatabase());
+    execQuery(query, QStringLiteral("SELECT jid, password FROM accounts"));
+    QList<QKeychainFuture::WriteFuture> futures;
+
+    while (query.next()) {
+        auto jid = query.value(0).toString();
+        auto password = query.value(1).toString();
+
+        futures.append(QKeychainFuture::writeKey(jid, password).onFailed([jid](const QKeychainFuture::Error &error) {
+            qCFatal(KAIDAN_CORE_LOG,
+                    "Could not move password of account %ls from database to password manager or unencrypted file: %s",
+                    qUtf16Printable(jid),
+                    error.what());
+            return error.error();
+        }));
+    }
+
+    QKeychainFuture::waitForFinished(QtFuture::whenAll(futures.begin(), futures.end()));
+
+    execQuery(query, QStringLiteral("ALTER TABLE accounts DROP COLUMN password"));
+
+    d->version = 51;
 }
 
 #include "moc_Database.cpp"

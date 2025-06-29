@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 uses the open communication protocol [XMPP (Jabber)][xmpp]. The user interface
 makes use of [Kirigami][kirigami-website] and [QtQuick][qtquick], while the
 back-end of Kaidan is entirely written in C++ using [Qt][qt] and the Qt-based
-XMPP library [QXmpp][qxmpp].
+XMPP library [QXmpp][qxmpp]. The credentials are stored using [QtKeychain][qtkeychain].
 
 Kaidan runs on mobile and desktop systems including Linux, Windows, macOS,
 Android, Plasma Mobile and Ubuntu Touch.
@@ -55,6 +55,7 @@ The following dependencies are needed by Kaidan:
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
 * [ICU (International Components for Unicode)][icu] >= 61
 * [QXmpp][qxmpp] (with OMEMO) >= 1.11.0
+* [QtKeychain][qtkeychain] >= 0.15
 
 ## Optional Dependencies
 
@@ -99,6 +100,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
 [qxmpp]: https://invent.kde.org/libraries/qxmpp
+[qtkeychain]: https://github.com/frankosterfeld/qtkeychain
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
 [xmpp]: https://xmpp.org

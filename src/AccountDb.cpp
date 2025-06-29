@@ -13,9 +13,14 @@
 // Kaidan
 #include "Account.h"
 #include "Globals.h"
+#include "KaidanCoreLog.h"
+#include "Keychain.h"
 #include "SqlUtils.h"
 
 using namespace SqlUtils;
+using namespace std::chrono;
+
+static constexpr std::chrono::seconds KEYCHAIN_TIMEOUT = 15s;
 
 template<typename T>
 T readValue(const QVariant &value)
@@ -72,15 +77,27 @@ AccountDb::~AccountDb()
 QFuture<void> AccountDb::addAccount(const AccountSettings::Data &account)
 {
     return run([this, account] {
-        insert(QString::fromLatin1(DB_TABLE_ACCOUNTS),
-               {
-                   {u"jid", account.jid},
-                   {u"password", account.password},
-                   {u"host", account.host.isEmpty() ? QVariant{} : account.host},
-                   {u"name", account.name.isEmpty() ? QVariant{} : account.name},
-               });
+        QKeychainFuture::waitForFinished(QKeychainFuture::writeKey(account.jid, account.password)
+                                             .onFailed([account](const QKeychainFuture::Error &error) {
+                                                 qCWarning(KAIDAN_CORE_LOG,
+                                                           "Could not store account %ls since its password could not be stored: %s",
+                                                           qUtf16Printable(account.jid),
+                                                           error.what());
+                                                 return error.error();
+                                             })
+                                             .then([this, account](const QKeychain::Error &error) {
+                                                 if (error == QKeychain::Error::NoError) {
+                                                     insert(QString::fromLatin1(DB_TABLE_ACCOUNTS),
+                                                            {
+                                                                {u"jid", account.jid},
+                                                                {u"host", account.host.isEmpty() ? QVariant{} : account.host},
+                                                                {u"name", account.name.isEmpty() ? QVariant{} : account.name},
+                                                            });
 
-        Q_EMIT accountAdded(account);
+                                                     Q_EMIT accountAdded(account);
+                                                 }
+                                             }),
+                                         KEYCHAIN_TIMEOUT);
     });
 }
 
@@ -129,6 +146,15 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
                 if (auto record = createUpdateRecord(oldAccount, newAccount); !record.isEmpty()) {
                     // Create an SQL record containing only the differences.
                     updateAccountByRecord(jid, record);
+                }
+
+                if (oldAccount.password != newAccount.password) {
+                    QKeychainFuture::waitForFinished(
+                        QKeychainFuture::writeKey(newAccount.jid, newAccount.password).onFailed([newAccount](const QKeychainFuture::Error &error) {
+                            qCWarning(KAIDAN_CORE_LOG, "Could not update password of account %ls: %s", qUtf16Printable(newAccount.jid), error.what());
+                            return error.error();
+                        }),
+                        KEYCHAIN_TIMEOUT);
                 }
             }
         }
@@ -207,16 +233,25 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 QFuture<void> AccountDb::removeAccount(const QString &jid)
 {
     return run([this, jid]() {
-        auto query = createQuery();
-        execQuery(query,
-                  QStringLiteral(R"(
-				DELETE FROM accounts WHERE jid = :jid
-			)"),
-                  {
-                      {u":jid", jid},
-                  });
+        QKeychainFuture::waitForFinished(
+            QKeychainFuture::deleteKey(jid)
+                .onFailed([jid](const QKeychainFuture::Error &error) {
+                    qCWarning(KAIDAN_CORE_LOG, "Could not remove account %ls since its password could not be removed: %s", qUtf16Printable(jid), error.what());
+                    return error.error();
+                })
+                .then([this, jid](const QKeychain::Error &error) {
+                    if (error == QKeychain::Error::NoError) {
+                        auto query = createQuery();
+                        execQuery(query,
+                                  QStringLiteral(R"(DELETE FROM accounts WHERE jid = :jid)"),
+                                  {
+                                      {u":jid", jid},
+                                  });
 
-        Q_EMIT accountRemoved(jid);
+                        Q_EMIT accountRemoved(jid);
+                    }
+                }),
+            KEYCHAIN_TIMEOUT);
     });
 }
 
@@ -235,7 +270,6 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
     int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
     int idxEnabled = rec.indexOf(QStringLiteral("enabled"));
     int idxJidResourcePrefix = rec.indexOf(QStringLiteral("resourcePrefix"));
-    int idxPassword = rec.indexOf(QStringLiteral("password"));
     int idxCredentials = rec.indexOf(QStringLiteral("credentials"));
     int idxHost = rec.indexOf(QStringLiteral("host"));
     int idxPort = rec.indexOf(QStringLiteral("port"));
@@ -268,7 +302,6 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxGeoLocationMapService, geoLocationMapService, AccountSettings::GeoLocationMapService);
         SET_IF(idxEnabled, enabled, bool);
         SET_IF(idxJidResourcePrefix, jidResourcePrefix, QString);
-        SET_IF(idxPassword, password, QString);
         SET_IF(idxCredentials, credentials, QXmppCredentials);
         SET_IF(idxHost, host, QString);
         SET_IF(idxPort, port, quint16);
@@ -278,6 +311,19 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxUserAgentDeviceId, userAgentDeviceId, QUuid);
         SET_IF(idxEncryption, encryption, Encryption::Enum);
         SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, AccountSettings::AutomaticMediaDownloadsRule);
+
+        QKeychainFuture::waitForFinished(
+            QKeychainFuture::readKey<QString>(account.jid)
+                .onFailed([account](const QKeychainFuture::Error &error) {
+                    qCWarning(KAIDAN_CORE_LOG, "Could not retrieve password for account %ls: %s", qUtf16Printable(account.jid), error.what());
+                    return QString();
+                })
+                .then([&account](const QKeychainFuture::ReadResult<QString> &result) {
+                    if (auto password = std::get_if<QString>(&result)) {
+                        account.password = *password;
+                    }
+                }),
+            KEYCHAIN_TIMEOUT);
 
 #undef SET_IF
 
@@ -304,7 +350,6 @@ QSqlRecord AccountDb::createUpdateRecord(const AccountSettings::Data &oldAccount
     SET_IF_NEW(geoLocationMapService, AccountSettings::GeoLocationMapService);
     SET_IF_NEW(enabled, bool);
     SET_IF_NEW(jidResourcePrefix, QString);
-    SET_IF_NEW(password, QString);
     SET_IF_NEW(credentials, QXmppCredentials);
     SET_IF_NEW(host, QString);
     SET_IF_NEW(port, quint16);

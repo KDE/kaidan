@@ -124,6 +124,8 @@ target_sources(libkaidancore PRIVATE
     HostCompletionProxyModel.cpp
     HostCompletionProxyModel.h
     JsonUtils.h
+    Keychain.cpp
+    Keychain.h
     LoginQrCodeGenerator.cpp
     LoginQrCodeGenerator.h
     LogHandler.cpp
@@ -261,6 +263,7 @@ target_link_libraries(libkaidancore
     Qt::Sql
     Qt::Svg
     Qt::Xml
+    Qt6Keychain::Qt6Keychain
     QXmpp::QXmpp QXmpp::Omemo
     ${__Qt6Widgets_LIBRARIES}
     ${__KF6Notifications_LIBRARIES}

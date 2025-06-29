@@ -77,6 +77,13 @@ ecm_add_test(
 
 # Manual tests
 
+add_executable(KeychainTest
+    manual/KeychainTest.cpp
+)
+target_link_libraries(KeychainTest
+    PRIVATE Kaidan::Tests
+)
+
 add_executable(PublicGroupChatSearch
     manual/PublicGroupChatSearch.cpp
 )
