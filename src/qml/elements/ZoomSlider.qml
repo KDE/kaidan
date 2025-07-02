@@ -16,9 +16,11 @@ Slider {
 	to: 3
 	width: parent.width - Kirigami.Units.largeSpacing * 4
 	horizontalPadding: Kirigami.Units.largeSpacing
-	anchors.bottom: parent.bottom
-	anchors.bottomMargin: Kirigami.Units.largeSpacing * 3
-	anchors.horizontalCenter: parent.horizontalCenter
+	anchors {
+		horizontalCenter: parent.horizontalCenter
+		bottom: parent.bottom
+		bottomMargin: Kirigami.Units.largeSpacing * 3
+	}
 	background: Rectangle {
 		color: primaryBackgroundColor
 		opacity: 0.9

@@ -40,7 +40,7 @@ NewMediaDialog {
 		Behavior on opacity {
 			NumberAnimation {}
 		}
-		background: Kirigami.ShadowedRectangle  {
+		background: Kirigami.ShadowedRectangle {
 			color: primaryBackgroundColor
 			opacity: 0.9
 			radius: height / 2
