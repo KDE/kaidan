@@ -768,6 +768,7 @@ DetailsContent {
 								passwordField.forceActiveFocus()
 								passwordField.toggleHintForInvalidText()
 							} else {
+								passwordField.invalidHintMayBeShown = false
 								passwordBusyIndicator.visible = true
 								root.account.registrationController.changePassword(passwordField.text)
 							}
