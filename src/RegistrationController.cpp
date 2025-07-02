@@ -390,6 +390,7 @@ void RegistrationController::handleRegistrationFailed(const QXmppStanza::Error &
 void RegistrationController::handlePasswordChanged(const QString &newPassword)
 {
     m_accountSettings->setPassword(newPassword);
+    m_accountSettings->storeTemporaryData();
     Q_EMIT passwordChangeSucceeded();
 }
 
