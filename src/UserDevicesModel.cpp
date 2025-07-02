@@ -53,7 +53,12 @@ int UserDevicesModel::rowCount(const QModelIndex &parent) const
 void UserDevicesModel::setVersionController(VersionController *versionController)
 {
     if (m_versionController != versionController) {
+        if (m_versionController) {
+            m_versionController->disconnect(this);
+        }
+
         m_versionController = versionController;
+
         connect(m_versionController, &VersionController::clientVersionReceived, this, &UserDevicesModel::handleClientVersionReceived);
     }
 }
@@ -61,7 +66,12 @@ void UserDevicesModel::setVersionController(VersionController *versionController
 void UserDevicesModel::setPresenceCache(PresenceCache *presenceCache)
 {
     if (m_presenceCache != presenceCache) {
+        if (m_presenceCache) {
+            m_presenceCache->disconnect(this);
+        }
+
         m_presenceCache = presenceCache;
+
         connect(m_presenceCache, &PresenceCache::presenceChanged, this, &UserDevicesModel::handlePresenceChanged);
         connect(m_presenceCache, &PresenceCache::presencesCleared, this, &UserDevicesModel::handlePresencesCleared);
     }

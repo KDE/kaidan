@@ -57,8 +57,8 @@ private:
         QString os;
     };
 
-    VersionController *m_versionController;
-    PresenceCache *m_presenceCache;
+    VersionController *m_versionController = nullptr;
+    PresenceCache *m_presenceCache = nullptr;
     QString m_jid;
 
     QList<DeviceInfo> m_devices;

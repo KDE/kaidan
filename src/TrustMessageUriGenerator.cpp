@@ -23,6 +23,10 @@ EncryptionController *TrustMessageUriGenerator::encryptionController() const
 void TrustMessageUriGenerator::setEncryptionController(EncryptionController *encryptionController)
 {
     if (m_encryptionController != encryptionController) {
+        if (m_encryptionController) {
+            m_encryptionController->disconnect(this);
+        }
+
         m_encryptionController = encryptionController;
 
         if (!m_jid.isEmpty()) {

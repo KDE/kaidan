@@ -119,6 +119,6 @@ public:
     Q_SIGNAL void resourcesCountChanged();
 
 private:
-    PresenceCache *m_presenceCache;
+    PresenceCache *m_presenceCache = nullptr;
     QString m_jid;
 };

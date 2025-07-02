@@ -217,6 +217,10 @@ UserResourcesWatcher::UserResourcesWatcher(QObject *parent)
 void UserResourcesWatcher::setPresenceCache(PresenceCache *presenceCache)
 {
     if (m_presenceCache != presenceCache) {
+        if (m_presenceCache) {
+            m_presenceCache->disconnect(this);
+        }
+
         m_presenceCache = presenceCache;
 
         connect(m_presenceCache, &PresenceCache::presenceChanged, this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
