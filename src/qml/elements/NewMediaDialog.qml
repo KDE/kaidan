@@ -50,6 +50,13 @@ Dialog {
 		VideoOutput {
 			id: videoOutput
 			fillMode: VideoOutput.PreserveAspectCrop
+			layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+			layer.effect: Kirigami.ShadowedTexture {
+				corners {
+					bottomLeftRadius: Kirigami.Units.cornerRadius
+					bottomRightRadius: Kirigami.Units.cornerRadius
+				}
+			}
 			anchors.fill: parent
 		}
 
