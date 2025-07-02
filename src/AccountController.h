@@ -27,7 +27,7 @@ public:
     explicit AccountController(QObject *parent = nullptr);
     ~AccountController();
 
-    Q_INVOKABLE Account *createAccount();
+    Q_INVOKABLE Account *createUninitializedAccount();
     Q_INVOKABLE void discardUninitializedAccount(Account *account);
 
     Q_INVOKABLE Account *account(const QString &jid) const;

@@ -38,7 +38,7 @@ AccountController::~AccountController()
     s_instance = nullptr;
 }
 
-Account *AccountController::createAccount()
+Account *AccountController::createUninitializedAccount()
 {
     auto *account = new Account(this);
     m_accounts.append(account);

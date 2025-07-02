@@ -22,7 +22,7 @@ import "registration"
 ImageBackgroundPage {
 	id: root
 
-	property Account account: AccountController.createAccount()
+	property Account account: AccountController.createUninitializedAccount()
 
 	title: AccountController.migrating ? qsTr("Account Migration") : qsTr("Account Creation")
 	Component.onDestruction: AccountController.discardUninitializedAccount(account)
