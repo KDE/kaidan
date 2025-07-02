@@ -187,9 +187,9 @@ void AccountSettings::setPort(quint16 port)
     }
 }
 
-quint16 AccountSettings::portAutodetect() const
+quint16 AccountSettings::autoDetectPort() const
 {
-    return PORT_AUTODETECT;
+    return AUTO_DETECT_PORT;
 }
 
 QString AccountSettings::name() const
@@ -398,7 +398,7 @@ void AccountSettings::setGeoLocationMapService(GeoLocationMapService geoLocation
 void AccountSettings::resetCustomConnectionSettings()
 {
     setHost({});
-    setPort(PORT_AUTODETECT);
+    setPort(AUTO_DETECT_PORT);
 }
 
 void AccountSettings::generateJidResource()

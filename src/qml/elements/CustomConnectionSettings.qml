@@ -55,14 +55,14 @@ RowLayout {
 		Controls.SpinBox {
 			id: portField
 			editable: true
-			from: root.account.settings.portAutodetect
+			from: root.account.settings.autoDetectPort
 			to: 65535
 			value: root.account.settings.port
 			Layout.minimumWidth: 80
 
 			textFromValue: function(value, locale) {
 				// Return an empty string if no custom port is set.
-				if (value === root.account.settings.portAutodetect)
+				if (value === root.account.settings.autoDetectPort)
 					return ""
 
 				// By returning the value without taking the locale into account, no digit grouping is applied.

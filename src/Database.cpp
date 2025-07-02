@@ -1694,7 +1694,7 @@ void Database::convertDatabaseToV48()
                 return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
             }();
             account.host = settings->value<QString>(Host);
-            account.port = settings->value<quint16>(Port, PORT_AUTODETECT);
+            account.port = settings->value<quint16>(Port, AUTO_DETECT_PORT);
             account.tlsErrorsIgnored = settings->value<bool>(TlsErrorsIgnored, false);
             account.tlsRequirement = settings->value<QXmppConfiguration::StreamSecurityMode>(TlsRequirement, QXmppConfiguration::TLSRequired);
             account.passwordVisibility = settings->value<AccountSettings::PasswordVisibility>(PasswordVisibility, AccountSettings::PasswordVisibility::Visible);

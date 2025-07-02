@@ -18,7 +18,7 @@
 #include "Encryption.h"
 #include "Globals.h"
 
-constexpr quint16 PORT_AUTODETECT = 0;
+constexpr quint16 AUTO_DETECT_PORT = 0;
 
 class AtmController;
 class AvatarCache;
@@ -46,7 +46,7 @@ class AccountSettings : public QObject
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
     Q_PROPERTY(quint16 port READ port WRITE setPort NOTIFY portChanged)
-    Q_PROPERTY(quint16 portAutodetect READ portAutodetect CONSTANT FINAL)
+    Q_PROPERTY(quint16 autoDetectPort READ autoDetectPort CONSTANT FINAL)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString displayName READ displayName NOTIFY nameChanged)
     Q_PROPERTY(bool enabled READ enabled NOTIFY enabledChanged)
@@ -126,7 +126,7 @@ public:
         QString password;
         QXmppCredentials credentials;
         QString host;
-        quint16 port = PORT_AUTODETECT;
+        quint16 port = AUTO_DETECT_PORT;
         QString name;
         QUuid userAgentDeviceId;
         bool tlsErrorsIgnored = false;
@@ -175,7 +175,7 @@ public:
     void setPort(quint16 port);
     Q_SIGNAL void portChanged();
 
-    quint16 portAutodetect() const;
+    quint16 autoDetectPort() const;
 
     QString name() const;
     void setName(const QString &name);
