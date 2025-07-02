@@ -20,7 +20,10 @@ Dialog {
 	property alias captureSession: captureSession
 	property alias shutterRelease: shutterRelease
 
-	preferredHeight: Kirigami.Units.gridUnit * 19
+	preferredWidth: applicationWindow().width - Kirigami.Units.gridUnit * 3
+	preferredHeight: applicationWindow().height - Kirigami.Units.gridUnit * 6
+	maximumWidth: Kirigami.Units.gridUnit * 60
+	maximumHeight: Kirigami.Units.gridUnit * 40
 	onClosed: {
 		if (captureSession.camera) {
 			let recording = false
@@ -41,7 +44,8 @@ Dialog {
 
 	Rectangle {
 		id: contentArea
-		anchors.fill: parent
+		width: root.width
+		height: root.height - root.header.height - Kirigami.Units.cornerRadius / 2
 
 		VideoOutput {
 			id: videoOutput
