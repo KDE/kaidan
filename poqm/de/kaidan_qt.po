@@ -1139,7 +1139,7 @@ msgid "New password"
 msgstr "Neues Passwort:"
 
 #: src/qml/details/AccountDetailsContent.qml:746
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1022
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -1165,18 +1165,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:805
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Das Ändern des Passworts ist fehlgeschlagen: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:810
+#: src/qml/details/AccountDetailsContent.qml:811
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Das Passwort wurde erfolgreich geändert"
 
-#: src/qml/details/AccountDetailsContent.qml:822
+#: src/qml/details/AccountDetailsContent.qml:823
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password Security"
@@ -1184,7 +1184,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Passwortsicherheit"
 
-#: src/qml/details/AccountDetailsContent.qml:826
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1193,13 +1193,13 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:833
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Passwort nicht als Klartext anzeigen"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:834
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1209,7 +1209,7 @@ msgstr ""
 "Ermögliche weitere Geräte über einen QR-Code hinzuzufügen, aber zeige nie "
 "das Passwort an."
 
-#: src/qml/details/AccountDetailsContent.qml:840
+#: src/qml/details/AccountDetailsContent.qml:841
 #, fuzzy
 #| msgctxt "DisablePasswordDisplay|"
 #| msgid "Remove password completely"
@@ -1217,13 +1217,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Passwort vollständig ausblenden"
 
-#: src/qml/details/AccountDetailsContent.qml:846
+#: src/qml/details/AccountDetailsContent.qml:847
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Passwort in keiner Weise verfügbar machen"
 
-#: src/qml/details/AccountDetailsContent.qml:847
+#: src/qml/details/AccountDetailsContent.qml:848
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1232,17 +1232,17 @@ msgid ""
 msgstr ""
 "Erlaube weder weitere Geräte hinzuzufügen, noch dein Passwort anzuzeigen."
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:864
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Verbindung"
 
-#: src/qml/details/AccountDetailsContent.qml:868
+#: src/qml/details/AccountDetailsContent.qml:869
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1250,35 +1250,35 @@ msgid ""
 "values)"
 msgstr "Einstellen des Host-Namen und Ports der Verbindung zum Server"
 
-#: src/qml/details/AccountDetailsContent.qml:884
+#: src/qml/details/AccountDetailsContent.qml:885
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Verbindungseinstellungen ändern"
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:894
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Verbindungseinstellungen geändert"
 
-#: src/qml/details/AccountDetailsContent.qml:942
+#: src/qml/details/AccountDetailsContent.qml:943
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Verbindungseinstellungen konnten nicht geändert werden"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:958
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Verbindungseinstellungen geändert"
 
-#: src/qml/details/AccountDetailsContent.qml:977
+#: src/qml/details/AccountDetailsContent.qml:978
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Gerät wechseln"
 
-#: src/qml/details/AccountDetailsContent.qml:981
+#: src/qml/details/AccountDetailsContent.qml:982
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1292,7 +1292,7 @@ msgstr ""
 "Zeigen Sie diesen QR-Code niemals anderen Personen. Er würde unbegrenzten "
 "Zugang zu Ihrem Konto ermöglichen!"
 
-#: src/qml/details/AccountDetailsContent.qml:987
+#: src/qml/details/AccountDetailsContent.qml:988
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1300,7 +1300,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "QR-Code scannen"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:989
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
@@ -1312,12 +1312,12 @@ msgstr ""
 "Zeigen Sie diesen QR-Code niemals anderen Personen. Er würde unbegrenzten "
 "Zugang zu Ihrem Konto ermöglichen!"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
@@ -1329,7 +1329,7 @@ msgstr ""
 "Zeigen Sie diesen QR-Code niemals anderen Personen. Er würde unbegrenzten "
 "Zugang zu Ihrem Konto ermöglichen!"
 
-#: src/qml/details/AccountDetailsContent.qml:1015
+#: src/qml/details/AccountDetailsContent.qml:1016
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -1337,13 +1337,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Chat-Adresse"
 
-#: src/qml/details/AccountDetailsContent.qml:1033
+#: src/qml/details/AccountDetailsContent.qml:1034
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Beschriftung"
 
-#: src/qml/details/AccountDetailsContent.qml:1041
+#: src/qml/details/AccountDetailsContent.qml:1042
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Transfer account"
@@ -1351,18 +1351,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Konto übertragen"
 
-#: src/qml/details/AccountDetailsContent.qml:1042
+#: src/qml/details/AccountDetailsContent.qml:1043
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Konto-Sicherheit"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1370,24 +1370,24 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:1073
+#: src/qml/details/AccountDetailsContent.qml:1074
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Aus Kaidan entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1075
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1082
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Adding contact…"
@@ -1395,12 +1395,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Kontakt wird hinzugefügt ..."
 
-#: src/qml/details/AccountDetailsContent.qml:1089
+#: src/qml/details/AccountDetailsContent.qml:1090
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Vollständig löschen"
 
-#: src/qml/details/AccountDetailsContent.qml:1090
+#: src/qml/details/AccountDetailsContent.qml:1091
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1410,7 +1410,7 @@ msgstr ""
 "Server.\n"
 "Sie werden Ihr Konto nicht mehr benutzen können!"
 
-#: src/qml/details/AccountDetailsContent.qml:1098
+#: src/qml/details/AccountDetailsContent.qml:1099
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1418,7 +1418,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Konto löschen"
 
-#: src/qml/details/AccountDetailsContent.qml:1105
+#: src/qml/details/AccountDetailsContent.qml:1106
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
