@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-05-28 17:05+0300\n"
+"PO-Revision-Date: 2025-07-10 22:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -14,67 +14,41 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:446
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Yhdistä"
+msgstr "Yhdistetty"
 
 #: src/Account.cpp:448
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
 #: src/Account.cpp:450
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "No devices connected"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Ei kytkettyjä laitteita"
+msgstr "Ei yhteyttä"
 
 #: src/Account.cpp:461
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Virheellinen käyttäjätunnus tai salasana."
 
 #: src/Account.cpp:463
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys."
 
 #: src/Account.cpp:465
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Virhe yritettäessä salattua yhteyttä."
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Palvelin ei tue salattuja yhteyksiä."
 
 #: src/Account.cpp:469
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "Could not connect to the server. Please check your internet connection or "
-#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -83,35 +57,21 @@ msgstr ""
 "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys ja palvelimen nimi."
 
 #: src/Account.cpp:471
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
 #: src/Account.cpp:473
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
 #: src/Account.cpp:475
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Yhteyttä ei voitu virkistää."
 
 #: src/Account.cpp:477
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "The internet access is not permitted. Please check your system's internet "
-#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -121,25 +81,16 @@ msgstr ""
 "internetyhteysasetukset."
 
 #: src/Account.cpp:479
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Palvelin ei tue rekisteröitymistä."
 
 #: src/Account.cpp:481
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Ei voitu kirjautua. Vahvista ensin saamasi sähköpostiviesti."
 
 #: src/Account.cpp:483
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Palvelimeen ei voitu yhdistää."
@@ -155,12 +106,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Tiliä ei voitu siirtää: verkkoyhteys vaaditaan"
 
 #: src/AccountMigrationController.cpp:403
-#, fuzzy, qt-format
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "Tilin siirto"
+msgstr "Tili ”%1” siirretty kohteeseen ”%2”"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -188,16 +137,12 @@ msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
 
 #: src/ChatHintModel.cpp:233
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Verkkoyhteyttä ei ole: viestit lähetetään ja vastaanotetaan vasta "
-"yhteydenoton jälkeen"
+"Tili ei ole käytössä: viestejä lähetetään ja vastaanotetaan käyttöönoton "
+"jälkeen"
 
 #: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
 #: src/ChatHintModel.cpp:299
@@ -208,15 +153,12 @@ msgstr "Merkitse nähdyksi"
 #: src/ChatHintModel.cpp:234
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "Käytä"
 
 #: src/ChatHintModel.cpp:236
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Valmistellaan…"
+msgstr "Otetaan käyttöön…"
 
 #: src/ChatHintModel.cpp:249
 #, qt-format
@@ -599,25 +541,16 @@ msgid "You aren't allowed to delete the group"
 msgstr "Sinulla ei ole oikeutta poistaa ryhmää"
 
 #: src/NotificationController.cpp:151
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
-msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietojasi"
+msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietoja"
 
 #: src/NotificationController.cpp:165 src/NotificationController.cpp:300
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Avaa"
 
 #: src/NotificationController.cpp:304
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Merkitse luetuksi"
@@ -702,41 +635,30 @@ msgid "Drop files to be sent"
 msgstr "Pudota lähetettävät tiedostot"
 
 #: src/qml/ChatPage.qml:722
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
 #: src/qml/ChatPage.qml:722
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Kumoa"
 
 #: src/qml/ChatPage.qml:729
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
 #: src/qml/ChatPage.qml:733
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "DetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Mediaa voi jakaa %1 asti."
@@ -1250,7 +1172,7 @@ msgstr "Valmistellaan tilin siirtoa…"
 #: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "Tämä voi kestää hetken"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
 msgctxt "AccountDetailsContent|"
@@ -2165,7 +2087,7 @@ msgstr "Omat varmentamattomat laitteet"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "Ominaisuutta ei tueta"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2379,12 +2301,9 @@ msgid "Name (optional):"
 msgstr "Nimi (valinnainen):"
 
 #: src/qml/elements/ContactAdditionContent.qml:63
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "Viesti (valinnainen):"
+msgstr "Viesti (valinnainen, salaamaton):"
 
 #: src/qml/elements/ContactAdditionContent.qml:70
 msgctxt "ContactAdditionContent|"
@@ -2469,7 +2388,7 @@ msgstr "Portti:"
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr ""
+msgstr "Jotkin toiminnot tulevat näkyviin vasta, kun tili on käytössä"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2803,33 +2722,23 @@ msgid "Retry updating reactions"
 msgstr "Yritä päivittää reaktiot uudelleen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Etsi julkisia ryhmiä (%1)"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Ladataan…"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Yritä uudelleen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Julkisia ryhmiä ei voitu noutaa: %1"
@@ -2897,138 +2806,88 @@ msgstr "Media"
 
 # ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/RosterFilterArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Saatavilla olevat yhteyskumppanit"
 
 # ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/RosterFilterArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Saavuttamattomissa olevat yhteyskumppanit"
 
 #: src/qml/elements/RosterFilterArea.qml:35
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Yksityiset ryhmät"
 
 #: src/qml/elements/RosterFilterArea.qml:39
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Julkiset ryhmät"
 
 #: src/qml/elements/RosterFilterArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Suodata tyypin mukaan"
 
 #: src/qml/elements/RosterFilterArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Näytä vain tietyntyyppiset kohteet"
 
 #: src/qml/elements/RosterFilterArea.qml:113
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Suodata tilin mukaan"
 
 #: src/qml/elements/RosterFilterArea.qml:114
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
-msgstr "Näytä vain valittujen tilien keskustelut"
+msgstr "Näytä keskustelut vain valituilta tileiltä"
 
 #: src/qml/elements/RosterFilterArea.qml:175
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Suodata nimiön mukaan"
 
 #: src/qml/elements/RosterFilterArea.qml:176
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
 #: src/qml/elements/RosterItemDelegate.qml:73
-#, fuzzy
-#| msgctxt "GroupChatDetailsHeader|"
-#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Poistettu"
 
 #: src/qml/elements/RosterItemDelegate.qml:86
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ei vielä viestejä"
 
 #: src/qml/elements/RosterItemDelegate.qml:102
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Luonnos:"
 
 #: src/qml/elements/RosterItemDelegate.qml:105
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Minä:"
 
 #: src/qml/elements/RosterItemDelegate.qml:109
-#, fuzzy, qt-format
-#| msgctxt "RosterListItem|"
-#| msgid "%1:"
+#, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:215
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Irrota"
 
 #: src/qml/elements/RosterItemDelegate.qml:215
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Kiinnitä"
@@ -3081,12 +2940,12 @@ msgstr "Toiminnot"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "Käyttääksesi kaikkia toimintoja ota käyttöön tili"
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "Käyttääksesi kaikkia toimintoja ota käyttöön tili"
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -3104,12 +2963,9 @@ msgid "Create group"
 msgstr "Luo ryhmä"
 
 #: src/qml/GlobalDrawer.qml:198
-#, fuzzy
-#| msgctxt "GroupChatCreationDialog|"
-#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Luo ryhmäkeskustelu"
+msgstr "Luo ryhmä (ei tuettu)"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -3117,12 +2973,9 @@ msgid "Join group"
 msgstr "Liity ryhmään"
 
 #: src/qml/GlobalDrawer.qml:224
-#, fuzzy
-#| msgctxt "GroupChatJoiningDialog|"
-#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Liity ryhmäkeskusteluun"
+msgstr "Liity ryhmään (ei tuettu)"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3135,33 +2988,24 @@ msgid "About"
 msgstr "Tietoa"
 
 #: src/qml/GlobalDrawer.qml:451
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
 #: src/qml/GlobalDrawer.qml:451
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Kumoa"
 
 #: src/qml/GlobalDrawer.qml:458
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
 #: src/qml/GlobalDrawer.qml:462
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
@@ -3224,6 +3068,8 @@ msgstr "Viimeistele rekisteröityminen!"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
+"Automaattinen rekisteröityminen epäonnistui kaikkien tarjoajien ongelmien "
+"takia"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3462,12 +3308,9 @@ msgid "Account Migration"
 msgstr "Tilin siirto"
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Tilin siirto"
+msgstr "Tilin luonti"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3513,9 +3356,7 @@ msgid "%1 paused typing"
 msgstr "%1 keskeytti kirjoittamisen"
 
 #: src/QrCodeGenerator.cpp:46
-#, fuzzy, qt-format
-#| msgctxt "AbstractQrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-koodin luonti epäonnistui: %1"
