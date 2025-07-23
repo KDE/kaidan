@@ -378,23 +378,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "群聊 %1 的邀请"
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "上传失败：%1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "消息更正未成功"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -622,29 +622,42 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "选择聊天即可开始"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2090,20 +2103,25 @@ msgstr "引用"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
+msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "复制"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "编辑"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "标记为第一个未读"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "从此设备移除"
@@ -2123,92 +2141,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "向下搜索"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "取消回复"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "显示的消息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消添加隐藏的消息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "添加表情符号"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "提及参与者"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "编写带有隐藏部分的<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "编写带有隐藏部分的<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "编写<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "编写<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "拍摄照片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "录制视频"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享文件"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "分享您的位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "添加隐藏的消息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "隐藏"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "更多"
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "发送语音消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "发送"
@@ -3219,8 +3237,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"

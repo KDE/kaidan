@@ -384,23 +384,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Inbjudan till grupp %1"
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Uppladdning misslyckades: %1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Rättning av meddelande lyckades inte"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -628,29 +628,42 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "Välj en chatt för att börja"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Släpp filer att skicka"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Ångra"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2138,20 +2151,25 @@ msgstr "Citera"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
+msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Kopiera"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Redigera"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Markera som första olästa"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Ta bort från apparaten"
@@ -2171,92 +2189,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Sök neråt"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Avbryt svar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Synlig meddelandedel"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Avbryt tillägg av dold meddelandedel"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Lägg till en emoji"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Nämn en deltagare"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Skriv <b>krypterat</b> meddelande med dold del"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Skriv <b>okrypterat</b> meddelande med dold del"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Skriv <b>krypterat</b> brev"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Skriv <b>okrypterat</b> meddelande"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Ta en bild"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Spela in en video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Dela filer"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Dela din plats"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Lägg till dold meddelandedel"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Dölj"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Mer "
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Skicka ett röstmeddelande"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Skicka"
@@ -3275,8 +3293,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Steg 2: Logga in med det registrerade kontot"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"

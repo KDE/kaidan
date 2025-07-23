@@ -379,23 +379,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "دعوة للمجموعة %1"
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "فشل الرفع: %1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "لم تنجح عملية تصحيح الرسالة"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "حجم مجهول"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -623,29 +623,42 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ابحث"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "اختر محادثة لتبدأ"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "اسقط الملفات المراد إرسالها"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "ارفع حظر %1"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "تراجع"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "لا يمكن حظر %1: %2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2105,20 +2118,25 @@ msgstr "اقتباس"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
+msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "انسخ"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "حرّر"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "علّم كَغَير مقروءة من قبل"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "أزل من هذا الجهاز"
@@ -2138,92 +2156,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "ابحث للأسفل"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "ألغِ الرد"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "جزء رسالة المرئي"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "ألغ إضافة جزء الرسالة الخفي"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "أضف رمز تعبيري"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "اذكر مشارك"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "اكتب رسالة <b>معماة</b> بجزء مخفي"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "اكتب رسالة <b>غير معماة</b> بجزء مخفي"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "كتب رسالة <b>معماة</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "كتب رسالة <b>غير معماة</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "خذ صورة"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "سجّل فيديو"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "شارك ملفّات"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "شارك موقعك"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "أضف جزء الرسالة المخفي"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "أخفِ"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "المزيد"
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "أرسل رسالة صوتية"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "ارسل"
@@ -3237,8 +3255,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "الخطوة 2: الولوج  بحسابك المسجل"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "المُرشِّح"

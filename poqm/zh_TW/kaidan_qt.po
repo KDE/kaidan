@@ -450,13 +450,13 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "上傳失敗：%1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful"
@@ -464,12 +464,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "訊息修正不成功"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -738,12 +738,25 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start messaging"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "選擇聊天室來開始傳訊息"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -751,7 +764,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -759,7 +772,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -767,7 +780,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2648,20 +2661,25 @@ msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
-msgid "Copy"
+msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
-msgid "Edit"
+msgid "Copy"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
+msgid "Edit"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:152
+msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "標記為第一未讀"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "從此裝置移除"
@@ -2684,7 +2702,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "往下搜尋"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2692,47 +2710,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "取消"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "可見訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消加入隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "撰寫<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "撰寫<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2740,7 +2758,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2748,12 +2766,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "錄製影片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享檔案"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2761,7 +2779,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "傳送您的位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2769,7 +2787,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "新增隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Hide text"
@@ -2777,12 +2795,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "隱藏文字"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Edit message"
@@ -2790,7 +2808,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "編輯訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -4104,8 +4122,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"

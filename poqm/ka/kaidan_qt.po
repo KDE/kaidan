@@ -388,23 +388,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "მოსაწვევი ჯგუფში %1"
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "ატვირთვის შეცდომა: %1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "შეტყობინების ჩასწორება წარუმატებელია"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -632,29 +632,42 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "საუბრის დასაწყებად აირჩიეთ ჩატი"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2150,20 +2163,25 @@ msgstr "ციტირება"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
+msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "კოპირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "ამ მოწყობილობიდან წაშლა"
@@ -2183,92 +2201,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "დაბლა ძებნა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "ხილული შეტყობინების ნაწილი"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატების გაუქმება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "ემოჯის დამატება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "მონაწილის ხსენება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "სურათის გადაღება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "ვიდეოს ჩაწერა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "ფაილების გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "თქვენი მდებარეობის გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "დამალვა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "მეტი"
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "ხმოვანი შეტყობინების გაგზავნა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "გაგზავნა"
@@ -3291,8 +3309,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "ნაბიჯი 2: შედით თქვენი რეგისტრირებული ანგარიშით"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "ფილტრი"

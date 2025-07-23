@@ -381,23 +381,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "הזמנה לקבוצה%1"
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "ההעלאה נכשלה: %1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "תיקון ההודעה לא הצליח"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -625,29 +625,42 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "חיפוש"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "נא לבחור שיחה להתחלה"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "יש לגרור קבצים לשליחה"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "החסימה מעל %1 שוחררה"
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "הסגה"
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "לא ניתן לחסום את %1: %2"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2105,20 +2118,25 @@ msgstr "ציטוט"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
+msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "העתקה"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "עריכה"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "סימון כראשון שלא נקרא"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "הסרה מהמכשיר הזה"
@@ -2138,92 +2156,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "חיפוש למטה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "ביטול תגובה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "החלק הגלוי בהודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "ביטול הוספת חלק נסתר בהודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "הוספת אמוג׳י"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "אזכור משתתפים"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "כתיבת הודעה <b>מוצפנת </b> עם חלק מוסתר"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "כתיבת הודעה <b>לא מוצפנת</b> עם חלק מוסתר"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "כתיבת הודעה <b>לא מוצפנת</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "כתיבת הודעה <b>לא מוצפנת</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "צילום תמונה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "הקלטת סרטון"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "שיתוף קבצים"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "שיתוף המקום שלך"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "הוספת חלק נסתר בהודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "הסתרה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "עוד"
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "שליחת הודעה קולית"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "שליחה"
@@ -3236,8 +3254,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "שלב 2: להיכנס עם החשבון שרשמת"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "מסנן"

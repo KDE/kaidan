@@ -450,7 +450,7 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:238
+#: src/MessageComposition.cpp:255
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -458,7 +458,7 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Ներբեռնումը ձախողվել է: %1"
 
-#: src/MessageComposition.cpp:293
+#: src/MessageComposition.cpp:310
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -466,12 +466,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Հաղորդագրության ուղղումը ձախողվել է։"
 
-#: src/MessageComposition.cpp:518
+#: src/MessageComposition.cpp:544
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:592
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -730,23 +730,36 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Որոնել"
 
-#: src/qml/ChatPage.qml:525
+#: src/qml/ChatPage.qml:512
+msgctxt "ChatPage|"
+msgid "Cancel forwarding"
+msgstr ""
+
+#: src/qml/ChatPage.qml:527
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Please select a chat to start messaging"
+msgctxt "ChatPage|"
+msgid "Select a chat to forward the message"
+msgstr "Ընտրեք զրույց և սկսեք շփվել"
+
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:722
+#: src/qml/ChatPage.qml:775
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:729
+#: src/qml/ChatPage.qml:782
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -754,7 +767,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/qml/ChatPage.qml:733
+#: src/qml/ChatPage.qml:786
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -2646,6 +2659,11 @@ msgid "Quote"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
+msgctxt "ChatMessageContextMenu|"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:130
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy download URL"
@@ -2653,12 +2671,12 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Պատճենել բովանդակության հղումը"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:152
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -2666,7 +2684,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Համարել կարդացած"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:155
+#: src/qml/elements/ChatMessageContextMenu.qml:163
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -2698,7 +2716,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Որոնել ներքևում"
 
-#: src/qml/elements/ChatPageSendingPane.qml:87
+#: src/qml/elements/ChatPageSendingPane.qml:94
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2706,27 +2724,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Չեղարկել"
 
-#: src/qml/elements/ChatPageSendingPane.qml:131
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:165
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2734,7 +2752,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:206
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2742,7 +2760,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2750,7 +2768,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:208
+#: src/qml/elements/ChatPageSendingPane.qml:215
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2758,7 +2776,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -2766,7 +2784,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Լուսանկարել"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -2774,7 +2792,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Ձայնագրել տեսաֆիլմ"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:321
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -2782,7 +2800,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Աուդիո ֆայլեր"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2790,12 +2808,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2803,12 +2821,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Թաքցնել տեքստային տվյալները"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:422
+#: src/qml/elements/ChatPageSendingPane.qml:429
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2816,7 +2834,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Ուղարկել գաղտնի հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:446
+#: src/qml/elements/ChatPageSendingPane.qml:453
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send"
@@ -4128,8 +4146,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Մուտք գործեք Ձեր XMPP հաշիվ"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:181
-#: src/qml/RosterPage.qml:194
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:182
+#: src/qml/RosterPage.qml:195
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
