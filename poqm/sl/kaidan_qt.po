@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-06-20 07:35+0200\n"
+"PO-Revision-Date: 2025-07-23 06:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -641,15 +641,12 @@ msgstr "Iskanje"
 #: src/qml/ChatPage.qml:512
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Prekliči posredovanje"
 
 #: src/qml/ChatPage.qml:527
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Izberite klepet, da začnete"
+msgstr "Izberite klepet za posredovanje sporočila"
 
 #: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
@@ -2161,7 +2158,7 @@ msgstr "Citiraj"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "Posreduj"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"

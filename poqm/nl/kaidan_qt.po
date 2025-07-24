@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-20 12:50+0200\n"
+"PO-Revision-Date: 2025-07-23 12:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/Account.cpp:446
 msgctxt "Connection|"
@@ -638,15 +638,12 @@ msgstr "Zoeken"
 #: src/qml/ChatPage.qml:512
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Doorsturen annuleren"
 
 #: src/qml/ChatPage.qml:527
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Selecteer een chat om mee te beginnen"
+msgstr "Selecteer een chat om het bericht door te sturen"
 
 #: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
@@ -2175,12 +2172,9 @@ msgid "Quote"
 msgstr "Citaat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
-#, fuzzy
-#| msgctxt "ForwardButton|"
-#| msgid "Navigate Forward"
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Ga Vooruit"
+msgstr "Doorsturen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
