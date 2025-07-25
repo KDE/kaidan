@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2025-06-20 20:33+0100\n"
+"PO-Revision-Date: 2025-07-24 19:55+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/Account.cpp:446
 msgctxt "Connection|"
@@ -644,15 +644,12 @@ msgstr "Buscar"
 #: src/qml/ChatPage.qml:512
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Cancelar el reenvío"
 
 #: src/qml/ChatPage.qml:527
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Seleccione un chat para empezar"
+msgstr "Seleccione un chat para reenviar el mensaje"
 
 #: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
@@ -2194,7 +2191,7 @@ msgstr "Citar"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "Reenviar"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-20 22:29+0300\n"
+"PO-Revision-Date: 2025-07-24 09:47+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/Account.cpp:446
 msgctxt "Connection|"
@@ -628,15 +628,12 @@ msgstr "חיפוש"
 #: src/qml/ChatPage.qml:512
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "ביטול העברה"
 
 #: src/qml/ChatPage.qml:527
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "נא לבחור שיחה להתחלה"
+msgstr "נא לבחור שיחה להעברת ההודעה"
 
 #: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
@@ -2119,7 +2116,7 @@ msgstr "ציטוט"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "העברה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
