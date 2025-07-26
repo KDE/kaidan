@@ -17,7 +17,6 @@
 LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
-    , m_client(client)
 {
     auto *logger = new QXmppLogger(this);
     client->setLogger(logger);
