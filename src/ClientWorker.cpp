@@ -44,7 +44,6 @@
 #include "DiscoveryManager.h"
 #include "EncryptionController.h"
 #include "KaidanCoreLog.h"
-#include "LogHandler.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "OmemoDb.h"
@@ -57,7 +56,6 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     , m_accountSettings(accountSettings)
     , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
 {
-    new LogHandler(m_accountSettings, m_client, this);
     auto *networkAccessManager = new QNetworkAccessManager(this);
 
     m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();

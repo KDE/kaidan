@@ -25,6 +25,7 @@
 #include "FileSharingController.h"
 #include "FutureUtils.h"
 #include "GroupChatController.h"
+#include "LogHandler.h"
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
@@ -527,6 +528,8 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
 
         thread->setObjectName(u"XMPP");
         thread->waitForStarted();
+
+        new LogHandler(m_settings, worker->xmppClient(), this);
 
         return XmppClient{thread, worker};
     }())

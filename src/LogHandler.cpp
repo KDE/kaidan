@@ -12,16 +12,20 @@
 #include <QXmppClient.h>
 // Kaidan
 #include "Account.h"
+#include "FutureUtils.h"
 #include "KaidanXmppLog.h"
 
 LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
 {
-    auto *logger = new QXmppLogger(this);
-    client->setLogger(logger);
-    logger->setLoggingType(QXmppLogger::SignalLogging);
-    connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
+    runOnThread(client, [this, client]() {
+        auto *logger = new QXmppLogger(this);
+        client->setLogger(logger);
+        logger->setLoggingType(QXmppLogger::SignalLogging);
+
+        connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
+    });
 }
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
