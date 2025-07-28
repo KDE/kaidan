@@ -231,12 +231,36 @@ In order to build the unit tests, you need to enable the CMake build option `BUI
 
 ## Builds and Dependencies
 
-On a daily basis, Kaidan is automatically built for various systems.
-Those *nightly builds* are based on Kaidan's [`master` branch](https://invent.kde.org/network/kaidan/-/tree/master).
+Dependencies are mainly managed by Kaidan's [root CMakeLists file](CMakeLists.txt).
+When you add, update or remove dependencies, update the [README](README.md) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
 
-Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
-For distributions supporting Flatpak, there is a [Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
-The builds are created by including a corresponding file in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) which triggers the `flatpak` job.
+### Packages
+
+Kaidan is [packaged for several operating systems](https://repology.org/project/kaidan/versions).
+
+### Test Builds
+
+The GitLab templates in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) automatically run jobs to check whether Kaidan can be built on the following operating systems:
+
+* [FreeBSD](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/freebsd-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/freebsd14-qt69/ports-list)
+* [Linux with latest stable Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt69/build.sh)
+* [Linux with upcoming Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6-next.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt610/build.sh)
+* [Windows](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/windows-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/windows-msvc2022-qt68/CI-Craft-Packages.shelf?ref_type=heads)
+
+Software on KDE Invent that runs one of the mentioned GitLab jobs for its own default branch is available as a dependency via the same job for Kaidan too.
+In all other cases, the software needs to be added as a dependency in the referenced files.
+
+### Flatpak
+
+To get the most up-to-date state of Kaidan or if the operating system does not provide a regular package, Kaidan is available for Flatpak as well.
+There is a [local Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)).
+It can be used to build Kaidan based on the repository's current state.
+Dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's manifest.
+
+#### Development Flatpak Builds
+
+The repository's current state is automatically built by including a [GitLab Flatpak template](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/flatpak.yml) in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml).
+The resulting `flatpak` job uses the local manifest and is run on any branch that changes it.
 
 You can download Flatpak builds for a specific branch via `https://invent.kde.org/<user>/kaidan/-/jobs/artifacts/<branch>/raw/kaidan.flatpak?job=flatpak` (replace `<user>` and `<branch>` with the desired values).
 Alternatively, you can navigate to the Flatpak build via the corresponding CI job page and its *Job artifacts* section.
@@ -245,17 +269,25 @@ After installing Kaidan, it can be run via `flatpak run --user im.kaidan.kaidan`
 Environment variables can be passed via `--env="<variable>=<value>"` (replace `<variable>` and `<value>` with the desired values).
 To remove Kaidan, execute `flatpak remove --user im.kaidan.kaidan`.
 
+In addition, the `flatpak` job is run on each change of the [`master` branch](https://invent.kde.org/network/kaidan/-/tree/master).
+That [latest development state](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak) is available via Kaidan's Nightly Flatpak repository.
+
+#### Stable Flatpak Builds
+
 There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
 See [KDE's Flatpak documentation](https://develop.kde.org/docs/packaging/flatpak/publishing/) for more information.
 
-In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_windows_qt6_x86_64), [macOS ARM builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_arm64) and [macOS x86 builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_x86_64).
+### KDE Craft
 
-Dependencies are mainly managed by Kaidan's [root CMakeLists file](CMakeLists.txt).
-When you add, update or remove dependencies, update the [README](README.md) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
+There is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)).
+That is used to automatically build the [`master` branch](https://invent.kde.org/network/kaidan/-/tree/master) for the following systems:
 
-You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
-Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
-It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py) and [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) as well.
+* [Windows](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_windows_qt6_x86_64)
+* [macOS ARM](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_arm64)
+* [macOS x86](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_x86_64)
+
+It is sometimes needed to update the blueprints for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py) and [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py).
+If there is no blueprint for a dependency in the [KDE Craft Blueprints repository](https://invent.kde.org/packaging/craft-blueprints-kde), a new blueprint needs to added before it can be added as a dependency to Kaidan's blueprint.
 That way, Kaidan can be built correctly by KDE's automated process.
 As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
 
