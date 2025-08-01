@@ -211,6 +211,8 @@ void AccountController::removeAccount(const QString &jid)
 
 void AccountController::cancelMigration()
 {
+    Q_ASSERT(m_migrationController);
+
     m_migrationController->deleteLater();
     Q_EMIT migratingChanged();
 }
