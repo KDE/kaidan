@@ -34,14 +34,14 @@ Controls.ItemDelegate {
 			id: interactiveBackground
 			radius: roundedCornersRadius
 			color: {
-				let colorOpacity = 0;
+				let colorOpacity = 0
 
 				if (parent.pressed) {
-					colorOpacity = 0.2;
+					colorOpacity = 0.2
 				} else if (parent.visualFocus) {
-					colorOpacity = 0.1;
+					colorOpacity = 0.1
 				} else if (!Kirigami.Settings.tabletMode && parent.hovered) {
-					colorOpacity = 0.07;
+					colorOpacity = 0.07
 				}
 
 				return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, colorOpacity)

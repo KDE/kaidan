@@ -16,6 +16,7 @@
 #include <QXmppAtmManager.h>
 #include <QXmppAuthenticationError.h>
 #include <QXmppBlockingManager.h>
+#include <QXmppCallManager.h>
 #include <QXmppCarbonManagerV2.h>
 #include <QXmppCredentials.h>
 #include <QXmppDiscoveryManager.h>
@@ -24,6 +25,7 @@
 #include <QXmppFileSharingManager.h>
 #include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
+#include <QXmppJingleMessageInitiationManager.h>
 #include <QXmppMamManager.h>
 #include <QXmppMixManager.h>
 #include <QXmppMovedManager.h>
@@ -60,6 +62,8 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
 
     m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();
     m_blockingManager = m_client->addNewExtension<QXmppBlockingManager>();
+    m_callManager = m_client->addNewExtension<QXmppCallManager>();
+    m_jmiManager = m_client->addNewExtension<QXmppJingleMessageInitiationManager>();
     m_client->addNewExtension<QXmppCarbonManagerV2>();
     auto *discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
     m_client->addNewExtension<QXmppEntityTimeManager>();

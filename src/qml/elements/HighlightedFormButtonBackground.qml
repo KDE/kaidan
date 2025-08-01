@@ -11,16 +11,16 @@ import org.kde.kirigamiaddons.formcard as FormCard
 FormCard.FormDelegateBackground {
 	control: parent
 	color: {
-		let colorOpacity = 0.1;
+		let colorOpacity = 0.1
 
 		if (!control.enabled) {
-			colorOpacity = 0;
+			colorOpacity = 0
 		} else if (control.pressed) {
-			colorOpacity = 0.2;
+			colorOpacity = 0.2
 		} else if (control.visualFocus) {
-			colorOpacity = 0.1;
+			colorOpacity = 0.1
 		} else if (!Kirigami.Settings.tabletMode && control.hovered) {
-			colorOpacity = 0.15;
+			colorOpacity = 0.15
 		}
 
 		const highlightColor = Kirigami.Theme.highlightColor

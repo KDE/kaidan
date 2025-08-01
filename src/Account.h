@@ -23,7 +23,7 @@ constexpr quint16 AUTO_DETECT_PORT = 0;
 class AtmController;
 class AvatarCache;
 class BlockingController;
-class ChatController;
+class CallController;
 class ClientWorker;
 class EncryptionController;
 class FileSharingController;
@@ -36,7 +36,6 @@ class RegistrationController;
 class RosterController;
 class VCardController;
 class VersionController;
-class XmppThread;
 
 class AccountSettings : public QObject
 {
@@ -287,6 +286,7 @@ class Account : public QObject
 
     Q_PROPERTY(AtmController *atmController READ atmController CONSTANT)
     Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
+    Q_PROPERTY(CallController *callController READ callController CONSTANT)
     Q_PROPERTY(EncryptionController *encryptionController READ encryptionController CONSTANT)
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
@@ -312,7 +312,7 @@ public:
 
     explicit Account(QObject *parent = nullptr);
     explicit Account(AccountSettings::Data accountSettingsData, QObject *parent = nullptr);
-    ~Account() override;
+    // ~Account() override;
 
     AccountSettings *settings() const;
     Connection *connection() const;
@@ -321,6 +321,7 @@ public:
 
     AtmController *atmController() const;
     BlockingController *blockingController() const;
+    CallController *callController() const;
     EncryptionController *encryptionController() const;
     FileSharingController *fileSharingController() const;
     GroupChatController *groupChatController() const;
@@ -373,11 +374,7 @@ public:
 private:
     AccountSettings *const m_settings;
 
-    struct XmppClient {
-        XmppThread *thread;
-        ClientWorker *worker;
-    } m_client;
-
+    ClientWorker *const m_clientWorker;
     Connection *const m_connection;
 
     AvatarCache *const m_avatarCache;
@@ -385,6 +382,7 @@ private:
 
     AtmController *const m_atmController;
     BlockingController *const m_blockingController;
+    CallController *const m_callController;
     EncryptionController *const m_encryptionController;
     FileSharingController *const m_fileSharingController;
     RosterController *const m_rosterController;

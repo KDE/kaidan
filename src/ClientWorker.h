@@ -20,9 +20,11 @@ class PresenceCache;
 class QXmppAccountMigrationManager;
 class QXmppAtmManager;
 class QXmppBlockingManager;
+class QXmppCallManager;
 class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
+class QXmppJingleMessageInitiationManager;
 class QXmppMamManager;
 class QXmppMessageReceiptManager;
 class QXmppMixManager;
@@ -86,9 +88,19 @@ public:
         return m_blockingManager;
     }
 
+    QXmppCallManager *callManager() const
+    {
+        return m_callManager;
+    }
+
     QXmppFileSharingManager *fileSharingManager() const
     {
         return m_fileSharingManager;
+    }
+
+    QXmppJingleMessageInitiationManager *jmiManager() const
+    {
+        return m_jmiManager;
     }
 
     QXmppMamManager *mamManager() const
@@ -229,7 +241,9 @@ private:
     QXmppAccountMigrationManager *m_accountMigrationManager;
     QXmppAtmManager *m_atmManager;
     QXmppBlockingManager *m_blockingManager;
+    QXmppCallManager *m_callManager;
     QXmppFileSharingManager *m_fileSharingManager;
+    QXmppJingleMessageInitiationManager *m_jmiManager;
     QXmppMamManager *m_mamManager;
     QXmppMessageReceiptManager *m_messageReceiptManager;
     QXmppMixManager *m_mixManager;

@@ -15,6 +15,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
+import QtMultimedia
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -87,9 +88,9 @@ ChatPageBase {
 	keyboardNavigationEnabled: true
 	actions: [
 		Kirigami.Action {
-			visible: Kirigami.Settings.isMobile
-			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
+			icon.name: "avatar-default-symbolic"
+			visible: Kirigami.Settings.isMobile
 			onTriggered: {
 				if (root.chatController.account.settings.jid === root.chatController.jid) {
 					openPage(notesChatDetailsPage)
@@ -99,6 +100,20 @@ ChatPageBase {
 					openPage(contactDetailsPage)
 				}
 			}
+		},
+		Kirigami.Action {
+			text: qsTr("Start audio call")
+			icon.name: "call-start-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			visible: mediaDevices.audioInputs.length
+			onTriggered: openPage(callPage)
+		},
+		Kirigami.Action {
+			text: qsTr("Start video call")
+			icon.name: "camera-video-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			visible: mediaDevices.videoInputs.length
+			onTriggered: openPage(callPage).cameraActive = true
 		},
 		// Action to toggle the message search bar
 		Kirigami.Action {
@@ -206,6 +221,16 @@ ChatPageBase {
 		GroupChatUserKeyAuthenticationPage {
 			account: root.chatController.account
 			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage).openKeyAuthenticationUserListView()
+		}
+	}
+
+	Component {
+		id: callPage
+
+		CallPage {
+			account: root.chatController.account
+			chatJid: root.chatController.jid
+			chatName: root.chatController.rosterItem.displayName
 		}
 	}
 
@@ -757,6 +782,10 @@ ChatPageBase {
 				addFile(url)
 			}
 		}
+	}
+
+	MediaDevices {
+		id: mediaDevices
 	}
 
 	Connections {

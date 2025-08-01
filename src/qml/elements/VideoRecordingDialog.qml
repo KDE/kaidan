@@ -34,7 +34,7 @@ NewMediaDialog {
 	// Recording indicator
 	Controls.Control {
 		visible: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState
-		opacity: visible ? 1 : 0
+		opacity: visible ? 0.9 : 0
 		topPadding: Kirigami.Units.smallSpacing
 		bottomPadding: topPadding
 		Behavior on opacity {

@@ -19,6 +19,7 @@
 #include "AtmController.h"
 #include "AvatarCache.h"
 #include "Blocking.h"
+#include "CallController.h"
 #include "ChatController.h"
 #include "CredentialsValidator.h"
 #include "EncryptionController.h"
@@ -41,63 +42,6 @@
 #include "VersionController.h"
 
 constexpr QStringView GEO_LOCATION_WEB_URL = u"https://osmand.net/map/?pin=%1,%2#16/%1/%2";
-
-/**
- * Allows to run a function and waits for the thread to be started before returning to the calling
- * thread.
- *
- * This is needed because QXmppMigrationManager expects the classes of the import/export functions
- * to be registered while they are running in the right/final thread.
- */
-class XmppThread : public QThread
-{
-public:
-    explicit XmppThread(std::future<void> &&future)
-        : m_future(std::move(future))
-    {
-    }
-
-    ~XmppThread() override
-    {
-        requestInterruption();
-        quit();
-        wait();
-    }
-
-    void waitForStarted(QThread::Priority priority = InheritPriority)
-    {
-        if (isRunning()) {
-            return;
-        }
-
-        QMutexLocker locker(&m_mutex);
-        QThread::start(priority);
-        m_condition.wait(&m_mutex);
-    }
-
-    template<typename Function, typename... Args>
-    static XmppThread *create(Function &&f, Args &&...args)
-    {
-        using DecayedFunction = typename std::decay<Function>::type;
-        auto threadFunction = [f = static_cast<DecayedFunction>(std::forward<Function>(f))](auto &&...largs) mutable -> void {
-            (void)std::invoke(std::move(f), std::forward<decltype(largs)>(largs)...);
-        };
-        return new XmppThread(std::move(std::async(std::launch::deferred, std::move(threadFunction), std::forward<Args>(args)...)));
-    }
-
-protected:
-    void run() override
-    {
-        m_future.get();
-        m_condition.wakeOne();
-        QThread::exec();
-    }
-
-private:
-    QWaitCondition m_condition;
-    QMutex m_mutex;
-    std::future<void> m_future;
-};
 
 AccountSettings::AccountSettings(Data data, QObject *parent)
     : QObject(parent)
@@ -513,44 +457,35 @@ Account::Account(QObject *parent)
 Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     : QObject(parent)
     , m_settings(new AccountSettings(accountSettingsData, this))
-    , m_client([this] {
-        ClientWorker *worker = nullptr;
-        auto thread = XmppThread::create([&, this] {
-            worker = new ClientWorker(m_settings);
-        });
-
-        thread->setObjectName(u"XMPP");
-        thread->waitForStarted();
-
-        new LogHandler(m_settings, worker->xmppClient(), this);
-
-        return XmppClient{thread, worker};
-    }())
-    , m_connection(new Connection(m_client.worker, this))
+    , m_clientWorker(new ClientWorker(m_settings))
+    , m_connection(new Connection(m_clientWorker, this))
     , m_avatarCache(new AvatarCache(this))
     , m_presenceCache(new PresenceCache(this))
-    , m_atmController(new AtmController(m_client.worker->atmManager(), this))
-    , m_blockingController(new BlockingController(m_settings, m_connection, m_client.worker, this))
-    , m_encryptionController(new EncryptionController(m_settings, m_presenceCache, m_client.worker->omemoManager(), this))
-    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_client.worker, this))
-    , m_rosterController(new RosterController(m_settings, m_connection, m_encryptionController, m_client.worker->rosterManager(), this))
+    , m_atmController(new AtmController(m_clientWorker->atmManager(), this))
+    , m_blockingController(new BlockingController(m_settings, m_connection, m_clientWorker, this))
+    , m_callController(new CallController(m_clientWorker->callManager(), m_clientWorker->jmiManager(), this))
+    , m_encryptionController(new EncryptionController(m_settings, m_presenceCache, m_clientWorker->omemoManager(), this))
+    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_clientWorker, this))
+    , m_rosterController(new RosterController(m_settings, m_connection, m_encryptionController, m_clientWorker->rosterManager(), this))
     , m_messageController(new MessageController(m_settings,
                                                 m_connection,
                                                 m_encryptionController,
                                                 m_rosterController,
-                                                m_client.worker->xmppClient(),
-                                                m_client.worker->mamManager(),
-                                                m_client.worker->messageReceiptManager(),
+                                                m_clientWorker->xmppClient(),
+                                                m_clientWorker->mamManager(),
+                                                m_clientWorker->messageReceiptManager(),
                                                 this))
-    , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_client.worker->mixManager(), this))
+    , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientWorker->mixManager(), this))
     , m_notificationController(new NotificationController(m_settings, m_messageController, this))
     , m_vCardController(
-          new VCardController(m_settings, m_connection, m_avatarCache, m_presenceCache, m_client.worker->xmppClient(), m_client.worker->vCardManager(), this))
-    , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_client.worker, this))
-    , m_versionController(new VersionController(m_presenceCache, m_client.worker->versionManager()))
+          new VCardController(m_settings, m_connection, m_avatarCache, m_presenceCache, m_clientWorker->xmppClient(), m_clientWorker->vCardManager(), this))
+    , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_clientWorker, this))
+    , m_versionController(new VersionController(m_presenceCache, m_clientWorker->versionManager()))
 {
-    runOnThread(m_client.worker, [this]() {
-        m_client.worker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
+    new LogHandler(m_settings, m_clientWorker->xmppClient(), this);
+
+    runOnThread(m_clientWorker, [this]() {
+        m_clientWorker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
     });
 
     connect(m_avatarCache, &AvatarCache::avatarIdsChanged, this, &Account::avatarCacheChanged);
@@ -598,14 +533,6 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     });
 }
 
-Account::~Account()
-{
-    m_client.worker->deleteLater();
-
-    m_client.thread->quit();
-    m_client.thread->wait();
-}
-
 AccountSettings *Account::settings() const
 {
     return m_settings;
@@ -618,7 +545,7 @@ Connection *Account::connection() const
 
 ClientWorker *Account::clientWorker() const
 {
-    return m_client.worker;
+    return m_clientWorker;
 }
 
 AtmController *Account::atmController() const
@@ -629,6 +556,11 @@ AtmController *Account::atmController() const
 BlockingController *Account::blockingController() const
 {
     return m_blockingController;
+}
+
+CallController *Account::callController() const
+{
+    return m_callController;
 }
 
 EncryptionController *Account::encryptionController() const

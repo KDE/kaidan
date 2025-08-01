@@ -60,6 +60,8 @@ target_sources(libkaidancore PRIVATE
     BitsOfBinaryImageProvider.h
     Blocking.cpp
     Blocking.h
+    CallController.cpp
+    CallController.h
     ChatController.cpp
     ChatController.h
     ChatHintModel.cpp
@@ -251,6 +253,8 @@ target_link_libraries(libkaidancore
     KF6::KIOWidgets
     KF6::Kirigami
     KF6::Prison
+    PkgConfig::GStreamer
+    PkgConfig::GStreamerBase
     Qt::Concurrent
     Qt::Core
     Qt::Location

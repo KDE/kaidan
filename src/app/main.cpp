@@ -68,6 +68,7 @@
 #include "AvatarCache.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "Blocking.h"
+#include "CallController.h"
 #include "ChatController.h"
 #include "ChatHintModel.h"
 #include "ContactQrCodeGenerator.h"
@@ -334,6 +335,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QList<GroupChatUser>>();
     qRegisterMetaType<std::function<void(GroupChatUser &)>>();
     qRegisterMetaType<GroupChatUserModel *>();
+    qRegisterMetaType<CallController *>();
     // The alias is needed because the type shares its QMetaType::id() with quint32.
     qRegisterMetaType<uint32_t>("uint32_t");
 

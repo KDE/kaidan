@@ -8,30 +8,8 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-Controls.ItemDelegate {
+MediaButton {
 	id: root
-
-	property var iconSource
-
-	background: Kirigami.ShadowedRectangle {
-		color: {
-			if (parent.pressed) {
-				return Qt.darker(secondaryBackgroundColor, 1.05)
-			}
-
-			return parent.hovered ? secondaryBackgroundColor : primaryBackgroundColor
-		}
-		opacity: 0.9
-		radius: height / 2
-		shadow.color: Qt.darker(color, 1.2)
-		shadow.size: 4
-
-		Behavior on color {
-			ColorAnimation {
-				duration: Kirigami.Units.shortDuration
-			}
-		}
-	}
 	contentItem: Loader {
 		sourceComponent: parent.enabled ? icon : busyIndicator
 
@@ -49,7 +27,4 @@ Controls.ItemDelegate {
 			Controls.BusyIndicator {}
 		}
 	}
-	padding: width * 0.2
-	width: Kirigami.Units.iconSizes.large
-	height: width
 }
