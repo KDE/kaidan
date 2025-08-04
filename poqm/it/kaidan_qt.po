@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-06-20 14:22+0200\n"
+"PO-Revision-Date: 2025-07-24 08:28+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.11.70\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:447
@@ -636,15 +636,12 @@ msgstr "Cerca"
 #: src/qml/ChatPage.qml:512
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Annulla l'inoltro"
 
 #: src/qml/ChatPage.qml:527
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Seleziona una chat per iniziare"
+msgstr "Seleziona una chat per inoltrare il messaggio"
 
 #: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
@@ -2179,7 +2176,7 @@ msgstr "Cita"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "Inoltra"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
