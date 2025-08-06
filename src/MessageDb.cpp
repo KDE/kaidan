@@ -650,6 +650,30 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
     });
 }
 
+bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+			SELECT COUNT(*)
+			FROM chatMessages
+			WHERE
+                accountJid = :accountJid AND chatJid = :chatJid AND
+                datetime(timestamp) >= datetime(:timestamp)
+		)"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":timestamp", timestamp.toString(Qt::ISODateWithMs)},
+              });
+
+    if (query.first()) {
+        return query.value(0).toInt() > offset;
+    }
+
+    return false;
+}
+
 QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin)
 {
     Q_ASSERT(message.deliveryState != DeliveryState::Draft);
@@ -657,6 +681,18 @@ QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin
     return run([this, message, origin]() {
         _addMessage(message, origin);
     });
+}
+
+void MessageDb::_addMessage(Message message, MessageOrigin origin)
+{
+    _fetchGroupChatUser(message);
+    _fetchTrustLevel(message);
+    _fetchReply(message);
+
+    Q_EMIT messageAdded(message, origin);
+
+    _addMessage(message);
+    _setFiles(message.files);
 }
 
 QFuture<void> MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &updateMessage)
@@ -943,18 +979,6 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
     });
 }
 
-void MessageDb::_addMessage(Message message, MessageOrigin origin)
-{
-    _fetchGroupChatUser(message);
-    _fetchTrustLevel(message);
-    _fetchReply(message);
-
-    Q_EMIT messageAdded(message, origin);
-
-    _addMessage(message);
-    _setFiles(message.files);
-}
-
 void MessageDb::_addMessage(const Message &message)
 {
     SqlUtils::QueryBindValues values = {
@@ -1112,7 +1136,12 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                 // Create an SQL record containing only the differences.
                 execQuery(query,
                           driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_MESSAGES), rec, false)
-                              + simpleWhereStatement(&driver, QStringLiteral("id"), oldMessage.id));
+                              + simpleWhereStatement(&driver,
+                                                     {
+                                                         {QStringLiteral("accountJid"), oldMessage.accountJid},
+                                                         {QStringLiteral("chatJid"), oldMessage.chatJid},
+                                                         {QStringLiteral("id"), oldMessage.id},
+                                                     }));
             }
 
             // remove old files

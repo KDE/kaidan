@@ -30,11 +30,6 @@
 #include "RosterDb.h"
 #include "RosterModel.h"
 
-// defines that the message is suitable for correction only if it is among the N latest messages
-constexpr int MAX_CORRECTION_MESSAGE_COUNT_DEPTH = 20;
-// defines that the message is suitable for correction only if it has ben sent not earlier than N days ago
-constexpr int MAX_CORRECTION_MESSAGE_DAYS_DEPTH = 2;
-
 bool DisplayedMessageReaction::operator<(const DisplayedMessageReaction &other) const
 {
     return emoji < other.emoji;
@@ -858,24 +853,26 @@ void MessageModel::resendMessageReactions(const QString &messageId)
 
 bool MessageModel::canCorrectMessage(int index) const
 {
-    // check index validity
-    if (index < 0 || index >= m_messages.size())
+    // The message must be loaded.
+    if (index < 0 || index >= m_messages.size()) {
         return false;
+    }
 
-    // message needs to be sent by us and needs to be no error message
+    // The message must be an own one and not contain an error.
     const auto &msg = m_messages.at(index);
-    if (!msg.isOwn || msg.deliveryState == Enums::DeliveryState::Error)
+    if (!msg.isOwn || msg.deliveryState == Enums::DeliveryState::Error) {
         return false;
+    }
 
-    // check time limit
-    const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_CORRECTION_MESSAGE_DAYS_DEPTH);
-    if (msg.timestamp < timeThreshold)
+    // The message must not be too old.
+    const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_CORRECTION_DAYS);
+    if (msg.timestamp < timeThreshold) {
         return false;
+    }
 
-    // check messages count limit
-    for (int i = 0, count = 0; i < index; i++) {
-        if (m_messages.at(i).isOwn && ++count == MAX_CORRECTION_MESSAGE_COUNT_DEPTH)
-            return false;
+    // There must not be too many more recent messages.
+    if (index >= MAX_MESSAGE_CORRECTION_COUNT) {
+        return false;
     }
 
     return true;

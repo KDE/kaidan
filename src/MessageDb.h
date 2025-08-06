@@ -204,11 +204,15 @@ public:
      */
     QFuture<int> messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd);
 
+    bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
+
     /**
      * Adds a message to the database.
      */
     QFuture<void> addMessage(const Message &message, MessageOrigin origin);
     Q_SIGNAL void messageAdded(const Message &msg, MessageOrigin origin);
+
+    void _addMessage(Message message, MessageOrigin origin);
 
     /**
      * Updates a stored message or adds it if it is not stored.
@@ -292,7 +296,6 @@ public:
     Q_SIGNAL void draftMessageRemoved(const Message &newLastMessage);
 
 private:
-    void _addMessage(Message message, MessageOrigin origin);
     void _addMessage(const Message &message);
     void _updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
 

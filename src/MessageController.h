@@ -108,6 +108,17 @@ private:
     bool handleReaction(const QXmppMessage &message, const QString &chatJid, const QString &senderJid);
     bool handleFileSourcesAttachments(const QXmppMessage &message, const QString &chatJid);
 
+    bool handleCorrection(const Message &message, const QString &accountJid, const QString &chatJid, const QString &replaceId, MessageOrigin origin);
+
+    /**
+     * Updates a message's delivery state and stores the received "stanzaId" if the message is sent
+     * from this device and reflected from a group chat or the chat with oneself.
+     *
+     * The "stanzaId" is updated to be used when the message is referenced (e.g., if message reactions
+     * are sent for it).
+     */
+    static bool updateReflectedMessage(Message &message, const QString &stanzaId);
+
     static std::optional<EncryptedSource> parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source);
     static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
     static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);

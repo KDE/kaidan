@@ -109,6 +109,11 @@ constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
  */
 #define BITS_OF_BINARY_IMAGE_PROVIDER_NAME "bits-of-binary"
 
+// Defines that a message is suitable for correction only if it is among the n most recent messages.
+constexpr int MAX_MESSAGE_CORRECTION_COUNT = 10;
+// Defines that a message is suitable for correction only if it has not been sent earlier than n days ago.
+constexpr int MAX_MESSAGE_CORRECTION_DAYS = 2;
+
 // Quality of generated file thumbnails.
 constexpr auto THUMBNAIL_QUALITY = 85;
 // Width and height of generated file thumbnails.

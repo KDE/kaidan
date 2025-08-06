@@ -668,96 +668,58 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
         return;
     }
 
-    // If the message is sent from this device and reflected from a group chat or the chat with
-    // oneself, update its delivery state and store the received "stanzaId".
-    // The "stanzaId" is updated to be used when the message is referenced (e.g., if message
-    // reactions are sent for it).
-    auto updateReflectedMessage = [](Message &storedMessage, const QString &stanzaId) {
-        if (storedMessage.isOwn && storedMessage.deliveryState == Enums::DeliveryState::Sent
-            && (storedMessage.isGroupChatMessage() || storedMessage.accountJid == storedMessage.chatJid)) {
-            storedMessage.deliveryState = Enums::DeliveryState::Delivered;
-            storedMessage.errorText.clear();
-            storedMessage.stanzaId = stanzaId;
+    message.timestamp = timestamp;
 
-            return true;
+    // If the message is a correction, correct a stored message.
+    if (handleCorrection(message, accountJid, chatJid, msg.replaceId(), origin)) {
+        return;
+    }
+
+    // Add a new group chat user if none is stored for the received message.
+    // "groupChatSenderId" is checked because it can be empty if the server uses an unsupported
+    // format for participants.
+    if (receivedFromGroupChat && !groupChatSenderId.isEmpty() && !isOwn) {
+        GroupChatUser sender;
+
+        sender.accountJid = accountJid;
+        sender.chatJid = chatJid;
+        sender.id = groupChatSenderId;
+        sender.jid = msg.mixUserJid();
+        sender.name = msg.mixUserNick();
+
+        GroupChatUserDb::instance()->handleMessageSender(sender);
+    }
+
+    auto storeMessage = [origin, message, stanzaId]() {
+        // If the message is fetched via the initial MAM fetching, store the message directly
+        // because it is ensured that the message is not already stored.
+        // If the message is reflected, update it.
+        // If the message is not reflected but new, store it.
+        if (origin == MessageOrigin::MamInitial) {
+            MessageDb::instance()->addMessage(message, origin);
+        } else {
+            MessageDb::instance()->addOrUpdateMessage(message, origin, [stanzaId](Message &storedMessage) {
+                updateReflectedMessage(storedMessage, stanzaId);
+            });
         }
-
-        return false;
     };
 
-    // If the message is a new message, store it.
-    // Otherwise, correct a stored message.
-    if (const auto replaceId = msg.replaceId(); replaceId.isEmpty()) {
-        // Add a new group chat user if none is stored for the received message.
-        // "groupChatSenderId" is checked because it can be empty if the server uses an unsupported
-        // format for participants.
-        if (receivedFromGroupChat && !groupChatSenderId.isEmpty() && !isOwn) {
-            GroupChatUser sender;
-
-            sender.accountJid = accountJid;
-            sender.chatJid = chatJid;
-            sender.id = groupChatSenderId;
-            sender.jid = msg.mixUserJid();
-            sender.name = msg.mixUserNick();
-
-            GroupChatUserDb::instance()->handleMessageSender(sender);
-        }
-
-        message.timestamp = timestamp;
-
-        auto storeMessage = [origin, message, updateReflectedMessage, stanzaId]() {
-            // If the message is fetched via the initial MAM fetching, store the message directly
-            // because it is ensured that the message is not already stored.
-            // If the message is reflected, update it.
-            // If the message is not reflected but new, store it.
-            if (origin == MessageOrigin::MamInitial) {
-                MessageDb::instance()->addMessage(message, origin);
-            } else {
-                MessageDb::instance()->addOrUpdateMessage(message, origin, [updateReflectedMessage, stanzaId](Message &storedMessage) {
-                    updateReflectedMessage(storedMessage, stanzaId);
-                });
-            }
-        };
-
-        // Add the message's sender to the roster if not already done and only for direct
-        // messages.
-        // Otherwise, the chat could only be opened via the message's notification and could not
-        // be opened again later.
-        if (!receivedFromGroupChat && !RosterModel::instance()->hasItem(m_accountSettings->jid(), senderJid)) {
-            QObject *context = new QObject(this);
-            connect(RosterModel::instance(), &RosterModel::itemAdded, context, [this, senderJid, context, storeMessage](const RosterItem &item) {
-                if (item.accountJid == m_accountSettings->jid() && item.jid == senderJid) {
-                    context->deleteLater();
-                    storeMessage();
-                }
-            });
-
-            m_rosterController->addContact(senderJid, {}, {}, true);
-        } else {
-            storeMessage();
-        }
-    } else {
-        message.replaceId = replaceId;
-        MessageDb::instance()->updateMessage(accountJid, chatJid, replaceId, [updateReflectedMessage, message](Message &storedMessage) {
-            // Update a reflected message or correct a previous message if allowed.
-            // Only the author of the original message is allowed to correct it.
-            if (!updateReflectedMessage(storedMessage, message.stanzaId) && storedMessage.accountJid == message.accountJid
-                && storedMessage.chatJid == message.chatJid && storedMessage.isOwn == message.isOwn
-                && storedMessage.groupChatSenderId == message.groupChatSenderId) {
-                storedMessage.id = message.id;
-                storedMessage.originId = message.originId;
-                storedMessage.stanzaId = message.stanzaId;
-                storedMessage.replaceId = message.replaceId;
-                storedMessage.reply = message.reply;
-                storedMessage.setPreparedBody(message.body());
-                storedMessage.encryption = message.encryption;
-                storedMessage.senderKey = message.senderKey;
-                storedMessage.isSpoiler = message.isSpoiler;
-                storedMessage.spoilerHint = message.spoilerHint;
-                storedMessage.senderKey = message.senderKey;
-                storedMessage.groupChatInvitation = message.groupChatInvitation;
+    // Add the message's sender to the roster if not already done and only for direct
+    // messages.
+    // Otherwise, the chat could only be opened via the message's notification and could not
+    // be opened again later.
+    if (!receivedFromGroupChat && !RosterModel::instance()->hasItem(m_accountSettings->jid(), senderJid)) {
+        QObject *context = new QObject(this);
+        connect(RosterModel::instance(), &RosterModel::itemAdded, context, [this, senderJid, context, storeMessage](const RosterItem &item) {
+            if (item.accountJid == m_accountSettings->jid() && item.jid == senderJid) {
+                context->deleteLater();
+                storeMessage();
             }
         });
+
+        m_rosterController->addContact(senderJid, {}, {}, true);
+    } else {
+        storeMessage();
     }
 }
 
@@ -890,6 +852,72 @@ bool MessageController::handleFileSourcesAttachments(const QXmppMessage &message
         MessageDb::instance()->attachFileSources(m_accountSettings->jid(), chatJid, message.attachId(), attachment.id(), httpSources, encryptedSources);
     }
     return !attachments.empty();
+}
+
+bool MessageController::handleCorrection(const Message &message,
+                                         const QString &accountJid,
+                                         const QString &chatJid,
+                                         const QString &replaceId,
+                                         MessageOrigin origin)
+{
+    // The message must be a correction.
+    if (replaceId.isEmpty()) {
+        return false;
+    }
+
+    MessageDb::instance()->updateMessage(accountJid, chatJid, replaceId, [message, replaceId, origin](Message &storedMessage) {
+        if (updateReflectedMessage(storedMessage, message.stanzaId)) {
+            return;
+        }
+
+        // The message must not be too old.
+        const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_CORRECTION_DAYS);
+        if (storedMessage.timestamp < timeThreshold) {
+            MessageDb::instance()->_addMessage(message, origin);
+            return;
+        }
+
+        // There must not be too many more recent messages.
+        if (MessageDb::instance()->_checkMoreRecentMessageExists(storedMessage.accountJid,
+                                                                 storedMessage.chatJid,
+                                                                 storedMessage.timestamp,
+                                                                 MAX_MESSAGE_CORRECTION_COUNT)) {
+            MessageDb::instance()->_addMessage(message, origin);
+            return;
+        }
+
+        // Correct a previous message if allowed.
+        // Only the author of the original message is allowed to correct it.
+        if (storedMessage.isOwn == message.isOwn && storedMessage.groupChatSenderId == message.groupChatSenderId) {
+            storedMessage.id = message.id;
+            storedMessage.originId = message.originId;
+            storedMessage.stanzaId = message.stanzaId;
+            storedMessage.replaceId = replaceId;
+            storedMessage.reply = message.reply;
+            storedMessage.setPreparedBody(message.body());
+            storedMessage.encryption = message.encryption;
+            storedMessage.senderKey = message.senderKey;
+            storedMessage.isSpoiler = message.isSpoiler;
+            storedMessage.spoilerHint = message.spoilerHint;
+            storedMessage.senderKey = message.senderKey;
+            storedMessage.groupChatInvitation = message.groupChatInvitation;
+        }
+    });
+
+    return true;
+}
+
+bool MessageController::updateReflectedMessage(Message &message, const QString &stanzaId)
+{
+    if (message.isOwn && message.deliveryState == Enums::DeliveryState::Sent && (message.isGroupChatMessage() || message.accountJid == message.chatJid)) {
+        message.deliveryState = Enums::DeliveryState::Delivered;
+        message.errorText.clear();
+        message.stanzaId = stanzaId;
+
+        return true;
+    }
+
+    return false;
 }
 
 std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source)
