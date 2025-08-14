@@ -659,7 +659,7 @@ bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const Q
 			FROM chatMessages
 			WHERE
                 accountJid = :accountJid AND chatJid = :chatJid AND
-                datetime(timestamp) >= datetime(:timestamp)
+                timestamp >= :timestamp
 		)"),
               {
                   {u":accountJid", accountJid},
