@@ -39,20 +39,26 @@ public:
 
 private:
     QList<RosterItem> _fetchItems();
+    QList<RosterItem> fetchBasicItems();
 
-    void fetchGroups(QList<RosterItem> &items);
+    void fetchGroups(RosterItem &item);
     void addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups);
     void updateGroups(const RosterItem &oldItem, const RosterItem &newItem);
     void removeGroups(const QString &accountJid);
     void removeGroups(const QString &accountJid, const QString &jid);
 
-    void fetchLastMessages(QList<RosterItem> &items);
-    void fetchLastMessage(RosterItem &item, const QList<RosterItem> &items);
+    void fetchLastMessage(RosterItem &item);
+    void fetchLastMessage(RosterItem &item, QList<RosterItem> allItems);
 
-    void _addItem(const RosterItem &item);
+    void fetchUnreadMessageCount(RosterItem &item);
+
+    void _addItem(RosterItem item);
     void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
     void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
     void _removeItem(const QString &accountJid, const QString &jid);
+
+    static QList<RosterItem> parseItemsFromQuery(QSqlQuery &query);
+    static RosterItem parseItemFromQuery(QSqlQuery &query);
 
     void updateItemByRecord(const QString &accountJid, const QString &jid, const QSqlRecord &record);
 

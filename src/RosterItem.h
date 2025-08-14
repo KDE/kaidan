@@ -31,7 +31,7 @@ struct RosterItem {
     Q_PROPERTY(bool isPublicGroupChat READ isPublicGroupChat CONSTANT)
     Q_PROPERTY(bool isDeletedGroupChat READ isDeletedGroupChat CONSTANT)
     Q_PROPERTY(QList<QString> groups MEMBER groups)
-    Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
+    Q_PROPERTY(int unreadMessageCount MEMBER unreadMessageCount)
     Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
     Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
     Q_PROPERTY(RosterItem::NotificationRule notificationRule MEMBER notificationRule)
@@ -132,7 +132,7 @@ public:
     Encryption::Enum encryption = Encryption::Omemo2;
 
     // Number of messages unread by the user.
-    int unreadMessages = 0;
+    int unreadMessageCount = 0;
 
     // Last activity of the conversation, e.g., when the last message was exchanged or a draft
     // stored.

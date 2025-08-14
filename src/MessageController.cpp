@@ -754,19 +754,9 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
         if (isOwnMessage) {
             Q_EMIT contactMessageRead(senderJid, recipientJid);
 
-            // Retrieve the count of messages between "lastReadContactMessageId" and "markedId"
-            // to decrease the corresponding counter by 1 (if IDs could not be found) or by the
-            // actual count of read messages.
-            auto future = MessageDb::instance()->messageCount(recipientJid,
-                                                              senderJid,
-                                                              RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid),
-                                                              markedId);
-            future.then(this, [this, recipientJid, markedId](int count) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), recipientJid, [=](RosterItem &item) {
-                    item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
-                    item.lastReadContactMessageId = markedId;
-                    item.readMarkerPending = false;
-                });
+            RosterDb::instance()->updateItem(m_accountSettings->jid(), recipientJid, [=](RosterItem &item) {
+                item.lastReadContactMessageId = markedId;
+                item.readMarkerPending = false;
             });
         } else {
             RosterDb::instance()->updateItem(m_accountSettings->jid(), senderJid, [markedId](RosterItem &item) {

@@ -456,7 +456,7 @@ MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJi
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
                       {u":index", index},
-                      {u":limit", messagesUntilFoundMessageCount + DB_QUERY_LIMIT_MESSAGES},
+                      {u":limit", messagesUntilFoundMessageCount ? messagesUntilFoundMessageCount + DB_QUERY_LIMIT_MESSAGES * 2 : DB_QUERY_LIMIT_MESSAGES},
                   });
 
         MessageResult result{_fetchMessagesFromQuery(query),
@@ -610,41 +610,43 @@ bool MessageDb::_hasMessage(const QString &accountJid, const QString &chatJid, c
     return query.first();
 }
 
-QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd)
+QFuture<int> MessageDb::latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin)
 {
-    return run([=, this]() {
-        auto query = createQuery();
-        execQuery(query,
-                  // The double round brackets are needed to evaluate the datetime.
-                  QStringLiteral(R"(
-				SELECT COUNT(*)
-				FROM chatMessages DESC
-				WHERE
-					accountJid = :accountJid AND chatJid = :chatJid AND
-					datetime(timestamp) BETWEEN
-						datetime((
-							SELECT timestamp
-							FROM chatMessages DESC
-							WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdBegin
-							LIMIT 1
-						)) AND
-						datetime((
-							SELECT timestamp
-							FROM chatMessages DESC
-							WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdEnd
-							LIMIT 1
-						))
-			)"),
-                  {
-                      {u":accountJid", accountJid},
-                      {u":chatJid", chatJid},
-                      {u":messageIdBegin", messageIdBegin},
-                      {u":messageIdEnd", messageIdEnd},
-                  });
-
-        query.first();
-        return query.value(0).toInt();
+    return run([this, accountJid, chatJid, messageIdBegin] {
+        return _latestContactMessageCount(accountJid, chatJid, messageIdBegin);
     });
+}
+
+int MessageDb::_latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+				SELECT COUNT(*)
+				FROM chatMessages
+				WHERE
+                    accountJid = :accountJid AND chatJid = :chatJid AND isOwn = 0 AND
+                    (
+                        :messageIdBegin IS NULL OR
+                        (
+                            timestamp >
+                            (
+                                SELECT timestamp
+                                FROM chatMessages
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdBegin
+                                LIMIT 1
+                            )
+                        )
+                    )
+			)"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":messageIdBegin", messageIdBegin},
+              });
+
+    query.first();
+    return query.value(0).toInt();
 }
 
 bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)

@@ -65,7 +65,7 @@ SearchBarPage {
 			lastMessageIsDraft: model.lastMessageIsDraft
 			lastMessageIsOwn: model.lastMessageIsOwn
 			lastMessageGroupChatSenderName: model.lastMessageGroupChatSenderName
-			unreadMessages: model.unreadMessages
+			unreadMessageCount: model.unreadMessageCount
 			pinModeActive: pinAction.checked
 			pinned: model.pinned
 			effectiveNotificationRule: model.effectiveNotificationRule
@@ -130,8 +130,7 @@ SearchBarPage {
 					root.activeChatPage = pageStack.push(chatPage)
 				}
 
-				const account = AccountController.account(accountJid)
-				root.activeChatPage.chatController.initialize(account, chatJid)
+				root.activeChatPage.initialize(accountJid, chatJid)
 
 				if (!pageStack.wideMode) {
 					pageStack.goForward()

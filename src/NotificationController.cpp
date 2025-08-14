@@ -304,7 +304,6 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
     connect(notification->addAction(tr("Mark as read")), &KNotificationAction::activated, this, [this, chatJid, messageId] {
         RosterDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [messageId](RosterItem &item) {
             item.lastReadContactMessageId = messageId;
-            item.unreadMessages = 0;
         });
 
         if (const auto item = RosterModel::instance()->item(m_accountSettings->jid(), chatJid); item && item->readMarkerSendingEnabled) {

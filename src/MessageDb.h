@@ -192,17 +192,16 @@ public:
     bool _hasMessage(const QString &accountJid, const QString &chatJid, const QString &groupChatSenderId);
 
     /**
-     * Returns the count of messages chronologically between (including) two given messages
-     * specified by their IDs.
+     * Returns the count of the latest contact messages after a specified message.
      *
      * @param accountJid JID of the account
      * @param chatJid JID of the chat
-     * @param messageIdBegin ID of the message to start the counting
-     * @param messageIdEnd ID of the message to end the counting
+     * @param messageIdBegin ID of the message to start the counting after it
      *
      * @return the message count
      */
-    QFuture<int> messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd);
+    QFuture<int> latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin);
+    int _latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin);
 
     bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
 

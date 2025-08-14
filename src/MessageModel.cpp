@@ -383,7 +383,7 @@ void MessageModel::fetchMore(const QModelIndex &)
             // If there are unread messages, all messages until the first unread message are
             // fetched.
             // Otherwise, the messages are fetched by their regular limit.
-            if (m_chatController->rosterItem().unreadMessages > 0) {
+            if (m_chatController->rosterItem().unreadMessageCount) {
                 const auto lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
 
                 // lastReadContactMessageId can be empty if there is no contact message stored or
@@ -457,7 +457,6 @@ void MessageModel::handleMessageRead(int readMessageIndex)
     }
 
     Message readContactMessage;
-    int readContactMessageIndex;
     const auto readMessage = m_messages.at(readMessageIndex);
 
     // Search for the last read contact message if it is at the top of the chat page list view but
@@ -467,7 +466,6 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 
         for (int i = readMessageIndex + 1; i != m_messages.size(); ++i) {
             if (const auto &message = m_messages.at(i); !message.isOwn) {
-                readContactMessageIndex = i;
                 readContactMessage = message;
                 isContactMessageRead = true;
                 break;
@@ -479,7 +477,6 @@ void MessageModel::handleMessageRead(int readMessageIndex)
             return;
         }
     } else {
-        readContactMessageIndex = readMessageIndex;
         readContactMessage = readMessage;
     }
 
@@ -498,30 +495,9 @@ void MessageModel::handleMessageRead(int readMessageIndex)
             readMarkerPending = false;
         }
 
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, this](RosterItem &item) {
+        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
             item.lastReadContactMessageId = readMessageId;
             item.readMarkerPending = readMarkerPending;
-
-            // If the read message is the latest one, lastReadContactMessageId is empty or the read
-            // message is an own message, reset the counter for unread messages.
-            // lastReadContactMessageId can be empty if there is no contact message stored or the
-            // oldest stored contact message is marked as first unread.
-            // Otherwise, decrease it by the number of contact messages between the read contact
-            // message and the last read contact message.
-            if (readContactMessageIndex == 0 || lastReadContactMessageId.isEmpty() || readMessage.isOwn) {
-                item.unreadMessages = 0;
-            } else {
-                int readMessageCount = 1;
-                for (int i = readContactMessageIndex + 1; i < m_messages.size(); ++i) {
-                    if (const auto &message = m_messages.at(i); message.id == lastReadContactMessageId) {
-                        break;
-                    } else if (!message.isOwn) {
-                        ++readMessageCount;
-                    }
-                }
-
-                item.unreadMessages = item.unreadMessages - readMessageCount;
-            }
         });
     }
 }
@@ -560,15 +536,13 @@ void MessageModel::markMessageAsFirstUnread(int index)
     // of the contact is not fetched from the database and thus not in m_messages.
     if (lastReadContactMessageId.isEmpty()) {
         auto future = MessageDb::instance()->firstContactMessageId(m_accountSettings->jid(), m_chatController->jid(), unreadMessageCount);
-        future.then(this, [this, currentChatJid = m_chatController->jid(), unreadMessageCount](QString &&firstContactMessageId) {
+        future.then(this, [this, currentChatJid = m_chatController->jid()](QString &&firstContactMessageId) {
             RosterDb::instance()->updateItem(m_accountSettings->jid(), currentChatJid, [=](RosterItem &item) {
-                item.unreadMessages = unreadMessageCount;
                 item.lastReadContactMessageId = firstContactMessageId;
             });
         });
     } else {
         RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
-            item.unreadMessages = unreadMessageCount;
             item.lastReadContactMessageId = lastReadContactMessageId;
         });
     }
@@ -909,7 +883,6 @@ void MessageModel::removeMessage(const QString &messageId)
                     item.lastReadOwnMessageId.clear();
                     item.lastMessage.clear();
                     item.lastMessageGroupChatSenderName.clear();
-                    item.unreadMessages = 0;
                 });
             } else {
                 RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
@@ -1024,8 +997,9 @@ void MessageModel::setMamLoading(bool mamLoading)
 
 void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
 {
-    if (msgs.size() < DB_QUERY_LIMIT_MESSAGES)
+    if (msgs.size() < DB_QUERY_LIMIT_MESSAGES) {
         m_fetchedAllFromDb = true;
+    }
 
     if (msgs.empty()) {
         // If nothing can be retrieved from the DB, directly try MAM instead.

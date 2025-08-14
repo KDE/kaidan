@@ -639,22 +639,18 @@ ChatPageBase {
 				// function positioned the view at firstUnreadContactMessageIndex and that is close
 				// to the end of the loaded messages.
 				if (!root.viewPositioned) {
-					let unreadMessageCount = root.chatController.rosterItem.unreadMessageCount
-
-					if (unreadMessageCount) {
-						let firstUnreadContactMessageIndex = root.chatController.messageModel.firstUnreadContactMessageIndex()
+					if (root.chatController.rosterItem.unreadMessageCount) {
+						const firstUnreadContactMessageIndex = root.chatController.messageModel.firstUnreadContactMessageIndex()
 
 						if (firstUnreadContactMessageIndex > 0) {
-							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
+							root.messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
 						}
 
-						root.viewPositioned = true
-
 						// Trigger sending read markers manually as the view is ready.
-						messageListView.handleMessageReadOnPositionedView()
-					} else {
-						root.viewPositioned = true
+						root.messageListView.handleMessageReadOnPositionedView()
 					}
+
+					root.viewPositioned = true
 				}
 			}
 		}
@@ -687,7 +683,11 @@ ChatPageBase {
 		 * Sends a read marker for the latest visible/read message.
 		 */
 		function handleMessageReadOnPositionedView() {
-			root.chatController.messageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
+			const distanceToLatestMessageBottom = height + contentY
+			const messageBottomOffset = 10
+			const readMessageIndex = indexAt(0, (distanceToLatestMessageBottom + messageBottomOffset)) + 1
+
+			root.chatController.messageModel.handleMessageRead(readMessageIndex)
 		}
 
 		function highlightShortly(index) {
@@ -789,6 +789,11 @@ ChatPageBase {
 		function onUnblockingFailed(jid, errorText) {
 			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
 		}
+	}
+
+	function initialize(accountJid, chatJid) {
+		viewPositioned = false
+		chatController.initialize(AccountController.account(accountJid), chatJid)
 	}
 
 	function addDroppedFiles(drop) {

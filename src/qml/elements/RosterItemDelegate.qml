@@ -25,7 +25,7 @@ AvatarItemDelegate {
 	property bool lastMessageIsDraft
 	property bool lastMessageIsOwn
 	property string lastMessageGroupChatSenderName
-	property int unreadMessages
+	property int unreadMessageCount
 	property bool pinModeActive
 	property bool pinned
 	property int effectiveNotificationRule
@@ -54,7 +54,7 @@ AvatarItemDelegate {
 				textFormat: Text.PlainText
 				elide: Text.ElideRight
 				maximumLineCount: 1
-				font.weight: root.unreadMessages ? Font.Medium : Font.Normal
+				font.weight: root.unreadMessageCount ? Font.Medium : Font.Normal
 				level: 4
 				Layout.fillWidth: true
 			}
@@ -135,7 +135,7 @@ AvatarItemDelegate {
 				visible: root.lastMessage
 				color: root.lastMessageIsDraft ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
 				wrapMode: Text.NoWrap
-				font.weight: root.unreadMessages ? Font.Normal : Font.Light
+				font.weight: root.unreadMessageCount ? Font.Normal : Font.Light
 				Layout.fillWidth: true
 
 				TextMetrics {
@@ -192,7 +192,7 @@ AvatarItemDelegate {
 			// unread message counter
 			MessageCounter {
 				id: counter
-				count: root.unreadMessages
+				count: root.unreadMessageCount
 				muted: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never ||
 					   root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
 			}

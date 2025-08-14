@@ -78,7 +78,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
     roles[IsPublicGroupChatRole] = QByteArrayLiteral("isPublicGroupChat");
     roles[IsDeletedGroupChatRole] = QByteArrayLiteral("isDeletedGroupChat");
     roles[LastMessageDateTimeRole] = QByteArrayLiteral("lastMessageDateTime");
-    roles[UnreadMessagesRole] = QByteArrayLiteral("unreadMessages");
+    roles[UnreadMessageCountRole] = QByteArrayLiteral("unreadMessageCount");
     roles[LastMessageRole] = QByteArrayLiteral("lastMessage");
     roles[LastMessageIsDraftRole] = QByteArrayLiteral("lastMessageIsDraft");
     roles[LastMessageIsOwnRole] = QByteArrayLiteral("lastMessageIsOwn");
@@ -125,8 +125,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         // Thus, a null string (i.e., "{}") must not be returned.
         return QString();
     }
-    case UnreadMessagesRole:
-        return item.unreadMessages;
+    case UnreadMessageCountRole:
+        return item.unreadMessageCount;
     case LastMessageRole:
         return item.lastMessage;
     case LastMessageIsDraftRole:
@@ -466,36 +466,21 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
     }
 
     updateLastMessage(itr, message).then(this, [this, message, origin, itr](QList<int> &&changedRoles) mutable {
-        // unread messages counter
-        std::optional<int> newUnreadMessages;
-
-        if (message.isOwn) {
-            // if we sent a message (with another device), reset counter
-            newUnreadMessages = 0;
-        } else {
-            // increase counter if message is new
-            switch (origin) {
-            case MessageOrigin::Stream:
-            case MessageOrigin::UserInput:
-            case MessageOrigin::MamCatchUp:
-                newUnreadMessages = itr->unreadMessages + 1;
-            case MessageOrigin::MamBacklog:
-            case MessageOrigin::MamInitial:
-                break;
-            }
-        }
-
-        if (newUnreadMessages) {
-            itr->unreadMessages = *newUnreadMessages;
-            changedRoles << int(UnreadMessagesRole);
-
-            RosterDb::instance()->updateItem(message.accountJid, message.chatJid, [newCount = *newUnreadMessages](RosterItem &item) {
-                item.unreadMessages = newCount;
-            });
-        }
-
-        if (!changedRoles.isEmpty()) {
-            updateItemPosition(informAboutChangedData(itr, changedRoles));
+        switch (origin) {
+        case MessageOrigin::Stream:
+        case MessageOrigin::UserInput:
+        case MessageOrigin::MamCatchUp:
+            MessageDb::instance()
+                ->latestContactMessageCount(message.accountJid, message.chatJid, itr->lastReadContactMessageId)
+                .then([this, itr, changedRoles](int unreadMessageCount) mutable {
+                    itr->unreadMessageCount = unreadMessageCount;
+                    changedRoles << int(UnreadMessageCountRole);
+                    updateItemPosition(informAboutChangedData(itr, changedRoles));
+                });
+            break;
+        case MessageOrigin::MamBacklog:
+        case MessageOrigin::MamInitial:
+            break;
         }
     });
 }

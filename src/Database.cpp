@@ -43,8 +43,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 51
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(51)
+#define DATABASE_LATEST_VERSION 52
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(52)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -379,8 +379,8 @@ void Database::createNewDatabase()
                                    SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
                                        SQL_ATTRIBUTE(groupChatName, SQL_TEXT) SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
                                            SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER) SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+                                               SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
                                                        SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
                                                            SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
                                                                SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
@@ -1826,6 +1826,14 @@ void Database::convertDatabaseToV51()
     execQuery(query, QStringLiteral("ALTER TABLE accounts DROP COLUMN password"));
 
     d->version = 51;
+}
+
+void Database::convertDatabaseToV52()
+{
+    DATABASE_CONVERT_TO_VERSION(51)
+    QSqlQuery query(currentDatabase());
+    execQuery(query, QStringLiteral("ALTER TABLE roster DROP COLUMN unreadMessages"));
+    d->version = 52;
 }
 
 #include "moc_Database.cpp"
