@@ -20,7 +20,7 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
     , m_accountSettings(accountSettings)
 {
     runOnThread(client, [this, client]() {
-        auto *logger = new QXmppLogger(this);
+        auto *logger = new QXmppLogger(client);
         client->setLogger(logger);
         logger->setLoggingType(QXmppLogger::SignalLogging);
 
