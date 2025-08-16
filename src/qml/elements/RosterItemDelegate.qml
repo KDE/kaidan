@@ -80,6 +80,7 @@ AvatarItemDelegate {
 		RowLayout {
 			id: secondRow
 			width: parent.width
+			Layout.preferredHeight: counter.height
 
 			// placeholder if no messages have been exchanged yet
 			Controls.Label {
