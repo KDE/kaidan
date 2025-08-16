@@ -133,7 +133,7 @@ SearchBarPage {
 				const account = AccountController.account(accountJid)
 				root.activeChatPage.chatController.initialize(account, chatJid)
 
-				if (!pageStack.wideMode && root.activeChatPage) {
+				if (!pageStack.wideMode) {
 					pageStack.goForward()
 				}
 
