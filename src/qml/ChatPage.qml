@@ -475,7 +475,7 @@ ChatPageBase {
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.bottom: parent.bottom
 			anchors.bottomMargin: parent.atYEnd ? - height - background.shadow.size - unreadMessageCounter.height : - background.shadow.size
-			onClicked: parent.positionViewAtIndex(0, ListView.Center)
+			onClicked: parent.positionViewAtLatestMessage()
 
 			Behavior on anchors.bottomMargin {
 				SmoothedAnimation {}
@@ -668,6 +668,10 @@ ChatPageBase {
 					messageListView.handleMessageRead()
 				}
 			}
+		}
+
+		function positionViewAtLatestMessage() {
+			positionViewAtIndex(0, ListView.Center)
 		}
 
 		/**

@@ -470,6 +470,8 @@ Controls.Pane {
 					root.chatPage.chatController.resetComposingChatState();
 					clear()
 
+					root.chatPage.messageListView.positionViewAtLatestMessage()
+
 					// Enable the button again.
 					enabled = true
 
