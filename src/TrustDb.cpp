@@ -395,10 +395,8 @@ auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, Trus
                       {u":keyOwnerJid", keyOwnerJid},
                   });
 
-        if (query.next()) {
-            return query.value(0).toInt() > 0;
-        }
-        return false;
+        query.first();
+        return query.value(0).toInt() > 0;
     });
 }
 

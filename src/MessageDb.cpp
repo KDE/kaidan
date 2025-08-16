@@ -642,11 +642,8 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
                       {u":messageIdEnd", messageIdEnd},
                   });
 
-        if (query.first()) {
-            return query.value(0).toInt();
-        }
-
-        return 0;
+        query.first();
+        return query.value(0).toInt();
     });
 }
 
@@ -667,11 +664,8 @@ bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const Q
                   {u":timestamp", timestamp.toString(Qt::ISODateWithMs)},
               });
 
-    if (query.first()) {
-        return query.value(0).toInt() > offset;
-    }
-
-    return false;
+    query.first();
+    return query.value(0).toInt() > offset;
 }
 
 QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin)
@@ -1791,11 +1785,8 @@ bool MessageDb::_checkMessageExists(const Message &message)
     auto query = createQuery();
     execQuery(query, querySql, bindValues);
 
-    int count = 0;
-    if (query.next()) {
-        count = query.value(0).toInt();
-    }
-    return count > 0;
+    query.first();
+    return query.value(0).toInt() > 0;
 }
 
 QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJid)
