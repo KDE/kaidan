@@ -1041,11 +1041,6 @@ void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
     beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.size() - 1);
 
     for (auto msg : msgs) {
-        // Skip messages that were not fetched for the current chat.
-        if (msg.accountJid != m_accountSettings->jid() || msg.chatJid != m_chatController->jid()) {
-            continue;
-        }
-
         m_messages << msg;
         addVideoThumbnails(msg);
     }
