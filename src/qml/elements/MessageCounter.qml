@@ -21,7 +21,6 @@ Controls.Label {
 	rightPadding: leftPadding
 	topPadding: leftPadding * 0.3
 	bottomPadding: topPadding
-
 	background: Rectangle {
 		radius: parent.height * 0.5
 		color: parent.muted ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.positiveTextColor

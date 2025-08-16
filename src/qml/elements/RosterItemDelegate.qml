@@ -26,6 +26,7 @@ AvatarItemDelegate {
 	property bool lastMessageIsOwn
 	property string lastMessageGroupChatSenderName
 	property int unreadMessageCount
+	property int markedMessageCount
 	property bool pinModeActive
 	property bool pinned
 	property int effectiveNotificationRule
@@ -195,6 +196,15 @@ AvatarItemDelegate {
 				count: root.unreadMessageCount
 				muted: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never ||
 					   root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
+			}
+
+			// marked message counter
+			MessageCounter {
+				count: root.markedMessageCount
+				background: Rectangle {
+					radius: parent.height * 0.5
+					color: Kirigami.Theme.neutralTextColor
+				}
 			}
 		}
 	}

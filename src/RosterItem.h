@@ -134,6 +134,9 @@ public:
     // Number of messages unread by the user.
     int unreadMessageCount = 0;
 
+    // Number of messages marked by the user.
+    int markedMessageCount = 0;
+
     // Last activity of the conversation, e.g., when the last message was exchanged or a draft
     // stored.
     // This is used to display the date and to sort the contacts on the roster page´.

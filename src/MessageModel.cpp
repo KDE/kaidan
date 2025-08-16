@@ -107,6 +107,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[OwnReactionsFailed] = QByteArrayLiteral("ownReactionsFailed");
     roles[GroupChatInvitationJid] = QByteArrayLiteral("groupChatInvitationJid");
     roles[GeoCoordinate] = QByteArrayLiteral("geoCoordinate");
+    roles[Marked] = QByteArrayLiteral("marked");
     roles[ErrorText] = QByteArrayLiteral("errorText");
     return roles;
 }
@@ -368,6 +369,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case GeoCoordinate:
         return QVariant::fromValue(msg.geoCoordinate());
+    case Marked:
+        return msg.marked;
     case ErrorText:
         return msg.errorText;
     }
@@ -507,45 +510,11 @@ int MessageModel::firstUnreadContactMessageIndex() const
     return m_firstUnreadContactMessageIndex;
 }
 
-void MessageModel::markMessageAsFirstUnread(int index)
+void MessageModel::setMessageMarked(int index, bool marked)
 {
-    int unreadMessageCount = 1;
-    QString lastReadContactMessageId;
-
-    // Determine the count of unread contact messages before the marked one.
-    for (int i = 0; i != index; ++i) {
-        if (!m_messages.at(i).isOwn) {
-            ++unreadMessageCount;
-        }
-    }
-
-    // Search for the first contact message after the marked one.
-    if (index < m_messages.size() - 1) {
-        for (int i = index + 1; i != m_messages.size(); ++i) {
-            const auto &message = m_messages.at(i);
-            if (!message.isOwn) {
-                lastReadContactMessageId = message.id;
-                break;
-            }
-        }
-    }
-
-    // Find the last read contact message in the database in order to update the last read contact
-    // message ID.
-    // That is needed if a message is marked as the first unread message while the previous message
-    // of the contact is not fetched from the database and thus not in m_messages.
-    if (lastReadContactMessageId.isEmpty()) {
-        auto future = MessageDb::instance()->firstContactMessageId(m_accountSettings->jid(), m_chatController->jid(), unreadMessageCount);
-        future.then(this, [this, currentChatJid = m_chatController->jid()](QString &&firstContactMessageId) {
-            RosterDb::instance()->updateItem(m_accountSettings->jid(), currentChatJid, [=](RosterItem &item) {
-                item.lastReadContactMessageId = firstContactMessageId;
-            });
-        });
-    } else {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
-            item.lastReadContactMessageId = lastReadContactMessageId;
-        });
-    }
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), m_messages.at(index).id, [marked](Message &message) {
+        message.marked = marked;
+    });
 }
 
 void MessageModel::addMessageReaction(const QString &messageId, const QString &emoji)

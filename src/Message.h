@@ -254,9 +254,9 @@ public:
     // IDs (JIDs or group chat participant IDs) of senders mapped to the senders
     QMap<QString, MessageReactionSender> reactionSenders;
     std::optional<GroupChatInvitation> groupChatInvitation;
-
     // Text description of an error if it ever happened to the message
     QString errorText;
+    bool marked = false;
     // True if the message's content and related data such as files have been removed locally.
     bool removed = false;
 

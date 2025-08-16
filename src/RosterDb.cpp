@@ -208,6 +208,7 @@ QList<RosterItem> RosterDb::_fetchItems()
         fetchGroups(item);
         fetchLastMessage(item, items);
         fetchUnreadMessageCount(item);
+        fetchMarkedMessageCount(item);
     }
 
     return items;
@@ -350,9 +351,15 @@ void RosterDb::fetchUnreadMessageCount(RosterItem &item)
     item.unreadMessageCount = MessageDb::instance()->_latestContactMessageCount(item.accountJid, item.jid, item.lastReadContactMessageId);
 }
 
+void RosterDb::fetchMarkedMessageCount(RosterItem &item)
+{
+    item.markedMessageCount = MessageDb::instance()->_markedMessageCount(item.accountJid, item.jid);
+}
+
 void RosterDb::_addItem(RosterItem item)
 {
     fetchUnreadMessageCount(item);
+    fetchMarkedMessageCount(item);
     Q_EMIT itemAdded(item);
 
     insert(QString::fromLatin1(DB_TABLE_ROSTER),
@@ -402,6 +409,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
         fetchGroups(oldItem);
         fetchLastMessage(oldItem);
         fetchUnreadMessageCount(oldItem);
+        fetchMarkedMessageCount(oldItem);
 
         auto newItem = oldItem;
         updateItem(newItem);
@@ -409,6 +417,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
         // Replace the old item's values with the updated ones if the item has changed.
         if (oldItem != newItem) {
             fetchUnreadMessageCount(newItem);
+            fetchMarkedMessageCount(newItem);
             itemUpdated(newItem);
 
             updateGroups(oldItem, newItem);

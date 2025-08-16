@@ -91,6 +91,7 @@ public:
         OwnReactionsFailed,
         GroupChatInvitationJid,
         GeoCoordinate,
+        Marked,
         ErrorText,
     };
     Q_ENUM(MessageRoles)
@@ -114,7 +115,7 @@ public:
 
     Q_INVOKABLE void handleMessageRead(int readMessageIndex);
     Q_INVOKABLE int firstUnreadContactMessageIndex() const;
-    Q_INVOKABLE void markMessageAsFirstUnread(int index);
+    Q_INVOKABLE void setMessageMarked(int index, bool marked);
 
     /**
      * Adds a message reaction or undoes its pending/failed removal.

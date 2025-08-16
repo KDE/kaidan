@@ -122,6 +122,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
     int idxGroupChatInvitationJid = rec.indexOf(QStringLiteral("groupChatInvitationJid"));
     int idxGroupChatToken = rec.indexOf(QStringLiteral("groupChatToken"));
     int idxErrorText = rec.indexOf(QStringLiteral("errorText"));
+    int idxMarked = rec.indexOf(QStringLiteral("marked"));
     int idxRemoved = rec.indexOf(QStringLiteral("removed"));
 
     reserve(messages, query);
@@ -177,6 +178,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
             };
         }
         msg.errorText = query.value(idxErrorText).toString();
+        msg.marked = query.value(idxMarked).toBool();
         msg.removed = query.value(idxRemoved).toBool();
 
         messages << std::move(msg);
@@ -266,6 +268,9 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     }
     if (oldMsg.removed != newMsg.removed) {
         rec.append(createSqlField(QStringLiteral("removed"), newMsg.removed));
+    }
+    if (oldMsg.marked != newMsg.marked) {
+        rec.append(createSqlField(QStringLiteral("marked"), newMsg.marked));
     }
 
     return rec;
@@ -649,6 +654,32 @@ int MessageDb::_latestContactMessageCount(const QString &accountJid, const QStri
     return query.value(0).toInt();
 }
 
+QFuture<int> MessageDb::markedMessageCount(const QString &accountJid, const QString &chatJid)
+{
+    return run([this, accountJid, chatJid] {
+        return _markedMessageCount(accountJid, chatJid);
+    });
+}
+
+int MessageDb::_markedMessageCount(const QString &accountJid, const QString &chatJid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+				SELECT COUNT(*)
+				FROM chatMessages
+				WHERE
+                    accountJid = :accountJid AND chatJid = :chatJid AND marked = 1
+			)"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+              });
+
+    query.first();
+    return query.value(0).toInt();
+}
+
 bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)
 {
     auto query = createQuery();
@@ -995,6 +1026,7 @@ void MessageDb::_addMessage(const Message &message)
         {u"spoilerHint", message.spoilerHint},
         {u"fileGroupId", optionalToVariant(message.fileGroupId)},
         {u"errorText", message.errorText},
+        {u"marked", message.marked},
         {u"removed", message.removed},
     };
 

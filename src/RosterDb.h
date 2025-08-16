@@ -51,6 +51,7 @@ private:
     void fetchLastMessage(RosterItem &item, QList<RosterItem> allItems);
 
     void fetchUnreadMessageCount(RosterItem &item);
+    void fetchMarkedMessageCount(RosterItem &item);
 
     void _addItem(RosterItem item);
     void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);

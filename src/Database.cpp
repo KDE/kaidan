@@ -43,8 +43,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 52
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(52)
+#define DATABASE_LATEST_VERSION 53
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(53)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -404,7 +404,7 @@ void Database::createNewDatabase()
                             SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
                                 SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER) SQL_ATTRIBUTE(groupChatInviterJid, SQL_TEXT)
                                     SQL_ATTRIBUTE(groupChatInviteeJid, SQL_TEXT) SQL_ATTRIBUTE(groupChatInvitationJid, SQL_TEXT)
-                                        SQL_ATTRIBUTE(groupChatToken, SQL_TEXT) SQL_ATTRIBUTE(errorText, SQL_TEXT)
+                                        SQL_ATTRIBUTE(groupChatToken, SQL_TEXT) SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(marked, SQL_BOOL_NOT_NULL)
                                             SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL) "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_MESSAGE_REACTIONS,
@@ -1834,6 +1834,56 @@ void Database::convertDatabaseToV52()
     QSqlQuery query(currentDatabase());
     execQuery(query, QStringLiteral("ALTER TABLE roster DROP COLUMN unreadMessages"));
     d->version = 52;
+}
+
+void Database::convertDatabaseToV53()
+{
+    DATABASE_CONVERT_TO_VERSION(52)
+    QSqlQuery query(currentDatabase());
+
+    // Add the column "marked".
+    execQuery(
+        query,
+        SQL_CREATE_TABLE(
+            "messages_tmp",
+            SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(isOwn, SQL_BOOL_NOT_NULL)
+                SQL_ATTRIBUTE(groupChatSenderId, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT) SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+                    SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(replyTo, SQL_TEXT) SQL_ATTRIBUTE(replyId, SQL_TEXT) SQL_ATTRIBUTE(replyQuote, SQL_TEXT)
+                        SQL_ATTRIBUTE(timestamp, SQL_TEXT) SQL_ATTRIBUTE(body, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                            SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+                                SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER) SQL_ATTRIBUTE(groupChatInviterJid, SQL_TEXT)
+                                    SQL_ATTRIBUTE(groupChatInviteeJid, SQL_TEXT) SQL_ATTRIBUTE(groupChatInvitationJid, SQL_TEXT)
+                                        SQL_ATTRIBUTE(groupChatToken, SQL_TEXT) SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(marked, SQL_BOOL_NOT_NULL)
+                                            SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL) "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
+
+    execQuery(query, QStringLiteral(R"(
+			INSERT INTO messages_tmp
+			SELECT accountJid, chatJid, isOwn, groupChatSenderId, id, originId, stanzaId, replaceId,
+			replyTo, replyId, replyQuote, timestamp, body, encryption, senderKey, deliveryState,
+            isSpoiler, spoilerHint, fileGroupId, groupChatInviterJid, groupChatInviteeJid,
+			groupChatInvitationJid, groupChatToken, errorText, 0, removed
+			FROM messages
+		)"));
+
+    execQuery(query, QStringLiteral("DROP TABLE messages"));
+    execQuery(
+        query,
+        SQL_CREATE_TABLE(
+            "messages",
+            SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(isOwn, SQL_BOOL_NOT_NULL)
+                SQL_ATTRIBUTE(groupChatSenderId, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT) SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+                    SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(replyTo, SQL_TEXT) SQL_ATTRIBUTE(replyId, SQL_TEXT) SQL_ATTRIBUTE(replyQuote, SQL_TEXT)
+                        SQL_ATTRIBUTE(timestamp, SQL_TEXT) SQL_ATTRIBUTE(body, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                            SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+                                SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER) SQL_ATTRIBUTE(groupChatInviterJid, SQL_TEXT)
+                                    SQL_ATTRIBUTE(groupChatInviteeJid, SQL_TEXT) SQL_ATTRIBUTE(groupChatInvitationJid, SQL_TEXT)
+                                        SQL_ATTRIBUTE(groupChatToken, SQL_TEXT) SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(marked, SQL_BOOL_NOT_NULL)
+                                            SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL) "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
+
+    execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+    execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
+
+    d->version = 53;
 }
 
 #include "moc_Database.cpp"

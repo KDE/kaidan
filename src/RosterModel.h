@@ -38,6 +38,7 @@ public:
         IsDeletedGroupChatRole,
         LastMessageDateTimeRole,
         UnreadMessageCountRole,
+        MarkedMessageCountRole,
         LastMessageRole,
         LastMessageIsDraftRole,
         LastMessageIsOwnRole,

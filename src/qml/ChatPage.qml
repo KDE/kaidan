@@ -366,6 +366,7 @@ ChatPageBase {
 			ownReactionsFailed: model.ownReactionsFailed
 			groupChatInvitationJid: model.groupChatInvitationJid
 			geoCoordinate: model.geoCoordinate
+			marked: model.marked
 		}
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {

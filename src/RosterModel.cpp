@@ -79,6 +79,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
     roles[IsDeletedGroupChatRole] = QByteArrayLiteral("isDeletedGroupChat");
     roles[LastMessageDateTimeRole] = QByteArrayLiteral("lastMessageDateTime");
     roles[UnreadMessageCountRole] = QByteArrayLiteral("unreadMessageCount");
+    roles[MarkedMessageCountRole] = QByteArrayLiteral("markedMessageCount");
     roles[LastMessageRole] = QByteArrayLiteral("lastMessage");
     roles[LastMessageIsDraftRole] = QByteArrayLiteral("lastMessageIsDraft");
     roles[LastMessageIsOwnRole] = QByteArrayLiteral("lastMessageIsOwn");
@@ -127,6 +128,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
     }
     case UnreadMessageCountRole:
         return item.unreadMessageCount;
+    case MarkedMessageCountRole:
+        return item.markedMessageCount;
     case LastMessageRole:
         return item.lastMessage;
     case LastMessageIsDraftRole:
@@ -465,17 +468,22 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
         return;
     }
 
-    updateLastMessage(itr, message).then(this, [this, message, origin, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, message).then(this, [this, origin, itr](QList<int> &&changedRoles) mutable {
         switch (origin) {
         case MessageOrigin::Stream:
         case MessageOrigin::UserInput:
         case MessageOrigin::MamCatchUp:
             MessageDb::instance()
-                ->latestContactMessageCount(message.accountJid, message.chatJid, itr->lastReadContactMessageId)
+                ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
                 .then([this, itr, changedRoles](int unreadMessageCount) mutable {
-                    itr->unreadMessageCount = unreadMessageCount;
-                    changedRoles << int(UnreadMessageCountRole);
-                    updateItemPosition(informAboutChangedData(itr, changedRoles));
+                    if (unreadMessageCount != itr->unreadMessageCount) {
+                        itr->unreadMessageCount = unreadMessageCount;
+                        changedRoles << int(UnreadMessageCountRole);
+                    }
+
+                    if (!changedRoles.isEmpty()) {
+                        informAboutChangedData(itr, changedRoles);
+                    }
                 });
             break;
         case MessageOrigin::MamBacklog:
@@ -497,9 +505,16 @@ void RosterModel::handleMessageUpdated(const Message &message)
     }
 
     updateLastMessage(itr, message).then(this, [this, itr](QList<int> &&changedRoles) mutable {
-        if (!changedRoles.isEmpty()) {
-            informAboutChangedData(itr, changedRoles);
-        }
+        MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
+            if (markedMessageCount != itr->markedMessageCount) {
+                itr->markedMessageCount = markedMessageCount;
+                changedRoles << int(MarkedMessageCountRole);
+            }
+
+            if (!changedRoles.isEmpty()) {
+                informAboutChangedData(itr, changedRoles);
+            }
+        });
     });
 }
 
@@ -568,9 +583,25 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
     }
 
     updateLastMessage(itr, newLastMessage, false).then(this, [this, itr](QList<int> &&changedRoles) mutable {
-        if (!changedRoles.isEmpty()) {
-            informAboutChangedData(itr, changedRoles);
-        }
+        MessageDb::instance()
+            ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
+            .then([this, itr, changedRoles](int unreadMessageCount) mutable {
+                if (unreadMessageCount != itr->unreadMessageCount) {
+                    itr->unreadMessageCount = unreadMessageCount;
+                    changedRoles << int(UnreadMessageCountRole);
+                }
+
+                MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
+                    if (markedMessageCount != itr->markedMessageCount) {
+                        itr->markedMessageCount = markedMessageCount;
+                        changedRoles << int(MarkedMessageCountRole);
+                    }
+
+                    if (!changedRoles.isEmpty()) {
+                        informAboutChangedData(itr, changedRoles);
+                    }
+                });
+            });
     });
 }
 

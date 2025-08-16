@@ -203,6 +203,9 @@ public:
     QFuture<int> latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin);
     int _latestContactMessageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin);
 
+    QFuture<int> markedMessageCount(const QString &accountJid, const QString &chatJid);
+    int _markedMessageCount(const QString &accountJid, const QString &chatJid);
+
     bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
 
     /**

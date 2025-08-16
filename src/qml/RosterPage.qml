@@ -66,6 +66,7 @@ SearchBarPage {
 			lastMessageIsOwn: model.lastMessageIsOwn
 			lastMessageGroupChatSenderName: model.lastMessageGroupChatSenderName
 			unreadMessageCount: model.unreadMessageCount
+			markedMessageCount: model.markedMessageCount
 			pinModeActive: pinAction.checked
 			pinned: model.pinned
 			effectiveNotificationRule: model.effectiveNotificationRule

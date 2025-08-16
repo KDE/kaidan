@@ -60,10 +60,11 @@ Controls.ItemDelegate {
 	property bool ownReactionsFailed
 	property string groupChatInvitationJid
 	property var geoCoordinate
+	property bool marked
 	property bool isGroupBegin: determineMessageGroupDelimiter(chatController.messageModel.rowCount() - 1, 1)
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
-	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
+	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
 
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
@@ -115,13 +116,11 @@ Controls.ItemDelegate {
 					MouseArea {
 						anchors.fill: parent
 						acceptedButtons: Qt.LeftButton | Qt.RightButton
-
 						onClicked: mouse => {
 							if (mouse.button === Qt.RightButton) {
 								root.showContextMenu(this)
 							}
 						}
-
 						onPressAndHold: root.showContextMenu(this)
 					}
 				}
@@ -401,6 +400,69 @@ Controls.ItemDelegate {
 									messageId: root.msgId
 									isOwnMessage: root.isOwn
 								}
+							}
+						}
+					}
+				}
+			}
+
+			RowLayout {
+				id: markedMessageArea
+				spacing: Kirigami.Units.smallSpacing
+				opacity: {
+					if (!root.marked) {
+						return 0
+					}
+
+					if (messageUnmarkingMouseArea.pressed) {
+						return 0.3
+					}
+
+					if (messageUnmarkingMouseArea.containsMouse) {
+						return 0.6
+					}
+
+					return 0.9
+				}
+				visible: opacity
+				layoutDirection: parent.layoutDirection
+				Layout.leftMargin: root.isOwn ? 0 : Kirigami.Units.smallSpacing
+				Layout.rightMargin: root.isOwn ? Kirigami.Units.smallSpacing : 0
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
+				Rectangle {
+					id: markedMessageBar
+					color: Kirigami.Theme.neutralTextColor
+					radius: height / 2
+					width: Kirigami.Units.smallSpacing
+					Layout.fillHeight: true
+				}
+
+				Rectangle {
+					color: "transparent"
+					border.color: markedMessageBar.color
+					radius: height / 2
+					width: Kirigami.Units.gridUnit * 2
+					height: width
+
+					Rectangle {
+						color: markedMessageBar.color
+						radius: height / 2
+						width: Kirigami.Units.gridUnit
+						height: width
+						anchors.centerIn: parent
+					}
+
+					MouseArea {
+						id: messageUnmarkingMouseArea
+						anchors.fill: parent
+						hoverEnabled: true
+						onClicked: mouse => {
+							if (mouse.button === Qt.LeftButton) {
+								root.chatController.messageModel.setMessageMarked(root.modelIndex, false)
 							}
 						}
 					}

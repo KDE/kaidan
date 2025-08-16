@@ -149,14 +149,11 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Mark as first unread")
+			Controls.ToolTip.text: qsTr("Mark")
 			source: "mail-mark-important-symbolic"
 			contextMenu: root
-			shown: !root.message.isOwn
-			onClicked: {
-				root.chatController.messageModel.markMessageAsFirstUnread(message.modelIndex);
-				MainController.closeChatPageRequested()
-			}
+			shown: !root.message.marked
+			onClicked: root.chatController.messageModel.setMessageMarked(root.message.modelIndex, true)
 		}
 
 		ChatMessageContextMenuButton {
