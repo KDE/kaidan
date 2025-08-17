@@ -140,7 +140,7 @@ void ClientWorker::logIn()
                       config.setSasl2UserAgent(m_accountSettings->userAgent());
                       config.setAutoAcceptSubscriptions(false);
 
-                      // Servers using LDAP do not support SASL PLAIN authentication.
+                      // Servers using LDAP need SASL PLAIN authentication.
                       config.setDisabledSaslMechanisms({});
 
                       return config;
