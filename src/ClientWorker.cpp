@@ -128,9 +128,14 @@ void ClientWorker::initialize(AtmController *atmController,
 
 void ClientWorker::logIn()
 {
-    runOnThread(m_encryptionController, [this]() {
+    runOnThread(m_accountSettings, [this]() {
+        if (m_accountSettings->password().isEmpty() && m_accountSettings->credentials() == QXmppCredentials()) {
+            Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
+            return;
+        }
+
         m_encryptionController->load()
-            .then(m_encryptionController,
+            .then(m_accountSettings,
                   [this] {
                       QXmppConfiguration config;
                       config.setResource(m_accountSettings->jidResource());
