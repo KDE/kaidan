@@ -229,7 +229,7 @@ void ChatHintModel::handleGroupChatDeleted(const QString &groupChatJid)
 
 int ChatHintModel::addEnableAccountChatHint()
 {
-    return addChatHint(ChatHint{
+    return addChatHint({
         tr("Your account is not enabled - Messages are sent and received once enabled"),
         {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::EnableAccount, tr("Enable")}},
         false,
@@ -256,7 +256,7 @@ void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &re
             .arg(oldDisplayName, oldJid, displayName, jid, appendedText);
     }();
 
-    const auto chatHint = ChatHint{
+    const ChatHint chatHint = {
         text,
         {ChatHintButton{ChatHintButton::Dismiss, tr("Refuse")}, ChatHintButton{ChatHintButton::AllowPresenceSubscription, tr("Allow")}},
         false,
@@ -273,7 +273,7 @@ void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &re
 
 int ChatHintModel::addInviteContactsChatHint()
 {
-    const auto chatHint = ChatHint{
+    const ChatHint chatHint = {
         tr("This group has no users"),
         {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::InviteContacts, tr("Invite contacts")}},
         false,
@@ -294,7 +294,7 @@ int ChatHintModel::addInviteContactsChatHint()
 
 void ChatHintModel::addLeaveChatHint()
 {
-    const auto chatHint = ChatHint{
+    const ChatHint chatHint = {
         tr("This group is deleted"),
         {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::Leave, tr("Leave")}},
         false,
