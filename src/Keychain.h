@@ -8,10 +8,10 @@
 #include <chrono>
 #include <variant>
 // Qt
-#include <QCoreApplication>
 #include <QDeadlineTimer>
 #include <QException>
 #include <QFuture>
+#include <QGuiApplication>
 #include <qt6keychain/keychain.h>
 // Kaidan
 #include "FutureUtils.h"
@@ -34,6 +34,7 @@ using DeleteFuture = QFuture<DeleteResult>;
 
 bool insecureFallback();
 void setInsecureFallback(bool insecureFallback);
+QString serviceKey();
 
 template<typename T>
 bool waitForFinished(const QFuture<T> &future, std::chrono::milliseconds msecs = -1ms)
@@ -109,7 +110,7 @@ ReadFuture<T> readService(const QString &service)
 template<typename T>
 ReadFuture<T> readKey(const QString &key)
 {
-    return readServiceKey<T>(QCoreApplication::applicationName(), key);
+    return readServiceKey<T>(QKeychainFuture::serviceKey(), key);
 }
 
 // Write
@@ -155,7 +156,7 @@ WriteFuture writeService(const QString &service, const T &value)
 template<typename T>
 WriteFuture writeKey(const QString &key, const T &value)
 {
-    return writeServiceKey(QCoreApplication::applicationName(), key, value);
+    return writeServiceKey(QKeychainFuture::serviceKey(), key, value);
 }
 
 // Delete

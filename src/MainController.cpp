@@ -80,6 +80,12 @@ void MainController::receiveMessage(const QStringList &arguments, const QString 
     }
 }
 
+QString applicationProfile()
+{
+    static const auto profile = qEnvironmentVariable(PROFILE_VARIABLE);
+    return profile;
+}
+
 #ifdef NDEBUG
 QString configFileBaseName()
 {
@@ -96,18 +102,10 @@ QString databaseFilename()
     return QStringLiteral(DB_FILE_BASE_NAME ".sqlite3");
 }
 #else
-/**
- * Returns the name of the application profile usable as a suffix.
- *
- * The profile name is the value of the environment variable "KAIDAN_PROFILE".
- * Only available in non-debug builds.
- *
- * @return the application profile name
- */
 QString applicationProfileSuffix()
 {
     static const auto profileSuffix = []() -> QString {
-        const auto profile = qEnvironmentVariable("KAIDAN_PROFILE");
+        const auto profile = applicationProfile();
         if (!profile.isEmpty()) {
             return u'-' + profile;
         }

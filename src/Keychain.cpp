@@ -6,6 +6,11 @@
 
 // Qt
 #include <QAtomicInteger>
+// Kaidan
+#include "MainController.h"
+
+const auto FLATPAK_VARIABLE = "container";
+const auto FLATPAK_SERVICE_KEY_PART = QStringLiteral("Flatpak");
 
 namespace QKeychainFuture
 {
@@ -85,7 +90,7 @@ QKeychainFuture::DeleteFuture QKeychainFuture::deleteService(const QString &serv
 
 QKeychainFuture::DeleteFuture QKeychainFuture::deleteKey(const QString &key)
 {
-    return deleteServiceKey(QCoreApplication::applicationName(), key);
+    return deleteServiceKey(QKeychainFuture::serviceKey(), key);
 }
 
 bool QKeychainFuture::insecureFallback()
@@ -96,4 +101,19 @@ bool QKeychainFuture::insecureFallback()
 void QKeychainFuture::setInsecureFallback(bool insecureFallback)
 {
     insecureFallbackAtomic() = insecureFallback ? 1 : 0;
+}
+
+QString QKeychainFuture::serviceKey()
+{
+    QStringList serviceKeyParts = {QGuiApplication::applicationDisplayName()};
+
+    if (!qEnvironmentVariableIsEmpty(FLATPAK_VARIABLE)) {
+        serviceKeyParts.append(FLATPAK_SERVICE_KEY_PART);
+    }
+
+    if (static const auto profile = applicationProfile(); !profile.isEmpty()) {
+        serviceKeyParts.append(profile);
+    }
+
+    return serviceKeyParts.join(QLatin1Char(' '));
 }

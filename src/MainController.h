@@ -83,6 +83,11 @@ private:
 };
 
 /**
+ * Returns the name of the application profile.
+ */
+QString applicationProfile();
+
+/**
  * Returns the name of the configuration file without its file extension.
  *
  * @return the config file name without extension

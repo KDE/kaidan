@@ -13,6 +13,8 @@
 // Kaidan
 #include <GlobalsGen.h>
 
+const auto PROFILE_VARIABLE = "KAIDAN_PROFILE";
+
 // Kaidan settings
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"
 #define KAIDAN_SETTINGS_WINDOW_POSITION "window/position"
