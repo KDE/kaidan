@@ -26,6 +26,7 @@ public:
     enum Type {
         Dismiss,
         EnableAccount,
+        ShowConnectionError,
         AllowPresenceSubscription,
         InviteContacts,
         Leave,
@@ -71,6 +72,8 @@ private:
     };
 
     void handleAccountEnabledChanged();
+
+    void handleConnectionStateChanged();
     void handleConnectionErrorChanged();
 
     void handleUnrespondedPresenceSubscriptionRequests();
@@ -81,6 +84,7 @@ private:
     void handleGroupChatDeleted(const QString &groupChatJid);
 
     int addEnableAccountChatHint();
+    void addShowConnectionErrorChatHint();
     void addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
     int addInviteContactsChatHint();
     void addLeaveChatHint();

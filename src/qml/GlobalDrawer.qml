@@ -425,6 +425,10 @@ Kirigami.GlobalDrawer {
 	Connections {
 		target: MainController
 
+		function onOpenGlobalDrawerRequested() {
+			root.open()
+		}
+
 		function onUserJidReceived(userJid) {
 			root.openContactAdditionView().jid = userJid
 		}

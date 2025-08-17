@@ -27,6 +27,7 @@ ChatHintModel::ChatHintModel(Account *account, ChatController *chatController, Q
     , m_chatController(chatController)
 {
     connect(m_accountSettings, &AccountSettings::enabledChanged, this, &ChatHintModel::handleAccountEnabledChanged);
+    connect(m_connection, &Connection::stateChanged, this, &ChatHintModel::handleConnectionStateChanged);
     connect(m_connection, &Connection::errorChanged, this, &ChatHintModel::handleConnectionErrorChanged);
 
     connect(m_rosterController, &RosterController::presenceSubscriptionRequestReceived, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
@@ -38,6 +39,8 @@ ChatHintModel::ChatHintModel(Account *account, ChatController *chatController, Q
 
     connect(m_chatController, &ChatController::chatChanged, this, [this]() {
         handleAccountEnabledChanged();
+        handleConnectionStateChanged();
+        handleConnectionErrorChanged();
         handleUnrespondedPresenceSubscriptionRequests();
         handleNoGroupChatUsers();
         checkGroupChatDeleted();
@@ -105,6 +108,9 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
         setLoading(i, true);
         m_account->enable();
         return;
+    case ChatHintButton::ShowConnectionError:
+        Q_EMIT MainController::instance()->openGlobalDrawerRequested();
+        return;
     case ChatHintButton::AllowPresenceSubscription: {
         setLoading(i, true);
         const auto jid = m_chatController->jid();
@@ -143,13 +149,30 @@ void ChatHintModel::handleAccountEnabledChanged()
     }
 }
 
+void ChatHintModel::handleConnectionStateChanged()
+{
+    if (m_connection->state() == Enums::ConnectionState::StateConnecting) {
+        if (const auto i = chatHintIndex(ChatHintButton::ShowConnectionError); i != -1) {
+            setLoading(i, true);
+        }
+    } else {
+        if (const auto i = chatHintIndex(ChatHintButton::ShowConnectionError); i != -1) {
+            setLoading(i, false);
+        }
+    }
+}
+
 void ChatHintModel::handleConnectionErrorChanged()
 {
-    updateChatHint(ChatHintButton::EnableAccount, [this](ChatHint &chatHint) {
-        if (const auto error = m_connection->error(); error != ClientWorker::NoError) {
-            chatHint.text = m_connection->errorText();
+    const auto chatHintShouldBeShown = m_connection->error() != ClientWorker::NoError;
+
+    if (const auto i = chatHintIndex(ChatHintButton::ShowConnectionError); i == -1) {
+        if (chatHintShouldBeShown) {
+            addShowConnectionErrorChatHint();
         }
-    });
+    } else if (!chatHintShouldBeShown) {
+        removeChatHint(i);
+    }
 }
 
 void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
@@ -234,6 +257,16 @@ int ChatHintModel::addEnableAccountChatHint()
         {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::EnableAccount, tr("Enable")}},
         false,
         tr("Enabling…"),
+    });
+}
+
+void ChatHintModel::addShowConnectionErrorChatHint()
+{
+    addChatHint({
+        tr("Could not connect"),
+        {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::ShowConnectionError, tr("Show error")}},
+        false,
+        tr("Connecting…"),
     });
 }
 

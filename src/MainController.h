@@ -51,6 +51,8 @@ public:
      */
     Q_SIGNAL void raiseWindowRequested();
 
+    Q_SIGNAL void openGlobalDrawerRequested();
+
     /**
      * Opens the start page on top of any existing pages on the lowest layer.
      */
