@@ -77,55 +77,6 @@
             ]
         },
         {
-            "name": "libprotobuf-c",
-            "buildsystem": "autotools",
-            "config-opts": [
-                "--disable-protoc"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/protobuf-c/protobuf-c/archive/refs/tags/v1.5.2.tar.gz",
-                    "sha256": "cea46eeaa19c52924938b582c5d128a6ed3b6fb5b3f4677476a1781cc06e03f3"
-                }
-            ]
-        },
-        {
-            "name": "libomemo-c",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DBUILD_SHARED_LIBS=ON"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.1.tar.gz",
-                    "sha256": "d1b65dbf7bccc67523abfd5e429707f540b2532932d128b2982f0246be2b22a0"
-                }
-            ]
-        },
-        {
-            "name": "qxmpp",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DBUILD_EXAMPLES=OFF",
-                "-DBUILD_OMEMO=ON",
-                "-DBUILD_TESTING=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.kde.org/unstable/qxmpp/qxmpp-1.11.1.tar.xz",
-                    "sha256": "1ec52f39536b86a5f52bb4304b617ce8caf3bc98703c7d213a0b14afdd400928"
-                }
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/cmake",
-                "/lib/pkgconfig"
-            ]
-        },
-        {
             "name": "qtkeychain",
             "buildsystem": "cmake-ninja",
             "sources": [
@@ -168,6 +119,59 @@
                         "/bin/secret-tool",
                         "/include",
                         "/lib/pkgconfig"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "qxmpp",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DBUILD_EXAMPLES=OFF",
+                "-DBUILD_OMEMO=ON",
+                "-DBUILD_TESTING=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.kde.org/unstable/qxmpp/qxmpp-1.11.1.tar.xz",
+                    "sha256": "1ec52f39536b86a5f52bb4304b617ce8caf3bc98703c7d213a0b14afdd400928"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig"
+            ],
+            "modules": [
+                {
+                    "name": "libomemo-c",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DBUILD_SHARED_LIBS=ON"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/dino/libomemo-c/archive/refs/tags/v0.5.1.tar.gz",
+                            "sha256": "d1b65dbf7bccc67523abfd5e429707f540b2532932d128b2982f0246be2b22a0"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "libprotobuf-c",
+                            "buildsystem": "autotools",
+                            "config-opts": [
+                                "--disable-protoc"
+                            ],
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://github.com/protobuf-c/protobuf-c/archive/refs/tags/v1.5.2.tar.gz",
+                                    "sha256": "cea46eeaa19c52924938b582c5d128a6ed3b6fb5b3f4677476a1781cc06e03f3"
+                                }
+                            ]
+                        }
                     ]
                 }
             ]
