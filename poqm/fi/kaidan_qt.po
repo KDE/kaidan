@@ -407,61 +407,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "”%1”: ei voida lähettää, koska on yli %2"
 
-#: src/MessageController.cpp:277
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:649
+#: src/MessageController.cpp:645
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Viesti on salattu (%1), mutta salausta ei voi purkaa"
 
-#: src/MessageController.cpp:1064
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
-#: src/MessageModel.cpp:272
+#: src/MessageModel.cpp:273
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Jonossa"
 
-#: src/MessageModel.cpp:274
+#: src/MessageModel.cpp:275
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: src/MessageModel.cpp:276
+#: src/MessageModel.cpp:277
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Välitetty"
 
-#: src/MessageModel.cpp:278
+#: src/MessageModel.cpp:279
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Virhe"
 
-#: src/MessageModel.cpp:638 src/MessageModel.cpp:736
+#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
-#: src/MessageModel.cpp:821
+#: src/MessageModel.cpp:764
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reaktioita ei voitu lähettää: %1"
 
-#: src/MessageModel.cpp:1367
+#: src/MessageModel.cpp:1305
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Tänään"
 
-#: src/MessageModel.cpp:1370
+#: src/MessageModel.cpp:1308
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Eilen"
@@ -629,12 +629,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:512
+#: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:527
+#: src/qml/ChatPage.qml:528
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -642,29 +642,29 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Aloita valitsemalla keskustelu"
 
-#: src/qml/ChatPage.qml:578
+#: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Pudota lähetettävät tiedostot"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/ChatPage.qml:782
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/ChatPage.qml:786
+#: src/qml/ChatPage.qml:791
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2117,17 +2117,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Ei kameraa käytettävissä"
 
-#: src/qml/elements/ChatMessage.qml:211
+#: src/qml/elements/ChatMessage.qml:210
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:431
+#: src/qml/elements/ChatMessage.qml:493
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Uusi"
 
-#: src/qml/elements/ChatMessage.qml:459
+#: src/qml/elements/ChatMessage.qml:521
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2175,10 +2175,10 @@ msgstr "Muokkaa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
-msgid "Mark as first unread"
-msgstr "Merkitse ensimmäiseksi ei-luetuksi"
+msgid "Mark"
+msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:163
+#: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Poista tältä laitteelta"
@@ -2874,38 +2874,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
-#: src/qml/elements/RosterItemDelegate.qml:73
+#: src/qml/elements/RosterItemDelegate.qml:74
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Poistettu"
 
-#: src/qml/elements/RosterItemDelegate.qml:86
+#: src/qml/elements/RosterItemDelegate.qml:88
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ei vielä viestejä"
 
-#: src/qml/elements/RosterItemDelegate.qml:102
+#: src/qml/elements/RosterItemDelegate.qml:104
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Luonnos:"
 
-#: src/qml/elements/RosterItemDelegate.qml:105
+#: src/qml/elements/RosterItemDelegate.qml:107
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Minä:"
 
-#: src/qml/elements/RosterItemDelegate.qml:109
+#: src/qml/elements/RosterItemDelegate.qml:111
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Irrota"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Kiinnitä"
@@ -3427,7 +3427,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterModel.cpp:736
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"
@@ -3461,6 +3461,10 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Merkitse ensimmäiseksi ei-luetuksi"
 
 #~ msgctxt "AccountMigrationController|"
 #~ msgid ""

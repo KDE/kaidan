@@ -411,61 +411,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Non é posíbel enviar «%1» porque supera os %2."
 
-#: src/MessageController.cpp:277
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Non foi posíbel enviar a mensaxe."
 
-#: src/MessageController.cpp:649
+#: src/MessageController.cpp:645
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Esta mensaxe está cifrada con %1 pero non foi posíbel descifrala."
 
-#: src/MessageController.cpp:1064
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Non foi posíbel enviar a reacción: %1"
 
-#: src/MessageModel.cpp:272
+#: src/MessageModel.cpp:273
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/MessageModel.cpp:274
+#: src/MessageModel.cpp:275
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviar"
 
-#: src/MessageModel.cpp:276
+#: src/MessageModel.cpp:277
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregado"
 
-#: src/MessageModel.cpp:278
+#: src/MessageModel.cpp:279
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/MessageModel.cpp:638 src/MessageModel.cpp:736
+#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Non foi posíbel enviar a reacción: %1"
 
-#: src/MessageModel.cpp:821
+#: src/MessageModel.cpp:764
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Non foi posíbel enviar as reaccións: %1"
 
-#: src/MessageModel.cpp:1367
+#: src/MessageModel.cpp:1305
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hoxe"
 
-#: src/MessageModel.cpp:1370
+#: src/MessageModel.cpp:1308
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Onte"
@@ -633,12 +633,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/qml/ChatPage.qml:512
+#: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:527
+#: src/qml/ChatPage.qml:528
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -646,29 +646,29 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccione unha charla para comezar"
 
-#: src/qml/ChatPage.qml:578
+#: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Solte os ficheiros para enviar"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Desbloqueouse %1"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desfacer"
 
-#: src/qml/ChatPage.qml:782
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Non foi posíbel bloquear %1: %2"
 
-#: src/qml/ChatPage.qml:786
+#: src/qml/ChatPage.qml:791
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2122,17 +2122,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Non hai cámara dispoñíbel."
 
-#: src/qml/elements/ChatMessage.qml:211
+#: src/qml/elements/ChatMessage.qml:210
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:431
+#: src/qml/elements/ChatMessage.qml:493
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nova"
 
-#: src/qml/elements/ChatMessage.qml:459
+#: src/qml/elements/ChatMessage.qml:521
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2180,10 +2180,10 @@ msgstr "Editar"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
-msgid "Mark as first unread"
-msgstr "Marcar como primeiro sen ler"
+msgid "Mark"
+msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:163
+#: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Retirar do dispositivo"
@@ -2881,38 +2881,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Amosar só as charlas coas etiquetas seleccionadas."
 
-#: src/qml/elements/RosterItemDelegate.qml:73
+#: src/qml/elements/RosterItemDelegate.qml:74
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Eliminouse"
 
-#: src/qml/elements/RosterItemDelegate.qml:86
+#: src/qml/elements/RosterItemDelegate.qml:88
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Aínda non hai mensaxes."
 
-#: src/qml/elements/RosterItemDelegate.qml:102
+#: src/qml/elements/RosterItemDelegate.qml:104
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Borrador:"
 
-#: src/qml/elements/RosterItemDelegate.qml:105
+#: src/qml/elements/RosterItemDelegate.qml:107
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Eu:"
 
-#: src/qml/elements/RosterItemDelegate.qml:109
+#: src/qml/elements/RosterItemDelegate.qml:111
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Desprender"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fixar"
@@ -3433,7 +3433,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/RosterModel.cpp:736
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Onte"
@@ -3467,6 +3467,10 @@ msgstr "Aniversario"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marcar como primeiro sen ler"
 
 #, fuzzy
 #~| msgctxt "AccountMigrationManager|"

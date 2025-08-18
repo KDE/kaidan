@@ -400,61 +400,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:277
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:649
+#: src/MessageController.cpp:645
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此消息已用 %1 加密，但无法解密"
 
-#: src/MessageController.cpp:1064
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:272
+#: src/MessageModel.cpp:273
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "等待中"
 
-#: src/MessageModel.cpp:274
+#: src/MessageModel.cpp:275
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "已发送"
 
-#: src/MessageModel.cpp:276
+#: src/MessageModel.cpp:277
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "已送达"
 
-#: src/MessageModel.cpp:278
+#: src/MessageModel.cpp:279
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "错误"
 
-#: src/MessageModel.cpp:638 src/MessageModel.cpp:736
+#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:821
+#: src/MessageModel.cpp:764
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:1367
+#: src/MessageModel.cpp:1305
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1370
+#: src/MessageModel.cpp:1308
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -622,39 +622,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:512
+#: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "取消转发"
 
-#: src/qml/ChatPage.qml:527
+#: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:578
+#: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:782
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:786
+#: src/qml/ChatPage.qml:791
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2057,17 +2057,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "没有可用的相机"
 
-#: src/qml/elements/ChatMessage.qml:211
+#: src/qml/elements/ChatMessage.qml:210
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "剧透"
 
-#: src/qml/elements/ChatMessage.qml:431
+#: src/qml/elements/ChatMessage.qml:493
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "新的"
 
-#: src/qml/elements/ChatMessage.qml:459
+#: src/qml/elements/ChatMessage.qml:521
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2115,10 +2115,10 @@ msgstr "编辑"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
-msgid "Mark as first unread"
-msgstr "标记为第一个未读"
+msgid "Mark"
+msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:163
+#: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "从此设备移除"
@@ -2806,38 +2806,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "仅显示具有所选标签的聊天"
 
-#: src/qml/elements/RosterItemDelegate.qml:73
+#: src/qml/elements/RosterItemDelegate.qml:74
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "已删除"
 
-#: src/qml/elements/RosterItemDelegate.qml:86
+#: src/qml/elements/RosterItemDelegate.qml:88
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "还没有消息"
 
-#: src/qml/elements/RosterItemDelegate.qml:102
+#: src/qml/elements/RosterItemDelegate.qml:104
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
-#: src/qml/elements/RosterItemDelegate.qml:105
+#: src/qml/elements/RosterItemDelegate.qml:107
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
-#: src/qml/elements/RosterItemDelegate.qml:109
+#: src/qml/elements/RosterItemDelegate.qml:111
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消置顶"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "置顶"
@@ -3350,7 +3350,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterModel.cpp:736
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -3384,3 +3384,7 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "标记为第一个未读"

@@ -399,61 +399,61 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageController.cpp:277
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:649
+#: src/MessageController.cpp:645
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1064
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:272
+#: src/MessageModel.cpp:273
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:274
+#: src/MessageModel.cpp:275
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:276
+#: src/MessageModel.cpp:277
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:278
+#: src/MessageModel.cpp:279
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:638 src/MessageModel.cpp:736
+#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:821
+#: src/MessageModel.cpp:764
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1367
+#: src/MessageModel.cpp:1305
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1370
+#: src/MessageModel.cpp:1308
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -621,12 +621,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:512
+#: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:527
+#: src/qml/ChatPage.qml:528
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -634,29 +634,29 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "시작하려면 대화 선택"
 
-#: src/qml/ChatPage.qml:578
+#: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
-#: src/qml/ChatPage.qml:775
+#: src/qml/ChatPage.qml:780
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/qml/ChatPage.qml:782
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
-#: src/qml/ChatPage.qml:786
+#: src/qml/ChatPage.qml:791
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2075,17 +2075,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "카메라를 사용할 수 없음"
 
-#: src/qml/elements/ChatMessage.qml:211
+#: src/qml/elements/ChatMessage.qml:210
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/qml/elements/ChatMessage.qml:431
+#: src/qml/elements/ChatMessage.qml:493
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "새로운 항목"
 
-#: src/qml/elements/ChatMessage.qml:459
+#: src/qml/elements/ChatMessage.qml:521
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2133,10 +2133,10 @@ msgstr "편집"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
-msgid "Mark as first unread"
-msgstr "첫 읽지 않은 상태로 표시"
+msgid "Mark"
+msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:163
+#: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "이 장치에서 삭제"
@@ -2824,38 +2824,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "선택한 레이블이 있는 대화만 표시"
 
-#: src/qml/elements/RosterItemDelegate.qml:73
+#: src/qml/elements/RosterItemDelegate.qml:74
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: src/qml/elements/RosterItemDelegate.qml:86
+#: src/qml/elements/RosterItemDelegate.qml:88
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "아직 메시지 없음"
 
-#: src/qml/elements/RosterItemDelegate.qml:102
+#: src/qml/elements/RosterItemDelegate.qml:104
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "초안:"
 
-#: src/qml/elements/RosterItemDelegate.qml:105
+#: src/qml/elements/RosterItemDelegate.qml:107
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "나:"
 
-#: src/qml/elements/RosterItemDelegate.qml:109
+#: src/qml/elements/RosterItemDelegate.qml:111
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "고정 해제"
 
-#: src/qml/elements/RosterItemDelegate.qml:215
+#: src/qml/elements/RosterItemDelegate.qml:226
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "고정"
@@ -3371,7 +3371,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "메모"
 
-#: src/RosterModel.cpp:736
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -3405,6 +3405,10 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "첫 읽지 않은 상태로 표시"
 
 #~ msgctxt "AccountMigrationController|"
 #~ msgid ""
