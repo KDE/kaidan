@@ -150,24 +150,24 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -175,7 +175,28 @@ msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Pripájam..."
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "Pripájam..."
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Pripájam..."
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -183,7 +204,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -191,17 +212,17 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr ""
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -209,22 +230,22 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Pripájam..."
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr ""
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -232,12 +253,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Pripájam..."
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -3234,18 +3255,18 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "O aplikácii"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -3253,7 +3274,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Nepodarilo sa uložiť súbor: %1"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"

@@ -181,7 +181,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "伺服器上的裝置"
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -191,18 +191,18 @@ msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr "您未連線 — 訊息將在連線後傳送或接收"
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "忽略"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 #| msgctxt "NewMedia|"
 #| msgid "Initializing…"
@@ -210,7 +210,28 @@ msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "初始化中…"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 could not be removed"
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "%1 無法移除"
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "連線中…"
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -218,7 +239,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -230,27 +251,27 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒絕"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允許"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "允許中…"
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 #, fuzzy
 #| msgctxt "KeyAuthenticationPage|"
 #| msgid "Unverified contact devices"
@@ -258,7 +279,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "未驗證的聯絡人的裝置"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -266,7 +287,7 @@ msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "開啟註冊網頁位址"
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -274,12 +295,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "無法新增 %1：%2"
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -3728,7 +3749,7 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -3736,7 +3757,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -3744,7 +3765,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -3752,7 +3773,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"

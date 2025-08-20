@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-24 20:15+0300\n"
+"PO-Revision-Date: 2025-08-19 16:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: src/Account.cpp:447
 msgctxt "Connection|"
@@ -137,30 +137,51 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
 "Hesabınız etkin değil — İletiler, etkinleştirildiğinde gönderilir ve alınır"
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Kapat"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Etkinleştiriliyor…"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Could not connect to the server."
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "Sunucuya bağlanılamadı."
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Bağlanıyor…"
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -170,7 +191,7 @@ msgstr ""
 "%1; uygunluk, aygıtlar ve diğer kişisel bilgilerinizi içeren verinizi almak "
 "ister%2"
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -180,47 +201,47 @@ msgstr ""
 "Kişiniz %1 (%2) artık %3 (%4) ve uygunluk, aygıtlar ve başka kişisel "
 "bilgilerinizi yeniden almak istiyor%5"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Reddet"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "İzin Ver"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "İzin veriliyor…"
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Bu grupta kullanıcı yok"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Kişileri davet et"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Davet alanı açılıyor"
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Grup silinmiş"
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Ayrıl"
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
@@ -2164,7 +2185,7 @@ msgstr "Düzenle"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "İmle"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
@@ -2987,24 +3008,24 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Hakkında"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"

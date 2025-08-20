@@ -202,7 +202,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Устройства на серверах"
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -214,18 +214,18 @@ msgstr ""
 "Подключение отсутствует — отправка и получение сообщений будут выполняться "
 "после подключения"
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Отклонить"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 #| msgctxt "NewMedia|"
 #| msgid "Initializing…"
@@ -233,7 +233,28 @@ msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Инициализация…"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "Не удалось подключиться к серверу."
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Подключение…"
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -243,7 +264,7 @@ msgstr ""
 "%1 запрашивает ваши личные данные, такие как сведения о доступности и "
 "устройствах, а также другие личные сведения%2"
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -253,47 +274,47 @@ msgstr ""
 "Контакт %1 (%2) теперь %3 (%4) и снова запрашивает ваши личные данные, такие "
 "как сведения о доступности и устройствах, а также другие личные сведения%5"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Отказаться"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Разрешить"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Разрешение…"
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "В этой группе нет пользователей"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Пригласить контакты"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Открытие области приглашений"
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Эта группа удалена"
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Выйти"
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Выход из группового чата"
@@ -3193,7 +3214,7 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "О программе"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -3201,7 +3222,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Выполнена разблокировка %1"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -3209,7 +3230,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Отменить"
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -3217,7 +3238,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Не удалось заблокировать %1: %2"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"

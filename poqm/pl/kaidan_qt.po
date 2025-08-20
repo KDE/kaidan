@@ -141,7 +141,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Urządzenia na serwerach"
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
@@ -149,23 +149,44 @@ msgstr ""
 "Twoje konto nie jest włączone - Wiadomości będzie można wysyłać i odbierać "
 "dopiero po jego włączeniu"
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Odrzuć"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "Włącz"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Włączanie…"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Could not connect to the server."
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "Nie udało połączyć się z serwerem."
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Łączenie…"
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -175,7 +196,7 @@ msgstr ""
 "%1 chciałby otrzymać twoje dane osobiste takie jak dostępność, urządzenia i "
 "inne dane osobowe %2"
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -185,47 +206,47 @@ msgstr ""
 "Twój kontakt %1 (%2) jest teraz %3 (%4) i chciałby ponownie otrzymać twoje "
 "dane osobiste takie jak dostępność, urządzenia i inne dane osobowe %5"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Odmów"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Zezwól"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Wczytywanie…"
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Ta grupa nie ma żadnych użytkowników"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Zaproś kontakty"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Otwieranie obszaru zaproszeń"
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Ta grupa została usunięta"
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Opuść"
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Opuszczanie rozmowy grupowej"
@@ -3006,24 +3027,24 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "O programie"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Odblokowany %1"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Cofnij"
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Nie można zablokować %1: %2"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"

@@ -162,7 +162,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:233
+#: src/ChatHintModel.cpp:256
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Could not correct message, as a result of not being connected."
@@ -171,18 +171,18 @@ msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr "Konnte Nachricht nicht korrigieren, da Sie nicht verbunden sind."
 
-#: src/ChatHintModel.cpp:234 src/ChatHintModel.cpp:278
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 #| msgctxt "NewMedia|"
 #| msgid "Initializing…"
@@ -190,7 +190,26 @@ msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Wird initialisiert ..."
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:266
+#, fuzzy
+msgctxt "ChatHintModel|"
+msgid "Could not connect"
+msgstr "Konnte nicht mit dem Server verbinden."
+
+#: src/ChatHintModel.cpp:267
+msgctxt "ChatHintModel|"
+msgid "Show error"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Verbindung wird aufgebaut ..."
+
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -198,7 +217,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:254
+#: src/ChatHintModel.cpp:287
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -206,17 +225,17 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr ""
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:296
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -224,12 +243,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Aufnahme läuft ..."
 
-#: src/ChatHintModel.cpp:277
+#: src/ChatHintModel.cpp:310
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:311
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -237,12 +256,12 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Kontakt löschen"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
 
-#: src/ChatHintModel.cpp:298
+#: src/ChatHintModel.cpp:331
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -250,12 +269,12 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/ChatHintModel.cpp:299
+#: src/ChatHintModel.cpp:332
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:301
+#: src/ChatHintModel.cpp:334
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -3652,18 +3671,18 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Über"
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:451
+#: src/qml/GlobalDrawer.qml:455
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:458
+#: src/qml/GlobalDrawer.qml:462
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -3671,7 +3690,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Die Datei „%1“ kann nicht heruntergeladen werden"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:466
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
