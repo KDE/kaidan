@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-13 21:11+0400\n"
+"PO-Revision-Date: 2025-08-20 21:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -64,7 +64,7 @@ msgstr "الخادم غير متصل أو محظور بواسطة جدار ال�
 #: src/Account.cpp:474
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
-msgstr "ميفاق المصادقة غير مدعوم من الخادم."
+msgstr "ميفاق الاستيثاق غير متاح على الخادم."
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -157,22 +157,16 @@ msgid "Enabling…"
 msgstr "يمكن…"
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "تعذّر الاتّصال بالخادم"
+msgstr "تعذّر الاتّصال"
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "اعرض خطأ"
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "يتّصل…"
@@ -573,7 +567,7 @@ msgstr "علّم كمقروءة"
 #: src/OmemoController.cpp:112
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr "لا يمكن إعداد التشفير من طرف إلى طرف عبر OMEMO 2"
+msgstr "لا يمكن إعداد التعمية من طرف إلى طرف عبر OMEMO 2"
 
 #: src/PresenceCache.cpp:36
 msgctxt "QObject|"
@@ -2152,7 +2146,7 @@ msgstr "حرّر"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "أشّر"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
