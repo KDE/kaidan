@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-24 08:28+0200\n"
+"PO-Revision-Date: 2025-08-20 18:56+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:447
@@ -166,22 +166,16 @@ msgid "Enabling…"
 msgstr "Abilitazione..."
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Impossibile connettersi al server."
+msgstr "Impossibile connettersi"
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "Mostra l'errore"
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connessione…"
@@ -2212,7 +2206,7 @@ msgstr "Modifica"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "Contrassegna"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
