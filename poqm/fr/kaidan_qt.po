@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-06-22 10:22+0200\n"
+"PO-Revision-Date: 2025-08-22 09:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:447
@@ -172,22 +172,16 @@ msgid "Enabling…"
 msgstr "Activation en cours..."
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Impossible de se connecter au serveur."
+msgstr "Impossible de se connecter"
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "Afficher l’erreur"
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connexion en cours..."
@@ -668,15 +662,12 @@ msgstr "Rechercher"
 #: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Annuler la redirection"
 
 #: src/qml/ChatPage.qml:528
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Veuillez sélectionner un salon pour démarrer"
+msgstr "Sélectionner un salon pour redirection du message"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -2238,12 +2229,9 @@ msgid "Quote"
 msgstr "Citer"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
-#, fuzzy
-#| msgctxt "ForwardButton|"
-#| msgid "Navigate Forward"
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Naviguer en avant"
+msgstr "Redirection"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
@@ -2258,7 +2246,7 @@ msgstr "Modifier"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "Marque"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
