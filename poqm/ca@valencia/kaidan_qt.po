@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-07-23 12:08+0200\n"
+"PO-Revision-Date: 2025-08-20 10:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -179,22 +179,16 @@ msgid "Enabling…"
 msgstr "S'està activant…"
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "No s'ha pogut connectar amb el servidor."
+msgstr "No s'ha pogut connectar"
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "Mostra l'error"
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
@@ -343,27 +337,27 @@ msgstr "Envia la ubicació"
 #: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr "Seleccioneu un fitxer"
+msgstr "Trieu un fitxer"
 
 #: src/MediaUtils.cpp:369
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr "Seleccioneu una imatge"
+msgstr "Trieu una imatge"
 
 #: src/MediaUtils.cpp:371
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr "Seleccioneu un vídeo"
+msgstr "Trieu un vídeo"
 
 #: src/MediaUtils.cpp:373
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Seleccioneu un fitxer d'àudio"
+msgstr "Trieu un fitxer d'àudio"
 
 #: src/MediaUtils.cpp:375
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr "Seleccioneu un document"
+msgstr "Trieu un document"
 
 #: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
@@ -674,7 +668,7 @@ msgstr "Cancel·la el reenviament"
 #: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Seleccioneu un xat al qual reenviar el missatge"
+msgstr "Trieu un xat al qual reenviar el missatge"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -1684,7 +1678,7 @@ msgstr "Invita els contactes seleccionats"
 #: src/qml/details/GroupChatDetailsContent.qml:127
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
-msgstr "Seleccioneu un contacte com a mínim"
+msgstr "Trieu un contacte com a mínim"
 
 #: src/qml/details/GroupChatDetailsContent.qml:141
 msgctxt "GroupChatDetailsContent|"
@@ -1963,7 +1957,7 @@ msgstr "Altres"
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr "Seleccionats %1/%2"
+msgstr "Triats %1/%2"
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format
@@ -2220,7 +2214,7 @@ msgstr "Edita"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "Marca"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
@@ -2432,7 +2426,7 @@ msgstr "Copia"
 #: src/qml/elements/CustomConnectionSettings.qml:28
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr "Nom de l'amfitrió:"
+msgstr "Nom del servidor:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:32
 msgctxt "CustomConnectionSettings|"
@@ -2974,7 +2968,7 @@ msgstr "Grava un vídeo"
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Seleccioneu un xat per a iniciar"
+msgstr "Trieu un xat per a iniciar"
 
 #: src/qml/GlobalDrawer.qml:54
 msgctxt "GlobalDrawer|"
@@ -3252,7 +3246,7 @@ msgstr "Obri la pàgina web de detalls del proveïdor"
 #: src/qml/registration/ProviderPage.qml:211
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Seleccioneu"
+msgstr "Trieu"
 
 #: src/qml/registration/ProviderPage.qml:212
 msgctxt "ProviderPage|"
@@ -3505,7 +3499,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marca com a primer sense llegir"
