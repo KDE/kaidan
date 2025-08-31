@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-10 22:48+0300\n"
+"PO-Revision-Date: 2025-08-23 09:23+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:447
@@ -174,9 +174,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
@@ -653,15 +650,12 @@ msgstr "Etsi"
 #: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Peru edentäminen"
 
 #: src/qml/ChatPage.qml:528
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Aloita valitsemalla keskustelu"
+msgstr "Edennä viesti valitsemalla keskustelu"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -2182,7 +2176,7 @@ msgstr "Lainaa"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "Edennä"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
