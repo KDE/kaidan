@@ -1034,25 +1034,21 @@ DetailsContent {
 			title: qsTr("Migration")
 		}
 
-		ColumnLayout {
-			spacing: 0
+		BusyIndicatorFormButton {
+			id: migrateButton
+			idleText: qsTr("Migrate account")
+			busyText: qsTr("Preparing account migration…")
+			busy: AccountController.migrating
+			description: busy ? qsTr("This may take a while") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
+			idleIconSource: "edit-copy-symbolic"
+			onClicked: AccountController.startMigration(root.account)
 
-			BusyIndicatorFormButton {
-				id: migrateButton
-				idleText: qsTr("Migrate account")
-				busyText: qsTr("Preparing account migration…")
-				busy: AccountController.migrating
-				description: busy ? qsTr("This may take a while") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
-				idleIconSource: "edit-copy-symbolic"
-				onClicked: AccountController.startMigration(root.account)
+			Connections {
+				target: MainController
+				enabled: root.dialog
 
-				Connections {
-					target: MainController
-					enabled: root.dialog
-
-					function onOpenStartPageRequested() {
-						root.dialog.close()
-					}
+				function onOpenStartPageRequested() {
+					root.dialog.close()
 				}
 			}
 		}
