@@ -23,8 +23,6 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="notifications-disabled-symbolic.svg">3rdparty/breeze-icons/icons/actions/22/notifications-disabled.svg</file>
 		<file alias="system-users-symbolic.svg">3rdparty/breeze-icons/icons/actions/22/system-users.svg</file>
 		<file alias="resource-group-new.svg">3rdparty/breeze-icons/icons/actions/22/resource-group-new.svg</file>
-		<file alias="call-start-symbolic.svg">3rdparty/breeze-icons/icons/actions/22/call-start-symbolic.svg</file>
-		<file alias="call-stop-symbolic.svg">3rdparty/breeze-icons/icons/actions/22/call-stop-symbolic.svg</file>
 	</qresource>
 
 	<qresource prefix="/icons/breeze/actions/symbolic">
@@ -58,6 +56,8 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="view-more-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/view-more-symbolic.svg</file>
 		<file alias="view-refresh-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/view-refresh-symbolic.svg</file>
 		<file alias="filter-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/filter-symbolic.svg</file>
+		<file alias="call-start-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/call-start-symbolic.svg</file>
+		<file alias="call-stop-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/call-stop-symbolic.svg</file>
 	</qresource>
 
 	<qresource prefix="/icons/breeze/devices/symbolic">
@@ -76,6 +76,10 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="application-octet-stream.svg">3rdparty/breeze-icons/icons/mimetypes/22/application-octet-stream.svg</file>
 	</qresource>
 
+    <qresource prefix="/icons/breeze/status/22">
+		<file alias="camera-off.svg">3rdparty/breeze-icons/icons/status/22/camera-off.svg</file>
+	</qresource>
+
 	<qresource prefix="/icons/breeze/status/symbolic">
 		<file alias="avatar-default-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/avatar-default-symbolic.svg</file>
 		<file alias="security-low-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/security-low-symbolic.svg</file>
@@ -89,7 +93,6 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="computer-fail-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/computer-fail-symbolic.svg</file>
 		<file alias="starred-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/starred-symbolic.svg</file>
 		<file alias="non-starred-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/non-starred-symbolic.svg</file>
-		<file alias="camera-off-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/camera-off-symbolic.svg</file>
 	</qresource>
 
 	<qresource prefix="/icons/breeze/emblems/symbolic">
