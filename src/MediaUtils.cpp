@@ -593,7 +593,7 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
         return makeReadyFuture<std::shared_ptr<Result>>(std::move(result));
     }
 
-    QFutureInterface<std::shared_ptr<Result>> interface;
+    auto promise = std::make_shared<QPromise<std::shared_ptr<Result>>>();
 
     // create job
     auto *job =
@@ -618,21 +618,21 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
                                                 .data = thumbnailData,
                                                 .mimeType = QMimeDatabase().mimeTypeForData(thumbnailData)});
 
-        interface.reportResult(result);
-        interface.reportFinished();
+        promise->addResult(result);
+        promise->finish();
     });
 
-    connect(job, &KIO::PreviewJob::failed, [interface, result]() mutable {
-        interface.reportResult(result);
-        interface.reportFinished();
+    connect(job, &KIO::PreviewJob::failed, [promise, result]() mutable {
+        promise->addResult(result);
+        promise->finish();
     });
 
-    return interface.future();
+    return promise->future();
 }
 
 QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount)
 {
-    QFutureInterface<QByteArray> interface;
+    auto promise = std::make_shared<QPromise<QByteArray>>();
 
     KFileItemList items{KFileItem{
         localFileUrl,
@@ -644,18 +644,18 @@ QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, cons
     auto *job = new KIO::PreviewJob(items, QSize(edgePixelCount, edgePixelCount), &allPlugins);
     job->setAutoDelete(true);
 
-    QObject::connect(job, &KIO::PreviewJob::gotPreview, [interface](auto, const QPixmap &preview) mutable {
-        reportFinishedResult(interface, MediaUtils::encodeImageThumbnail(preview));
+    QObject::connect(job, &KIO::PreviewJob::gotPreview, [promise](auto, const QPixmap &preview) mutable {
+        reportFinishedResult(*promise, MediaUtils::encodeImageThumbnail(preview));
     });
 
-    QObject::connect(job, &KIO::PreviewJob::failed, [interface](const KFileItem &item) mutable {
+    QObject::connect(job, &KIO::PreviewJob::failed, [promise](const KFileItem &item) mutable {
         qCDebug(KAIDAN_CORE_LOG) << "Could not generate a thumbnail for" << item.url();
-        reportFinishedResult(interface, {});
+        reportFinishedResult(*promise, {});
     });
 
     job->start();
 
-    return interface.future();
+    return promise->future();
 }
 
 #include "moc_MediaUtils.cpp"

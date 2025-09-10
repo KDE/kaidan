@@ -263,9 +263,9 @@ auto FileSharingController::sendFiles(QList<File> files, bool encrypt) -> QXmppT
 
 auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<UploadResult>
 {
-    QFutureInterface<UploadResult> interface;
+    auto promise = std::make_shared<QPromise<UploadResult>>();
 
-    runOnThread(m_manager, [this, file, encrypt, interface]() mutable {
+    runOnThread(m_manager, [this, file, encrypt, promise]() mutable {
         auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
                                 : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
 
@@ -280,7 +280,7 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
             }
         });
 
-        connect(upload.get(), &QXmppFileUpload::finished, this, [this, upload, id = file.id, interface]() mutable {
+        connect(upload.get(), &QXmppFileUpload::finished, this, [this, upload, id = file.id, promise]() mutable {
             auto result = upload->result();
 
             FileProgressCache::instance().reportProgress(id, std::nullopt);
@@ -289,14 +289,14 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
                 Q_EMIT errorOccured(id, std::get<QXmppError>(result));
             }
 
-            interface.reportResult({id, result});
-            interface.reportFinished();
+            promise->addResult({id, result});
+            promise->finish();
             // reduce ref count
             upload.reset();
         });
     });
 
-    return interface.future();
+    return promise->future();
 }
 
 void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)

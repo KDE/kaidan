@@ -21,10 +21,11 @@ using QFutureValueType = decltype(qFutureValueType(Future()));
 template<typename T>
 QFuture<T> makeReadyFuture(T &&value)
 {
-    QFutureInterface<T> interface(QFutureInterfaceBase::Started);
-    interface.reportResult(std::move(value));
-    interface.reportFinished();
-    return interface.future();
+    QPromise<T> promise;
+    promise.start();
+    promise.addResult(std::move(value));
+    promise.finish();
+    return promise.future();
 }
 
 template<typename T>
@@ -43,10 +44,10 @@ inline QXmppTask<void> makeReadyTask()
 }
 
 template<typename T>
-void reportFinishedResult(QFutureInterface<T> &interface, const T &result)
+void reportFinishedResult(QPromise<T> &promise, const T &result)
 {
-    interface.reportResult(result);
-    interface.reportFinished();
+    promise.addResult(result);
+    promise.finish();
 }
 
 // Runs a function on targetObject's thread and returns the result via QFuture.
@@ -55,18 +56,18 @@ auto runAsync(QObject *targetObject, Function function)
 {
     using ValueType = std::invoke_result_t<Function>;
 
-    QFutureInterface<ValueType> interface;
-    QMetaObject::invokeMethod(targetObject, [interface, function = std::move(function)]() mutable {
-        interface.reportStarted();
+    auto promise = std::make_shared<QPromise<ValueType>>();
+    QMetaObject::invokeMethod(targetObject, [promise, function = std::move(function)]() mutable {
+        promise->start();
         if constexpr (std::is_same_v<ValueType, void>) {
             function();
         }
         if constexpr (!std::is_same_v<ValueType, void>) {
-            interface.reportResult(function());
+            promise->addResult(function());
         }
-        interface.reportFinished();
+        promise->finish();
     });
-    return interface.future();
+    return promise->future();
 }
 
 // Runs a function on targetObject's thread and reports the result on callerObject's thread.
@@ -161,7 +162,7 @@ QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
     }
 
     struct State {
-        QFutureInterface<QList<T>> interface;
+        QPromise<QList<T>> promise;
         QObject *context = nullptr;
         QList<T> results;
         QList<QFuture<T>> futures;
@@ -178,8 +179,8 @@ QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
                     joinOne();
                 });
             } else {
-                interface.reportResult(results);
-                interface.reportFinished();
+                promise.addResult(results);
+                promise.finish();
                 // release
                 self.reset();
             }
@@ -192,7 +193,7 @@ QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
     state->futures = futures;
     state->self = state;
 
-    auto future = state->interface.future();
+    auto future = state->promise.future();
     state->joinOne();
     return future;
 }
@@ -204,15 +205,15 @@ QFuture<void> joinVoidFutures(QObject *context, QList<QFuture<T>> &&futures)
     int futureCount = futures.size();
     auto finishedFutureCount = std::make_shared<int>();
 
-    QFutureInterface<void> interface;
+    auto promise = std::make_shared<QPromise<void>>();
 
     for (auto future : futures) {
         future.then(context, [=]() mutable {
             if (++(*finishedFutureCount) == futureCount) {
-                interface.reportFinished();
+                promise->finish();
             }
         });
     }
 
-    return interface.future();
+    return promise->future();
 }

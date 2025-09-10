@@ -18,19 +18,19 @@ private:
 
 void FutureUtilsTest::testJoin()
 {
-    QFutureInterface<int> i1;
-    QFutureInterface<int> i2;
-    QFutureInterface<int> i3;
+    QPromise<int> i1;
+    QPromise<int> i2;
+    QPromise<int> i3;
 
     auto futures = QList{i1.future(), i2.future(), i3.future()};
     auto joinedFuture = join(this, futures);
 
-    i2.reportResult(10);
-    i2.reportFinished();
-    i3.reportResult(11);
-    i3.reportFinished();
-    i1.reportResult(9);
-    i1.reportFinished();
+    i2.addResult(10);
+    i2.finish();
+    i3.addResult(11);
+    i3.finish();
+    i1.addResult(9);
+    i1.finish();
 
     while (!joinedFuture.isFinished()) {
         QCoreApplication::processEvents();

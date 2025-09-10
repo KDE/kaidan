@@ -607,14 +607,15 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 
 QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
 {
-    QFutureInterface<QList<int>> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<QList<int>>>();
+    promise->start();
 
     // If desired, only set the new message as the current last message if it is newer than
     // the current one or at the same age.
     // That makes it possible to use the previous message as the new last message if the current
     // last message is empty.
     if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewerOrAtSameAge && itr->lastMessageDateTime > message.timestamp)) {
-        reportFinishedResult(interface, {});
+        reportFinishedResult(*promise, {});
     }
 
     // The new message is only set as the current last message if they are different and there
@@ -638,12 +639,12 @@ QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &
             int(LastMessageDateTimeRole),
         };
 
-        reportFinishedResult(interface, std::move(changedRoles));
+        reportFinishedResult(*promise, std::move(changedRoles));
     } else {
-        reportFinishedResult(interface, {});
+        reportFinishedResult(*promise, {});
     }
 
-    return interface.future();
+    return promise->future();
 }
 
 void RosterModel::updateOnMessageChange(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles)

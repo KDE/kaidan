@@ -91,7 +91,8 @@ MessageController::MessageController(AccountSettings *accountSettings,
 
 QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message, Encryption::Enum encryption, const QList<QString> &encryptionJids)
 {
-    QFutureInterface<QXmpp::SendResult> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<QXmpp::SendResult>>();
+    promise->start();
 
     const auto recipientJid = message.to();
 
@@ -104,31 +105,31 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message, Encry
             message.addHint(QXmppMessage::Store);
         }
 
-        runOnThread(m_client, [this, interface, message]() mutable {
+        runOnThread(m_client, [this, promise, message]() mutable {
             m_client->send(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
-                reportFinishedResult(interface, result);
+                reportFinishedResult(*promise, result);
             });
         });
     } else {
         if (encryptionJids.isEmpty()) {
-            runOnThread(m_client, [this, interface, message]() mutable {
+            runOnThread(m_client, [this, promise, message]() mutable {
                 m_client->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
-                    reportFinishedResult(interface, result);
+                    reportFinishedResult(*promise, result);
                 });
             });
         } else {
             QXmppSendStanzaParams params;
             params.setEncryptionJids(encryptionJids);
 
-            runOnThread(m_client, [this, interface, message, params]() mutable {
+            runOnThread(m_client, [this, promise, message, params]() mutable {
                 m_client->sendSensitive(std::move(message), params).then(this, [=](QXmpp::SendResult &&result) mutable {
-                    reportFinishedResult(interface, result);
+                    reportFinishedResult(*promise, result);
                 });
             });
         }
     }
 
-    return interface.future();
+    return promise->future();
 }
 
 void MessageController::sendMessageWithUndecidedEncryption(Message message)
@@ -316,7 +317,8 @@ void MessageController::sendPendingMessage(Message message)
 
 QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, bool isGroupChat, const QString &oldestMessageStanzaId)
 {
-    QFutureInterface<bool> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<bool>>();
+    promise->start();
 
     QXmppResultSetQuery queryLimit;
     queryLimit.setMax(MAM_BACKLOG_FETCH_COUNT);
@@ -329,10 +331,10 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
             return std::pair{m_mamManager->retrieveMessages(isGroupChat ? jid : QString{}, {}, isGroupChat ? QString{} : jid, {}, {}, queryLimit), this};
         },
         this,
-        [this, interface, jid](QXmppMamManager::RetrieveResult &&result) mutable {
+        [this, promise, jid](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
                 qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve backlog messages:" << error->description;
-                reportFinishedResult(interface, false);
+                reportFinishedResult(*promise, false);
             } else {
                 const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
                 const auto messages = retrievedMessages.messages;
@@ -341,11 +343,11 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
                     handleMessage(message, MessageOrigin::MamBacklog);
                 }
 
-                reportFinishedResult(interface, retrievedMessages.result.complete());
+                reportFinishedResult(*promise, retrievedMessages.result.complete());
             }
         });
 
-    return interface.future();
+    return promise->future();
 }
 
 void MessageController::sendReadMarker(const QString &chatJid, const QString &messageId, Encryption::Enum encryption, const QList<QString> &encryptionJids)

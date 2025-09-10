@@ -313,23 +313,24 @@ AccountMigrationController::~AccountMigrationController() = default;
 
 QFuture<bool> AccountMigrationController::startMigration(Account *oldAccount)
 {
-    QFutureInterface<bool> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<bool>>();
+    promise->start();
 
     m_oldAccount = oldAccount;
     auto *migrationManager = m_oldAccount->clientWorker()->accountMigrationManager();
 
-    connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this, interface](const QXmppError &error) mutable {
+    connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this, promise](const QXmppError &error) mutable {
         informUser(error.description);
-        reportFinishedResult(interface, false);
+        reportFinishedResult(*promise, false);
     });
 
     if (m_oldAccount->connection()->state() == Enums::ConnectionState::StateConnected) {
         if (const auto accountFilePath = diskAccountFilePath(); QFile::exists(accountFilePath)) {
             if (restoreAccountDataFromDisk(accountFilePath, m_exportData)) {
-                reportFinishedResult(interface, true);
+                reportFinishedResult(*promise, true);
             } else {
                 informUser(tr("Account could not be migrated: Could not load exported account data"));
-                reportFinishedResult(interface, false);
+                reportFinishedResult(*promise, false);
             }
         } else {
             callRemoteTask(
@@ -338,29 +339,30 @@ QFuture<bool> AccountMigrationController::startMigration(Account *oldAccount)
                     return std::pair{migrationManager->exportData(), this};
                 },
                 this,
-                [this, interface](QXmppAccountMigrationManager::Result<QXmppExportData> &&result) mutable {
+                [this, promise](QXmppAccountMigrationManager::Result<QXmppExportData> &&result) mutable {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
                         informUser(error->description);
-                        reportFinishedResult(interface, false);
+                        reportFinishedResult(*promise, false);
                     } else {
                         m_exportData = std::move(std::get<QXmppExportData>(std::move(result)));
                         m_exportData.setExtension(exportClientSettings());
-                        reportFinishedResult(interface, true);
+                        reportFinishedResult(*promise, true);
                     }
                 });
         }
 
     } else {
         informUser(tr("Account could not be migrated: You need to be connected"));
-        reportFinishedResult(interface, false);
+        reportFinishedResult(*promise, false);
     }
 
-    return interface.future();
+    return promise->future();
 }
 
 QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
 {
-    QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<void>>();
+    promise->start();
 
     auto *migrationManager = newAccount->clientWorker()->accountMigrationManager();
 
@@ -370,11 +372,11 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
             return std::pair{migrationManager->importData(exportData), this};
         },
         this,
-        [this, interface, newAccount](auto &&result) mutable {
+        [this, promise, newAccount](auto &&result) mutable {
             if (const auto accountFilePath = diskAccountFilePath(); const auto error = std::get_if<QXmppError>(&result)) {
                 saveAccountDataToDisk(accountFilePath, m_exportData);
                 informUser(error->description);
-                interface.reportFinished();
+                promise->finish();
             } else {
                 if (QFile::exists(accountFilePath)) {
                     QFile::remove(accountFilePath);
@@ -382,7 +384,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
 
                 if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
                     importClientSettings(newAccount, *oldClientSettings)
-                        .then(this, [this, interface, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
+                        .then(this, [this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
                             auto *movedManager = m_oldAccount->clientWorker()->movedManager();
 
                             callRemoteTask(
@@ -391,12 +393,12 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
                                     return std::pair{movedManager->publishStatement(newAccountJid), this};
                                 },
                                 this,
-                                [this, interface, newAccount, oldContacts](auto &&result) mutable {
+                                [this, promise, newAccount, oldContacts](auto &&result) mutable {
                                     if (const auto error = std::get_if<QXmppError>(&result)) {
                                         informUser(error->description);
-                                        interface.reportFinished();
+                                        promise->finish();
                                     } else {
-                                        notifyContacts(newAccount, oldContacts).then(this, [this, interface, newAccount](auto &&result) mutable {
+                                        notifyContacts(newAccount, oldContacts).then(this, [this, promise, newAccount](auto &&result) mutable {
                                             if (const auto error = std::get_if<QXmppError>(&result)) {
                                                 informUser(error->description);
                                             } else {
@@ -405,18 +407,18 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
                                                                .arg(newAccount->settings()->displayName()));
                                             }
 
-                                            interface.reportFinished();
+                                            promise->finish();
                                         });
                                     }
                                 });
                         });
                 } else {
-                    interface.reportFinished();
+                    promise->finish();
                 }
             }
         });
 
-    return interface.future();
+    return promise->future();
 }
 
 void AccountMigrationController::informUser(const QString &notification)
@@ -503,7 +505,7 @@ ClientSettings AccountMigrationController::exportClientSettings()
 
 QFuture<void> AccountMigrationController::importClientSettings(Account *newAccount, const ClientSettings &oldClientSettings)
 {
-    QFutureInterface<void> interface;
+    auto promise = std::make_shared<QPromise<void>>();
     const auto newAccountJid = newAccount->settings()->jid();
 
     AccountDb::instance()
@@ -549,7 +551,7 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
                                 account.geoLocationMapService = *settings.geoLocationMapService;
                             }
                         })
-        .then(this, [interface, newAccountJid, oldClientSettings, this]() mutable {
+        .then(this, [promise, newAccountJid, oldClientSettings, this]() mutable {
             QList<QFuture<void>> futures;
             const auto oldRosterItemSettings = oldClientSettings.roster;
 
@@ -569,34 +571,35 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
                     futures.append(updateRosterItem());
                 } else {
                     auto updateRosterItemOnceAdded = [this, newAccountJid, itemSettings, updateRosterItem]() {
-                        QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+                        auto promise = std::make_shared<QPromise<void>>();
+                        promise->start();
                         auto *context = new QObject(this);
 
                         connect(RosterDb::instance(),
                                 &RosterDb::itemAdded,
                                 context,
-                                [context, interface, newAccountJid, jid = itemSettings.jid, updateRosterItem](const RosterItem &rosterItem) mutable {
+                                [context, promise, newAccountJid, jid = itemSettings.jid, updateRosterItem](const RosterItem &rosterItem) mutable {
                                     if (rosterItem.accountJid == newAccountJid && rosterItem.jid == jid) {
-                                        updateRosterItem().then(context, [context, interface]() mutable {
+                                        updateRosterItem().then(context, [context, promise]() mutable {
                                             context->deleteLater();
-                                            interface.reportFinished();
+                                            promise->finish();
                                         });
                                     }
                                 });
 
-                        return interface.future();
+                        return promise->future();
                     };
 
                     futures.append(updateRosterItemOnceAdded());
                 }
             }
 
-            joinVoidFutures(this, std::move(futures)).then([interface]() mutable {
-                interface.reportFinished();
+            joinVoidFutures(this, std::move(futures)).then([promise]() mutable {
+                promise->finish();
             });
         });
 
-    return interface.future();
+    return promise->future();
 }
 
 QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationController::notifyContacts(Account *newAccount, const QList<QString> &contactJids)

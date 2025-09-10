@@ -58,7 +58,8 @@ void AtmController::makeTrustDecisions(const QString &jid, const QList<QString> 
 
 QFuture<QXmpp::TrustLevel> AtmController::trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
 {
-    QFutureInterface<QXmpp::TrustLevel> interface(QFutureInterfaceBase::Started);
+    auto promise = std::make_shared<QPromise<QXmpp::TrustLevel>>();
+    promise->start();
 
     callRemoteTask(
         m_manager,
@@ -66,11 +67,11 @@ QFuture<QXmpp::TrustLevel> AtmController::trustLevel(const QString &encryption, 
             return std::pair{m_manager->trustLevel(encryption, keyOwnerJid, keyId), this};
         },
         this,
-        [interface](QXmpp::TrustLevel &&trustLevel) mutable {
-            reportFinishedResult(interface, std::move(trustLevel));
+        [promise](QXmpp::TrustLevel &&trustLevel) mutable {
+            reportFinishedResult(*promise, std::move(trustLevel));
         });
 
-    return interface.future();
+    return promise->future();
 }
 
 QList<QByteArray> AtmController::keyIdsFromHex(const QList<QString> &keyIds)
