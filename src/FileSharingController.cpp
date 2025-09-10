@@ -367,7 +367,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
                         return file.id == fileId;
                     });
 
-                    if (file != message.files.cend()) {
+                    if (file != message.files.end()) {
                         file->localFilePath = filePath;
                     }
                     // TODO: generate possibly missing metadata
@@ -388,7 +388,7 @@ void FileSharingController::deleteFile(const QString &chatJid, const QString &me
         auto it = find_if(message.files, [fileId](const auto &file) {
             return file.id == fileId;
         });
-        if (it != message.files.cend()) {
+        if (it != message.files.end()) {
             it->localFilePath.clear();
         }
     });
