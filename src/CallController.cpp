@@ -10,26 +10,46 @@
 #include <QXmppCall.h>
 #include <QXmppCallManager.h>
 #include <QXmppJingleMessageInitiationManager.h>
+#include <QXmppStunServer.h>
 #include <QXmppUtils.h>
 // Kaidan
-#include <KaidanCoreLog.h>
+#include "Account.h"
+#include "KaidanCoreLog.h"
+#include "MainController.h"
 
 using namespace Qt::Literals;
 
-CallController::CallController(QXmppCallManager *callManager, QXmppJingleMessageInitiationManager *jmiManager, QObject *parent)
+CallController::CallController(AccountSettings *accountSettings,
+                               QXmppCallManager *callManager,
+                               QXmppJingleMessageInitiationManager *jmiManager,
+                               QObject *parent)
     : QObject(parent)
+    , m_accountSettings(accountSettings)
     , m_callManager(callManager)
     , m_jmiManager(jmiManager)
 {
+    // m_callManager->setFallbackStunServers({{QHostAddress{u"stun.nextcloud.com"_s}, 443}});
+
+    connect(m_jmiManager, &QXmppJingleMessageInitiationManager::proposed, this, &CallController::handleCallProposed);
     connect(m_callManager, &QXmppCallManager::callReceived, this, &CallController::handleCallReceived);
+}
+
+bool CallController::callActive()
+{
+    return m_activeCall;
 }
 
 void CallController::call(const QString &chatJid, bool audioOnly)
 {
+    if (m_activeCall) {
+        return;
+    }
+
     // TODO: Use QXmppJingleMessageInitiationManager to let the callee accept the call via a specific resource.
 
     QXmppJingleRtpDescription description;
-    description.setMedia(audioOnly ? u"audio"_s : u"video"_s);
+    // description.setMedia(audioOnly ? u"audio"_s : u"video"_s);
+    description.setMedia(u"video"_s);
 
     m_jmiManager->propose(chatJid, description).then(this, [this, chatJid](QXmppJingleMessageInitiationManager::ProposeResult &&result) {
         if (auto *error = std::get_if<QXmppError>(&result)) {
@@ -49,9 +69,14 @@ void CallController::call(const QString &chatJid, bool audioOnly)
                 }
             });
 
-            connect(m_activeJmi.get(), &QXmppJingleMessageInitiation::proceeded, this, [this, chatJid](const QString &, const QString &callPartnerResource) {
-                m_activeCall = m_callManager->call(chatJid + u"/" + callPartnerResource).release();
+            connect(m_activeJmi.get(), &QXmppJingleMessageInitiation::ringing, this, [this, chatJid]() {
+                qCDebug(KAIDAN_CORE_LOG) << "[Call] Ringing on" << m_activeCall->jid() << "until they accept";
+            });
 
+            connect(m_activeJmi.get(), &QXmppJingleMessageInitiation::proceeded, this, [this, chatJid](const QString &, const QString &callPartnerResource) {
+                // TODO: Handle case when m_activeCall exists
+
+                setActiveCall(m_callManager->call(chatJid + u"/" + callPartnerResource));
                 setUpCall();
 
                 connect(m_activeCall, &QXmppCall::ringing, [this]() {
@@ -70,9 +95,10 @@ void CallController::accept()
 void CallController::hangUp()
 {
     if (m_activeCall) {
-        m_activeCall->hangup();
+        m_activeCall->hangUp();
     } else {
         m_activeJmi->retract({});
+        m_activeJmi.reset();
     }
 }
 
@@ -99,7 +125,7 @@ void CallController::setUpCall()
 
     connect(m_activeCall, &QXmppCall::finished, [this]() {
         qCDebug(KAIDAN_CORE_LOG) << "[Call] Call with" << m_activeCall->jid() << "ended. (Deleting)";
-        m_activeCall->deleteLater();
+        deleteActiveCall();
     });
 
     connect(m_activeCall, &QXmppCall::connected, this, [this]() {
@@ -157,7 +183,7 @@ void CallController::setUpVideoStream(GstElement *pipeline, QXmppCallStream *str
 
     qCDebug(KAIDAN_CORE_LOG) << "[AVCall] Begin video stream setup";
     stream->setReceivePadCallback([pipeline](GstPad *receivePad) {
-        GstElement *output = gst_parse_bin_from_description("autovideosink", true, nullptr);
+        GstElement *output = gst_parse_bin_from_description("videoconvert ! autovideosink", true, nullptr);
         if (!gst_bin_add(GST_BIN(pipeline), output)) {
             qFatal("[AVCall] Failed to add video playback to pipeline");
             return;
@@ -171,31 +197,76 @@ void CallController::setUpVideoStream(GstElement *pipeline, QXmppCallStream *str
         qCDebug(KAIDAN_CORE_LOG) << "[AVCall] Video playback (receive pad) set up.";
     });
     stream->setSendPadCallback([pipeline](GstPad *sendPad) {
-        GstElement *output = gst_parse_bin_from_description("videotestsrc", true, nullptr);
+        // GstElement *output = gst_parse_bin_from_description(videoSourceFree ? "v4l2src" : "videotestsrc", true, nullptr);
+        GstElement *output = gst_parse_bin_from_description("autovideosrc", true, nullptr);
+        // videoSourceFree = false;
         if (!gst_bin_add(GST_BIN(pipeline), output)) {
-            qFatal("[AVCall] Failed to add video test source to pipeline");
+            qFatal("[AVCall] Failed to add video source to pipeline");
             return;
         }
 
         if (gst_pad_link(gst_element_get_static_pad(output, "src"), sendPad) != GST_PAD_LINK_OK) {
-            qFatal("[AVCall] Failed to link video test source to send pad.");
+            qFatal("[AVCall] Failed to link video source to send pad.");
         }
         gst_element_sync_state_with_parent(output);
 
-        qCDebug(KAIDAN_CORE_LOG) << "[AVCall] Video test source (send pad) set up.";
+        qCDebug(KAIDAN_CORE_LOG) << "[AVCall] Video source (send pad) set up.";
     });
+
+    // stream->setSendPadCallback([pipeline](GstPad *sendPad) {
+    //     GstElement *output = gst_parse_bin_from_description("videotestsrc", true, nullptr);
+    //     if (!gst_bin_add(GST_BIN(pipeline), output)) {
+    //         qFatal("[AVCall] Failed to add video test source to pipeline");
+    //         return;
+    //     }
+
+    //     if (gst_pad_link(gst_element_get_static_pad(output, "src"), sendPad) != GST_PAD_LINK_OK) {
+    //         qFatal("[AVCall] Failed to link video test source to send pad.");
+    //     }
+    //     gst_element_sync_state_with_parent(output);
+
+    //     qCDebug(KAIDAN_CORE_LOG) << "[AVCall] Video test source (send pad) set up.";
+    // });
+}
+
+void CallController::handleCallProposed(const std::shared_ptr<QXmppJingleMessageInitiation> &jmi,
+                                        const QString &id,
+                                        const std::optional<QXmppJingleRtpDescription> &description)
+{
+    auto jmiElement = jmi;
+
+    // jmiElement->ringing();
+    jmiElement->proceed();
+
+    Q_EMIT callProposed(jmi->remoteJid(), description->media() == u"audio"_s);
 }
 
 void CallController::handleCallReceived(std::unique_ptr<QXmppCall> &call)
 {
-    auto handledCall = call.release();
+    // TODO: Handle case when new call is received and ensure to delete old call
 
-    connect(handledCall, &QXmppCall::finished, this, [handledCall]() {
-        qCDebug(KAIDAN_CORE_LOG) << "[Call] Call with" << handledCall->jid() << "ended. (Deleting)";
-        handledCall->deleteLater();
-    });
+    setActiveCall(std::move(call));
+    m_activeCall->accept();
+    setUpCall();
 
-    Q_EMIT callReceived(QXmppUtils::jidToBareJid(call->jid()));
+    const auto jid = m_activeCall->jid();
+
+    // Q_EMIT MainController::instance()->openChatPageRequested(m_accountSettings->jid(), jid);
+    // Q_EMIT callReceived(QXmppUtils::jidToBareJid(jid));
+}
+
+void CallController::setActiveCall(std::unique_ptr<QXmppCall> call)
+{
+    m_activeCall = call.release();
+    m_activeCall->setParent(this);
+    Q_EMIT callActiveChanged();
+}
+
+void CallController::deleteActiveCall()
+{
+    m_activeCall->deleteLater();
+    m_activeCall = nullptr;
+    Q_EMIT callActiveChanged();
 }
 
 #include "moc_CallController.cpp"

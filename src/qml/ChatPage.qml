@@ -104,6 +104,7 @@ ChatPageBase {
 		Kirigami.Action {
 			text: qsTr("Start audio call")
 			icon.name: "call-start-symbolic"
+			icon.color: root.chatController.account.callController.callActive ? Kirigami.Theme.neutralTextColor : Kirigami.Theme.textColor
 			displayHint: Kirigami.DisplayHint.IconOnly
 			visible: mediaDevices.audioInputs.length
 			onTriggered: openPage(callPage)
@@ -111,6 +112,7 @@ ChatPageBase {
 		Kirigami.Action {
 			text: qsTr("Start video call")
 			icon.name: "camera-video-symbolic"
+			icon.color: root.chatController.account.callController.callActive ? Kirigami.Theme.neutralTextColor : Kirigami.Theme.textColor
 			displayHint: Kirigami.DisplayHint.IconOnly
 			visible: mediaDevices.videoInputs.length
 			onTriggered: openPage(callPage).cameraActive = true
@@ -818,6 +820,15 @@ ChatPageBase {
 
 		function onUnblockingFailed(jid, errorText) {
 			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
+		}
+	}
+
+	Connections {
+		target: root.chatController.account.callController
+
+		function onCallProposed(chatJid, audioOnly) {
+			// openPage(callPage).cameraActive = !audioOnly
+			print("Incoming call from " + chatJid + "!")
 		}
 	}
 

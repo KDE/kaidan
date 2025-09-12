@@ -24,9 +24,18 @@ Kirigami.Page {
 	title: qsTr("Call")
 	padding: 0
 	Component.onCompleted: account.callController.call(chatJid, !cameraActive)
-	Component.onDestruction: account.callController.hangUp()
+	// Component.onDestruction: account.callController.hangUp()
+
+	ScalableText {
+		text: root.chatName
+		scaleFactor: 5
+		anchors.horizontalCenter: avatar.horizontalCenter
+		anchors.bottom: avatar.top
+		anchors.bottomMargin: Kirigami.Units.gridUnit
+	}
 
 	Avatar {
+		id: avatar
 		account: root.account
 		jid: root.chatJid
 		name: root.chatName
@@ -115,7 +124,10 @@ Kirigami.Page {
 			bottom: parent.bottom
 			bottomMargin: Kirigami.Units.smallSpacing * 3
 		}
-		onClicked: popLayer()
+		onClicked: {
+			account.callController.hangUp()
+			popLayer()
+		}
 	}
 
 	MediaButton {
