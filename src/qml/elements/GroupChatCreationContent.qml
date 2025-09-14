@@ -17,7 +17,13 @@ ConfirmationArea {
 	property alias groupChatNameField: groupChatNameField
 
 	confirmationButton.text: qsTr("Create")
-	confirmationButton.onClicked: createGroupChat()
+	confirmationButton.onClicked: {
+		if (groupChatIdField.visible) {
+			groupChatIdField.invalidHintMayBeShown = true
+		}
+
+		confirm()
+	}
 	loadingArea.description: qsTr("Creating group chat…")
 	busy: account.groupChatController.busy
 
@@ -27,13 +33,20 @@ ConfirmationArea {
 		placeholderText: qsTr("Example Group")
 		inputMethodHints: Qt.ImhPreferUppercase	
 		Layout.fillWidth: true
-		inputField.onAccepted: createGroupChat()
+		inputField.onAccepted: confirm()
 	}
 
 	Controls.Switch {
 		id: publicGroupChatCheckBox
 		text: qsTr("Public")
-		onToggled: groupChatIdField.forceActiveFocus()
+		onToggled: {
+			if (checked) {
+				groupChatIdField.forceActiveFocus()
+			} else {
+				groupChatIdField.invalidHintMayBeShown = false
+				groupChatNameField.forceActiveFocus()
+			}
+		}
 	}
 
 	CredentialsField {
@@ -44,11 +57,13 @@ ConfirmationArea {
 		placeholderText: qsTr("example-group")
 		inputMethodHints: Qt.ImhPreferLowercase
 		invalidHintText: qsTr("Enter a valid group ID")
-		invalidHintMayBeShown: publicGroupChatCheckBox.checked
 		valid: text
 		visible: publicGroupChatCheckBox.checked
 		Layout.fillWidth: true
-		inputField.onAccepted: createGroupChat()
+		inputField.onAccepted: {
+			invalidHintMayBeShown = true
+			confirm()
+		}
 	}
 
 	Controls.Label {
@@ -71,7 +86,7 @@ ConfirmationArea {
 		inputMethodHints: Qt.ImhPreferUppercase
 		visible: publicGroupChatCheckBox.checked
 		Layout.fillWidth: true
-		inputField.onAccepted: createGroupChat()
+		inputField.onAccepted: confirm()
 	}
 
 	Connections {
@@ -95,9 +110,8 @@ ConfirmationArea {
 		}
 	}
 
-	function createGroupChat() {
-		if (publicGroupChatCheckBox.checked && !groupChatIdField.valid) {
-			groupChatIdField.toggleHintForInvalidText()
+	function confirm() {
+		if (groupChatIdField.visible && !groupChatIdField.valid) {
 			groupChatIdField.forceActiveFocus()
 			return
 		}

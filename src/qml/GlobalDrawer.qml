@@ -119,7 +119,6 @@ Kirigami.GlobalDrawer {
 										labelText: qsTr("Password")
 										placeholderText: qsTr("Enter your correct password")
 										text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
-										invalidHintMayBeShown: modelData.connection.state !== Enums.StateDisconnected
 										valid: credentialsValidator.isPasswordValid(text) && text !== modelData.settings.password
 										enabled: !passwordBusyIndicator.visible
 										inputField.onAccepted: passwordConfirmationButton.clicked()
@@ -135,12 +134,13 @@ Kirigami.GlobalDrawer {
 										Layout.preferredHeight: passwordField.inputField.implicitHeight
 										Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
 										onClicked: {
-											if (!passwordField.valid) {
-												passwordField.forceActiveFocus()
-												passwordField.toggleHintForInvalidText()
-											} else {
+											if (passwordField.valid) {
 												modelData.settings.password = passwordField.text
+												passwordField.invalidHintMayBeShown = false
 												modelData.connection.logIn()
+											} else {
+												passwordField.invalidHintMayBeShown = true
+												passwordField.forceActiveFocus()
 											}
 										}
 									}

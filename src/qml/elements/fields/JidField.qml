@@ -15,7 +15,6 @@ import ".."
  */
 CredentialsField {
 	id: root
-
 	labelText: qsTr("Chat address")
 	placeholderText: qsTr("user@example.org")
 	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | TextFieldCompleter.inputMethodHints

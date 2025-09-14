@@ -12,17 +12,18 @@ import im.kaidan.kaidan
  * This is a password field with a hint for empty passwords and an option for showing the password.
  */
 CredentialsField {
+	id: root
+
 	// indicator for showing the hidden password
-	property bool showPassword: false
+	property bool passwordShown: false
 
 	labelText: qsTr("Password")
-
 	inputField {
-		echoMode: showPassword ? TextInput.Normal : TextInput.Password
+		echoMode: passwordShown ? TextInput.Normal : TextInput.Password
 		rightActions: [
 			Kirigami.Action {
-				icon.name: showPassword ? "password-show-on" : "password-show-off"
-				onTriggered: showPassword = !showPassword
+				icon.name: root.passwordShown ? "password-show-on" : "password-show-off"
+				onTriggered: root.passwordShown = !root.passwordShown
 			}
 		]
 	}

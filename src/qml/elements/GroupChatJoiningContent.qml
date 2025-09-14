@@ -16,7 +16,7 @@ ConfirmationArea {
 	property alias groupChatJid: groupChatJidField.text
 
 	confirmationButton.text: qsTr("Join")
-	confirmationButton.onClicked: joinGroupChat()
+	confirmationButton.onClicked: confirm()
 	loadingArea.description: qsTr("Joining group chat…")
 	busy: account.groupChatController.busy
 
@@ -27,7 +27,14 @@ ConfirmationArea {
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
 		invalidHintText: qsTr("The address must have the form <b>group@server</b>")
 		Layout.fillWidth: true
-		inputField.onAccepted: valid ? nicknameField.forceActiveFocus() : forceActiveFocus()
+		inputField.onAccepted: {
+			if (valid) {
+				nicknameField.forceActiveFocus()
+			} else {
+				invalidHintMayBeShown = true
+				forceActiveFocus()
+			}
+		}
 	}
 
 	Field {
@@ -36,7 +43,7 @@ ConfirmationArea {
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		Layout.fillWidth: true
-		inputField.onAccepted: joinGroupChat()
+		inputField.onAccepted: confirm()
 	}
 
 	Connections {
@@ -47,7 +54,7 @@ ConfirmationArea {
 		}
 	}
 
-	function joinGroupChat() {
+	function confirm() {
 		if (groupChatJidField.valid) {
 			account.groupChatController.joinGroupChat(groupChatJid, nicknameField.text)
 		} else {

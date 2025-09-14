@@ -39,6 +39,7 @@ ConfirmationArea {
 			busy = true
 			account.rosterController.addContact(jid, name, messageField.text)
 		} else {
+			jidField.invalidHintMayBeShown = true
 			jidField.forceActiveFocus()
 		}
 	}
@@ -46,8 +47,15 @@ ConfirmationArea {
 
 	JidField {
 		id: jidField
-		inputField.onAccepted: valid ? nameField.forceActiveFocus() : forceActiveFocus()
 		Layout.fillWidth: true
+		inputField.onAccepted: {
+			if (valid) {
+				nameField.forceActiveFocus()
+			} else {
+				invalidHintMayBeShown = true
+				forceActiveFocus()
+			}
+		}
 	}
 
 	Field {

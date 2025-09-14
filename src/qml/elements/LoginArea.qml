@@ -49,23 +49,28 @@ FormCard.FormCard {
 			JidField {
 				id: jidField
 				text: root.account.settings.jid
-				inputField.focus: true
-				inputField.onAccepted: loginButton.clicked()
-				inputField.rightActions: [
-					Kirigami.Action {
-						icon.name: "preferences-system-symbolic"
-						text: qsTr("Connection settings")
-						onTriggered: {
-							customConnectionSettings.visible = !customConnectionSettings.visible
+				inputField {
+					focus: true
+					rightActions: [
+						Kirigami.Action {
+							icon.name: "preferences-system-symbolic"
+							text: qsTr("Connection settings")
+							onTriggered: {
+								customConnectionSettings.visible = !customConnectionSettings.visible
 
-							if (jidField.valid && customConnectionSettings.visible) {
-								customConnectionSettings.forceActiveFocus()
-							} else {
-								jidField.forceActiveFocus()
+								if (jidField.valid && customConnectionSettings.visible) {
+									customConnectionSettings.forceActiveFocus()
+								} else {
+									jidField.forceActiveFocus()
+								}
 							}
 						}
+					]
+					onAccepted: {
+						invalidHintMayBeShown = true
+						confirm()
 					}
-				]
+				}
 			}
 
 			CustomConnectionSettings {
@@ -77,7 +82,11 @@ FormCard.FormCard {
 
 			PasswordField {
 				id: passwordField
-				inputField.onAccepted: loginButton.clicked()
+				inputField.onAccepted: {
+					jidField.invalidHintMayBeShown = true
+					invalidHintMayBeShown = true
+					confirm()
+				}
 			}
 		}
 	}
@@ -94,50 +103,53 @@ FormCard.FormCard {
 		background: HighlightedFormButtonBackground {}
 		// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
 		onClicked: {
-			// If the JID is invalid, focus its field.
-			if (!jidField.valid) {
-				jidField.forceActiveFocus()
-			// If the password is invalid, focus its field.
-			// This also implies that if the JID field is focused and the password invalid, the password field will be focused instead of immediately trying to connect.
-			} else if (!passwordField.valid) {
-				passwordField.forceActiveFocus()
-			} else {
-				root.account.settings.jid = jidField.text
-				root.account.settings.password = passwordField.text
-				root.account.settings.host = customConnectionSettings.hostField.text
-				root.account.settings.port = customConnectionSettings.portField.value
-
-				root.account.connection.logIn()
-			}
+			jidField.invalidHintMayBeShown = true
+			passwordField.invalidHintMayBeShown = true
+			confirm()
 		}
 	}
 
 	function initialize() {
 		if (jidField.valid) {
 			passwordField.forceActiveFocus()
+		// This is used after a web registration when only the provider is known.
+		// Prepend "@" to the server JID and move the cursor to the field's beginning.
+		// That way, the username can be directly entered.
+		// Ensure by checking whether "@" is already prepended that it is not prepended
+		// multiple times by calling this function.
 		} else if (jidField.text) {
-			// This is used after a web registration when only the provider is known.
-			// Prepend "@" to the server JID and move the cursor to the field's beginning.
-			// That way, the username can be directly entered.
-			// Ensure by checking whether "@" is already prepended that it is not prepended
-			// multiple times by calling this function.
 			if (jidField.text.charAt(0) !== "@") {
 				jidField.text = "@" + jidField.text
 			}
 
-			jidField.inputField.forceActiveFocus()
 			jidField.inputField.cursorPosition = 0
+			jidField.forceActiveFocus()
 		} else {
-			jidField.inputField.forceActiveFocus()
+			jidField.forceActiveFocus()
+		}
+	}
+
+	function confirm() {
+		// If the JID is invalid, focus its field.
+		if (!jidField.valid) {
+			jidField.forceActiveFocus()
+		// If the password is invalid, focus its field.
+		// This also implies that if the JID field is focused and the password invalid, the password field will be focused instead of immediately trying to connect.
+		} else if (!passwordField.valid) {
+			passwordField.forceActiveFocus()
+		} else {
+			root.account.settings.jid = jidField.text
+			root.account.settings.password = passwordField.text
+			root.account.settings.host = customConnectionSettings.hostField.text
+			root.account.settings.port = customConnectionSettings.portField.value
+
+			root.account.connection.logIn()
 		}
 	}
 
 	function reset() {
 		jidField.invalidHintMayBeShown = false
-		jidField.toggleHintForInvalidText()
-
 		passwordField.invalidHintMayBeShown = false
-		passwordField.toggleHintForInvalidText()
 	}
 
 	function clearFields() {

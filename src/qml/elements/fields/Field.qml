@@ -51,9 +51,6 @@ ColumnLayout {
 	// completed text
 	readonly property alias input: inputField.input
 
-	onInvalidHintMayBeShownChanged: toggleHintForInvalidText()
-	onValidChanged: toggleHintForInvalidText()
-
 	// label for the input field
 	Controls.Label {
 		id: label
@@ -64,18 +61,12 @@ ColumnLayout {
 		id: inputField
 		Layout.fillWidth: true
 		selectByMouse: true
-		// Show a hint for the first time if the entered text is not valid as soon as the input field loses the focus.
-		onFocusChanged: {
-			if (!focus && !invalidHintMayBeShown) {
-				invalidHintMayBeShown = true
-			}
-		}
 	}
 
 	// hint for entering a valid input
 	Controls.Label {
 		id: invalidHint
-		visible: false
+		visible: !valid && invalidHintMayBeShown && invalidHintText.length
 		Layout.fillWidth: true
 		leftPadding: 5
 		rightPadding: 5
@@ -84,23 +75,10 @@ ColumnLayout {
 	}
 
 	/**
-	 * Shows a hint if the entered text is not valid or hides it otherwise.
-	 * If invalidHintMayBeShown was initially set to false, that is only done if the input field has lost the focus at least one time because of its onFocusChanged().
-	 */
-	function toggleHintForInvalidText() {
-		invalidHint.visible = !valid && invalidHintMayBeShown && invalidHintText.length
-	}
-
-	/**
-	 * Focuses the input field and selects its text.
-	 * If the input field is already focused, the focusing is executed again to trigger its onFocusChanged().
+	 * Focuses the input field after positioning the cursor at its end.
 	 */
 	function forceActiveFocus() {
-		if (inputField.focus) {
-			inputField.focus = false
-		}
-
-		inputField.selectAll()
+		inputField.cursorPosition = inputField.text.length
 		inputField.forceActiveFocus()
 	}
 }

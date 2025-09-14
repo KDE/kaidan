@@ -726,6 +726,8 @@ DetailsContent {
 
 		FormCardCustomContentArea {
 			contentItem: ColumnLayout {
+				id: passwordChangeArea
+
 				PasswordField {
 					id: passwordVerificationField
 					labelText: qsTr("Current password")
@@ -735,7 +737,7 @@ DetailsContent {
 					visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Visible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
-					inputField.onAccepted: passwordChangeButton.clicked()
+					inputField.onAccepted: passwordChangeArea.confirm()
 				}
 
 				RowLayout {
@@ -749,7 +751,10 @@ DetailsContent {
 						invalidHintText: qsTr("Enter different password to change it")
 						valid: credentialsValidator.isPasswordValid(text) && text !== root.account.settings.password
 						enabled: !passwordBusyIndicator.visible
-						inputField.onAccepted: passwordChangeButton.clicked()
+						inputField.onAccepted: {
+							invalidHintMayBeShown = true
+							passwordChangeArea.confirm()
+						}
 					}
 
 					Button {
@@ -762,16 +767,8 @@ DetailsContent {
 						Layout.preferredHeight: passwordField.inputField.implicitHeight
 						Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
 						onClicked: {
-							if (passwordVerificationField.visible && !passwordVerificationField.valid) {
-								passwordVerificationField.forceActiveFocus()
-							} else if (!passwordField.valid) {
-								passwordField.forceActiveFocus()
-								passwordField.toggleHintForInvalidText()
-							} else {
-								passwordField.invalidHintMayBeShown = false
-								passwordBusyIndicator.visible = true
-								root.account.registrationController.changePassword(passwordField.text)
-							}
+							passwordField.invalidHintMayBeShown = true
+							passwordChangeArea.confirm()
 						}
 					}
 
@@ -809,6 +806,26 @@ DetailsContent {
 						passwordBusyIndicator.visible = false
 						passwordChangeErrorMessage.visible = false
 						passiveNotification(qsTr("Password changed successfully"))
+					}
+				}
+
+				function confirm() {
+					if (passwordVerificationField.visible) {
+						passwordVerificationField.invalidHintMayBeShown = true
+
+						if (!passwordVerificationField.valid) {
+							passwordVerificationField.forceActiveFocus()
+							return
+						}
+					}
+
+					if (passwordField.valid) {
+						passwordBusyIndicator.visible = true
+						passwordVerificationField.invalidHintMayBeShown = false
+						passwordField.invalidHintMayBeShown = false
+						root.account.registrationController.changePassword(passwordField.text)
+					} else {
+						passwordField.forceActiveFocus()
 					}
 				}
 			}
