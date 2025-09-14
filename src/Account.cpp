@@ -104,6 +104,7 @@ AccountSettings::AccountSettings(Data data, QObject *parent)
     , m_data(data)
 {
     generateJidResource();
+    generateUserAgentDeviceId();
 }
 
 bool AccountSettings::initialized() const
@@ -134,11 +135,6 @@ QString AccountSettings::jidResource() const
     return m_data.jidResource;
 }
 
-QString AccountSettings::jidResourcePrefix() const
-{
-    return m_data.jidResourcePrefix;
-}
-
 QString AccountSettings::password() const
 {
     return m_data.password;
@@ -160,6 +156,22 @@ QXmppCredentials AccountSettings::credentials() const
 void AccountSettings::setCredentials(const QXmppCredentials &credentials)
 {
     m_data.credentials = credentials;
+    AccountDb::instance()->updateCredentials(m_data.jid, credentials);
+}
+
+QXmppSasl2UserAgent AccountSettings::userAgent() const
+{
+    return QXmppSasl2UserAgent(m_data.userAgentDeviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
+}
+
+bool AccountSettings::tlsErrorsIgnored() const
+{
+    return m_data.tlsErrorsIgnored;
+}
+
+QXmppConfiguration::StreamSecurityMode AccountSettings::tlsRequirement() const
+{
+    return m_data.tlsRequirement;
 }
 
 QString AccountSettings::host() const
@@ -213,43 +225,6 @@ QString AccountSettings::displayName() const
     }
 
     return QXmppUtils::jidToUser(m_data.jid);
-}
-
-void AccountSettings::storeTemporaryData()
-{
-    if (m_data.initialized) {
-        AccountDb::instance()->updateAccount(m_data.jid, [data = m_data](AccountSettings::Data &account) {
-            account.password = data.password;
-            account.host = data.host;
-            account.port = data.port;
-            account.name = data.name;
-        });
-    } else {
-        m_data.enabled = true;
-        m_data.initialized = true;
-        AccountDb::instance()->addAccount(m_data);
-    }
-}
-
-QXmppSasl2UserAgent AccountSettings::userAgent()
-{
-    auto &deviceId = m_data.userAgentDeviceId;
-
-    if (deviceId.isNull()) {
-        deviceId = QUuid::createUuid();
-    }
-
-    return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
-}
-
-bool AccountSettings::tlsErrorsIgnored() const
-{
-    return m_data.tlsErrorsIgnored;
-}
-
-QXmppConfiguration::StreamSecurityMode AccountSettings::tlsRequirement() const
-{
-    return m_data.tlsRequirement;
 }
 
 bool AccountSettings::enabled() const
@@ -402,14 +377,32 @@ void AccountSettings::resetCustomConnectionSettings()
     setPort(AUTO_DETECT_PORT);
 }
 
+void AccountSettings::storeTemporaryData()
+{
+    if (m_data.initialized) {
+        AccountDb::instance()->updateAccount(m_data.jid, [data = m_data](AccountSettings::Data &account) {
+            account.password = data.password;
+            account.userAgentDeviceId = data.userAgentDeviceId;
+            account.host = data.host;
+            account.port = data.port;
+            account.name = data.name;
+        });
+    } else {
+        m_data.enabled = true;
+        m_data.initialized = true;
+        AccountDb::instance()->addAccount(m_data);
+    }
+}
+
 void AccountSettings::generateJidResource()
 {
-    if (m_data.jidResourcePrefix.isEmpty()) {
-        m_data.jidResource.clear();
-    }
+    m_data.jidResource = QXmppUtils::generateStanzaHash(4);
+}
 
-    if (m_data.jidResource.isEmpty()) {
-        m_data.jidResource = m_data.jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(4);
+void AccountSettings::generateUserAgentDeviceId()
+{
+    if (auto &deviceId = m_data.userAgentDeviceId; deviceId.isNull()) {
+        deviceId = QUuid::createUuid();
     }
 }
 

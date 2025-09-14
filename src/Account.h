@@ -122,15 +122,14 @@ public:
         bool initialMessagesRetrieved = false;
         QString jid;
         QString jidResource;
-        QString jidResourcePrefix = QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX);
         QString password;
         QXmppCredentials credentials;
-        QString host;
-        quint16 port = AUTO_DETECT_PORT;
-        QString name;
         QUuid userAgentDeviceId;
         bool tlsErrorsIgnored = false;
         QXmppConfiguration::StreamSecurityMode tlsRequirement = QXmppConfiguration::TLSRequired;
+        QString host;
+        quint16 port = AUTO_DETECT_PORT;
+        QString name;
         bool enabled = true;
         QString latestMessageStanzaId;
         QDateTime latestMessageStanzaTimestamp;
@@ -158,7 +157,6 @@ public:
     Q_SIGNAL void jidChanged();
 
     QString jidResource() const;
-    QString jidResourcePrefix() const;
 
     QString password() const;
     void setPassword(const QString &password);
@@ -166,6 +164,12 @@ public:
 
     QXmppCredentials credentials() const;
     void setCredentials(const QXmppCredentials &credentials);
+
+    QXmppSasl2UserAgent userAgent() const;
+
+    bool tlsErrorsIgnored() const;
+
+    QXmppConfiguration::StreamSecurityMode tlsRequirement() const;
 
     QString host() const;
     void setHost(const QString &host);
@@ -182,14 +186,6 @@ public:
     Q_SIGNAL void nameChanged();
 
     QString displayName() const;
-
-    void storeTemporaryData();
-
-    QXmppSasl2UserAgent userAgent();
-
-    bool tlsErrorsIgnored() const;
-
-    QXmppConfiguration::StreamSecurityMode tlsRequirement() const;
 
     bool enabled() const;
     void setEnabled(bool enabled);
@@ -235,8 +231,11 @@ public:
 
     Q_INVOKABLE void resetCustomConnectionSettings();
 
+    void storeTemporaryData();
+
 private:
     void generateJidResource();
+    void generateUserAgentDeviceId();
 
     Data m_data;
 };

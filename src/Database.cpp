@@ -43,8 +43,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 53
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(53)
+#define DATABASE_LATEST_VERSION 54
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(54)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -366,8 +366,8 @@ void Database::createNewDatabase()
                                    SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
                                        SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
                                            SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(credentials, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(host, SQL_TEXT) SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
+                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
                                                        SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER)
                                                            SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
                                                                SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
@@ -1686,7 +1686,6 @@ void Database::convertDatabaseToV48()
 
             account.jid = jid;
             account.enabled = settings->value<bool>(Online, true);
-            account.jidResourcePrefix = settings->value<QString>(JidResourcePrefix, QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
             account.password = QString::fromUtf8(QByteArray::fromBase64(settings->value<QString>(Password).toUtf8()));
             account.credentials = [&]() {
                 QXmlStreamReader r(settings->value<QString>(Credentials));
@@ -1722,7 +1721,6 @@ void Database::convertDatabaseToV48()
                     auto acc = *it;
 
                     acc.enabled = settingsAccount->enabled;
-                    acc.jidResourcePrefix = settingsAccount->jidResourcePrefix;
                     acc.password = settingsAccount->password;
                     acc.credentials = settingsAccount->credentials;
                     acc.host = settingsAccount->host;
@@ -1884,6 +1882,14 @@ void Database::convertDatabaseToV53()
     execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
     d->version = 53;
+}
+
+void Database::convertDatabaseToV54()
+{
+    DATABASE_CONVERT_TO_VERSION(53)
+    QSqlQuery query(currentDatabase());
+    execQuery(query, QStringLiteral("ALTER TABLE accounts DROP COLUMN resourcePrefix"));
+    d->version = 54;
 }
 
 #include "moc_Database.cpp"

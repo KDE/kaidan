@@ -28,6 +28,7 @@ public:
 
     QFuture<void> updateAccount(const QString &jid, const std::function<void(AccountSettings::Data &)> &updateAccount);
 
+    QFuture<void> updateCredentials(const QString &jid, const QXmppCredentials &credentials);
     QFuture<void> updateEnabled(const QString &jid, bool enabled);
     QFuture<void> updateHttpUploadLimit(const QString &jid, qint64 httpUploadLimit);
     QFuture<void> updatePasswordVisibility(const QString &jid, AccountSettings::PasswordVisibility passwordVisibility);

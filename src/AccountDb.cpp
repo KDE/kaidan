@@ -90,6 +90,7 @@ QFuture<void> AccountDb::addAccount(const AccountSettings::Data &account)
                                                      insert(QString::fromLatin1(DB_TABLE_ACCOUNTS),
                                                             {
                                                                 {u"jid", account.jid},
+                                                                {u"userAgentDeviceId", writeValue(account.userAgentDeviceId)},
                                                                 {u"host", account.host.isEmpty() ? QVariant{} : account.host},
                                                                 {u"name", account.name.isEmpty() ? QVariant{} : account.name},
                                                             });
@@ -159,6 +160,11 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
             }
         }
     });
+}
+
+QFuture<void> AccountDb::updateCredentials(const QString &jid, const QXmppCredentials &credentials)
+{
+    return updateField(jid, QStringLiteral("credentials"), writeValue(credentials));
 }
 
 QFuture<void> AccountDb::updateEnabled(const QString &jid, bool enabled)
@@ -269,7 +275,6 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
     int idxGeoLocationMapPreviewEnabled = rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
     int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
     int idxEnabled = rec.indexOf(QStringLiteral("enabled"));
-    int idxJidResourcePrefix = rec.indexOf(QStringLiteral("resourcePrefix"));
     int idxCredentials = rec.indexOf(QStringLiteral("credentials"));
     int idxHost = rec.indexOf(QStringLiteral("host"));
     int idxPort = rec.indexOf(QStringLiteral("port"));
@@ -301,7 +306,6 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxGeoLocationMapPreviewEnabled, geoLocationMapPreviewEnabled, bool);
         SET_IF(idxGeoLocationMapService, geoLocationMapService, AccountSettings::GeoLocationMapService);
         SET_IF(idxEnabled, enabled, bool);
-        SET_IF(idxJidResourcePrefix, jidResourcePrefix, QString);
         SET_IF(idxCredentials, credentials, QXmppCredentials);
         SET_IF(idxHost, host, QString);
         SET_IF(idxPort, port, quint16);
@@ -349,7 +353,6 @@ QSqlRecord AccountDb::createUpdateRecord(const AccountSettings::Data &oldAccount
     SET_IF_NEW(geoLocationMapPreviewEnabled, bool);
     SET_IF_NEW(geoLocationMapService, AccountSettings::GeoLocationMapService);
     SET_IF_NEW(enabled, bool);
-    SET_IF_NEW(jidResourcePrefix, QString);
     SET_IF_NEW(credentials, QXmppCredentials);
     SET_IF_NEW(host, QString);
     SET_IF_NEW(port, quint16);

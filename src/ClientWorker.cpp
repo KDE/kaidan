@@ -141,7 +141,6 @@ void ClientWorker::logIn()
                       config.setResource(m_accountSettings->jidResource());
                       config.setCredentials(m_accountSettings->credentials());
                       config.setPassword(m_accountSettings->password());
-                      config.setResourcePrefix(m_accountSettings->jidResourcePrefix());
                       config.setSasl2UserAgent(m_accountSettings->userAgent());
                       config.setAutoAcceptSubscriptions(false);
 
@@ -351,6 +350,10 @@ void ClientWorker::onConnectionError(const QXmppError &error)
             Q_EMIT connectionErrorChanged(ClientWorker::EmailConfirmationRequired);
             return;
         } else if (type == QXmpp::AuthenticationError::NotAuthorized) {
+            runOnThread(m_accountSettings, [this]() {
+                m_accountSettings->setCredentials({});
+            });
+
             Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
             return;
         }
