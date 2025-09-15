@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/Account.cpp:447
+#: src/Account.cpp:440
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:449
+#: src/Account.cpp:442
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/Account.cpp:451
+#: src/Account.cpp:444
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -37,73 +37,73 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:462
+#: src/Account.cpp:455
 #, fuzzy
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Contrasigne o nómine ínvalid"
 
-#: src/Account.cpp:464
+#: src/Account.cpp:457
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:466
+#: src/Account.cpp:459
 #, fuzzy
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Un error evenit cludente li session"
 
-#: src/Account.cpp:468
+#: src/Account.cpp:461
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:470
+#: src/Account.cpp:463
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:472
+#: src/Account.cpp:465
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Proxy,Servitor proxy,Firewall,Squid"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:467
 #, fuzzy
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Li protocol %1 ne es supportat."
 
-#: src/Account.cpp:476
+#: src/Account.cpp:469
 #, fuzzy
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ne successat crear un conexion de rete"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:471
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:480
+#: src/Account.cpp:473
 #, fuzzy
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:482
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:484
+#: src/Account.cpp:477
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
