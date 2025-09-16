@@ -1003,64 +1003,64 @@ msgstr ""
 "Ändrat ditt lösenord. Du måste mata in det nya lösenordet igen på alla dina "
 "apparater."
 
-#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:733
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Nuvarande lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:732
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Ange ditt nuvarande lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:733
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Ange korrekt lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:746
+#: src/qml/details/AccountDetailsContent.qml:748
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nytt lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:746
-#: src/qml/details/AccountDetailsContent.qml:1022
+#: src/qml/details/AccountDetailsContent.qml:748
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:747
+#: src/qml/details/AccountDetailsContent.qml:749
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Ange ditt nya lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:749
+#: src/qml/details/AccountDetailsContent.qml:751
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Ange ett annorlunda lösenord för att ändra det"
 
-#: src/qml/details/AccountDetailsContent.qml:757
+#: src/qml/details/AccountDetailsContent.qml:762
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ändra lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:802
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Misslyckades ändra lösenord: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/qml/details/AccountDetailsContent.qml:823
+#: src/qml/details/AccountDetailsContent.qml:840
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Lösenordssynlighet"
 
-#: src/qml/details/AccountDetailsContent.qml:827
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1073,12 +1073,12 @@ msgstr ""
 "använda kontot på en annan apparat, <b>överväg att lagra lösenordet någon "
 "annanstans. Det går inte att ångra."
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:850
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Visa inte lösenord som text"
 
-#: src/qml/details/AccountDetailsContent.qml:834
+#: src/qml/details/AccountDetailsContent.qml:851
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1087,17 +1087,17 @@ msgstr ""
 "Tillåt att ytterligare apparater läggs till genom att använda QR-koden för "
 "inloggning men visa aldrig lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Ta bort lösenord från text…"
 
-#: src/qml/details/AccountDetailsContent.qml:847
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Exponera inte lösenord på något sätt"
 
-#: src/qml/details/AccountDetailsContent.qml:848
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1106,17 +1106,17 @@ msgstr ""
 "Tillåt varken att ytterligare apparater läggs till genom att använda QR-"
 "koden för inloggning eller visning av lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:855
+#: src/qml/details/AccountDetailsContent.qml:872
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Tar bort lösenord från text och QR-kod…"
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Anslutning"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1125,33 +1125,33 @@ msgstr ""
 "Anpassa värddatornamn och port att ansluta till (tomma fält för "
 "standardvärden)"
 
-#: src/qml/details/AccountDetailsContent.qml:885
+#: src/qml/details/AccountDetailsContent.qml:902
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ändra anslutningsinställningar"
 
-#: src/qml/details/AccountDetailsContent.qml:894
+#: src/qml/details/AccountDetailsContent.qml:911
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Ange andra anslutningsinställningar för att ändra dem"
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:960
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Anslutningsinställningarna kunde inte ändras.: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:975
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:995
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Byt apparat"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:999
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1160,53 +1160,53 @@ msgstr ""
 "Visa aldrig informationen här för någon annan. Den skulle ge obegränsad "
 "åtkomst till ditt konto!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:1005
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Visa QR-inloggningskod"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Läs av QR-koden med en annan apparat för att logga in på den"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1026
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Visa inloggningsinformation"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1027
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "Ange inloggningsinformationen på en annan apparat för att logga in på den"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1033
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Chattadress"
 
-#: src/qml/details/AccountDetailsContent.qml:1034
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Överföring"
 
-#: src/qml/details/AccountDetailsContent.qml:1042
+#: src/qml/details/AccountDetailsContent.qml:1056
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Överför konto"
 
-#: src/qml/details/AccountDetailsContent.qml:1043
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Förbereder kontoöverföring…"
 
-#: src/qml/details/AccountDetailsContent.qml:1045
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "Den kan ta en stund "
 
-#: src/qml/details/AccountDetailsContent.qml:1045
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1217,17 +1217,17 @@ msgstr ""
 "nuvarande kontot kommer att tas bort från programmet. Säkerhetskopiera din "
 "inloggningsinformation och chatthistorik om det behövs."
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1081
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Borttagning"
 
-#: src/qml/details/AccountDetailsContent.qml:1074
+#: src/qml/details/AccountDetailsContent.qml:1087
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Ta bort från Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1075
+#: src/qml/details/AccountDetailsContent.qml:1088
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1236,29 +1236,29 @@ msgstr ""
 "Ta bort konto från programmet. Säkerhetskopiera din inloggningsinformation "
 "och chatthistorik om det behövs."
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1096
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Tar bort konto…"
 
-#: src/qml/details/AccountDetailsContent.qml:1090
+#: src/qml/details/AccountDetailsContent.qml:1103
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ta bort fullständigt"
 
-#: src/qml/details/AccountDetailsContent.qml:1091
+#: src/qml/details/AccountDetailsContent.qml:1104
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Ta bort konto från leverantör. Du kommer inte att kunna använda kontot igen."
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1112
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Tar bort konto…"
 
-#: src/qml/details/AccountDetailsContent.qml:1106
+#: src/qml/details/AccountDetailsContent.qml:1119
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2311,22 +2311,22 @@ msgctxt "ContactAdditionContent|"
 msgid "Open chat"
 msgstr "Öppna chatt"
 
-#: src/qml/elements/ContactAdditionContent.qml:45
+#: src/qml/elements/ContactAdditionContent.qml:46
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Lägger till kontakt…"
 
-#: src/qml/elements/ContactAdditionContent.qml:55
+#: src/qml/elements/ContactAdditionContent.qml:63
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Namn (valfritt):"
 
-#: src/qml/elements/ContactAdditionContent.qml:63
+#: src/qml/elements/ContactAdditionContent.qml:71
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
 msgstr "Meddelande (valfritt, okrypterat):"
 
-#: src/qml/elements/ContactAdditionContent.qml:70
+#: src/qml/elements/ContactAdditionContent.qml:78
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Hej, jag är…"
@@ -2406,27 +2406,27 @@ msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
 msgstr "Vissa funktioner blir synliga när kontot väl är aktiverat"
 
-#: src/qml/elements/fields/JidField.qml:19
+#: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Chattadress"
 
-#: src/qml/elements/fields/JidField.qml:20
+#: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "användare@exempel.org"
 
-#: src/qml/elements/fields/JidField.qml:22
+#: src/qml/elements/fields/JidField.qml:21
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr "Chattadressen måste ha formen <b>användarnamn@server</b>"
 
-#: src/qml/elements/fields/PasswordField.qml:18
+#: src/qml/elements/fields/PasswordField.qml:20
 msgctxt "PasswordField|"
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/qml/elements/fields/PasswordField.qml:29
+#: src/qml/elements/fields/PasswordField.qml:30
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Ange ett giltigt lösenord"
@@ -2456,59 +2456,59 @@ msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "Skapa"
 
-#: src/qml/elements/GroupChatCreationContent.qml:21
+#: src/qml/elements/GroupChatCreationContent.qml:27
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "Skapar gruppchatt…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:26
+#: src/qml/elements/GroupChatCreationContent.qml:32
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "Gruppnamn (valfritt)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:27
+#: src/qml/elements/GroupChatCreationContent.qml:33
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "Exempelgrupp"
 
-#: src/qml/elements/GroupChatCreationContent.qml:35
+#: src/qml/elements/GroupChatCreationContent.qml:41
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Öppen"
 
-#: src/qml/elements/GroupChatCreationContent.qml:41
+#: src/qml/elements/GroupChatCreationContent.qml:54
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "Gruppidentifikation"
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:57
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "exempelgrupp"
 
-#: src/qml/elements/GroupChatCreationContent.qml:46
+#: src/qml/elements/GroupChatCreationContent.qml:59
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "Ange en giltig gruppidentifikation"
 
-#: src/qml/elements/GroupChatCreationContent.qml:69
+#: src/qml/elements/GroupChatCreationContent.qml:84
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr "Smeknamn (valfritt):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:86
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "Gruppen kunde inte skapas på %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:90
+#: src/qml/elements/GroupChatCreationContent.qml:105
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Gruppen %1 kunde inte skapas%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:94
+#: src/qml/elements/GroupChatCreationContent.qml:109
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2549,12 +2549,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "Adressen måste ha formen <b>grupp@server</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:35
+#: src/qml/elements/GroupChatJoiningContent.qml:42
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Smeknamn (valfritt):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:46
+#: src/qml/elements/GroupChatJoiningContent.qml:53
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2653,7 +2653,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Läser in…"
 
-#: src/qml/elements/LoginArea.qml:29 src/qml/elements/LoginArea.qml:91
+#: src/qml/elements/LoginArea.qml:29 src/qml/elements/LoginArea.qml:100
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Logga in"
@@ -2668,7 +2668,7 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Anslutningsinställningar"
 
-#: src/qml/elements/LoginArea.qml:92
+#: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Ansluter…"
@@ -2941,7 +2941,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Ange korrekt lösenord"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:129
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Bekräfta lösenord"
