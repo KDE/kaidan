@@ -801,13 +801,12 @@ bool MessageController::handleReaction(const QXmppMessage &message, const QStrin
                                                      }
 
                                                      // Remove existing reactions.
-                                                     for (auto itr = reactions.begin(); itr != reactions.end();) {
-                                                         if (!receivedEmojis.contains(itr->emoji)) {
-                                                             reactions.erase(itr);
-                                                         } else {
-                                                             ++itr;
-                                                         }
-                                                     }
+                                                     reactions.erase(std::ranges::remove_if(reactions,
+                                                                                            [receivedEmojis](MessageReaction &reaction) {
+                                                                                                return !receivedEmojis.contains(reaction.emoji);
+                                                                                            })
+                                                                         .begin(),
+                                                                     reactions.end());
 
                                                      // Remove the reaction sender if it has no reactions anymore.
                                                      if (reactions.isEmpty()) {
