@@ -2,7 +2,7 @@
     {
         "jid": "07f.de",
         "category": "A",
-        "latestChange": "2025-01-11",
+        "latestChange": "2025-08-17",
         "website": {
             "en": "https://07f.de"
         },
@@ -14,8 +14,8 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.10.0",
-        "ratingGreenWebCheck": false,
+        "serverSoftwareVersion": "25.7.0",
+        "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
         "inBandRegistrationCaptchaRequired": true,
@@ -51,7 +51,7 @@
     {
         "jid": "404.city",
         "category": "B",
-        "latestChange": "2025-01-26",
+        "latestChange": "2025-08-24",
         "website": {
             "en": "https://404.city"
         },
@@ -63,7 +63,7 @@
         },
         "serverTesting": false,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
+        "serverSoftwareVersion": "25.8.0",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -188,7 +188,7 @@
     {
         "jid": "chalec.org",
         "category": "A",
-        "latestChange": "2025-01-29",
+        "latestChange": "2025-09-19",
         "website": {
             "fr": "https://www.chalec.org/services/xmpp/"
         },
@@ -198,7 +198,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
+        "serverSoftwareVersion": "25.8.7",
         "ratingGreenWebCheck": false,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -221,13 +221,13 @@
         ],
         "emailSupport": {
             "en": [
-                "cominfra@a-lec.org"
+                "contact+xmpp@chalec.org"
             ]
         },
         "chatSupport": {},
         "groupChatSupport": {
             "en": [
-                "a-lec@salons.a-lec.org"
+                "chalec@salons.a-lec.org"
             ]
         },
         "since": "2022-08-10"
@@ -235,7 +235,7 @@
     {
         "jid": "chatrix.one",
         "category": "A",
-        "latestChange": "2024-12-27",
+        "latestChange": "2025-08-30",
         "website": {
             "bg": "https://chatrix.one/bg/",
             "en": "https://chatrix.one"
@@ -249,7 +249,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
+        "serverSoftwareVersion": "25.8.0",
         "ratingGreenWebCheck": false,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -258,7 +258,7 @@
         "ratingXmppComplianceTester": 100,
         "ratingImObservatoryClientToServer": "A",
         "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 268,
+        "maximumHttpFileUploadFileSize": 104,
         "maximumHttpFileUploadTotalSize": 1024,
         "maximumHttpFileUploadStorageTime": 28,
         "maximumMessageArchiveManagementStorageTime": 28,
@@ -284,7 +284,7 @@
     {
         "jid": "disroot.org",
         "category": "B",
-        "latestChange": "2025-03-02",
+        "latestChange": "2025-09-19",
         "website": {
             "en": "https://disroot.org"
         },
@@ -296,7 +296,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "trunk nightly build 1971 (2025-03-01, 025f6e490774)",
+        "serverSoftwareVersion": "trunk nightly build 2014 (2025-09-02, b1e7d3f571b1)",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -335,7 +335,7 @@
     {
         "jid": "draugr.de",
         "category": "A",
-        "latestChange": "2025-03-10",
+        "latestChange": "2025-07-25",
         "website": {
             "de": "https://www.draugr.de"
         },
@@ -351,7 +351,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
+        "serverSoftwareVersion": "25.4.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -384,7 +384,7 @@
     {
         "jid": "hookipa.net",
         "category": "A",
-        "latestChange": "2025-03-16",
+        "latestChange": "2025-04-06",
         "website": {
             "de": "https://hookipa.net",
             "en": "https://hookipa.net/en/front-page/"
@@ -397,7 +397,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "23.10-1~bpo12+1",
+        "serverSoftwareVersion": "24.12-3~bpo12+1",
         "ratingGreenWebCheck": false,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -432,9 +432,101 @@
         "since": "2008-05-28"
     },
     {
+        "jid": "jabber-germany.de",
+        "category": "A",
+        "latestChange": "2025-09-12",
+        "website": {
+            "de": "https://www.jabber-germany.de/index-de.html"
+        },
+        "alternativeJids": [],
+        "busFactor": -1,
+        "organization": "private person",
+        "passwordReset": {
+            "de": "https://www.jabber-germany.de/index-de.html"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "13.0.2",
+        "ratingGreenWebCheck": true,
+        "inBandRegistration": true,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {},
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 41,
+        "maximumHttpFileUploadTotalSize": 2048,
+        "maximumHttpFileUploadStorageTime": 14,
+        "maximumMessageArchiveManagementStorageTime": 31,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "de": "https://www.jabber-germany.de/index-de.html"
+        },
+        "serverLocations": [
+            "de"
+        ],
+        "emailSupport": {
+            "en": [
+                "admin@jabber-germany.de"
+            ]
+        },
+        "chatSupport": {
+            "en": [
+                "admin@jabber-germany.de"
+            ]
+        },
+        "groupChatSupport": {},
+        "since": "2017-06-01"
+    },
+    {
+        "jid": "jabber.fr",
+        "category": "A",
+        "latestChange": "2025-09-12",
+        "website": {
+            "fr": "https://jabberfr.org"
+        },
+        "alternativeJids": [],
+        "busFactor": 2,
+        "organization": "non-governmental",
+        "passwordReset": {},
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "hg:1bc4e7ab964c",
+        "ratingGreenWebCheck": true,
+        "inBandRegistration": true,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {},
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 104,
+        "maximumHttpFileUploadTotalSize": 215,
+        "maximumHttpFileUploadStorageTime": 14,
+        "maximumMessageArchiveManagementStorageTime": 14,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "fr": "https://jabberfr.org/legal.php"
+        },
+        "serverLocations": [
+            "fr"
+        ],
+        "emailSupport": {},
+        "chatSupport": {},
+        "groupChatSupport": {
+            "en": [
+                "jabberfr@chat.jabberfr.org"
+            ]
+        },
+        "since": "2004-11-30"
+    },
+    {
         "jid": "jabber.hot-chilli.net",
         "category": "B",
-        "latestChange": "2025-03-28",
+        "latestChange": "2025-09-14",
         "website": {
             "de": "https://jabber.hot-chilli.net/de/",
             "en": "https://jabber.hot-chilli.net"
@@ -498,9 +590,58 @@
         "since": "2005-03-19"
     },
     {
+        "jid": "jabbers.one",
+        "category": "A",
+        "latestChange": "2025-08-25",
+        "website": {
+            "de": "https://jabbers.one/de/",
+            "en": "https://jabbers.one/en/"
+        },
+        "alternativeJids": [],
+        "busFactor": 1,
+        "organization": "private person",
+        "passwordReset": {},
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "13.0.2",
+        "ratingGreenWebCheck": true,
+        "inBandRegistration": true,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {},
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 52,
+        "maximumHttpFileUploadTotalSize": 200,
+        "maximumHttpFileUploadStorageTime": 10,
+        "maximumMessageArchiveManagementStorageTime": 30,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "de": "https://www.jabbers.one/de/impressum.php",
+            "en": "https://www.jabbers.one/en/site_notice.php"
+        },
+        "serverLocations": [
+            "de"
+        ],
+        "emailSupport": {
+            "en": [
+                "info@jabbers.one"
+            ]
+        },
+        "chatSupport": {},
+        "groupChatSupport": {
+            "en": [
+                "support@conference.jabbers.one"
+            ]
+        },
+        "since": "2014-04-28"
+    },
+    {
         "jid": "jabjab.de",
         "category": "A",
-        "latestChange": "2025-02-20",
+        "latestChange": "2025-09-01",
         "website": {
             "de": "https://www.jabjab.de",
             "en": "https://www.jabjab.de/?lang=en",
@@ -524,7 +665,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.2.0",
+        "serverSoftwareVersion": "25.8.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -561,7 +702,7 @@
     {
         "jid": "jix.im",
         "category": "B",
-        "latestChange": "2025-01-07",
+        "latestChange": "2025-09-19",
         "website": {
             "en": "https://jix.im/en/",
             "pl": "https://jix.im/pl/"
@@ -577,7 +718,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
+        "serverSoftwareVersion": "25.8.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -615,77 +756,22 @@
         "since": "2014-04-27"
     },
     {
-        "jid": "macaw.me",
-        "category": "A",
-        "latestChange": "2025-01-06",
-        "website": {
-            "en": "https://macaw.me"
-        },
-        "alternativeJids": [],
-        "busFactor": 1,
-        "organization": "private person",
-        "passwordReset": {
-            "en": "https://macaw.me/services/chat"
-        },
-        "serverTesting": true,
-        "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
-        "ratingGreenWebCheck": false,
-        "inBandRegistration": true,
-        "inBandRegistrationEmailAddressRequired": false,
-        "inBandRegistrationCaptchaRequired": true,
-        "registrationWebPage": {},
-        "ratingXmppComplianceTester": 100,
-        "ratingImObservatoryClientToServer": "A",
-        "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 104,
-        "maximumHttpFileUploadTotalSize": 2000,
-        "maximumHttpFileUploadStorageTime": 0,
-        "maximumMessageArchiveManagementStorageTime": 0,
-        "professionalHosting": true,
-        "freeOfCharge": true,
-        "legalNotice": {
-            "en": "https://macaw.me/tos"
-        },
-        "serverLocations": [
-            "us"
-        ],
-        "emailSupport": {
-            "en": [
-                "administrator@macaw.me",
-                "blue@macaw.me"
-            ]
-        },
-        "chatSupport": {
-            "en": [
-                "administrator@macaw.me",
-                "blue@macaw.me"
-            ]
-        },
-        "groupChatSupport": {
-            "en": [
-                "support@conference.macaw.me"
-            ]
-        },
-        "since": "2019-03-14"
-    },
-    {
         "jid": "magicbroccoli.de",
         "category": "A",
-        "latestChange": "2025-02-10",
+        "latestChange": "2025-09-09",
         "website": {
             "en": "https://magicbroccoli.de"
         },
         "alternativeJids": [],
         "busFactor": -1,
-        "organization": "",
+        "organization": "private person",
         "passwordReset": {
-            "en": "https://magicbroccoli.de/register/"
+            "en": "https://magicbroccoli.de/register"
         },
-        "serverTesting": false,
+        "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.9-magicbroccoli.de",
-        "ratingGreenWebCheck": false,
+        "serverSoftwareVersion": "25.04.5-magicbroccoli.de",
+        "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
         "inBandRegistrationCaptchaRequired": true,
@@ -695,11 +781,12 @@
         "ratingImObservatoryServerToServer": "A",
         "maximumHttpFileUploadFileSize": 52,
         "maximumHttpFileUploadTotalSize": 0,
-        "maximumHttpFileUploadStorageTime": 30,
+        "maximumHttpFileUploadStorageTime": 31,
         "maximumMessageArchiveManagementStorageTime": 90,
         "professionalHosting": true,
         "freeOfCharge": true,
         "legalNotice": {
+            "en": "https://magicbroccoli.de/termsofuse/",
             "de": "https://magicbroccoli.de/datenschutz/"
         },
         "serverLocations": [
@@ -712,12 +799,12 @@
                 "lobby@conference.magicbroccoli.de"
             ]
         },
-        "since": "2017-06-20"
+        "since": "2014-06-20"
     },
     {
         "jid": "monocles.eu",
         "category": "B",
-        "latestChange": "2025-03-25",
+        "latestChange": "2025-09-16",
         "website": {
             "en": "https://monocles.eu/more",
             "de": "https://monocles.eu/more/de.html",
@@ -736,8 +823,8 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "13.0.0",
-        "ratingGreenWebCheck": false,
+        "serverSoftwareVersion": "13.0.2",
+        "ratingGreenWebCheck": true,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
         "inBandRegistrationCaptchaRequired": false,
@@ -749,7 +836,7 @@
         "ratingImObservatoryServerToServer": "A",
         "maximumHttpFileUploadFileSize": 209,
         "maximumHttpFileUploadTotalSize": 3221,
-        "maximumHttpFileUploadStorageTime": 0,
+        "maximumHttpFileUploadStorageTime": 30,
         "maximumMessageArchiveManagementStorageTime": 60,
         "professionalHosting": true,
         "freeOfCharge": true,
@@ -772,7 +859,7 @@
     {
         "jid": "movim.eu",
         "category": "B",
-        "latestChange": "2025-03-29",
+        "latestChange": "2025-08-28",
         "website": {
             "en": "https://movim.eu"
         },
@@ -786,8 +873,8 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "25.3.0",
-        "ratingGreenWebCheck": false,
+        "serverSoftwareVersion": "25.8.0",
+        "ratingGreenWebCheck": true,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
         "inBandRegistrationCaptchaRequired": false,
@@ -820,55 +907,9 @@
         "since": "2017-08-16"
     },
     {
-        "jid": "projectsegfau.lt",
-        "category": "A",
-        "latestChange": "2025-03-29",
-        "website": {
-            "en": "https://projectsegfau.lt"
-        },
-        "alternativeJids": [],
-        "busFactor": 2,
-        "organization": "private person",
-        "passwordReset": {
-            "en": "https://xmpp.projectsegfau.lt/account"
-        },
-        "serverTesting": true,
-        "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12.0",
-        "ratingGreenWebCheck": false,
-        "inBandRegistration": true,
-        "inBandRegistrationEmailAddressRequired": false,
-        "inBandRegistrationCaptchaRequired": true,
-        "registrationWebPage": {},
-        "ratingXmppComplianceTester": 100,
-        "ratingImObservatoryClientToServer": "A",
-        "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 104,
-        "maximumHttpFileUploadTotalSize": 0,
-        "maximumHttpFileUploadStorageTime": 0,
-        "maximumMessageArchiveManagementStorageTime": 0,
-        "professionalHosting": true,
-        "freeOfCharge": true,
-        "legalNotice": {
-            "en": "https://projectsegfau.lt/legal"
-        },
-        "serverLocations": [
-            "in",
-            "ch"
-        ],
-        "emailSupport": {},
-        "chatSupport": {
-            "en": [
-                "sysadmin@projectsegfau.lt"
-            ]
-        },
-        "groupChatSupport": {},
-        "since": "2023-02-07"
-    },
-    {
         "jid": "redlibre.es",
         "category": "A",
-        "latestChange": "2025-03-30",
+        "latestChange": "2025-04-23",
         "website": {
             "es": "https://www.redlibre.es"
         },
@@ -880,7 +921,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "25.3.0",
+        "serverSoftwareVersion": "25.4.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -899,7 +940,8 @@
             "es": "https://www.redlibre.es/terminos-de-servicio/"
         },
         "serverLocations": [
-            "es"
+            "es",
+            "fi"
         ],
         "emailSupport": {
             "en": [
@@ -921,7 +963,7 @@
     {
         "jid": "suchat.org",
         "category": "A",
-        "latestChange": "2025-03-30",
+        "latestChange": "2025-09-01",
         "website": {
             "es": "https://www.suchat.org"
         },
@@ -933,7 +975,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "25.3.0",
+        "serverSoftwareVersion": "25.8.7",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -974,7 +1016,7 @@
     {
         "jid": "trashserver.net",
         "category": "B",
-        "latestChange": "2025-03-18",
+        "latestChange": "2025-08-30",
         "website": {
             "de": "https://trashserver.net",
             "en": "https://trashserver.net/en/"
@@ -985,7 +1027,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "24.12",
+        "serverSoftwareVersion": "25.08",
         "ratingGreenWebCheck": false,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -1019,9 +1061,64 @@
         "since": "2012-01-01"
     },
     {
+        "jid": "worlio.com",
+        "category": "B",
+        "latestChange": "2025-07-05",
+        "website": {
+            "en": "https://xmpp.worlio.com"
+        },
+        "alternativeJids": [],
+        "busFactor": 1,
+        "organization": "company",
+        "passwordReset": {
+            "en": "https://community.worlio.com/forgot"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "Dendrite",
+        "serverSoftwareVersion": "0.14.4",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": false,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {
+            "en": "https://community.worlio.com/register"
+        },
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 128,
+        "maximumHttpFileUploadTotalSize": 5000,
+        "maximumHttpFileUploadStorageTime": 14,
+        "maximumMessageArchiveManagementStorageTime": 14,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "en": "https://xmpp.worlio.com/rules"
+        },
+        "serverLocations": [
+            "us"
+        ],
+        "emailSupport": {
+            "en": [
+                "support@worlio.com"
+            ]
+        },
+        "chatSupport": {
+            "en": [
+                "wirlaburla@worlio.com"
+            ]
+        },
+        "groupChatSupport": {
+            "en": [
+                "worlio@muc.worlio.com"
+            ]
+        },
+        "since": "2023-03-07"
+    },
+    {
         "jid": "xmpp.earth",
         "category": "A",
-        "latestChange": "2024-11-02",
+        "latestChange": "2025-06-26",
         "website": {
             "en": "https://xmpp.earth"
         },
@@ -1041,8 +1138,8 @@
         "ratingImObservatoryClientToServer": "A",
         "ratingImObservatoryServerToServer": "A",
         "maximumHttpFileUploadFileSize": 52,
-        "maximumHttpFileUploadTotalSize": 10240,
-        "maximumHttpFileUploadStorageTime": 7,
+        "maximumHttpFileUploadTotalSize": 200,
+        "maximumHttpFileUploadStorageTime": 90,
         "maximumMessageArchiveManagementStorageTime": 365,
         "professionalHosting": true,
         "freeOfCharge": true,
@@ -1063,9 +1160,116 @@
         "since": "2022-08-01"
     },
     {
+        "jid": "xmpp.eco.br",
+        "category": "A",
+        "latestChange": "2025-09-19",
+        "website": {
+            "pt": "https://xmpp.eco.br"
+        },
+        "alternativeJids": [
+            "xampu.net"
+        ],
+        "busFactor": 1,
+        "organization": "private person",
+        "passwordReset": {
+            "pt": "https://xmpp.eco.br/resetar_senha/"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "ejabberd",
+        "serverSoftwareVersion": "25.8.0",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": true,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {},
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 20,
+        "maximumHttpFileUploadTotalSize": 1000,
+        "maximumHttpFileUploadStorageTime": 90,
+        "maximumMessageArchiveManagementStorageTime": 90,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "pt": "https://xmpp.eco.br/termos/"
+        },
+        "serverLocations": [
+            "br",
+            "de"
+        ],
+        "emailSupport": {
+            "en": [
+                "suporte@xmpp.eco.br"
+            ]
+        },
+        "chatSupport": {},
+        "groupChatSupport": {
+            "en": [
+                "suporte@grupos.xmpp.eco.br"
+            ]
+        },
+        "since": "2024-09-19"
+    },
+    {
+        "jid": "xmpp.is",
+        "category": "B",
+        "latestChange": "2025-08-23",
+        "website": {
+            "en": "https://xmpp.is"
+        },
+        "alternativeJids": [
+            "xmpp.chat",
+            "xmpp.co",
+            "xmpp.cx",
+            "xmpp.fi",
+            "xmpp.si",
+            "xmpp.xyz"
+        ],
+        "busFactor": -1,
+        "organization": "company",
+        "passwordReset": {
+            "en": "https://xmpp.is/account/recovery/"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "13.0.2",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": false,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {
+            "en": "https://xmpp.is/account/register/"
+        },
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 104,
+        "maximumHttpFileUploadTotalSize": 0,
+        "maximumHttpFileUploadStorageTime": 7,
+        "maximumMessageArchiveManagementStorageTime": 30,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "en": "https://xmpp.is/about/tos-aup/"
+        },
+        "serverLocations": [
+            "ro",
+            "us"
+        ],
+        "emailSupport": {
+            "en": [
+                "support@xmpp.is"
+            ]
+        },
+        "chatSupport": {},
+        "groupChatSupport": {},
+        "since": "2015-05-19"
+    },
+    {
         "jid": "yax.im",
         "category": "A",
-        "latestChange": "2025-01-10",
+        "latestChange": "2025-09-10",
         "website": {
             "en": "https://yaxim.org/yax.im/"
         },
@@ -1075,7 +1279,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "Prosody",
-        "serverSoftwareVersion": "0.12 nightly build 223 (2024-08-18, 2fb79fe54390)",
+        "serverSoftwareVersion": "13.0 nightly build 38 (2025-04-18, 0b01f40df0f9)",
         "ratingGreenWebCheck": false,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
