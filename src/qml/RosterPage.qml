@@ -47,7 +47,6 @@ SearchBarPage {
 		model: RosterFilterModel {
 			id: filterModel
 			sourceModel: RosterModel
-			selectedAccountJids: root.activeChatPage && root.activeChatPage.chatController.messageBodyToForward ? root.activeChatPage.chatController.account.settings.jid : []
 		}
 		delegate: RosterItemDelegate {
 			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
@@ -170,6 +169,22 @@ SearchBarPage {
 			function onItemsRemoved(accountJid) {
 				if (accountJid === root.activeChatPage.chatController.account.settings.jid) {
 					MainController.closeChatPageRequested()
+				}
+			}
+		}
+
+		Connections {
+			target: root.activeChatPage ? root.activeChatPage.chatController : null
+
+			property var previouslySelectedAccountJids
+
+			function onMessageBodyToForwardChanged() {
+				if (root.activeChatPage.chatController.messageBodyToForward) {
+					// "slice()" is needed to avoid a property binding.
+					previouslySelectedAccountJids = filterModel.selectedAccountJids.slice()
+					filterModel.selectedAccountJids = [root.activeChatPage.chatController.account.settings.jid]
+				} else {
+					filterModel.selectedAccountJids = previouslySelectedAccountJids
 				}
 			}
 		}
