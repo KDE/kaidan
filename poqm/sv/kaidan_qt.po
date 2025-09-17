@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-20 08:36+0200\n"
+"PO-Revision-Date: 2025-03-31 20:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,44 +11,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/Account.cpp:440
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Ansluten"
+msgstr "Anslut"
 
 #: src/Account.cpp:442
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Ansluter…"
 
 #: src/Account.cpp:444
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Nerkopplad"
+msgstr "Anslut"
 
 #: src/Account.cpp:455
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Ogiltigt användarnamn eller lösenord."
 
 #: src/Account.cpp:457
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Kan inte ansluta till servern. Kontrollera Internetanslutningen."
 
 #: src/Account.cpp:459
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Fel vid försöka att ansluta säkert."
 
 #: src/Account.cpp:461
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Servern stöder inte säkra anslutningar."
 
 #: src/Account.cpp:463
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "Could not connect to the server. Please check your internet connection or "
+#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -58,21 +84,35 @@ msgstr ""
 "servernamnet."
 
 #: src/Account.cpp:465
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Servern är nerkopplad eller blockerad av en brandvägg."
 
 #: src/Account.cpp:467
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Behörighetskontrollprotokollet stöds inte av servern."
 
 #: src/Account.cpp:469
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Anslutningen kunde inte uppdateras."
 
 #: src/Account.cpp:471
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "The internet access is not permitted. Please check your system's internet "
+#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -82,35 +122,52 @@ msgstr ""
 "Internetåtkomst."
 
 #: src/Account.cpp:473
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Servern stöder inte registrering."
 
 #: src/Account.cpp:475
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Kunde inte logga in. Bekräfta först brevet du tog emot via e-post."
 
 #: src/Account.cpp:477
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Kunde inte ansluta till servern."
 
 #: src/AccountMigrationController.cpp:331
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Kontot kunde inte överföras: Kunde inte läsa in exporterad kontodata."
 
 #: src/AccountMigrationController.cpp:354
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Kontot kunde inte överföras. Du måste vara ansluten."
 
 #: src/AccountMigrationController.cpp:403
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "Konto '%1' överfört till '%2'"
+msgstr "Kontoöverföring"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -138,12 +195,15 @@ msgid "Devices on Servers"
 msgstr "Enheter på servrar"
 
 #: src/ChatHintModel.cpp:256
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Kontot är inte aktiverat. Meddelanden skickas och tas emot när det väl är "
-"aktiverat."
+"Du är inte ansluten. Meddelanden skickas och tas emot när du väl är ansluten"
 
 #: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
 #: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
@@ -154,22 +214,28 @@ msgstr "Stäng"
 #: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr "Aktivera"
+msgstr ""
 
 #: src/ChatHintModel.cpp:259
+#, fuzzy
+#| msgctxt "NewMedia|"
+#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Aktiverar…"
+msgstr "Initierar…"
 
 #: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Kunde inte ansluta"
+msgstr "Kunde inte ansluta till servern."
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr "Visa fel"
+msgstr ""
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -555,16 +621,25 @@ msgid "You aren't allowed to delete the group"
 msgstr "Du har inte tillåtelse att ta bort gruppen"
 
 #: src/NotificationController.cpp:151
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Begäran om att få din personliga information"
 
 #: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Öppna"
 
 #: src/NotificationController.cpp:304
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Markera som läst"
@@ -646,12 +721,15 @@ msgstr "Sök"
 #: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr "Avbryt vidarebefordran"
+msgstr ""
 
 #: src/qml/ChatPage.qml:528
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Välj en chatt för att vidarebefordra meddelandet"
+msgstr "Välj en chatt för att börja"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -659,30 +737,41 @@ msgid "Drop files to be sent"
 msgstr "Släpp filer att skicka"
 
 #: src/qml/ChatPage.qml:780
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
 
 #: src/qml/ChatPage.qml:780
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Ångra"
 
 #: src/qml/ChatPage.qml:787
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/ChatPage.qml:791
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "Kunde inte ta bort blockering för %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "DetailsContent|"
+#| msgid "You can share media up to %1."
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Tillåter att dela media upp till %1."
@@ -1204,7 +1293,7 @@ msgstr "Förbereder kontoöverföring…"
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr "Den kan ta en stund "
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
@@ -2103,7 +2192,7 @@ msgstr "Overifierad egna apparater"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr "Funktionen stöds inte"
+msgstr ""
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2164,7 +2253,7 @@ msgstr "Citera"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Vidarebefordra"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
@@ -2179,7 +2268,7 @@ msgstr "Redigera"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr "Märk"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
@@ -2322,9 +2411,12 @@ msgid "Name (optional):"
 msgstr "Namn (valfritt):"
 
 #: src/qml/elements/ContactAdditionContent.qml:71
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "Meddelande (valfritt, okrypterat):"
+msgstr "Meddelande (valfritt):"
 
 #: src/qml/elements/ContactAdditionContent.qml:78
 msgctxt "ContactAdditionContent|"
@@ -2404,7 +2496,7 @@ msgstr "Port:"
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr "Vissa funktioner blir synliga när kontot väl är aktiverat"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2739,23 +2831,33 @@ msgid "Retry updating reactions"
 msgstr "Försök att uppdatera reaktioner igen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Search public groups (%1)"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Sök öppna grupper (%1)"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
-msgstr "Laddar ner…"
+msgstr "Laddar ner..."
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Försök igen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "The public groups could not be retrieved: %1"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "De öppna grupperna kunde tyvärr inte hämtas: %1"
@@ -2821,87 +2923,137 @@ msgid "Media"
 msgstr "Media"
 
 #: src/qml/elements/RosterFilterArea.qml:27
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Tillgängliga kontakter"
 
 #: src/qml/elements/RosterFilterArea.qml:31
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Otillgängliga kontakter"
 
 #: src/qml/elements/RosterFilterArea.qml:35
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Privata grupper"
 
 #: src/qml/elements/RosterFilterArea.qml:39
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Öppna grupper"
 
 #: src/qml/elements/RosterFilterArea.qml:51
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Filtrera enligt typ"
 
 #: src/qml/elements/RosterFilterArea.qml:52
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Visa bara poster med specifika typer"
 
 #: src/qml/elements/RosterFilterArea.qml:113
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Filtrera enligt konton"
 
 #: src/qml/elements/RosterFilterArea.qml:114
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Visa bara chatter för valda konton"
 
 #: src/qml/elements/RosterFilterArea.qml:175
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Filtrera enligt etiketter"
 
 #: src/qml/elements/RosterFilterArea.qml:176
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Visa bara chatter för valda etiketter"
 
 #: src/qml/elements/RosterItemDelegate.qml:74
+#, fuzzy
+#| msgctxt "GroupChatDetailsHeader|"
+#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Borttagen"
 
 #: src/qml/elements/RosterItemDelegate.qml:88
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Inga meddelanden ännu"
 
 #: src/qml/elements/RosterItemDelegate.qml:104
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Utkast:"
 
 #: src/qml/elements/RosterItemDelegate.qml:107
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Jag:"
 
 #: src/qml/elements/RosterItemDelegate.qml:111
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterListItem|"
+#| msgid "%1:"
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Ta ner"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fäst upp"
@@ -2954,12 +3106,12 @@ msgstr "Åtgärder"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr "Aktivera kontot för att använda alla tillgängliga åtgärder"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr "Aktivera ett konto för att använda alla tillgängliga åtgärder"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -2977,9 +3129,12 @@ msgid "Create group"
 msgstr "Skapa grupp"
 
 #: src/qml/GlobalDrawer.qml:198
+#, fuzzy
+#| msgctxt "GroupChatCreationDialog|"
+#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Skapa grupp (stöds inte)"
+msgstr "Skapa gruppchatt"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -2987,9 +3142,12 @@ msgid "Join group"
 msgstr "Gå med i grupp"
 
 #: src/qml/GlobalDrawer.qml:224
+#, fuzzy
+#| msgctxt "GroupChatJoiningDialog|"
+#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Gå med i grupp (stöds inte)"
+msgstr "Gå med i gruppchatt"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3002,24 +3160,33 @@ msgid "About"
 msgstr "Om"
 
 #: src/qml/GlobalDrawer.qml:455
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
 
 #: src/qml/GlobalDrawer.qml:455
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Ångra"
 
 #: src/qml/GlobalDrawer.qml:462
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/GlobalDrawer.qml:466
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
 msgstr "Kunde inte ta bort blockering för %1: %2"
@@ -3082,8 +3249,6 @@ msgstr "Slutför registreringen."
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
-"Automatisk registrering misslyckades på grund av problem med alla "
-"leverantörer"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3322,9 +3487,12 @@ msgid "Account Migration"
 msgstr "Kontoöverföring"
 
 #: src/qml/StartPage.qml:27
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Skapa konto"
+msgstr "Kontoöverföring"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3370,31 +3538,45 @@ msgid "%1 paused typing"
 msgstr "%1 slutade skriva"
 
 #: src/QrCodeGenerator.cpp:46
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AbstractQrCodeGenerator|"
+#| msgid "Generating the QR code failed: %1"
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Misslyckades skapa QR-kod: %1"
 
 #: src/RosterController.cpp:162
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
 
 #: src/RosterController.cpp:171
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 "Kunde inte lägga till kontakt som ett resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:183
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:199
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3404,18 +3586,25 @@ msgstr ""
 "anslutningsproblem: %2"
 
 #: src/RosterController.cpp:215
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
 #: src/RosterController.cpp:232
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
 
 #: src/RosterController.cpp:333
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
@@ -3460,11 +3649,7 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markera som första olästa"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Kontot kunde inte överföras: En annan överföring pågår redan."
@@ -3489,13 +3674,17 @@ msgstr "Webbplats"
 #~ msgid "That can take long"
 #~ msgstr "Det kan ta lång tid"
 
-#~ msgctxt "RosterListItem|"
-#~ msgid "Deleted"
-#~ msgstr "Borttagen"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markera som första olästa"
 
 #~ msgctxt "ConfirmationPage|"
 #~ msgid "Cancel"
 #~ msgstr "Avbryt"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Deleted"
+#~ msgstr "Borttagen"
 
 #~ msgctxt "DeviceSwitchingPage|"
 #~ msgid "Hide QR code"

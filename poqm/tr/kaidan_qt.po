@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-20 19:54+0300\n"
+"PO-Revision-Date: 2025-06-20 22:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,44 +12,70 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: src/Account.cpp:440
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Bağlı"
+msgstr "Bağlan"
 
 #: src/Account.cpp:442
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
 #: src/Account.cpp:444
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Bağlantı kesildi"
+msgstr "Bağlan"
 
 #: src/Account.cpp:455
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Geçersiz kullanıcı adı veya parola."
 
 #: src/Account.cpp:457
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr "Sunucuya bağlanamadı. Lütfen internet bağlantınızı denetleyin."
+msgstr "Sunucuya bağlanamadı. İnternet bağlantınızı denetleyin."
 
 #: src/Account.cpp:459
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
 #: src/Account.cpp:461
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
 #: src/Account.cpp:463
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "Could not connect to the server. Please check your internet connection or "
+#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -58,59 +84,90 @@ msgstr ""
 "Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
 #: src/Account.cpp:465
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
 #: src/Account.cpp:467
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
 #: src/Account.cpp:469
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Bağlantı yenilenemedi."
 
 #: src/Account.cpp:471
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "The internet access is not permitted. Please check your system's internet "
+#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"İnternet erişimine izin verilmiyor. Lütfen isteminizin internet erişim "
+"İnternet erişimine izin verilmiyor. Sisteminizin internet erişim "
 "yapılandırmasını denetleyin."
 
 #: src/Account.cpp:473
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
 #: src/Account.cpp:475
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Oturum açılamadı. Öncelikle size gelen e-posta iletisini onaylayın."
 
 #: src/Account.cpp:477
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Sunucuya bağlanılamadı."
 
 #: src/AccountMigrationController.cpp:331
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Hesap göç ettirilemedi: Dışa aktarılan hesap verisi yüklenemedi."
 
 #: src/AccountMigrationController.cpp:354
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Hesap göç ettirilemedi: Bağlı olmanız gerekiyor."
 
 #: src/AccountMigrationController.cpp:403
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "“%1” hesabı, “%2” konumuna göç ettirildi"
+msgstr "Hesap Göçü"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -138,11 +195,14 @@ msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
 #: src/ChatHintModel.cpp:256
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
-msgstr ""
-"Hesabınız etkin değil — İletiler, etkinleştirildiğinde gönderilir ve alınır"
+msgstr "Bağlı değilsiniz — İletiler bağlandığınızda gönderilir ve alınır"
 
 #: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
 #: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
@@ -153,22 +213,28 @@ msgstr "Kapat"
 #: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr "Etkinleştir"
+msgstr ""
 
 #: src/ChatHintModel.cpp:259
+#, fuzzy
+#| msgctxt "NewMedia|"
+#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Etkinleştiriliyor…"
+msgstr "İlklendiriliyor…"
 
 #: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Bağlanılamadı"
+msgstr "Sunucuya bağlanılamadı."
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr "Hatayı Göster"
+msgstr ""
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -241,7 +307,9 @@ msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
 #: src/FileSharingController.cpp:363
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Dosya indirilemedi: %1"
@@ -554,16 +622,25 @@ msgid "You aren't allowed to delete the group"
 msgstr "Bu grubu silmenize izin yok"
 
 #: src/NotificationController.cpp:151
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Kişisel verinizi alma isteği"
 
 #: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Aç"
 
 #: src/NotificationController.cpp:304
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Okundu Olarak İmle"
@@ -645,12 +722,15 @@ msgstr "Ara"
 #: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr "İletimi İptal Et"
+msgstr ""
 
 #: src/qml/ChatPage.qml:528
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Bu iletiyi iletmek için bir sohbet seçin"
+msgstr "Başlamak için bir sohbet seçin"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -658,30 +738,41 @@ msgid "Drop files to be sent"
 msgstr "Gönderilecek dosyaları bırakın"
 
 #: src/qml/ChatPage.qml:780
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
 #: src/qml/ChatPage.qml:780
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Geri Al"
 
 #: src/qml/ChatPage.qml:787
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
 #: src/qml/ChatPage.qml:791
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "DetailsContent|"
+#| msgid "You can share media up to %1."
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "%1 boyutuna kadar ortam paylaşabilirsiniz."
@@ -1199,7 +1290,7 @@ msgstr "Hesap göçü için hazırlanılıyor…"
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr "Bu biraz vakit alabilir"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
@@ -2103,7 +2194,7 @@ msgstr "Doğrulanmamış öz aygıtlar"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr "Özellik desteklenmiyor"
+msgstr ""
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2164,7 +2255,7 @@ msgstr "Alıntıla"
 #: src/qml/elements/ChatMessageContextMenu.qml:122
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "İlet"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
@@ -2179,7 +2270,7 @@ msgstr "Düzenle"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr "İmle"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
@@ -2322,9 +2413,12 @@ msgid "Name (optional):"
 msgstr "Ad (isteğe bağlı):"
 
 #: src/qml/elements/ContactAdditionContent.qml:71
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "İleti (isteğe bağlı, şifresiz):"
+msgstr "İleti (isteğe bağlı):"
 
 #: src/qml/elements/ContactAdditionContent.qml:78
 msgctxt "ContactAdditionContent|"
@@ -2404,7 +2498,7 @@ msgstr "Kapı:"
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr "Kimi özellikler, hesabınız etkinleştirildikten sonra görünür olacak"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2739,23 +2833,33 @@ msgid "Retry updating reactions"
 msgstr "Tepkileri güncellemeyi yeniden dene"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Search public groups (%1)"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Genel grupları ara (%1)"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "İndiriliyor…"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Yeniden Dene"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "The public groups could not be retrieved: %1"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Genel gruplar alınamadı: %1"
@@ -2822,87 +2926,137 @@ msgid "Media"
 msgstr "Ortam"
 
 #: src/qml/elements/RosterFilterArea.qml:27
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Kullanılabilir kişiler"
 
 #: src/qml/elements/RosterFilterArea.qml:31
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Kullanılamayan kişiler"
 
 #: src/qml/elements/RosterFilterArea.qml:35
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Özel gruplar"
 
 #: src/qml/elements/RosterFilterArea.qml:39
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Genel gruplar"
 
 #: src/qml/elements/RosterFilterArea.qml:51
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Türe göre süz"
 
 #: src/qml/elements/RosterFilterArea.qml:52
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Yalnızca belirli türlerin girdilerini göster"
 
 #: src/qml/elements/RosterFilterArea.qml:113
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Hesaplara Göre Süz"
 
 #: src/qml/elements/RosterFilterArea.qml:114
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Yalnızca seçili hesapların sohbetlerini göster"
 
 #: src/qml/elements/RosterFilterArea.qml:175
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Etiketlere Göre Süz"
 
 #: src/qml/elements/RosterFilterArea.qml:176
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Yalnızca seçili etiketlere iye olan sohbetleri göster"
 
 #: src/qml/elements/RosterItemDelegate.qml:74
+#, fuzzy
+#| msgctxt "GroupChatDetailsHeader|"
+#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Silindi"
 
 #: src/qml/elements/RosterItemDelegate.qml:88
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Henüz bir ileti yok"
 
 #: src/qml/elements/RosterItemDelegate.qml:104
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Taslak:"
 
 #: src/qml/elements/RosterItemDelegate.qml:107
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Ben:"
 
 #: src/qml/elements/RosterItemDelegate.qml:111
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterListItem|"
+#| msgid "%1:"
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Sabitle"
@@ -2955,12 +3109,12 @@ msgstr "Eylemler"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr "Tüm kullanılabilir eylemleri görmek için hesabı etkinleştir"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr "Tüm kullanılabilir eylemleri görmek için bir hesap etkinleştir"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -2978,9 +3132,12 @@ msgid "Create group"
 msgstr "Grup oluştur"
 
 #: src/qml/GlobalDrawer.qml:198
+#, fuzzy
+#| msgctxt "GroupChatCreationDialog|"
+#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Grup Oluştur (Desteklenmiyor)"
+msgstr "Grup Sohbeti Oluştur"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -2988,9 +3145,12 @@ msgid "Join group"
 msgstr "Gruba katıl"
 
 #: src/qml/GlobalDrawer.qml:224
+#, fuzzy
+#| msgctxt "GroupChatJoiningDialog|"
+#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Gruba Katıl (Desteklenmiyor)"
+msgstr "Grup sohbetine katıl"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3003,24 +3163,33 @@ msgid "About"
 msgstr "Hakkında"
 
 #: src/qml/GlobalDrawer.qml:455
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
 #: src/qml/GlobalDrawer.qml:455
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Geri Al"
 
 #: src/qml/GlobalDrawer.qml:462
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
 #: src/qml/GlobalDrawer.qml:466
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
@@ -3083,8 +3252,6 @@ msgstr "Kaydı tamamlayın!"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
-"Kendiliğinden kayıt, sağlayıcılardan kaynaklı sorunlardan dolayı başarısız "
-"oldu"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3316,7 +3483,7 @@ msgstr "Süz"
 #: src/qml/RosterPage.qml:37
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "Sabitle ve Taşı"
+msgstr ""
 
 #: src/qml/StartPage.qml:27
 msgctxt "StartPage|"
@@ -3324,9 +3491,12 @@ msgid "Account Migration"
 msgstr "Hesap Göçü"
 
 #: src/qml/StartPage.qml:27
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Hesap Oluşturma"
+msgstr "Hesap Göçü"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3372,29 +3542,43 @@ msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
 
 #: src/QrCodeGenerator.cpp:46
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AbstractQrCodeGenerator|"
+#| msgid "Generating the QR code failed: %1"
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Kare kod oluşturulamadı: %1"
 
 #: src/RosterController.cpp:162
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 eklenemedi: %2"
 
 #: src/RosterController.cpp:171
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi eklenemedi."
 
 #: src/RosterController.cpp:183
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
 #: src/RosterController.cpp:199
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3404,19 +3588,25 @@ msgstr ""
 "başarısız oldu: %2"
 
 #: src/RosterController.cpp:215
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 kişisinin sizin kişisel verinizi görme isteği başarısız oldu"
 
 #: src/RosterController.cpp:232
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr ""
-"%1 kişisinin sizin kişisel verinizi görme isteğini durdurma başarısız oldu"
+msgstr "%1 kişisinin sizin kişisel verinizi durdurma isteği başarısız oldu"
 
 #: src/RosterController.cpp:333
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi kaldırılamadı."
@@ -3461,11 +3651,7 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "İlk okunmayan olarak imle"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Hesap göç ettirilemedi: Başka bir göç halihazırda sürüyor"
@@ -3490,6 +3676,651 @@ msgstr "Web sitesi"
 #~ msgid "That can take long"
 #~ msgstr "Bu biraz uzun sürebilir"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "İlk okunmayan olarak imle"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
 #~ msgstr "Silindi"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Kare kodu gizle"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Kare kod olarak göster"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Hide text"
+#~ msgstr "Metni gizle"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Show as text"
+#~ msgstr "Metin olarak göster"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "Dikkat:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Sohbet adresi:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Sohbet adresini kopyala"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Parola:"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Aygıt değiştir"
+
+#~ msgctxt "AvatarChangePage|"
+#~ msgid "Choose profile image"
+#~ msgstr "Profil görseli seç"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Log in"
+#~ msgstr "Oturum Aç"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Log in"
+#~ msgstr "Oturum Aç"
+
+#~ msgctxt "StartPage|"
+#~ msgid "or"
+#~ msgstr "veya"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "Kamera yükleniyor…"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "Kameranız meşgul\n"
+#~ "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin"
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Kamera biçimi “%1” desteklenmiyor.c"
+
+#~ msgctxt "MediaRecorder|"
+#~ msgid "Default"
+#~ msgstr "Öntanımlı"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Very low"
+#~ msgstr "Çok düşük"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Low"
+#~ msgstr "Düşük"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Normal"
+#~ msgstr "Olağan"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "High"
+#~ msgstr "Yüksek"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Very high"
+#~ msgstr "Çok yüksek"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Constant quality"
+#~ msgstr "Sabit kalite"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Constant bit rate"
+#~ msgstr "Sabit bit oranı"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Average bit rate"
+#~ msgstr "Ortalama bit oranı"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Two pass"
+#~ msgstr "İki geçiş"
+
+#~ msgctxt "OmemoManager|"
+#~ msgid "End-to-end encryption via OMEMO 2 could not be set up"
+#~ msgstr "OMEMO 2 aracılığıyla uçtan uca şifreleme ayarlanamadı"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Open"
+#~ msgstr "Aç"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Join…"
+#~ msgstr "Katıl…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "Uygun değil"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "Kayıt yapılıyor… %1"
+
+#~ msgctxt "NewMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Share files"
+#~ msgstr "Dosyalar paylaş"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Choose files"
+#~ msgstr "Dosyalar seç"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Enter description…"
+#~ msgstr "Açıklama girin…"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Compose message"
+#~ msgstr "İleti oluştur"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Add"
+#~ msgstr "Ekle"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Gönder"
+
+#~ msgctxt "SearchPublicGroupChatSheet|"
+#~ msgid "Search…"
+#~ msgstr "Ara…"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Ayarlar"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "Visit website"
+#~ msgstr "Web sitesini ziyaret et"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Çoklu Ortam Ayarları"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Select Sources"
+#~ msgstr "Kaynaklar Seç"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Kamera"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Input"
+#~ msgstr "Ses Girişi"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Output"
+#~ msgstr "Video Çıkışı"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Reset User Settings"
+#~ msgstr "Kullanıcı Ayarlarını Sıfırla"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Save"
+#~ msgstr "Kaydet"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Ayarlar"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Çoklu Ortam ayarları"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Fotoğraf, video ve ses kayıt ayarlarını yapılandır"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "About Kaidan"
+#~ msgstr "Kaidan Hakkında"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Learn about the current Kaidan version, view the source code and "
+#~ "contribute"
+#~ msgstr ""
+#~ "Geçerli Kaidan sürümü hakkında bilgi alın, kaynak kodunu görüntüleyin ve "
+#~ "katkıda bulunun"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Ayarlar"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Media"
+#~ msgstr "Ortam"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Take a picture using your camera"
+#~ msgstr "Kameranızı kullanarak bir resim çekin"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record a video using your camera"
+#~ msgstr "Kameranızı kullanarak bir video kaydedin"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Share files from your device"
+#~ msgstr "Aygıtınızdan dosyalar paylaşın"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Onları şifrelemek için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "Diğer <b>aygıtların</b> OMEMO 2 kullanmıyor"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Olabilecek en yüksek güvenlik için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify your <b>contact</b> to enable encryption"
+#~ msgstr "Şifrelemeyi etkinleştirmek için <b>kişinizi</b> doğrulayın"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Your <b>contact</b> doesn't use OMEMO 2"
+#~ msgstr "<b>Kişi</b>, OMEMO 2 kullanmıyor"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify your <b>contact</b> for maximum security"
+#~ msgstr "Olabilecek en yüksek güvenlik için <b>kişinizi</b> doğrulayın"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Onları şifrelemek için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "Diğer <b>aygıtlarınız</b> OMEMO 2 kullanmıyor"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Olabilecek en yüksek güvenlik için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify a <b>participant</b> to enable encryption"
+#~ msgstr "Şifrelemeyi etkinleştirmek için bir <b>katılımcıyı</b> doğrulayın"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Onları şifrelemek için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "Diğer <b>aygıtlarınız</b> OMEMO 2 kullanmıyor"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Olabilecek en yüksek güvenlik için <b>aygıtlarınızı</b> doğrulayın"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Device does not exist or is already verified"
+#~ msgstr "Aygıt yok veya halihazırda doğrulanmış"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Yalın, kullanıcı dostu bir Jabber/XMPP istemcisi"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Lisans:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Sorunları bildir"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Kaynak kodunu çevrimiçi görüntüle"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Onayla"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Onayla"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Onayla"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Onayla"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "Kendiliğinden kayıt ol"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "Sağlayıcı isteniyor…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "Bu sunucu, ek bilgi istiyor.\n"
+#~ "İstenen her şey zorunlu olmayabilir.\n"
+#~ "Eğer bir CAPTCHA gösterilirse ekrandaki metin girilmelidir."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "Ekran adınız diğer kişiler tarafından görünür.\n"
+#~ "Bir ekran adı kullanmak istemezseniz bu alanı boş bırakabilirsiniz.\n"
+#~ "Bir ekran adı kullanmak yeni kişilerin sizi daha kolay tanımalarına "
+#~ "yardımcı olur; ancak gizliliğinizi azaltabilir!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "El ile kayıt ol"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Sağlayıcı, şu anda uygulama üzerinden kaydolmayı desteklemiyor."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "Ancak sağlayıcının web kayıt ekranını kullanabilirsiniz."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "Yeni bir sağlayıcı rastgele seçildi."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "Hesabınız için bir parola sağlayabilirsiniz. Sağlamazsanız, daha sonra "
+#~ "uygulama içinde bulabileceğiniz bir parola sizin yerinize üretilecektir."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "Sağlayıcı, hesabınızın nerede olduğunu gösterir.\n"
+#~ "Seçilebiler sağlayıcılar, topluluğumuz tarafından özenle seçilmiştir!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Sağlayıcı"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Bağlantı ayarları"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Hayır"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Evet"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "Çevrimiçi olma zaman:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "Ortam paylaşma ölçütü sayısı:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "Paylaşılan ortam depolama ölçütü:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Web sitesini aç"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Web sitesi adresini kopyala"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "Sohbet adresiniz, sizinle sohbet etmek için kullanılır. E-postanız gibi "
+#~ "düşünün.\n"
+#~ "\n"
+#~ "Sohbet adresiniz şudur:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "Kullanıcı adınız, hesabınıza oturum açmak için ve sizinle sohbet etmek "
+#~ "için kullanılır.\n"
+#~ "Bir kullanıcı adı girmezseniz ekrandaki rastgele oluşturulan kullanıcı "
+#~ "adı kullanılacaktır.\n"
+#~ "Kendinizin seçeceği bir kullanıcı adı daha tanınır olabilir; ancak "
+#~ "gizliliğinizi azaltabilir!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "Kayıt web sitesi adresini kopyala"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Login"
+#~ msgstr "Oturum Aç"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Sağlayıcı, şu anda uygulama üzerinden kaydolmayı desteklemiyor."
+
+#~ msgctxt "StartPage|"
+#~ msgid "Scan login QR code of old device"
+#~ msgstr "Eski aygıtın oturum açma kare kodunu tara"
+
+#~ msgctxt "BlockingController|"
+#~ msgid "Error fetching blocklist: %1"
+#~ msgstr "Engelleme listesi getirilirken hata: %1"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "İletiyi kopyala"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "İletiyi düzenle"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "İndirme URL’sini kopyala"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "İletiyi alıntıla"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Delete file"
+#~ msgstr "Dosyayı sil"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
+#~ msgstr "Onları şifrelemek için <b>aygıtlarının</b> kare kodlarını tara"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Scan the QR codes of <b>your</b> devices for maximum security"
+#~ msgstr ""
+#~ "Olabilecek en güvenli şifreleme için <b>aygıtlarının</b> kare kodlarını "
+#~ "tara"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "Own:"
+#~ msgstr "Sahip:"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "%1 has been sent"
+#~ msgstr "%1 gönderildi"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "%1 has been delivered"
+#~ msgstr "%1 teslim edildi"
+
+#~ msgctxt "RosterFilteringArea|"
+#~ msgid "Filter by availability"
+#~ msgstr "Kullanılabilirliğe göre süz"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Arkadaşlarını davet et"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Step 1: Scan your <b>contact's</b> QR code"
+#~ msgstr "1. Adım: <b>Kişi</b>’nin kare kodunu tara"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Step 2: Let your contact scan <b>your</b> QR code"
+#~ msgstr ""
+#~ "2. Adım: Kişinizin, <b>sizin</b> kare kodunuzu taramasına izin verin"
+
+#~ msgctxt "ChatSupportSheet|"
+#~ msgid "Support Group"
+#~ msgstr "Destek Grubu"
+
+#~ msgctxt "ChatSupportSheet|"
+#~ msgid "Support"
+#~ msgstr "Destek"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Hesabı başka bir aygıta aktar"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "XMPP hesabınıza oturum açın"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Bağlanıyor…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Kare kod olmadan sürdür"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr "Hesabınızı aktarmak için mevcut aygıtınızdaki kare kodu tarayın."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "Your password is used to log in to your account.\n"
+#~ "If you don't enter a password, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Don't use passwords you're already using somewhere else!"
+#~ msgstr ""
+#~ "Parolanız, hesabınıza oturum açmak için kullanılır.\n"
+#~ "Eğer bir parola girmezseniz ekrandaki rastgele oluşturulan parola "
+#~ "kullanılacaktır.\n"
+#~ "Başka yerlerde kullandığınız parolaları kullanmayın!"
+
+#~ msgctxt "RegistrationDecisionPage|"
+#~ msgid "Register"
+#~ msgstr "Kayıt ol"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "Kurulum"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "Başlayalım"
+
+#~ msgctxt "QrCodePage|"
+#~ msgid "Show explanation"
+#~ msgstr "Açıklama göster"
+
+#~ msgctxt "QrCodePage|"
+#~ msgid "Adding contact…"
+#~ msgstr "Kişi ekleniyor…"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Only when status is sent"
+#~ msgstr "Yalnızca durum gönderildiğinde"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Send status"
+#~ msgstr "Durum gönder"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Abonelik İsteği"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "<b>%1</b> kişisinden bir abonelik isteği aldınız. Kabul ederseniz bu "
+#~ "hesap sizin buradalık durumunuza erişebilecektir."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Reddet"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Kabul Et"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Disallowing %1 to see your status failed"
+#~ msgstr "%1 kişisine durumunuzu görme iznini kaldırma başarısız oldu"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Labels"
+#~ msgstr "Etiketler"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Tatkaçıran ipucu"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Close spoiler hint field"
+#~ msgstr "Tatkaçıran ipucu alanını kapat"

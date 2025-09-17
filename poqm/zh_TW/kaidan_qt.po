@@ -224,9 +224,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "連線中…"
@@ -4321,10 +4318,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "標記為第一未讀"
-
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
 #~ msgstr "上線"
@@ -4341,16 +4334,20 @@ msgstr "網站"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "連結會在您連線之後開啟。"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "標記為第一未讀"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
 #, fuzzy
 #~| msgctxt "ChatMessageContextMenu|"
 #~| msgid "Delete file"
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
 #~ msgstr "刪除檔案"
-
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "取消"
 
 #~ msgctxt "DeviceSwitchingPage|"
 #~ msgid "Hide QR code"
