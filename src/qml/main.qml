@@ -25,7 +25,6 @@ import "registration"
 Kirigami.ApplicationWindow {
 	id: root
 
-	property bool loggingOutToQuit: false
 	property bool quitForced: false
 	readonly property color primaryBackgroundColor: Kirigami.Theme.backgroundColor
 	readonly property color secondaryBackgroundColor: {
@@ -53,7 +52,6 @@ Kirigami.ApplicationWindow {
 		// is quit.
 		if (!quitForced) {
 			if (AccountController.logOutAllAccountsToQuit()) {
-				loggingOutToQuit = true
 				close.accepted = false
 				forcedClosingTimer.start()
 			}
@@ -144,14 +142,8 @@ Kirigami.ApplicationWindow {
 		function onAccountAdded(account) {
 			openChatView()
 		}
-	}
-
-	Connections {
-		target: AccountController
-		enabled: root.loggingOutToQuit
 
 		function onAllAccountsLoggedOutToQuit() {
-			root.loggingOutToQuit = false
 			root.close()
 		}
 	}
