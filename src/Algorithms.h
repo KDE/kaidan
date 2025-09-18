@@ -11,9 +11,6 @@
 #include <algorithm>
 #include <optional>
 #include <unordered_map>
-#if __has_include(<__cpp_lib_ranges_enumerate>)
-#include <ranges>
-#endif
 // Qt
 #include <QList>
 
@@ -23,7 +20,7 @@ auto transform(const T &input, Converter convert)
     using Output = std::decay_t<decltype(convert(*input.begin()))>;
     QList<Output> output;
     output.reserve(input.size());
-    std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+    std::ranges::transform(input, std::back_inserter(output), std::move(convert));
     return output;
 }
 
@@ -32,7 +29,7 @@ TargetContainer transform(const SourceContainer &input, Converter convert)
 {
     TargetContainer output;
     output.reserve(input.size());
-    std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+    std::ranges::transform(input, std::back_inserter(output), std::move(convert));
     return output;
 }
 
@@ -40,7 +37,7 @@ template<typename TargetContainer, typename SourceContainer, typename Converter>
 TargetContainer transformNoReserve(const SourceContainer &input, Converter convert)
 {
     TargetContainer output;
-    std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+    std::ranges::transform(input, std::back_inserter(output), std::move(convert));
     return output;
 }
 
@@ -60,11 +57,11 @@ auto transformMap(const T &input, Converter convert)
 template<typename T, typename Condition>
 auto filter(T &&input, Condition condition)
 {
-    auto it = std::remove_if(input.begin(), input.end(), [condition = std::move(condition)](const auto &item) {
+    auto it = std::ranges::remove_if(input, [condition = std::move(condition)](const auto &item) {
         return !condition(item);
     });
 
-    input.erase(it, input.end());
+    input.erase(it.begin(), input.end());
 
     return std::move(input);
 }
@@ -137,13 +134,13 @@ auto transformSum(const T &input, Converter convert)
 template<typename T, typename V>
 bool contains(const T &input, const T &value)
 {
-    return std::find(input.begin(), input.end(), value) != input.end();
+    return std::ranges::find(input, value) != input.end();
 }
 
 template<typename T, typename Condition>
 bool containsIf(const T &input, Condition condition)
 {
-    return std::find_if(input.begin(), input.end(), condition) != input.end();
+    return std::ranges::find_if(input, condition) != input.end();
 }
 
 /**
@@ -152,8 +149,8 @@ bool containsIf(const T &input, Condition condition)
 template<typename Container>
 static void makeUnique(Container &container)
 {
-    std::sort(container.begin(), container.end());
-    container.erase(std::unique(container.begin(), container.end()), container.end());
+    std::ranges::sort(container);
+    container.erase(std::ranges::unique(container).begin(), container.end());
 }
 
 /**
@@ -162,7 +159,7 @@ static void makeUnique(Container &container)
 template<typename Container>
 static bool containCommonElement(Container &containerA, Container &containerB)
 {
-    return std::search(containerA.cbegin(), containerA.cend(), containerB.cbegin(), containerB.cend()) != containerA.cend();
+    return std::ranges::find_first_of(containerA, containerB) != containerA.end();
 }
 
 /**
