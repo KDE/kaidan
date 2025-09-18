@@ -136,13 +136,14 @@ void NotificationController::sendPresenceSubscriptionRequestNotification(const Q
     static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
 #endif
 
-    auto notificationWrapperItr =
-        std::find_if(m_openMessageNotifications.begin(), m_openMessageNotifications.end(), [&chatJid](const auto &notificationWrapper) {
-            return notificationWrapper.chatJid == chatJid;
-        });
+    auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(),
+                                               m_openPresenceSubscriptionRequestNotifications.end(),
+                                               [&chatJid](const auto &notificationWrapper) {
+                                                   return notificationWrapper.chatJid == chatJid;
+                                               });
 
     // Only create a new notification if none exists.
-    if (notificationWrapperItr != m_openMessageNotifications.end()) {
+    if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
         return;
     }
 
