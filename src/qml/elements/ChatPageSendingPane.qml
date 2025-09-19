@@ -239,22 +239,40 @@ Controls.Pane {
 						root.chatPage.chatController.sendChatState(ChatState.Active)
 					}
 				}
-				Keys.onDownPressed: {
+				Keys.onDownPressed: event => {
 					if (participantPicker) {
 						if (participantPicker.listView.currentIndex === participantPicker.listView.count - 1) {
 							participantPicker.listView.currentIndex = 0
 						} else {
 							participantPicker.listView.incrementCurrentIndex()
 						}
+					} else {
+						event.accepted = false
 					}
 				}
-				Keys.onUpPressed: {
+				Keys.onUpPressed: event => {
 					if (participantPicker) {
 						if (participantPicker.listView.currentIndex === 0) {
 							participantPicker.listView.currentIndex = participantPicker.listView.count - 1
 						} else {
 							participantPicker.listView.decrementCurrentIndex()
 						}
+					} else {
+						event.accepted = false
+					}
+				}
+				Keys.onLeftPressed: event => {
+					if (participantPicker) {
+						event.accepted = true
+					} else {
+						event.accepted = false
+					}
+				}
+				Keys.onRightPressed: event => {
+					if (participantPicker) {
+						event.accepted = true
+					} else {
+						event.accepted = false
 					}
 				}
 				Keys.onReturnPressed: event => {
