@@ -112,10 +112,9 @@ public:
 
     QString jid() const;
     void setJid(const QString &jid);
+    Q_SIGNAL void jidChanged();
 
     int resourcesCount();
-
-    Q_SIGNAL void jidChanged();
     Q_SIGNAL void resourcesCountChanged();
 
 private:

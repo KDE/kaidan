@@ -251,9 +251,6 @@ void UserResourcesWatcher::setJid(const QString &jid)
     if (m_jid != jid) {
         m_jid = jid;
         Q_EMIT jidChanged();
-
-        // That signal is emitted to reload the resources in QML after setting
-        // the JID.
         Q_EMIT resourcesCountChanged();
     }
 }
