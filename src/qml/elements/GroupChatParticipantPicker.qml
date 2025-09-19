@@ -44,6 +44,7 @@ Dialog {
 			account: root.account
 			jid: model.jid
 			name: model.name
+			avatar.accountAvatar.visible: false
 			width: ListView.view.width
 			hoverEnabled: true
 			checked: ListView.isCurrentItem
