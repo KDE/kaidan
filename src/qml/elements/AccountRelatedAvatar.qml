@@ -26,7 +26,7 @@ Avatar {
 		name: account ? account.settings.displayName : ""
 		implicitWidth: parent.implicitWidth * 0.4
 		implicitHeight: parent.implicitHeight * 0.4
-		visible: AccountController.accounts.length > 1
+		visible: AccountController.accounts.length > 1 && jid != parent.jid
 		anchors.horizontalCenter: parent.horizontalCenter
 		anchors.horizontalCenterOffset: parent.implicitWidth / 2 - implicitWidth * 0.4
 		anchors.verticalCenter: parent.verticalCenter
