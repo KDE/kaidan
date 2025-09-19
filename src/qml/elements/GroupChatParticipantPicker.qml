@@ -60,8 +60,6 @@ Dialog {
 				avatar.iconSource: "resource-group-new"
 				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
 				avatar.color: Kirigami.Theme.textColor
-				implicitWidth: largeButtonWidth
-				implicitHeight: height
 				hoverEnabled: true
 				checked: true
 				onClicked: {
