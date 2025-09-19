@@ -26,14 +26,17 @@ Kirigami.Dialog {
 	leftPadding: 0
 	bottomPadding: 0
 	rightPadding: 0
+	// Set a negative inset to fix the rounded corner of the dialog below the scroll bar if visible.
+	bottomInset: contentItem.Controls.ScrollBar.vertical.visible ? - Kirigami.Units.cornerRadius : 0
+	preferredWidth: largeButtonWidth
+	maximumWidth: preferredWidth
+	maximumHeight: applicationWindow().height - Kirigami.Units.gridUnit * 6
 	modal: false
 	header: null
 	footer: null
 
 	ListView {
 		id: listView
-		implicitWidth: largeButtonWidth
-		implicitHeight: contentHeight
 		model: GroupChatUserFilterModel {
 			sourceModel: GroupChatUserModel {
 				accountJid: root.account.settings.jid
