@@ -23,6 +23,7 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
+	property Dialog participantPicker
 	property int lastMessageLength: 0
 	property real horizontalContentMargin: Kirigami.Units.smallSpacing
 	property MessageComposition composition: MessageComposition {
@@ -239,7 +240,7 @@ Controls.Pane {
 					}
 				}
 				Keys.onDownPressed: {
-					if (participantPicker.visible) {
+					if (participantPicker) {
 						if (participantPicker.listView.currentIndex === participantPicker.listView.count - 1) {
 							participantPicker.listView.currentIndex = 0
 						} else {
@@ -248,7 +249,7 @@ Controls.Pane {
 					}
 				}
 				Keys.onUpPressed: {
-					if (participantPicker.visible) {
+					if (participantPicker) {
 						if (participantPicker.listView.currentIndex === 0) {
 							participantPicker.listView.currentIndex = participantPicker.listView.count - 1
 						} else {
@@ -261,7 +262,7 @@ Controls.Pane {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
 							messageArea.append("")
 						} else {
-							if (participantPicker.visible) {
+							if (participantPicker) {
 								participantPicker.selectCurrentIndex()
 							} else {
 								sendButton.clicked()
@@ -512,30 +513,33 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
-			GroupChatParticipantPicker {
-				id: participantPicker
-				x: {
-					const cursorRectangle = messageArea.cursorRectangle
+			Component {
+				id: participantPickerComponent
 
-					// A gap is needed since cursorRectangle.x is (for an unknown reason) not at the cursor's position.
-					const gap = Kirigami.Units.largeSpacing * 8
+				GroupChatParticipantPicker {
+					x: {
+						const cursorRectangle = messageArea.cursorRectangle
 
-					if (root.chatPage.width > cursorRectangle.x + gap + participantPicker.listView.implicitWidth) {
-						return mapToGlobal(cursorRectangle.x, cursorRectangle.y).x + gap
+						// A gap is needed since cursorRectangle.x is (for an unknown reason) not at the cursor's position.
+						const gap = Kirigami.Units.largeSpacing * 8
+
+						if (root.chatPage.width > cursorRectangle.x + gap + listView.implicitWidth) {
+							return mapToGlobal(cursorRectangle.x, cursorRectangle.y).x + gap
+						}
+
+						return pageStack.wideMode ? root.chatPage.x : 0
 					}
+					y: {
+						// Used to trigger a reevaluation of y if the window's height changes.
+						const windowHeight = applicationWindow().height
 
-					return pageStack.wideMode ? root.chatPage.x : 0
+						const cursorRectangle = messageArea.cursorRectangle
+						return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - contentHeight
+					}
+					account: root.chatPage.chatController.account
+					chatJid: root.chatPage.chatController.jid
+					textArea: messageArea
 				}
-				y: {
-					// Used to trigger a reevaluation of y if the window's height changes.
-					const windowHeight = applicationWindow().height
-
-					const cursorRectangle = messageArea.cursorRectangle
-					return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - contentHeight
-				}
-				account: root.chatPage.chatController.account
-				chatJid: root.chatPage.chatController.jid
-				textArea: messageArea
 			}
 
 			CaptureSession {
@@ -618,10 +622,11 @@ Controls.Pane {
 			}
 
 			// Handle the deletion or addition of characters.
-			if (lastMessageLength >= messageArea.text.length)
+			if (lastMessageLength >= messageArea.text.length) {
 				emojiPicker.searchedText = emojiPicker.searchedText.substr(0, emojiPicker.searchedText.length - 1)
-			else
+			} else {
 				emojiPicker.searchedText += currentCharacter
+			}
 
 			emojiPicker.search()
 		} else {
@@ -629,17 +634,17 @@ Controls.Pane {
 				if (messageArea.cursorPosition !== 1) {
 					const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 					if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
-						emojiPicker.openForSearch(currentCharacter)
+						openParticipantPicker(currentCharacter)
 						emojiPicker.search()
 					}
 				} else {
-					emojiPicker.openForSearch(currentCharacter)
+					openParticipantPicker(currentCharacter)
 					emojiPicker.search()
 				}
 			}
 		}
 
-		if (participantPicker.visible) {
+		if (participantPicker) {
 			if (participantPicker.searchedText === "" || currentCharacter === "" || currentCharacter === " ") {
 				participantPicker.close()
 				return
@@ -657,16 +662,22 @@ Controls.Pane {
 			if (messageArea.cursorPosition !== 1) {
 				const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 				if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
-					participantPicker.openForSearch(currentCharacter)
+					openParticipantPicker(currentCharacter)
 					participantPicker.search()
 				}
 			} else {
-				participantPicker.openForSearch(currentCharacter)
+				openParticipantPicker(currentCharacter)
 				participantPicker.search()
 			}
 		}
 
 		lastMessageLength = messageArea.text.length
+	}
+
+	function openParticipantPicker(currentCharacter) {
+		participantPicker = openOverlay(participantPickerComponent)
+		participantPicker.prepareSearch(currentCharacter)
+
 	}
 
 	function clear() {
