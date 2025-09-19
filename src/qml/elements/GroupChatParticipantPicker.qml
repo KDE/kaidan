@@ -78,14 +78,6 @@ Kirigami.Dialog {
 		listView.currentIndex = -1
 	}
 
-	function toggle() {
-		if (visible) {
-			close()
-		} else {
-			open()
-		}
-	}
-
 	function openForSearch(currentCharacter) {
 		searchedText += currentCharacter
 		listView.currentIndex = 0
