@@ -9,7 +9,7 @@ RosterItemDetailsPage {
 	id: root
 	title: qsTr("Contact Details")
 
-	ContactDetailsHeader  {
+	RosterItemDetailsHeader  {
 		chatController: root.chatController
 	}
 

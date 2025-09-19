@@ -16,7 +16,6 @@
 struct RosterItem;
 
 class AccountSettings;
-class AvatarCache;
 class ClientWorker;
 class Connection;
 class PresenceCache;
@@ -31,7 +30,6 @@ class VCardController : public QObject
 public:
     VCardController(AccountSettings *accountSettings,
                     Connection *connection,
-                    AvatarCache *avatarCache,
                     PresenceCache *presenceCache,
                     QXmppClient *client,
                     QXmppVCardManager *vCardManager,
@@ -107,7 +105,6 @@ private:
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;
-    AvatarCache *const m_avatarCache;
     PresenceCache *const m_presenceCache;
     QXmppVCardManager *const m_manager;
 

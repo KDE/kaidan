@@ -15,9 +15,19 @@
 // Kaidan
 #include "KaidanCoreLog.h"
 
+AvatarCache *AvatarCache::s_instance = nullptr;
+
+AvatarCache *AvatarCache::instance()
+{
+    return s_instance;
+}
+
 AvatarCache::AvatarCache(QObject *parent)
     : QObject(parent)
 {
+    Q_ASSERT(!s_instance);
+    s_instance = this;
+
     // create avatar directory, if it doesn't exists
     QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     if (!cacheDir.exists(QStringLiteral("avatars")))
@@ -55,6 +65,11 @@ AvatarCache::AvatarCache(QObject *parent)
     } catch (...) {
         qCDebug(KAIDAN_CORE_LOG) << "Error in" << avatarFilePath << "(avatar list file)";
     }
+}
+
+AvatarCache::~AvatarCache()
+{
+    s_instance = nullptr;
 }
 
 AvatarCache::AddAvatarResult AvatarCache::addAvatar(const QString &jid, const QByteArray &avatar)
@@ -174,3 +189,28 @@ void AvatarCache::saveAvatarsFile()
 }
 
 #include "moc_AvatarCache.cpp"
+
+AvatarWatcher::AvatarWatcher(QObject *parent)
+    : QObject(parent)
+{
+    connect(AvatarCache::instance(), &AvatarCache::avatarIdsChanged, this, &AvatarWatcher::urlChanged);
+}
+
+QString AvatarWatcher::jid() const
+{
+    return m_jid;
+}
+
+void AvatarWatcher::setJid(const QString &jid)
+{
+    if (m_jid != jid) {
+        m_jid = jid;
+        Q_EMIT jidChanged();
+        Q_EMIT urlChanged();
+    }
+}
+
+QUrl AvatarWatcher::url()
+{
+    return AvatarCache::instance()->getAvatarUrl(m_jid);
+}

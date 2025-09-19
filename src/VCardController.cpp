@@ -28,7 +28,6 @@ constexpr auto VCARD_FETCHING_AFTER_CONNECTING_DELAY = 500ms;
 
 VCardController::VCardController(AccountSettings *accountSettings,
                                  Connection *connection,
-                                 AvatarCache *avatarCache,
                                  PresenceCache *presenceCache,
                                  QXmppClient *client,
                                  QXmppVCardManager *vCardManager,
@@ -36,7 +35,6 @@ VCardController::VCardController(AccountSettings *accountSettings,
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_connection(connection)
-    , m_avatarCache(avatarCache)
     , m_presenceCache(presenceCache)
     , m_manager(vCardManager)
 {
@@ -177,7 +175,7 @@ void VCardController::handleOwnVCardReceived()
 void VCardController::handlePresenceReceived(const QXmppPresence &presence)
 {
     if (presence.vCardUpdateType() == QXmppPresence::VCardUpdateValidPhoto) {
-        QString hash = m_avatarCache->getHashOfJid(QXmppUtils::jidToBareJid(presence.from()));
+        QString hash = AvatarCache::instance()->getHashOfJid(QXmppUtils::jidToBareJid(presence.from()));
         QString newHash = QString::fromUtf8(presence.photoHash().toHex());
 
         // check if hash differs and we need to refetch the avatar
@@ -188,7 +186,7 @@ void VCardController::handlePresenceReceived(const QXmppPresence &presence)
         }
     } else if (presence.vCardUpdateType() == QXmppPresence::VCardUpdateNoPhoto) {
         QString bareJid = QXmppUtils::jidToBareJid(presence.from());
-        m_avatarCache->clearAvatar(bareJid);
+        AvatarCache::instance()->clearAvatar(bareJid);
     }
     // ignore VCardUpdateNone (protocol unsupported) and VCardUpdateNotReady
 }
@@ -244,7 +242,7 @@ void VCardController::changeAvatarAfterReceivingCurrentVCard()
 void VCardController::addAvatar(const QXmppVCardIq &vCard)
 {
     if (const auto avatar = vCard.photo(); !avatar.isEmpty()) {
-        m_avatarCache->addAvatar(QXmppUtils::jidToBareJid(vCard.from().isEmpty() ? m_accountSettings->jid() : vCard.from()), avatar);
+        AvatarCache::instance()->addAvatar(QXmppUtils::jidToBareJid(vCard.from().isEmpty() ? m_accountSettings->jid() : vCard.from()), avatar);
     }
 }
 

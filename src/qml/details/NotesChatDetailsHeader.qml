@@ -11,7 +11,7 @@ import im.kaidan.kaidan
 
 import "../elements"
 
-ContactDetailsHeader {
+RosterItemDetailsHeader {
 	id: root
 	displayNameEditable: false
 	description: qsTr("Messages in this chat are synchronized as notes across all your devices")

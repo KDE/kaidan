@@ -21,14 +21,17 @@ FormInfoHeader {
 	required property string jid
 	required property string displayName
 	property alias displayNameEditable: displayNameEditingButton.visible
-	property alias isGroupChat: avatar.isGroupChat
+	property alias avatar: avatar
 	required property Kirigami.Action avatarAction
 
 	AccountRelatedAvatar {
 		id: avatar
-		account: root.account
 		jid: root.jid
 		name: root.displayName
+		accountAvatar {
+			jid: root.account.settings.jid
+			name: root.account.settings.displayName
+		}
 		implicitWidth: Kirigami.Units.gridUnit * 8
 		implicitHeight: Kirigami.Units.gridUnit * 8
 		accountAvatar.visible: root.account.settings.jid !== root.jid

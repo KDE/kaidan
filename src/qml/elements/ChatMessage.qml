@@ -82,7 +82,6 @@ Controls.ItemDelegate {
 
 			Avatar {
 				id: avatar
-				account: root.chatController.account
 				jid: root.senderJid ? root.senderJid : root.groupChatSenderId
 				name: root.senderName
 				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin

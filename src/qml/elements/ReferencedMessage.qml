@@ -64,7 +64,6 @@ RowLayout {
 
 			Avatar {
 				id: avatar
-				account: root.account
 				jid: root.senderId ? root.senderId : root.account.settings.jid
 				name: root.senderName ? root.senderName : root.account.settings.displayName
 			}

@@ -18,7 +18,7 @@ Kirigami.Page {
 	id: root
 
 	property Account account
-	property url imagePath: account.avatarCache.getAvatarUrl(account.settings.jid)
+	property url imagePath: avatarWatcher.url
 
 	title: qsTr("Change profile image")
 	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).account = account
@@ -114,6 +114,11 @@ Kirigami.Page {
 				}
 			}
 		}
+	}
+
+	AvatarWatcher {
+		id: avatarWatcher
+		jid: root.account.settings.jid
 	}
 
 	Connections {

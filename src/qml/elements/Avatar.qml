@@ -10,11 +10,17 @@ import org.kde.kirigamiaddons.components as Components
 import im.kaidan.kaidan
 
 Components.Avatar {
-	property Account account
+	id: root
+
 	property string jid
 	property bool isGroupChat: false
 
-	source: jid && account ? account.avatarCache.getAvatarUrl(jid) : ""
+	source: jid ? avatarWatcher.url : ""
 	iconSource: isGroupChat ? "system-users-symbolic" : "avatar-default-symbolic"
 	color: Utils.userColor(jid, name)
+
+	AvatarWatcher {
+		id: avatarWatcher
+		jid: root.jid ? root.jid : ""
+	}
 }

@@ -21,7 +21,6 @@
 constexpr quint16 AUTO_DETECT_PORT = 0;
 
 class AtmController;
-class AvatarCache;
 class BlockingController;
 class ChatController;
 class ClientWorker;
@@ -300,7 +299,6 @@ class Account : public QObject
     Q_PROPERTY(VCardController *vCardController READ vCardController CONSTANT)
     Q_PROPERTY(VersionController *versionController READ versionController CONSTANT)
 
-    Q_PROPERTY(AvatarCache *avatarCache READ avatarCache NOTIFY avatarCacheChanged)
     Q_PROPERTY(PresenceCache *presenceCache READ presenceCache CONSTANT)
 
 public:
@@ -335,8 +333,6 @@ public:
     VCardController *vCardController() const;
     VersionController *versionController() const;
 
-    AvatarCache *avatarCache() const;
-    Q_SIGNAL void avatarCacheChanged();
     PresenceCache *presenceCache() const;
 
     Q_INVOKABLE void enable();
@@ -384,7 +380,6 @@ private:
 
     Connection *const m_connection;
 
-    AvatarCache *const m_avatarCache;
     PresenceCache *const m_presenceCache;
 
     AtmController *const m_atmController;

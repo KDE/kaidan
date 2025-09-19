@@ -31,7 +31,6 @@ Dialog {
 		model: AccountController.enabledAccounts()
 		delegate: FormCard.FormButtonDelegate {
 			leading: Avatar {
-				account: modelData
 				jid: modelData.settings.jid
 				name: modelData.settings.displayName
 				opacity: enabled ? 1 : 0.5

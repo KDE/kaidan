@@ -13,13 +13,7 @@ import "../elements"
 
 RosterItemDetailsHeader {
 	id: root
-	isGroupChat: true
-	avatarAction: Kirigami.Action {
-		text: qsTr("Maximize avatar")
-		icon.name: "view-fullscreen-symbolic"
-		enabled: root.account.avatarCache.getAvatarUrl(root.chatController.jid).toString()
-		onTriggered: Qt.openUrlExternally(root.account.avatarCache.getAvatarUrl(root.chatController.jid))
-	}
+	avatar.isGroupChat: true
 	description: root.chatController.rosterItem.isPublicGroupChat ? qsTr("Public Group Chat") : qsTr("Private Group Chat")
 
 	Controls.Label {

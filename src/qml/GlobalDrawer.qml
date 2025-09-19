@@ -68,7 +68,6 @@ Kirigami.GlobalDrawer {
 
 							background: FormCard.FormDelegateBackground { control: accountArea }
 							leading: Avatar {
-								account: modelData
 								jid: modelData.settings.jid
 								name: modelData.settings.displayName
 							}

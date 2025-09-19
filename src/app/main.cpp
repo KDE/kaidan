@@ -521,8 +521,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
     qmlRegisterType<ChatController>(APPLICATION_ID, 1, 0, "ChatController");
     qmlRegisterType<VersionController>(APPLICATION_ID, 1, 0, "VersionController");
-    qmlRegisterType<AvatarCache>(APPLICATION_ID, 1, 0, "AvatarCache");
     qmlRegisterType<PresenceCache>(APPLICATION_ID, 1, 0, "PresenceCache");
+    qmlRegisterType<AvatarWatcher>(APPLICATION_ID, 1, 0, "AvatarWatcher");
 
     // Q_OBJECT
     qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));

@@ -41,10 +41,13 @@ ClickableItemDelegate {
 
 	AccountRelatedAvatar {
 		id: avatar
-		account: root.account
 		jid: root.jid
 		name: root.name
 		isGroupChat: root.isGroupChat
+		accountAvatar {
+			jid: root.account ? root.account.settings.jid : ""
+			name: root.account ? root.account.settings.displayName : ""
+		}
 		accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
 	}
 }

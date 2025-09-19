@@ -15,7 +15,10 @@ class AvatarCache : public QObject
     Q_OBJECT
 
 public:
+    static AvatarCache *instance();
+
     explicit AvatarCache(QObject *parent = nullptr);
+    ~AvatarCache() override;
 
     struct AddAvatarResult {
         /* SHA1 HEX Hash */
@@ -77,4 +80,26 @@ private:
     void saveAvatarsFile();
 
     QMap<QString, QString> m_jidAvatarMap;
+
+    static AvatarCache *s_instance;
+};
+
+class AvatarWatcher : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
+    Q_PROPERTY(QUrl url READ url NOTIFY urlChanged)
+
+public:
+    explicit AvatarWatcher(QObject *parent = nullptr);
+
+    QString jid() const;
+    void setJid(const QString &jid);
+    Q_SIGNAL void jidChanged();
+
+    QUrl url();
+    Q_SIGNAL void urlChanged();
+
+private:
+    QString m_jid;
 };

@@ -17,7 +17,6 @@
 // Kaidan
 #include "AccountDb.h"
 #include "AtmController.h"
-#include "AvatarCache.h"
 #include "Blocking.h"
 #include "ChatController.h"
 #include "CredentialsValidator.h"
@@ -543,7 +542,6 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
         return XmppClient{thread, worker};
     }())
     , m_connection(new Connection(m_client.worker, this))
-    , m_avatarCache(new AvatarCache(this))
     , m_presenceCache(new PresenceCache(this))
     , m_atmController(new AtmController(m_client.worker->atmManager(), this))
     , m_blockingController(new BlockingController(m_settings, m_connection, m_client.worker, this))
@@ -560,16 +558,13 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
                                                 this))
     , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_client.worker->mixManager(), this))
     , m_notificationController(new NotificationController(m_settings, m_messageController, this))
-    , m_vCardController(
-          new VCardController(m_settings, m_connection, m_avatarCache, m_presenceCache, m_client.worker->xmppClient(), m_client.worker->vCardManager(), this))
+    , m_vCardController(new VCardController(m_settings, m_connection, m_presenceCache, m_client.worker->xmppClient(), m_client.worker->vCardManager(), this))
     , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_client.worker, this))
     , m_versionController(new VersionController(m_presenceCache, m_client.worker->versionManager()))
 {
     runOnThread(m_client.worker, [this]() {
         m_client.worker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
     });
-
-    connect(m_avatarCache, &AvatarCache::avatarIdsChanged, this, &Account::avatarCacheChanged);
 
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
         if (origin != MessageOrigin::UserInput && message.accountJid == m_settings->jid() && !message.files.isEmpty()) {
@@ -690,11 +685,6 @@ VCardController *Account::vCardController() const
 VersionController *Account::versionController() const
 {
     return m_versionController;
-}
-
-AvatarCache *Account::avatarCache() const
-{
-    return m_avatarCache;
 }
 
 PresenceCache *Account::presenceCache() const

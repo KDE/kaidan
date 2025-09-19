@@ -23,8 +23,8 @@ DetailsHeader {
 	avatarAction: Kirigami.Action {
 		text: qsTr("Maximize avatar")
 		icon.name: "view-fullscreen-symbolic"
-		enabled: root.account.avatarCache.getAvatarUrl(root.chatController.jid).toString()
-		onTriggered: Qt.openUrlExternally(root.account.avatarCache.getAvatarUrl(root.chatController.jid))
+		enabled: root.avatar.source.toString()
+		onTriggered: Qt.openUrlExternally(root.avatar.source)
 	}
 
 	Controls.Label {

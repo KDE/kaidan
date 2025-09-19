@@ -21,9 +21,6 @@ Avatar {
 
 	Avatar {
 		id: accountAvatar
-		account: parent.account
-		jid: account ? account.settings.jid : ""
-		name: account ? account.settings.displayName : ""
 		implicitWidth: parent.implicitWidth * 0.4
 		implicitHeight: parent.implicitHeight * 0.4
 		visible: AccountController.accounts.length > 1 && jid != parent.jid

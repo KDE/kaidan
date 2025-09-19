@@ -47,10 +47,13 @@ ChatPageBase {
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		contentItem: RowLayout {
 			AccountRelatedAvatar {
-				account: root.chatController.account
 				jid: root.chatController.jid
 				name: root.chatController.rosterItem.displayName
 				isGroupChat: root.chatController.rosterItem.isGroupChat
+				accountAvatar {
+					jid: root.chatController.account.settings.jid
+					name: root.chatController.account.settings.displayName
+				}
 				accountAvatarBorder.color: Kirigami.Theme.backgroundColor
 				opacity: avatarActionButton.hovered ? 0.7 : 1
 
