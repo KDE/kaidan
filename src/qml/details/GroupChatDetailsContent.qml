@@ -187,9 +187,9 @@ RosterItemDetailsContent {
 				}
 				section.property: "statusText"
 				section.delegate: ListViewSectionDelegate {}
-				delegate: ContactDelegate {
-					id: userDelegate
+				delegate: GroupChatUserDelegate {
 					account: root.chatController.account
+					chatJid: root.chatController.jid
 					jid: model.jid
 					name: model.name
 					width: ListView.view.width
@@ -197,17 +197,6 @@ RosterItemDetailsContent {
 						if (activeFocus) {
 							root.userSearchField.forceActiveFocus()
 						}
-					}
-
-					Button {
-						text: qsTr("Ban")
-						icon.name: "edit-delete-symbolic"
-						visible: root.chatController.account.settings.enabled && root.chatController.account.connection.state === Enums.StateConnected
-						display: Controls.AbstractButton.IconOnly
-						flat: !userDelegate.hovered
-						Controls.ToolTip.text: text
-						Layout.rightMargin: Kirigami.Units.smallSpacing * 3
-						onClicked: root.chatController.account.groupChatController.banUser(root.chatController.account.settings.jid, root.chatController.jid, userDelegate.jid)
 					}
 				}
 			}
