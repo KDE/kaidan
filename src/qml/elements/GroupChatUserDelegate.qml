@@ -11,6 +11,8 @@ ContactDelegate {
 
 	property string chatJid
 
+	avatar.accountAvatar.visible: false
+
 	Button {
 		text: qsTr("Ban")
 		icon.name: "edit-delete-symbolic"
