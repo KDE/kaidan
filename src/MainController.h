@@ -77,8 +77,6 @@ public:
     Q_SIGNAL void passiveNotificationRequested(QString text, const QString duration = {});
 
 private:
-    RosterModel *m_rosterModel;
-
     static MainController *s_instance;
 };
 

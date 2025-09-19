@@ -50,10 +50,8 @@ MainController::MainController(QObject *parent)
     new GroupChatUserDb(this);
 
     new AccountController(this);
-
     new AvatarCache(this);
-
-    m_rosterModel = new RosterModel(this);
+    new RosterModel(this);
 }
 
 MainController::~MainController()
