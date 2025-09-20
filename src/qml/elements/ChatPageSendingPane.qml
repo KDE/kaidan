@@ -652,11 +652,11 @@ Controls.Pane {
 				if (messageArea.cursorPosition !== 1) {
 					const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 					if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
-						openParticipantPicker(currentCharacter)
+						emojiPicker.openForSearch(currentCharacter)
 						emojiPicker.search()
 					}
 				} else {
-					openParticipantPicker(currentCharacter)
+					emojiPicker.openForSearch(currentCharacter)
 					emojiPicker.search()
 				}
 			}
