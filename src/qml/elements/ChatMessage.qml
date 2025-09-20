@@ -61,7 +61,7 @@ Controls.ItemDelegate {
 	property string groupChatInvitationJid
 	property var geoCoordinate
 	property bool marked
-	property bool isGroupBegin: determineMessageGroupDelimiter(chatController.messageModel.rowCount() - 1, 1)
+	property bool isGroupBegin: determineMessageGroupDelimiter(messageListView.count - 1, 1)
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
