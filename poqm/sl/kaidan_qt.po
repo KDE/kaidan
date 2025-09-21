@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-09-17 07:44+0200\n"
+"PO-Revision-Date: 2025-09-20 08:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -152,7 +152,7 @@ msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Vaš račun ni omogočen - Sporočila se pošiljajo in prejemajo, ko je omogočen."
+"Vaš račun ni omogočen - Sporočila se pošiljajo in prejemajo, ko je omogočen"
 
 #: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
 #: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
@@ -2579,12 +2579,9 @@ msgid "Invite contacts to this group…"
 msgstr "Povabi stike v to skupino…"
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
-msgstr "Prepovej"
+msgstr "Prepoved"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
