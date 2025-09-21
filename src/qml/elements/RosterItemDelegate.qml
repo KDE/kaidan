@@ -103,7 +103,7 @@ AvatarItemDelegate {
 					if (root.lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
-						if (root.lastMessageIsOwn) {
+						if (root.lastMessageIsOwn && root.account.settings.jid !== root.jid) {
 							return qsTr("Me:")
 						}
 

@@ -13,7 +13,7 @@ import im.kaidan.kaidan
 /**
  * This is a dialog listing the participants of a group chat in order to mention them.
  */
-Kirigami.Dialog {
+Dialog {
 	id: root
 
 	property Account account
@@ -26,14 +26,13 @@ Kirigami.Dialog {
 	leftPadding: 0
 	bottomPadding: 0
 	rightPadding: 0
+	// Set a negative inset to fix the rounded corner of the dialog above the scroll bar if visible.
+	topInset: contentItem.Controls.ScrollBar.vertical.visible ? - Kirigami.Units.cornerRadius : 0
 	modal: false
 	header: null
-	footer: null
 
 	ListView {
 		id: listView
-		implicitWidth: largeButtonWidth
-		implicitHeight: contentHeight
 		model: GroupChatUserFilterModel {
 			sourceModel: GroupChatUserModel {
 				accountJid: root.account.settings.jid
@@ -45,6 +44,7 @@ Kirigami.Dialog {
 			account: root.account
 			jid: model.jid
 			name: model.name
+			avatar.accountAvatar.visible: false
 			width: ListView.view.width
 			hoverEnabled: true
 			checked: ListView.isCurrentItem
@@ -60,8 +60,6 @@ Kirigami.Dialog {
 				avatar.iconSource: "resource-group-new"
 				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
 				avatar.color: Kirigami.Theme.textColor
-				implicitWidth: largeButtonWidth
-				implicitHeight: height
 				hoverEnabled: true
 				checked: true
 				onClicked: {
@@ -78,18 +76,9 @@ Kirigami.Dialog {
 		listView.currentIndex = -1
 	}
 
-	function toggle() {
-		if (visible) {
-			close()
-		} else {
-			open()
-		}
-	}
-
-	function openForSearch(currentCharacter) {
+	function prepareSearch(currentCharacter) {
 		searchedText += currentCharacter
 		listView.currentIndex = 0
-		open()
 		messageArea.forceActiveFocus()
 	}
 

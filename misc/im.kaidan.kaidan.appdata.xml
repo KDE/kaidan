@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
   <id>im.kaidan.kaidan</id>
-  <name>Kaidan</name>
   <name xml:lang="ar">كيدان</name>
+  <name>Kaidan</name>
   <name xml:lang="ca">Kaidan</name>
   <name xml:lang="ca-valencia">Kaidan</name>
   <name xml:lang="cs">Kaidan</name>
@@ -35,8 +35,8 @@
   <name xml:lang="uk">Kaidan</name>
   <name xml:lang="zh-CN">Kaidan</name>
   <name xml:lang="zh-TW">Kaidan</name>
-  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ar">تطبيق دردشة حديث لكل جهاز</summary>
+  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ca">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="ca-valencia">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="cs">Moderní klient pro rozhovory pro každé zařízení</summary>
@@ -146,8 +146,8 @@
   <translation type="qt">kaidan_qt</translation>
   <screenshots>
     <screenshot type="default">
-      <caption>Chat on a desktop and mobile device</caption>
       <caption xml:lang="ar">الدردشة على سطح المكتب والجهاز المحمول</caption>
+      <caption>Chat on a desktop and mobile device</caption>
       <caption xml:lang="ca">Xat en un escriptori i en un dispositiu mòbil</caption>
       <caption xml:lang="ca-valencia">Xat en un escriptori i en un dispositiu mòbil</caption>
       <caption xml:lang="en-GB">Chat on a desktop and mobile device</caption>
@@ -178,6 +178,48 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.13.0" date="2025-09-21T00:00:00Z">
+      <description>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>Add support for using multiple accounts simultaneously (melvo)</li>
+          <li>List accounts and show button to add new accounts (melvo)</li>
+          <li>Show dialog to select account for global action such as adding a contact (melvo)</li>
+          <li>Allow to enable/disable accounts instead of connecting/disconnecting them manually (melvo)</li>
+          <li>Update nicknames of own accounts once connected (melvo)</li>
+          <li>Show small account avatars next to regular avatars if multiple accounts are used (melvo)</li>
+          <li>Hide global drawer handle on chat if window is narrow (melvo)</li>
+          <li>Use PNG/.png instead of JPEG/.jpg for thumbnails to allow transparency (melvo)</li>
+          <li>Use AAC/.m4a instead of MP3/.mp3 for voice messages to improve compatibility (melvo)</li>
+          <li>Provide size of sent images to recipients allowing receiving client to scale thumbnails to size of original image (melvo)</li>
+          <li>Provide size of generated thumbnails to recipients (melvo)</li>
+          <li>Increase size of generated thumbnails (melvo)</li>
+          <li>Show circle instead of bar for upload/download progress (melvo)</li>
+          <li>Try all providers on connection error during automatic registration (melvo)</li>
+          <li>Add message forwarding (melvo)</li>
+          <li>Enable voice message recording via Flatpak (melvo)</li>
+          <li>Store account passwords encrypted if password manager is available (fazevedo)</li>
+          <li>Apply consistent criteria for all message corrections (melvo)</li>
+          <li>Add support to mark messages locally in order to reply to them later or to quickly find important messages (melvo)</li>
+          <li>Reuse SASL 2 user agent and FAST token on every restart for faster connection establishment (melvo)</li>
+        </ul>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Fix selecting media via long press in media overview (melvo)</li>
+          <li>Fix OMEMO initialization (melvo)</li>
+          <li>Fix displaying geo location map (melvo)</li>
+          <li>Fix showing hints on invalid input of various input fields (melvo)</li>
+          <li>Fix name/date of chat list item moving if counter for unread messages dis-/appears (melvo)</li>
+          <li>Fix counter for unread messages (melvo)</li>
+          <li>Fix handling removed message reactions (melvo)</li>
+          <li>Fix canceling personal data sharing via contact details (melvo)</li>
+          <li>Fix finding existing notifications for personal data sharing requests (melvo)</li>
+          <li>Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (melvo)</li>
+        </ul>
+        <p>Kaidan requires QtKeychain 0.15 now</p>
+        <p>Kaidan requires QXmpp 1.11 now</p>
+      </description>
+    </release>
     <release type="stable" version="0.12.2" date="2025-03-30T00:00:00Z">
       <description>
         <p>This release fixes the following bugs:</p>
@@ -210,22 +252,22 @@
         <p>This release adds the following features:</p>
         <ul>
           <li>Use square selection to crop avatars (fazevedo)</li>
-          <li>Fix style for Flatpak (melvo)</li>
-          <li>Fix displaying video thumbnails and opening files for Flatpak (melvo)</li>
           <li>Use background with rounded corners for chat list items (melvo)</li>
           <li>Remove colored availability indicator from chat list item (melvo)</li>
           <li>Display group chat participant picker above text cursor in large windows (melvo)</li>
-          <li>Fix message reaction details not opening a second time (melvo)</li>
           <li>Do not allow to enter/send messages without visible characters (melvo)</li>
           <li>Remove leading/trailing whitespace from exchanged messages (melvo)</li>
           <li>Ignore received messages without displayable content if they cannot be otherwise processed (melvo)</li>
-          <li>Fix eliding last message text for chat list item (melvo)</li>
           <li>Allow to show/hide buttons to pin/move chat list items (melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
+          <li>Fix style for Flatpak (melvo)</li>
+          <li>Fix displaying video thumbnails and opening files for Flatpak (melvo)</li>
+          <li>Fix message reaction details not opening a second time (melvo)</li>
           <li>Fix opening contact addition view on receiving XMPP URIs (melvo)</li>
           <li>Fix format of text following emojis (melvo)</li>
+          <li>Fix eliding last message text for chat list item (melvo)</li>
           <li>Fix unit tests (mlaurent, fazevedo, melvo)</li>
           <li>Fix storing downloaded files with unique names (melvo)</li>
           <li>Fix overlay to change/open avatars shown before hovered in account/contact details (melvo)</li>

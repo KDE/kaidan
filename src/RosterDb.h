@@ -48,7 +48,7 @@ private:
     void removeGroups(const QString &accountJid, const QString &jid);
 
     void fetchLastMessage(RosterItem &item);
-    void fetchLastMessage(RosterItem &item, QList<RosterItem> allItems);
+    void fetchLastMessage(RosterItem &item, const QList<RosterItem> &allItems);
 
     void fetchUnreadMessageCount(RosterItem &item);
     void fetchMarkedMessageCount(RosterItem &item);

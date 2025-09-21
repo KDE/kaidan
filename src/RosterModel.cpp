@@ -482,7 +482,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
                     }
 
                     if (!changedRoles.isEmpty()) {
-                        informAboutChangedData(itr, changedRoles);
+                        updateOnMessageChange(itr, changedRoles);
                     }
                 });
             break;
@@ -512,63 +512,10 @@ void RosterModel::handleMessageUpdated(const Message &message)
             }
 
             if (!changedRoles.isEmpty()) {
-                informAboutChangedData(itr, changedRoles);
+                updateOnMessageChange(itr, changedRoles);
             }
         });
     });
-}
-
-void RosterModel::handleDraftMessageAdded(const Message &message)
-{
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.accountJid == message.accountJid && item.jid == message.chatJid;
-    });
-
-    // roster item not found
-    if (itr == m_items.end()) {
-        return;
-    }
-
-    itr->lastMessageDateTime = message.timestamp;
-    itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
-    itr->lastMessage = message.previewText();
-
-    updateOnDraftMessageChanged(itr);
-}
-
-void RosterModel::handleDraftMessageUpdated(const Message &message)
-{
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-        return item.accountJid == message.accountJid && item.jid == message.chatJid;
-    });
-
-    // roster item not found
-    if (itr == m_items.end()) {
-        return;
-    }
-
-    itr->lastMessageDateTime = message.timestamp;
-    itr->lastMessage = message.previewText();
-
-    updateOnDraftMessageChanged(itr);
-}
-
-void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
-{
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
-        return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
-    });
-
-    // roster item not found
-    if (itr == m_items.end()) {
-        return;
-    }
-
-    itr->lastMessageDateTime = newLastMessage.timestamp;
-    itr->lastMessageDeliveryState = newLastMessage.deliveryState;
-    itr->lastMessage = newLastMessage.previewText();
-
-    updateOnDraftMessageChanged(itr);
 }
 
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
@@ -598,11 +545,64 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
                     }
 
                     if (!changedRoles.isEmpty()) {
-                        informAboutChangedData(itr, changedRoles);
+                        updateOnMessageChange(itr, changedRoles);
                     }
                 });
             });
     });
+}
+
+void RosterModel::handleDraftMessageAdded(const Message &message)
+{
+    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
+    });
+
+    // roster item not found
+    if (itr == m_items.end()) {
+        return;
+    }
+
+    itr->lastMessageDateTime = message.timestamp;
+    itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
+    itr->lastMessage = message.previewText();
+
+    updateOnDraftMessageChange(itr);
+}
+
+void RosterModel::handleDraftMessageUpdated(const Message &message)
+{
+    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+        return item.accountJid == message.accountJid && item.jid == message.chatJid;
+    });
+
+    // roster item not found
+    if (itr == m_items.end()) {
+        return;
+    }
+
+    itr->lastMessageDateTime = message.timestamp;
+    itr->lastMessage = message.previewText();
+
+    updateOnDraftMessageChange(itr);
+}
+
+void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
+{
+    auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
+        return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
+    });
+
+    // roster item not found
+    if (itr == m_items.end()) {
+        return;
+    }
+
+    itr->lastMessageDateTime = newLastMessage.timestamp;
+    itr->lastMessageDeliveryState = newLastMessage.deliveryState;
+    itr->lastMessage = newLastMessage.previewText();
+
+    updateOnDraftMessageChange(itr);
 }
 
 QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
@@ -646,11 +646,15 @@ QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &
     return interface.future();
 }
 
-void RosterModel::updateOnDraftMessageChanged(QList<RosterItem>::Iterator &itr)
+void RosterModel::updateOnMessageChange(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles)
+{
+    updateItemPosition(informAboutChangedData(itr, changedRoles));
+}
+
+void RosterModel::updateOnDraftMessageChange(QList<RosterItem>::Iterator &itr)
 {
     static const QList<int> changedRoles = {int(LastMessageDateTimeRole), int(LastMessageRole), int(LastMessageIsDraftRole)};
-
-    updateItemPosition(informAboutChangedData(itr, changedRoles));
+    updateOnMessageChange(itr, changedRoles);
 }
 
 int RosterModel::informAboutChangedData(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles)

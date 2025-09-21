@@ -126,15 +126,19 @@ private:
 
     void handleMessageAdded(const Message &message, MessageOrigin origin);
     void handleMessageUpdated(const Message &message);
+    void handleMessageRemoved(const Message &newLastMessage);
+
     void handleDraftMessageAdded(const Message &message);
     void handleDraftMessageUpdated(const Message &message);
     void handleDraftMessageRemoved(const Message &newLastMessage);
-    void handleMessageRemoved(const Message &newLastMessage);
 
     QFuture<QList<int>> updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge = true);
 
-    void updateOnDraftMessageChanged(QList<RosterItem>::Iterator &itr);
+    void updateOnMessageChange(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles);
+    void updateOnDraftMessageChange(QList<RosterItem>::Iterator &itr);
+
     int informAboutChangedData(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles);
+
     void insertItem(int index, const RosterItem &item);
     void updateItemPosition(int currentIndex);
     int positionToAdd(const RosterItem &item);

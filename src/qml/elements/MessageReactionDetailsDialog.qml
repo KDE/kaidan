@@ -50,7 +50,7 @@ Dialog {
 			onClicked: {
 				if (jid) {
 					root.close()
-					MainController.openChatPageRequested(accountJid, jid)
+					MainController.openChatPageRequested(account.settings.jid, jid)
 				}
 			}
 

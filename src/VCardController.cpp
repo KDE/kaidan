@@ -121,7 +121,7 @@ void VCardController::requestContactVCard(const QString &accountJid, const QStri
         return;
     }
 
-    auto requestVCardOfAvailableContact = [this, jid]() {
+    auto requestVCardOfUnavailableContact = [this, jid]() {
         QTimer::singleShot(VCARD_FETCHING_AFTER_CONNECTING_DELAY, this, [this, jid] {
             if (const auto presence = m_presenceCache->presence(jid); !presence || presence->type() == QXmppPresence::Unavailable) {
                 requestVCard(jid);
@@ -130,14 +130,14 @@ void VCardController::requestContactVCard(const QString &accountJid, const QStri
     };
 
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        requestVCardOfAvailableContact();
+        requestVCardOfUnavailableContact();
     } else {
         connect(
             m_connection,
             &Connection::connected,
             this,
-            [requestVCardOfAvailableContact]() {
-                requestVCardOfAvailableContact();
+            [requestVCardOfUnavailableContact]() {
+                requestVCardOfUnavailableContact();
             },
             Qt::SingleShotConnection);
     }

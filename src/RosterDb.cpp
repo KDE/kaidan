@@ -317,21 +317,24 @@ void RosterDb::fetchLastMessage(RosterItem &item)
     fetchLastMessage(item, fetchBasicItems());
 }
 
-void RosterDb::fetchLastMessage(RosterItem &item, QList<RosterItem> allItems)
+void RosterDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &allItems)
 {
-    auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
+    const auto accountJid = item.accountJid;
+    const auto jid = item.jid;
+
+    auto lastMessage = MessageDb::instance()->_fetchLastMessage(accountJid, jid);
     item.lastMessageDateTime = lastMessage.timestamp;
     item.lastMessage = lastMessage.previewText();
     item.lastMessageDeliveryState = lastMessage.deliveryState;
     item.lastMessageIsOwn = lastMessage.isOwn;
 
     if (item.isGroupChat()) {
-        if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(item.accountJid, item.jid, lastMessage.groupChatSenderId)) {
+        if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(accountJid, jid, lastMessage.groupChatSenderId)) {
             if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
                 item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
             } else {
-                const auto itr = std::find_if(allItems.cbegin(), allItems.cend(), [lastMessageSenderJid](const RosterItem &rosterItem) {
-                    return rosterItem.jid == lastMessageSenderJid;
+                const auto itr = std::find_if(allItems.cbegin(), allItems.cend(), [accountJid, lastMessageSenderJid](const RosterItem &rosterItem) {
+                    return rosterItem.accountJid == accountJid && rosterItem.jid == lastMessageSenderJid;
                 });
 
                 if (itr == allItems.cend()) {
