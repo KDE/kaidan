@@ -1,4 +1,46 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.13.0
+--------------
+Released: 2025-09-21
+
+Features:
+* Add support for using multiple accounts simultaneously (melvo)
+* List accounts and show button to add new accounts (melvo)
+* Show dialog to select account for global action such as adding a contact (melvo)
+* Allow to enable/disable accounts instead of connecting/disconnecting them manually (melvo)
+* Update nicknames of own accounts once connected (melvo)
+* Show small account avatars next to regular avatars if multiple accounts are used (melvo)
+* Hide global drawer handle on chat if window is narrow (melvo)
+* Use PNG/.png instead of JPEG/.jpg for thumbnails to allow transparency (melvo)
+* Use AAC/.m4a instead of MP3/.mp3 for voice messages to improve compatibility (melvo)
+* Provide size of sent images to recipients allowing receiving client to scale thumbnails to size of original image (melvo)
+* Provide size of generated thumbnails to recipients (melvo)
+* Increase size of generated thumbnails (melvo)
+* Show circle instead of bar for upload/download progress (melvo)
+* Try all providers on connection error during automatic registration (melvo)
+* Add message forwarding (melvo)
+* Enable voice message recording via Flatpak (melvo)
+* Store account passwords encrypted if password manager is available (fazevedo)
+* Apply consistent criteria for all message corrections (melvo)
+* Add support to mark messages locally in order to reply to them later or to quickly find important messages (melvo)
+* Reuse SASL 2 user agent and FAST token on every restart for faster connection establishment (melvo)
+
+Bugfixes:
+* Fix selecting media via long press in media overview (melvo)
+* Fix OMEMO initialization (melvo)
+* Fix displaying geo location map (melvo)
+* Fix showing hints on invalid input of various input fields (melvo)
+* Fix name/date of chat list item moving if counter for unread messages dis-/appears (melvo)
+* Fix counter for unread messages (melvo)
+* Fix handling removed message reactions (melvo)
+* Fix canceling personal data sharing via contact details (melvo)
+* Fix finding existing notifications for personal data sharing requests (melvo)
+* Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (melvo)
+
+Notes:
+* Kaidan requires QtKeychain 0.15 now
+* Kaidan requires QXmpp 1.11 now
+
 Version 0.12.2
 --------------
 Released: 2025-03-30
