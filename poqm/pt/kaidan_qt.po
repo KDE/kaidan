@@ -680,7 +680,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:151
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Request status"
@@ -688,7 +688,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pedir o estado"
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Open chat"
@@ -696,7 +696,7 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir uma conversa"
 
-#: src/NotificationController.cpp:305
+#: src/NotificationController.cpp:304
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -2094,7 +2094,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:215
+#: src/qml/details/GroupChatDetailsContent.qml:203
+msgctxt "GroupChatDetailsContent|"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:226
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -2102,7 +2107,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Encriptação"
 
-#: src/qml/details/GroupChatDetailsContent.qml:219
+#: src/qml/details/GroupChatDetailsContent.qml:230
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "OMEMO 2"
@@ -2110,7 +2115,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:220
+#: src/qml/details/GroupChatDetailsContent.qml:231
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2125,8 +2130,8 @@ msgstr ""
 "você e os seus colaboradores na conversa possam ler ou modificar os dados "
 "que trocar."
 
-#: src/qml/details/GroupChatDetailsContent.qml:290
-#: src/qml/details/GroupChatDetailsContent.qml:295
+#: src/qml/details/GroupChatDetailsContent.qml:301
+#: src/qml/details/GroupChatDetailsContent.qml:306
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via QR code"
@@ -2134,7 +2139,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "Partilhar com um código QR o endereço de conversação deste contacto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:299
+#: src/qml/details/GroupChatDetailsContent.qml:310
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -2142,7 +2147,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "Partilhar por texto o endereço de conversação deste contacto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:302
+#: src/qml/details/GroupChatDetailsContent.qml:313
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Website address copied to clipboard"
@@ -2150,7 +2155,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "O endereço da página Web foi copiado para a área de transferência."
 
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:317
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -2158,7 +2163,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "Partilhar por texto o endereço de conversação deste contacto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:314
+#: src/qml/details/GroupChatDetailsContent.qml:325
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Notifications"
@@ -2166,7 +2171,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificações"
 
-#: src/qml/details/GroupChatDetailsContent.qml:318
+#: src/qml/details/GroupChatDetailsContent.qml:329
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Incoming messages"
@@ -2174,7 +2179,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Mensagens recebidas"
 
-#: src/qml/details/GroupChatDetailsContent.qml:319
+#: src/qml/details/GroupChatDetailsContent.qml:330
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show notification and play sound on message arrival"
@@ -2182,7 +2187,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Mostrar uma notificação e tocar um som à chegada de uma mensagem"
 
-#: src/qml/details/GroupChatDetailsContent.qml:322
+#: src/qml/details/GroupChatDetailsContent.qml:333
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Accounts"
@@ -2190,22 +2195,22 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Contas"
 
-#: src/qml/details/GroupChatDetailsContent.qml:326
+#: src/qml/details/GroupChatDetailsContent.qml:337
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:341
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:334
+#: src/qml/details/GroupChatDetailsContent.qml:345
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:349
+#: src/qml/details/GroupChatDetailsContent.qml:360
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Privacy"
@@ -2213,7 +2218,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Privacidade"
 
-#: src/qml/details/GroupChatDetailsContent.qml:353
+#: src/qml/details/GroupChatDetailsContent.qml:364
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send typing notifications"
@@ -2221,7 +2226,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Enviar as notificações de escrita"
 
-#: src/qml/details/GroupChatDetailsContent.qml:354
+#: src/qml/details/GroupChatDetailsContent.qml:365
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid ""
@@ -2234,7 +2239,7 @@ msgstr ""
 "Indicar quando tiver esta conversa aberta, estiverem a escrever ou a parar "
 "de o fazer"
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:371
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send read notifications"
@@ -2242,7 +2247,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Enviar as notificações de leitura"
 
-#: src/qml/details/GroupChatDetailsContent.qml:361
+#: src/qml/details/GroupChatDetailsContent.qml:372
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Indicate which messages you have read"
@@ -2250,7 +2255,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indicar as mensagens que leu"
 
-#: src/qml/details/GroupChatDetailsContent.qml:374
+#: src/qml/details/GroupChatDetailsContent.qml:385
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -2258,12 +2263,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Gravar a selecção"
 
-#: src/qml/details/GroupChatDetailsContent.qml:380
+#: src/qml/details/GroupChatDetailsContent.qml:391
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:381
+#: src/qml/details/GroupChatDetailsContent.qml:392
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -2271,7 +2276,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Remover o contacto e o histórico completo de conversas"
 
-#: src/qml/details/GroupChatDetailsContent.qml:390
+#: src/qml/details/GroupChatDetailsContent.qml:401
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -2279,7 +2284,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "Livre para conversação"
 
-#: src/qml/details/GroupChatDetailsContent.qml:396
+#: src/qml/details/GroupChatDetailsContent.qml:407
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -2287,7 +2292,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "Não foi possível adicionar o %1"
 
-#: src/qml/details/GroupChatDetailsContent.qml:404
+#: src/qml/details/GroupChatDetailsContent.qml:415
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -2295,7 +2300,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Apagar o ficheiro"
 
-#: src/qml/details/GroupChatDetailsContent.qml:405
+#: src/qml/details/GroupChatDetailsContent.qml:416
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2306,7 +2311,7 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 "Remove a conta do fornecedor. Não poderá mais usar a sua conta de novo!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:414
+#: src/qml/details/GroupChatDetailsContent.qml:425
 #, fuzzy
 #| msgctxt "RegistrationLoginDecisionPage|"
 #| msgid "Use an existing account"
@@ -2314,7 +2319,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Usar uma conta existente"
 
-#: src/qml/details/GroupChatDetailsContent.qml:420
+#: src/qml/details/GroupChatDetailsContent.qml:431
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -2852,7 +2857,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Procurar para baixo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:95
+#: src/qml/elements/ChatPageSendingPane.qml:94
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2860,27 +2865,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Cancelar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:139
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:146
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:183
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>encrypted</b> message"
@@ -2888,7 +2893,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Compor uma mensagem <b>encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>unencrypted</b> message"
@@ -2896,17 +2901,17 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Compor uma mensagem <b>não-encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Compor uma mensagem <b>encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Compor uma mensagem <b>não-encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:326
+#: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2914,7 +2919,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Tirar uma Fotografia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:333
+#: src/qml/elements/ChatPageSendingPane.qml:314
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2922,12 +2927,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Gravar um vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Partilhar ficheiros"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2935,12 +2940,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Enviar a sua localização"
 
-#: src/qml/elements/ChatPageSendingPane.qml:357
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:381
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2948,12 +2953,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Esconder o texto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:448
+#: src/qml/elements/ChatPageSendingPane.qml:429
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2961,7 +2966,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Enviar uma mensagem de 'spoiler'"
 
-#: src/qml/elements/ChatPageSendingPane.qml:472
+#: src/qml/elements/ChatPageSendingPane.qml:453
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -3331,11 +3336,6 @@ msgstr ""
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Convidar amigos"
-
-#: src/qml/elements/GroupChatUserDelegate.qml:17
-msgctxt "GroupChatUserDelegate|"
-msgid "Ban"
-msgstr ""
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -4485,7 +4485,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:756
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
@@ -4520,6 +4520,10 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marcar como primeira não-lida"
+
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
 #~ msgstr "Ligado"
@@ -4536,20 +4540,16 @@ msgstr "Página Web"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "A ligação será aberta depois de ter estabelecido a ligação."
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marcar como primeira não-lida"
-
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
 #, fuzzy
 #~| msgctxt "ChatMessageContextMenu|"
 #~| msgid "Delete file"
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
 #~ msgstr "Apagar o ficheiro"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

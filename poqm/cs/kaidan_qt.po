@@ -14,36 +14,24 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:440
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Připojit se"
+msgstr ""
 
 #: src/Account.cpp:442
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
-msgstr "Navazuji spojení…"
+msgstr ""
 
 #: src/Account.cpp:444
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Připojit se"
+msgstr ""
 
 #: src/Account.cpp:455
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
-msgstr "Neplatné jméno uživatele nebo heslo."
+msgstr ""
 
 #: src/Account.cpp:457
 msgctxt "Connection|"
@@ -78,12 +66,9 @@ msgid "Authentification protocol not supported by the server."
 msgstr ""
 
 #: src/Account.cpp:469
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
-msgstr "Reakci nelze odeslat: %1"
+msgstr ""
 
 #: src/Account.cpp:471
 msgctxt "Connection|"
@@ -103,38 +88,25 @@ msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
 #: src/Account.cpp:477
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr "Na server se nelze připojit."
+msgstr ""
 
 #: src/AccountMigrationController.cpp:331
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr "Účet nelze migrovat: již probíhá jiná migrace"
+msgstr ""
 
 #: src/AccountMigrationController.cpp:354
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid ""
-#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr "Účet nelze migrovat: již probíhá jiná migrace"
+msgstr ""
 
 #: src/AccountMigrationController.cpp:403
-#, fuzzy, qt-format
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "Migrace účtu"
+msgstr ""
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -179,20 +151,14 @@ msgid "Enable"
 msgstr ""
 
 #: src/ChatHintModel.cpp:259
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Probíhá načítání…"
+msgstr ""
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Na server se nelze připojit."
+msgstr ""
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
@@ -266,12 +232,10 @@ msgid "Leaving group chat"
 msgstr ""
 
 #: src/FileSharingController.cpp:363
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -580,26 +544,20 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Open"
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
 msgctxt "NotificationController|"
 msgid "Open"
-msgstr "Otevřít"
+msgstr ""
 
-#: src/NotificationController.cpp:305
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Mark as read"
+#: src/NotificationController.cpp:304
 msgctxt "NotificationController|"
 msgid "Mark as read"
-msgstr "Označit jako přečtené"
+msgstr ""
 
 #: src/OmemoController.cpp:112
 msgctxt "OmemoController|"
@@ -691,36 +649,27 @@ msgid "Drop files to be sent"
 msgstr ""
 
 #: src/qml/ChatPage.qml:780
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
-msgstr "Odblokován %1"
+msgstr ""
 
 #: src/qml/ChatPage.qml:780
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
-msgstr "Zpět"
+msgstr ""
 
 #: src/qml/ChatPage.qml:787
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr ""
 
 #: src/qml/ChatPage.qml:791
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:21
 #, qt-format
@@ -1173,12 +1122,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1005
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Show QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Zobrazit QR kód"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
@@ -1186,12 +1132,9 @@ msgid "Scan the QR code by another device to log in on it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1026
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Zobrazit podrobnosti"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1027
 msgctxt "AccountDetailsContent|"
@@ -1199,12 +1142,9 @@ msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1033
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr "Adresa"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
@@ -1671,147 +1611,152 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:215
+#: src/qml/details/GroupChatDetailsContent.qml:203
+msgctxt "GroupChatDetailsContent|"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:226
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Šifrování"
 
-#: src/qml/details/GroupChatDetailsContent.qml:219
+#: src/qml/details/GroupChatDetailsContent.qml:230
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:220
+#: src/qml/details/GroupChatDetailsContent.qml:231
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:290
-#: src/qml/details/GroupChatDetailsContent.qml:295
+#: src/qml/details/GroupChatDetailsContent.qml:301
+#: src/qml/details/GroupChatDetailsContent.qml:306
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:299
+#: src/qml/details/GroupChatDetailsContent.qml:310
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:302
+#: src/qml/details/GroupChatDetailsContent.qml:313
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:317
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:314
+#: src/qml/details/GroupChatDetailsContent.qml:325
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Upozornění"
 
-#: src/qml/details/GroupChatDetailsContent.qml:318
+#: src/qml/details/GroupChatDetailsContent.qml:329
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Příchozí zprávy"
 
-#: src/qml/details/GroupChatDetailsContent.qml:319
+#: src/qml/details/GroupChatDetailsContent.qml:330
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:322
+#: src/qml/details/GroupChatDetailsContent.qml:333
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:326
+#: src/qml/details/GroupChatDetailsContent.qml:337
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Nikdy"
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:341
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:334
+#: src/qml/details/GroupChatDetailsContent.qml:345
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Vždy"
 
-#: src/qml/details/GroupChatDetailsContent.qml:349
+#: src/qml/details/GroupChatDetailsContent.qml:360
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Soukromí"
 
-#: src/qml/details/GroupChatDetailsContent.qml:353
+#: src/qml/details/GroupChatDetailsContent.qml:364
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Posílat upozornění o psaní"
 
-#: src/qml/details/GroupChatDetailsContent.qml:354
+#: src/qml/details/GroupChatDetailsContent.qml:365
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:371
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Posílat upozornění o čtení"
 
-#: src/qml/details/GroupChatDetailsContent.qml:361
+#: src/qml/details/GroupChatDetailsContent.qml:372
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:374
+#: src/qml/details/GroupChatDetailsContent.qml:385
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:380
+#: src/qml/details/GroupChatDetailsContent.qml:391
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Opustit"
 
-#: src/qml/details/GroupChatDetailsContent.qml:381
+#: src/qml/details/GroupChatDetailsContent.qml:392
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:390
+#: src/qml/details/GroupChatDetailsContent.qml:401
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:396
+#: src/qml/details/GroupChatDetailsContent.qml:407
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:404
+#: src/qml/details/GroupChatDetailsContent.qml:415
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Smazat"
 
-#: src/qml/details/GroupChatDetailsContent.qml:405
+#: src/qml/details/GroupChatDetailsContent.qml:416
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:414
+#: src/qml/details/GroupChatDetailsContent.qml:425
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:420
+#: src/qml/details/GroupChatDetailsContent.qml:431
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -2183,92 +2128,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:95
+#: src/qml/elements/ChatPageSendingPane.qml:94
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Zrušit odpověď"
 
-#: src/qml/elements/ChatPageSendingPane.qml:139
+#: src/qml/elements/ChatPageSendingPane.qml:138
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:146
+#: src/qml/elements/ChatPageSendingPane.qml:145
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:183
+#: src/qml/elements/ChatPageSendingPane.qml:182
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Napsat <b>šifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Napsat <b>nešifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:326
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:333
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:321
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Sdílet soubory"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:331
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:357
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:381
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:448
+#: src/qml/elements/ChatPageSendingPane.qml:429
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:472
+#: src/qml/elements/ChatPageSendingPane.qml:453
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr ""
@@ -2364,12 +2309,9 @@ msgid "Unverified contact devices"
 msgstr ""
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
-msgstr "Kopírovat"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:28
 msgctxt "CustomConnectionSettings|"
@@ -2560,11 +2502,6 @@ msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr ""
 
-#: src/qml/elements/GroupChatUserDelegate.qml:17
-msgctxt "GroupChatUserDelegate|"
-msgid "Ban"
-msgstr ""
-
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
@@ -2728,20 +2665,15 @@ msgid "Retry updating reactions"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
-msgstr "Prohledat veřejné skupiny"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
-msgstr "Probíhá načítání…"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2749,12 +2681,10 @@ msgid "Retry"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "Reakce nelze odeslat: %1"
+msgstr ""
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
@@ -2817,44 +2747,29 @@ msgid "Media"
 msgstr "Média"
 
 #: src/qml/elements/RosterFilterArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
-msgstr "Dostupné kontakty"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr "Dostupné kontakty"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:35
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Create group"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
-msgstr "Vytvořit skupinu"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:39
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
-msgstr "Veřejné skupiny"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
-msgstr "Filtrovat podle typu"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
@@ -2862,12 +2777,9 @@ msgid "Show only entries of specific types"
 msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:113
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
-msgstr "Filtrovat podle typu"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:114
 msgctxt "RosterFilterArea|"
@@ -2875,12 +2787,9 @@ msgid "Show only chats of selected accounts"
 msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:175
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
-msgstr "Filtrovat podle typu"
+msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:176
 msgctxt "RosterFilterArea|"
@@ -2888,60 +2797,40 @@ msgid "Show only chats with selected labels"
 msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:74
-#, fuzzy
-#| msgctxt "GroupChatDetailsHeader|"
-#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
-msgstr "Smazáno"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:88
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
-msgstr "Příchozí zprávy"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:104
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
-msgstr "Koncept:"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:107
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
-msgstr "Já:"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:111
-#, fuzzy, qt-format
-#| msgctxt "RosterListItem|"
-#| msgid "%1:"
+#, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
-msgstr "%1:"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:226
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr "Odepnout kartu"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:226
-#, fuzzy
-#| msgctxt "RosterListItemContextMenu|"
-#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
-msgstr "Připnout"
+msgstr ""
 
 #: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
@@ -2969,28 +2858,19 @@ msgid "Accounts"
 msgstr "Účty"
 
 #: src/qml/GlobalDrawer.qml:119
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
-msgstr "Heslo"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:120
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Zadejte své současné heslo"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:129
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr "Kopírovat heslo"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
@@ -3023,12 +2903,9 @@ msgid "Create group"
 msgstr "Vytvořit skupinu"
 
 #: src/qml/GlobalDrawer.qml:198
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Create group"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Vytvořit skupinu"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -3051,36 +2928,27 @@ msgid "About"
 msgstr "O aplikaci"
 
 #: src/qml/GlobalDrawer.qml:455
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
-msgstr "Odblokován %1"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:455
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
-msgstr "Zpět"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:462
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:466
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
@@ -3373,12 +3241,9 @@ msgid "Account Migration"
 msgstr "Migrace účtu"
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Migrace účtu"
+msgstr ""
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3430,12 +3295,10 @@ msgid "Generating the QR code failed: %1"
 msgstr ""
 
 #: src/RosterController.cpp:162
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
-msgstr "%1 nelze přidat: %2"
+msgstr ""
 
 #: src/RosterController.cpp:171
 msgctxt "RosterController|"
@@ -3477,7 +3340,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Poznámky"
 
-#: src/RosterModel.cpp:756
+#: src/RosterModel.cpp:752
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Včera"
@@ -3511,35 +3374,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Online"
-#~ msgstr "Připojen"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Connecting…"
-#~ msgstr "Navazuji spojení…"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Offline"
-#~ msgstr "Odpojen"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Označit jako první nepřečtené"
-
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "Zrušit"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Deleted"
-#~ msgstr "Smazáno"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Attention:"
-#~ msgstr "Pozor:"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
