@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-07-14 14:03+0200\n"
+"PO-Revision-Date: 2025-09-22 22:41+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,44 +18,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: eu\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/Account.cpp:440
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Konektatu"
+msgstr "Konektatuta"
 
 #: src/Account.cpp:442
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
 #: src/Account.cpp:444
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Konektatu"
+msgstr "Deskonektatuta"
 
 #: src/Account.cpp:455
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Erabiltzaile-izen edo pasahitz baliogabea."
 
 #: src/Account.cpp:457
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
@@ -63,65 +48,40 @@ msgstr ""
 "konexioa."
 
 #: src/Account.cpp:459
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Errorea era seguruan konektatzen saiatzean."
 
 #: src/Account.cpp:461
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Zerbitzariak ez ditu konexio seguruak onartzen."
 
 #: src/Account.cpp:463
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "Could not connect to the server. Please check your internet connection or "
-#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
+"Ezin izan du zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
 #: src/Account.cpp:465
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
+msgstr "Zerbitzaria lerroz kanpo dago edo suhesi batek oztopatzen du."
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentification protocol not supported by the server."
-msgstr "Zerbitzariak ez du onartzen autentifikazio protokoloa."
+msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
 
 #: src/Account.cpp:469
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ezin izan da konexioa berritu."
 
 #: src/Account.cpp:471
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "The internet access is not permitted. Please check your system's internet "
-#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -131,34 +91,22 @@ msgstr ""
 "sistemaren interneterako sarbidearen konfigurazioa."
 
 #: src/Account.cpp:473
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 
 #: src/Account.cpp:475
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
-"Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
+"Ezin izan du saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
 #: src/Account.cpp:477
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ezin izan du zerbitzarira konektatu."
 
 #: src/AccountMigrationController.cpp:331
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
@@ -166,20 +114,15 @@ msgstr ""
 "zamatu"
 
 #: src/AccountMigrationController.cpp:354
-#, fuzzy
-#| msgctxt "AccountMigrationManager|"
-#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Kontua ezin izan da migratu: Konektatuta egon behar duzu"
 
 #: src/AccountMigrationController.cpp:403
-#, fuzzy, qt-format
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "Kontua migratzea"
+msgstr "'%1' kontua '%2'(e)ra migratu da"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -207,15 +150,11 @@ msgid "Devices on Servers"
 msgstr "Zerbitzarietako gailuak"
 
 #: src/ChatHintModel.cpp:256
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Ez zaude konektatuta - Konektatuta egotean mezuak bidali eta jasotzen dira"
+"Zure kontua ez dago gaituta - Gaituta dagoenean mezuak bidali eta jasoko dira"
 
 #: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
 #: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
@@ -226,28 +165,22 @@ msgstr "Baztertu"
 #: src/ChatHintModel.cpp:257
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "Gaitu"
 
 #: src/ChatHintModel.cpp:259
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Zamatzen..."
+msgstr "Gaitzen..."
 
 #: src/ChatHintModel.cpp:266
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Ezin izan du zerbitzarira konektatu."
+msgstr "Ezin izan da konektatu"
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "Erakutsi errorea"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -634,28 +567,19 @@ msgid "You aren't allowed to delete the group"
 msgstr "Ez duzu taldea ezabatzeko baimenik"
 
 #: src/NotificationController.cpp:152
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Zure datu pertsonalak jasotzeko eskariak"
 
 #: src/NotificationController.cpp:166 src/NotificationController.cpp:301
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Ireki"
 
 #: src/NotificationController.cpp:305
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
-msgstr "Markatu Irakurritako gisa"
+msgstr "Markatu irakurritako gisa"
 
 #: src/OmemoController.cpp:112
 msgctxt "OmemoController|"
@@ -734,15 +658,12 @@ msgstr "Bilatu"
 #: src/qml/ChatPage.qml:513
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "Ezeztatu birbidaltzea"
 
 #: src/qml/ChatPage.qml:528
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Hasteko, hauta berriketa bat"
+msgstr "Hautatu mezua birbidaltzeko berriketa bat"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -750,41 +671,30 @@ msgid "Drop files to be sent"
 msgstr "Jaregin bidali beharreko fitxategiak"
 
 #: src/qml/ChatPage.qml:780
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
 #: src/qml/ChatPage.qml:780
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desegin"
 
 #: src/qml/ChatPage.qml:787
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
-msgstr "Ezin izan du %1 blokeatu: %2"
+msgstr "Ezin izan da %1 blokeatu: %2"
 
 #: src/qml/ChatPage.qml:791
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
-msgstr "Ezin izan du %1 desblokeatu: %2"
+msgstr "Ezin izan da %1 desblokeatu: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "DetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "%1 arteko hedabideak parteka ditzakezu."
@@ -1305,7 +1215,7 @@ msgstr "Kontuaren migrazioa prestatzen..."
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "Horrek denbora pixka bat iraun dezake"
 
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
@@ -2212,7 +2122,7 @@ msgstr "Egiaztatu gabeko gailu propioak"
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "Onartu gabeko ezaugarria"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2271,12 +2181,9 @@ msgid "Quote"
 msgstr "Aipua"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:122
-#, fuzzy
-#| msgctxt "ForwardButton|"
-#| msgid "Navigate Forward"
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Aurrerantz nabigatu"
+msgstr "Aurrerantz"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:130
 msgctxt "ChatMessageContextMenu|"
@@ -2291,7 +2198,7 @@ msgstr "Editatu"
 #: src/qml/elements/ChatMessageContextMenu.qml:152
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "Markatu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:160
 msgctxt "ChatMessageContextMenu|"
@@ -2434,12 +2341,9 @@ msgid "Name (optional):"
 msgstr "Izena (hautazkoa):"
 
 #: src/qml/elements/ContactAdditionContent.qml:71
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "Mezua (hautazkoa):"
+msgstr "Mezua (hautazkoa, zifratu gabea):"
 
 #: src/qml/elements/ContactAdditionContent.qml:78
 msgctxt "ContactAdditionContent|"
@@ -2520,6 +2424,7 @@ msgstr "Ataka:"
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
 msgstr ""
+"Funtzionalitate batzuk ikusgai egongo dira zure kontua gaituta dagoenean"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2693,9 +2598,6 @@ msgid "Invite contacts to this group…"
 msgstr "Gonbidatu kontaktua talde honetara..."
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr "Debekua"
@@ -2865,36 +2767,26 @@ msgid "Retry updating reactions"
 msgstr "Berriz saiatu erreakzioak eguneratzen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Bilatu talde publikoak (%1)"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Zama-jaisten..."
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Berriz saiatu"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "Ezin izan dira talde publikoak berreskuratu: %1"
+msgstr "Talde publikoak ezin izan dira berreskuratu: %1"
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
@@ -2959,137 +2851,87 @@ msgid "Media"
 msgstr "Hedabideak"
 
 #: src/qml/elements/RosterFilterArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Kontaktu erabilgarriak"
 
 #: src/qml/elements/RosterFilterArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Kontaktu ez erabilgarriak"
 
 #: src/qml/elements/RosterFilterArea.qml:35
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Talde pribatuak"
 
 #: src/qml/elements/RosterFilterArea.qml:39
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Talde publikoak"
 
 #: src/qml/elements/RosterFilterArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
-msgstr "Motaren arabera iragazi"
+msgstr "Iragazi motaren arabera"
 
 #: src/qml/elements/RosterFilterArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Erakutsi mota jakinetako sarrerak bakarrik"
 
 #: src/qml/elements/RosterFilterArea.qml:113
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
-msgstr "Kontuen arabera iragazi"
+msgstr "Iragazi kontuen arabera"
 
 #: src/qml/elements/RosterFilterArea.qml:114
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Erakutsi hautatutako kontuetako berriketak bakarrik"
 
 #: src/qml/elements/RosterFilterArea.qml:175
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
-msgstr "Etiketen arabera iragazi"
+msgstr "Iragazi etiketen arabera"
 
 #: src/qml/elements/RosterFilterArea.qml:176
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Erakutsi hautatutako etiketak dituzten berriketak bakarrik"
 
 #: src/qml/elements/RosterItemDelegate.qml:74
-#, fuzzy
-#| msgctxt "GroupChatDetailsHeader|"
-#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Ezabatuta"
 
 #: src/qml/elements/RosterItemDelegate.qml:88
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Oraindik mezurik ez"
 
 #: src/qml/elements/RosterItemDelegate.qml:104
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Zirriborroa:"
 
 #: src/qml/elements/RosterItemDelegate.qml:107
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Ni:"
 
 #: src/qml/elements/RosterItemDelegate.qml:111
-#, fuzzy, qt-format
-#| msgctxt "RosterListItem|"
-#| msgid "%1:"
+#, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr "Iltzagetu"
+msgstr "Iltzea kendu"
 
 #: src/qml/elements/RosterItemDelegate.qml:226
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Iltzatu"
@@ -3142,12 +2984,12 @@ msgstr "Ekintzak"
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "Gaitu zure kontua erabilgarri dauden ekintza guztiak erabiltzeko"
 
 #: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "Gaitu kontu bat erabilgarri dauden ekintza guztiak erabiltzeko"
 
 #: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
@@ -3165,12 +3007,9 @@ msgid "Create group"
 msgstr "Sortu taldea"
 
 #: src/qml/GlobalDrawer.qml:198
-#, fuzzy
-#| msgctxt "GroupChatCreationDialog|"
-#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Sortu berriketa-taldea"
+msgstr "Sortu taldea (ez da onartzen)"
 
 #: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
@@ -3178,12 +3017,9 @@ msgid "Join group"
 msgstr "Elkartu taldera"
 
 #: src/qml/GlobalDrawer.qml:224
-#, fuzzy
-#| msgctxt "GroupChatJoiningDialog|"
-#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Elkartu talde-berriketara"
+msgstr "Elkartu taldera (ez da onartzen)"
 
 #: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
@@ -3196,36 +3032,27 @@ msgid "About"
 msgstr "Honi buruz"
 
 #: src/qml/GlobalDrawer.qml:455
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
 #: src/qml/GlobalDrawer.qml:455
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Desegin"
 
 #: src/qml/GlobalDrawer.qml:462
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
-msgstr "Ezin izan du %1 blokeatu: %2"
+msgstr "Ezin izan da %1 blokeatu: %2"
 
 #: src/qml/GlobalDrawer.qml:466
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
-msgstr "Ezin izan du %1 desblokeatu: %2"
+msgstr "Ezin izan da %1 desblokeatu: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
@@ -3285,6 +3112,7 @@ msgstr "Osatu izen-ematea!"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
+"Erregistro automatikoak huts egin du hornitzaile guztiekin arazoak daudelako"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3524,12 +3352,9 @@ msgid "Account Migration"
 msgstr "Kontua migratzea"
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Kontua migratzea"
+msgstr "Kontua sorrera"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3575,43 +3400,29 @@ msgid "%1 paused typing"
 msgstr "%1(e)k tekleatzeari utzi dio"
 
 #: src/QrCodeGenerator.cpp:46
-#, fuzzy, qt-format
-#| msgctxt "AbstractQrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-kodea sortzea huts egin du: %1"
 
 #: src/RosterController.cpp:162
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
-msgstr "Ezin izan da %1 gehitu: %2"
+msgstr "%1 ezin izan da gehitu: %2"
 
 #: src/RosterController.cpp:171
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Ezin izan da kontaktua gehitu, konektatuta ez dagoelako."
 
 #: src/RosterController.cpp:183
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Ezin izan da kontaktua berrizendatu, konektatu ez dagoelako."
 
 #: src/RosterController.cpp:199
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3621,25 +3432,18 @@ msgstr ""
 "arazo baten ondorioz: %2"
 
 #: src/RosterController.cpp:215
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1(e)ri zure datu pertsonalak ikustea baimentzea huts egin du"
 
 #: src/RosterController.cpp:232
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1(e)ri zure datu pertsonalak ikustea geldiaraztea huts egin du"
 
 #: src/RosterController.cpp:333
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Ezin izan da kontaktua kendu, konektatuta ez dagoelako."
