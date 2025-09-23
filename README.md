@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC0-1.0
 [![license](https://img.shields.io/badge/License-GPLv3%2B%20%2F%20CC%20BY--SA%204.0-blue.svg)](https://raw.githubusercontent.com/kaidanim/kaidan/master/LICENSE)
 [![Donations](https://img.shields.io/liberapay/patrons/kaidan.svg?logo=liberapay)](https://liberapay.com/kaidan)
 
-![Kaidan screenshot](https://www.kaidan.im/images/screenshot-horizontal.png)
+![Kaidan screenshot](https://www.kaidan.im/images/screenshots/screenshot-0.13-horizontal.png)
 
 <!-- markdownlint-disable MD033 -->
 <a href="https://repology.org/project/kaidan/versions">
