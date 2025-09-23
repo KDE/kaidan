@@ -553,17 +553,17 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "그룹 삭제가 허용되지 않음"
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:152
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "내 개인 데이터 수신을 요청함"
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "열기"
 
-#: src/NotificationController.cpp:304
+#: src/NotificationController.cpp:305
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "읽은 상태로 표시"
@@ -1651,22 +1651,17 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "참가자를 변경하려면 서버에 연결해야 합니다"
 
-#: src/qml/details/GroupChatDetailsContent.qml:203
-msgctxt "GroupChatDetailsContent|"
-msgid "Ban"
-msgstr "차단"
-
-#: src/qml/details/GroupChatDetailsContent.qml:226
+#: src/qml/details/GroupChatDetailsContent.qml:215
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "암호화"
 
-#: src/qml/details/GroupChatDetailsContent.qml:230
+#: src/qml/details/GroupChatDetailsContent.qml:219
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:231
+#: src/qml/details/GroupChatDetailsContent.qml:220
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1675,73 +1670,73 @@ msgstr ""
 "OMEMO 2를 사용한 종단간 암호화는 주고받는 데이터를 나와 내 대화 상대 이외의 "
 "사람이 읽거나 수정할 수 없도록 합니다."
 
-#: src/qml/details/GroupChatDetailsContent.qml:301
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:290
+#: src/qml/details/GroupChatDetailsContent.qml:295
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "이 그룹의 대화 주소를 QR 코드로 공유"
 
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "이 그룹의 대화 주소를 텍스트로 공유"
 
-#: src/qml/details/GroupChatDetailsContent.qml:313
+#: src/qml/details/GroupChatDetailsContent.qml:302
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "클립보드에 그룹 주소 복사됨"
 
-#: src/qml/details/GroupChatDetailsContent.qml:317
+#: src/qml/details/GroupChatDetailsContent.qml:306
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "이 그룹의 대화 주소를 사용 도움말과 함께 웹 페이지로 공유"
 
-#: src/qml/details/GroupChatDetailsContent.qml:325
+#: src/qml/details/GroupChatDetailsContent.qml:314
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "알림"
 
-#: src/qml/details/GroupChatDetailsContent.qml:329
+#: src/qml/details/GroupChatDetailsContent.qml:318
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "받은 메시지"
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:319
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "메시지를 받았을 때 알림을 표시하고 소리 재생"
 
-#: src/qml/details/GroupChatDetailsContent.qml:333
+#: src/qml/details/GroupChatDetailsContent.qml:322
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "계정 기본값"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:326
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "하지 않음"
 
-#: src/qml/details/GroupChatDetailsContent.qml:341
+#: src/qml/details/GroupChatDetailsContent.qml:330
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr "언급되었을 때"
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:334
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "항상"
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:349
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "개인 정보"
 
-#: src/qml/details/GroupChatDetailsContent.qml:364
+#: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "입력 알림 보내기"
 
-#: src/qml/details/GroupChatDetailsContent.qml:365
+#: src/qml/details/GroupChatDetailsContent.qml:354
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -1749,58 +1744,58 @@ msgstr ""
 "이 대화를 열었거나, 메시지를 입력하고 있거나, 메시지 입력을 중단했음을 알리"
 "는 정보 전송"
 
-#: src/qml/details/GroupChatDetailsContent.qml:371
+#: src/qml/details/GroupChatDetailsContent.qml:360
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "읽음 알림 보내기"
 
-#: src/qml/details/GroupChatDetailsContent.qml:372
+#: src/qml/details/GroupChatDetailsContent.qml:361
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "어떤 메시지를 읽었는지 정보 전송"
 
-#: src/qml/details/GroupChatDetailsContent.qml:385
+#: src/qml/details/GroupChatDetailsContent.qml:374
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "떠나기와 삭제"
 
-#: src/qml/details/GroupChatDetailsContent.qml:391
+#: src/qml/details/GroupChatDetailsContent.qml:380
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "떠나기"
 
-#: src/qml/details/GroupChatDetailsContent.qml:392
+#: src/qml/details/GroupChatDetailsContent.qml:381
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "그룹을 떠나고 전체 대화 기록 삭제"
 
-#: src/qml/details/GroupChatDetailsContent.qml:401
+#: src/qml/details/GroupChatDetailsContent.qml:390
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "그룹 대화 떠나는 중…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:407
+#: src/qml/details/GroupChatDetailsContent.qml:396
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "%1 그룹에서 떠날 수 없음%2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:404
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "삭제"
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:405
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "그룹을 삭제합니다. 아무도 그룹에 다시 입장할 수 없습니다!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:414
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "그룹 대화 삭제 중…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:431
+#: src/qml/details/GroupChatDetailsContent.qml:420
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -2177,92 +2172,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "아래로 검색"
 
-#: src/qml/elements/ChatPageSendingPane.qml:94
+#: src/qml/elements/ChatPageSendingPane.qml:95
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "답장 취소"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:139
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "표시된 메시지 부분"
 
-#: src/qml/elements/ChatPageSendingPane.qml:145
+#: src/qml/elements/ChatPageSendingPane.qml:146
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "숨겨진 메시지 부분 추가 취소"
 
-#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "이모지 추가"
 
-#: src/qml/elements/ChatPageSendingPane.qml:182
+#: src/qml/elements/ChatPageSendingPane.qml:183
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "참가자 언급"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "숨겨진 부분이 있는 <b>암호화된</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "숨겨진 부분이 있는 <b>암호화되지 않은</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>암호화된</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>암호화되지 않은</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "사진 찍기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "동영상 녹화"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "파일 공유"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:350
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "위치 공유"
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:357
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "숨겨진 메시지 부분 추가"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "숨기기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "더 보기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:429
+#: src/qml/elements/ChatPageSendingPane.qml:448
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "음성 메시지 보내기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:472
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "보내기"
@@ -2550,6 +2545,14 @@ msgstr "그룹 대화에 참가"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "이 그룹에 대화 상대 초대…"
+
+#: src/qml/elements/GroupChatUserDelegate.qml:17
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Ban"
+msgctxt "GroupChatUserDelegate|"
+msgid "Ban"
+msgstr "차단"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -3392,7 +3395,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "메모"
 
-#: src/RosterModel.cpp:752
+#: src/RosterModel.cpp:756
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"

@@ -655,7 +655,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:152
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -663,7 +663,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -671,7 +671,7 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "開啟"
 
-#: src/NotificationController.cpp:304
+#: src/NotificationController.cpp:305
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -1968,12 +1968,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "您必須已連線才能封鎖或解除封鎖聊天位址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:203
-msgctxt "GroupChatDetailsContent|"
-msgid "Ban"
-msgstr ""
-
-#: src/qml/details/GroupChatDetailsContent.qml:226
+#: src/qml/details/GroupChatDetailsContent.qml:215
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -1981,7 +1976,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/qml/details/GroupChatDetailsContent.qml:230
+#: src/qml/details/GroupChatDetailsContent.qml:219
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "OMEMO 2"
@@ -1989,7 +1984,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:231
+#: src/qml/details/GroupChatDetailsContent.qml:220
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2003,8 +1998,8 @@ msgstr ""
 "OMEMO 2 是一種端對端加密的方式，確保除了您與聊天對象以外沒有任何人能讀取或修"
 "改您們之間交換的資料。"
 
-#: src/qml/details/GroupChatDetailsContent.qml:301
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:290
+#: src/qml/details/GroupChatDetailsContent.qml:295
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via QR code"
@@ -2012,7 +2007,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "透過 QR code 分享這個聯絡人的聊天位址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:299
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -2020,7 +2015,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "透過文字分享這個聯絡人的聊天位址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:313
+#: src/qml/details/GroupChatDetailsContent.qml:302
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Website address copied to clipboard"
@@ -2028,7 +2023,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "網站位址已複製到剪貼簿"
 
-#: src/qml/details/GroupChatDetailsContent.qml:317
+#: src/qml/details/GroupChatDetailsContent.qml:306
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -2036,7 +2031,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "透過文字分享這個聯絡人的聊天位址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:325
+#: src/qml/details/GroupChatDetailsContent.qml:314
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Notifications"
@@ -2044,7 +2039,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:329
+#: src/qml/details/GroupChatDetailsContent.qml:318
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Incoming messages"
@@ -2052,7 +2047,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "接收訊息"
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:319
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show notification and play sound on message arrival"
@@ -2060,7 +2055,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "收到訊息時顯示通知並播放聲音"
 
-#: src/qml/details/GroupChatDetailsContent.qml:333
+#: src/qml/details/GroupChatDetailsContent.qml:322
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -2068,7 +2063,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "帳號預設"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:326
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Never"
@@ -2076,12 +2071,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "永不"
 
-#: src/qml/details/GroupChatDetailsContent.qml:341
+#: src/qml/details/GroupChatDetailsContent.qml:330
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:334
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Always"
@@ -2089,7 +2084,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "總是"
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:349
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Privacy"
@@ -2097,7 +2092,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "隱私"
 
-#: src/qml/details/GroupChatDetailsContent.qml:364
+#: src/qml/details/GroupChatDetailsContent.qml:353
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send typing notifications"
@@ -2105,7 +2100,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "傳送輸入中通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:365
+#: src/qml/details/GroupChatDetailsContent.qml:354
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid ""
@@ -2116,7 +2111,7 @@ msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "提供您已開啟此對話、正在打字或是已停止打字的資訊"
 
-#: src/qml/details/GroupChatDetailsContent.qml:371
+#: src/qml/details/GroupChatDetailsContent.qml:360
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send read notifications"
@@ -2124,7 +2119,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "傳送已讀通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:372
+#: src/qml/details/GroupChatDetailsContent.qml:361
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Indicate which messages you have read"
@@ -2132,7 +2127,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "提供您已讀過哪些訊息的資訊"
 
-#: src/qml/details/GroupChatDetailsContent.qml:385
+#: src/qml/details/GroupChatDetailsContent.qml:374
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -2140,12 +2135,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "儲存選擇"
 
-#: src/qml/details/GroupChatDetailsContent.qml:391
+#: src/qml/details/GroupChatDetailsContent.qml:380
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:392
+#: src/qml/details/GroupChatDetailsContent.qml:381
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -2153,7 +2148,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
-#: src/qml/details/GroupChatDetailsContent.qml:401
+#: src/qml/details/GroupChatDetailsContent.qml:390
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -2161,7 +2156,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "能夠聊天"
 
-#: src/qml/details/GroupChatDetailsContent.qml:407
+#: src/qml/details/GroupChatDetailsContent.qml:396
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2169,7 +2164,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "無法新增 %1：%2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:404
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -2177,7 +2172,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "刪除檔案"
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:405
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2187,7 +2182,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:414
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -2195,7 +2190,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:431
+#: src/qml/details/GroupChatDetailsContent.qml:420
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2723,7 +2718,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "往下搜尋"
 
-#: src/qml/elements/ChatPageSendingPane.qml:94
+#: src/qml/elements/ChatPageSendingPane.qml:95
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2731,47 +2726,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "取消"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:139
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "可見訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:145
+#: src/qml/elements/ChatPageSendingPane.qml:146
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消加入隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:182
+#: src/qml/elements/ChatPageSendingPane.qml:183
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "撰寫<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "撰寫<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:326
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2779,7 +2774,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:333
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2787,12 +2782,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "錄製影片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享檔案"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:350
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2800,7 +2795,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "傳送您的位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:357
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2808,7 +2803,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "新增隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Hide text"
@@ -2816,12 +2811,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "隱藏文字"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:429
+#: src/qml/elements/ChatPageSendingPane.qml:448
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Edit message"
@@ -2829,7 +2824,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "編輯訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:472
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -3185,6 +3180,11 @@ msgstr ""
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "未驗證的聯絡人的裝置"
+
+#: src/qml/elements/GroupChatUserDelegate.qml:17
+msgctxt "GroupChatUserDelegate|"
+msgid "Ban"
+msgstr ""
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -4286,7 +4286,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "筆記"
 
-#: src/RosterModel.cpp:752
+#: src/RosterModel.cpp:756
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

@@ -567,17 +567,17 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "No tiene permiso para borrar el grupo"
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:152
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Solicitudes para recibir sus datos personales"
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/NotificationController.cpp:304
+#: src/NotificationController.cpp:305
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar como leída"
@@ -1699,22 +1699,17 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "Debe estar conectado para cambiar los participantes."
 
-#: src/qml/details/GroupChatDetailsContent.qml:203
-msgctxt "GroupChatDetailsContent|"
-msgid "Ban"
-msgstr "Vetar"
-
-#: src/qml/details/GroupChatDetailsContent.qml:226
+#: src/qml/details/GroupChatDetailsContent.qml:215
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Cifrado"
 
-#: src/qml/details/GroupChatDetailsContent.qml:230
+#: src/qml/details/GroupChatDetailsContent.qml:219
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:231
+#: src/qml/details/GroupChatDetailsContent.qml:220
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1724,76 +1719,76 @@ msgstr ""
 "usted y sus compañeros de chat puedan leer o modificar los datos que "
 "intercambie."
 
-#: src/qml/details/GroupChatDetailsContent.qml:301
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:290
+#: src/qml/details/GroupChatDetailsContent.qml:295
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "Compartir la dirección de chat de este grupo mediante código QR"
 
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "Compartir la dirección de chat de este grupo mediante texto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:313
+#: src/qml/details/GroupChatDetailsContent.qml:302
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "Dirección del grupo copiada al portapapeles"
 
-#: src/qml/details/GroupChatDetailsContent.qml:317
+#: src/qml/details/GroupChatDetailsContent.qml:306
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 "Compartir la dirección de chat de este grupo mediante una página web con "
 "ayuda de uso"
 
-#: src/qml/details/GroupChatDetailsContent.qml:325
+#: src/qml/details/GroupChatDetailsContent.qml:314
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificaciones"
 
-#: src/qml/details/GroupChatDetailsContent.qml:329
+#: src/qml/details/GroupChatDetailsContent.qml:318
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Mensajes entrantes"
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:319
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 "Mostrar una notificación y reproducir un sonido cuando llegue un mensaje"
 
-#: src/qml/details/GroupChatDetailsContent.qml:333
+#: src/qml/details/GroupChatDetailsContent.qml:322
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Predeterminado de la cuenta"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:326
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Nunca"
 
-#: src/qml/details/GroupChatDetailsContent.qml:341
+#: src/qml/details/GroupChatDetailsContent.qml:330
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr "Al hacer mención"
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:334
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Siempre"
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:349
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Privacidad"
 
-#: src/qml/details/GroupChatDetailsContent.qml:364
+#: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Enviar notificaciones de escritura"
 
-#: src/qml/details/GroupChatDetailsContent.qml:365
+#: src/qml/details/GroupChatDetailsContent.qml:354
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -1801,58 +1796,58 @@ msgstr ""
 "Indicar si usted tiene abierta esta conversación, si está escribiendo o si "
 "ha dejado de escribir"
 
-#: src/qml/details/GroupChatDetailsContent.qml:371
+#: src/qml/details/GroupChatDetailsContent.qml:360
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Enviar notificaciones de lectura"
 
-#: src/qml/details/GroupChatDetailsContent.qml:372
+#: src/qml/details/GroupChatDetailsContent.qml:361
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indicar los mensajes que usted ha leído"
 
-#: src/qml/details/GroupChatDetailsContent.qml:385
+#: src/qml/details/GroupChatDetailsContent.qml:374
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Salida y borrado"
 
-#: src/qml/details/GroupChatDetailsContent.qml:391
+#: src/qml/details/GroupChatDetailsContent.qml:380
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Abandonar"
 
-#: src/qml/details/GroupChatDetailsContent.qml:392
+#: src/qml/details/GroupChatDetailsContent.qml:381
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Abandonar el grupo y eliminar el historial de chat completo"
 
-#: src/qml/details/GroupChatDetailsContent.qml:401
+#: src/qml/details/GroupChatDetailsContent.qml:390
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "Saliendo de chat de grupo…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:407
+#: src/qml/details/GroupChatDetailsContent.qml:396
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "No se puede salir del grupo %1%2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:404
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Borrar"
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:405
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Borrar grupo. Nadie podrá volver a unirse al grupo."
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:414
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Borrando chat de grupo…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:431
+#: src/qml/details/GroupChatDetailsContent.qml:420
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -2243,92 +2238,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Buscar hacia abajo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:94
+#: src/qml/elements/ChatPageSendingPane.qml:95
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Cancelar respuesta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:139
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Parte de mensaje visible"
 
-#: src/qml/elements/ChatPageSendingPane.qml:145
+#: src/qml/elements/ChatPageSendingPane.qml:146
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancelar la adición de parte de mensaje oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Añadir un emoji"
 
-#: src/qml/elements/ChatPageSendingPane.qml:182
+#: src/qml/elements/ChatPageSendingPane.qml:183
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Mencionar un participante"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Crear mensaje <b>cifrado</b> con parte oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Crear mensaje <b>sin cifrar</b> con parte oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Crear mensaje <b>cifrado</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Crear mensaje <b>sin cifrar</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Hacer una foto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Grabar un vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Compartir archivos"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:350
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Compartir su ubicación"
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:357
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Añadir parte de mensaje oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Ocultar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Más"
 
-#: src/qml/elements/ChatPageSendingPane.qml:429
+#: src/qml/elements/ChatPageSendingPane.qml:448
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Enviar un mensaje de voz"
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:472
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Enviar"
@@ -2616,6 +2611,14 @@ msgstr "Unirse al chat de grupo"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Invitar contactos a este grupo…"
+
+#: src/qml/elements/GroupChatUserDelegate.qml:17
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Ban"
+msgctxt "GroupChatUserDelegate|"
+msgid "Ban"
+msgstr "Vetar"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -3471,7 +3474,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/RosterModel.cpp:752
+#: src/RosterModel.cpp:756
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ayer"

@@ -654,17 +654,17 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:152
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:300
+#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr ""
 
-#: src/NotificationController.cpp:304
+#: src/NotificationController.cpp:305
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -2073,40 +2073,35 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:203
-msgctxt "GroupChatDetailsContent|"
-msgid "Ban"
-msgstr ""
-
-#: src/qml/details/GroupChatDetailsContent.qml:226
+#: src/qml/details/GroupChatDetailsContent.qml:215
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:230
+#: src/qml/details/GroupChatDetailsContent.qml:219
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:231
+#: src/qml/details/GroupChatDetailsContent.qml:220
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:301
-#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:290
+#: src/qml/details/GroupChatDetailsContent.qml:295
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:313
+#: src/qml/details/GroupChatDetailsContent.qml:302
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -2114,12 +2109,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "Հրավերի հղումը պատճենվել է"
 
-#: src/qml/details/GroupChatDetailsContent.qml:317
+#: src/qml/details/GroupChatDetailsContent.qml:306
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:325
+#: src/qml/details/GroupChatDetailsContent.qml:314
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -2127,7 +2122,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Անջատել ծանուցումները"
 
-#: src/qml/details/GroupChatDetailsContent.qml:329
+#: src/qml/details/GroupChatDetailsContent.qml:318
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2135,12 +2130,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:319
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:333
+#: src/qml/details/GroupChatDetailsContent.qml:322
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -2148,27 +2143,27 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Հաշվի Անվտանգություն"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:326
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:341
+#: src/qml/details/GroupChatDetailsContent.qml:330
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:334
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:360
+#: src/qml/details/GroupChatDetailsContent.qml:349
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:364
+#: src/qml/details/GroupChatDetailsContent.qml:353
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2176,13 +2171,13 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Միացնել ծանուցումները"
 
-#: src/qml/details/GroupChatDetailsContent.qml:365
+#: src/qml/details/GroupChatDetailsContent.qml:354
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:371
+#: src/qml/details/GroupChatDetailsContent.qml:360
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2190,12 +2185,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Միացնել ծանուցումները"
 
-#: src/qml/details/GroupChatDetailsContent.qml:372
+#: src/qml/details/GroupChatDetailsContent.qml:361
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:385
+#: src/qml/details/GroupChatDetailsContent.qml:374
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2203,17 +2198,17 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/details/GroupChatDetailsContent.qml:391
+#: src/qml/details/GroupChatDetailsContent.qml:380
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:392
+#: src/qml/details/GroupChatDetailsContent.qml:381
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:401
+#: src/qml/details/GroupChatDetailsContent.qml:390
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -2221,7 +2216,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "Ցանկանում եմ զրուցել"
 
-#: src/qml/details/GroupChatDetailsContent.qml:407
+#: src/qml/details/GroupChatDetailsContent.qml:396
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2229,7 +2224,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:404
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -2237,7 +2232,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Ջնջել"
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:405
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -2250,7 +2245,7 @@ msgstr ""
 "Ձեր հաշիվը ամբողջովին կջնջվի, ինչը նշանակում է այս հավելվածից և սերվերից։\n"
 "Կրկին այս հաշվից օգտվելը հնարավոր չի լինի։"
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:414
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -2258,7 +2253,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Ջնջել հաշիվը"
 
-#: src/qml/details/GroupChatDetailsContent.qml:431
+#: src/qml/details/GroupChatDetailsContent.qml:420
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2734,7 +2729,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Որոնել ներքևում"
 
-#: src/qml/elements/ChatPageSendingPane.qml:94
+#: src/qml/elements/ChatPageSendingPane.qml:95
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2742,27 +2737,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Չեղարկել"
 
-#: src/qml/elements/ChatPageSendingPane.qml:138
+#: src/qml/elements/ChatPageSendingPane.qml:139
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:145
+#: src/qml/elements/ChatPageSendingPane.qml:146
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:182
+#: src/qml/elements/ChatPageSendingPane.qml:183
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2770,7 +2765,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:213
+#: src/qml/elements/ChatPageSendingPane.qml:214
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2778,7 +2773,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2786,7 +2781,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:216
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2794,7 +2789,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:326
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -2802,7 +2797,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Լուսանկարել"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:333
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -2810,7 +2805,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Ձայնագրել տեսաֆիլմ"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:340
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -2818,7 +2813,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Աուդիո ֆայլեր"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:350
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2826,12 +2821,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:357
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2839,12 +2834,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Թաքցնել տեքստային տվյալները"
 
-#: src/qml/elements/ChatPageSendingPane.qml:381
+#: src/qml/elements/ChatPageSendingPane.qml:400
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:429
+#: src/qml/elements/ChatPageSendingPane.qml:448
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2852,7 +2847,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Ուղարկել գաղտնի հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:472
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send"
@@ -3229,6 +3224,11 @@ msgstr ""
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Ջնջել կոնտակտը"
+
+#: src/qml/elements/GroupChatUserDelegate.qml:17
+msgctxt "GroupChatUserDelegate|"
+msgid "Ban"
+msgstr ""
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -4308,7 +4308,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:752
+#: src/RosterModel.cpp:756
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
