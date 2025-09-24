@@ -2,6 +2,13 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
+codespell:
+  stage: validate
+  image: python:3.13-slim
+  script:
+    - pip install codespell
+    - codespell
+
 flatpak-appstream:
   stage: validate
   image:
