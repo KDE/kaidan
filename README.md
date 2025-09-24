@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC0-1.0
 [![license](https://img.shields.io/badge/License-GPLv3%2B%20%2F%20CC%20BY--SA%204.0-blue.svg)](https://raw.githubusercontent.com/kaidanim/kaidan/master/LICENSE)
 [![Donations](https://img.shields.io/liberapay/patrons/kaidan.svg?logo=liberapay)](https://liberapay.com/kaidan)
 
-![Kaidan screenshot](https://www.kaidan.im/images/screenshots/screenshot-0.13-horizontal.png)
+![Kaidan screenshot][kaidan-screenshot]
 
 <!-- markdownlint-disable MD033 -->
 <a href="https://repology.org/project/kaidan/versions">
@@ -81,6 +81,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [ecm]: https://api.kde.org/ecm/manual/ecm.7.html
 [ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
 [icu]: https://icu.unicode.org
+[kaidan-screenshot]: https://www.kaidan.im/images/screenshots/screenshot-horizontal.png
 [kaidan-website]: https://kaidan.im
 [kaidan-website-repo]: https://invent.kde.org/websites/kaidan-im
 [kcrash]: https://api.kde.org/frameworks/kcrash/html/index.html

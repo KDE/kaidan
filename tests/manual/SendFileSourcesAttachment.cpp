@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
         message.setTo(qEnvironmentVariable("JID"));
         message.setBody(QStringLiteral("a screenshot i took"));
         QXmppFileMetadata metadata;
-        metadata.setFilename(QStringLiteral("screenshot.png"));
-        metadata.setDescription(QStringLiteral("Screenshot"));
+        metadata.setFilename(QStringLiteral("logo.svg"));
+        metadata.setDescription(QStringLiteral("Logo"));
         QXmppFileShare fs;
         fs.setMetadata(metadata);
         fs.setId(QStringLiteral("file1"));
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         client.send(std::move(message));
 
         QXmppHttpFileSource source;
-        source.setUrl(QUrl(QStringLiteral("https://www.kaidan.im/images/screenshot.png")));
+        source.setUrl(QUrl(QStringLiteral("https://www.kaidan.im/images/logo.svg")));
 
         QXmppFileSourcesAttachment sourceAttachment;
         sourceAttachment.setHttpSources({source});
