@@ -221,11 +221,11 @@ void VCardController::changeAvatarAfterReceivingCurrentVCard()
                 m_isAvatarToBeReset = false;
                 vCard.setPhoto({});
             } else {
-                QByteArray ba;
-                QBuffer buffer(&ba);
+                QByteArray avatar;
+                QBuffer buffer(&avatar);
                 buffer.open(QIODevice::WriteOnly);
                 m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
-                vCard.setPhoto(ba);
+                vCard.setPhoto(avatar);
             }
 
             runOnThread(

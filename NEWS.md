@@ -213,7 +213,7 @@ Bugfixes:
 * Fix displaying errors and encryption warnings for messages (melvo)
 * Fix fetching messages from server's archive (melvo)
 * Fix various encryption problems (melvo)
-* Send delivery receipts for catched up messages (melvo)
+* Send delivery receipts for caught up messages (melvo)
 * Do not hide last message date if contact name is too long (melvo)
 * Fix displaying emojis (melvo)
 * Fix several OMEMO bugs (melvo)
@@ -335,7 +335,7 @@ Bugfixes:
 * Roster names are not updated in the database (melvo)
 * Roster items are not updated in the model correctly (melvo)
 * All sheets contain two headers: It uses the new built-in header property now (jbb)
-* Unreadable buttons with white text on withe background in some styles (jbb)
+* Unreadable buttons with white text on with background in some styles (jbb)
 * Database version isn't saved correctly (melvo)
 * Errors when building with newer ZXing versions (vkrause)
 
@@ -518,7 +518,7 @@ Features:
 * New roster design - showing round avatars and last message (#118) (@LNJ2)
 * New chat page design - showing time, delivery status and round avatars (#123) (@LNJ2)
 * Switched to XMPP client library "gloox" (#114) (@LNJ2)
-* Rewritten most of the back-end for gloox and partialy also restructured it (#114) (@LNJ2)
+* Rewritten most of the back-end for gloox and partially also restructured it (#114) (@LNJ2)
 * (Re)written new LogHandler for gloox (Swiften had this already included) (#114) (@LNJ2)
 
 Version 0.2.3

@@ -10,7 +10,7 @@
 class AccountSettings;
 
 /**
- * Gerenates a QR code encoding the credentials of an account used to log into it with another
+ * Generates a QR code encoding the credentials of an account used to log into it with another
  * client.
  */
 class LoginQrCodeGenerator : public QrCodeGenerator

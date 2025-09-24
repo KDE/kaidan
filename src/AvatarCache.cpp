@@ -42,7 +42,7 @@ AvatarCache::AvatarCache(QObject *parent)
             // get the first line
             QString line = stream.readLine();
             while (!line.isNull()) {
-                // get hash and jid from line (seperated by a blank)
+                // get hash and jid from line (separated by a blank)
                 QStringList list = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
 
                 // set the hash for the jid

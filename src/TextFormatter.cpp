@@ -121,7 +121,7 @@ static void removeEmojiFormat(QTextCursor &cursor, int start, int end)
     }
 }
 
-// Marks and hightlights URLs to be displayed as links that can be opened.
+// Marks and highlights URLs to be displayed as links that can be opened.
 static void formatUrls(QTextCursor &cursor, const QString &text)
 {
     processTextParts(text, isTextSeparator, [&cursor](qsizetype i, QStringView part) {
@@ -140,7 +140,7 @@ static void formatUrls(QTextCursor &cursor, const QString &text)
     });
 }
 
-// Hightlights mentions of group chat users.
+// Highlights mentions of group chat users.
 static void formatGroupChatUserMentions(QTextCursor &cursor, const QString &text)
 {
     processTextParts(text, isTextSeparator, [&cursor](qsizetype i, QStringView part) {

@@ -9,7 +9,7 @@
 #include "QrCodeGenerator.h"
 
 /**
- * Gerenates a QR code encoding the Trust Message URI of an account.
+ * Generates a QR code encoding the Trust Message URI of an account.
  *
  * If no keys for the Trust Message URI can be found, an XMPP URI containing only the account's bare
  * JID is used.

@@ -24,7 +24,7 @@ struct GroupChatService {
 };
 
 /**
- * This class controlls the group chat functionality.
+ * This class controls the group chat functionality.
  */
 class GroupChatController : public QObject
 {

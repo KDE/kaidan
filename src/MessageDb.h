@@ -264,7 +264,7 @@ public:
     /**
      * Adds additional file sources to a file.
      *
-     * The DB file IDs in the sources are overriden and may e.g. be set to 0 if unknown.
+     * The DB file IDs in the sources are overridden and may e.g. be set to 0 if unknown.
      * The whole message is fetched and messageUpdated() is emitted.
      */
     QFuture<void> attachFileSources(const QString &accountJid,

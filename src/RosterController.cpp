@@ -131,7 +131,7 @@ void RosterController::addContact(const QString &jid, const QString &name, const
             m_pendingAutomaticInitialAdditionJids.append(jid);
         }
 
-        // Do not try to add the own JID to the roster mutiple times if the server does not support it.
+        // Do not try to add the own JID to the roster multiple times if the server does not support it.
         if (const auto ownJidBeingAdded = jid == m_accountSettings->jid(); ownJidBeingAdded && !m_addingOwnJidToRosterAllowed) {
             if (!automaticInitialAddition) {
                 Q_EMIT contactAdditionFailed(jid);

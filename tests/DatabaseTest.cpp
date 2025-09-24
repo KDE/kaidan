@@ -57,7 +57,7 @@ void DatabaseTest::conversion()
     Database db;
     auto sqlDb = db.currentDatabase();
 
-    // create database using converion functions
+    // create database using conversion functions
     db.createV3Database();
     db.createTables();
 

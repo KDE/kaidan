@@ -56,7 +56,7 @@ auto find(T &container, Value value)
 /// Removes problematic (as in reserved characters, filenames with special meaning etc.)
 /// parts from a given file name, and returns only the meaningful name (without the file extension)
 ///
-/// A file extension can be added again by infering it from the mime type if one is needed.
+/// A file extension can be added again by inferring it from the mime type if one is needed.
 ///
 static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView fileName)
 {

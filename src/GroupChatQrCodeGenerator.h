@@ -8,7 +8,7 @@
 #include "QrCodeGenerator.h"
 
 /**
- * Gerenates a QR code encoding the address of a group chat to join it.
+ * Generates a QR code encoding the address of a group chat to join it.
  */
 class GroupChatQrCodeGenerator : public QrCodeGenerator
 {

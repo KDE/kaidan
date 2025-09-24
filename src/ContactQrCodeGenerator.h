@@ -9,7 +9,7 @@
 #include "QrCodeGenerator.h"
 
 /**
- * Gerenates a QR code encoding the Trust Message URI of a contact.
+ * Generates a QR code encoding the Trust Message URI of a contact.
  *
  * If no keys for the Trust Message URI can be found, an XMPP URI containing only the contact's bare
  * JID is used.

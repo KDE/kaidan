@@ -464,7 +464,7 @@ QString Connection::errorText() const
     case ClientWorker::ConnectionRefused:
         return tr("The server is offline or blocked by a firewall.");
     case ClientWorker::NoSupportedAuth:
-        return tr("Authentification protocol not supported by the server.");
+        return tr("Authentication protocol not supported by the server.");
     case ClientWorker::KeepAliveError:
         return tr("The connection could not be refreshed.");
     case ClientWorker::NoNetworkPermission:

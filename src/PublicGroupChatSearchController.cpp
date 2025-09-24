@@ -221,7 +221,7 @@ bool PublicGroupChatSearchController::readGroupChats()
     QFile file(filePath);
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qCWarning(KAIDAN_CORE_LOG, "Can ot open file for reading: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
+        qCWarning(KAIDAN_CORE_LOG, "Cannot open file for reading: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(file.errorString()));
         return false;
     }
 

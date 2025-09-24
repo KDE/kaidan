@@ -101,7 +101,7 @@ void PresenceCacheTest::presenceGetter_data()
     QTest::newRow("bob2") << QStringLiteral("bob@kaidan.im") << QStringLiteral("dev2") << true;
     QTest::newRow("alice1") << QStringLiteral("alice@kaidan.im") << QStringLiteral("kdn1") << true;
     QTest::newRow("alice2") << QStringLiteral("alice@kaidan.im") << QStringLiteral("kdn2") << true;
-    QTest::newRow("unknwon presence") << QStringLiteral("alice@kaidan.im") << QStringLiteral("device3") << false;
+    QTest::newRow("unknown presence") << QStringLiteral("alice@kaidan.im") << QStringLiteral("device3") << false;
 }
 
 void PresenceCacheTest::presenceGetter()

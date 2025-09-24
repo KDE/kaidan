@@ -83,7 +83,7 @@ public:
     /**
      * Returns whether an account's presence is subscribed by a roster item.
      *
-     * @param accountJid JID of the account whose roster item's presence subcription is requested
+     * @param accountJid JID of the account whose roster item's presence subscription is requested
      * @param jid JID of the roster item
      *
      * @return whether the presence is subscribed by the item

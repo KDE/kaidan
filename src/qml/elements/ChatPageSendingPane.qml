@@ -174,7 +174,7 @@ Controls.Pane {
 				onClicked: !emojiPicker.toggle()
 			}
 
-			// group chat pariticipant mentioning button
+			// group chat participant mentioning button
 			ClickableIcon {
 				source: "avatar-default-symbolic"
 				visible: root.chatPage.chatController.rosterItem.isGroupChat
@@ -476,7 +476,7 @@ Controls.Pane {
 						return
 					}
 
-					// Disable the button to prevent sending the same message mutliple times.
+					// Disable the button to prevent sending the same message multiple times.
 					enabled = false
 
 					// Send the message.

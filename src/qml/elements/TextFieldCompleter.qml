@@ -35,7 +35,7 @@ Kirigami.ActionTextField {
 	id: root
 
 	// Always give a QML component a defined height.
-	//   The height is 0 by default, *not* the height of childrens. When not defining one here,
+	//   The height is 0 by default, *not* the height of children. When not defining one here,
 	//   the autocomplete will overlap other widgets following it in a ColumnLayout because it has
 	//   height 0 and shows overflow. Defining height in the two ways below allows client code to
 	//   place the widget into a Layout or a non-widget object. See: https://stackoverflow.com/a/38511223

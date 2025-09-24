@@ -1037,7 +1037,7 @@ void MessageModel::handleMessageUpdated(Message message)
         const auto oldReplaceId = oldMessage.replaceId;
 
         // The updated message can be either a normal message, a first message correction, an own
-        // reflected group chat message or a subsequent messsage correction.
+        // reflected group chat message or a subsequent message correction.
         if ((!oldId.isEmpty() && (oldId == message.id || oldId == message.replaceId || oldId == message.originId))
             || (!oldReplaceId.isEmpty() && oldReplaceId == message.replaceId)) {
             const auto oldMessageTimestamp = m_messages.at(i).timestamp;

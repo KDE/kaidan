@@ -30,7 +30,7 @@ private:
      * Attaches formatting to a text document in order to format the text on each change with
      * minimal adjustments.
      *
-     * That results in displaying the text approriately.
+     * That results in displaying the text appropriately.
      * For example, emojis are correctly formatted and a bit enlarged.
      */
     void attachNormalFormatting();
@@ -39,7 +39,7 @@ private:
      * Attaches formatting to a text document in order to format the text on each change with all
      * available filters.
      *
-     * That results in displaying the text approriately.
+     * That results in displaying the text appropriately.
      * For example, emojis are correctly formatted and enlarged depending on their count while links
      * are marked as such and appropriately highlighted.
      */
