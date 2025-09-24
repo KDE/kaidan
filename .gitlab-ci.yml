@@ -2,13 +2,6 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-markdown:
-  stage: validate
-  image:
-    name: davidanson/markdownlint-cli2:v0.14.0
-    entrypoint: [""]
-  script: markdownlint-cli2 "**/*.md"
-
 flatpak-appstream:
   stage: validate
   image:
@@ -23,23 +16,30 @@ flatpak-manifest:
     entrypoint: [""]
   script: flatpak-builder-lint --exceptions --user-exceptions ".flatpak-exceptions.json" manifest ".flatpak-manifest.json"
 
+markdown:
+  stage: validate
+  image:
+    name: davidanson/markdownlint-cli2:v0.14.0
+    entrypoint: [""]
+  script: markdownlint-cli2 "**/*.md"
+
 include:
   - project: sysadmin/ci-utilities
     file:
+      - /gitlab-templates/clang-format.yml
       - /gitlab-templates/json-validation.yml
       - /gitlab-templates/qml-lint.yml
       - /gitlab-templates/reuse-lint.yml
       - /gitlab-templates/xml-lint.yml
       - /gitlab-templates/yaml-lint.yml
       # - /gitlab-templates/android-qt6.yml
+      - /gitlab-templates/cppcheck.yml
       - /gitlab-templates/freebsd-qt6.yml
       - /gitlab-templates/linux-qt6.yml
       - /gitlab-templates/linux-qt6-next.yml
       - /gitlab-templates/windows-qt6.yml
-      - /gitlab-templates/clang-format.yml
-      - /gitlab-templates/cppcheck.yml
-      - /gitlab-templates/craft-windows-x86-64-qt6.yml
-      - /gitlab-templates/craft-windows-appx-qt6.yml
       - /gitlab-templates/craft-macos-arm64-qt6.yml
       - /gitlab-templates/craft-macos-x86-64-qt6.yml
+      - /gitlab-templates/craft-windows-x86-64-qt6.yml
+      - /gitlab-templates/craft-windows-appx-qt6.yml
       - /gitlab-templates/flatpak.yml
