@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-20 18:56+0200\n"
+"PO-Revision-Date: 2025-09-20 16:45+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:440
@@ -64,8 +64,11 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Il server non è in linea o è bloccato da un firewall."
 
 #: src/Account.cpp:467
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
-msgid "Authentification protocol not supported by the server."
+msgid "Authentication protocol not supported by the server."
 msgstr "Protocollo di autenticazione non supportato dal server."
 
 #: src/Account.cpp:469
@@ -2603,9 +2606,6 @@ msgid "Invite contacts to this group…"
 msgstr "Invita contatti a questo gruppo…"
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr "Bando"

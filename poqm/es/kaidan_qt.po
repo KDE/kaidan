@@ -71,8 +71,11 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor no está conectado o está bloqueado por un cortafuegos."
 
 #: src/Account.cpp:467
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
-msgid "Authentification protocol not supported by the server."
+msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admite el protocolo de autenticación."
 
 #: src/Account.cpp:469

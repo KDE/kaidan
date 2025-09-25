@@ -62,8 +62,11 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
 #: src/Account.cpp:467
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
-msgid "Authentification protocol not supported by the server."
+msgid "Authentication protocol not supported by the server."
 msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
 #: src/Account.cpp:469
