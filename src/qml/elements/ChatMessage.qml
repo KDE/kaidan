@@ -551,7 +551,7 @@ Controls.ItemDelegate {
 	Kirigami.Theme.inherit: false
 
 	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
-		if (modelIndex < 0 || modelIndex === delimitingIndex) {
+		if (modelIndex < 0 || delimitingIndex < 0 || modelIndex === delimitingIndex) {
 			return true
 		}
 
