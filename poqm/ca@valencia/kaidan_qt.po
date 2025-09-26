@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-08-20 10:35+0200\n"
+"PO-Revision-Date: 2025-09-25 15:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -76,9 +76,6 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
@@ -2613,9 +2610,6 @@ msgid "Invite contacts to this group…"
 msgstr "Convida contactes a este grup…"
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr "Bandeja"

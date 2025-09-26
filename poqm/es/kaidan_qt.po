@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2025-09-23 14:19+0100\n"
+"PO-Revision-Date: 2025-09-25 16:38+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -71,9 +71,6 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor no está conectado o está bloqueado por un cortafuegos."
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admite el protocolo de autenticación."
@@ -255,7 +252,7 @@ msgstr "Abandonar"
 #: src/ChatHintModel.cpp:334
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Abandonando chat de grupo"
+msgstr "Abandonando conversación de grupo"
 
 #: src/FileSharingController.cpp:363
 #, qt-format
@@ -598,7 +595,7 @@ msgstr "Disponible"
 #: src/PresenceCache.cpp:38
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr "Libre para chatear"
+msgstr "Libre para conversar"
 
 #: src/PresenceCache.cpp:40
 msgctxt "QObject|"
@@ -667,7 +664,7 @@ msgstr "Cancelar el reenvío"
 #: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "Seleccione un chat para reenviar el mensaje"
+msgstr "Seleccione una conversación para reenviar el mensaje"
 
 #: src/qml/ChatPage.qml:579
 msgctxt "ChatPage|"
@@ -750,7 +747,7 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de chat puedan leer o modificar los datos que "
+"usted y sus compañeros de conversación puedan leer o modificar los datos que "
 "intercambie."
 
 #: src/qml/details/AccountDetailsContent.qml:195
@@ -767,12 +764,13 @@ msgstr "Eliminar etiqueta"
 #: src/qml/details/AccountDetailsContent.qml:245
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr "Compartir la dirección de chat de esta cuenta mediante código QR"
+msgstr ""
+"Compartir la dirección de conversación de esta cuenta mediante código QR"
 
 #: src/qml/details/AccountDetailsContent.qml:249
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
-msgstr "Compartir la dirección de chat de esta cuenta mediante texto"
+msgstr "Compartir la dirección de conversación de esta cuenta mediante texto"
 
 #: src/qml/details/AccountDetailsContent.qml:252
 msgctxt "AccountDetailsContent|"
@@ -783,8 +781,8 @@ msgstr "Dirección de la cuenta copiada al portapapeles"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
-"Compartir la dirección de chat de esta cuenta mediante una página web con "
-"ayuda de uso"
+"Compartir la dirección de conversación de esta cuenta mediante una página "
+"web con ayuda de uso"
 
 #: src/qml/details/AccountDetailsContent.qml:269
 msgctxt "AccountDetailsContent|"
@@ -903,12 +901,12 @@ msgstr "Dirección del sitio web copiada al portapapeles"
 #: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
-msgstr "Abrir chat de asistencia"
+msgstr "Abrir conversación de asistencia"
 
 #: src/qml/details/AccountDetailsContent.qml:402
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
-msgstr "Iniciar un chat con el contacto de asistencia del proveedor"
+msgstr "Iniciar una conversación con el contacto de asistencia del proveedor"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -940,7 +938,7 @@ msgstr "Grupo de asistencia de %1"
 #: src/qml/details/AccountDetailsContent.qml:493
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Direcciones para chat bloqueadas"
+msgstr "Direcciones de conversación bloqueadas"
 
 #: src/qml/details/AccountDetailsContent.qml:497
 msgctxt "AccountDetailsContent|"
@@ -954,7 +952,8 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:525
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr "Debe tener conexión para bloquear y desbloquear direcciones de chat"
+msgstr ""
+"Debe tener conexión para bloquear y desbloquear direcciones de conversación"
 
 #: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
@@ -964,12 +963,12 @@ msgstr "usuario@ejemplo.org"
 #: src/qml/details/AccountDetailsContent.qml:547
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Bloquear dirección de chat"
+msgstr "Bloquear dirección de conversación"
 
 #: src/qml/details/AccountDetailsContent.qml:609
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Cambiar dirección del chat…"
+msgstr "Cambiar dirección de conversación…"
 
 #: src/qml/details/AccountDetailsContent.qml:640
 msgctxt "AccountDetailsContent|"
@@ -984,17 +983,18 @@ msgstr "Notas"
 #: src/qml/details/AccountDetailsContent.qml:670
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr "Añadir chat para notas"
+msgstr "Añadir conversación para notas"
 
 #: src/qml/details/AccountDetailsContent.qml:671
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "Añadiendo chat de notas…"
+msgstr "Añadiendo conversación de notas…"
 
 #: src/qml/details/AccountDetailsContent.qml:672
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
-msgstr "Añadir un chat para sincronizar las notas en todos sus dispositivos"
+msgstr ""
+"Añadir una conversación para sincronizar las notas en todos sus dispositivos"
 
 #: src/qml/details/AccountDetailsContent.qml:685
 msgctxt "AccountDetailsContent|"
@@ -1002,8 +1002,8 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
-"El chat de notas no se puede añadir a su lista de contactos porque su "
-"servidor no lo permite"
+"La conversación de notas no se puede añadir a su lista de contactos porque "
+"su servidor no lo permite"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1200,7 +1200,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:1033
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr "Dirección para chatear"
+msgstr "Dirección de conversación"
 
 #: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
@@ -1229,9 +1229,10 @@ msgid ""
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Migrar los datos de la cuenta (excepto el historial de chat) a otra cuenta. "
-"Su cuenta actual se eliminará de esta aplicación. Cree una copia de "
-"seguridad de sus credenciales y del historial de chat si es necesario."
+"Migrar los datos de la cuenta (excepto el historial de conversación) a otra "
+"cuenta. Su cuenta actual se eliminará de esta aplicación. Cree una copia de "
+"seguridad de sus credenciales y del historial de conversación si es "
+"necesario."
 
 #: src/qml/details/AccountDetailsContent.qml:1081
 msgctxt "AccountDetailsContent|"
@@ -1250,7 +1251,7 @@ msgid ""
 "needed!"
 msgstr ""
 "Eliminar la cuenta de esta aplicación. Cree una copia de seguridad de sus "
-"credenciales y del historial de chat si es necesario."
+"credenciales y del historial de conversación si es necesario."
 
 #: src/qml/details/AccountDetailsContent.qml:1096
 msgctxt "AccountDetailsContent|"
@@ -1392,19 +1393,20 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de chat puedan leer o modificar los datos que "
+"usted y sus compañeros de conversación puedan leer o modificar los datos que "
 "intercambie."
 
 #: src/qml/details/ContactDetailsContent.qml:77
 #: src/qml/details/ContactDetailsContent.qml:82
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr "Compartir la dirección de chat de este contacto mediante código QR"
+msgstr ""
+"Compartir la dirección de conversación de este contacto mediante código QR"
 
 #: src/qml/details/ContactDetailsContent.qml:86
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
-msgstr "Compartir la dirección de chat de este contacto mediante texto"
+msgstr "Compartir la dirección de conversación de este contacto mediante texto"
 
 #: src/qml/details/ContactDetailsContent.qml:89
 msgctxt "ContactDetailsContent|"
@@ -1415,8 +1417,8 @@ msgstr "Contacto copiado al portapapeles"
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
-"Compartir la dirección de chat de este contacto mediante una página web con "
-"ayuda de uso"
+"Compartir la dirección de conversación de este contacto mediante una página "
+"web con ayuda de uso"
 
 #: src/qml/details/ContactDetailsContent.qml:106
 msgctxt "ContactDetailsContent|"
@@ -1527,7 +1529,7 @@ msgstr "Eliminar"
 #: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr "Eliminar el contacto y el historial de chat completo"
+msgstr "Eliminar el contacto y el historial de conversación completo"
 
 #: src/qml/details/ContactDetailsContent.qml:209
 msgctxt "ContactDetailsContent|"
@@ -1651,7 +1653,7 @@ msgstr "Código QR copiado al portapapeles"
 #: src/qml/details/DetailsContent.qml:191
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
-msgstr "Copiar dirección de chat"
+msgstr "Copiar dirección de conversación"
 
 #: src/qml/details/DetailsContent.qml:197
 msgctxt "DetailsContent|"
@@ -1719,19 +1721,20 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de chat puedan leer o modificar los datos que "
+"usted y sus compañeros de conversación puedan leer o modificar los datos que "
 "intercambie."
 
 #: src/qml/details/GroupChatDetailsContent.qml:290
 #: src/qml/details/GroupChatDetailsContent.qml:295
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr "Compartir la dirección de chat de este grupo mediante código QR"
+msgstr ""
+"Compartir la dirección de conversación de este grupo mediante código QR"
 
 #: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
-msgstr "Compartir la dirección de chat de este grupo mediante texto"
+msgstr "Compartir la dirección de conversación de este grupo mediante texto"
 
 #: src/qml/details/GroupChatDetailsContent.qml:302
 msgctxt "GroupChatDetailsContent|"
@@ -1742,8 +1745,8 @@ msgstr "Dirección del grupo copiada al portapapeles"
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
-"Compartir la dirección de chat de este grupo mediante una página web con "
-"ayuda de uso"
+"Compartir la dirección de conversación de este grupo mediante una página web "
+"con ayuda de uso"
 
 #: src/qml/details/GroupChatDetailsContent.qml:314
 msgctxt "GroupChatDetailsContent|"
@@ -1822,12 +1825,12 @@ msgstr "Abandonar"
 #: src/qml/details/GroupChatDetailsContent.qml:381
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr "Abandonar el grupo y eliminar el historial de chat completo"
+msgstr "Abandonar el grupo y eliminar el historial de conversación completo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:390
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "Saliendo de chat de grupo…"
+msgstr "Saliendo de conversación de grupo…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:396
 #, qt-format
@@ -1848,7 +1851,7 @@ msgstr "Borrar grupo. Nadie podrá volver a unirse al grupo."
 #: src/qml/details/GroupChatDetailsContent.qml:414
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "Borrando chat de grupo…"
+msgstr "Borrando conversación de grupo…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
 #, qt-format
@@ -1869,12 +1872,12 @@ msgstr "Maximizar el avatar"
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr "Chat de grupo público"
+msgstr "Conversación de grupo público"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:23
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr "Chat de grupo privado"
+msgstr "Conversación de grupo privado"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:26
 msgctxt "GroupChatDetailsHeader|"
@@ -2008,12 +2011,12 @@ msgstr "Eliminar"
 #: src/qml/details/NotesChatDetailsContent.qml:58
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr "Eliminar chat de notas y el historial de chat completo"
+msgstr "Eliminar conversación de notas y el historial de conversación completo"
 
 #: src/qml/details/NotesChatDetailsContent.qml:66
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "Eliminando chat de notas…"
+msgstr "Eliminando conversación de notas…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:10
 msgctxt "NotesChatDetailsDialog|"
@@ -2024,8 +2027,8 @@ msgstr "Detalles de las notas"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
-"Los mensajes de este chat están sincronizados como notas en todos sus "
-"dispositivos"
+"Los mensajes de esta conversación están sincronizados como notas en todos "
+"sus dispositivos"
 
 #: src/qml/details/NotesChatDetailsPage.qml:9
 msgctxt "NotesChatDetailsPage|"
@@ -2121,7 +2124,7 @@ msgstr "Ver el código fuente de Kaidan en línea y colaborar con el proyecto"
 #: src/qml/elements/AboutHeader.qml:40
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
-msgstr "Aplicación de chat moderna para todos los dispositivos"
+msgstr "Aplicación de conversación moderna para todos los dispositivos"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
@@ -2349,7 +2352,7 @@ msgstr "El contacto ya existe"
 #: src/qml/elements/ContactAdditionContent.qml:34
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Abrir chat"
+msgstr "Abrir conversación"
 
 #: src/qml/elements/ContactAdditionContent.qml:46
 msgctxt "ContactAdditionContent|"
@@ -2449,7 +2452,7 @@ msgstr "Algunas funciones estarán visibles cuando active su cuenta"
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "Dirección para chatear"
+msgstr "Dirección de conversación"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2459,7 +2462,8 @@ msgstr "usuario@ejemplo.org"
 #: src/qml/elements/fields/JidField.qml:21
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr "La dirección para chatear debe tener la forma <b>usuario@servidor</b>"
+msgstr ""
+"La dirección de conversación debe tener la forma <b>usuario@servidor</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:20
 msgctxt "PasswordField|"
@@ -2499,7 +2503,7 @@ msgstr "Crear"
 #: src/qml/elements/GroupChatCreationContent.qml:27
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr "Creando chat de grupo…"
+msgstr "Creando conversación de grupo…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:32
 msgctxt "GroupChatCreationContent|"
@@ -2557,12 +2561,12 @@ msgstr "No se ha podido unir al grupo %1%2"
 #: src/qml/elements/GroupChatCreationDialog.qml:15
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr "Crear chat de grupo"
+msgstr "Crear conversación de grupo"
 
 #: src/qml/elements/GroupChatCreationPage.qml:13
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr "Crear chat de grupo"
+msgstr "Crear conversación de grupo"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:18
 msgctxt "GroupChatJoiningContent|"
@@ -2572,7 +2576,7 @@ msgstr "Unirse"
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr "Uniéndose al chat de grupo…"
+msgstr "Uniéndose a conversación de grupo…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:25
 msgctxt "GroupChatJoiningContent|"
@@ -2603,12 +2607,12 @@ msgstr "No se ha podido unir al grupo %1%2"
 #: src/qml/elements/GroupChatJoiningDialog.qml:16
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr "Unirse al chat de grupo"
+msgstr "Unirse a conversación de grupo"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:14
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr "Unirse al chat de grupo"
+msgstr "Unirse a conversación de grupo"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:58
 msgctxt "GroupChatParticipantPicker|"
@@ -2973,7 +2977,7 @@ msgstr "Grabar un vídeo"
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Seleccione un chat para empezar"
+msgstr "Seleccione una conversación para empezar"
 
 #: src/qml/GlobalDrawer.qml:54
 msgctxt "GlobalDrawer|"
@@ -3018,7 +3022,7 @@ msgstr "Añadir contacto por código QR"
 #: src/qml/GlobalDrawer.qml:191
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Añadir contacto por dirección de chat"
+msgstr "Añadir contacto por dirección de conversación"
 
 #: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
