@@ -31,8 +31,6 @@ public:
     Q_INVOKABLE void deleteFile(const QString &chatJid, const QString &messageId, const File &file);
     Q_INVOKABLE void cancelFile(const File &file);
 
-    Q_SIGNAL void errorOccured(qint64, QXmppError);
-
 private:
     QFuture<UploadResult> sendFile(const File &file, bool encrypt);
     void removeFile(const QString &filePath);

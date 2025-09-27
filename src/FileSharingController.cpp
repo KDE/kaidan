@@ -287,14 +287,10 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
             }
         });
 
-        connect(upload.get(), &QXmppFileUpload::finished, this, [this, upload, id = file.id, promise]() mutable {
+        connect(upload.get(), &QXmppFileUpload::finished, this, [upload, id = file.id, promise]() mutable {
             auto result = upload->result();
 
             FileProgressCache::instance().reportProgress(id, std::nullopt);
-
-            if (std::holds_alternative<QXmppError>(result)) {
-                Q_EMIT errorOccured(id, std::get<QXmppError>(result));
-            }
 
             promise->addResult({id, result});
             promise->finish();
