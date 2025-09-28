@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-08-20 14:52+0200\n"
+"PO-Revision-Date: 2025-09-27 13:22+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: eu\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/Account.cpp:440
 msgctxt "Connection|"
@@ -72,12 +72,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
-msgstr "Zerbitzariak ez du onartzen autentifikazio protokoloa."
+msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
 
 #: src/Account.cpp:469
 msgctxt "Connection|"
@@ -2601,9 +2598,6 @@ msgid "Invite contacts to this group…"
 msgstr "Gonbidatu kontaktua talde honetara..."
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr "Debekua"
