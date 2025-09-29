@@ -145,7 +145,7 @@ msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Could not connect to the server."
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:332
 #, fuzzy
 #| msgctxt "AccountMigrationManager|"
 #| msgid "Account could not be migrated: Could not load exported account data"
@@ -153,7 +153,7 @@ msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Account could not be migrated: Could not load exported account data"
 
-#: src/AccountMigrationController.cpp:354
+#: src/AccountMigrationController.cpp:355
 #, fuzzy
 #| msgctxt "AccountMigrationManager|"
 #| msgid "Account could not be migrated: You need to be connected"
@@ -161,7 +161,7 @@ msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Account could not be migrated: You need to be connected"
 
-#: src/AccountMigrationController.cpp:403
+#: src/AccountMigrationController.cpp:405
 #, fuzzy, qt-format
 #| msgctxt "StartPage|"
 #| msgid "Account Migration"
@@ -498,18 +498,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' cannot be sent because it is larger than %2"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:274
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
 
-#: src/MessageController.cpp:645
+#: src/MessageController.cpp:647
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "This message is encrypted with %1 but could not be decrypted"
 
-#: src/MessageController.cpp:1049
+#: src/MessageController.cpp:1051
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -655,7 +655,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Mark as read"
 
-#: src/OmemoController.cpp:112
+#: src/OmemoController.cpp:114
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "End-to-end encryption via OMEMO 2 could not be set up"
@@ -3732,7 +3732,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterModel.cpp:756
+#: src/RosterModel.cpp:757
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Yesterday"

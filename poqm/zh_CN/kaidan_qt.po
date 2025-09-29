@@ -97,17 +97,17 @@ msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:332
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationController.cpp:354
+#: src/AccountMigrationController.cpp:355
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
 
-#: src/AccountMigrationController.cpp:403
+#: src/AccountMigrationController.cpp:405
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
@@ -418,18 +418,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:274
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:645
+#: src/MessageController.cpp:647
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此消息已用 %1 加密，但无法解密"
 
-#: src/MessageController.cpp:1049
+#: src/MessageController.cpp:1051
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -566,7 +566,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
 
-#: src/OmemoController.cpp:112
+#: src/OmemoController.cpp:114
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "无法通过 OMEMO 2 设置端到端加密"
@@ -3371,7 +3371,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterModel.cpp:756
+#: src/RosterModel.cpp:757
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

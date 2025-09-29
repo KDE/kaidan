@@ -92,17 +92,17 @@ msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:332
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:354
+#: src/AccountMigrationController.cpp:355
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:403
+#: src/AccountMigrationController.cpp:405
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
@@ -411,18 +411,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:274
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageController.cpp:645
+#: src/MessageController.cpp:647
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Tato zpráva je šifrovaná pomocí %1 ale nelze ji dešifrovat"
 
-#: src/MessageController.cpp:1049
+#: src/MessageController.cpp:1051
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -559,7 +559,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr ""
 
-#: src/OmemoController.cpp:112
+#: src/OmemoController.cpp:114
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Šifrování veškeré komunikace pomocí OMEMO 2 nelze nastavit"
@@ -3340,7 +3340,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Poznámky"
 
-#: src/RosterModel.cpp:756
+#: src/RosterModel.cpp:757
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Včera"
