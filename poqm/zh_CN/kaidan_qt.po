@@ -63,9 +63,6 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
 #: src/Account.cpp:467
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
@@ -2526,9 +2523,6 @@ msgid "Invite contacts to this group…"
 msgstr "邀请联系人加入此群聊…"
 
 #: src/qml/elements/GroupChatUserDelegate.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Ban"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr "封禁"
