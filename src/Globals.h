@@ -104,10 +104,8 @@ constexpr QStringView DEFAULT_COUNTRY_CODE = u"US";
  */
 constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
 
-/**
- * Name of the @c QQuickImageProvider for Bits of Binary.
- */
-#define BITS_OF_BINARY_IMAGE_PROVIDER_NAME "bits-of-binary"
+// Name of the provider for all images.
+const QString IMAGE_PROVIDER_NAME = QStringLiteral("image-provider");
 
 // Defines that a message is suitable for correction only if it is among the n most recent messages.
 constexpr int MAX_MESSAGE_CORRECTION_COUNT = 10;

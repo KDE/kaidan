@@ -71,7 +71,6 @@ struct File {
     Q_PROPERTY(QString localFilePath MEMBER localFilePath)
     Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
     Q_PROPERTY(QString externalId MEMBER externalId)
-    Q_PROPERTY(QImage previewImage READ previewImage CONSTANT)
     Q_PROPERTY(Enums::MessageType type READ type CONSTANT)
     Q_PROPERTY(QString details READ details CONSTANT)
     Q_PROPERTY(bool isNew MEMBER isNew)
@@ -123,7 +122,6 @@ public:
     {
         return disposition == QXmppFileShare::Inline;
     }
-    [[nodiscard]] QImage previewImage() const;
     [[nodiscard]] QUrl downloadUrl() const;
     [[nodiscard]] QUrl localFileUrl() const;
     [[nodiscard]] Enums::MessageType type() const;
@@ -134,9 +132,6 @@ public:
     [[nodiscard]] QString details() const;
     [[nodiscard]] QString formattedSize() const;
     [[nodiscard]] QString formattedDateTime() const;
-
-private:
-    QImage createPreviewImage() const;
 };
 
 class MessageReactionDeliveryState

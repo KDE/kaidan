@@ -10,8 +10,8 @@ import org.kde.kirigami as Kirigami
 MediumPreview {
 	id: root
 
-	property var selectionModel
-	property var modelData
+	property QtObject selectionModel
+	property QtObject modelData
 
 	name: modelData.name
 	description: modelData.description
@@ -22,7 +22,7 @@ MediumPreview {
 	maximumDetailsWidth: maximumWidth - detailsWidthLimitBase - root.spacing - mediumRemovalButton.width
 	mainArea.rightPadding: Kirigami.Units.smallSpacing * 3
 	previewImage {
-		source: modelData.previewImage
+		source: modelData.previewImageUrl
 		data: OpacityChangingMouseArea {
 			opacityItem: parent
 			onClicked: root.open()

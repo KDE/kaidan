@@ -261,9 +261,8 @@ Controls.Control {
 		delegate: {
 			switch (root.tabBarCurrentIndex) {
 			case 0:
-				return imageDelegate
 			case 1:
-				return videoDelegate
+				return imageDelegate
 			case 2:
 				return otherDelegate
 			}
@@ -296,57 +295,11 @@ Controls.Control {
 				}
 
 				Image {
-					source: model.file.localFileUrl
+					source: ImageProvider.generatedFileImageUrl(model.file)
 					fillMode: Image.PreserveAspectCrop
 					asynchronous: true
 					sourceSize.width: preview.availableWidth
 					sourceSize.height: preview.availableHeight
-					anchors.fill: parent
-
-					SelectionMarker {
-						visible: preview.containsMouse || checked
-						checked: preview.checked
-						anchors.top: parent.top
-						anchors.right: parent.right
-						anchors.topMargin: Kirigami.Units.smallSpacing
-						anchors.rightMargin: anchors.topMargin
-						onClicked: {
-							root.selectionMode = true
-							model.checkState = checkState
-							preview.toggled()
-							preview.clicked()
-						}
-					}
-				}
-			}
-		}
-
-		Component {
-			id: videoDelegate
-
-			SelectablePreview {
-				id: preview
-				checkable: root.selectionMode
-				checked: checkable && model.checkState === Qt.Checked
-				onToggled: {
-					model.checkState = checked ? Qt.Checked : Qt.Unchecked
-				}
-				onClicked: {
-					if (root.selectionMode) {
-						if (fileProxyModel.checkedCount === 0) {
-							root.selectionMode = false
-						}
-					} else {
-						Qt.openUrlExternally(model.file.localFileUrl)
-					}
-				}
-				onPressAndHold: {
-					root.selectionMode = true
-					model.checkState = Qt.Checked
-				}
-
-				Kirigami.Icon {
-					source: model.thumbnail
 					anchors.fill: parent
 
 					SelectionMarker {

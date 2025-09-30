@@ -16,10 +16,10 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
-#include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
 #include "EncryptionController.h"
 #include "FutureUtils.h"
+#include "ImageProvider.h"
 #include "MessageDb.h"
 #include "RegistrationDataFormModel.h"
 #include "RosterDb.h"
@@ -297,7 +297,7 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
     // Add the attached Bits of Binary data to the corresponding image provider.
     const auto bobDataList = iq.bitsOfBinaryData();
     for (const auto &bobData : bobDataList) {
-        BitsOfBinaryImageProvider::instance()->addImage(bobData);
+        ImageProvider::instance()->addImage(bobData);
         m_contentIdsToRemove << bobData.cid();
     }
 
@@ -473,7 +473,7 @@ void RegistrationController::copyUserDefinedValuesToNewForm(const QXmppDataForm 
 void RegistrationController::removeOldContentIds()
 {
     for (auto itr = m_contentIdsToRemove.begin(); itr != m_contentIdsToRemove.end();) {
-        if (BitsOfBinaryImageProvider::instance()->removeImage(*itr)) {
+        if (ImageProvider::instance()->removeImage(*itr)) {
             itr = m_contentIdsToRemove.erase(itr);
         } else {
             ++itr;

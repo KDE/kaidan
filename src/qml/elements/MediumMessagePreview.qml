@@ -53,15 +53,7 @@ MediumPreview {
 	}
 	previewImage {
 		opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? 1 : mainAreaBackground.opacity
-		source: {
-			const image = file.previewImage
-
-			if (MediaUtils.imageValid(image)) {
-				return image
-			}
-
-			return file.mimeTypeIcon
-		}
+		source: ImageProvider.generatedFileImageUrl(file)
 		data: CircleProgressBar {
 			value: transferWatcher.progress
 			opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? (opacityChangingMouseArea.containsMouse ?  0.8 : 0.5 ): 0

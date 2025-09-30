@@ -99,29 +99,6 @@ QXmppFileShare File::toQXmpp() const
     return fs;
 }
 
-QImage File::previewImage() const
-{
-    const auto image = createPreviewImage();
-
-    if (image.isNull()) {
-        return {};
-    }
-
-    auto length = std::min(image.width(), image.height());
-    QImage croppedImage(QSize(length, length), image.format());
-
-    auto delX = (image.width() - length) / 2;
-    auto delY = (image.height() - length) / 2;
-
-    for (int x = 0; x < length; x++) {
-        for (int y = 0; y < length; y++) {
-            croppedImage.setPixel(x, y, image.pixel(x + delX, y + delY));
-        }
-    }
-
-    return croppedImage;
-}
-
 QUrl File::downloadUrl() const
 {
     if (!httpSources.isEmpty()) {
@@ -185,28 +162,6 @@ QString File::formattedDateTime() const
     }
 
     return QString();
-}
-
-QImage File::createPreviewImage() const
-{
-    switch (type()) {
-    case Enums::MessageType::MessageImage:
-        if (localFileUrl().isValid()) {
-            return QImage{localFilePath};
-        } else if (!thumbnail.isEmpty()) {
-            return QImage::fromData(thumbnail);
-        }
-        break;
-    case Enums::MessageType::MessageVideo:
-        if (!thumbnail.isEmpty()) {
-            return QImage::fromData(thumbnail);
-        }
-        break;
-    default:
-        break;
-    }
-
-    return {};
 }
 
 QXmppMixInvitation GroupChatInvitation::toQXmpp() const

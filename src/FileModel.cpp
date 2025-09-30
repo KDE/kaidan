@@ -6,7 +6,6 @@
 
 // Kaidan
 #include "KaidanCoreLog.h"
-#include "MediaUtils.h"
 #include "MessageDb.h"
 
 FileModel::FileModel(QObject *parent)
@@ -40,42 +39,6 @@ QVariant FileModel::data(const QModelIndex &index, int role) const
             return file.id;
         case static_cast<int>(Role::File):
             return QVariant::fromValue(file);
-        case static_cast<int>(Role::Thumbnail): {
-            const auto url = file.localFileUrl();
-
-            // If the local file does not exist, use a stored thumbnail.
-            if (!url.isValid()) {
-                return file.thumbnail.isEmpty() ? QVariant{} : QImage::fromData(file.thumbnail);
-            }
-
-            if (const auto image = QImage::fromData(file.thumbnail); image.width() >= VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT) {
-                return image;
-            }
-
-            auto fileModel = const_cast<FileModel *>(this);
-
-            MediaUtils::generateThumbnail(url, file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT)
-                .then(fileModel, [fileModel, pIndex = QPersistentModelIndex(index), fileId = file.fileId()](const QByteArray &thumbnail) mutable {
-                    if (!pIndex.isValid()) {
-                        return;
-                    }
-
-                    auto &file = fileModel->m_files[pIndex.row()];
-
-                    if (file.fileId() != fileId) {
-                        return;
-                    }
-
-                    file.thumbnail = thumbnail;
-
-                    Q_EMIT fileModel->dataChanged(pIndex,
-                                                  pIndex,
-                                                  {
-                                                      static_cast<int>(Role::File),
-                                                      static_cast<int>(Role::Thumbnail),
-                                                  });
-                });
-        }
         }
     }
 
@@ -89,7 +52,6 @@ QHash<int, QByteArray> FileModel::roleNames() const
         // Thus, it is added to "data()" but not here.
         auto roles = QAbstractListModel::roleNames();
         roles.insert(static_cast<int>(Role::File), QByteArrayLiteral("file"));
-        roles.insert(static_cast<int>(Role::Thumbnail), QByteArrayLiteral("thumbnail"));
         return roles;
     }();
     return roles;

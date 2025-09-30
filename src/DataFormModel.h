@@ -64,5 +64,5 @@ protected:
     QXmppDataForm m_form;
 
 private:
-    QString mediaSourceUri(const QXmppDataForm::Field &field) const;
+    QUrl mediaSourceUri(const QXmppDataForm::Field &field) const;
 };

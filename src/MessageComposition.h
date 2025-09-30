@@ -194,7 +194,7 @@ public:
         Description,
         Size,
         LocalFileUrl,
-        PreviewImage,
+        PreviewImageUrl,
         Type,
     };
 

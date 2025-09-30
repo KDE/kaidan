@@ -61,16 +61,15 @@
 #include "Account.h"
 #include "AccountController.h"
 #include "AccountMigrationController.h"
-#include "AccountQrCodeGenerator.h"
+#include "AccountTrustMessageUriGenerator.h"
 #include "AtmController.h"
 #include "AuthenticatableEncryptionKeyModel.h"
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarCache.h"
-#include "BitsOfBinaryImageProvider.h"
 #include "Blocking.h"
 #include "ChatController.h"
 #include "ChatHintModel.h"
-#include "ContactQrCodeGenerator.h"
+#include "ContactTrustMessageUriGenerator.h"
 #include "CredentialsGenerator.h"
 #include "CredentialsValidator.h"
 #include "DataFormModel.h"
@@ -87,7 +86,6 @@
 #include "GlobalsGen.h"
 #include "GroupChatController.h"
 #include "GroupChatInviteeFilterModel.h"
-#include "GroupChatQrCodeGenerator.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserFilterModel.h"
 #include "GroupChatUserKeyAuthenticationFilterModel.h"
@@ -95,8 +93,8 @@
 #include "GuiStyle.h"
 #include "HostCompletionModel.h"
 #include "HostCompletionProxyModel.h"
+#include "ImageProvider.h"
 #include "KaidanLog.h"
-#include "LoginQrCodeGenerator.h"
 #include "MainController.h"
 #include "MediaUtils.h"
 #include "Message.h"
@@ -475,7 +473,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    engine.addImageProvider(QLatin1String(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), BitsOfBinaryImageProvider::instance());
+    engine.addImageProvider(IMAGE_PROVIDER_NAME, new ImageProvider);
 
 #if __has_include("KCrash")
     if (QStringLiteral(BUILD_TYPE).compare(u"release", Qt::CaseInsensitive) == 0) {
@@ -484,7 +482,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
     // QML type bindings
-    qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
     qmlRegisterType<StatusBar>(APPLICATION_ID, 1, 0, "StatusBar");
     qmlRegisterType<EmojiModel>(APPLICATION_ID, 1, 0, "EmojiModel");
     qmlRegisterType<EmojiProxyModel>(APPLICATION_ID, 1, 0, "EmojiProxyModel");
@@ -492,10 +489,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<RosterFilterModel>(APPLICATION_ID, 1, 0, "RosterFilterModel");
     qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
     qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
-    qmlRegisterType<ContactQrCodeGenerator>(APPLICATION_ID, 1, 0, "ContactQrCodeGenerator");
     qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
     qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
-    qmlRegisterType<LoginQrCodeGenerator>(APPLICATION_ID, 1, 0, "LoginQrCodeGenerator");
     qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
     qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
     qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
@@ -515,7 +510,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
     qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
     qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
-    qmlRegisterType<GroupChatQrCodeGenerator>(APPLICATION_ID, 1, 0, "GroupChatQrCodeGenerator");
     qmlRegisterType<GroupChatInviteeFilterModel>(APPLICATION_ID, 1, 0, "GroupChatInviteeFilterModel");
     qmlRegisterType<GroupChatUserModel>(APPLICATION_ID, 1, 0, "GroupChatUserModel");
     qmlRegisterType<GroupChatUserFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserFilterModel");
@@ -618,6 +612,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
         static auto self = new HostCompletionModel(qApp);
         return static_cast<QObject *>(self);
+    });
+    qmlRegisterSingletonType<ImageProvider>(APPLICATION_ID, 1, 0, "ImageProvider", [](QQmlEngine *engine, QJSEngine *) {
+        engine->setObjectOwnership(ImageProvider::instance(), QQmlEngine::CppOwnership);
+        return ImageProvider::instance();
     });
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));

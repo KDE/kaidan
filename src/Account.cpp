@@ -394,6 +394,22 @@ void AccountSettings::storeTemporaryData()
     }
 }
 
+QString AccountSettings::loginUriString() const
+{
+    QXmpp::Uri::Login loginQuery;
+
+    if (passwordVisibility() != AccountSettings::PasswordVisibility::Invisible) {
+        loginQuery.password = password();
+    }
+
+    QXmppUri uri;
+
+    uri.setJid(jid());
+    uri.setQuery(std::move(loginQuery));
+
+    return uri.toString();
+}
+
 void AccountSettings::generateJidResource()
 {
     m_data.jidResource = QXmppUtils::generateStanzaHash(4);

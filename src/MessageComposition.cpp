@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QFutureWatcher>
 #include <QGuiApplication>
+#include <QImageReader>
 #include <QMimeDatabase>
 // KDE
 #include <KFileItem>
@@ -24,6 +25,7 @@
 #include "FileSharingController.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
+#include "ImageProvider.h"
 #include "MainController.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
@@ -507,7 +509,7 @@ QHash<int, QByteArray> FileSelectionModel::roleNames() const
         {Description, QByteArrayLiteral("description")},
         {Size, QByteArrayLiteral("size")},
         {LocalFileUrl, QByteArrayLiteral("localFileUrl")},
-        {PreviewImage, QByteArrayLiteral("previewImage")},
+        {PreviewImageUrl, QByteArrayLiteral("previewImageUrl")},
         {Type, QByteArrayLiteral("type")},
     };
     return roles;
@@ -544,12 +546,8 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
         return tr("Unknown size");
     case LocalFileUrl:
         return file.localFileUrl();
-    case PreviewImage:
-        if (const auto previewImage = file.previewImage(); !previewImage.isNull()) {
-            return previewImage;
-        }
-
-        return file.mimeTypeIcon();
+    case PreviewImageUrl:
+        return ImageProvider::instance()->generatedFileImageUrl(file);
     case Type:
         return QVariant::fromValue(file.type());
     }
@@ -599,26 +597,25 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     file.size = fileInfo.size();
     file.isNew = isNew;
 
-    if (const auto image = QImage(localPath); !image.isNull()) {
-        file.width = image.width();
-        file.height = image.height();
+    if (auto image = QImageReader(localPath); image.canRead()) {
+        const auto size = [&image]() {
+            QSize size = image.size();
+
+            if (!size.isValid()) {
+                size = image.read().size();
+            }
+
+            return size;
+        }();
+
+        file.width = size.width();
+        file.height = size.height();
     }
 
-    auto insertFile = [this](File &&file) mutable {
-        beginInsertRows({}, m_files.size(), m_files.size());
-        m_files.append(std::move(file));
-        endInsertRows();
-    };
-
-    if (file.type() == MessageType::MessageVideo) {
-        MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT)
-            .then(this, [file, insertFile](const QByteArray &thumbnail) mutable {
-                file.thumbnail = thumbnail;
-                insertFile(std::move(file));
-            });
-    } else {
-        insertFile(std::move(file));
-    }
+    const int row = m_files.size();
+    beginInsertRows({}, row, row);
+    m_files.append(std::move(file));
+    endInsertRows();
 }
 
 void FileSelectionModel::removeFile(int index)

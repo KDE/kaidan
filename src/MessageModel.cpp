@@ -983,10 +983,7 @@ void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
 
     beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.size() - 1);
 
-    for (auto msg : msgs) {
-        m_messages << msg;
-        addVideoThumbnails(msg);
-    }
+    m_messages.append(msgs);
 
     updateLastReadOwnMessageId();
     updateFirstUnreadContactMessageIndex();
@@ -1106,7 +1103,6 @@ void MessageModel::insertMessage(int idx, const Message &msg)
     endInsertRows();
 
     updateLastReadOwnMessageId();
-    addVideoThumbnails(msg);
 }
 
 void MessageModel::removeMessages(const QString &accountJid, const QString &chatJid)
@@ -1114,35 +1110,6 @@ void MessageModel::removeMessages(const QString &accountJid, const QString &chat
     if (accountJid == m_accountSettings->jid() && chatJid == m_chatController->jid()) {
         removeAllMessages();
     }
-}
-
-void MessageModel::addVideoThumbnails(const Message &message)
-{
-    auto &files = message.files;
-    std::for_each(files.begin(), files.end(), [this, messageId = message.id](const File &file) {
-        if (const auto localFileUrl = file.localFileUrl(); file.type() == MessageType::MessageVideo && file.localFileUrl().isValid()) {
-            MediaUtils::generateThumbnail(localFileUrl, file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT)
-                .then(this, [this, fileId = file.fileId(), messageId](const QByteArray &thumbnail) mutable {
-                    auto itr = std::find_if(m_messages.begin(), m_messages.end(), [messageId](const Message &message) {
-                        return message.relevantId() == messageId;
-                    });
-
-                    if (itr != m_messages.cend()) {
-                        auto &files = itr->files;
-
-                        const auto fileItr = std::find_if(files.begin(), files.end(), [fileId, messageId](const File &queriedFile) {
-                            return queriedFile.fileId() == fileId;
-                        });
-
-                        if (fileItr != files.cend()) {
-                            fileItr->thumbnail = thumbnail;
-                            const auto modelIndex = index(std::distance(m_messages.begin(), itr));
-                            Q_EMIT dataChanged(modelIndex, modelIndex, {Files});
-                        }
-                    }
-                });
-        }
-    });
 }
 
 void MessageModel::updateLastReadOwnMessageId()

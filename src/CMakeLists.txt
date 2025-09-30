@@ -43,8 +43,6 @@ target_sources(libkaidancore PRIVATE
     AccountDb.h
     AccountMigrationController.cpp
     AccountMigrationController.h
-    AccountQrCodeGenerator.cpp
-    AccountQrCodeGenerator.h
     AccountTrustMessageUriGenerator.cpp
     AccountTrustMessageUriGenerator.h
     Algorithms.h
@@ -56,8 +54,6 @@ target_sources(libkaidancore PRIVATE
     AuthenticatedEncryptionKeyModel.h
     AvatarCache.cpp
     AvatarCache.h
-    BitsOfBinaryImageProvider.cpp
-    BitsOfBinaryImageProvider.h
     Blocking.cpp
     Blocking.h
     ChatController.cpp
@@ -66,8 +62,6 @@ target_sources(libkaidancore PRIVATE
     ChatHintModel.h
     ClientWorker.cpp
     ClientWorker.h
-    ContactQrCodeGenerator.cpp
-    ContactQrCodeGenerator.h
     ContactTrustMessageUriGenerator.cpp
     ContactTrustMessageUriGenerator.h
     CredentialsGenerator.cpp
@@ -106,8 +100,6 @@ target_sources(libkaidancore PRIVATE
     GroupChatController.h
     GroupChatInviteeFilterModel.cpp
     GroupChatInviteeFilterModel.h
-    GroupChatQrCodeGenerator.cpp
-    GroupChatQrCodeGenerator.h
     GroupChatUser.cpp
     GroupChatUser.h
     GroupChatUserDb.cpp
@@ -126,8 +118,6 @@ target_sources(libkaidancore PRIVATE
     JsonUtils.h
     Keychain.cpp
     Keychain.h
-    LoginQrCodeGenerator.cpp
-    LoginQrCodeGenerator.h
     LogHandler.cpp
     LogHandler.h
     MainController.cpp
@@ -170,8 +160,6 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatSearchController.h
     QmlUtils.cpp
     QmlUtils.h
-    QrCodeGenerator.cpp
-    QrCodeGenerator.h
     RegistrationController.cpp
     RegistrationController.h
     RegistrationDataFormFilterModel.cpp
@@ -201,6 +189,8 @@ target_sources(libkaidancore PRIVATE
     SystemUtils.h
     TextFormatter.h
     TextFormatter.cpp
+    ImageProvider.h
+    ImageProvider.cpp
     TrustDb.cpp
     TrustDb.h
     TrustMessageUriGenerator.cpp

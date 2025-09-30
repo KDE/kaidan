@@ -156,6 +156,12 @@ Kirigami.ApplicationWindow {
 		}
 	}
 
+	Binding {
+		target: ImageProvider
+		property: "screenDevicePixelRatio"
+		value: Screen.devicePixelRatio
+	}
+
 	/**
 	 * Returns a radius used for rectangles with rounded corners that is relative to the
 	 * rectangle's dimensions.

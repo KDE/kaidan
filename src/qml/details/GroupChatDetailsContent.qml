@@ -293,7 +293,7 @@ RosterItemDetailsContent {
 	}
 	qrCodeButton {
 		description: qsTr("Share this group's chat address via QR code")
-		onClicked: Utils.copyToClipboard(qrCode.source)
+		onClicked: qrCode.copyToClipboard()
 	}
 	uriButton {
 		description: qsTr("Share this group's chat address via text")

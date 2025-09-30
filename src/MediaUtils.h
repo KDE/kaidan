@@ -16,7 +16,6 @@
 #include <QXmppFileSharingManager.h>
 // Kaidan
 #include "Enums.h"
-#include "Globals.h"
 
 class MediaUtils : public QObject
 {
@@ -59,6 +58,7 @@ public:
 
     Q_INVOKABLE static bool imageValid(const QImage &image);
 
+    Q_INVOKABLE static QMimeType mimeType(const QByteArray &data);
     Q_INVOKABLE static QMimeType mimeType(const QString &filePath);
     Q_INVOKABLE static QMimeType mimeType(const QUrl &url);
     Q_INVOKABLE static QString iconName(const QString &filePath);
@@ -111,7 +111,6 @@ public:
     static QByteArray encodeImageThumbnail(const QImage &image);
 
     static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice>);
-    static QFuture<QByteArray> generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount = THUMBNAIL_EDGE_PIXEL_COUNT);
 
     static const QMimeDatabase &mimeDatabase()
     {

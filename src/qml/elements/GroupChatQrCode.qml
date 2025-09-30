@@ -5,12 +5,7 @@
 import im.kaidan.kaidan
 
 RoundedImage {
-	property alias jid: qrCodeGenerator.jid
+	property string jid
 
-	source: qrCodeGenerator.qrCode
-
-	GroupChatQrCodeGenerator {
-		id: qrCodeGenerator
-		edgePixelCount: parent.width
-	}
+	source: ImageProvider.generatedQrCodeImageUrl(Utils.groupChatUriString(jid))
 }

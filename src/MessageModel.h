@@ -228,8 +228,6 @@ private:
      */
     void removeMessages(const QString &accountJid, const QString &chatJid = {});
 
-    void addVideoThumbnails(const Message &message);
-
     void updateLastReadOwnMessageId();
     void updateFirstUnreadContactMessageIndex();
 

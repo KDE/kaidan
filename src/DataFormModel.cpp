@@ -10,7 +10,7 @@
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 // Kaidan
-#include "Globals.h"
+#include "ImageProvider.h"
 
 DataFormModel::DataFormModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -128,17 +128,18 @@ QString DataFormModel::instructions() const
     return m_form.instructions();
 }
 
-QString DataFormModel::mediaSourceUri(const QXmppDataForm::Field &field) const
+QUrl DataFormModel::mediaSourceUri(const QXmppDataForm::Field &field) const
 {
-    QString mediaSourceUri;
+    QUrl mediaSourceUri;
     const auto mediaSources = field.mediaSources();
 
     for (const auto &mediaSource : mediaSources) {
-        mediaSourceUri = mediaSource.uri().toString();
+        mediaSourceUri = mediaSource.uri();
         // Prefer Bits of Binary URIs.
         // In most cases, the data has been received already then.
-        if (QXmppBitsOfBinaryContentId::isBitsOfBinaryContentId(mediaSourceUri, true))
-            return QStringLiteral("image://%1/%2").arg(QStringLiteral(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), mediaSourceUri);
+        if (QXmppBitsOfBinaryContentId::isBitsOfBinaryContentId(mediaSourceUri.toString(), true)) {
+            return ImageProvider::generatedBitsOfBinaryImageUrl(mediaSourceUri);
+        }
     }
 
     return mediaSourceUri;

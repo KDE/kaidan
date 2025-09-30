@@ -66,6 +66,8 @@ class AccountSettings : public QObject
     Q_PROPERTY(AccountSettings::GeoLocationMapService geoLocationMapService READ geoLocationMapService WRITE setGeoLocationMapService NOTIFY
                    geoLocationMapServiceChanged)
 
+    Q_PROPERTY(QString loginUriString READ loginUriString NOTIFY passwordChanged)
+
 public:
     /**
      * State specifying in which way a password is displayed.
@@ -232,6 +234,8 @@ public:
     Q_INVOKABLE void resetCustomConnectionSettings();
 
     void storeTemporaryData();
+
+    QString loginUriString() const;
 
 private:
     void generateJidResource();

@@ -27,7 +27,7 @@ ExtendedMessageContent {
 	contentArea.data: [
 		RoundedImage {
 			id: previewImage
-			layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !MediaUtils.hasAlphaChannel(source)
+			layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !hasAlphaChannel
 			Layout.preferredWidth: Kirigami.Units.iconSizes.huge
 			Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 			Layout.topMargin: Kirigami.Units.smallSpacing - mainArea.topPadding

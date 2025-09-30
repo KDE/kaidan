@@ -26,6 +26,8 @@
 #include <KIO/PreviewJob>
 // Kaidan
 #include "FutureUtils.h"
+#include "Globals.h"
+#include "ImageProvider.h"
 #include "KaidanCoreLog.h"
 #include "SystemUtils.h"
 
@@ -223,6 +225,11 @@ QUrl MediaUtils::localFileDirectoryUrl(const QUrl &localFileUrl)
 bool MediaUtils::imageValid(const QImage &image)
 {
     return !image.isNull();
+}
+
+QMimeType MediaUtils::mimeType(const QByteArray &data)
+{
+    return s_mimeDB.mimeTypeForData(data);
 }
 
 QMimeType MediaUtils::mimeType(const QString &filePath)
@@ -616,7 +623,7 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
         result->thumbnails.push_back(Thumnbnail{.width = uint32_t(image.size().width()),
                                                 .height = uint32_t(image.size().height()),
                                                 .data = thumbnailData,
-                                                .mimeType = QMimeDatabase().mimeTypeForData(thumbnailData)});
+                                                .mimeType = mimeType(thumbnailData)});
 
         promise->addResult(result);
         promise->finish();
@@ -626,34 +633,6 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
         promise->addResult(result);
         promise->finish();
     });
-
-    return promise->future();
-}
-
-QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount)
-{
-    auto promise = std::make_shared<QPromise<QByteArray>>();
-
-    KFileItemList items{KFileItem{
-        localFileUrl,
-        mimeTypeName,
-    }};
-
-    static auto allPlugins = KIO::PreviewJob::availablePlugins();
-
-    auto *job = new KIO::PreviewJob(items, QSize(edgePixelCount, edgePixelCount), &allPlugins);
-    job->setAutoDelete(true);
-
-    QObject::connect(job, &KIO::PreviewJob::gotPreview, [promise](auto, const QPixmap &preview) mutable {
-        reportFinishedResult(*promise, MediaUtils::encodeImageThumbnail(preview));
-    });
-
-    QObject::connect(job, &KIO::PreviewJob::failed, [promise](const KFileItem &item) mutable {
-        qCDebug(KAIDAN_CORE_LOG) << "Could not generate a thumbnail for" << item.url();
-        reportFinishedResult(*promise, {});
-    });
-
-    job->start();
 
     return promise->future();
 }

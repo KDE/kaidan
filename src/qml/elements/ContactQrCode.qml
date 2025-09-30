@@ -5,12 +5,7 @@
 import im.kaidan.kaidan
 
 RoundedImage {
-	property alias uriGenerator: qrCodeGenerator.uriGenerator
+	property ContactTrustMessageUriGenerator uriGenerator
 
-	source: qrCodeGenerator.qrCode
-
-	ContactQrCodeGenerator {
-		id: qrCodeGenerator
-		edgePixelCount: parent.width
-	}
+	source: ImageProvider.generatedQrCodeImageUrl(uriGenerator.uri)
 }

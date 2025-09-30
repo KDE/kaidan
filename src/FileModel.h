@@ -24,7 +24,6 @@ public:
     enum class Role {
         Id = Qt::UserRole,
         File,
-        Thumbnail,
     };
     Q_ENUM(Role)
 
