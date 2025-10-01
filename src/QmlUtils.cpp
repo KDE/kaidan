@@ -147,10 +147,10 @@ QUrl QmlUtils::providerDetailsUrl(const QString &providerJid)
     return QUrl(PROVIDER_DETAILS_URL.arg(providerJid));
 }
 
-QUrl QmlUtils::invitationUrl(const QString &uri)
+QString QmlUtils::invitationUrlString(const QString &uri)
 {
     // "uri.mid(5)" removes "xmpp:".
-    return QUrl(QStringLiteral(INVITATION_URL) + uri.mid(5));
+    return QStringLiteral(INVITATION_URL) + uri.mid(5);
 }
 
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)

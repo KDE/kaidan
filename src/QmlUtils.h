@@ -101,9 +101,9 @@ public:
     Q_INVOKABLE static QUrl providerDetailsUrl(const QString &providerJid);
 
     /**
-     * Returns an invitation URL for the given XMPP URI.
+     * Returns an invitation URL as a string for the given XMPP URI.
      */
-    Q_INVOKABLE static QUrl invitationUrl(const QString &uri);
+    Q_INVOKABLE static QString invitationUrlString(const QString &uri);
 
     /**
      * Returns an XMPP URI for opening a group chat.

@@ -254,7 +254,7 @@ DetailsContent {
 	}
 	invitationButton {
 		description: qsTr("Share this account's chat address via a web page with usage help")
-		onClicked: Utils.copyToClipboard(Utils.invitationUrl(trustMessageUriGenerator.uri))
+		onClicked: Utils.copyToClipboard(Utils.invitationUrlString(trustMessageUriGenerator.uri))
 	}
 
 	UserDevicesArea {

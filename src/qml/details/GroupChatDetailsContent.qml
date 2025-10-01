@@ -304,7 +304,7 @@ RosterItemDetailsContent {
 	}
 	invitationButton {
 		description: qsTr("Share this group's chat address via a web page with usage help")
-		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUriString(root.chatController.jid)))
+		onClicked: Utils.copyToClipboard(Utils.invitationUrlString(Utils.groupChatUriString(root.chatController.jid)))
 	}
 
 	FormCard.FormCard {
