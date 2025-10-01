@@ -113,6 +113,13 @@ public:
     Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
 
     /**
+     * Returns an XMPP URI as a string for opening a group chat.
+     *
+     * @param groupChatJid JID of the group chat
+     */
+    Q_INVOKABLE static QString groupChatUriString(const QString &groupChatJid);
+
+    /**
      * Validates the ID of an encryption key.
      *
      * @param keyId encryption key ID

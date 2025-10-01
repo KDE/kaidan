@@ -21,6 +21,7 @@
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "QmlUtils.h"
 #include "RosterDb.h"
 
 MixController::MixController(AccountSettings *accountSettings,
@@ -243,10 +244,6 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
         .token = {},
     };
 
-    QXmppUri groupChatUri;
-    groupChatUri.setJid(channelJid);
-    groupChatUri.setQuery(QXmpp::Uri::Join());
-
     Message message;
     message.accountJid = accountJid;
     message.chatJid = contactJid;
@@ -254,7 +251,7 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
     message.id = QXmppUtils::generateStanzaUuid();
     message.originId = message.id;
     message.timestamp = QDateTime::currentDateTimeUtc();
-    message.setPreparedBody(groupChatUri.toString());
+    message.setPreparedBody(QmlUtils::groupChatUriString(channelJid));
     message.deliveryState = DeliveryState::Pending;
     message.receiptRequested = true;
     message.groupChatInvitation = groupChatInvitation;

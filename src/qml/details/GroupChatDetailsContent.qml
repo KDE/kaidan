@@ -298,13 +298,13 @@ RosterItemDetailsContent {
 	uriButton {
 		description: qsTr("Share this group's chat address via text")
 		onClicked: {
-			Utils.copyToClipboard(Utils.groupChatUri(root.chatController.jid))
+			Utils.copyToClipboard(Utils.groupChatUriString(root.chatController.jid))
 			passiveNotification(qsTr("Group address copied to clipboard"))
 		}
 	}
 	invitationButton {
 		description: qsTr("Share this group's chat address via a web page with usage help")
-		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(root.chatController.jid).toString()))
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUriString(root.chatController.jid)))
 	}
 
 	FormCard.FormCard {

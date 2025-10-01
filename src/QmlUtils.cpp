@@ -155,10 +155,15 @@ QUrl QmlUtils::invitationUrl(const QString &uri)
 
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 {
+    return QUrl(groupChatUriString(groupChatJid));
+}
+
+QString QmlUtils::groupChatUriString(const QString &groupChatJid)
+{
     QXmppUri uri;
     uri.setJid(groupChatJid);
     uri.setQuery(QXmpp::Uri::Join());
-    return QUrl(uri.toString());
+    return uri.toString();
 }
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
