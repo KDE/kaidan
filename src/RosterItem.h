@@ -8,6 +8,8 @@
 
 #pragma once
 
+// std
+#include <compare>
 // Qt
 #include <QDateTime>
 #include <QXmppRosterIq.h>
@@ -94,12 +96,7 @@ public:
     EffectiveNotificationRule effectiveNotificationRule() const;
 
     bool operator==(const RosterItem &other) const = default;
-    bool operator!=(const RosterItem &other) const = default;
-
-    bool operator<(const RosterItem &other) const;
-    bool operator>(const RosterItem &other) const;
-    bool operator<=(const RosterItem &other) const;
-    bool operator>=(const RosterItem &other) const;
+    std::strong_ordering operator<=>(const RosterItem &other) const;
 
     // JID of the account that has this item.
     QString accountJid;

@@ -124,72 +124,29 @@ RosterItem::EffectiveNotificationRule RosterItem::effectiveNotificationRule() co
     Q_UNREACHABLE();
 }
 
-bool RosterItem::operator<(const RosterItem &other) const
+std::strong_ordering RosterItem::operator<=>(const RosterItem &other) const
 {
-    if (pinningPosition == -1 && other.pinningPosition == -1) {
-        if (lastMessageDateTime != other.lastMessageDateTime) {
-            return lastMessageDateTime > other.lastMessageDateTime;
-        }
-
-        if (displayName() != other.displayName()) {
-            return displayName() < other.displayName();
-        }
-
-        return accountJid < other.accountJid;
+    // If either item is pinned (pinningPosition != -1), compare based on that.
+    // An item with a higher pinningPosition is above an item with a lower one.
+    if (pinningPosition != -1 || other.pinningPosition != -1) {
+        return other.pinningPosition <=> pinningPosition;
     }
 
-    return pinningPosition > other.pinningPosition;
-}
-
-bool RosterItem::operator>(const RosterItem &other) const
-{
-    if (pinningPosition == -1 && other.pinningPosition == -1) {
-        if (lastMessageDateTime != other.lastMessageDateTime) {
-            return lastMessageDateTime < other.lastMessageDateTime;
-        }
-
-        if (displayName() != other.displayName()) {
-            return displayName() > other.displayName();
-        }
-
-        return accountJid > other.accountJid;
+    // If neither item is pinned, compare based on the last message date/time.
+    // An item with a more recent last message date/time is above an item with an older one.
+    if (lastMessageDateTime != other.lastMessageDateTime) {
+        return (lastMessageDateTime < other.lastMessageDateTime) ? std::strong_ordering::greater : std::strong_ordering::less;
     }
 
-    return pinningPosition < other.pinningPosition;
-}
-
-bool RosterItem::operator<=(const RosterItem &other) const
-{
-    if (pinningPosition == -1 && other.pinningPosition == -1) {
-        if (lastMessageDateTime != other.lastMessageDateTime) {
-            return lastMessageDateTime >= other.lastMessageDateTime;
-        }
-
-        if (displayName() != other.displayName()) {
-            return displayName() <= other.displayName();
-        }
-
-        return accountJid <= other.accountJid;
+    if (displayName() != other.displayName()) {
+        return (displayName() < other.displayName()) ? std::strong_ordering::less : std::strong_ordering::greater;
     }
 
-    return pinningPosition >= other.pinningPosition;
-}
-
-bool RosterItem::operator>=(const RosterItem &other) const
-{
-    if (pinningPosition == -1 && other.pinningPosition == -1) {
-        if (lastMessageDateTime != other.lastMessageDateTime) {
-            return lastMessageDateTime <= other.lastMessageDateTime;
-        }
-
-        if (displayName() != other.displayName()) {
-            return displayName() >= other.displayName();
-        }
-
-        return accountJid >= other.accountJid;
+    if (accountJid != other.accountJid) {
+        return (accountJid < other.accountJid) ? std::strong_ordering::less : std::strong_ordering::greater;
     }
 
-    return pinningPosition <= other.pinningPosition;
+    return std::strong_ordering::equal;
 }
 
 #include "moc_RosterItem.cpp"
