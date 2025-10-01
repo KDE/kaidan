@@ -401,7 +401,6 @@ Controls.ItemDelegate {
 									account: root.chatController.account
 									chatJid: root.chatController.jid
 									accentColor: bubble.backgroundColor
-									messageId: root.msgId
 									isOwnMessage: root.isOwn
 									reactions: root.detailedReactions
 								}

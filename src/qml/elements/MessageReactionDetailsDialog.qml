@@ -20,8 +20,7 @@ Dialog {
 	id: root
 
 	property Account account
-	property string chatJid
-	property string messageId
+	property alias chatJid: messageReactionModel.chatJid
 	property alias reactions: messageReactionModel.reactions
 
 	topPadding: 0
@@ -35,7 +34,6 @@ Dialog {
 		model: MessageReactionModel {
 			id: messageReactionModel
 			accountJid: root.account.settings.jid
-			chatJid: root.chatJid
 		}
 		delegate: AvatarItemDelegate {
 			id: messageReactionDelegate
@@ -45,6 +43,7 @@ Dialog {
 			account: root.account
 			jid: model.senderJid
 			name: model.senderName
+			avatar.accountAvatar.visible: false
 			width: ListView.view.width
 			hoverEnabled: jid
 			onClicked: {

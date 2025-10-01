@@ -14,9 +14,9 @@ MessageReactionModel::MessageReactionModel(QObject *parent)
 {
 }
 
-int MessageReactionModel::rowCount(const QModelIndex &) const
+int MessageReactionModel::rowCount(const QModelIndex &parent) const
 {
-    return reactions.size();
+    return parent == QModelIndex() ? m_reactions.size() : 0;
 }
 
 QHash<int, QByteArray> MessageReactionModel::roleNames() const
@@ -37,7 +37,7 @@ QVariant MessageReactionModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const DetailedMessageReaction &reaction = reactions.at(row);
+    const DetailedMessageReaction &reaction = m_reactions.at(row);
 
     switch (static_cast<Role>(role)) {
     case Role::SenderJid:
@@ -51,20 +51,44 @@ QVariant MessageReactionModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+void MessageReactionModel::setAccountJid(const QString &accountJid)
+{
+    if (m_accountJid != accountJid) {
+        m_accountJid = accountJid;
+        updateGroupChatUserData();
+    }
+}
+
+void MessageReactionModel::setChatJid(const QString &chatJid)
+{
+    if (m_chatJid != chatJid) {
+        m_chatJid = chatJid;
+        updateGroupChatUserData();
+    }
+}
+
 void MessageReactionModel::setReactions(const QList<DetailedMessageReaction> &reactions)
 {
-    if (this->reactions != reactions) {
-        this->reactions = reactions;
+    if (m_reactions != reactions) {
+        m_reactions = reactions;
+        updateGroupChatUserData();
+    }
+}
 
-        for (auto &reaction : this->reactions) {
-            GroupChatUserDb::instance()->user(accountJid, chatJid, reaction.senderId).then(this, [this, &reaction](const std::optional<GroupChatUser> user) {
-                if (user) {
+void MessageReactionModel::updateGroupChatUserData()
+{
+    if (!m_accountJid.isEmpty() && !m_chatJid.isEmpty() && !m_reactions.isEmpty()) {
+        for (auto &reaction : m_reactions) {
+            GroupChatUserDb::instance()
+                ->user(m_accountJid, m_chatJid, reaction.senderId)
+                .then(this, [this, &reaction](const std::optional<GroupChatUser> user) {
                     beginResetModel();
-                    reaction.senderJid = user->jid;
-                    reaction.senderName = user->displayName();
+                    if (user) {
+                        reaction.senderJid = user->jid;
+                        reaction.senderName = user->displayName();
+                    }
                     endResetModel();
-                }
-            });
+                });
         }
     }
 }

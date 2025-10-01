@@ -17,7 +17,6 @@ MessageReactionButton {
 
 	property Account account
 	property string chatJid
-	property string messageId
 	property bool isOwnMessage
 	property var reactions
 
@@ -26,25 +25,16 @@ MessageReactionButton {
 	contentItem: Kirigami.Icon {
 		source: "view-more-symbolic"
 	}
-	onClicked: {
-		var detailsDialog = openOverlay(detailsDialogComponent)
-		detailsDialog.messageId = messageId
-		detailsDialog.reactions = reactions
-		detailsDialog.open()
-	}
-	onReactionsChanged: {
-		if (detailsDialog.messageId === messageId) {
-			detailsDialog.reactions = reactions
-		}
-	}
+	onClicked: openOverlay(detailsDialog)
 	Controls.ToolTip.text: text
 
 	Component {
-		id: detailsDialogComponent
+		id: detailsDialog
 
 		MessageReactionDetailsDialog {
 			account: root.account
 			chatJid: root.chatJid
+			reactions: root.reactions
 		}
 	}
 }
