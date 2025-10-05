@@ -32,9 +32,9 @@ Item {
 			top: parent.top
 			bottom: parent.bottom
 			left: root.message.isOwn ? mainBG.right : parent.left
+			right: root.message.isOwn ? parent.right : mainBG.left
 			leftMargin: root.message.isOwn ? -root.tailSize : -root.tailSize * 2
 			rightMargin: root.message.isOwn ? -root.tailSize * 2 : -root.tailSize
-			right: root.message.isOwn ? parent.right : mainBG.left
 		}
 
 		Rectangle {
