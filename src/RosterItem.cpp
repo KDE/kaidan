@@ -126,6 +126,12 @@ RosterItem::EffectiveNotificationRule RosterItem::effectiveNotificationRule() co
 
 std::strong_ordering RosterItem::operator<=>(const RosterItem &other) const
 {
+    // If both items are un-/pinned and one of them has a draft message, the one with the draft message is above the other one.
+    if (((pinningPosition != -1) == (other.pinningPosition != -1))
+        && ((lastMessageDeliveryState == Enums::DeliveryState::Draft) != (other.lastMessageDeliveryState == Enums::DeliveryState::Draft))) {
+        return lastMessageDeliveryState == Enums::DeliveryState::Draft ? std::strong_ordering::less : std::strong_ordering::greater;
+    }
+
     // If either item is pinned (pinningPosition != -1), compare based on that.
     // An item with a higher pinningPosition is above an item with a lower one.
     if (pinningPosition != -1 || other.pinningPosition != -1) {

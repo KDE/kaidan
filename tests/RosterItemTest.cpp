@@ -33,19 +33,45 @@ private Q_SLOTS:
 
         QTest::newRow("copy") << baseItem << copiedtem << false << true << true << true << false;
 
-        RosterItem pinnedItem = baseItem;
+        auto pinnedItem = baseItem;
         pinnedItem.pinningPosition = 1;
         QTest::newRow("pinningPosition") << baseItem << pinnedItem << false << false << false << true << true;
 
-        RosterItem moreRecentTimeItem = baseItem;
+        auto pinnedLowerDraftItem = baseItem;
+        pinnedLowerDraftItem.pinningPosition = 1;
+        pinnedLowerDraftItem.lastMessageDeliveryState = Enums::DeliveryState::Draft;
+
+        auto pinnedHigherDraftItem = baseItem;
+        pinnedHigherDraftItem.pinningPosition = 2;
+        pinnedHigherDraftItem.lastMessageDeliveryState = Enums::DeliveryState::Draft;
+        QTest::newRow("both pinned, both draft") << pinnedLowerDraftItem << pinnedHigherDraftItem << false << false << false << true << true;
+
+        auto pinnedHigherSentItem = baseItem;
+        pinnedHigherSentItem.pinningPosition = 2;
+        pinnedHigherSentItem.lastMessageDeliveryState = Enums::DeliveryState::Sent;
+        QTest::newRow("both pinned, item1 draft") << pinnedLowerDraftItem << pinnedHigherSentItem << true << true << false << false << false;
+
+        auto unpinnedDraftItem = baseItem;
+        unpinnedDraftItem.lastMessageDeliveryState = Enums::DeliveryState::Draft;
+
+        auto pinnedSentItem = baseItem;
+        pinnedSentItem.pinningPosition = 1;
+        pinnedSentItem.lastMessageDeliveryState = Enums::DeliveryState::Sent;
+        QTest::newRow("item1 draft but unpinned, item2 no draft but pinned") << unpinnedDraftItem << pinnedSentItem << false << false << false << true << true;
+
+        auto unpinnedSentItem = baseItem;
+        unpinnedSentItem.lastMessageDeliveryState = Enums::DeliveryState::Sent;
+        QTest::newRow("both unpinned, item1 draft") << unpinnedDraftItem << unpinnedSentItem << true << true << false << false << false;
+
+        auto moreRecentTimeItem = baseItem;
         moreRecentTimeItem.lastMessageDateTime = QDateTime::fromString(QStringLiteral("2025-01-01T00:00:01"), Qt::ISODate);
         QTest::newRow("lastMessageDateTime") << baseItem << moreRecentTimeItem << false << false << false << true << true;
 
-        RosterItem differentNameItem = baseItem;
+        auto differentNameItem = baseItem;
         differentNameItem.name = QStringLiteral("Carol");
         QTest::newRow("name") << baseItem << differentNameItem << true << true << false << false << false;
 
-        RosterItem differentAccountItem = baseItem;
+        auto differentAccountItem = baseItem;
         differentAccountItem.accountJid = QStringLiteral("dave@example.net");
         QTest::newRow("accountJid") << baseItem << differentAccountItem << true << true << false << false << false;
     }
