@@ -109,7 +109,7 @@ RowLayout {
 
 		OpacityChangingMouseArea {
 			opacityItem: parent.background
-			onClicked: root.jumpToMessage(root.messageListView.model.searchMessageById(root.messageId))
+			onClicked: root.messageListView.highlightShortly(root.messageListView.model.searchMessageById(root.messageId))
 		}
 	}
 
@@ -117,12 +117,7 @@ RowLayout {
 		target: root.messageListView.model
 
 		function onMessageSearchByIdInDbFinished(foundMessageIndex) {
-			root.jumpToMessage(foundMessageIndex)
+			root.messageListView.highlightShortly(foundMessageIndex)
 		}
-	}
-
-	function jumpToMessage(messageIndex) {
-		messageListView.positionViewAtIndex(messageIndex, ListView.End)
-		messageListView.highlightShortly(messageIndex)
 	}
 }

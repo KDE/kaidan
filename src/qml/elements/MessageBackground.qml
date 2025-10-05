@@ -21,6 +21,11 @@ Item {
 	property bool showTail: true
 	property alias dummy: dummy
 	readonly property alias metaInfo: metaInfo
+	property bool highlighted
+	readonly property color _highlightColor: {
+		const accentColor = Kirigami.Theme.disabledTextColor
+		return Qt.tint(color, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.35))
+	}
 
 	clip: true
 
@@ -38,7 +43,7 @@ Item {
 		}
 
 		Rectangle {
-			color: root.color
+			color: root.highlighted ? root._highlightColor : root.color
 			anchors.fill: parent
 			anchors.bottomMargin: 4
 			anchors.leftMargin: root.message.isOwn ? -root.tailSize : 0
@@ -83,6 +88,10 @@ Item {
 		id: mainBG
 		radius: roundedCornersRadius
 		color: root.color
+		border {
+			color: root.highlighted ? root._highlightColor : "transparent"
+			width: 2
+		}
 		anchors.fill: parent
 		anchors.leftMargin: root.message.isOwn ? 0 : root.tailSize
 		anchors.rightMargin: root.message.isOwn ? root.tailSize : 0

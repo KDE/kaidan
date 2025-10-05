@@ -112,6 +112,7 @@ Controls.ItemDelegate {
 					id: bubbleBackground
 					message: root
 					showTail: root.isGroupBegin
+					highlighted: root.messageListView.currentIndex === root.modelIndex
 
 					MouseArea {
 						anchors.fill: parent

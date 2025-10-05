@@ -246,72 +246,7 @@ ChatPageBase {
 				height: Kirigami.Units.smallSpacing
 			}
 		}
-		// Highlighting of the message containing a searched string.
-		highlight: Component {
-			Rectangle {
-				id: highlightBar
-				property int formerCurrentIndex
-
-				height: messageListView.currentItem ? messageListView.currentItem.implicitHeight : 0
-				width: messageListView.currentItem ? messageListView.currentItem.width + Kirigami.Units.smallSpacing * 2 : 0
-				color: Kirigami.Theme.hoverColor
-
-				// This is used to make the highlight bar a little bit bigger than the highlighted message.
-				// It works only together with "messageListView.highlightFollowsCurrentItem: false".
-				y: messageListView.currentItem ? messageListView.currentItem.y : 0
-				x: messageListView.currentItem ? messageListView.currentItem.x : 0
-
-				Connections {
-					target: messageListView
-
-					function onCurrentIndexChanged() {
-						// Delay the destruction of the highlight bar in order to fade out the item.
-						if (highlightBar.formerCurrentIndex === -1) {
-							if (messageListView.currentIndex !== -1) {
-								destructionOpacityAnimator.start()
-							}
-						} else if (messageListView.currentIndex === -1) {
-							const formerCurrentIndex = highlightBar.formerCurrentIndex
-							highlightBar.formerCurrentIndex = -1
-							messageListView.currentIndex = formerCurrentIndex
-						} else {
-							highlightBar.formerCurrentIndex = messageListView.currentIndex
-						}
-					}
-				}
-
-				Behavior on y {
-					SmoothedAnimation {
-						velocity: 1000
-						duration: 500
-					}
-				}
-
-				Behavior on height {
-					SmoothedAnimation {
-						velocity: 1000
-						duration: 500
-					}
-				}
-
-				OpacityAnimator on opacity {
-					from: 0
-					to: 0.2
-					duration: Kirigami.Units.shortDuration
-				}
-
-				OpacityAnimator on opacity {
-					id: destructionOpacityAnimator
-					from: 0.2
-					to: 0
-					duration: Kirigami.Units.shortDuration
-					running: false
-					onFinished: messageListView.currentIndex = -1
-				}
-			}
-		}
-		// This is used to make the highlight bar a little bit bigger than the highlighted message.
-		highlightFollowsCurrentItem: false
+		highlightMoveDuration: Kirigami.Units.longDuration
 		// Initially highlighted value
 		currentIndex: -1
 		// Connect to the database,
