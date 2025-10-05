@@ -495,6 +495,7 @@ ChatPageBase {
 			id: forwardingInfo
 			color: secondaryBackgroundColor
 			opacity: root.chatController.messageBodyToForward ? 0.9 : 0
+			visible: opacity
 			anchors.fill: parent
 
 			Behavior on opacity {
