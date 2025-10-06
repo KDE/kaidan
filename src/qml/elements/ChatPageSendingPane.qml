@@ -310,6 +310,10 @@ Controls.Pane {
 						root.forceActiveFocus()
 					}
 				}
+
+				function mentionParticipant(mention) {
+					insert(cursorPosition, mention + Utils.groupChatUserMentionSeparator)
+				}
 			}
 
 			RowLayout {
@@ -663,39 +667,35 @@ Controls.Pane {
 		}
 
 		if (participantPicker) {
-			if (participantPicker.searchedText === "" || currentCharacter === "" || currentCharacter === " ") {
+			const searchedText = participantPicker.searchedText
+
+			if (currentCharacter === "" || currentCharacter === " " || currentCharacter === "\n") {
 				participantPicker.close()
 				return
 			}
 
 			// Handle the deletion or addition of characters.
 			if (lastMessageLength >= messageArea.text.length) {
-				participantPicker.searchedText = participantPicker.searchedText.substr(0, participantPicker.searchedText.length - 1)
+				participantPicker.search(searchedText.substr(0, searchedText.length - 1))
 			} else {
-				participantPicker.searchedText += currentCharacter
+				participantPicker.search(searchedText + currentCharacter)
 			}
-
-			participantPicker.search()
 		} else if (root.chatPage.chatController.rosterItem.isGroupChat && currentCharacter === Utils.groupChatUserMentionPrefix) {
 			if (messageArea.cursorPosition !== 1) {
 				const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 				if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
-					openParticipantPicker(currentCharacter)
-					participantPicker.search()
+					openParticipantPicker()
 				}
 			} else {
-				openParticipantPicker(currentCharacter)
-				participantPicker.search()
+				openParticipantPicker()
 			}
 		}
 
 		lastMessageLength = messageArea.text.length
 	}
 
-	function openParticipantPicker(currentCharacter) {
+	function openParticipantPicker() {
 		participantPicker = openOverlay(participantPickerComponent)
-		participantPicker.prepareSearch(currentCharacter)
-
 	}
 
 	function clear() {

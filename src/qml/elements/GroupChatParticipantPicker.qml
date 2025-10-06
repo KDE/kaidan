@@ -19,7 +19,8 @@ Dialog {
 	property Account account
 	property string chatJid
 	property Controls.TextArea textArea
-	property string searchedText
+	readonly property alias searchedText: root._searchedText
+	property string _searchedText
 	property alias listView: listView
 
 	topPadding: 0
@@ -30,6 +31,7 @@ Dialog {
 	topInset: contentItem.Controls.ScrollBar.vertical.visible ? - Kirigami.Units.cornerRadius : 0
 	modal: false
 	header: null
+	onOpened: textArea.forceActiveFocus()
 
 	ListView {
 		id: listView
@@ -64,26 +66,16 @@ Dialog {
 				checked: true
 				onClicked: {
 					root.close()
-					root.textArea.remove(root.textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
+					root.textArea.remove(root.textArea.cursorPosition - root.searchedText.length, textArea.cursorPosition)
 					root.account.groupChatController.groupChatInviteeSelectionNeeded()
 				}
 			}
 		}
 	}
 
-	onClosed: {
-		searchedText = ""
-		listView.currentIndex = -1
-	}
-
-	function prepareSearch(currentCharacter) {
-		searchedText += currentCharacter
-		listView.currentIndex = 0
-		messageArea.forceActiveFocus()
-	}
-
-	function search() {
-		listView.model.setFilterFixedString(searchedText.substring(1, searchedText.length).toLowerCase())
+	function search(text) {
+		_searchedText = text
+		listView.model.setFilterFixedString(searchedText.toLowerCase())
 		listView.currentIndex = 0
 	}
 
@@ -96,8 +88,8 @@ Dialog {
 	}
 
 	function mentionParticipant(nickname) {
-		textArea.remove(textArea.cursorPosition - searchedText.length + 1, textArea.cursorPosition)
-		textArea.insert(textArea.cursorPosition, nickname + Utils.groupChatUserMentionSeparator)
+		textArea.remove(textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
+		textArea.mentionParticipant(nickname)
 		close()
 	}
 }

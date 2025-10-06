@@ -106,11 +106,7 @@ Controls.ItemDelegate {
 					id: avatarMouseArea
 					hoverEnabled: true
 					anchors.fill: parent
-					onClicked: {
-						const textArea = sendingPane.messageArea
-						const mention = Utils.groupChatUserMentionPrefix + root.senderName + Utils.groupChatUserMentionSeparator
-						textArea.insert(textArea.cursorPosition, mention)
-					}
+					onClicked: sendingPane.messageArea.mentionParticipant(Utils.groupChatUserMentionPrefix + root.senderName)
 				}
 			}
 
