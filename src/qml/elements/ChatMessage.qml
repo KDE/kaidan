@@ -88,7 +88,24 @@ Controls.ItemDelegate {
 				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin
 				Layout.alignment: Qt.AlignTop
 
+				Kirigami.ShadowedRectangle {
+					z: parent.z - 0.1
+					shadow {
+						color: Kirigami.Theme.disabledTextColor
+						size: Kirigami.Units.largeSpacing
+					}
+					radius: height / 2
+					opacity: avatarMouseArea.containsMouse ? 1 : 0
+					anchors.fill: parent
+
+					Behavior on opacity {
+						NumberAnimation {}
+					}
+				}
+
 				MouseArea {
+					id: avatarMouseArea
+					hoverEnabled: true
 					anchors.fill: parent
 					onClicked: {
 						const textArea = sendingPane.messageArea
