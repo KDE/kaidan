@@ -15,42 +15,42 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.08.0\n"
 
-#: src/Account.cpp:440
+#: src/Account.cpp:456
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "מחובר"
 
-#: src/Account.cpp:442
+#: src/Account.cpp:458
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "בהתחברות…"
 
-#: src/Account.cpp:444
+#: src/Account.cpp:460
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "מנותק"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:471
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "שם משתמש או סיסמה שגויים."
 
-#: src/Account.cpp:457
+#: src/Account.cpp:473
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט תקין."
 
-#: src/Account.cpp:459
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "שגיאה בעת הניסיון להתחבר בצורה מאובטחת."
 
-#: src/Account.cpp:461
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "השרת לא תומך בחיבורים מאובטחים."
 
-#: src/Account.cpp:463
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -58,39 +58,39 @@ msgid ""
 msgstr ""
 "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט או שם השרת שלך תקינים."
 
-#: src/Account.cpp:465
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "השרת מנותק או שחסום על ידי חומת אש."
 
-#: src/Account.cpp:467
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "פרוטוקול האימות לא נתמך על ידי השרת."
 
-#: src/Account.cpp:469
+#: src/Account.cpp:485
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "לא ניתן לרענן את החיבור."
 
-#: src/Account.cpp:471
+#: src/Account.cpp:487
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "הגישה לאינטרנט אסורה. נא לבדוק את הגדרות הגישה של המערכת לאינטרנט."
 
-#: src/Account.cpp:473
+#: src/Account.cpp:489
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "השרת הזה לא תומך ברישום."
 
-#: src/Account.cpp:475
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "לא ניתן להיכנס. נא לאשר תחילה את ההודעה שקיבלת בדוא״ל."
 
-#: src/Account.cpp:477
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "לא ניתן להתחבר לשרת."
@@ -264,155 +264,177 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "חסום"
 
-#: src/MediaUtils.cpp:302
+#: src/ImageProvider.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
+msgctxt "ImageProvider|"
+msgid "Could not copy invalid source to clipboard: %1"
+msgstr "איש הקשר הועתק ללוח הגזירים"
+
+#: src/ImageProvider.cpp:323
+#, qt-format
+msgctxt "ImageProvider|"
+msgid "Could not generate thumbnail: %1 does not exist"
+msgstr ""
+
+#: src/ImageProvider.cpp:353
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "ImageProvider|"
+msgid "Could not generate QR code: %1"
+msgstr "לא ניתן לשנות את השם של הקבוצה%1: %2"
+
+#: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "שמע"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:311
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "מסמך"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "מקום"
 
-#: src/MediaUtils.cpp:308
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "תמונה"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "וידאו"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "קובץ"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "צילום תמונה"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "הקלטת סרטון"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "הקלטת קול"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:336
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "שליחת מיקום"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:374
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "בחירת קובץ"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:376
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "בחירת תמונה"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:378
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "בחירת סרטון"
 
-#: src/MediaUtils.cpp:373
+#: src/MediaUtils.cpp:380
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "בחירת קובץ שמע"
 
-#: src/MediaUtils.cpp:375
+#: src/MediaUtils.cpp:382
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "בחירת מסמך"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:404
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:406
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "תמונות"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:408
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "סרטונים"
 
-#: src/MediaUtils.cpp:403
+#: src/MediaUtils.cpp:410
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "קובצי שמע"
 
-#: src/MediaUtils.cpp:405
+#: src/MediaUtils.cpp:412
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "מסמכים"
 
-#: src/MediaUtils.cpp:430
+#: src/MediaUtils.cpp:437
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:154
+#: src/Message.cpp:131
 msgctxt "QObject|"
 msgid "No information"
 msgstr "אין פרטים"
 
-#: src/Message.cpp:184
+#: src/Message.cpp:161
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM בשעה hh:mm"
 
-#: src/Message.cpp:394
+#: src/Message.cpp:349
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "קלקלן"
 
-#: src/Message.cpp:404
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Location"
 msgstr "מקום"
 
-#: src/Message.cpp:492
+#: src/Message.cpp:447
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "הזמנה לקבוצה%1"
 
-#: src/MessageComposition.cpp:255
+#: src/MessageComposition.cpp:257
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "ההעלאה נכשלה: %1"
 
-#: src/MessageComposition.cpp:310
+#: src/MessageComposition.cpp:312
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "תיקון ההודעה לא הצליח"
 
-#: src/MessageComposition.cpp:544
+#: src/MessageComposition.cpp:546
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
-#: src/MessageComposition.cpp:592
+#: src/MessageComposition.cpp:590
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -467,86 +489,86 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "לא ניתן לשלוח את התגובות: %1"
 
-#: src/MessageModel.cpp:1305
+#: src/MessageModel.cpp:1272
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "היום"
 
-#: src/MessageModel.cpp:1308
+#: src/MessageModel.cpp:1275
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:116
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "הקבוצה כבר קיימת"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:144
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "לא ניתן לזהות האם %1 הוא ציבורי: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "לא ניתן למשוך מידע על הקבוצה%1: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:176 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "לא ניתן לשנות את השם של הקבוצה%1: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "הקבוצה לא קיימת"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "אסור לך להצטרף לקבוצה"
 
-#: src/MixController.cpp:278 src/MixController.cpp:290
+#: src/MixController.cpp:275 src/MixController.cpp:287
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "לא ניתן להזמין את %1 אל %2: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:320
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "לא ניתן היה למשוך את המפרקים של %1: %2"
 
-#: src/MixController.cpp:337
+#: src/MixController.cpp:334
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "לא ניתן היה למשוך את המשתמשים המורשים של %1: %2"
 
-#: src/MixController.cpp:357
+#: src/MixController.cpp:354
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "לא ניתן היה למשוך את המשתמשים החסומים של %1: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:375
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "לא ניתן היה למשוך את המשתמשים שהצטרפו אל %1: %2"
 
-#: src/MixController.cpp:394
+#: src/MixController.cpp:391
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "לא ניתן לחסום את הגישה של %1 אל %2: %3"
 
-#: src/MixController.cpp:451
+#: src/MixController.cpp:448
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "אסור לך למחוק את הקבוצה"
@@ -3307,34 +3329,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "יצירת חשבון ידנית"
 
-#: src/QmlUtils.cpp:211
+#: src/QmlUtils.cpp:216
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
-#: src/QmlUtils.cpp:226
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 מקוון/נת"
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "הקלדה מצד %1…"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "נעצרה ההקלדה מצד %1"
-
-#: src/QrCodeGenerator.cpp:46
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "יצירת קוד ה־QR נכשלה: %1"
 
 #: src/RosterController.cpp:162
 #, qt-format
@@ -3416,6 +3432,10 @@ msgstr "יום הולדת"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "אתר אינטרנט"
+
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "יצירת קוד ה־QR נכשלה: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Mark as first unread"

@@ -24,43 +24,43 @@ msgstr ""
 "X-Language: ca\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:440
+#: src/Account.cpp:456
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Connectat"
 
-#: src/Account.cpp:442
+#: src/Account.cpp:458
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Account.cpp:444
+#: src/Account.cpp:460
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Desconnectat"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:471
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "El nom d'usuari o la contrasenya són incorrectes."
 
-#: src/Account.cpp:457
+#: src/Account.cpp:473
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
 
-#: src/Account.cpp:459
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "S'ha produït un error en provar de connectar de forma segura."
 
-#: src/Account.cpp:461
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "El servidor no és compatible amb les connexions segures."
 
-#: src/Account.cpp:463
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -69,22 +69,22 @@ msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
 "o el vostre nom de servidor."
 
-#: src/Account.cpp:465
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
-#: src/Account.cpp:467
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
 
-#: src/Account.cpp:469
+#: src/Account.cpp:485
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "No s'ha pogut actualitzar la connexió."
 
-#: src/Account.cpp:471
+#: src/Account.cpp:487
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -93,19 +93,19 @@ msgstr ""
 "No es permet l'accés a Internet. Comproveu la configuració d'accés a "
 "Internet del sistema."
 
-#: src/Account.cpp:473
+#: src/Account.cpp:489
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Aquest servidor no permet el registre."
 
-#: src/Account.cpp:475
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
 "electrònic que heu rebut."
 
-#: src/Account.cpp:477
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "No s'ha pogut connectar amb el servidor."
@@ -283,155 +283,177 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandejat"
 
-#: src/MediaUtils.cpp:302
+#: src/ImageProvider.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
+msgctxt "ImageProvider|"
+msgid "Could not copy invalid source to clipboard: %1"
+msgstr "Contacte copiat al porta-retalls"
+
+#: src/ImageProvider.cpp:323
+#, qt-format
+msgctxt "ImageProvider|"
+msgid "Could not generate thumbnail: %1 does not exist"
+msgstr ""
+
+#: src/ImageProvider.cpp:353
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "ImageProvider|"
+msgid "Could not generate QR code: %1"
+msgstr "No s'ha pogut reanomenar el grup %1: %2"
+
+#: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Àudio"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:311
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Ubicació"
 
-#: src/MediaUtils.cpp:308
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Imatge"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fitxer"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Pren una fotografia"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Enregistra un vídeo"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Enregistra una veu"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:336
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Envia la ubicació"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:374
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Trieu un fitxer"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:376
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Trieu una imatge"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:378
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Trieu un vídeo"
 
-#: src/MediaUtils.cpp:373
+#: src/MediaUtils.cpp:380
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Trieu un fitxer d'àudio"
 
-#: src/MediaUtils.cpp:375
+#: src/MediaUtils.cpp:382
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Trieu un document"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:404
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:406
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Imatges"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:408
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Vídeos"
 
-#: src/MediaUtils.cpp:403
+#: src/MediaUtils.cpp:410
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fitxers d'àudio"
 
-#: src/MediaUtils.cpp:405
+#: src/MediaUtils.cpp:412
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documents"
 
-#: src/MediaUtils.cpp:430
+#: src/MediaUtils.cpp:437
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:154
+#: src/Message.cpp:131
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Sense informació"
 
-#: src/Message.cpp:184
+#: src/Message.cpp:161
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM a les hh:mm"
 
-#: src/Message.cpp:394
+#: src/Message.cpp:349
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/Message.cpp:404
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Location"
 msgstr "Ubicació"
 
-#: src/Message.cpp:492
+#: src/Message.cpp:447
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Invitació al grup %1"
 
-#: src/MessageComposition.cpp:255
+#: src/MessageComposition.cpp:257
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
 
-#: src/MessageComposition.cpp:310
+#: src/MessageComposition.cpp:312
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageComposition.cpp:544
+#: src/MessageComposition.cpp:546
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/MessageComposition.cpp:592
+#: src/MessageComposition.cpp:590
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -486,86 +508,86 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "No s'han pogut enviar les reaccions: %1"
 
-#: src/MessageModel.cpp:1305
+#: src/MessageModel.cpp:1272
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Avui"
 
-#: src/MessageModel.cpp:1308
+#: src/MessageModel.cpp:1275
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ahir"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:116
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "El grup ja existeix"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:144
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "No s'ha pogut determinar si %1 és públic: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "No s'ha pogut recuperar la informació del grup %1: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:176 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "No s'ha pogut reanomenar el grup %1: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "El grup no existeix"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "No teniu permís per a unir-vos al grup"
 
-#: src/MixController.cpp:278 src/MixController.cpp:290
+#: src/MixController.cpp:275 src/MixController.cpp:287
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "No s'ha pogut convidar %1 a %2: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:320
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Els nodes de %1 no s'han pogut recuperar: %2"
 
-#: src/MixController.cpp:337
+#: src/MixController.cpp:334
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Els usuaris permesos de %1 no s'han pogut recuperar: %2"
 
-#: src/MixController.cpp:357
+#: src/MixController.cpp:354
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Els usuaris bandejats de %1 no s'han pogut recuperar: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:375
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Els usuaris units a %1 no s'han pogut recuperar: %2"
 
-#: src/MixController.cpp:394
+#: src/MixController.cpp:391
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "No s'ha pogut bandejar %1 de %2: %3"
 
-#: src/MixController.cpp:451
+#: src/MixController.cpp:448
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "No teniu permís per a suprimir el grup"
@@ -3386,34 +3408,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea un compte manualment"
 
-#: src/QmlUtils.cpp:211
+#: src/QmlUtils.cpp:216
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/QmlUtils.cpp:226
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 està en línia"
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 està escrivint…"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha parat d'escriure…"
-
-#: src/QrCodeGenerator.cpp:46
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "Ha fallat en generar el codi QR: %1"
 
 #: src/RosterController.cpp:162
 #, qt-format
@@ -3497,6 +3513,10 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "Ha fallat en generar el codi QR: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Mark as first unread"

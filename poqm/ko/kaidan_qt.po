@@ -13,54 +13,54 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:440
+#: src/Account.cpp:456
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "연결됨"
 
-#: src/Account.cpp:442
+#: src/Account.cpp:458
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/Account.cpp:444
+#: src/Account.cpp:460
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "연결 끊김"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:471
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
-#: src/Account.cpp:457
+#: src/Account.cpp:473
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
-#: src/Account.cpp:459
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
-#: src/Account.cpp:461
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
-#: src/Account.cpp:463
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
-#: src/Account.cpp:465
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
-#: src/Account.cpp:467
+#: src/Account.cpp:483
 #, fuzzy
 #| msgctxt "Connection|"
 #| msgid "Authentification protocol not supported by the server."
@@ -68,12 +68,12 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
-#: src/Account.cpp:469
+#: src/Account.cpp:485
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "연결을 새로 고칠 수 없습니다."
 
-#: src/Account.cpp:471
+#: src/Account.cpp:487
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,17 +81,17 @@ msgid ""
 msgstr ""
 "인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
-#: src/Account.cpp:473
+#: src/Account.cpp:489
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "이 서버에서 등록을 지원하지 않습니다."
 
-#: src/Account.cpp:475
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "로그인할 수 없습니다. 먼저 받은 이메일 메시지를 확인하십시오."
 
-#: src/Account.cpp:477
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "서버에 연결할 수 없습니다."
@@ -269,155 +269,177 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "차단됨"
 
-#: src/MediaUtils.cpp:302
+#: src/ImageProvider.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
+msgctxt "ImageProvider|"
+msgid "Could not copy invalid source to clipboard: %1"
+msgstr "클립보드에 대화 상대 복사됨"
+
+#: src/ImageProvider.cpp:323
+#, qt-format
+msgctxt "ImageProvider|"
+msgid "Could not generate thumbnail: %1 does not exist"
+msgstr ""
+
+#: src/ImageProvider.cpp:353
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "ImageProvider|"
+msgid "Could not generate QR code: %1"
+msgstr "%1 그룹의 이름을 바꿀 수 없음: %2"
+
+#: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "오디오"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:311
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "문서"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "위치"
 
-#: src/MediaUtils.cpp:308
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "그림"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "비디오"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "파일"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "사진 찍기"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "동영상 녹화"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "음성 녹음"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:336
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "위치 전송"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:374
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "파일 선택"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:376
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "그림 선택"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:378
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "비디오 선택"
 
-#: src/MediaUtils.cpp:373
+#: src/MediaUtils.cpp:380
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "오디오 파일 선택"
 
-#: src/MediaUtils.cpp:375
+#: src/MediaUtils.cpp:382
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "문서 선택"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:404
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:406
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "그림"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:408
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "비디오"
 
-#: src/MediaUtils.cpp:403
+#: src/MediaUtils.cpp:410
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "오디오 파일"
 
-#: src/MediaUtils.cpp:405
+#: src/MediaUtils.cpp:412
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "문서"
 
-#: src/MediaUtils.cpp:430
+#: src/MediaUtils.cpp:437
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/Message.cpp:154
+#: src/Message.cpp:131
 msgctxt "QObject|"
 msgid "No information"
 msgstr "정보 없음"
 
-#: src/Message.cpp:184
+#: src/Message.cpp:161
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "MMM dd일 hh:mm"
 
-#: src/Message.cpp:394
+#: src/Message.cpp:349
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/Message.cpp:404
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Location"
 msgstr "위치"
 
-#: src/Message.cpp:492
+#: src/Message.cpp:447
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "%1 그룹에 초대받음"
 
-#: src/MessageComposition.cpp:255
+#: src/MessageComposition.cpp:257
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "업로드 실패: %1"
 
-#: src/MessageComposition.cpp:310
+#: src/MessageComposition.cpp:312
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "메시지 수정에 실패함"
 
-#: src/MessageComposition.cpp:544
+#: src/MessageComposition.cpp:546
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/MessageComposition.cpp:592
+#: src/MessageComposition.cpp:590
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -472,86 +494,86 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1305
+#: src/MessageModel.cpp:1272
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1308
+#: src/MessageModel.cpp:1275
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:116
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "그룹이 이미 존재함"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:144
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "%1이(가) 공개 상태인지 알 수 없음: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "%1 그룹의 정보를 가져올 수 없음: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:176 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "%1 그룹의 이름을 바꿀 수 없음: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "그룹이 존재하지 않음"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "그룹에 입장이 허용되지 않음"
 
-#: src/MixController.cpp:278 src/MixController.cpp:290
+#: src/MixController.cpp:275 src/MixController.cpp:287
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 님을 %2에 초대할 수 없음: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:320
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1의 메모를 가져올 수 없음: %2"
 
-#: src/MixController.cpp:337
+#: src/MixController.cpp:334
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1에 허용된 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:357
+#: src/MixController.cpp:354
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1에서 차단된 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:375
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1에 입장한 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:394
+#: src/MixController.cpp:391
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%2에서 %1 님을 차단할 수 없음: %3"
 
-#: src/MixController.cpp:451
+#: src/MixController.cpp:448
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "그룹 삭제가 허용되지 않음"
@@ -3323,34 +3345,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "수동으로 계정 생성"
 
-#: src/QmlUtils.cpp:211
+#: src/QmlUtils.cpp:216
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/QmlUtils.cpp:226
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 님이 온라인"
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 님이 입력 중…"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 님이 입력을 일시 정지함"
-
-#: src/QrCodeGenerator.cpp:46
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "QR 코드 생성 실패: %1"
 
 #: src/RosterController.cpp:162
 #, qt-format
@@ -3432,6 +3448,10 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "QR 코드 생성 실패: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Mark as first unread"

@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:440
+#: src/Account.cpp:456
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -16,7 +16,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:442
+#: src/Account.cpp:458
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -24,7 +24,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:444
+#: src/Account.cpp:460
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -32,7 +32,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:471
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -40,7 +40,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Անվավեր օգտանուն կամ գաղտնաբառ։"
 
-#: src/Account.cpp:457
+#: src/Account.cpp:473
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -49,7 +49,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Համոզվեք, որ ինտերնետ կապը միացված է։"
 
-#: src/Account.cpp:459
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -57,7 +57,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Անվտանգ կապ հաստատելը ձախողվել է։"
 
-#: src/Account.cpp:461
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -65,7 +65,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Սերվերը չի սպասարկում անվտանգ կապեր։"
 
-#: src/Account.cpp:463
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Ստուգեք Ձեր ինտերնետի կարգավորումները "
 "կամ Ձեր սերվերի անվանումը։"
 
-#: src/Account.cpp:465
+#: src/Account.cpp:481
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -87,7 +87,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Այս սերվերը անցանց է կամ կասեցված հրապատի կողմից։"
 
-#: src/Account.cpp:467
+#: src/Account.cpp:483
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -95,7 +95,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Նույնականացման մեթոդը չի սպասարկվում սերվերի կողմից։"
 
-#: src/Account.cpp:469
+#: src/Account.cpp:485
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -103,7 +103,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Չհաջողվեց թարմացնել կապը։"
 
-#: src/Account.cpp:471
+#: src/Account.cpp:487
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 "Չհաջողվեց հաստատել ինտերնետային կապ։ Ստուգեք Ձեր ինտերնետի կարգավորումները։"
 
-#: src/Account.cpp:473
+#: src/Account.cpp:489
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -124,12 +124,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:477
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account from the server"
@@ -333,113 +333,135 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/MediaUtils.cpp:302
+#: src/ImageProvider.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "GlobalDrawer|"
+#| msgid "Invitation link copied to clipboard"
+msgctxt "ImageProvider|"
+msgid "Could not copy invalid source to clipboard: %1"
+msgstr "Հրավերի հղումը պատճենվել է"
+
+#: src/ImageProvider.cpp:323
+#, qt-format
+msgctxt "ImageProvider|"
+msgid "Could not generate thumbnail: %1 does not exist"
+msgstr ""
+
+#: src/ImageProvider.cpp:353
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Could not save file: %1"
+msgctxt "ImageProvider|"
+msgid "Could not generate QR code: %1"
+msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
+
+#: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Աուդիո"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:311
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Փաստաթուղթ"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Տեղադրություն"
 
-#: src/MediaUtils.cpp:308
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Նկար"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Տեսանյութ"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Ֆայլ"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Լուսանկարել"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Ձայնագրել տեսաֆիլմ"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ձայնագրել աուդիո"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:336
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:374
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Ուղարկել ֆայլ"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:376
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Ընտրել նկար"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:378
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Ընտրել տեսաֆայլ"
 
-#: src/MediaUtils.cpp:373
+#: src/MediaUtils.cpp:380
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Ընտրել աուդիո ֆայլ"
 
-#: src/MediaUtils.cpp:375
+#: src/MediaUtils.cpp:382
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Ընտրել փաստաթուղթ"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:404
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Բոլոր ֆայլերի տեսակները"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:406
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Նկարներ"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:408
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Տեսանյութեր"
 
-#: src/MediaUtils.cpp:403
+#: src/MediaUtils.cpp:410
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Աուդիո ֆայլեր"
 
-#: src/MediaUtils.cpp:405
+#: src/MediaUtils.cpp:412
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Փաստաթղթեր"
 
-#: src/MediaUtils.cpp:430
+#: src/MediaUtils.cpp:437
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:154
+#: src/Message.cpp:131
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -447,17 +469,17 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Տեղադրություն"
 
-#: src/Message.cpp:184
+#: src/Message.cpp:161
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:394
+#: src/Message.cpp:349
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
 
-#: src/Message.cpp:404
+#: src/Message.cpp:359
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -465,13 +487,13 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Տեղադրություն"
 
-#: src/Message.cpp:492
+#: src/Message.cpp:447
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:255
+#: src/MessageComposition.cpp:257
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -479,7 +501,7 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Ներբեռնումը ձախողվել է: %1"
 
-#: src/MessageComposition.cpp:310
+#: src/MessageComposition.cpp:312
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -487,12 +509,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Հաղորդագրության ուղղումը ձախողվել է։"
 
-#: src/MessageComposition.cpp:544
+#: src/MessageComposition.cpp:546
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:592
+#: src/MessageComposition.cpp:590
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -556,22 +578,22 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageModel.cpp:1305
+#: src/MessageModel.cpp:1272
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1308
+#: src/MessageModel.cpp:1275
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:116
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr ""
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:144
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -579,29 +601,29 @@ msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:176 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr ""
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:278 src/MixController.cpp:290
+#: src/MixController.cpp:275 src/MixController.cpp:287
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -609,7 +631,7 @@ msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:320
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -617,7 +639,7 @@ msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:337
+#: src/MixController.cpp:334
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -625,7 +647,7 @@ msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:357
+#: src/MixController.cpp:354
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -633,7 +655,7 @@ msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:375
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -641,7 +663,7 @@ msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:394
+#: src/MixController.cpp:391
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -649,7 +671,7 @@ msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MixController.cpp:451
+#: src/MixController.cpp:448
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
@@ -4220,36 +4242,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Ջնջել հաշիվը ամբողջովին"
 
-#: src/QmlUtils.cpp:211
+#: src/QmlUtils.cpp:216
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:226
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1-ը հասանելի է"
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1-ը հավաքում է…"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1-ը դադարեց հավաքել"
-
-#: src/QrCodeGenerator.cpp:46
-#, fuzzy, qt-format
-#| msgctxt "QrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "QR կոդի ստեղծումը ձախողվել է: %1"
 
 #: src/RosterController.cpp:162
 #, fuzzy, qt-format
@@ -4342,6 +4356,13 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "QrCodeGenerator|"
+#~| msgid "Generating the QR code failed: %1"
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "QR կոդի ստեղծումը ձախողվել է: %1"
 
 #, fuzzy
 #~| msgctxt "QObject|"

@@ -15,44 +15,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/Account.cpp:440
+#: src/Account.cpp:456
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "З'єднано"
 
-#: src/Account.cpp:442
+#: src/Account.cpp:458
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Account.cpp:444
+#: src/Account.cpp:460
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Від'єднано"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:471
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/Account.cpp:457
+#: src/Account.cpp:473
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/Account.cpp:459
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/Account.cpp:461
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/Account.cpp:463
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/Account.cpp:465
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/Account.cpp:467
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/Account.cpp:469
+#: src/Account.cpp:485
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/Account.cpp:471
+#: src/Account.cpp:487
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,19 +85,19 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/Account.cpp:473
+#: src/Account.cpp:489
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/Account.cpp:475
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/Account.cpp:477
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
@@ -276,155 +276,177 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Заблоковано"
 
-#: src/MediaUtils.cpp:302
+#: src/ImageProvider.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
+msgctxt "ImageProvider|"
+msgid "Could not copy invalid source to clipboard: %1"
+msgstr "Дані контакту скопійовано до буфера даних"
+
+#: src/ImageProvider.cpp:323
+#, qt-format
+msgctxt "ImageProvider|"
+msgid "Could not generate thumbnail: %1 does not exist"
+msgstr ""
+
+#: src/ImageProvider.cpp:353
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "ImageProvider|"
+msgid "Could not generate QR code: %1"
+msgstr "Не вдалося перейменувати групу %1: %2"
+
+#: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Звук"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:311
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Документ"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Місце"
 
-#: src/MediaUtils.cpp:308
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Зображення"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Відео"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Файл"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Зробити знімок"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Записати відео"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Записати голосове повідомлення"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:336
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Надіслати адресу"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:374
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Виберіть файл"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:376
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Виберіть зображення"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:378
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Виберіть відео"
 
-#: src/MediaUtils.cpp:373
+#: src/MediaUtils.cpp:380
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Виберіть звуковий файл"
 
-#: src/MediaUtils.cpp:375
+#: src/MediaUtils.cpp:382
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Виберіть документ"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:404
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "усі файли"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:406
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "зображення"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:408
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "відео"
 
-#: src/MediaUtils.cpp:403
+#: src/MediaUtils.cpp:410
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "файли звукових даних"
 
-#: src/MediaUtils.cpp:405
+#: src/MediaUtils.cpp:412
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "документи"
 
-#: src/MediaUtils.cpp:430
+#: src/MediaUtils.cpp:437
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:154
+#: src/Message.cpp:131
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Немає інформації"
 
-#: src/Message.cpp:184
+#: src/Message.cpp:161
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM о hh:mm"
 
-#: src/Message.cpp:394
+#: src/Message.cpp:349
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:404
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Location"
 msgstr "Місце"
 
-#: src/Message.cpp:492
+#: src/Message.cpp:447
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Запрошення до групи %1"
 
-#: src/MessageComposition.cpp:255
+#: src/MessageComposition.cpp:257
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Невдала спроба вивантаження: %1"
 
-#: src/MessageComposition.cpp:310
+#: src/MessageComposition.cpp:312
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageComposition.cpp:544
+#: src/MessageComposition.cpp:546
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageComposition.cpp:592
+#: src/MessageComposition.cpp:590
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -480,86 +502,86 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не вдалося надіслати реакції: %1"
 
-#: src/MessageModel.cpp:1305
+#: src/MessageModel.cpp:1272
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/MessageModel.cpp:1308
+#: src/MessageModel.cpp:1275
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:116
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Така група вже існує"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:144
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Не вдалося визначити, чи є %1 загальнодоступною: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Не вдалося отримати відомості щодо групи %1: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:176 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Не вдалося перейменувати групу %1: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Групи не існує"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Ви не можете долучитися до групи"
 
-#: src/MixController.cpp:278 src/MixController.cpp:290
+#: src/MixController.cpp:275 src/MixController.cpp:287
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 не можна запросити до %2: %3"
 
-#: src/MixController.cpp:323
+#: src/MixController.cpp:320
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати вузли %1: %2"
 
-#: src/MixController.cpp:337
+#: src/MixController.cpp:334
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список дозволених користувачів %1: %2"
 
-#: src/MixController.cpp:357
+#: src/MixController.cpp:354
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список заблокованих користувачів %1: %2"
 
-#: src/MixController.cpp:378
+#: src/MixController.cpp:375
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список долучених користувачів %1: %2"
 
-#: src/MixController.cpp:394
+#: src/MixController.cpp:391
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Не вдалося заблокувати %1 у %2: %3"
 
-#: src/MixController.cpp:451
+#: src/MixController.cpp:448
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам заборонено вилучення групи"
@@ -3387,34 +3409,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"
 
-#: src/QmlUtils.cpp:211
+#: src/QmlUtils.cpp:216
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:226
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 призупинив або призупинила введення повідомлення"
-
-#: src/QrCodeGenerator.cpp:46
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "Не вдалося створити QR-код: %1"
 
 #: src/RosterController.cpp:162
 #, qt-format
@@ -3501,6 +3517,10 @@ msgstr "День народження"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
+
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "Не вдалося створити QR-код: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Mark as first unread"
