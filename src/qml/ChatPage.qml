@@ -263,6 +263,7 @@ ChatPageBase {
 			}
 		}
 		delegate: ChatMessage {
+			messageSearchBar: root.searchBar
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker

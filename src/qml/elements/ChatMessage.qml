@@ -21,9 +21,10 @@ import im.kaidan.kaidan
 Controls.ItemDelegate {
 	id: root
 
-	property MessageReactionEmojiPicker reactionEmojiPicker
+	property ChatPageSearchView messageSearchBar
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
+	property MessageReactionEmojiPicker reactionEmojiPicker
 	property ChatController chatController
 	property int modelIndex
 	property string msgId
@@ -65,6 +66,7 @@ Controls.ItemDelegate {
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
+	property bool contextMenuShown: false
 
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
@@ -112,7 +114,7 @@ Controls.ItemDelegate {
 					id: bubbleBackground
 					message: root
 					showTail: root.isGroupBegin
-					highlighted: root.messageListView.currentIndex === root.modelIndex
+					highlighted: root.messageListView.currentIndex === root.modelIndex || root.contextMenuShown
 
 					MouseArea {
 						anchors.fill: parent
@@ -538,6 +540,8 @@ Controls.ItemDelegate {
 			ChatMessageContextMenu {
 				chatController: root.chatController
 				message: root
+				Component.onCompleted: root.contextMenuShown = true
+				Component.onDestruction: root.contextMenuShown = false
 			}
 		}
 
@@ -570,6 +574,7 @@ Controls.ItemDelegate {
 	}
 
 	function showContextMenu(mouseArea, file) {
+		root.messageSearchBar.close()
 		contextMenu.createObject().show(mouseArea, file)
 	}
 
