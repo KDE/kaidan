@@ -29,6 +29,7 @@ struct RosterItem {
     Q_PROPERTY(QString displayName READ displayName CONSTANT)
     Q_PROPERTY(bool sendingPresence READ isSendingPresence CONSTANT)
     Q_PROPERTY(bool receivingPresence READ isReceivingPresence CONSTANT)
+    Q_PROPERTY(bool isProviderChat READ isProviderChat CONSTANT)
     Q_PROPERTY(bool isGroupChat READ isGroupChat CONSTANT)
     Q_PROPERTY(bool isPublicGroupChat READ isPublicGroupChat CONSTANT)
     Q_PROPERTY(bool isDeletedGroupChat READ isDeletedGroupChat CONSTANT)
@@ -88,6 +89,13 @@ public:
 
     bool isSendingPresence() const;
     bool isReceivingPresence() const;
+
+    /**
+     * Returns whether the item is a chat with the own service provider.
+     *
+     * Such a chat is often used for receiving a welcome message after account creation or for service announcements.
+     */
+    bool isProviderChat() const;
 
     bool isGroupChat() const;
     bool isPublicGroupChat() const;

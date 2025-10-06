@@ -49,6 +49,7 @@ ChatPageBase {
 			AccountRelatedAvatar {
 				jid: root.chatController.jid
 				name: root.chatController.rosterItem.displayName
+				isProviderChat: root.chatController.rosterItem.isProviderChat
 				isGroupChat: root.chatController.rosterItem.isGroupChat
 				accountAvatar {
 					jid: root.chatController.account.settings.jid
@@ -74,7 +75,9 @@ ChatPageBase {
 			}
 		}
 		onClicked: {
-			if (root.chatController.account.settings.jid === root.chatController.jid) {
+			if (root.chatController.rosterItem.isProviderChat) {
+				openOverlay(providerChatDetailsDialog)
+			} else if (root.chatController.account.settings.jid === root.chatController.jid) {
 				openOverlay(notesChatDetailsDialog)
 			} else if (root.chatController.rosterItem.isGroupChat) {
 				openOverlay(groupChatDetailsDialog)
@@ -94,7 +97,9 @@ ChatPageBase {
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
 			onTriggered: {
-				if (root.chatController.account.settings.jid === root.chatController.jid) {
+				if (root.chatController.rosterItem.isProviderChat) {
+					openPage(providerChatDetailsPage)
+				} else if (root.chatController.account.settings.jid === root.chatController.jid) {
 					openPage(notesChatDetailsPage)
 				} else if (root.chatController.rosterItem.isGroupChat) {
 					openPage(groupChatDetailsPage)
@@ -117,6 +122,22 @@ ChatPageBase {
 			}
 		}
 	]
+
+	Component {
+		id: providerChatDetailsDialog
+
+		ProviderChatDetailsDialog {
+			chatController: root.chatController
+		}
+	}
+
+	Component {
+		id: providerChatDetailsPage
+
+		ProviderChatDetailsPage {
+			chatController: root.chatController
+		}
+	}
 
 	Component {
 		id: notesChatDetailsDialog

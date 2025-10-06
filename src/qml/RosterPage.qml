@@ -56,6 +56,7 @@ SearchBarPage {
 			jid: model.jid
 			name: model.name
 			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === account.settings.jid && root.activeChatPage.chatController.jid === jid
+			isProviderChat: model.isProviderChat
 			isGroupChat: model.isGroupChat
 			isPublicGroupChat: model.isPublicGroupChat
 			isDeletedGroupChat: model.isDeletedGroupChat

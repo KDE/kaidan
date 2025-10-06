@@ -27,6 +27,10 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
 
 QString RosterItem::displayName() const
 {
+    if (isProviderChat()) {
+        return QObject::tr("Provider");
+    }
+
     if (name.isEmpty()) {
         // Return the JID if the roster item is created by a RosterItemWatcher while not being an
         // actual item in the roster.
@@ -45,7 +49,7 @@ QString RosterItem::displayName() const
 
         const auto username = QXmppUtils::jidToUser(jid);
 
-        // Return the domain in case of a server as a roster item (for service announcements).
+        // Return the domain in case of a server as a roster item.
         if (username.isEmpty()) {
             return jid;
         }
@@ -64,6 +68,11 @@ bool RosterItem::isSendingPresence() const
 bool RosterItem::isReceivingPresence() const
 {
     return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
+}
+
+bool RosterItem::isProviderChat() const
+{
+    return QXmppUtils::jidToUser(jid).isEmpty() && QXmppUtils::jidToDomain(jid) == QXmppUtils::jidToDomain(accountJid);
 }
 
 bool RosterItem::isGroupChat() const

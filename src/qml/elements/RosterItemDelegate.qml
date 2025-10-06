@@ -18,6 +18,7 @@ AvatarItemDelegate {
 	id: root
 
 	property ListView listView
+	property bool isProviderChat
 	property bool isPublicGroupChat
 	property bool isDeletedGroupChat
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
@@ -35,6 +36,10 @@ AvatarItemDelegate {
 	signal dropRequested(int oldIndex, int newIndex)
 
 	dragged: dragHandle.dragActive
+	avatar {
+		name: account.settings.jid == jid ? account.settings.displayName : name
+		isProviderChat: root.isProviderChat
+	}
 
 	ColumnLayout {
 		id: middleArea

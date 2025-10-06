@@ -13,14 +13,26 @@ Components.Avatar {
 	id: root
 
 	property string jid
+	property bool isProviderChat: false
 	property bool isGroupChat: false
 
-	source: jid ? avatarWatcher.url : ""
-	iconSource: isGroupChat ? "system-users-symbolic" : "avatar-default-symbolic"
+	source: avatarWatcher.url
+	iconSource: {
+		if (isProviderChat) {
+			return "user-home-symbolic"
+		}
+
+		if (isGroupChat) {
+			return "system-users-symbolic"
+		}
+
+		return "avatar-default-symbolic"
+	}
+	initialsMode: isProviderChat && !source.toString() ? Components.Avatar.InitialsMode.UseIcon : Components.Avatar.InitialsMode.UseInitials
 	color: Utils.userColor(jid, name)
 
 	AvatarWatcher {
 		id: avatarWatcher
-		jid: root.jid ? root.jid : ""
+		jid: root.jid
 	}
 }

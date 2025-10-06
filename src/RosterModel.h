@@ -33,6 +33,7 @@ public:
         JidRole,
         NameRole,
         GroupsRole,
+        IsProviderChatRole,
         IsGroupChatRole,
         IsPublicGroupChatRole,
         IsDeletedGroupChatRole,

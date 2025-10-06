@@ -74,6 +74,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
     roles[JidRole] = QByteArrayLiteral("jid");
     roles[NameRole] = QByteArrayLiteral("name");
     roles[GroupsRole] = QByteArrayLiteral("groups");
+    roles[IsProviderChatRole] = QByteArrayLiteral("isProviderChat");
     roles[IsGroupChatRole] = QByteArrayLiteral("isGroupChat");
     roles[IsPublicGroupChatRole] = QByteArrayLiteral("isPublicGroupChat");
     roles[IsDeletedGroupChatRole] = QByteArrayLiteral("isDeletedGroupChat");
@@ -108,6 +109,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         return item.displayName();
     case GroupsRole:
         return QVariant::fromValue(item.groups);
+    case IsProviderChatRole:
+        return item.isProviderChat();
     case IsGroupChatRole:
         return item.isGroupChat();
     case IsPublicGroupChatRole:
