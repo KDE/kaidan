@@ -185,19 +185,20 @@ Controls.Pane {
 					messageArea.selectWord()
 					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
 
-					const mentionPrefix = Utils.groupChatUserMentionPrefix
 					const selectedWord = messageArea.selectedText
+					const mentionPrefix = Utils.groupChatUserMentionPrefix
 
 					if (selectedWord.startsWith(mentionPrefix)) {
 						messageArea.remove(messageArea.selectionStart, messageArea.selectionEnd)
 					} else {
 						messageArea.deselect()
 						const cursorPosition = messageArea.cursorPosition
+						const mentionSeparator = Utils.groupChatUserMentionSeparator
 
-						if (cursorPosition === 0 || selectedWord === Utils.groupChatUserMentionSeparator) {
+						if (cursorPosition === 0 || selectedWord === mentionSeparator || selectedWord === "\n") {
 							messageArea.insert(cursorPosition, mentionPrefix)
 						} else {
-							messageArea.insert(cursorPosition, Utils.groupChatUserMentionSeparator + mentionPrefix)
+							messageArea.insert(cursorPosition, mentionSeparator + mentionPrefix)
 						}
 					}
 				}
