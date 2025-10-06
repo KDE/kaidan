@@ -3,9 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -61,7 +59,7 @@ RosterItemDetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				root.chatController.account.rosterController.removeContact(root.chatController.account.settings.jid)
+				root.chatController.account.rosterController.removeContact(root.chatController.jid)
 			}
 			busyText: qsTr("Removing notes chat…")
 		}

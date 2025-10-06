@@ -7,10 +7,6 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan
-
-import "../elements"
-
 RosterItemDetailsHeader {
 	id: root
 	avatar.isGroupChat: true
