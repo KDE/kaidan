@@ -34,7 +34,6 @@ FormInfoHeader {
 		}
 		implicitWidth: Kirigami.Units.gridUnit * 8
 		implicitHeight: Kirigami.Units.gridUnit * 8
-		accountAvatar.visible: root.account.settings.jid !== root.jid
 		Layout.alignment: Qt.AlignHCenter
 
 		MouseArea {
