@@ -11,8 +11,6 @@
 #include <QUrl>
 // QXmpp
 #include <QXmppMessage.h>
-// Kaidan
-#include "ClientWorker.h"
 
 class QGeoCoordinate;
 
