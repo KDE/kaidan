@@ -31,16 +31,16 @@ QString RosterItem::displayName() const
         return QObject::tr("Provider");
     }
 
+    // Consider the roster item as a chat with oneself if its JID matches the own JID.
+    if (jid == accountJid) {
+        return QObject::tr("Notes");
+    }
+
     if (name.isEmpty()) {
         // Return the JID if the roster item is created by a RosterItemWatcher while not being an
         // actual item in the roster.
         if (accountJid.isEmpty()) {
             return jid;
-        }
-
-        // Consider the roster item as a chat with oneself if its JID matches the own JID.
-        if (jid == accountJid) {
-            return QObject::tr("Notes");
         }
 
         if (!groupChatName.isEmpty()) {
