@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-25 18:30+0300\n"
+"PO-Revision-Date: 2025-10-06 09:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -267,26 +267,22 @@ msgid "Banned"
 msgstr "Yasaklı"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Kişi panoya kopyalandı."
+msgstr "Geçersiz kaynak panoya kopyalanamadı: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Küçük görsel oluşturulamadı: %1 yok"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "%1 grubu yeniden adlandırılamadı: %2"
+msgstr "Kare kod oluşturulamadı: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

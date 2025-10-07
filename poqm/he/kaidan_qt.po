@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-25 08:26+0300\n"
+"PO-Revision-Date: 2025-10-06 10:08+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/Account.cpp:456
 msgctxt "Connection|"
@@ -265,26 +265,22 @@ msgid "Banned"
 msgstr "חסום"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "איש הקשר הועתק ללוח הגזירים"
+msgstr "לא ניתן להעתיק מקור שגוי ללוח הגזירים: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "לא ניתן לייצר תמונה מוקטנת: %1 לא קיים"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "לא ניתן לשנות את השם של הקבוצה%1: %2"
+msgstr "לא ניתן לייצר קוד QR:‏ %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

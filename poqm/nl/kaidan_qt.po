@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-25 15:25+0200\n"
+"PO-Revision-Date: 2025-10-06 12:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -275,26 +275,22 @@ msgid "Banned"
 msgstr "Verbannen"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Contactpersoon gekopieerd naar het klembord"
+msgstr "Kon ongeldige bron niet naar klembord kopiëren: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Kon geen miniatuur genereren: %1 bestaat niet"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Kon groep %1 niet hernoemen: %2"
+msgstr "Kon QR-code niet genereren: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

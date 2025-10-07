@@ -272,26 +272,22 @@ msgid "Banned"
 msgstr "ბანი ადევს"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "კონტაქტი წარმატებით დაკოპირდა ბუფერში"
+msgstr "ვერ დავაკოპირე არასწორი წყარო ბუფერში: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "მინიატურის გენერაცია შეუძლებელია: %1 არ არსებობს"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "შეუძლებელია სახელის გადარქმევა ჯგუფისთვის %1: %2"
+msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

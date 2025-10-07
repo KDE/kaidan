@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-09-25 15:03+0200\n"
+"PO-Revision-Date: 2025-10-06 12:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -284,26 +284,22 @@ msgid "Banned"
 msgstr "Bandejat"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Contacte copiat al porta-retalls"
+msgstr "No s'ha pogut copiar la font no vàlida al porta-retalls: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "No s'ha pogut generar la miniatura: %1 no existeix"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "No s'ha pogut reanomenar el grup %1: %2"
+msgstr "No s'ha pogut generar el codi QR: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

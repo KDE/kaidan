@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-09-25 06:55+0200\n"
+"PO-Revision-Date: 2025-10-06 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -278,26 +278,22 @@ msgid "Banned"
 msgstr "Prepovedal"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Stik prekopiran na odložišče"
+msgstr "NI bilo mogoče kopirati neveljavnega vira na odložišče: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Ni bilo mogoče generirati predogledne sličice: %1 ne obstaja"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Ni bilo mogoče preimenovati skupine %1: %2"
+msgstr "Ni bilo mogoče generirati kode QR: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

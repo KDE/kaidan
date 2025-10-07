@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-25 06:55-0300\n"
+"PO-Revision-Date: 2025-10-06 08:55-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -275,26 +275,23 @@ msgid "Banned"
 msgstr "Banido"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Contato copiado para a área de transferência"
+msgstr ""
+"Não foi possível copiar a fonte inválida para a área de transferência: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Não foi possível gerar miniatura: %1 não existe"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Não foi possível renomear o grupo %1: %2"
+msgstr "Não foi possível gerar o código QR: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-25 19:01+0300\n"
+"PO-Revision-Date: 2025-10-06 13:47+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -277,26 +277,22 @@ msgid "Banned"
 msgstr "Заблоковано"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Дані контакту скопійовано до буфера даних"
+msgstr "Не вдалося скопіювати некоректне джерело до буфера обміну даними: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Не вдалося створити мініатюру: %1 не існує"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Не вдалося перейменувати групу %1: %2"
+msgstr "Не вдалося створити QR-код: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"

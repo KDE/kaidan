@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-09-26 13:42+0200\n"
+"PO-Revision-Date: 2025-10-06 20:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/Account.cpp:456
 msgctxt "Connection|"
@@ -268,26 +268,22 @@ msgid "Banned"
 msgstr "Bannlyst"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Kontakt kopierad till klippbordet"
+msgstr "Kunde inte kopiera ogiltig källa till klippbordet: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Kunde inte skapa miniatyrbild: %1 finns inte"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Kunde inte byta namn på grupp %1: %2"
+msgstr "Kunde inte skapa QR-kod: %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
