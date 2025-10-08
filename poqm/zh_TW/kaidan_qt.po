@@ -781,12 +781,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:513
+#: src/qml/ChatPage.qml:450
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:465
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start messaging"
@@ -794,12 +794,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/ChatPage.qml:579
+#: src/qml/ChatPage.qml:516
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -807,7 +807,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -815,7 +815,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:787
+#: src/qml/ChatPage.qml:724
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -823,7 +823,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:728
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2647,17 +2647,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "無相機可用"
 
-#: src/qml/elements/ChatMessage.qml:210
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "暴雷"
 
-#: src/qml/elements/ChatMessage.qml:493
+#: src/qml/elements/ChatMessage.qml:512
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:521
+#: src/qml/elements/ChatMessage.qml:540
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -3203,7 +3203,7 @@ msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "未驗證的聯絡人的裝置"
 
-#: src/qml/elements/GroupChatUserDelegate.qml:17
+#: src/qml/elements/GroupChatUserDelegate.qml:19
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
 msgstr ""
@@ -3336,12 +3336,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "移除檔案"
 
-#: src/qml/elements/MessageBackground.qml:106
+#: src/qml/elements/MessageBackground.qml:115
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "已解密"
 
-#: src/qml/elements/MessageBackground.qml:111
+#: src/qml/elements/MessageBackground.qml:120
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "不受信任的"
@@ -3351,7 +3351,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:24
+#: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""

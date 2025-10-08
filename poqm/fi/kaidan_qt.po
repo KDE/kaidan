@@ -669,39 +669,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:513
+#: src/qml/ChatPage.qml:450
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Peru edentäminen"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:465
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Edennä viesti valitsemalla keskustelu"
 
-#: src/qml/ChatPage.qml:579
+#: src/qml/ChatPage.qml:516
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Pudota lähetettävät tiedostot"
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/ChatPage.qml:787
+#: src/qml/ChatPage.qml:724
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:728
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2149,17 +2149,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Ei kameraa käytettävissä"
 
-#: src/qml/elements/ChatMessage.qml:210
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:493
+#: src/qml/elements/ChatMessage.qml:512
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Uusi"
 
-#: src/qml/elements/ChatMessage.qml:521
+#: src/qml/elements/ChatMessage.qml:540
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2609,7 +2609,7 @@ msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Kutsu tähän ryhmään ihmisiä…"
 
-#: src/qml/elements/GroupChatUserDelegate.qml:17
+#: src/qml/elements/GroupChatUserDelegate.qml:19
 #, fuzzy
 #| msgctxt "GroupChatDetailsContent|"
 #| msgid "Ban"
@@ -2724,12 +2724,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
 
-#: src/qml/elements/MessageBackground.qml:106
+#: src/qml/elements/MessageBackground.qml:115
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/MessageBackground.qml:111
+#: src/qml/elements/MessageBackground.qml:120
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
@@ -2739,7 +2739,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr "Lisää reaktio…"
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:24
+#: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Näytä yksityiskohdat"

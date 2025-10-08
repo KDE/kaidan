@@ -667,12 +667,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:513
+#: src/qml/ChatPage.qml:450
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:465
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -680,29 +680,29 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "시작하려면 대화 선택"
 
-#: src/qml/ChatPage.qml:579
+#: src/qml/ChatPage.qml:516
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
-#: src/qml/ChatPage.qml:780
+#: src/qml/ChatPage.qml:717
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/qml/ChatPage.qml:787
+#: src/qml/ChatPage.qml:724
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:728
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2116,17 +2116,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "카메라를 사용할 수 없음"
 
-#: src/qml/elements/ChatMessage.qml:210
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/qml/elements/ChatMessage.qml:493
+#: src/qml/elements/ChatMessage.qml:512
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "새로운 항목"
 
-#: src/qml/elements/ChatMessage.qml:521
+#: src/qml/elements/ChatMessage.qml:540
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2571,7 +2571,7 @@ msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "이 그룹에 대화 상대 초대…"
 
-#: src/qml/elements/GroupChatUserDelegate.qml:17
+#: src/qml/elements/GroupChatUserDelegate.qml:19
 #, fuzzy
 #| msgctxt "GroupChatDetailsContent|"
 #| msgid "Ban"
@@ -2686,12 +2686,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "파일 삭제"
 
-#: src/qml/elements/MessageBackground.qml:106
+#: src/qml/elements/MessageBackground.qml:115
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "암호화되지 않음"
 
-#: src/qml/elements/MessageBackground.qml:111
+#: src/qml/elements/MessageBackground.qml:120
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "신뢰할 수 없음"
@@ -2701,7 +2701,7 @@ msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
 msgstr "반응 추가…"
 
-#: src/qml/elements/MessageReactionDetailsButton.qml:24
+#: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "자세한 정보 표시"
