@@ -405,7 +405,10 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
                 removeFile(filePath);
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
+
+                if (!canceled) {
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
+                }
             }
 
             FileProgressCache::instance().reportProgress(fileId, {});
