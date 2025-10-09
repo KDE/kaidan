@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/Account.cpp:456
+#: src/Account.cpp:455
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "連線"
 
-#: src/Account.cpp:458
+#: src/Account.cpp:457
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/Account.cpp:460
+#: src/Account.cpp:459
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -37,7 +37,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "連線"
 
-#: src/Account.cpp:471
+#: src/Account.cpp:470
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -45,7 +45,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
-#: src/Account.cpp:473
+#: src/Account.cpp:472
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -53,7 +53,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:474
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -61,7 +61,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:476
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -69,7 +69,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:478
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "your server name."
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:480
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -89,7 +89,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:482
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -97,7 +97,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
-#: src/Account.cpp:485
+#: src/Account.cpp:484
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -105,7 +105,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
-#: src/Account.cpp:487
+#: src/Account.cpp:486
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -117,7 +117,7 @@ msgid ""
 "access configuration."
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:488
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -125,12 +125,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:493
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
@@ -771,22 +771,22 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "關於 Kaidan"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "詳細資訊…"
 
-#: src/qml/ChatPage.qml:106
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:450
+#: src/qml/ChatPage.qml:474
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:465
+#: src/qml/ChatPage.qml:489
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start messaging"
@@ -794,12 +794,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/ChatPage.qml:516
+#: src/qml/ChatPage.qml:540
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:717
+#: src/qml/ChatPage.qml:741
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -807,7 +807,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:717
+#: src/qml/ChatPage.qml:741
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -815,7 +815,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:724
+#: src/qml/ChatPage.qml:748
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -823,7 +823,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:728
+#: src/qml/ChatPage.qml:752
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -1778,11 +1778,6 @@ msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
 msgstr "聯絡人已存在"
 
-#: src/qml/details/ContactDetailsHeader.qml:17
-msgctxt "ContactDetailsHeader|"
-msgid "Maximize avatar"
-msgstr "最大化大頭貼"
-
 #: src/qml/details/ContactDetailsPage.qml:10
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
@@ -1943,7 +1938,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀請連結已複製到剪貼簿"
 
-#: src/qml/details/DetailsHeader.qml:84
+#: src/qml/details/DetailsHeader.qml:86
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "變更名稱…"
@@ -2228,25 +2223,17 @@ msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
 msgstr "詳細資訊…"
 
-#: src/qml/details/GroupChatDetailsHeader.qml:18
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid "Maximize avatar"
-msgctxt "GroupChatDetailsHeader|"
-msgid "Maximize avatar"
-msgstr "最大化大頭貼"
-
-#: src/qml/details/GroupChatDetailsHeader.qml:23
+#: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsHeader.qml:23
+#: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsHeader.qml:26
+#: src/qml/details/GroupChatDetailsHeader.qml:16
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -2366,7 +2353,7 @@ msgstr ""
 "不是所有檔案都能刪除：\n"
 "%1"
 
-#: src/qml/details/NotesChatDetailsContent.qml:24
+#: src/qml/details/NotesChatDetailsContent.qml:22
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -2374,7 +2361,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/qml/details/NotesChatDetailsContent.qml:28
+#: src/qml/details/NotesChatDetailsContent.qml:26
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "OMEMO 2"
@@ -2382,7 +2369,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/NotesChatDetailsContent.qml:29
+#: src/qml/details/NotesChatDetailsContent.qml:27
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2396,7 +2383,7 @@ msgstr ""
 "OMEMO 2 是一種端對端加密的方式，確保除了您與聊天對象以外沒有任何人能讀取或修"
 "改您們之間交換的資料。"
 
-#: src/qml/details/NotesChatDetailsContent.qml:52
+#: src/qml/details/NotesChatDetailsContent.qml:50
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removal"
@@ -2404,7 +2391,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/NotesChatDetailsContent.qml:57
+#: src/qml/details/NotesChatDetailsContent.qml:55
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -2412,7 +2399,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/details/NotesChatDetailsContent.qml:58
+#: src/qml/details/NotesChatDetailsContent.qml:56
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -2420,7 +2407,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
-#: src/qml/details/NotesChatDetailsContent.qml:66
+#: src/qml/details/NotesChatDetailsContent.qml:64
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -2436,7 +2423,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "詳細資訊…"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:17
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
 #| msgid ""
@@ -2451,6 +2438,63 @@ msgstr "此聊天室中的訊息會在您的所有裝置中作為筆記進行同
 #| msgid "Details…"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
+msgstr "詳細資訊…"
+
+#: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "ProviderChatDetailsContent|"
+msgid "Removal"
+msgstr "移除"
+
+#: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "ProviderChatDetailsContent|"
+msgid "Remove"
+msgstr "移除"
+
+#: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove contact and complete chat history"
+msgctxt "ProviderChatDetailsContent|"
+msgid "Remove provider chat and complete chat history"
+msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
+
+#: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
+msgctxt "ProviderChatDetailsContent|"
+msgid "Removing provider chat…"
+msgstr "正在新增聯絡人…"
+
+#: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "ProviderChatDetailsDialog|"
+msgid "Provider Details"
+msgstr "詳細資訊…"
+
+#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "ContactDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
+msgctxt "ProviderChatDetailsHeader|"
+msgid "Messages in this chat are from your service provider"
+msgstr "此聊天室中的訊息會在您的所有裝置中作為筆記進行同步"
+
+#: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "ProviderChatDetailsPage|"
+msgid "Provider Details"
 msgstr "詳細資訊…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
@@ -2621,7 +2665,7 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "未驗證的自己的裝置"
 
-#: src/qml/elements/AccountSelectionDialog.qml:41
+#: src/qml/elements/AccountSelectionDialog.qml:40
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr ""
@@ -2647,17 +2691,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "無相機可用"
 
-#: src/qml/elements/ChatMessage.qml:230
+#: src/qml/elements/ChatMessage.qml:225
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "暴雷"
 
-#: src/qml/elements/ChatMessage.qml:512
+#: src/qml/elements/ChatMessage.qml:507
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:540
+#: src/qml/elements/ChatMessage.qml:535
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2768,27 +2812,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:214
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:217
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "撰寫<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:216
+#: src/qml/elements/ChatPageSendingPane.qml:217
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "撰寫<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:326
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2796,7 +2840,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:333
+#: src/qml/elements/ChatPageSendingPane.qml:338
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2804,12 +2848,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "錄製影片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:345
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享檔案"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:355
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2817,7 +2861,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "傳送您的位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:357
+#: src/qml/elements/ChatPageSendingPane.qml:362
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2825,7 +2869,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "新增隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:405
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Hide text"
@@ -2833,12 +2877,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "隱藏文字"
 
-#: src/qml/elements/ChatPageSendingPane.qml:400
+#: src/qml/elements/ChatPageSendingPane.qml:405
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:448
+#: src/qml/elements/ChatPageSendingPane.qml:453
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Edit message"
@@ -2846,7 +2890,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "編輯訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:472
+#: src/qml/elements/ChatPageSendingPane.qml:477
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -3195,7 +3239,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:58
+#: src/qml/elements/GroupChatParticipantPicker.qml:60
 #, fuzzy
 #| msgctxt "KeyAuthenticationPage|"
 #| msgid "Unverified contact devices"
@@ -3492,7 +3536,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/elements/ReferencedMessage.qml:82
+#: src/qml/elements/ReferencedMessage.qml:81
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3500,7 +3544,7 @@ msgctxt "ReferencedMessage|"
 msgid "Me"
 msgstr "我："
 
-#: src/qml/elements/ReferencedMessage.qml:98
+#: src/qml/elements/ReferencedMessage.qml:97
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -3508,7 +3552,7 @@ msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "位置"
 
-#: src/qml/elements/ReferencedMessage.qml:101
+#: src/qml/elements/ReferencedMessage.qml:100
 #, fuzzy
 #| msgctxt "DetailsContent|"
 #| msgid "Media"
@@ -3596,7 +3640,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "只顯示有所選標籤的聊天"
 
-#: src/qml/elements/RosterItemDelegate.qml:74
+#: src/qml/elements/RosterItemDelegate.qml:79
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -3604,7 +3648,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "刪除檔案"
 
-#: src/qml/elements/RosterItemDelegate.qml:88
+#: src/qml/elements/RosterItemDelegate.qml:93
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "No messages yet"
@@ -3612,7 +3656,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "還沒有訊息"
 
-#: src/qml/elements/RosterItemDelegate.qml:104
+#: src/qml/elements/RosterItemDelegate.qml:109
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -3620,7 +3664,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
-#: src/qml/elements/RosterItemDelegate.qml:107
+#: src/qml/elements/RosterItemDelegate.qml:112
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3628,7 +3672,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
-#: src/qml/elements/RosterItemDelegate.qml:111
+#: src/qml/elements/RosterItemDelegate.qml:116
 #, fuzzy, qt-format
 #| msgctxt "RosterListItem|"
 #| msgid "%1:"
@@ -3636,7 +3680,7 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterItemDelegate.qml:226
+#: src/qml/elements/RosterItemDelegate.qml:231
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
@@ -3644,7 +3688,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消釘選"
 
-#: src/qml/elements/RosterItemDelegate.qml:226
+#: src/qml/elements/RosterItemDelegate.qml:231
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"
@@ -3686,7 +3730,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:118
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password"
@@ -3694,7 +3738,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密碼"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:119
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter your current password"
@@ -3702,7 +3746,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "輸入您目前的密碼"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:128
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Copy password"
@@ -3710,37 +3754,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "複製密碼"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "動作"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:183
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "用 QR code 新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:190
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "依聊天位址新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:197
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:197
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -3748,22 +3792,22 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "能夠聊天"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:223
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:223
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:251
+#: src/qml/GlobalDrawer.qml:250
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜尋公開群組"
 
-#: src/qml/GlobalDrawer.qml:265
+#: src/qml/GlobalDrawer.qml:264
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -3771,7 +3815,7 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/GlobalDrawer.qml:455
+#: src/qml/GlobalDrawer.qml:454
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -3779,7 +3823,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/GlobalDrawer.qml:455
+#: src/qml/GlobalDrawer.qml:454
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -3787,7 +3831,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:461
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -3795,7 +3839,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/GlobalDrawer.qml:466
+#: src/qml/GlobalDrawer.qml:465
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -4165,8 +4209,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:197
-#: src/qml/RosterPage.qml:210
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:198
+#: src/qml/RosterPage.qml:211
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"
@@ -4295,12 +4339,20 @@ msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "無法移除聯絡人，由於未連線。"
 
-#: src/RosterItem.cpp:39
+#: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "QObject|"
+msgid "Provider"
+msgstr "提供者："
+
+#: src/RosterItem.cpp:36
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "筆記"
 
-#: src/RosterModel.cpp:757
+#: src/RosterModel.cpp:760
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -4334,6 +4386,17 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "最大化大頭貼"
+
+#, fuzzy
+#~| msgctxt "ContactDetailsHeader|"
+#~| msgid "Maximize avatar"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "最大化大頭貼"
 
 #, fuzzy
 #~| msgctxt "QrCodeGenerator|"
