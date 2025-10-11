@@ -14,11 +14,17 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-AvatarItemDelegate {
+ClickableItemDelegate {
 	id: root
 
 	property ListView listView
+	property string accountJid
+	property string accountName
+	property string jid
+	property string name
+	readonly property bool isNotesChat: accountJid === jid
 	property bool isProviderChat
+	property bool isGroupChat
 	property bool isPublicGroupChat
 	property bool isDeletedGroupChat
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
@@ -35,10 +41,57 @@ AvatarItemDelegate {
 	signal moveRequested(int oldIndex, int newIndex)
 	signal dropRequested(int oldIndex, int newIndex)
 
-	dragged: dragHandle.dragActive
-	avatar {
-		name: account.settings.jid == jid ? account.settings.displayName : name
-		isProviderChat: root.isProviderChat
+
+	interactiveBackground.color: {
+		const textColor = highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
+		let colorOpacity = 0
+
+		if (!enabled) {
+			colorOpacity = 0
+		} else if (dragHandle.dragActive) {
+			colorOpacity = 0.2
+		} else if(highlighted) {
+			colorOpacity = 0.5
+		} else if (down || pressed) {
+			colorOpacity = 0.2
+		} else if (visualFocus) {
+			colorOpacity = 0.1
+		} else if (!Kirigami.Settings.tabletMode && hovered) {
+			colorOpacity = 0.07
+		} else if (checked) {
+			colorOpacity = 0.05
+		}
+
+		return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
+	}
+
+	Loader {
+		sourceComponent: root.isNotesChat || root.isProviderChat ? avatar : accountRelatedAvatar
+
+		Component {
+			id: avatar
+
+			Avatar {
+				jid: root.jid
+				name: root.isNotesChat ? root.accountName : root.name
+				isProviderChat: root.isProviderChat
+			}
+		}
+
+		Component {
+			id: accountRelatedAvatar
+
+			AccountRelatedAvatar {
+				jid: root.jid
+				name: root.name
+				isGroupChat: root.isGroupChat
+				accountAvatar {
+					jid: root.accountJid
+					name: root.accountName
+				}
+				accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
+			}
+		}
 	}
 
 	ColumnLayout {
@@ -108,7 +161,7 @@ AvatarItemDelegate {
 					if (root.lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
-						if (root.lastMessageIsOwn && root.account.settings.jid !== root.jid) {
+						if (root.lastMessageIsOwn && !root.isNotesChat) {
 							return qsTr("Me:")
 						}
 
@@ -235,9 +288,9 @@ AvatarItemDelegate {
 		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 		onClicked: {
 			if (root.pinned) {
-				RosterModel.unpinItem(root.account.settings.jid, root.jid)
+				RosterModel.unpinItem(root.accountJid, root.jid)
 			} else {
-				RosterModel.pinItem(root.account.settings.jid, root.jid)
+				RosterModel.pinItem(root.accountJid, root.jid)
 			}
 		}
 	}

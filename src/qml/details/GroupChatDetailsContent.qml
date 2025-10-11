@@ -87,13 +87,12 @@ RosterItemDetailsContent {
 				}
 				delegate: GroupChatInviteeDelegate {
 					id: inviteeDelegate
-					account: model.account
 					jid: model.jid
 					name: model.name
 					checked: model.selected
 					width: ListView.view.width
 					onClicked: {
-						inviteeListView.model.sourceModel.toggleSelected(model.account.settings.jid, model.jid)
+						inviteeListView.model.sourceModel.toggleSelected(model.account.settings.jid, jid)
 						root.inviteeSearchField.forceActiveFocus()
 					}
 					onActiveFocusChanged: {
@@ -275,7 +274,6 @@ RosterItemDetailsContent {
 			}
 			delegate: ContactDelegate {
 				id: keyAuthenticationUserDelegate
-				account: root.chatController.account
 				jid: model.jid
 				name: model.name
 				width: ListView.view.width

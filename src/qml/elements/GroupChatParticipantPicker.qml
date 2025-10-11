@@ -6,7 +6,6 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.components as Components
 
 import im.kaidan.kaidan
 
@@ -43,10 +42,8 @@ Dialog {
 		}
 		header: count ? null : contactInvitationHint
 		delegate: ContactDelegate {
-			account: root.account
 			jid: model.jid
 			name: model.name
-			avatar.accountAvatar.visible: false
 			width: ListView.view.width
 			hoverEnabled: true
 			checked: ListView.isCurrentItem
@@ -56,14 +53,7 @@ Dialog {
 		Component {
 			id: contactInvitationHint
 
-			ContactDelegate {
-				name: qsTr("Invite contacts to this group…")
-				textItem.font.italic: true
-				avatar.iconSource: "resource-group-new"
-				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
-				avatar.color: Kirigami.Theme.textColor
-				hoverEnabled: true
-				checked: true
+			ContactInvitationHintDelegate {
 				onClicked: {
 					root.close()
 					root.textArea.remove(root.textArea.cursorPosition - root.searchedText.length, textArea.cursorPosition)

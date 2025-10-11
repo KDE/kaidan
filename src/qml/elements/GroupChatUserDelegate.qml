@@ -11,9 +11,8 @@ import im.kaidan.kaidan
 ContactDelegate {
 	id: root
 
+	property Account account
 	property string chatJid
-
-	avatar.accountAvatar.visible: false
 
 	Button {
 		text: qsTr("Ban")

@@ -7,8 +7,6 @@ import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan
-
 Controls.ItemDelegate {
 	id: root
 
@@ -34,17 +32,18 @@ Controls.ItemDelegate {
 			id: interactiveBackground
 			radius: roundedCornersRadius
 			color: {
+				const color = Kirigami.Theme.textColor
 				let colorOpacity = 0;
 
-				if (parent.pressed) {
+				if (root.pressed) {
 					colorOpacity = 0.2;
-				} else if (parent.visualFocus) {
+				} else if (root.visualFocus) {
 					colorOpacity = 0.1;
-				} else if (!Kirigami.Settings.tabletMode && parent.hovered) {
+				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
 					colorOpacity = 0.07;
 				}
 
-				return Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, colorOpacity)
+				return Qt.rgba(color.r, color.g, color.b, colorOpacity)
 			}
 
 			Behavior on color {

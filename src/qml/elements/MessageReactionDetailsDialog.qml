@@ -40,16 +40,14 @@ Dialog {
 
 			property var emojis: model.emojis
 
-			account: root.account
 			jid: model.senderJid
 			name: model.senderName
-			avatar.accountAvatar.visible: false
 			width: ListView.view.width
 			hoverEnabled: jid
 			onClicked: {
 				if (jid) {
 					root.close()
-					MainController.openChatPageRequested(account.settings.jid, jid)
+					MainController.openChatPageRequested(root.account.settings.jid, jid)
 				}
 			}
 

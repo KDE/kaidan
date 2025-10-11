@@ -7,7 +7,6 @@ import org.kde.kirigami as Kirigami
 
 ContactDelegate {
 	id: root
-	avatar.accountAvatar.visible: false
 
 	ItemDelegateSelectionMarker {
 		itemDelegate: root

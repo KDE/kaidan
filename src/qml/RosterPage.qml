@@ -52,7 +52,8 @@ SearchBarPage {
 			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			width: rosterListView.width
 			listView: rosterListView
-			account: model.account
+			accountJid: model.account.settings.jid
+			accountName: model.account.settings.displayName
 			jid: model.jid
 			name: model.name
 			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === account.settings.jid && root.activeChatPage.chatController.jid === jid
