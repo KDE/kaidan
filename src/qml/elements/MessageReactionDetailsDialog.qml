@@ -35,7 +35,7 @@ Dialog {
 			id: messageReactionModel
 			accountJid: root.account.settings.jid
 		}
-		delegate: AvatarItemDelegate {
+		delegate: ContactDelegate {
 			id: messageReactionDelegate
 
 			property var emojis: model.emojis
@@ -50,23 +50,6 @@ Dialog {
 				if (jid) {
 					root.close()
 					MainController.openChatPageRequested(account.settings.jid, jid)
-				}
-			}
-
-			// middle
-			ColumnLayout {
-				spacing: Kirigami.Units.largeSpacing
-				Layout.fillWidth: true
-
-				// name
-				Kirigami.Heading {
-					text: name
-					textFormat: Text.PlainText
-					elide: Text.ElideRight
-					maximumLineCount: 1
-					level: 3
-					Layout.fillWidth: true
-					Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
 				}
 			}
 
