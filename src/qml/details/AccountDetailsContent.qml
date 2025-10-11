@@ -523,6 +523,7 @@ DetailsContent {
 
 								Controls.Label {
 									text: qsTr("You must be connected to block or unblock chat addresses")
+									wrapMode: Text.Wrap
 									visible: root.account.connection.state !== Enums.StateConnected
 									Layout.fillWidth: true
 								}

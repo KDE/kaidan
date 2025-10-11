@@ -166,6 +166,7 @@ RosterItemDetailsContent {
 						contentItem: RowLayout {
 							Controls.Label {
 								text: qsTr("You must be connected to change the participants")
+								wrapMode: Text.Wrap
 								visible: root.chatController.account.connection.state !== Enums.StateConnected
 								Layout.fillWidth: true
 							}
