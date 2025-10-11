@@ -4,6 +4,7 @@
 
 RosterItemDetailsHeader {
 	id: root
+	avatar.name: account.settings.displayName
 	displayNameEditable: false
 	description: qsTr("Messages in this chat are synchronized as notes across all your devices")
 }

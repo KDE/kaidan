@@ -48,7 +48,7 @@ ChatPageBase {
 		contentItem: RowLayout {
 			AccountRelatedAvatar {
 				jid: root.chatController.jid
-				name: root.chatController.rosterItem.displayName
+				name: root.chatController.account.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
 				isProviderChat: root.chatController.rosterItem.isProviderChat
 				isGroupChat: root.chatController.rosterItem.isGroupChat
 				accountAvatar {
