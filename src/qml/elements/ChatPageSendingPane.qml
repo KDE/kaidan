@@ -280,7 +280,7 @@ Controls.Pane {
 							messageArea.insert(messageArea.cursorPosition, "\n")
 						} else {
 							if (participantPicker) {
-								participantPicker.selectCurrentIndex()
+								participantPicker.selectCurrentItem()
 							} else {
 								sendButton.clicked()
 							}
