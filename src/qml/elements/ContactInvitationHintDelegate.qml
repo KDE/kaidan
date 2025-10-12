@@ -10,6 +10,7 @@ import org.kde.kirigamiaddons.components as Components
 ClickableItemDelegate {
 	id: root
 	hoverEnabled: true
+	checkable: true
 	checked: true
 
 	Components.Avatar {

@@ -41,6 +41,8 @@ Controls.ItemDelegate {
 					colorOpacity = 0.1
 				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
 					colorOpacity = 0.07
+				} else if (checked) {
+					colorOpacity = 0.05
 				}
 
 				return Qt.rgba(color.r, color.g, color.b, colorOpacity)
