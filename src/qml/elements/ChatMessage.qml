@@ -549,7 +549,6 @@ Controls.ItemDelegate {
 			id: contextMenu
 
 			ChatMessageContextMenu {
-				chatController: root.chatController
 				message: root
 				Component.onCompleted: root.contextMenuShown = true
 				Component.onDestruction: root.contextMenuShown = false
