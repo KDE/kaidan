@@ -276,6 +276,13 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
         std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
         connect(upload.get(), &QXmppFileUpload::progressChanged, this, [id = file.id, uploadPtr] {
             if (auto upload = uploadPtr.lock()) {
+                if (auto progress = FileProgressCache::instance().progress(id)) {
+                    if (progress->canceled) {
+                        upload->cancel();
+                        return;
+                    }
+                }
+
                 FileProgressCache::instance().reportProgress(id, FileProgress{upload->bytesTransferred(), quint64(upload->bytesTotal()), upload->progress()});
             }
         });
@@ -297,6 +304,14 @@ auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<
     });
 
     return promise->future();
+}
+
+void FileSharingController::removeFile(const QString &filePath)
+{
+    // Only remove files that were downloaded by the user.
+    if (filePath.startsWith(SystemUtils::downloadDirectory())) {
+        QFile::remove(filePath);
+    }
 }
 
 void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)
@@ -349,6 +364,13 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
         std::weak_ptr<QXmppFileDownload> downloadPtr = download;
         connect(download.get(), &QXmppFileDownload::progressChanged, this, [=]() {
             if (auto download = downloadPtr.lock()) {
+                if (auto progress = FileProgressCache::instance().progress(fileId)) {
+                    if (progress->canceled) {
+                        download->cancel();
+                        return;
+                    }
+                }
+
                 FileProgressCache::instance().reportProgress(fileId,
                                                              FileProgress{download->bytesTransferred(), quint64(download->bytesTotal()), download->progress()});
             }
@@ -360,6 +382,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
                 auto errorText = std::get<QXmppError>(result).description;
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
+                removeFile(filePath);
                 Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
             } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
                 MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
@@ -393,9 +416,18 @@ void FileSharingController::deleteFile(const QString &chatJid, const QString &me
         }
     });
 
-    // don't delete files not downloaded by us
-    if (file.localFilePath.startsWith(SystemUtils::downloadDirectory())) {
-        QFile::remove(file.localFilePath);
+    removeFile(file.localFilePath);
+}
+
+void FileSharingController::cancelFile(const File &file)
+{
+    auto progress = FileProgressCache::instance().progress(file.id);
+
+    if (progress) {
+        auto updatedProgress = *progress;
+        updatedProgress.canceled = true;
+
+        FileProgressCache::instance().reportProgress(file.id, updatedProgress);
     }
 }
 

@@ -27,9 +27,11 @@ MediumPreview {
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {
-					if (root.localFileUrl.toString()) {
+					if (transferWatcher.isLoading) {
+						root.message.chatController.account.fileSharingController.cancelFile(root.file)
+					} else if (root.localFileUrl.toString()) {
 						root.open()
-					} else if (!transferWatcher.isLoading) {
+					} else {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
 					}
 				} else if (event.button === Qt.RightButton) {

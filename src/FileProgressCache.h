@@ -16,6 +16,7 @@ struct FileProgress {
     quint64 bytesSent = 0;
     quint64 bytesTotal = 0;
     float progress = 0;
+    bool canceled = false;
 };
 
 using FileProgressNotifier = AbstractNotifier<qint64, std::optional<FileProgress>>;
@@ -53,6 +54,10 @@ public:
     [[nodiscard]] float progress() const
     {
         return m_progress.progress;
+    }
+    [[nodiscard]] bool canceled() const
+    {
+        return m_progress.canceled;
     }
 
     Q_SIGNAL void progressChanged();
