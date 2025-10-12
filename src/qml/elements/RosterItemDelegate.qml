@@ -46,9 +46,7 @@ ClickableItemDelegate {
 		const color = highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
 		let colorOpacity = 0
 
-		if (!enabled) {
-			colorOpacity = 0
-		} else if (dragHandle.dragActive) {
+		if (dragHandle.dragActive) {
 			colorOpacity = 0.2
 		} else if(highlighted) {
 			colorOpacity = 0.1
