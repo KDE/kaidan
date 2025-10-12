@@ -40,17 +40,8 @@
 #include "MessageDb.h"
 #include "SystemUtils.h"
 
-template<typename T, typename Lambda>
-auto find_if(T &container, Lambda lambda)
-{
-    return std::find_if(container.begin(), container.end(), std::forward<Lambda>(lambda));
-}
-
-template<typename T, typename Value>
-auto find(T &container, Value value)
-{
-    return std::find(container.begin(), container.end(), std::forward<Value>(value));
-}
+using std::ranges::find;
+using std::ranges::find_if;
 
 // ported from https://github.com/SergioBenitez/Rocket/blob/2cee4b459492136d616e5863c54754b135e41572/core/lib/src/fs/file_name.rs#L112
 ///
