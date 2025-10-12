@@ -19,7 +19,7 @@ ClickableItemDelegate {
 
 		if (!enabled) {
 			colorOpacity = 0
-		} else if (down || pressed) {
+		} else if (pressed) {
 			colorOpacity = 0.2
 		} else if (visualFocus) {
 			colorOpacity = 0.1
