@@ -443,6 +443,21 @@ bool MessageModel::canFetchMore(const QModelIndex &) const
     return !m_fetchedAllFromDb || (!m_fetchedAllFromMam && !m_mamLoading);
 }
 
+void MessageModel::resendMessage(int index)
+{
+    if (index < 0 || index >= m_messages.size()) {
+        return;
+    }
+
+    const auto message = m_messages.at(index);
+
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), message.relevantId(), [](Message &message) {
+        message.deliveryState = DeliveryState::Pending;
+    });
+
+    m_messageController->sendPendingMessage(std::move(message));
+}
+
 void MessageModel::handleMessageRead(int readMessageIndex)
 {
     // Check the index validity.

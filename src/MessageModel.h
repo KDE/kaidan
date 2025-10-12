@@ -113,6 +113,8 @@ public:
     Q_SIGNAL void messageFetchingFinished();
     Q_INVOKABLE bool canFetchMore(const QModelIndex &parent) const override;
 
+    Q_INVOKABLE void resendMessage(int index);
+
     Q_INVOKABLE void handleMessageRead(int readMessageIndex);
     Q_INVOKABLE int firstUnreadContactMessageIndex() const;
     Q_INVOKABLE void setMessageMarked(int index, bool marked);

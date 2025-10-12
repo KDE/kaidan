@@ -71,6 +71,14 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
+			Controls.ToolTip.text: qsTr("Resend")
+			source: "view-refresh-symbolic"
+			contextMenu: root
+			shown: root.message.deliveryState === Enums.Error
+			onClicked: root.message.chatController.messageModel.resendMessage(root.message.modelIndex)
+		}
+
+		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("React")
 			source:  "emoji-people-symbolic"
 			fallback: "smiley-add"
