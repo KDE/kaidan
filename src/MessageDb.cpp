@@ -862,7 +862,6 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
                                         WHERE
                                             accountJid = :accountJid AND chatJid = :chatJid AND
                                             (id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
-                                        LIMIT 1
                                     )"),
                       {
                           {u":accountJid", accountJid},
