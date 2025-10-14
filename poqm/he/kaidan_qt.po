@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-06 10:08+0300\n"
+"PO-Revision-Date: 2025-10-13 08:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -1966,61 +1966,39 @@ msgid "Notes Details"
 msgstr "פרטי הערות"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "הסרה"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "הסרה"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "הסרת שיחת הערות ואת היסטוריית השיחות במלואה"
+msgstr "הסרת שיחת הספק ואת היסטוריית הצ׳אט במלואה"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "שיחת ההערות נמחקת…"
+msgstr "שיחת הספק נמחק…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "פרטי קבוצה"
+msgstr "פרטי ספק"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
-#, fuzzy
-#| msgctxt "NotesChatDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "ההודעות בשיחה הזאת מסונכרנות מול כל המכשירים שלך"
+msgstr "ההודעות בשיחה הזאת הן מספק השירות שלך"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "פרטי קבוצה"
+msgstr "פרטי ספק"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2394,9 +2372,6 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "שלב 2: לאפשר לאיש או אשת הקשר שלך לסרוק את קוד ה־QR <b>שלך</b>"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:21
-#, fuzzy
-#| msgctxt "GroupChatParticipantPicker|"
-#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "הזמנת אנשי קשר לקבוצה הזאת…"
@@ -3440,9 +3415,6 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "לא ניתן להסיר איש קשר, כתוצאה מהעדר חיבור."
 
 #: src/RosterItem.cpp:31
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "ספק"
