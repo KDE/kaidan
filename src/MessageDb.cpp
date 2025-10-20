@@ -282,13 +282,13 @@ QFuture<std::optional<Message>> MessageDb::fetchMessage(const QString &accountJi
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid AND
-                      (stanzaId = :messageId OR originId = :messageId OR id = :messageId)
-				ORDER BY timestamp DESC
-				LIMIT 1
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND
+                                        (stanzaId = :messageId OR originId = :messageId OR id = :messageId)
+                                    ORDER BY timestamp DESC
+                                    LIMIT 1
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -312,12 +312,12 @@ QFuture<QList<Message>> MessageDb::fetchMessages(const QString &accountJid, cons
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid
-				ORDER BY timestamp DESC
-				LIMIT :index, :limit
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                    ORDER BY timestamp DESC
+                                    LIMIT :index, :limit
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -372,24 +372,24 @@ QFuture<QList<Message>> MessageDb::fetchMessagesUntilFirstContactMessage(const Q
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid
-				ORDER BY timestamp DESC
-				LIMIT
-					:index,
-					:limit + (
-						SELECT COUNT()
-						FROM chatMessages
-						WHERE
-							accountJid = :accountJid AND chatJid = :chatJid AND
-							timestamp >= (
-								SELECT timestamp
-								FROM chatMessages
-								WHERE isOwn = 0
-							)
-					)
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                    ORDER BY timestamp DESC
+                                    LIMIT
+                                        :index,
+                                        :limit + (
+                                            SELECT COUNT()
+                                            FROM chatMessages
+                                            WHERE
+                                                accountJid = :accountJid AND chatJid = :chatJid AND
+                                                timestamp >= (
+                                                    SELECT timestamp
+                                                    FROM chatMessages
+                                                    WHERE isOwn = 0
+                                            )
+                                        )
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -412,27 +412,27 @@ MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJi
 
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT COUNT()
-				FROM chatMessages
-				WHERE
-					accountJid = :accountJid AND chatJid = :chatJid AND
-					timestamp >= (
-						SELECT timestamp
-						FROM chatMessages
-						WHERE
-							accountJid = :accountJid AND chatJid = :chatJid AND
-							(id = :limitingId OR stanzaId = :limitingId) AND
-							timestamp <= (
-								SELECT timestamp
-								FROM chatMessages
-								WHERE accountJid = :accountJid AND chatJid = :chatJid
-								ORDER BY timestamp DESC
-								LIMIT :index, 1
-							)
-						ORDER BY timestamp DESC
-						LIMIT 1
-					)
-			)"),
+                                    SELECT COUNT()
+                                    FROM chatMessages
+                                    WHERE
+                                        accountJid = :accountJid AND chatJid = :chatJid AND
+                                        timestamp >= (
+                                            SELECT timestamp
+                                            FROM chatMessages
+                                            WHERE
+                                                accountJid = :accountJid AND chatJid = :chatJid AND
+                                                (id = :limitingId OR stanzaId = :limitingId) AND
+                                                timestamp <= (
+                                                    SELECT timestamp
+                                                    FROM chatMessages
+                                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                                    ORDER BY timestamp DESC
+                                                    LIMIT :index, 1
+                                                )
+                                            ORDER BY timestamp DESC
+                                            LIMIT 1
+                                        )
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -451,12 +451,12 @@ MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJi
 
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid
-				ORDER BY timestamp DESC
-				LIMIT :index, :limit
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                    ORDER BY timestamp DESC
+                                    LIMIT :index, :limit
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -482,27 +482,27 @@ MessageDb::fetchMessagesUntilQueryString(const QString &accountJid, const QStrin
 
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT COUNT()
-				FROM chatMessages
-				WHERE
-					accountJid = :accountJid AND chatJid = :chatJid AND
-					timestamp >= (
-						SELECT timestamp
-						FROM chatMessages
-						WHERE
-							accountJid = :accountJid AND chatJid = :chatJid AND
-							body LIKE :queryString AND
-							timestamp <= (
-								SELECT timestamp
-								FROM chatMessages
-								WHERE accountJid = :accountJid AND chatJid = :chatJid
-								ORDER BY timestamp DESC
-								LIMIT :index, 1
-							)
-						ORDER BY timestamp DESC
-						LIMIT 1
-					)
-			)"),
+                                    SELECT COUNT()
+                                    FROM chatMessages
+                                    WHERE
+                                        accountJid = :accountJid AND chatJid = :chatJid AND
+                                        timestamp >= (
+                                            SELECT timestamp
+                                            FROM chatMessages
+                                            WHERE
+                                                accountJid = :accountJid AND chatJid = :chatJid AND
+                                                body LIKE :queryString AND
+                                                timestamp <= (
+                                                    SELECT timestamp
+                                                    FROM chatMessages
+                                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                                    ORDER BY timestamp DESC
+                                                    LIMIT :index, 1
+                                                )
+                                            ORDER BY timestamp DESC
+                                            LIMIT 1
+                                        )
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -522,12 +522,12 @@ MessageDb::fetchMessagesUntilQueryString(const QString &accountJid, const QStrin
 
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid
-				ORDER BY timestamp DESC
-				LIMIT :index, :limit
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                    ORDER BY timestamp DESC
+                                    LIMIT :index, :limit
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -550,12 +550,12 @@ Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &c
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-			SELECT *
-			FROM messages
-			WHERE accountJid = :accountJid AND chatJid = :chatJid AND removed = 0
-			ORDER BY timestamp DESC
-			LIMIT 1
-		)"),
+                                SELECT *
+                                FROM messages
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND removed = 0
+                                ORDER BY timestamp DESC
+                                LIMIT 1
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -576,12 +576,12 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT id
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid AND isOwn = 0
-				ORDER BY timestamp DESC
-				LIMIT :index, 1
-			)"),
+                                    SELECT id
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND isOwn = 0
+                                    ORDER BY timestamp DESC
+                                    LIMIT :index, 1
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -601,11 +601,11 @@ bool MessageDb::_hasMessage(const QString &accountJid, const QString &chatJid, c
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-			SELECT 1
-			FROM chatMessages
-			WHERE accountJid = :accountJid AND chatJid = :chatJid AND groupChatSenderId = :groupChatSenderId
-			LIMIT 1
-		)"),
+                                SELECT 1
+                                FROM chatMessages
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND groupChatSenderId = :groupChatSenderId
+                                LIMIT 1
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -627,23 +627,23 @@ int MessageDb::_latestContactMessageCount(const QString &accountJid, const QStri
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-				SELECT COUNT(*)
-				FROM chatMessages
-				WHERE
-                    accountJid = :accountJid AND chatJid = :chatJid AND isOwn = 0 AND
-                    (
-                        :messageIdBegin IS NULL OR
-                        (
-                            timestamp >
-                            (
-                                SELECT timestamp
+                                SELECT COUNT(*)
                                 FROM chatMessages
-                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdBegin
-                                LIMIT 1
-                            )
-                        )
-                    )
-			)"),
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND isOwn = 0 AND
+                                    (
+                                        :messageIdBegin IS NULL OR
+                                        (
+                                            timestamp >
+                                            (
+                                                SELECT timestamp
+                                                FROM chatMessages
+                                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdBegin
+                                                LIMIT 1
+                                            )
+                                        )
+                                    )
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -666,11 +666,11 @@ int MessageDb::_markedMessageCount(const QString &accountJid, const QString &cha
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-				SELECT COUNT(*)
-				FROM chatMessages
-				WHERE
-                    accountJid = :accountJid AND chatJid = :chatJid AND marked = 1
-			)"),
+                                SELECT COUNT(*)
+                                FROM chatMessages
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND marked = 1
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -685,12 +685,12 @@ bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const Q
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-			SELECT COUNT(*)
-			FROM chatMessages
-			WHERE
-                accountJid = :accountJid AND chatJid = :chatJid AND
-                timestamp >= :timestamp
-		)"),
+                                SELECT COUNT(*)
+                                FROM chatMessages
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND
+                                    timestamp >= :timestamp
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -752,10 +752,10 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid)
         {
             execQuery(query,
                       QStringLiteral(R"(
-					SELECT fileGroupId
-					FROM messages
-					WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
-				)"),
+                                        SELECT fileGroupId
+                                        FROM messages
+                                        WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
+                                    )"),
                       {
                           {u":accountJid", accountJid},
                       });
@@ -773,8 +773,8 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 
         execQuery(query,
                   QStringLiteral(R"(
-				DELETE FROM messages WHERE accountJid = :accountJid
-			)"),
+                                    DELETE FROM messages WHERE accountJid = :accountJid
+                                )"),
                   {
                       {u":accountJid", accountJid},
                   });
@@ -790,10 +790,10 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid, const QString
         {
             execQuery(query,
                       QStringLiteral(R"(
-					SELECT fileGroupId
-					FROM messages
-					WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
-				)"),
+                                        SELECT fileGroupId
+                                        FROM messages
+                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
+                                    )"),
                       {
                           {u":accountJid", accountJid},
                           {u":chatJid", chatJid},
@@ -812,8 +812,8 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid, const QString
 
         execQuery(query,
                   QStringLiteral(R"(
-				DELETE FROM messages WHERE accountJid = :accountJid AND chatJid = :chatJid
-			)"),
+                                    DELETE FROM messages WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -830,13 +830,13 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE
-					accountJid = :accountJid AND chatJid = :chatJid AND
-					(id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
-				LIMIT 1
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE
+                                        accountJid = :accountJid AND chatJid = :chatJid AND
+                                        (id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
+                                    LIMIT 1
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -847,23 +847,23 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
             // Set the message's content to NULL and the "removed" flag to true.
             execQuery(query,
                       QStringLiteral(R"(
-					UPDATE messages
-					SET
-						replyTo = NULL,
-						replyId = NULL,
-						replyQuote = NULL,
-						body = NULL,
-						spoilerHint = NULL,
-						groupChatInviterJid = NULL,
-						groupChatInviteeJid = NULL,
-						groupChatInvitationJid = NULL,
-						groupChatToken = NULL,
-						removed = 1
-					WHERE
-						accountJid = :accountJid AND chatJid = :chatJid AND
-						(id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
-					LIMIT 1
-				)"),
+                                        UPDATE messages
+                                        SET
+                                            replyTo = NULL,
+                                            replyId = NULL,
+                                            replyQuote = NULL,
+                                            body = NULL,
+                                            spoilerHint = NULL,
+                                            groupChatInviterJid = NULL,
+                                            groupChatInviteeJid = NULL,
+                                            groupChatInvitationJid = NULL,
+                                            groupChatToken = NULL,
+                                            removed = 1
+                                        WHERE
+                                            accountJid = :accountJid AND chatJid = :chatJid AND
+                                            (id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
+                                        LIMIT 1
+                                    )"),
                       {
                           {u":accountJid", accountJid},
                           {u":chatJid", chatJid},
@@ -873,9 +873,9 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
             // Remove reactions corresponding to the removed message.
             execQuery(query,
                       QStringLiteral(R"(
-					DELETE FROM messageReactions
-					WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
-				)"),
+                                        DELETE FROM messageReactions
+                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
+                                    )"),
                       {
                           {u":accountJid", accountJid},
                           {u":chatJid", chatJid},
@@ -993,9 +993,9 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				DELETE FROM messages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid AND deliveryState = :deliveryState
-			)"),
+                                    DELETE FROM messages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND deliveryState = :deliveryState
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":chatJid", chatJid},
@@ -1058,14 +1058,14 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-                SELECT *
-                FROM chatMessages
-                WHERE
-                    accountJid = :accountJid AND
-                    chatJid = :chatJid AND
-                    (replaceId = :id OR stanzaId = :id OR originId = :id OR id = :id)
-                LIMIT 1
-              )"),
+                                SELECT *
+                                FROM chatMessages
+                                WHERE
+                                    accountJid = :accountJid AND
+                                    chatJid = :chatJid AND
+                                    (replaceId = :id OR stanzaId = :id OR originId = :id OR id = :id)
+                                LIMIT 1
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -1102,9 +1102,9 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                             if (senderId == oldMessage.accountJid) {
                                 execQuery(query,
                                           QStringLiteral(R"(
-										DELETE FROM messageReactions
-										WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL AND emoji = :emoji
-									)"),
+                                                            DELETE FROM messageReactions
+                                                            WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL AND emoji = :emoji
+                                                        )"),
                                           {
                                               {u":accountJid", oldMessage.accountJid},
                                               {u":chatJid", oldMessage.chatJid},
@@ -1117,9 +1117,9 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                             } else {
                                 execQuery(query,
                                           QStringLiteral(R"(
-										DELETE FROM messageReactions
-										WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId = :senderId AND emoji = :emoji
-									)"),
+                                                            DELETE FROM messageReactions
+                                                            WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId = :senderId AND emoji = :emoji
+                                                        )"),
                                           {
                                               {u":accountJid", oldMessage.accountJid},
                                               {u":chatJid", oldMessage.chatJid},
@@ -1199,11 +1199,11 @@ void MessageDb::_fetchLatestFileId()
 
     auto query = createQuery();
     execQuery(query, QStringLiteral(R"(
-			SELECT id
-			FROM files
-			ORDER BY id DESC
-			LIMIT 1
-		)"));
+                                       SELECT id
+                                       FROM files
+                                       ORDER BY id DESC
+                                       LIMIT 1
+                                   )"));
 
     if (query.first()) {
         m_latestFileId = query.value(Id).toLongLong();
@@ -1218,11 +1218,11 @@ void MessageDb::_fetchLatestFileGroupId()
 
     auto query = createQuery();
     execQuery(query, QStringLiteral(R"(
-			SELECT fileGroupId
-			FROM files
-			ORDER BY fileGroupId DESC
-			LIMIT 1
-		)"));
+                                       SELECT fileGroupId
+                                       FROM files
+                                       ORDER BY fileGroupId DESC
+                                       LIMIT 1
+                                   )"));
 
     if (query.first()) {
         m_latestFileGroupId = query.value(FileGroupId).toLongLong();
@@ -1234,37 +1234,37 @@ void MessageDb::_setFiles(const QList<File> &files)
     thread_local static auto query = [this]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
-				INSERT OR REPLACE INTO files (
-					id,
-					fileGroupId,
-					name,
-					description,
-					mimeType,
-					size,
-					lastModified,
-					disposition,
-					thumbnail,
-					localFilePath,
-					externalId,
-                    transferOutgoing,
-                    transferState
-				)
-				VALUES (
-					:id,
-					:fileGroupId,
-					:name,
-					:description,
-					:mimeType,
-					:size,
-					:lastModified,
-					:disposition,
-					:thumbnail,
-					:localFilePath,
-					:externalId,
-                    :transferOutgoing,
-                    :transferState
-				)
-			)"));
+                                              INSERT OR REPLACE INTO files (
+                                                  id,
+                                                  fileGroupId,
+                                                  name,
+                                                  description,
+                                                  mimeType,
+                                                  size,
+                                                  lastModified,
+                                                  disposition,
+                                                  thumbnail,
+                                                  localFilePath,
+                                                  externalId,
+                                                  transferOutgoing,
+                                                  transferState
+                                              )
+                                              VALUES (
+                                                  :id,
+                                                  :fileGroupId,
+                                                  :name,
+                                                  :description,
+                                                  :mimeType,
+                                                  :size,
+                                                  :lastModified,
+                                                  :disposition,
+                                                  :thumbnail,
+                                                  :localFilePath,
+                                                  :externalId,
+                                                  :transferOutgoing,
+                                                  :transferState
+                                              )
+                                          )"));
         return query;
     }();
 
@@ -1298,17 +1298,17 @@ void MessageDb::_setFileHashes(const QList<FileHash> &fileHashes)
     thread_local static auto query = [this]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
-				INSERT OR REPLACE INTO fileHashes (
-					dataId,
-					hashType,
-					hashValue
-				)
-				VALUES (
-					:dataId,
-					:hashType,
-					:hashValue
-				)
-			)"));
+                                              INSERT OR REPLACE INTO fileHashes (
+                                                  dataId,
+                                                  hashType,
+                                                  hashValue
+                                              )
+                                              VALUES (
+                                                  :dataId,
+                                                  :hashType,
+                                                  :hashValue
+                                              )
+                                          )"));
         return query;
     }();
 
@@ -1328,15 +1328,15 @@ void MessageDb::_setHttpSources(const QList<HttpSource> &sources)
     thread_local static auto query = [this]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
-				INSERT OR REPLACE INTO fileHttpSources (
-					fileId,
-					url
-				)
-				VALUES (
-					:fileId,
-					:url
-				)
-			)"));
+                                              INSERT OR REPLACE INTO fileHttpSources (
+                                                  fileId,
+                                                  url
+                                              )
+                                              VALUES (
+                                                  :fileId,
+                                                  :url
+                                              )
+                                          )"));
         return query;
     }();
 
@@ -1355,23 +1355,23 @@ void MessageDb::_setEncryptedSources(const QList<EncryptedSource> &sources)
     thread_local static auto query = [this]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
-				INSERT OR REPLACE INTO fileEncryptedSources (
-					fileId,
-					url,
-					cipher,
-					key,
-					iv,
-					encryptedDataId
-				)
-				VALUES (
-					:fileId,
-					:url,
-					:cipher,
-					:key,
-					:iv,
-					:encryptedDataId
-				)
-			)"));
+                                              INSERT OR REPLACE INTO fileEncryptedSources (
+                                                  fileId,
+                                                  url,
+                                                  cipher,
+                                                  key,
+                                                  iv,
+                                                  encryptedDataId
+                                              )
+                                              VALUES (
+                                                  :fileId,
+                                                  :url,
+                                                  :cipher,
+                                                  :key,
+                                                  :iv,
+                                                  :encryptedDataId
+                                              )
+                                          )"));
         return query;
     }();
 
@@ -1436,10 +1436,10 @@ QList<File> MessageDb::_fetchFiles(const QString &accountJid)
     Q_ASSERT(!accountJid.isEmpty());
 
     return _fetchFiles(QStringLiteral(R"(
-			SELECT fileGroupId
-			FROM chatMessages
-			WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
-		)"),
+                                         SELECT fileGroupId
+                                         FROM chatMessages
+                                         WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
+                                     )"),
                        {
                            {u":accountJid", accountJid},
                        });
@@ -1450,10 +1450,10 @@ QList<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &cha
     Q_ASSERT(!accountJid.isEmpty() && !chatJid.isEmpty());
 
     return _fetchFiles(QStringLiteral(R"(
-			SELECT fileGroupId
-			FROM chatMessages
-			WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
-		)"),
+                                         SELECT fileGroupId
+                                         FROM chatMessages
+                                         WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
+                                     )"),
                        {
                            {u":accountJid", accountJid},
                            {u":chatJid", chatJid},
@@ -1659,10 +1659,10 @@ void MessageDb::_fetchReactions(QList<Message> &messages)
     for (auto &message : messages) {
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT senderId, emoji, timestamp, deliveryState
-				FROM messageReactions
-				WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId
-			)"),
+                                    SELECT senderId, emoji, timestamp, deliveryState
+                                    FROM messageReactions
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId
+                                )"),
                   {
                       {u":accountJid", message.accountJid},
                       {u":chatJid", message.chatJid},
@@ -1740,11 +1740,11 @@ void MessageDb::_fetchReply(Message &message)
             auto query = createQuery();
             execQuery(query,
                       QStringLiteral(R"(
-					SELECT body
-					FROM chatMessages
-					WHERE accountJid = :accountJid AND chatJid = :chatJid AND
-						(id = :id OR stanzaId = :id)
-				)"),
+                                        SELECT body
+                                        FROM chatMessages
+                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND
+                                            (id = :id OR stanzaId = :id)
+                                    )"),
                       {
                           {u":accountJid", message.accountJid},
                           {u":chatJid", message.chatJid},
@@ -1763,10 +1763,10 @@ std::optional<Message> MessageDb::_fetchDraftMessage(const QString &accountJid, 
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
-			SELECT *
-			FROM draftMessages
-			WHERE accountJid = :accountJid AND chatJid = :chatJid
-		)"),
+                                SELECT *
+                                FROM draftMessages
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid
+                            )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
@@ -1839,11 +1839,11 @@ QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJi
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
-				SELECT *
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND deliveryState = :deliveryState
-				ORDER BY timestamp ASC
-			)"),
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND deliveryState = :deliveryState
+                                    ORDER BY timestamp ASC
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":deliveryState", int(Enums::DeliveryState::Pending)},
@@ -1865,12 +1865,12 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
         auto pendingReactionQuery = createQuery();
         execQuery(pendingReactionQuery,
                   QStringLiteral(R"(
-				SELECT DISTINCT chatJid, messageSenderId, messageId
-				FROM messageReactions
-				WHERE
-					accountJid = :accountJid AND senderId IS NULL AND
-					(deliveryState = :deliveryState1 OR deliveryState = :deliveryState2 OR deliveryState = :deliveryState3)
-			)"),
+                                    SELECT DISTINCT chatJid, messageSenderId, messageId
+                                    FROM messageReactions
+                                    WHERE
+                                        accountJid = :accountJid AND senderId IS NULL AND
+                                        (deliveryState = :deliveryState1 OR deliveryState = :deliveryState2 OR deliveryState = :deliveryState3)
+                                )"),
                   {
                       {u":accountJid", accountJid},
                       {u":deliveryState1", int(MessageReactionDeliveryState::PendingAddition)},
@@ -1896,10 +1896,10 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
             auto reactionQuery = createQuery();
             execQuery(reactionQuery,
                       QStringLiteral(R"(
-					SELECT emoji, timestamp, deliveryState
-					FROM messageReactions
-					WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL
-				)"),
+                                        SELECT emoji, timestamp, deliveryState
+                                        FROM messageReactions
+                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL
+                                    )"),
                       {
                           {u":accountJid", accountJid},
                           {u":chatJid", chatJid},
