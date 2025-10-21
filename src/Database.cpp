@@ -32,8 +32,10 @@
 #include "KaidanCoreLog.h"
 #include "Keychain.h"
 #include "MainController.h"
+#include "Message.h"
 #include "Settings.h"
 #include "SqlUtils.h"
+#include "SystemUtils.h"
 
 using namespace SqlUtils;
 
@@ -43,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 54
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(54)
+#define DATABASE_LATEST_VERSION 55
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(55)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -427,8 +429,9 @@ void Database::createNewDatabase()
                                SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
                                    SQL_ATTRIBUTE(description, SQL_TEXT) SQL_ATTRIBUTE(mimeType, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(size, SQL_INTEGER)
                                        SQL_ATTRIBUTE(lastModified, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL)
-                                           SQL_ATTRIBUTE(thumbnail, SQL_BLOB) SQL_ATTRIBUTE(localFilePath, SQL_TEXT)
-                                               SQL_ATTRIBUTE(externalId, SQL_TEXT) "PRIMARY KEY(id)"));
+                                           SQL_ATTRIBUTE(thumbnail, SQL_BLOB) SQL_ATTRIBUTE(localFilePath, SQL_TEXT) SQL_ATTRIBUTE(externalId, SQL_TEXT)
+                                               SQL_ATTRIBUTE(transferOutgoing, SQL_BOOL_NOT_NULL)
+                                                   SQL_ATTRIBUTE(transferState, SQL_INTEGER_NOT_NULL) "PRIMARY KEY(id)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_FILE_HASHES,
                                SQL_ATTRIBUTE(dataId, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(hashType, SQL_INTEGER_NOT_NULL)
@@ -1890,6 +1893,64 @@ void Database::convertDatabaseToV54()
     QSqlQuery query(currentDatabase());
     execQuery(query, QStringLiteral("ALTER TABLE accounts DROP COLUMN resourcePrefix"));
     d->version = 54;
+}
+
+void Database::convertDatabaseToV55()
+{
+    DATABASE_CONVERT_TO_VERSION(54)
+    QSqlQuery query(currentDatabase());
+
+    // Add the columns "transferOutgoing" and "transferState".
+    for (const auto &column : {
+             SQL_LAST_ATTRIBUTE(transferOutgoing, SQL_BOOL_NOT_NULL " DEFAULT 0"),
+             SQL_LAST_ATTRIBUTE(transferState, SQL_INTEGER_NOT_NULL " DEFAULT 0"),
+         }) {
+        execQuery(query, QStringLiteral("ALTER TABLE files ADD %1").arg(QString::fromUtf8(column)));
+    }
+
+    // Set outgoing / state for messages with attached files
+    execQuery(query,
+              QStringLiteral(R"(
+                UPDATE files AS f
+                SET
+                    transferOutgoing = r.outgoing,
+                    transferState = r.state
+                FROM
+                (
+                    SELECT f.id, f.fileGroupId, f.localFilePath, m.id, m.errorText,
+                    (
+                        CASE
+                            WHEN f.localFilePath IS NULL THEN %1
+                            WHEN f.localFilePath LIKE '%3/%' THEN %1
+                            ELSE %2
+                        END
+                    ) AS outgoing,
+                    (
+                        CASE
+                            WHEN m.errorText IS NULL THEN (
+                                CASE
+                                    WHEN f.localFilePath IS NULL THEN %4
+                                    ELSE %6
+                                END
+                            )
+                            ELSE %5
+                        END
+                    ) AS state
+                    FROM files AS f
+                    LEFT JOIN messages AS m USING(fileGroupId)
+                    GROUP BY f.id
+                ) AS r
+                WHERE f.id = r.id
+            )")
+                  .arg(false) // %1 - Incoming
+                  .arg(true) // %2 - Outgoing
+                  .arg(SystemUtils::downloadDirectory()) // %3 - Location
+                  .arg(Enums::toIntegral(File::TransferState::Pending)) // %4 - Pending
+                  .arg(Enums::toIntegral(File::TransferState::Failed)) // %5 - Failed
+                  .arg(Enums::toIntegral(File::TransferState::Done)) // %6 - Done
+    );
+
+    d->version = 55;
 }
 
 #include "moc_Database.cpp"

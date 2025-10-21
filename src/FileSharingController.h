@@ -21,7 +21,8 @@ class FileSharingController : public QObject
 {
     Q_OBJECT
 public:
-    using SendFilesResult = std::variant<QList<File>, QXmppError>;
+    using SendFileResult = std::variant<File, QXmppError>;
+    using SendFilesResult = std::unordered_map<qint64, SendFileResult>;
     using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
     FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent = nullptr);

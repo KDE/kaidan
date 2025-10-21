@@ -76,6 +76,15 @@ struct File {
     Q_PROPERTY(bool isNew MEMBER isNew)
 
 public:
+    enum class TransferState {
+        Pending,
+        Transferring,
+        Canceled,
+        Failed,
+        Done,
+    };
+    Q_ENUM(TransferState)
+
     qint64 id = 0;
     qint64 fileGroupId = 0;
     std::optional<QString> name;
@@ -93,6 +102,8 @@ public:
     QList<HttpSource> httpSources;
     QList<EncryptedSource> encryptedSources;
     bool isNew;
+    bool transferOutgoing = false;
+    TransferState transferState = TransferState::Pending;
 
     [[nodiscard]] QXmppFileShare toQXmpp() const;
 

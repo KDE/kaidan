@@ -234,25 +234,46 @@ void MessageComposition::send()
         bool encrypt = message.encryption != Encryption::NoEncryption;
 
         // upload files
-        m_fileSharingController->sendFiles(message.files, encrypt).then(this, [this, message = std::move(message)](auto result) mutable {
-            if (auto files = std::get_if<QList<File>>(&result)) {
-                // uploading succeeded
+        m_fileSharingController->sendFiles(message.files, encrypt).then(this, [this, message = std::move(message)](auto &&results) mutable {
+            QString errorText;
+
+            for (auto fileIt = message.files.begin(), fileEnd = message.files.end(); fileIt != fileEnd; ++fileIt) {
+                const auto resultIt = results.find(fileIt->id);
+                Q_ASSERT(resultIt != results.end());
 
                 // set updated files with new metadata and uploaded sources
-                message.files = std::move(*files);
-
-                // update message in database
-                MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.id, [files = message.files](auto &message) {
-                    message.files = files;
-                });
-
-                // send message with file sources
-                m_messageController->sendPendingMessage(std::move(message));
-            } else {
+                if (auto file = std::get_if<File>(&resultIt->second)) {
+                    *fileIt = std::move(*file);
+                }
                 // uploading did not succeed
-                auto errorText = std::get<QXmppError>(std::move(result)).description;
+                else if (auto error = std::get_if<QXmppError>(&resultIt->second)) {
+                    if (errorText.isEmpty()) {
+                        errorText = error->description;
+                    }
 
-                // set error text in database
+                    fileIt->transferState = File::TransferState::Failed;
+
+                    if (error->isNetworkError()) {
+                        const bool canceled = error->template value<QNetworkReply::NetworkError>() == QNetworkReply::OperationCanceledError;
+
+                        if (canceled) {
+                            fileIt->transferState = File::TransferState::Canceled;
+                        }
+                    }
+                }
+            }
+
+            // update message in database
+            MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.id, [files = message.files](auto &message) {
+                message.files = files;
+            });
+
+            // send message with file sources
+            if (errorText.isEmpty()) {
+                m_messageController->sendPendingMessage(std::move(message));
+            }
+            // set error text in database
+            else {
                 MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.id, [errorText](auto &message) {
                     message.errorText = tr("Upload failed: %1").arg(errorText);
                 });
@@ -596,6 +617,7 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
     file.size = fileInfo.size();
     file.isNew = isNew;
+    file.transferOutgoing = true;
 
     if (auto image = QImageReader(localPath); image.canRead()) {
         const auto size = [&image]() {

@@ -1245,7 +1245,9 @@ void MessageDb::_setFiles(const QList<File> &files)
 					disposition,
 					thumbnail,
 					localFilePath,
-					externalId
+					externalId,
+                    transferOutgoing,
+                    transferState
 				)
 				VALUES (
 					:id,
@@ -1258,7 +1260,9 @@ void MessageDb::_setFiles(const QList<File> &files)
 					:disposition,
 					:thumbnail,
 					:localFilePath,
-					:externalId
+					:externalId,
+                    :transferOutgoing,
+                    :transferState
 				)
 			)"));
         return query;
@@ -1278,6 +1282,8 @@ void MessageDb::_setFiles(const QList<File> &files)
                        {u":thumbnail", file.thumbnail},
                        {u":localFilePath", file.localFilePath},
                        {u":externalId", file.externalId},
+                       {u":transferOutgoing", file.transferOutgoing},
+                       {u":transferState", Enums::toIntegral(file.transferState)},
                    });
         execQuery(query);
 
@@ -1496,13 +1502,15 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         Thumbnail,
         LocalFilePath,
         ExternalId,
+        TransferOutgoing,
+        TransferState,
     };
 
     thread_local static auto query = [this]() {
         auto q = createQuery();
         prepareQuery(q,
                      QStringLiteral("SELECT id, name, description, mimeType, size, lastModified, disposition, "
-                                    "thumbnail, localFilePath, externalId FROM files "
+                                    "thumbnail, localFilePath, externalId, transferOutgoing, transferState FROM files "
                                     "WHERE fileGroupId = :fileGroupId"));
         return q;
     }();
@@ -1526,6 +1534,8 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
         file.localFilePath = query.value(LocalFilePath).toString();
         file.externalId = query.value(ExternalId).toString();
+        file.transferOutgoing = query.value(TransferOutgoing).toBool();
+        file.transferState = query.value(TransferState).value<File::TransferState>();
         file.hashes = _fetchFileHashes(id);
         file.thumbnail = query.value(Thumbnail).toByteArray();
         file.httpSources = _fetchHttpSource(id);

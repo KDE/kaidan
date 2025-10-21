@@ -12,6 +12,7 @@
 #include <QDir>
 #include <QImage>
 #include <QMimeDatabase>
+#include <QNetworkReply>
 #include <QStandardPaths>
 #include <QStringBuilder>
 // KDE
@@ -195,46 +196,35 @@ auto FileSharingController::sendFiles(QList<File> files, bool encrypt) -> QXmppT
     });
 
     join(this, std::move(futures)).then(this, [promise = std::move(promise), files = std::move(files)](QList<UploadResult> &&uploadResults) mutable {
-        // Check if any of the uploads failed
-        bool failed = std::any_of(uploadResults.begin(), uploadResults.end(), [](const auto &result) {
-            auto &[id, uploadResult] = result;
-            return !std::holds_alternative<QXmppFileUpload::FileResult>(uploadResult);
+        auto filesMap = transformMap(files, [](const auto &file) {
+            return std::pair{file.id, file};
         });
-
-        // upload error handling
-        if (failed) {
-            auto errorIt = find_if(uploadResults, [](const auto &result) {
-                auto &[id, uploadResult] = result;
-                return std::holds_alternative<QXmppError>(uploadResult);
-            });
-            Q_ASSERT(errorIt != uploadResults.end());
-
-            // currently this only gives the error of the first failed upload
-            promise.finish(std::get<QXmppError>(std::get<1>(std::move(*errorIt))));
-            return;
-        }
-
-        // extract the file shares from the list of upload results
-        auto fileResultsMap = transformMap(uploadResults, [](const auto &result) {
+        auto results = transformMap(uploadResults, [&filesMap](const auto &result) mutable {
             auto &[fileId, uploadResult] = result;
-            return std::pair{fileId, std::get<QXmppFileUpload::FileResult>(uploadResult)};
-        });
 
-        for (auto &file : files) {
-            auto fileResult = fileResultsMap.find(file.id);
-            if (fileResult == fileResultsMap.end()) {
-                continue;
+            if (std::holds_alternative<QXmpp::Cancelled>(uploadResult)) {
+                return std::pair{fileId, SendFileResult{QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError}}};
+            } else if (std::holds_alternative<QXmppError>(uploadResult)) {
+                return std::pair{fileId, SendFileResult{std::get<QXmppError>(uploadResult)}};
             }
 
-            if (!fileResult->second.dataBlobs.empty()) {
-                file.thumbnail = fileResult->second.dataBlobs.first().data();
+            // extract the file shares from the list of upload results
+            auto &fileResult = std::get<QXmppFileUpload::FileResult>(uploadResult);
+            auto fileIt = filesMap.find(fileId);
+            Q_ASSERT(fileIt != filesMap.end());
+            File &file = fileIt->second;
+
+            file.transferState = File::TransferState::Done;
+
+            if (!fileResult.dataBlobs.empty()) {
+                file.thumbnail = fileResult.dataBlobs.constFirst().data();
             }
 
-            file.httpSources = transform(fileResult->second.fileShare.httpSources(), [&](const auto &s) {
+            file.httpSources = transform(fileResult.fileShare.httpSources(), [&](const auto &s) {
                 return HttpSource{file.id, s.url()};
             });
 
-            file.encryptedSources = transform(fileResult->second.fileShare.encryptedSources(), [&](const auto &s) {
+            file.encryptedSources = transform(fileResult.fileShare.encryptedSources(), [&](const auto &s) {
                 QUrl sourceUrl;
                 if (!s.httpSources().empty()) {
                     sourceUrl = s.httpSources().first().url();
@@ -250,12 +240,14 @@ auto FileSharingController::sendFiles(QList<File> files, bool encrypt) -> QXmppT
                                        })};
             });
 
-            file.hashes = transform(fileResult->second.fileShare.metadata().hashes(), [&](const auto &hash) {
+            file.hashes = transform(fileResult.fileShare.metadata().hashes(), [&](const auto &hash) {
                 return FileHash{file.id, hash.algorithm(), hash.hash()};
             });
-        }
 
-        promise.finish(std::move(files));
+            return std::pair{fileId, SendFileResult{std::move(file)}};
+        });
+
+        promise.finish(std::move(results));
     });
 
     return task;
@@ -374,13 +366,17 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
 
         connect(download.get(), &QXmppFileDownload::finished, this, [this, chatJid, messageId, fileId, filePath, download]() mutable {
             auto result = download->result();
-            if (std::holds_alternative<QXmppError>(result)) {
-                auto errorText = std::get<QXmppError>(result).description;
+            auto error = [&result]() -> std::optional<QXmppError> {
+                if (std::holds_alternative<QXmpp::Cancelled>(result)) {
+                    return QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError};
+                } else if (std::holds_alternative<QXmppError>(result)) {
+                    return std::get<QXmppError>(result);
+                }
 
-                qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
-                removeFile(filePath);
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
-            } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
+                return {};
+            }();
+
+            if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
                 MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
                     auto file = find_if(message.files, [=](const auto &file) {
                         return file.id == fileId;
@@ -388,10 +384,28 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
 
                     if (file != message.files.end()) {
                         file->localFilePath = filePath;
+                        file->transferState = File::TransferState::Done;
                     }
                     // TODO: generate possibly missing metadata
                     // metadata may be missing if the sender only used out of band urls
                 });
+            } else if (error) {
+                const bool canceled = error->isNetworkError() && error->value<QNetworkReply::NetworkError>() == QNetworkReply::OperationCanceledError;
+                const auto errorText = error->description;
+
+                MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
+                    auto file = find_if(message.files, [=](const auto &file) {
+                        return file.id == fileId;
+                    });
+
+                    if (file != message.files.end()) {
+                        file->transferState = canceled ? File::TransferState::Canceled : File::TransferState::Failed;
+                    }
+                });
+
+                qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
+                removeFile(filePath);
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
             }
 
             FileProgressCache::instance().reportProgress(fileId, {});
@@ -409,6 +423,7 @@ void FileSharingController::deleteFile(const QString &chatJid, const QString &me
         });
         if (it != message.files.end()) {
             it->localFilePath.clear();
+            it->transferState = File::TransferState::Pending;
         }
     });
 
