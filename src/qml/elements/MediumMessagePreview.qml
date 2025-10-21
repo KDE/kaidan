@@ -15,6 +15,12 @@ MediumPreview {
 	property var file
 	property Item message
 
+	readonly property bool messagePending: message.deliveryState === Enums.DeliveryState.Pending
+	readonly property bool encryptionUsed: message.encryption !== Encryption.NoEncryption
+	readonly property bool localFileAvailable: file.localFileUrl.toString()
+	readonly property bool fileDownloadNeeded: !messagePending && (!file.done || !localFileAvailable)
+	readonly property bool fileUploadNeeded: messagePending && file.transferOutgoing && !file.done
+
 	name: file.name
 	description: file.description
 	size: file.formattedSize
@@ -27,15 +33,17 @@ MediumPreview {
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {
-					if (transferWatcher.isLoading) {
+					if (root.file.transferring) {
 						root.message.chatController.account.fileSharingController.cancelFile(root.file)
-					} else if (root.localFileUrl.toString()) {
-						root.open()
-					} else {
+					} else if (root.fileDownloadNeeded) {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
+					} else if (root.fileUploadNeeded) {
+						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, encryptionUsed)
+					} else if (root.localFileAvailable) {
+						root.open()
 					}
 				} else if (event.button === Qt.RightButton) {
-				   if (root.localFileUrl.toString()) {
+				   if (root.localFileAvailable) {
 					   root.message.showContextMenu(this, root.file)
 				   } else {
 					   root.message.showContextMenu(this)
@@ -54,11 +62,13 @@ MediumPreview {
 		}
 	}
 	previewImage {
-		opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? 1 : mainAreaBackground.opacity
+		readonly property bool iconShown: root.file.transferring || root.fileDownloadNeeded || root.fileUploadNeeded
+
+		opacity: iconShown ? 1 : mainAreaBackground.opacity
 		source: ImageProvider.generatedFileImageUrl(file)
 		data: CircleProgressBar {
 			value: transferWatcher.progress
-			opacity: (transferWatcher.isLoading || !root.file.localFileUrl.toString()) ? (opacityChangingMouseArea.containsMouse ?  0.8 : 0.5 ): 0
+			opacity: iconShown ? (opacityChangingMouseArea.containsMouse ?  0.8 : 0.5) : 0
 			// Do not apply the opacity to child items.
 			layer.enabled: true
 			anchors.fill: parent
@@ -69,8 +79,20 @@ MediumPreview {
 			}
 
 			Kirigami.Icon {
-				source: root.file.localFileUrl.toString() ? "content-loading-symbolic" : "folder-download-symbolic"
-				color: transferWatcher.isLoading ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+				source: {
+					if (root.file.transferring) {
+						return "content-loading-symbolic"
+					}
+
+					if (root.fileUploadNeeded) {
+						return "view-refresh-symbolic"
+					}
+
+					if (root.fileDownloadNeeded) {
+						return "folder-download-symbolic"
+					}
+				}
+				color: root.file.transferring ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
 				isMask: true
 				anchors.centerIn: parent
 			}
