@@ -385,9 +385,9 @@ private:
     AtmController *const m_atmController;
     BlockingController *const m_blockingController;
     EncryptionController *const m_encryptionController;
-    FileSharingController *const m_fileSharingController;
     RosterController *const m_rosterController;
     MessageController *const m_messageController;
+    FileSharingController *const m_fileSharingController;
     GroupChatController *const m_groupChatController;
     NotificationController *const m_notificationController;
     VCardController *const m_vCardController;

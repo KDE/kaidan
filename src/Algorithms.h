@@ -14,6 +14,14 @@
 // Qt
 #include <QList>
 
+template<typename T>
+auto all_true(T &container) // Implicit bool conversion (or bool values)
+{
+    return std::ranges::all_of(container, [](const auto &value) {
+        return value;
+    });
+}
+
 template<typename T, typename Converter>
 auto transform(const T &input, Converter convert)
 {
