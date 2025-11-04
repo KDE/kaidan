@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-09-26 10:14+0200\n"
+"PO-Revision-Date: 2025-10-14 09:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -279,26 +279,22 @@ msgid "Banned"
 msgstr "Banni"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Le contact a été copié dans le presse-papier."
+msgstr "Impossible de copier une source non valable dans le presse-papier : %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Impossible de générer la vignette : %1 n'existe pas"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Impossible de renommer le groupe %1 : %2"
+msgstr "Impossible de générer le « QR » code : %1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
@@ -2064,65 +2060,43 @@ msgid "Notes Details"
 msgstr "Détails de note"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "Suppression"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "Supprimer"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
 msgstr ""
-"Supprimer les notes de discussions et fermer la totalité de l'historique des "
+"Supprimer les discussions avec le fournisseur et fermer l'historique des "
 "discussions"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Suppression des notes du groupe de discussions..."
+msgstr "Suppression des discussions avec le fournisseur en cours..."
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Détails du groupe"
+msgstr "Détails sur le fournisseur"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
-#, fuzzy
-#| msgctxt "NotesChatDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr ""
-"Les messages de cette discussion sont synchronisés sous forme de notes sur "
-"tous vos périphériques."
+"Les messages de cette discussion proviennent de votre fournisseur de "
+"services."
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Détails du groupe"
+msgstr "Détails sur le fournisseur"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2502,9 +2476,6 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Étape 2 : laisser votre contact lire <b>votre</b> code « QR »"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:21
-#, fuzzy
-#| msgctxt "GroupChatParticipantPicker|"
-#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "Inviter des contacts à ce groupe..."
@@ -3568,9 +3539,6 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossible de supprimer un contact car vous n'êtes pas connecté."
 
 #: src/RosterItem.cpp:31
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Fournisseur"
