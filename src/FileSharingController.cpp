@@ -43,7 +43,6 @@
 #include "SystemUtils.h"
 
 using std::ranges::all_of;
-using std::ranges::find;
 using std::ranges::find_if;
 
 // ported from https://github.com/SergioBenitez/Rocket/blob/2cee4b459492136d616e5863c54754b135e41572/core/lib/src/fs/file_name.rs#L112
@@ -108,10 +107,10 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
     };
 
     const auto isBadChar = [=](QChar c) {
-        return find(bad_chars, c) != bad_chars.end() || c.category() == QChar::Other_Control;
+        return std::ranges::contains(bad_chars, c) || c.category() == QChar::Other_Control;
     };
     const auto isBadName = [=](QStringView name) {
-        return find(bad_names, name) != bad_names.end();
+        return std::ranges::contains(bad_names, name);
     };
 
     // Tokenize file name by splitting on bad chars
