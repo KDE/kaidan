@@ -139,12 +139,6 @@ auto transformSum(const T &input, Converter convert)
     return output;
 }
 
-template<typename T, typename V>
-bool contains(const T &input, const T &value)
-{
-    return std::ranges::find(input, value) != input.end();
-}
-
 template<typename T, typename Condition>
 bool containsIf(const T &input, Condition condition)
 {
