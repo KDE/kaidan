@@ -240,10 +240,34 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
-#: src/FileSharingController.cpp:363
+#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Cancel reply"
+msgctxt "FileSharingController|"
+msgid "Canceled"
+msgstr "Yanıtı iptal et"
+
+#: src/FileSharingController.cpp:344
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
+msgstr "Dosya indirilemedi: %1"
+
+#: src/FileSharingController.cpp:506
+#, fuzzy, qt-format
+#| msgctxt "MessageComposition|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Upload failed: %1"
+msgstr "Karşıya yükleme başarısız: %1"
+
+#: src/FileSharingController.cpp:516
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
+msgctxt "FileSharingController|"
+msgid "Could not upload file: %1"
 msgstr "Dosya indirilemedi: %1"
 
 #: src/GroupChatUserModel.cpp:54
@@ -400,39 +424,33 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "gg DDD, ss:dd"
 
-#: src/Message.cpp:349
+#: src/Message.cpp:374
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Tatkaçıran"
 
-#: src/Message.cpp:359
+#: src/Message.cpp:384
 msgctxt "Message|"
 msgid "Location"
 msgstr "Konum"
 
-#: src/Message.cpp:447
+#: src/Message.cpp:472
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "%1 grubuna davet"
 
-#: src/MessageComposition.cpp:257
-#, qt-format
-msgctxt "MessageComposition|"
-msgid "Upload failed: %1"
-msgstr "Karşıya yükleme başarısız: %1"
-
-#: src/MessageComposition.cpp:312
+#: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageComposition.cpp:546
+#: src/MessageComposition.cpp:523
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/MessageComposition.cpp:590
+#: src/MessageComposition.cpp:567
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -475,24 +493,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Hata"
 
-#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
+#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Tepki gönderilemedi: %1"
 
-#: src/MessageModel.cpp:764
+#: src/MessageModel.cpp:779
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Tepkiler gönderilemedi: %1"
 
-#: src/MessageModel.cpp:1272
+#: src/MessageModel.cpp:1287
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Bugün"
 
-#: src/MessageModel.cpp:1275
+#: src/MessageModel.cpp:1290
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Dün"
@@ -2174,52 +2192,57 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1, bu noktaya kadar okudu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:52
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
 msgstr "Seçili Dosyayı Kaldır"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
 msgstr "Seçili dosyanın klasörünü aç"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:74
+#: src/qml/elements/ChatMessageContextMenu.qml:73
+msgctxt "ChatMessageContextMenu|"
+msgid "Resend"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Tepki Ver"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:96
+#: src/qml/elements/ChatMessageContextMenu.qml:103
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:114
+#: src/qml/elements/ChatMessageContextMenu.qml:121
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Alıntıla"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:122
+#: src/qml/elements/ChatMessageContextMenu.qml:129
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "İlet"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:130
+#: src/qml/elements/ChatMessageContextMenu.qml:137
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:152
+#: src/qml/elements/ChatMessageContextMenu.qml:159
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "İmle"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:160
+#: src/qml/elements/ChatMessageContextMenu.qml:167
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Bu aygıttan kaldır"

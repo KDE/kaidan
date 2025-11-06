@@ -241,10 +241,28 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/FileSharingController.cpp:363
+#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#, fuzzy
+msgctxt "FileSharingController|"
+msgid "Canceled"
+msgstr "Mégse"
+
+#: src/FileSharingController.cpp:344
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
+msgstr ""
+
+#: src/FileSharingController.cpp:506
+#, qt-format
+msgctxt "FileSharingController|"
+msgid "Upload failed: %1"
+msgstr ""
+
+#: src/FileSharingController.cpp:516
+#, qt-format
+msgctxt "FileSharingController|"
+msgid "Could not upload file: %1"
 msgstr ""
 
 #: src/GroupChatUserModel.cpp:54
@@ -404,13 +422,13 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:349
+#: src/Message.cpp:374
 #, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:359
+#: src/Message.cpp:384
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -418,29 +436,23 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Értesítések némítása"
 
-#: src/Message.cpp:447
+#: src/Message.cpp:472
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:257
-#, qt-format
-msgctxt "MessageComposition|"
-msgid "Upload failed: %1"
-msgstr ""
-
-#: src/MessageComposition.cpp:312
+#: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageComposition.cpp:546
+#: src/MessageComposition.cpp:523
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:590
+#: src/MessageComposition.cpp:567
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -483,24 +495,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr ""
 
-#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
+#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:764
+#: src/MessageModel.cpp:779
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:1272
+#: src/MessageModel.cpp:1287
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1275
+#: src/MessageModel.cpp:1290
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2338,54 +2350,59 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:52
 #, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
 msgstr "Eltávolít"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 #, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
 msgstr "Eltávolít"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:74
+#: src/qml/elements/ChatMessageContextMenu.qml:73
+msgctxt "ChatMessageContextMenu|"
+msgid "Resend"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:96
+#: src/qml/elements/ChatMessageContextMenu.qml:103
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:114
+#: src/qml/elements/ChatMessageContextMenu.qml:121
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:122
+#: src/qml/elements/ChatMessageContextMenu.qml:129
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:130
+#: src/qml/elements/ChatMessageContextMenu.qml:137
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:152
+#: src/qml/elements/ChatMessageContextMenu.qml:159
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:160
+#: src/qml/elements/ChatMessageContextMenu.qml:167
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -3837,11 +3854,6 @@ msgstr ""
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
 #~ msgstr "Törlés"
-
-#, fuzzy
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "Mégse"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

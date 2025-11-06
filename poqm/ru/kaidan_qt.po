@@ -319,10 +319,34 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Выход из группового чата"
 
-#: src/FileSharingController.cpp:363
+#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "FileSharingController|"
+msgid "Canceled"
+msgstr "Отмена"
+
+#: src/FileSharingController.cpp:344
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
+msgstr "Не удалось загрузить файл: %1"
+
+#: src/FileSharingController.cpp:506
+#, fuzzy, qt-format
+#| msgctxt "MessageComposition|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Upload failed: %1"
+msgstr "Не удалось выполнить отправку: %1"
+
+#: src/FileSharingController.cpp:516
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
+msgctxt "FileSharingController|"
+msgid "Could not upload file: %1"
 msgstr "Не удалось загрузить файл: %1"
 
 #: src/GroupChatUserModel.cpp:54
@@ -483,39 +507,33 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM в hh:mm"
 
-#: src/Message.cpp:349
+#: src/Message.cpp:374
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:359
+#: src/Message.cpp:384
 msgctxt "Message|"
 msgid "Location"
 msgstr "Местоположение"
 
-#: src/Message.cpp:447
+#: src/Message.cpp:472
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Приглашение в группу %1"
 
-#: src/MessageComposition.cpp:257
-#, qt-format
-msgctxt "MessageComposition|"
-msgid "Upload failed: %1"
-msgstr "Не удалось выполнить отправку: %1"
-
-#: src/MessageComposition.cpp:312
+#: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Не удалось исправить сообщение"
 
-#: src/MessageComposition.cpp:546
+#: src/MessageComposition.cpp:523
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Неизвестный размер"
 
-#: src/MessageComposition.cpp:590
+#: src/MessageComposition.cpp:567
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -558,24 +576,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MessageModel.cpp:581 src/MessageModel.cpp:679
+#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить реакцию: %1"
 
-#: src/MessageModel.cpp:764
+#: src/MessageModel.cpp:779
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить реакции: %1"
 
-#: src/MessageModel.cpp:1272
+#: src/MessageModel.cpp:1287
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/MessageModel.cpp:1275
+#: src/MessageModel.cpp:1290
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчера"
@@ -2341,32 +2359,40 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1 прочитано до этого места"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:52
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
 msgstr "Удалить выбранный файл"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
 msgstr "Открыть папку с выбранным файлом"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:74
+#: src/qml/elements/ChatMessageContextMenu.qml:73
+#, fuzzy
+#| msgctxt "LoginSettingsPage|"
+#| msgid "Reset"
+msgctxt "ChatMessageContextMenu|"
+msgid "Resend"
+msgstr "Сброс"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Отреагировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:96
+#: src/qml/elements/ChatMessageContextMenu.qml:103
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Ответить"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:114
+#: src/qml/elements/ChatMessageContextMenu.qml:121
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Цитировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:122
+#: src/qml/elements/ChatMessageContextMenu.qml:129
 #, fuzzy
 #| msgctxt "ForwardButton|"
 #| msgid "Navigate Forward"
@@ -2374,22 +2400,22 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "Вперёд"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:130
+#: src/qml/elements/ChatMessageContextMenu.qml:137
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Копировать"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Изменить"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:152
+#: src/qml/elements/ChatMessageContextMenu.qml:159
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:160
+#: src/qml/elements/ChatMessageContextMenu.qml:167
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Удалить с этого устройства"
@@ -3836,10 +3862,6 @@ msgstr "Веб-сайт"
 #~ msgid "Deleted"
 #~ msgstr "Удалено"
 
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "Отмена"
-
 #~ msgctxt "DeviceSwitchingPage|"
 #~ msgid "Hide QR code"
 #~ msgstr "Скрыть QR-код"
@@ -5019,10 +5041,6 @@ msgstr "Веб-сайт"
 #~ msgctxt "LoginSettingsPage|"
 #~ msgid "Hostname:"
 #~ msgstr "Сервер:"
-
-#~ msgctxt "LoginSettingsPage|"
-#~ msgid "Reset"
-#~ msgstr "Сброс"
 
 #~ msgctxt "LoginSettingsPage|"
 #~ msgid "Apply"
