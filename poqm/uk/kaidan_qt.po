@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-13 13:49+0300\n"
+"PO-Revision-Date: 2025-11-06 16:00+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -251,12 +251,9 @@ msgid "Leaving group chat"
 msgstr "Полишаємо групове спілкування"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Скасувати"
+msgstr "Скасовано"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -265,20 +262,16 @@ msgid "Could not download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Невдала спроба вивантаження: %1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Не вдалося отримати файл: %1"
+msgstr "Не вдалося вивантажити файл: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2240,12 +2233,9 @@ msgid "Open selected file's folder"
 msgstr "Відкрити теку позначеного файла"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
-#, fuzzy
-#| msgctxt "LoginSettingsPage|"
-#| msgid "Reset"
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "Скинути"
+msgstr "Надіслати ще раз"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"

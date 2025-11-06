@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-13 08:43-0300\n"
+"PO-Revision-Date: 2025-11-06 07:07-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Language: pt_BR\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/Account.cpp:455
 msgctxt "Connection|"
@@ -249,12 +249,9 @@ msgid "Leaving group chat"
 msgstr "Deixar o grupo de bate-papo"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Cancelar"
+msgstr "Cancelado"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -263,20 +260,16 @@ msgid "Could not download file: %1"
 msgstr "Não foi possível baixar arquivo: %1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Envio falhou: %1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Não foi possível baixar arquivo: %1"
+msgstr "Não foi possível enviar arquivo: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2234,12 +2227,9 @@ msgid "Open selected file's folder"
 msgstr "Abrir pasta do arquivo selecionado"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
-#, fuzzy
-#| msgctxt "LoginSettingsPage|"
-#| msgid "Reset"
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "Restaurar"
+msgstr "Reenviar"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
