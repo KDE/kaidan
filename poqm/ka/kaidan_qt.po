@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/Account.cpp:455
 msgctxt "Connection|"
@@ -246,12 +246,9 @@ msgid "Leaving group chat"
 msgstr "ჯგუფური ჩატიდან გასვლა"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "გაუქმება"
+msgstr "გაუქმებულია"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -260,20 +257,16 @@ msgid "Could not download file: %1"
 msgstr "ფაილის გადმოწერის შეცდომა: %1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "ატვირთვის შეცდომა: %1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "ფაილის გადმოწერის შეცდომა: %1"
+msgstr "ფაილის ატვირთვის შეცდომა: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2217,7 +2210,7 @@ msgstr "მონიშნული ფაილის საქაღალდ�
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "გადაგზავნა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
