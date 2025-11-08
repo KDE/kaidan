@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-13 08:58+0300\n"
+"PO-Revision-Date: 2025-11-06 11:23+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/Account.cpp:455
 msgctxt "Connection|"
@@ -239,12 +239,9 @@ msgid "Leaving group chat"
 msgstr "עזבת את הצ׳אט הקבוצתי"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "ביטול"
+msgstr "בוטל"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -253,20 +250,16 @@ msgid "Could not download file: %1"
 msgstr "לא ניתן להוריד את הקובץ: %1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "ההעלאה נכשלה: %1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "לא ניתן להוריד את הקובץ: %1"
+msgstr "לא ניתן להעלות את הקובץ: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2172,7 +2165,7 @@ msgstr "פתיחת התיקייה של הקובץ הנבחר"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "שליחה מחדש"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
