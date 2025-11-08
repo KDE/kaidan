@@ -46,9 +46,11 @@ private:
     void removeFile(const QString &filePath);
     void maybeSendPendingMessage(const QString &chatJid, const QString &messageId);
 
+    void handleUploadServicesChanged();
     void handleMessageAdded(const Message &message, MessageOrigin origin);
 
     AccountSettings *const m_accountSettings;
+    Connection *const m_connection;
     MessageController *const m_messageController;
     ClientWorker *const m_clientWorker;
     QXmppFileSharingManager *const m_manager;

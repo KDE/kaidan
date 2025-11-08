@@ -161,27 +161,12 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings,
                                              QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
+    , m_connection(connection)
     , m_messageController(messageController)
     , m_clientWorker(clientWorker)
     , m_manager(clientWorker->fileSharingManager())
 {
-    auto *uploadRequestManager = m_clientWorker->uploadRequestManager();
-
-    connect(uploadRequestManager, &QXmppUploadRequestManager::serviceFoundChanged, this, [this, uploadRequestManager, connection]() {
-        if (connection->state() == Enums::ConnectionState::StateConnected) {
-            runOnThread(
-                uploadRequestManager,
-                [uploadRequestManager]() {
-                    return uploadRequestManager->uploadServices();
-                },
-                this,
-                [this](QVector<QXmppUploadService> &&uploadServices) {
-                    const auto limit = uploadServices.isEmpty() ? 0 : uploadServices.constFirst().sizeLimit();
-                    m_accountSettings->setHttpUploadLimit(limit);
-                });
-        }
-    });
-
+    connect(m_clientWorker->uploadRequestManager(), &QXmppUploadRequestManager::serviceFoundChanged, this, &FileSharingController::handleUploadServicesChanged);
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &FileSharingController::handleMessageAdded);
 }
 
@@ -227,6 +212,24 @@ void FileSharingController::maybeSendPendingMessage(const QString &chatJid, cons
             }
         }
     });
+}
+
+void FileSharingController::handleUploadServicesChanged()
+{
+    if (m_connection->state() == Enums::ConnectionState::StateConnected) {
+        auto *uploadRequestManager = m_clientWorker->uploadRequestManager();
+
+        runOnThread(
+            uploadRequestManager,
+            [uploadRequestManager]() {
+                return uploadRequestManager->uploadServices();
+            },
+            this,
+            [this](QVector<QXmppUploadService> &&uploadServices) {
+                const auto limit = uploadServices.isEmpty() ? 0 : uploadServices.constFirst().sizeLimit();
+                m_accountSettings->setHttpUploadLimit(limit);
+            });
+    }
 }
 
 void FileSharingController::handleMessageAdded(const Message &message, MessageOrigin origin)
