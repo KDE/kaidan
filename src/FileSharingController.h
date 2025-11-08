@@ -10,6 +10,8 @@
 // QXmpp
 #include <QXmppFileSharingManager.h>
 #include <QXmppTask.h>
+// Kaidan
+#include <Message.h>
 
 class AccountSettings;
 class ClientWorker;
@@ -43,6 +45,8 @@ private:
     QFuture<bool> sendFileTask(const QString &chatJid, const QString &messageId, const File &file, bool encrypt);
     void removeFile(const QString &filePath);
     void maybeSendPendingMessage(const QString &chatJid, const QString &messageId);
+
+    void handleMessageAdded(const Message &message, MessageOrigin origin);
 
     AccountSettings *const m_accountSettings;
     MessageController *const m_messageController;

@@ -39,6 +39,7 @@
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "RosterModel.h"
 #include "SystemUtils.h"
 
 using std::ranges::all_of;
@@ -180,6 +181,8 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings,
                 });
         }
     });
+
+    connect(MessageDb::instance(), &MessageDb::messageAdded, this, &FileSharingController::handleMessageAdded);
 }
 
 void FileSharingController::sendFile(const QString &chatJid, const QString &messageId, const File &file, bool encrypt)
@@ -224,6 +227,49 @@ void FileSharingController::maybeSendPendingMessage(const QString &chatJid, cons
             }
         }
     });
+}
+
+void FileSharingController::handleMessageAdded(const Message &message, MessageOrigin origin)
+{
+    if (origin != MessageOrigin::UserInput && message.accountJid == m_accountSettings->jid() && !message.files.isEmpty()) {
+        if (const auto item = RosterModel::instance()->item(message.accountJid, message.chatJid)) {
+            const auto contactRule = item->automaticMediaDownloadsRule;
+
+            const auto effectiveRule = [this, contactRule]() -> AccountSettings::AutomaticMediaDownloadsRule {
+                switch (contactRule) {
+                case RosterItem::AutomaticMediaDownloadsRule::Account:
+                    return m_accountSettings->automaticMediaDownloadsRule();
+                case RosterItem::AutomaticMediaDownloadsRule::Never:
+                    return AccountSettings::AutomaticMediaDownloadsRule::Never;
+                case RosterItem::AutomaticMediaDownloadsRule::Always:
+                    return AccountSettings::AutomaticMediaDownloadsRule::Always;
+                }
+
+                Q_UNREACHABLE();
+            }();
+
+            const auto automaticDownloadDesired = [effectiveRule, &message]() -> bool {
+                switch (effectiveRule) {
+                case AccountSettings::AutomaticMediaDownloadsRule::Never:
+                    return false;
+                case AccountSettings::AutomaticMediaDownloadsRule::PresenceOnly:
+                    return message.isOwn || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
+                case AccountSettings::AutomaticMediaDownloadsRule::Always:
+                    return true;
+                }
+
+                Q_UNREACHABLE();
+            }();
+
+            if (automaticDownloadDesired) {
+                for (const auto &file : message.files) {
+                    if (file.localFilePath.isEmpty() || !QFile::exists(file.localFilePath)) {
+                        downloadFile(message.chatJid, message.id, file);
+                    }
+                }
+            }
+        }
+    }
 }
 
 void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)
