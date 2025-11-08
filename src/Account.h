@@ -52,6 +52,8 @@ class AccountSettings : public QObject
     Q_PROPERTY(bool inBandRegistrationFeaturesSupported READ inBandRegistrationFeaturesSupported NOTIFY inBandRegistrationFeaturesSupportedChanged)
     Q_PROPERTY(qint64 httpUploadLimit READ httpUploadLimit NOTIFY httpUploadLimitChanged)
     Q_PROPERTY(QString httpUploadLimitText READ httpUploadLimitText NOTIFY httpUploadLimitChanged)
+    Q_PROPERTY(QList<QString> chatSupportAddresses READ chatSupportAddresses NOTIFY chatSupportAddressesChanged)
+    Q_PROPERTY(QList<QString> groupChatSupportAddresses READ groupChatSupportAddresses NOTIFY groupChatSupportAddressesChanged)
     Q_PROPERTY(AccountSettings::PasswordVisibility passwordVisibility READ passwordVisibility WRITE setPasswordVisibility NOTIFY passwordVisibilityChanged)
     Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
     Q_PROPERTY(AccountSettings::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule
@@ -136,6 +138,8 @@ public:
         QDateTime latestMessageStanzaTimestamp;
         bool inBandRegistrationFeaturesSupported = false;
         qint64 httpUploadLimit = 0;
+        QList<QString> chatSupportAddresses;
+        QList<QString> groupChatSupportAddresses;
         PasswordVisibility passwordVisibility = PasswordVisibility::Visible;
         Encryption::Enum encryption = Encryption::Omemo2;
         AutomaticMediaDownloadsRule automaticMediaDownloadsRule = AutomaticMediaDownloadsRule::PresenceOnly;
@@ -201,6 +205,14 @@ public:
     Q_SIGNAL void httpUploadLimitChanged();
 
     QString httpUploadLimitText() const;
+
+    void setChatSupportAddresses(const QList<QString> &chatSupportAddresses);
+    QList<QString> chatSupportAddresses() const;
+    Q_SIGNAL void chatSupportAddressesChanged();
+
+    void setGroupChatSupportAddresses(const QList<QString> &groupChatSupportAddresses);
+    QList<QString> groupChatSupportAddresses() const;
+    Q_SIGNAL void groupChatSupportAddressesChanged();
 
     PasswordVisibility passwordVisibility() const;
     void setPasswordVisibility(PasswordVisibility passwordVisibility);

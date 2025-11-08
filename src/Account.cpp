@@ -20,6 +20,7 @@
 #include "Blocking.h"
 #include "ChatController.h"
 #include "CredentialsValidator.h"
+#include "DiscoveryController.h"
 #include "EncryptionController.h"
 #include "FileSharingController.h"
 #include "FutureUtils.h"
@@ -267,6 +268,32 @@ void AccountSettings::setHttpUploadLimit(qint64 httpUploadLimit)
 QString AccountSettings::httpUploadLimitText() const
 {
     return QmlUtils::formattedDataSize(m_data.httpUploadLimit);
+}
+
+void AccountSettings::setChatSupportAddresses(const QList<QString> &chatSupportAddresses)
+{
+    if (m_data.chatSupportAddresses != chatSupportAddresses) {
+        m_data.chatSupportAddresses = chatSupportAddresses;
+        Q_EMIT chatSupportAddressesChanged();
+    }
+}
+
+QList<QString> AccountSettings::chatSupportAddresses() const
+{
+    return m_data.chatSupportAddresses;
+}
+
+void AccountSettings::setGroupChatSupportAddresses(const QList<QString> &groupChatSupportAddresses)
+{
+    if (m_data.groupChatSupportAddresses != groupChatSupportAddresses) {
+        m_data.groupChatSupportAddresses = groupChatSupportAddresses;
+        Q_EMIT groupChatSupportAddressesChanged();
+    }
+}
+
+QList<QString> AccountSettings::groupChatSupportAddresses() const
+{
+    return m_data.groupChatSupportAddresses;
 }
 
 AccountSettings::PasswordVisibility AccountSettings::passwordVisibility() const
@@ -559,6 +586,8 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_client.worker, this))
     , m_versionController(new VersionController(m_presenceCache, m_client.worker->versionManager()))
 {
+    new DiscoveryController(m_settings, m_connection, m_client.worker->discoveryManager(), this);
+
     runOnThread(m_client.worker, [this]() {
         m_client.worker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
     });

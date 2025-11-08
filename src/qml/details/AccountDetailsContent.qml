@@ -365,10 +365,8 @@ DetailsContent {
 		id: providerArea
 
 		readonly property url providerUrl: providerListModel.providerFromBareJid(root.account.settings.jid).chosenWebsite
-		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.account.settings.jid).chosenChatSupport
-		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.account.settings.jid).chosenGroupChatSupport
 
-		visible: providerUrl.toString() || chatSupportList.length || groupChatSupportList.length
+		visible: providerUrl.toString() || root.account.settings.chatSupportAddresses.length || root.account.settings.groupChatSupportAddresses.length
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
@@ -400,11 +398,11 @@ DetailsContent {
 		FormCard.FormButtonDelegate {
 			text: qsTr("Open support chat")
 			description: qsTr("Start chat with your provider's support contact")
-			visible: root.account.settings.enabled && providerArea.chatSupportList.length
+			visible: root.account.settings.enabled && root.account.settings.chatSupportAddresses.length
 			onClicked: {
-				if (providerArea.chatSupportList.length === 1) {
+				if (root.account.settings.chatSupportAddresses.length === 1) {
 					let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
-					contactAdditionView.jid = providerArea.chatSupportList[0]
+					contactAdditionView.jid = root.account.settings.chatSupportAddresses[0]
 					contactAdditionView.name = qsTr("Support")
 
 					if (root.dialog) {
@@ -421,27 +419,19 @@ DetailsContent {
 			visible: false
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
-			model: Array.from(providerArea.chatSupportList)
-			delegate: FormCard.FormCard {
+			model: root.account.settings.chatSupportAddresses
+			delegate: FormCard.FormButtonDelegate {
+				text: qsTr("Support %1").arg(index + 1)
+				description: modelData
+				background: SecondaryFormButtonBackground {}
 				width: ListView.view.width
-				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				onClicked: {
+					let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
+					contactAdditionView.jid = modelData
+					contactAdditionView.name = text
 
-				FormCard.AbstractFormDelegate {
-					background: null
-					horizontalPadding: 0
-					verticalPadding: 0
-					contentItem: FormCard.FormButtonDelegate {
-						text: qsTr("Support %1").arg(index + 1)
-						description: modelData
-						onClicked: {
-							let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
-							contactAdditionView.jid = modelData
-							contactAdditionView.name = text
-
-							if (root.dialog) {
-								root.dialog.close()
-							}
-						}
+					if (root.dialog) {
+						root.dialog.close()
 					}
 				}
 			}
@@ -450,10 +440,10 @@ DetailsContent {
 		FormCard.FormButtonDelegate {
 			text: qsTr("Open support group")
 			description: qsTr("Join your provider's public support group")
-			visible: providerArea.groupChatSupportList.length > 0
+			visible: root.account.settings.groupChatSupportAddresses.length
 			onClicked: {
-				if (providerArea.groupChatSupportList.length === 1) {
-					Qt.openUrlExternally(Utils.groupChatUri(providerArea.groupChatSupportList[0]))
+				if (root.account.settings.groupChatSupportAddresses.length === 1) {
+					Qt.openUrlExternally(Utils.groupChatUri(root.account.settings.groupChatSupportAddresses[0]))
 				} else {
 					groupChatSupportListView.visible = !groupChatSupportListView.visible
 				}
@@ -465,21 +455,13 @@ DetailsContent {
 			visible: false
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
-			model: Array.from(providerArea.groupChatSupportList)
-			delegate: FormCard.FormCard {
+			model: root.account.settings.groupChatSupportAddresses
+			delegate: FormCard.FormButtonDelegate {
+				text: qsTr("Group Support %1").arg(index + 1)
+				description: modelData
+				background: SecondaryFormButtonBackground {}
 				width: ListView.view.width
-				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-
-				FormCard.AbstractFormDelegate {
-					background: null
-					horizontalPadding: 0
-					verticalPadding: 0
-					contentItem: FormCard.FormButtonDelegate {
-						text: qsTr("Group Support %1").arg(index + 1)
-						description: modelData
-						onClicked: Qt.openUrlExternally(Utils.groupChatUri(modelData))
-					}
-				}
+				onClicked: Qt.openUrlExternally(Utils.groupChatUri(modelData))
 			}
 		}
 	}

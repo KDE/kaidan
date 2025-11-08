@@ -41,7 +41,7 @@
 // Kaidan
 #include "Account.h"
 #include "AtmController.h"
-#include "DiscoveryManager.h"
+#include "DiscoveryController.h"
 #include "EncryptionController.h"
 #include "KaidanCoreLog.h"
 #include "MediaUtils.h"
@@ -61,7 +61,7 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();
     m_blockingManager = m_client->addNewExtension<QXmppBlockingManager>();
     m_client->addNewExtension<QXmppCarbonManagerV2>();
-    auto *discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
+    m_discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
     m_client->addNewExtension<QXmppEntityTimeManager>();
     auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(networkAccessManager);
     m_mamManager = m_client->addNewExtension<QXmppMamManager>();
@@ -77,8 +77,6 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     m_vCardManager = m_client->addNewExtension<QXmppVCardManager>();
     m_versionManager = m_client->addNewExtension<QXmppVersionManager>();
     m_mixManager = m_client->addNewExtension<QXmppMixManager>();
-
-    new DiscoveryManager(m_client, discoveryManager, this);
 
     // file sharing manager
     m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();

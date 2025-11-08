@@ -49,7 +49,6 @@
 #include <kdsingleapplication.h>
 // QXmpp
 #include <QXmppClient.h>
-#include <QXmppDiscoveryIq.h>
 #include <QXmppMixInfoItem.h>
 #include <QXmppMixParticipantItem.h>
 #include <QXmppRegisterIq.h>
@@ -73,7 +72,7 @@
 #include "CredentialsGenerator.h"
 #include "CredentialsValidator.h"
 #include "DataFormModel.h"
-#include "DiscoveryManager.h"
+#include "DiscoveryController.h"
 #include "EmojiModel.h"
 #include "Encryption.h"
 #include "EncryptionController.h"
@@ -127,7 +126,6 @@ Q_DECLARE_METATYPE(Qt::ApplicationState)
 
 Q_DECLARE_METATYPE(QXmppClient::State)
 Q_DECLARE_METATYPE(QXmppMessage::State)
-Q_DECLARE_METATYPE(QXmppDiscoveryIq)
 Q_DECLARE_METATYPE(QXmppPresence)
 Q_DECLARE_METATYPE(QXmppStanza::Error)
 Q_DECLARE_METATYPE(QXmppResultSetReply)
@@ -304,7 +302,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<Message>();
     qRegisterMetaType<MessageModel *>();
     qRegisterMetaType<ChatHintModel *>();
-    qRegisterMetaType<DiscoveryManager *>();
+    qRegisterMetaType<DiscoveryController *>();
     qRegisterMetaType<VCardController *>();
     qRegisterMetaType<VersionController *>();
     qRegisterMetaType<RegistrationController *>();
@@ -368,7 +366,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QXmppResultSetReply>();
     qRegisterMetaType<QXmppMessage>();
     qRegisterMetaType<QXmppPresence>();
-    qRegisterMetaType<QXmppDiscoveryIq>();
     qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
     qRegisterMetaType<QXmppMixInfoItem>();
     qRegisterMetaType<QXmppMixParticipantItem>();

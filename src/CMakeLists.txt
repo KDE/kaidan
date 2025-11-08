@@ -74,8 +74,8 @@ target_sources(libkaidancore PRIVATE
     Database.h
     DataFormModel.cpp
     DataFormModel.h
-    DiscoveryManager.cpp
-    DiscoveryManager.h
+    DiscoveryController.cpp
+    DiscoveryController.h
     EmojiModel.cpp
     EmojiModel.h
     Encryption.h
