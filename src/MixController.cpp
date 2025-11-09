@@ -9,7 +9,6 @@
 #include <QXmppMixInvitation.h>
 #include <QXmppMixParticipantItem.h>
 #include <QXmppTask.h>
-#include <QXmppUri.h>
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
