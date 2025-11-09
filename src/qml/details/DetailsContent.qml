@@ -171,10 +171,7 @@ FormInfoContent {
 		FormCard.AbstractFormDelegate {
 			id: qrCodeArea
 			visible: qrCodeExpansionButton.checked
-			background: FormCard.FormDelegateBackground {
-				control: parent
-				color: secondaryBackgroundColor
-			}
+			background: NonInteractiveFormDelegateBackground {}
 			Layout.preferredWidth: parent.width
 			Layout.preferredHeight: Layout.preferredWidth
 		}

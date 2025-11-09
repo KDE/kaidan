@@ -1011,10 +1011,7 @@ DetailsContent {
 
 		FormCard.AbstractFormDelegate {
 			visible: loginQrCodeExpansionButton.checked
-			background: FormCard.FormDelegateBackground {
-				control: parent
-				color: secondaryBackgroundColor
-			}
+			background: NonInteractiveFormDelegateBackground {}
 			contentItem: LoginQrCode {
 				accountSettings: root.account.settings
 			}

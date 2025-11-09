@@ -13,10 +13,7 @@ import im.kaidan.kaidan
  */
 FormCard.FormTextDelegate {
 	id: root
-	background: FormCard.FormDelegateBackground {
-		control: parent
-		color: secondaryBackgroundColor
-	}
+	background: NonInteractiveFormDelegateBackground {}
 	trailing: Button {
 		id: copyButton
 		Controls.ToolTip.text: qsTr("Copy")
