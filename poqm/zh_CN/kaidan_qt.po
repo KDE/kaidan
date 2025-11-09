@@ -236,12 +236,9 @@ msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Cancel reply"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "取消回复"
+msgstr "已取消"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -250,20 +247,16 @@ msgid "Could not download file: %1"
 msgstr "无法下载文件：%1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "上传失败：%1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "无法下载文件：%1"
+msgstr "无法上传文件：%1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -286,26 +279,22 @@ msgid "Banned"
 msgstr "已封禁"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "联系人已复制到剪贴板"
+msgstr "无法将无效源复制到剪贴板：%1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "无法生成缩略图：%1 不存在"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "无法重命名群聊 %1：%2"
+msgstr "无法生成二维码：%1"
 
 #: src/MediaUtils.cpp:309
 msgctxt "MediaUtils|"
@@ -1334,12 +1323,12 @@ msgstr "您有需要验证才能对其进行加密的其他设备"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:58
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr "您还有未通过验证的其他设备"
+msgstr "您还有未验证的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:60
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr "您的所有其他已知设备都已通过验证"
+msgstr "您的所有其他已知设备均已通过验证"
 
 #: src/qml/details/AvatarChangePage.qml:23
 msgctxt "AvatarChangePage|"
@@ -1559,12 +1548,12 @@ msgstr "您的联系人有需要验证才能为其加密的设备"
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr "您的联系人有未通过验证的设备"
+msgstr "您的联系人有未验证的设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "您联系人的所有已知设备都已通过验证"
+msgstr "您联系人的所有已知设备均已通过验证"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1880,12 +1869,12 @@ msgstr "部分参与者有需要验证才能对其进行加密的设备"
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr "部分参与者有未通过验证的设备"
+msgstr "部分参与者有未验证的设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "所有参与者的已知设备都已通过验证"
+msgstr "所有参与者的已知设备均已通过验证"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -1973,61 +1962,39 @@ msgid "Notes Details"
 msgstr "备注详情"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "移除聊天备注和全部聊天记录"
+msgstr "移除提供者聊天以及全部聊天记录"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "正在移除聊天备注…"
+msgstr "正在移除提供者聊天…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "群聊详情"
+msgstr "提供者详情"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
-#, fuzzy
-#| msgctxt "NotesChatDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
+msgstr "此聊天中的消息来自您的服务提供者"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "群聊详情"
+msgstr "提供者详情"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2132,7 +2099,7 @@ msgstr "步骤 2：用您的其他设备扫描<b>此设备的</b>二维码"
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "未经验证的自己的设备"
+msgstr "未验证的自己的设备"
 
 #: src/qml/elements/AccountSelectionDialog.qml:40
 msgctxt "AccountSelectionDialog|"
@@ -2183,7 +2150,7 @@ msgstr "打开所选文件的文件夹"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "重新发送"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2406,9 +2373,6 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:21
-#, fuzzy
-#| msgctxt "GroupChatParticipantPicker|"
-#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "邀请联系人加入此群聊…"
@@ -2426,7 +2390,7 @@ msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr "未经验证的联系人设备"
+msgstr "未验证的联系人设备"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
 msgctxt "CopyFormTextDelegate|"
@@ -2635,7 +2599,7 @@ msgstr "步骤 2：让参与者扫描<b>您的</b>二维码"
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr "未经验证的参与者设备"
+msgstr "未验证的参与者设备"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
@@ -2671,7 +2635,7 @@ msgstr "验证设备"
 #: src/qml/elements/KeyAuthenticationPage.qml:96
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr "设备已通过验证"
+msgstr "设备已验证"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:100
 msgctxt "KeyAuthenticationPage|"
@@ -2682,7 +2646,7 @@ msgstr "指纹必须包含 64个字符，其中包括数字和从 a 到 f 的字
 #: src/qml/elements/KeyAuthenticationPage.qml:137
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr "已通过验证的自己的设备"
+msgstr "已验证的自己的设备"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:159
 msgctxt "KeyAuthenticationPage|"
@@ -2809,7 +2773,7 @@ msgstr "无法检索公开群聊：%1"
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr "联系人已添加 — 继续执行步骤 2"
+msgstr "联系人已添加 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
@@ -2819,12 +2783,12 @@ msgstr "此二维码不包含联系人"
 #: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
-msgstr "为其他自己的设备做出信任决定 — 继续执行步骤 2"
+msgstr "为其他自己的设备做出信任决定 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "为联系人做出信任决定 — 继续执行步骤 2"
+msgstr "为联系人做出信任决定 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
@@ -3450,9 +3414,6 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
 #: src/RosterItem.cpp:31
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "提供者"
@@ -3496,15 +3457,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "最大化头像"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "最大化头像"
-
-#~ msgctxt "QrCodeGenerator|"
-#~ msgid "Generating the QR code failed: %1"
-#~ msgstr "生成二维码失败：%1"
