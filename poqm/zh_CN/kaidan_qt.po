@@ -1294,12 +1294,12 @@ msgstr "您有需要验证才能对其进行加密的其他设备"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:58
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr "您还有未通过验证的其他设备"
+msgstr "您还有未验证的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:60
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr "您的所有其他已知设备都已通过验证"
+msgstr "您的所有其他已知设备均已通过验证"
 
 #: src/qml/details/AvatarChangePage.qml:23
 msgctxt "AvatarChangePage|"
@@ -1524,12 +1524,12 @@ msgstr "您的联系人有需要验证才能为其加密的设备"
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr "您的联系人有未通过验证的设备"
+msgstr "您的联系人有未验证的设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "您联系人的所有已知设备都已通过验证"
+msgstr "您联系人的所有已知设备均已通过验证"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1850,12 +1850,12 @@ msgstr "部分参与者有需要验证才能对其进行加密的设备"
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr "部分参与者有未通过验证的设备"
+msgstr "部分参与者有未验证的设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "所有参与者的已知设备都已通过验证"
+msgstr "所有参与者的已知设备均已通过验证"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -2045,7 +2045,7 @@ msgstr "步骤 2：用您的其他设备扫描<b>此设备的</b>二维码"
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "未经验证的自己的设备"
+msgstr "未验证的自己的设备"
 
 #: src/qml/elements/AccountSelectionDialog.qml:41
 msgctxt "AccountSelectionDialog|"
@@ -2326,7 +2326,7 @@ msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr "未经验证的联系人设备"
+msgstr "未验证的联系人设备"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:22
 msgctxt "CopyFormTextDelegate|"
@@ -2540,7 +2540,7 @@ msgstr "步骤 2：让参与者扫描<b>您的</b>二维码"
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr "未经验证的参与者设备"
+msgstr "未验证的参与者设备"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
@@ -2576,7 +2576,7 @@ msgstr "验证设备"
 #: src/qml/elements/KeyAuthenticationPage.qml:96
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr "设备已通过验证"
+msgstr "设备已验证"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:100
 msgctxt "KeyAuthenticationPage|"
@@ -2587,7 +2587,7 @@ msgstr "指纹必须包含 64个字符，其中包括数字和从 a 到 f 的字
 #: src/qml/elements/KeyAuthenticationPage.qml:137
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr "已通过验证的自己的设备"
+msgstr "已验证的自己的设备"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:159
 msgctxt "KeyAuthenticationPage|"
@@ -2714,7 +2714,7 @@ msgstr "无法检索公开群聊：%1"
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr "联系人已添加 — 继续执行步骤 2"
+msgstr "联系人已添加 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
@@ -2724,12 +2724,12 @@ msgstr "此二维码不包含联系人"
 #: src/qml/elements/QrCodeScanningArea.qml:69
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
-msgstr "为其他自己的设备做出信任决定 — 继续执行步骤 2"
+msgstr "为其他自己的设备做出信任决定 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:71
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "为联系人做出信任决定 — 继续执行步骤 2"
+msgstr "为联系人做出信任决定 - 继续执行步骤 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:78
 msgctxt "QrCodeScanningArea|"
