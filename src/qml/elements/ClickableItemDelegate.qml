@@ -33,14 +33,14 @@ Controls.ItemDelegate {
 			radius: roundedCornersRadius
 			color: {
 				const color = Kirigami.Theme.textColor
-				let colorOpacity = 0;
+				let colorOpacity = 0
 
 				if (root.pressed) {
-					colorOpacity = 0.2;
+					colorOpacity = 0.2
 				} else if (root.visualFocus) {
-					colorOpacity = 0.1;
+					colorOpacity = 0.1
 				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
-					colorOpacity = 0.07;
+					colorOpacity = 0.07
 				}
 
 				return Qt.rgba(color.r, color.g, color.b, colorOpacity)
