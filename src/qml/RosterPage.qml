@@ -132,7 +132,9 @@ SearchBarPage {
 					root.activeChatPage = pageStack.push(chatPage)
 				}
 
-				root.activeChatPage.initialize(accountJid, chatJid)
+				if ((root.activeChatPage.chatController.account && root.activeChatPage.chatController.account.settings.jid !== accountJid) || chatJid !== root.activeChatPage.chatController.jid) {
+					root.activeChatPage.initialize(accountJid, chatJid)
+				}
 
 				if (!pageStack.wideMode) {
 					pageStack.goForward()
