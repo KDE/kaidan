@@ -27,6 +27,14 @@ ConfirmationArea {
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
 		invalidHintText: qsTr("The address must have the form <b>group@server</b>")
 		Layout.fillWidth: true
+		inputField.onTextEdited: {
+			const jidOfXmppUri = Utils.jid(inputField.text)
+
+			if (jidOfXmppUri) {
+				// If the user inserts an XMPP URI into jidField, set jidField.text to the URI's JID.
+				inputField.text = jidOfXmppUri
+			}
+		}
 		inputField.onAccepted: {
 			if (valid) {
 				nicknameField.forceActiveFocus()
