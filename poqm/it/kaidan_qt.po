@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-13 13:59+0200\n"
+"PO-Revision-Date: 2025-11-07 09:48+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -247,12 +247,9 @@ msgid "Leaving group chat"
 msgstr "Uscita dalla chat di gruppo"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Annulla"
+msgstr "Annullato"
 
 #: src/FileSharingController.cpp:344
 #, qt-format
@@ -261,20 +258,16 @@ msgid "Could not download file: %1"
 msgstr "Impossibile scaricare il file: %1"
 
 #: src/FileSharingController.cpp:506
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Caricamento non riuscito: %1"
 
 #: src/FileSharingController.cpp:516
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Impossibile scaricare il file: %1"
+msgstr "Impossibile caricare il file: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2232,7 +2225,7 @@ msgstr "Apri la cartella del file selezionato"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Invia di nuovo"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
