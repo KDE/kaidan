@@ -97,7 +97,7 @@ RosterController::RosterController(AccountSettings *accountSettings,
     connect(RosterModel::instance(), &RosterModel::groupsChanged, this, &RosterController::groupsChanged);
 }
 
-RosterController::ContactAdditionWithUriResult RosterController::addContactWithUri(const QString &uriString)
+RosterController::ContactAdditionWithUriResult RosterController::addContactWithUri(const QString &uriString, const QString &name, const QString &message)
 {
     if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
         const auto uri = std::get<QXmppUri>(uriParsingResult);
@@ -112,7 +112,7 @@ RosterController::ContactAdditionWithUriResult RosterController::addContactWithU
             return ContactAdditionWithUriResult::ContactExists;
         }
 
-        addContact(jid);
+        addContact(jid, name, message);
 
         return ContactAdditionWithUriResult::AddingContact;
     }

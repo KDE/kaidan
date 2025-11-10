@@ -48,7 +48,7 @@ public:
      *
      * @param uriString XMPP URI string that contains only a JID
      */
-    Q_INVOKABLE ContactAdditionWithUriResult addContactWithUri(const QString &uriString);
+    Q_INVOKABLE ContactAdditionWithUriResult addContactWithUri(const QString &uriString, const QString &name = {}, const QString &message = {});
 
     /**
      * Adds a contact to the roster.

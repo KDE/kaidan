@@ -153,6 +153,15 @@ QString QmlUtils::invitationUrlString(const QString &uri)
     return QStringLiteral(INVITATION_URL) + uri.mid(5);
 }
 
+QString QmlUtils::jid(const QString &uriString)
+{
+    if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+        return std::get<QXmppUri>(uriParsingResult).jid();
+    }
+
+    return {};
+}
+
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 {
     return QUrl(groupChatUriString(groupChatJid));

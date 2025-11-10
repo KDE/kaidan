@@ -25,19 +25,35 @@ ConfirmationArea {
 	property alias jidField: jidField
 	property alias jid: jidField.text
 	property alias name: nameField.text
+	property string xmppUri
 
 	confirmationButton.text: qsTr("Add")
 	confirmationButton.onClicked: {
-		if (RosterModel.hasItem(account.settings.jid, jid)) {
-			showPassiveNotification(qsTr("Contact already exists"),
-									"long",
-									qsTr("Open chat"),
-									function () {
-										MainController.openChatPageRequested(account.settings.jid, jid)
-									})
-		} else if (jidField.valid) {
+		if (jidField.valid) {
 			busy = true
-			account.rosterController.addContact(jid, name, messageField.text)
+
+			// If the user inserted an XMPP URI into jidField, process that URI including possible trust decisions.
+			// Otherwise, simply add the contact.
+			switch (account.rosterController.addContactWithUri(xmppUri, name, messageField.text)) {
+			case RosterController.ContactAdditionWithUriResult.AddingContact:
+				// Try to authenticate or distrust keys.
+				switch (account.atmController.makeTrustDecisionsWithUri(xmppUri)) {
+				case AtmController.TrustDecisionWithUriResult.MakingTrustDecisions:
+					showPassiveNotification(qsTr("Trust decisions made for contact"), Kirigami.Units.veryLongDuration * 4)
+					break
+				case AtmController.TrustDecisionWithUriResult.JidUnexpected:
+					break
+				case AtmController.TrustDecisionWithUriResult.InvalidUri:
+					break
+				}
+
+				break
+			case RosterController.ContactAdditionWithUriResult.ContactExists:
+				break
+			case RosterController.ContactAdditionWithUriResult.InvalidUri:
+				account.rosterController.addContact(jid, name, messageField.text)
+				break
+			}
 		} else {
 			jidField.invalidHintMayBeShown = true
 			jidField.forceActiveFocus()
@@ -48,6 +64,18 @@ ConfirmationArea {
 	JidField {
 		id: jidField
 		Layout.fillWidth: true
+		inputField.onTextEdited: {
+			const jidOfXmppUri = Utils.jid(inputField.text)
+
+			if (jidOfXmppUri) {
+				// If the user inserts an XMPP URI into jidField, cache that URI in the background and set jidField.text to the URI's JID.
+				root.xmppUri = inputField.text
+				inputField.text = jidOfXmppUri
+			} else {
+				// Reset a cached URI if jidField.text is changed by the user afterwards.
+				root.xmppUri = ""
+			}
+		}
 		inputField.onAccepted: {
 			if (valid) {
 				nameField.forceActiveFocus()

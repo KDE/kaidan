@@ -104,6 +104,13 @@ public:
     Q_INVOKABLE static QString invitationUrlString(const QString &uri);
 
     /**
+     * Returns the JID of an XMPP URI.
+     *
+     * If the URI is not valid, a default-constructed string is returned.
+     */
+    Q_INVOKABLE static QString jid(const QString &uriString);
+
+    /**
      * Returns an XMPP URI for opening a group chat.
      *
      * @param groupChatJid JID of the group chat
