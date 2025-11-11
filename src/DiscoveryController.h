@@ -22,15 +22,16 @@ public:
     ~DiscoveryController();
 
 private:
+    void updateData();
+
     /**
-     * Requests disco info and items from the server and updates the locally cached data.
+     * Requests disco info and items for the server JID and updates the locally cached data.
      *
      * The results are used, for example, by various managers such as QXmppMixManager.
      */
-    void updateData();
+    void updateDataForManagers();
 
     void handleOwnServerInfo(QXmppDiscoInfo &&info);
-    void handleOwnServerItems(QList<QXmppDiscoItem> &&items);
 
     AccountSettings *const m_accountSettings;
     QXmppDiscoveryManager *const m_manager;

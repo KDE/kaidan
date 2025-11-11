@@ -56,11 +56,6 @@ DiscoveryController::~DiscoveryController()
 
 void DiscoveryController::updateData()
 {
-    // Get info for the user JID.
-    runOnThread(m_manager, [this]() {
-        m_manager->info({});
-    });
-
     const auto serverJid = QXmppUtils::jidToDomain(m_accountSettings->jid());
 
     callRemoteTask(
@@ -77,17 +72,38 @@ void DiscoveryController::updateData()
             }
         });
 
+    updateDataForManagers();
+}
+
+void DiscoveryController::updateDataForManagers()
+{
+    // Get info for the user JID.
+    runOnThread(m_manager, [this]() {
+        m_manager->requestInfo({});
+    });
+
+    const auto serverJid = QXmppUtils::jidToDomain(m_accountSettings->jid());
+
+    runOnThread(m_manager, [this, serverJid]() {
+        m_manager->requestInfo(serverJid);
+    });
+
     callRemoteTask(
         m_manager,
         [this, serverJid]() {
-            return std::pair{m_manager->items(serverJid), this};
+            return std::pair{m_manager->requestDiscoItems(serverJid), this};
         },
         this,
-        [this, serverJid](QXmpp::Result<QList<QXmppDiscoItem>> &&result) mutable {
+        [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) mutable {
             if (const auto *error = std::get_if<QXmppError>(&result)) {
                 qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery items of %1: %2").arg(serverJid, error->description);
             } else {
-                handleOwnServerItems(std::get<QList<QXmppDiscoItem>>(std::move(result)));
+                const auto items = std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result));
+
+                // Get info of all child items.
+                for (const auto &item : items) {
+                    m_manager->requestInfo(item.jid());
+                }
             }
         });
 }
@@ -117,14 +133,4 @@ void DiscoveryController::handleOwnServerInfo(QXmppDiscoInfo &&info)
             return {};
         }));
     }
-}
-
-void DiscoveryController::handleOwnServerItems(QList<QXmppDiscoItem> &&items)
-{
-    runOnThread(m_manager, [this, items = std::move(items)]() {
-        // Get info of all child items.
-        for (const auto &item : items) {
-            m_manager->info(item.jid());
-        }
-    });
 }
