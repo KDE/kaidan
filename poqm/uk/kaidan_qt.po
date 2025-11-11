@@ -15,44 +15,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "З'єднано"
 
-#: src/Account.cpp:457
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Account.cpp:459
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Від'єднано"
 
-#: src/Account.cpp:470
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/Account.cpp:472
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/Account.cpp:474
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/Account.cpp:476
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/Account.cpp:478
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/Account.cpp:480
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/Account.cpp:482
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/Account.cpp:484
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/Account.cpp:486
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,19 +85,19 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/Account.cpp:488
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/Account.cpp:490
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
@@ -250,24 +250,24 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Полишаємо групове спілкування"
 
-#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Скасовано"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:393
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
-#: src/FileSharingController.cpp:506
+#: src/FileSharingController.cpp:555
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Невдала спроба вивантаження: %1"
 
-#: src/FileSharingController.cpp:516
+#: src/FileSharingController.cpp:565
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
@@ -519,76 +519,76 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: src/MixController.cpp:116
+#: src/MixController.cpp:115
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Така група вже існує"
 
-#: src/MixController.cpp:144
+#: src/MixController.cpp:143
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Не вдалося визначити, чи є %1 загальнодоступною: %2"
 
-#: src/MixController.cpp:164
+#: src/MixController.cpp:163
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Не вдалося отримати відомості щодо групи %1: %2"
 
-#: src/MixController.cpp:176 src/MixController.cpp:185
+#: src/MixController.cpp:175 src/MixController.cpp:184
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Не вдалося перейменувати групу %1: %2"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:211
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Групи не існує"
 
-#: src/MixController.cpp:215
+#: src/MixController.cpp:214
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Ви не можете долучитися до групи"
 
-#: src/MixController.cpp:275 src/MixController.cpp:287
+#: src/MixController.cpp:274 src/MixController.cpp:286
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 не можна запросити до %2: %3"
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати вузли %1: %2"
 
-#: src/MixController.cpp:334
+#: src/MixController.cpp:333
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список дозволених користувачів %1: %2"
 
-#: src/MixController.cpp:354
+#: src/MixController.cpp:353
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список заблокованих користувачів %1: %2"
 
-#: src/MixController.cpp:375
+#: src/MixController.cpp:374
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Не вдалося отримати список долучених користувачів %1: %2"
 
-#: src/MixController.cpp:391
+#: src/MixController.cpp:390
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Не вдалося заблокувати %1 у %2: %3"
 
-#: src/MixController.cpp:448
+#: src/MixController.cpp:447
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам заборонено вилучення групи"
@@ -896,79 +896,79 @@ msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr "Інтернет"
 
-#: src/qml/details/AccountDetailsContent.qml:380
+#: src/qml/details/AccountDetailsContent.qml:378
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Надавач послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:384
+#: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Відвідати сайт"
 
-#: src/qml/details/AccountDetailsContent.qml:385
+#: src/qml/details/AccountDetailsContent.qml:383
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Відкрити сайт вашого надавача послуг у браузері"
 
-#: src/qml/details/AccountDetailsContent.qml:391
+#: src/qml/details/AccountDetailsContent.qml:389
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Копіювати адресу сайта"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Скопіювати адресу вашого надавача послуг до буфера обміну даними"
 
-#: src/qml/details/AccountDetailsContent.qml:396
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Адресу сайта скопійовано до буфера даних."
 
-#: src/qml/details/AccountDetailsContent.qml:401
+#: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Відкрити спілкування з підтримкою"
 
-#: src/qml/details/AccountDetailsContent.qml:402
+#: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Почати спілкування на каналі супроводу вашого надавача послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:408
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Підтримка"
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:424
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Підтримати %1"
 
-#: src/qml/details/AccountDetailsContent.qml:451
+#: src/qml/details/AccountDetailsContent.qml:441
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Відкрити групу підтримки"
 
-#: src/qml/details/AccountDetailsContent.qml:452
+#: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Долучитися до відкритої групи супроводу вашого надавача послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:478
+#: src/qml/details/AccountDetailsContent.qml:460
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Підтримка групи %1"
 
-#: src/qml/details/AccountDetailsContent.qml:493
+#: src/qml/details/AccountDetailsContent.qml:475
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Заблоковані адреси спілкування"
 
-#: src/qml/details/AccountDetailsContent.qml:497
+#: src/qml/details/AccountDetailsContent.qml:479
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -977,54 +977,54 @@ msgstr ""
 "Блокувати певного користувача (наприклад, користувач@приклад.org) або усіх "
 "користувачів якогось сервера (наприклад, приклад.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:525
+#: src/qml/details/AccountDetailsContent.qml:507
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "Вам слід встановити з'єднання, щоб мати змогу блокувати або розблоковувати "
 "адреси спілкування"
 
-#: src/qml/details/AccountDetailsContent.qml:533
+#: src/qml/details/AccountDetailsContent.qml:515
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "користувач@приклад.org"
 
-#: src/qml/details/AccountDetailsContent.qml:548
+#: src/qml/details/AccountDetailsContent.qml:530
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Заблокувати адресу у спілкуванні"
 
-#: src/qml/details/AccountDetailsContent.qml:610
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Змінити адресу спілкування…"
 
-#: src/qml/details/AccountDetailsContent.qml:641
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Розблокувати"
 
-#: src/qml/details/AccountDetailsContent.qml:665
+#: src/qml/details/AccountDetailsContent.qml:647
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: src/qml/details/AccountDetailsContent.qml:671
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Додати спілкування для нотаток"
 
-#: src/qml/details/AccountDetailsContent.qml:672
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Додаємо обмін нотатками…"
 
-#: src/qml/details/AccountDetailsContent.qml:673
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Додати спілкування для синхронізації ваших нотаток на усіх пристроях"
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1033,12 +1033,12 @@ msgstr ""
 "Список нотаток не може бути додано до вашого списку контактів, оскільки на "
 "вашому сервері не передбачено відповідної можливості"
 
-#: src/qml/details/AccountDetailsContent.qml:721
+#: src/qml/details/AccountDetailsContent.qml:703
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Зміна пароля"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:707
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -1047,64 +1047,64 @@ msgstr ""
 "Змінити ваш пароль. Вам доведеться повторно ввести його на усіх інших ваших "
 "пристроях."
 
-#: src/qml/details/AccountDetailsContent.qml:734
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Поточний пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Введіть ваш поточний пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:736
+#: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Введіть правильний пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:749
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Новий пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:749
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:1019
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:750
+#: src/qml/details/AccountDetailsContent.qml:732
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Введіть ваш новий пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:752
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Введіть інший пароль, щоб змінити його"
 
-#: src/qml/details/AccountDetailsContent.qml:763
+#: src/qml/details/AccountDetailsContent.qml:745
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:785
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Не вдалося змінити пароль: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:809
+#: src/qml/details/AccountDetailsContent.qml:791
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Пароль успішно змінено"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Видимість пароля"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1118,12 +1118,12 @@ msgstr ""
 "варто зберегти пароль в якомусь іншому місці. Скасувати наслідки цієї дії "
 "неможливо!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Не показувати пароль як текст"
 
-#: src/qml/details/AccountDetailsContent.qml:852
+#: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1132,17 +1132,17 @@ msgstr ""
 "Дозволити додавати пристрої за допомогою QR-коду, але ніколи не показувати "
 "пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:859
+#: src/qml/details/AccountDetailsContent.qml:841
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Вилучаємо пароль з тексту…"
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Не показувати пароль у будь-який спосіб"
 
-#: src/qml/details/AccountDetailsContent.qml:866
+#: src/qml/details/AccountDetailsContent.qml:848
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1151,17 +1151,17 @@ msgstr ""
 "Не дозволяти додавати пристрої, у яких для входу використовуватиметься QR-"
 "код, і не показувати пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:873
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Вилучаємо пароль з тексту та QR-коду…"
 
-#: src/qml/details/AccountDetailsContent.qml:883
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "З'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:887
+#: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1170,33 +1170,33 @@ msgstr ""
 "Налаштувати назву вузла і порт для з'єднання (не заповнюйте поля, щоб "
 "скористатися типовими значеннями)"
 
-#: src/qml/details/AccountDetailsContent.qml:903
+#: src/qml/details/AccountDetailsContent.qml:885
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Змінити параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:912
+#: src/qml/details/AccountDetailsContent.qml:894
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Введіть інші параметри з'єднання, щоб змінити їх"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:943
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Не вдалося змінити параметри з'єднання: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:976
+#: src/qml/details/AccountDetailsContent.qml:958
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Змінено параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:996
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Перемкнути пристрій"
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:982
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1205,54 +1205,54 @@ msgstr ""
 "Ніколи не показуйте дані з цього розділу стороннім особам. Ці дані нададуть "
 "необмежений доступ до вашого облікового запису!"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Показати вхідний QR-код"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:989
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Скануйте QR-код з іншого пристрою для того, щоб увійти до нього"
 
-#: src/qml/details/AccountDetailsContent.qml:1027
+#: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Показати реєстраційні дані"
 
-#: src/qml/details/AccountDetailsContent.qml:1028
+#: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "Введіть реєстраційні дані на іншому пристрої, щоб увійти до облікового "
 "запису на ньому"
 
-#: src/qml/details/AccountDetailsContent.qml:1034
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Адреса спілкування"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1031
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Перенесення"
 
-#: src/qml/details/AccountDetailsContent.qml:1057
+#: src/qml/details/AccountDetailsContent.qml:1036
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Перенести обліковий запис"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1037
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Готуємося до перенесення облікового запису…"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "Зачекайте"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1264,17 +1264,17 @@ msgstr ""
 "Створіть резервну копію реєстраційних даних і журналу спілкування, якщо це "
 "потрібно!"
 
-#: src/qml/details/AccountDetailsContent.qml:1082
+#: src/qml/details/AccountDetailsContent.qml:1061
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/AccountDetailsContent.qml:1088
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Вилучити з Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1089
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1283,17 +1283,17 @@ msgstr ""
 "Вилучити обліковий запис з цієї програми. Створіть резервну копію "
 "реєстраційних даних і журналу спілкування, якщо це потрібно!"
 
-#: src/qml/details/AccountDetailsContent.qml:1097
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Вилучаємо запис…"
 
-#: src/qml/details/AccountDetailsContent.qml:1104
+#: src/qml/details/AccountDetailsContent.qml:1083
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Повністю вилучити"
 
-#: src/qml/details/AccountDetailsContent.qml:1105
+#: src/qml/details/AccountDetailsContent.qml:1084
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1301,12 +1301,12 @@ msgstr ""
 "Вилучити обліковий запис з бази даних надавача послуг. Ви більше не зможете "
 "скористатися вашим обліковим записом!"
 
-#: src/qml/details/AccountDetailsContent.qml:1113
+#: src/qml/details/AccountDetailsContent.qml:1092
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Вилучаємо запис…"
 
-#: src/qml/details/AccountDetailsContent.qml:1120
+#: src/qml/details/AccountDetailsContent.qml:1099
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1659,27 +1659,27 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Показати QR-код"
 
-#: src/qml/details/DetailsContent.qml:184
+#: src/qml/details/DetailsContent.qml:181
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Копіювати QR-код"
 
-#: src/qml/details/DetailsContent.qml:186
+#: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "QR-код скопійовано до буфера обміну"
 
-#: src/qml/details/DetailsContent.qml:191
+#: src/qml/details/DetailsContent.qml:188
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Копіювати адресу спілкування"
 
-#: src/qml/details/DetailsContent.qml:197
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr "Скопіювати посилання запрошення"
 
-#: src/qml/details/DetailsContent.qml:199
+#: src/qml/details/DetailsContent.qml:196
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Посилання на запрошення скопійовано до буфера обміну даними"
@@ -2477,7 +2477,7 @@ msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "Неперевірені пристрої контактів"
 
-#: src/qml/elements/CopyFormTextDelegate.qml:22
+#: src/qml/elements/CopyFormTextDelegate.qml:19
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Копіювати"

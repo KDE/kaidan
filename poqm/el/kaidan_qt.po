@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: el\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -15,7 +15,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/Account.cpp:457
+#: src/Account.cpp:481
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -23,71 +23,71 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/Account.cpp:459
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr ""
 
-#: src/Account.cpp:470
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr ""
 
-#: src/Account.cpp:472
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:474
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr ""
 
-#: src/Account.cpp:476
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr ""
 
-#: src/Account.cpp:478
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:480
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr ""
 
-#: src/Account.cpp:482
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr ""
 
-#: src/Account.cpp:484
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr ""
 
-#: src/Account.cpp:486
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:488
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr ""
 
-#: src/Account.cpp:490
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:492
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
@@ -242,7 +242,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Cancel"
@@ -250,19 +250,19 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Ακύρωση"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:393
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:506
+#: src/FileSharingController.cpp:555
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:516
+#: src/FileSharingController.cpp:565
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
@@ -519,76 +519,76 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
 
-#: src/MixController.cpp:116
+#: src/MixController.cpp:115
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr ""
 
-#: src/MixController.cpp:144
+#: src/MixController.cpp:143
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr ""
 
-#: src/MixController.cpp:164
+#: src/MixController.cpp:163
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:176 src/MixController.cpp:185
+#: src/MixController.cpp:175 src/MixController.cpp:184
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:211
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr ""
 
-#: src/MixController.cpp:215
+#: src/MixController.cpp:214
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:275 src/MixController.cpp:287
+#: src/MixController.cpp:274 src/MixController.cpp:286
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr ""
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr ""
 
-#: src/MixController.cpp:334
+#: src/MixController.cpp:333
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr ""
 
-#: src/MixController.cpp:354
+#: src/MixController.cpp:353
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr ""
 
-#: src/MixController.cpp:375
+#: src/MixController.cpp:374
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr ""
 
-#: src/MixController.cpp:391
+#: src/MixController.cpp:390
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr ""
 
-#: src/MixController.cpp:448
+#: src/MixController.cpp:447
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
@@ -903,12 +903,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:380
+#: src/qml/details/AccountDetailsContent.qml:378
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:384
+#: src/qml/details/AccountDetailsContent.qml:382
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "Website"
@@ -916,12 +916,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Ιστότοπος"
 
-#: src/qml/details/AccountDetailsContent.qml:385
+#: src/qml/details/AccountDetailsContent.qml:383
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:391
+#: src/qml/details/AccountDetailsContent.qml:389
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -929,54 +929,54 @@ msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:396
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:401
+#: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:402
+#: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:408
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:424
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:451
+#: src/qml/details/AccountDetailsContent.qml:441
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:452
+#: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:478
+#: src/qml/details/AccountDetailsContent.qml:460
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:493
+#: src/qml/details/AccountDetailsContent.qml:475
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -984,24 +984,24 @@ msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Διεύθυνση συνομιλίας:"
 
-#: src/qml/details/AccountDetailsContent.qml:497
+#: src/qml/details/AccountDetailsContent.qml:479
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:525
+#: src/qml/details/AccountDetailsContent.qml:507
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:533
+#: src/qml/details/AccountDetailsContent.qml:515
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:548
+#: src/qml/details/AccountDetailsContent.qml:530
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1009,7 +1009,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
-#: src/qml/details/AccountDetailsContent.qml:610
+#: src/qml/details/AccountDetailsContent.qml:592
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1017,22 +1017,22 @@ msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
-#: src/qml/details/AccountDetailsContent.qml:641
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:665
+#: src/qml/details/AccountDetailsContent.qml:647
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:671
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:672
+#: src/qml/details/AccountDetailsContent.qml:654
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1040,19 +1040,19 @@ msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/AccountDetailsContent.qml:673
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:721
+#: src/qml/details/AccountDetailsContent.qml:703
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1060,7 +1060,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:707
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -1074,7 +1074,7 @@ msgstr ""
 "Αφού αλλάξετε τον κωδικό πρόσβασής σας, θα πρέπει να τον εισαγάγετε ξανά σε "
 "όλες τις άλλες συσκευές σας."
 
-#: src/qml/details/AccountDetailsContent.qml:734
+#: src/qml/details/AccountDetailsContent.qml:716
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -1082,7 +1082,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Ο τρέχων κωδικός δεν είναι έγκυρος."
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:717
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1090,7 +1090,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:736
+#: src/qml/details/AccountDetailsContent.qml:718
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1098,7 +1098,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:749
+#: src/qml/details/AccountDetailsContent.qml:731
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1106,8 +1106,8 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Νέος κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:749
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:1019
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1115,7 +1115,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:750
+#: src/qml/details/AccountDetailsContent.qml:732
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1123,12 +1123,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:752
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:763
+#: src/qml/details/AccountDetailsContent.qml:745
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1136,13 +1136,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Νέος κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:785
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Αποτυχία αλλαγής κωδικού πρόσβασης: % 1"
 
-#: src/qml/details/AccountDetailsContent.qml:809
+#: src/qml/details/AccountDetailsContent.qml:791
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -1150,7 +1150,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Ο κωδικός άλλαξε επιτυχώς"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:823
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1158,7 +1158,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1167,7 +1167,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:833
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't show password"
@@ -1175,7 +1175,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Να μην εμφανίζεται κωδικός πρόσβασης"
 
-#: src/qml/details/AccountDetailsContent.qml:852
+#: src/qml/details/AccountDetailsContent.qml:834
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1189,7 +1189,7 @@ msgstr ""
 "Επιτρέψτε να προσθέσετε επιπλέον συσκευές χρησιμοποιώντας τον κωδικό QR "
 "σύνδεσης, αλλά ποτέ να μην εμφανίζεται ο κωδικός πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:859
+#: src/qml/details/AccountDetailsContent.qml:841
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -1197,7 +1197,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Αντιγραφή κωδικού πρόσβασης"
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:847
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -1205,7 +1205,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Μην εκθέτετε τον κωδικό πρόσβασης με κανέναν τρόπο"
 
-#: src/qml/details/AccountDetailsContent.qml:866
+#: src/qml/details/AccountDetailsContent.qml:848
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1219,24 +1219,24 @@ msgstr ""
 "Να μην επιτρέπεται η προσθήκη επιπλέον συσκευών χρησιμοποιώντας τον κωδικό "
 "QR σύνδεσης ούτε η εμφάνιση του κωδικού πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:873
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:883
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:887
+#: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:903
+#: src/qml/details/AccountDetailsContent.qml:885
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1244,28 +1244,28 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:912
+#: src/qml/details/AccountDetailsContent.qml:894
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:943
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:976
+#: src/qml/details/AccountDetailsContent.qml:958
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:996
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:982
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1287,7 +1287,7 @@ msgstr ""
 "Ποτέ μην εμφανίζετε αυτόν τον κωδικό QR σε κανέναν άλλο. Θα επέτρεπε "
 "απεριόριστη πρόσβαση στον λογαριασμό σας!"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:988
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -1295,7 +1295,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Εμφάνιση ως κωδικός QR"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:989
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1315,12 +1315,12 @@ msgstr ""
 "Ποτέ μην εμφανίζετε αυτόν τον κωδικό QR σε κανέναν άλλο. Θα επέτρεπε "
 "απεριόριστη πρόσβαση στον λογαριασμό σας!"
 
-#: src/qml/details/AccountDetailsContent.qml:1027
+#: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1028
+#: src/qml/details/AccountDetailsContent.qml:1007
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1340,7 +1340,7 @@ msgstr ""
 "Ποτέ μην εμφανίζετε αυτόν τον κωδικό QR σε κανέναν άλλο. Θα επέτρεπε "
 "απεριόριστη πρόσβαση στον λογαριασμό σας!"
 
-#: src/qml/details/AccountDetailsContent.qml:1034
+#: src/qml/details/AccountDetailsContent.qml:1013
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1348,7 +1348,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Διεύθυνση συνομιλίας:"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1031
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -1356,12 +1356,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Σίγαση ειδοποιήσεων"
 
-#: src/qml/details/AccountDetailsContent.qml:1057
+#: src/qml/details/AccountDetailsContent.qml:1036
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1037
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1369,12 +1369,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1382,24 +1382,24 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1082
+#: src/qml/details/AccountDetailsContent.qml:1061
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1088
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1089
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1097
+#: src/qml/details/AccountDetailsContent.qml:1076
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1407,7 +1407,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/AccountDetailsContent.qml:1104
+#: src/qml/details/AccountDetailsContent.qml:1083
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1415,13 +1415,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:1105
+#: src/qml/details/AccountDetailsContent.qml:1084
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1113
+#: src/qml/details/AccountDetailsContent.qml:1092
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1429,7 +1429,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/AccountDetailsContent.qml:1120
+#: src/qml/details/AccountDetailsContent.qml:1099
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1800,7 +1800,7 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Εμφάνιση ως κωδικός QR"
 
-#: src/qml/details/DetailsContent.qml:184
+#: src/qml/details/DetailsContent.qml:181
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -1808,12 +1808,12 @@ msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Εμφάνιση ως κωδικός QR"
 
-#: src/qml/details/DetailsContent.qml:186
+#: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:191
+#: src/qml/details/DetailsContent.qml:188
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1821,12 +1821,12 @@ msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
-#: src/qml/details/DetailsContent.qml:197
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:199
+#: src/qml/details/DetailsContent.qml:196
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr ""
@@ -2732,7 +2732,7 @@ msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr ""
 
-#: src/qml/elements/CopyFormTextDelegate.qml:22
+#: src/qml/elements/CopyFormTextDelegate.qml:19
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr ""

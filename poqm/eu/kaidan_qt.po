@@ -20,44 +20,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.08.1\n"
 
-#: src/Account.cpp:455
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konektatuta"
 
-#: src/Account.cpp:457
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
-#: src/Account.cpp:459
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Deskonektatuta"
 
-#: src/Account.cpp:470
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Erabiltzaile-izen edo pasahitz baliogabea."
 
-#: src/Account.cpp:472
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ezin du zerbitzariarekin konektatu. Mesedez, egiaztatu zure Interneterako "
 "konexioa."
 
-#: src/Account.cpp:474
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Errorea era seguruan konektatzen saiatzean."
 
-#: src/Account.cpp:476
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Zerbitzariak ez ditu konexio seguruak onartzen."
 
-#: src/Account.cpp:478
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -66,22 +66,22 @@ msgstr ""
 "Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
-#: src/Account.cpp:480
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
 
-#: src/Account.cpp:482
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
 
-#: src/Account.cpp:484
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ezin izan da konexioa berritu."
 
-#: src/Account.cpp:486
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -90,18 +90,18 @@ msgstr ""
 "Interneterako sarbidea ez dago baimenduta. Mesedez, egiaztatu zure "
 "sistemaren interneterako sarbidearen konfigurazioa."
 
-#: src/Account.cpp:488
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 
-#: src/Account.cpp:490
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ezin izan da zerbitzariarekin konektatu."
@@ -253,19 +253,19 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Talde-berriketatik alde egitea"
 
-#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:423
+#: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
 #, fuzzy
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Utzi"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:393
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ezin izan da fitxategia zama-jaitsi: %1"
 
-#: src/FileSharingController.cpp:506
+#: src/FileSharingController.cpp:555
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -273,7 +273,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Zama-igotzea huts egin du: %1"
 
-#: src/FileSharingController.cpp:516
+#: src/FileSharingController.cpp:565
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
@@ -526,76 +526,76 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Atzo"
 
-#: src/MixController.cpp:116
+#: src/MixController.cpp:115
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Taldea dagoeneko existitzen da"
 
-#: src/MixController.cpp:144
+#: src/MixController.cpp:143
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "ezin izan da %1 publikoa den zehaztu : %2"
 
-#: src/MixController.cpp:164
+#: src/MixController.cpp:163
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Ezin izan da %1 taldearen informazioa berreskuratu: %2"
 
-#: src/MixController.cpp:176 src/MixController.cpp:185
+#: src/MixController.cpp:175 src/MixController.cpp:184
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Ezin izan da %1 talde berrizendatu: %2"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:211
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Taldea ez da existitzen"
 
-#: src/MixController.cpp:215
+#: src/MixController.cpp:214
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Ez duzu taldera sartzeko baimenik"
 
-#: src/MixController.cpp:275 src/MixController.cpp:287
+#: src/MixController.cpp:274 src/MixController.cpp:286
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Ezin izan da %1 %2(e)ra gonbidatu: %3"
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1(e)ren nodoak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:334
+#: src/MixController.cpp:333
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1(e)ren baimendutako erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:354
+#: src/MixController.cpp:353
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1(e)tik debekua duten erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:375
+#: src/MixController.cpp:374
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1(e)tik elkartu diren erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:391
+#: src/MixController.cpp:390
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1(e)ri ezin izan zaio %2(e)rekiko debekua ipini: %3"
 
-#: src/MixController.cpp:448
+#: src/MixController.cpp:447
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Ez duzu taldea ezabatzeko baimenik"
@@ -896,79 +896,79 @@ msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr "Web"
 
-#: src/qml/details/AccountDetailsContent.qml:380
+#: src/qml/details/AccountDetailsContent.qml:378
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Hornitzailea"
 
-#: src/qml/details/AccountDetailsContent.qml:384
+#: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Bisitatu webgunea"
 
-#: src/qml/details/AccountDetailsContent.qml:385
+#: src/qml/details/AccountDetailsContent.qml:383
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Ireki zure hornitzailearen webgunea web arakatzaile batean"
 
-#: src/qml/details/AccountDetailsContent.qml:391
+#: src/qml/details/AccountDetailsContent.qml:389
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopiatu webgunearen helbidea"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Kopiatu zure hornitzailearen webgunearen helbidea arbelera"
 
-#: src/qml/details/AccountDetailsContent.qml:396
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Webgunearen helbidea arbelera kopiatu da"
 
-#: src/qml/details/AccountDetailsContent.qml:401
+#: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Ireki laguntza-berriketa"
 
-#: src/qml/details/AccountDetailsContent.qml:402
+#: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Hasi berriketa bat zure hornitzailearen laguntza kontaktuarekin"
 
-#: src/qml/details/AccountDetailsContent.qml:408
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Laguntza"
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:424
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Laguntza %1"
 
-#: src/qml/details/AccountDetailsContent.qml:451
+#: src/qml/details/AccountDetailsContent.qml:441
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Ireki laguntza-taldea"
 
-#: src/qml/details/AccountDetailsContent.qml:452
+#: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Batu zure hornitzailearen laguntza-talde publikora"
 
-#: src/qml/details/AccountDetailsContent.qml:478
+#: src/qml/details/AccountDetailsContent.qml:460
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "%1 laguntza taldea"
 
-#: src/qml/details/AccountDetailsContent.qml:493
+#: src/qml/details/AccountDetailsContent.qml:475
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Blokeatutako berriketa-helbideak"
 
-#: src/qml/details/AccountDetailsContent.qml:497
+#: src/qml/details/AccountDetailsContent.qml:479
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -977,55 +977,55 @@ msgstr ""
 "Blokeatu erabiltzaile jakin bat (adib. erabiltzailea@adibidea.org) edo "
 "zerbitzari bereko erabiltzaile guztiak (adib. adibidea.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:525
+#: src/qml/details/AccountDetailsContent.qml:507
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "Konektatuta egon behar duzu berriketa-helbideak blokeatzeko edo "
 "desblokeatzeko"
 
-#: src/qml/details/AccountDetailsContent.qml:533
+#: src/qml/details/AccountDetailsContent.qml:515
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "erabiltzailea@adibidea.org"
 
-#: src/qml/details/AccountDetailsContent.qml:548
+#: src/qml/details/AccountDetailsContent.qml:530
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Blokeatu berriketa-helbidea"
 
-#: src/qml/details/AccountDetailsContent.qml:610
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Aldatu berriketa-helbidea..."
 
-#: src/qml/details/AccountDetailsContent.qml:641
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Desblokeatu"
 
-#: src/qml/details/AccountDetailsContent.qml:665
+#: src/qml/details/AccountDetailsContent.qml:647
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Oharrak"
 
-#: src/qml/details/AccountDetailsContent.qml:671
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Gehitu oharretarako berriketa"
 
-#: src/qml/details/AccountDetailsContent.qml:672
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Oharren berriketa gehitzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:673
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "Gehitu zure gailu guztien artean zure oharrak sinkronizatzeko berriketa bat"
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1034,12 +1034,12 @@ msgstr ""
 "Ohar-berriketa ezin izan da zure kontaktuen zerrendara gehitu zure "
 "zerbitzariak ez duelako hori onartzen"
 
-#: src/qml/details/AccountDetailsContent.qml:721
+#: src/qml/details/AccountDetailsContent.qml:703
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Pasahitz aldaketa"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:707
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -1048,64 +1048,64 @@ msgstr ""
 "Aldatu zure pasahitza. Pasahitz berria sartu behar duzu zure beste gailu "
 "guztietan!"
 
-#: src/qml/details/AccountDetailsContent.qml:734
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Egungo pasahitza"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Sartu zure egungo pasahitza"
 
-#: src/qml/details/AccountDetailsContent.qml:736
+#: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Sartu pasahitz zuzena"
 
-#: src/qml/details/AccountDetailsContent.qml:749
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Pasahitz berria"
 
-#: src/qml/details/AccountDetailsContent.qml:749
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:1019
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Pasahitza"
 
-#: src/qml/details/AccountDetailsContent.qml:750
+#: src/qml/details/AccountDetailsContent.qml:732
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Sartu zure pasahitz berria"
 
-#: src/qml/details/AccountDetailsContent.qml:752
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Sartu beste pasahitz bat hura aldatzeko"
 
-#: src/qml/details/AccountDetailsContent.qml:763
+#: src/qml/details/AccountDetailsContent.qml:745
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Aldatu pasahitza"
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:785
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Pasahitza aldatzea huts egin du: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:809
+#: src/qml/details/AccountDetailsContent.qml:791
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Pasahitz aldaketa arrakastatsua"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Pasahitzaren ikusgaitasuna"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1119,12 +1119,12 @@ msgstr ""
 "<b>gogoan izan pasahitza beste nonbaiten gordetzeko aukera. Hau ezin da "
 "desegin!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ez erakutsi pasahitza testu gisa"
 
-#: src/qml/details/AccountDetailsContent.qml:852
+#: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1133,17 +1133,17 @@ msgstr ""
 "Eman saioa hasteko QR-kodearekin gailu gehigarriak gehitzeko aukera baina "
 "pasahitza ez erakutsi inoiz"
 
-#: src/qml/details/AccountDetailsContent.qml:859
+#: src/qml/details/AccountDetailsContent.qml:841
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Pasahitz testutik ezabatzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Inolaz ere ez utzi pasahitza agerian"
 
-#: src/qml/details/AccountDetailsContent.qml:866
+#: src/qml/details/AccountDetailsContent.qml:848
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1152,17 +1152,17 @@ msgstr ""
 "Ez baimendu saioa hasteko QR-kodearen bidez gailu gehigarriak gehitzea, ez "
 "eta pasahitza erakustea ere"
 
-#: src/qml/details/AccountDetailsContent.qml:873
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Testutik eta QR kodetik pasahitza kentzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:883
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Konexioa"
 
-#: src/qml/details/AccountDetailsContent.qml:887
+#: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1171,33 +1171,33 @@ msgstr ""
 "Konfiguratu konektatzeko ostalari-izena eta taka (eremuak hutsik "
 "lehenetsitako balioetarako)"
 
-#: src/qml/details/AccountDetailsContent.qml:903
+#: src/qml/details/AccountDetailsContent.qml:885
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Aldatu konexioaren ezarpenak"
 
-#: src/qml/details/AccountDetailsContent.qml:912
+#: src/qml/details/AccountDetailsContent.qml:894
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Sartu beste konexioa ezarpen batzuk haiek aldatzeko"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:943
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Konexio ezarpenak ezin izan dira aldatu: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:976
+#: src/qml/details/AccountDetailsContent.qml:958
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Konexio ezarpena aldatu egin dira"
 
-#: src/qml/details/AccountDetailsContent.qml:996
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Aldatu gailua"
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:982
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1206,52 +1206,52 @@ msgstr ""
 "Ez erakutsi inoiz inori atal honetako informazioa. Zure kontura sarbide "
 "mugagabea baimenduko luke!"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Erakutsi saioan sartzeko QR-kodea"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:989
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Eskaneatu QR kodea beste gailu batekin hartan saioan sartzeko"
 
-#: src/qml/details/AccountDetailsContent.qml:1027
+#: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Erakutsi egiaztagiriak"
 
-#: src/qml/details/AccountDetailsContent.qml:1028
+#: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "Sartu egiaztagiriak beste gailu batean hartan saioan sartzeko"
 
-#: src/qml/details/AccountDetailsContent.qml:1034
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Berriketaren helbidea"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1031
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migratzea"
 
-#: src/qml/details/AccountDetailsContent.qml:1057
+#: src/qml/details/AccountDetailsContent.qml:1036
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migratu kontua"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1037
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Kontuaren migrazioa prestatzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "Horrek denbora pixka bat iraun dezake"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1262,17 +1262,17 @@ msgstr ""
 "Zure uneko kontua aplikazio honetatik kenduko da. Beharrezkoa bada, egin "
 "zure egiaztagirien eta berriketa-historiaren babes-kopia."
 
-#: src/qml/details/AccountDetailsContent.qml:1082
+#: src/qml/details/AccountDetailsContent.qml:1061
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Kentzea"
 
-#: src/qml/details/AccountDetailsContent.qml:1088
+#: src/qml/details/AccountDetailsContent.qml:1067
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kendu Kaidan-etik"
 
-#: src/qml/details/AccountDetailsContent.qml:1089
+#: src/qml/details/AccountDetailsContent.qml:1068
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1281,17 +1281,17 @@ msgstr ""
 "Kendu kontua aplikazio honetatik. Egin zure egiaztagirien eta berriketa "
 "historiaren babeskopia beharrezkoa bada!"
 
-#: src/qml/details/AccountDetailsContent.qml:1097
+#: src/qml/details/AccountDetailsContent.qml:1076
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Kontua kentzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:1104
+#: src/qml/details/AccountDetailsContent.qml:1083
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ezabatu erabat"
 
-#: src/qml/details/AccountDetailsContent.qml:1105
+#: src/qml/details/AccountDetailsContent.qml:1084
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1299,12 +1299,12 @@ msgstr ""
 "Ezabatu kontua hornitzailearenetik. Ezin izango duzu zure kontua sekula "
 "gehiago erabili!"
 
-#: src/qml/details/AccountDetailsContent.qml:1113
+#: src/qml/details/AccountDetailsContent.qml:1092
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Kontaktua ezabatzen..."
 
-#: src/qml/details/AccountDetailsContent.qml:1120
+#: src/qml/details/AccountDetailsContent.qml:1099
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1655,27 +1655,27 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Erakutsi QR-kodea"
 
-#: src/qml/details/DetailsContent.qml:184
+#: src/qml/details/DetailsContent.qml:181
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Kopiatu QR-kodea"
 
-#: src/qml/details/DetailsContent.qml:186
+#: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "QR-kodea arbelean kopiatu da"
 
-#: src/qml/details/DetailsContent.qml:191
+#: src/qml/details/DetailsContent.qml:188
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopiatu berriketaren helbidea"
 
-#: src/qml/details/DetailsContent.qml:197
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr "Kopiatu gonbidapenaren esteka"
 
-#: src/qml/details/DetailsContent.qml:199
+#: src/qml/details/DetailsContent.qml:196
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Gonbidapenaren esteka arbelean kopiatu da"
@@ -2469,7 +2469,7 @@ msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
 msgstr "Kontaktuaren egiaztatu gabeko gailuak"
 
-#: src/qml/elements/CopyFormTextDelegate.qml:22
+#: src/qml/elements/CopyFormTextDelegate.qml:19
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopiatu"
