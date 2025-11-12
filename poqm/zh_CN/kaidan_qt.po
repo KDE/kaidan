@@ -2302,37 +2302,35 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/qml/elements/ContactAdditionContent.qml:29
+#: src/qml/elements/ContactAdditionContent.qml:30
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "添加"
 
-#: src/qml/elements/ContactAdditionContent.qml:32
+#: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
-msgid "Contact already exists"
-msgstr "联系人已存在"
+msgid "Trust decisions made for contact"
+msgstr "为联系人做出信任决定 - 继续执行步骤 2"
 
-#: src/qml/elements/ContactAdditionContent.qml:34
-msgctxt "ContactAdditionContent|"
-msgid "Open chat"
-msgstr "打开聊天"
-
-#: src/qml/elements/ContactAdditionContent.qml:46
+#: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
-#: src/qml/elements/ContactAdditionContent.qml:63
+#: src/qml/elements/ContactAdditionContent.qml:91
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "名称（选填）："
 
-#: src/qml/elements/ContactAdditionContent.qml:71
+#: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
 msgstr "消息（可选，未加密）："
 
-#: src/qml/elements/ContactAdditionContent.qml:78
+#: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "您好，我是…"
@@ -2560,12 +2558,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "地址格式必须是 <b>group@server</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:42
+#: src/qml/elements/GroupChatJoiningContent.qml:50
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "昵称（选填）："
 
-#: src/qml/elements/GroupChatJoiningContent.qml:53
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2780,37 +2778,37 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "此二维码不包含联系人"
 
-#: src/qml/elements/QrCodeScanningArea.qml:69
+#: src/qml/elements/QrCodeScanningArea.qml:64
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr "为其他自己的设备做出信任决定 - 继续执行步骤 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:71
+#: src/qml/elements/QrCodeScanningArea.qml:66
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "为联系人做出信任决定 - 继续执行步骤 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:78
+#: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "此二维码不适用于您的其他设备"
 
-#: src/qml/elements/QrCodeScanningArea.qml:80
+#: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "此二维码不适用于您的联系人"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "此二维码不适用于信任决定"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "做出信任决定…"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
@@ -3308,8 +3306,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:199
-#: src/qml/RosterPage.qml:212
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
+#: src/qml/RosterPage.qml:214
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"
@@ -3349,24 +3347,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "手动创建账号"
 
-#: src/QmlUtils.cpp:216
+#: src/QmlUtils.cpp:225
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 已上线"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 正在输入…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3457,3 +3455,11 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "联系人已存在"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "打开聊天"

@@ -2382,37 +2382,35 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/elements/ContactAdditionContent.qml:29
+#: src/qml/elements/ContactAdditionContent.qml:30
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/qml/elements/ContactAdditionContent.qml:32
+#: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
-msgid "Contact already exists"
-msgstr "Contato já existe"
+msgid "Trust decisions made for contact"
+msgstr "Decisões de confiança tomadas para o contato - Continue com o passo 2"
 
-#: src/qml/elements/ContactAdditionContent.qml:34
-msgctxt "ContactAdditionContent|"
-msgid "Open chat"
-msgstr "Abrir bate-papo"
-
-#: src/qml/elements/ContactAdditionContent.qml:46
+#: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Adicionando contato…"
 
-#: src/qml/elements/ContactAdditionContent.qml:63
+#: src/qml/elements/ContactAdditionContent.qml:91
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/ContactAdditionContent.qml:71
+#: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
 msgstr "Mensagem (opcional, sem criptografia):"
 
-#: src/qml/elements/ContactAdditionContent.qml:78
+#: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Olá, Eu sou…"
@@ -2640,12 +2638,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "O endereço deve estar no formato <b>grupo@servidor</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:42
+#: src/qml/elements/GroupChatJoiningContent.qml:50
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Apelido (opcional):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:53
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2861,39 +2859,39 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Este código QR não contém um contato"
 
-#: src/qml/elements/QrCodeScanningArea.qml:69
+#: src/qml/elements/QrCodeScanningArea.qml:64
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 "Decisões de confiança tomadas para outro dispositivo próprio - Continue com "
 "o passo 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:71
+#: src/qml/elements/QrCodeScanningArea.qml:66
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Decisões de confiança tomadas para o contato - Continue com o passo 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:78
+#: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Este código QR não é para seu outro dispositivo"
 
-#: src/qml/elements/QrCodeScanningArea.qml:80
+#: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Este código QR não é para o seu contato"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Este código QR não é para decisões de confiança"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Tomando decisões de confiança…"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Adicionando contato…"
@@ -3395,8 +3393,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Passo 2: Entre com sua conta registrada"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:199
-#: src/qml/RosterPage.qml:212
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
+#: src/qml/RosterPage.qml:214
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtro"
@@ -3436,24 +3434,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Criar conta manualmente"
 
-#: src/QmlUtils.cpp:216
+#: src/QmlUtils.cpp:225
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está conectado"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está digitando…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3546,6 +3544,14 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site da web"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Contato já existe"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Abrir bate-papo"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"

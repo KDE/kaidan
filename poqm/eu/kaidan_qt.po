@@ -2379,37 +2379,35 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Baieztatu"
 
-#: src/qml/elements/ContactAdditionContent.qml:29
+#: src/qml/elements/ContactAdditionContent.qml:30
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Gehitu"
 
-#: src/qml/elements/ContactAdditionContent.qml:32
+#: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
-msgid "Contact already exists"
-msgstr "Kontaktua jada existitzen da"
+msgid "Trust decisions made for contact"
+msgstr "Kontakturako hartutako konfiantza erabakiak - Jarraitu 2. urratsarekin"
 
-#: src/qml/elements/ContactAdditionContent.qml:34
-msgctxt "ContactAdditionContent|"
-msgid "Open chat"
-msgstr "Ireki berriketa"
-
-#: src/qml/elements/ContactAdditionContent.qml:46
+#: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Kontatua gehitze..."
 
-#: src/qml/elements/ContactAdditionContent.qml:63
+#: src/qml/elements/ContactAdditionContent.qml:91
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Izena (hautazkoa):"
 
-#: src/qml/elements/ContactAdditionContent.qml:71
+#: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
 msgstr "Mezua (hautazkoa, zifratu gabea):"
 
-#: src/qml/elements/ContactAdditionContent.qml:78
+#: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Kaixo, ... naiz."
@@ -2640,12 +2638,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "Taldeak <b>taldea@zerbitzaria</b> itxura izan behar du"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:42
+#: src/qml/elements/GroupChatJoiningContent.qml:50
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Goitizena (hautazkoa):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:53
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2862,39 +2860,39 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "QR kode honek ez dauka kontakturik"
 
-#: src/qml/elements/QrCodeScanningArea.qml:69
+#: src/qml/elements/QrCodeScanningArea.qml:64
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 "Beste gailu propiorako hartutako konfiantza erabakiak - Jarraitu 2. "
 "urratsarekin"
 
-#: src/qml/elements/QrCodeScanningArea.qml:71
+#: src/qml/elements/QrCodeScanningArea.qml:66
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Kontakturako hartutako konfiantza erabakiak - Jarraitu 2. urratsarekin"
 
-#: src/qml/elements/QrCodeScanningArea.qml:78
+#: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "QR kode hau ez da zure beste gailurako"
 
-#: src/qml/elements/QrCodeScanningArea.qml:80
+#: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "QR kode hau ez da zure kontaktuarena"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "QR kode hau ez da konfiantza erabakietarako"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Konfiantza erabakiak hartzea..."
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Kontatua gehitzea..."
@@ -3399,8 +3397,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2. urratsa: Erregistratutako zure konturekin saioan sartu"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:199
-#: src/qml/RosterPage.qml:212
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
+#: src/qml/RosterPage.qml:214
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Iragazi"
@@ -3440,24 +3438,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Kontua eskuz sortu"
 
-#: src/QmlUtils.cpp:216
+#: src/QmlUtils.cpp:225
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 lerroan dago"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 tekleatzen ari da..."
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3550,6 +3548,14 @@ msgstr "Jaioteguna"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontaktua jada existitzen da"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Ireki berriketa"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"

@@ -3060,32 +3060,30 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/elements/ContactAdditionContent.qml:29
+#: src/qml/elements/ContactAdditionContent.qml:30
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/qml/elements/ContactAdditionContent.qml:32
+#: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodePage|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
-msgid "Contact already exists"
-msgstr "O contacto já existe"
+msgid "Trust decisions made for contact"
+msgstr "Confiar nas decisões feitas para o contacto - Continuar com o passo 2"
 
-#: src/qml/elements/ContactAdditionContent.qml:34
-msgctxt "ContactAdditionContent|"
-msgid "Open chat"
-msgstr "Abrir uma conversa"
-
-#: src/qml/elements/ContactAdditionContent.qml:46
+#: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "A adicionar o contacto…"
 
-#: src/qml/elements/ContactAdditionContent.qml:63
+#: src/qml/elements/ContactAdditionContent.qml:91
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/ContactAdditionContent.qml:71
+#: src/qml/elements/ContactAdditionContent.qml:99
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Message (optional):"
@@ -3093,7 +3091,7 @@ msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
 msgstr "Mensagem (opcional):"
 
-#: src/qml/elements/ContactAdditionContent.qml:78
+#: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Olá, chamo-me…"
@@ -3389,7 +3387,7 @@ msgid "The address must have the form <b>group@server</b>"
 msgstr ""
 "O endereço de conversação deverá ter o formato <b>utilizador@servidor</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:42
+#: src/qml/elements/GroupChatJoiningContent.qml:50
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -3397,7 +3395,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:53
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3702,7 +3700,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Este código QR não contém nenhum contacto"
 
-#: src/qml/elements/QrCodeScanningArea.qml:69
+#: src/qml/elements/QrCodeScanningArea.qml:64
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Trust decisions made for other own device - Continue with step 2"
@@ -3712,7 +3710,7 @@ msgstr ""
 "Confiar nas decisões feitas para os outros dispositivos - Continuar com o "
 "passo 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:71
+#: src/qml/elements/QrCodeScanningArea.qml:66
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Trust decisions made for contact - Continue with step 2"
@@ -3720,7 +3718,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Confiar nas decisões feitas para o contacto - Continuar com o passo 2"
 
-#: src/qml/elements/QrCodeScanningArea.qml:78
+#: src/qml/elements/QrCodeScanningArea.qml:73
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code is not for your other device"
@@ -3728,7 +3726,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Este código QR não é para o seu outro dispositivo"
 
-#: src/qml/elements/QrCodeScanningArea.qml:80
+#: src/qml/elements/QrCodeScanningArea.qml:75
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code is not for your contact"
@@ -3736,7 +3734,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Este código QR não é para o seu contacto"
 
-#: src/qml/elements/QrCodeScanningArea.qml:86
+#: src/qml/elements/QrCodeScanningArea.qml:82
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "This QR code is not for trust decisions"
@@ -3744,7 +3742,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Este código QR não serve para decisões de confiança"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Making trust decisions…"
@@ -3752,7 +3750,7 @@ msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "A criar decisões de confiança…"
 
-#: src/qml/elements/QrCodeScanningArea.qml:103
+#: src/qml/elements/QrCodeScanningArea.qml:101
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -4414,8 +4412,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Autenticar-se com a sua nova conta"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:199
-#: src/qml/RosterPage.qml:212
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
+#: src/qml/RosterPage.qml:214
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4470,24 +4468,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Criar uma conta manualmente"
 
-#: src/QmlUtils.cpp:216
+#: src/QmlUtils.cpp:225
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está ligado"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está a escrever…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -4602,6 +4600,14 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "O contacto já existe"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Abrir uma conversa"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
