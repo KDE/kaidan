@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-15 20:51+0400\n"
+"PO-Revision-Date: 2025-11-12 20:01+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -237,12 +237,9 @@ msgid "Leaving group chat"
 msgstr "يترك الدردشة الجماعية"
 
 #: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "ألغِ"
+msgstr "أُلغي"
 
 #: src/FileSharingController.cpp:393
 #, qt-format
@@ -251,20 +248,16 @@ msgid "Could not download file: %1"
 msgstr "تعذر تنزيل الملف: %1"
 
 #: src/FileSharingController.cpp:555
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "فشل الرفع: %1"
 
 #: src/FileSharingController.cpp:565
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "تعذر تنزيل الملف: %1"
+msgstr "تحميل الملف غير ممكن: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2170,12 +2163,9 @@ msgid "Open selected file's folder"
 msgstr "افتح مجلد الملف المحدد"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
-#, fuzzy
-#| msgctxt "LoginSettingsPage|"
-#| msgid "Reset"
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "صفّر"
+msgstr "أعد الإرسال"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2333,12 +2323,9 @@ msgid "Add"
 msgstr "أضف"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "قرارات الثقة المتخذة للاتصال - تابع الخطوة 2"
+msgstr "قرارات الثقة المتخذة للاتصال"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
