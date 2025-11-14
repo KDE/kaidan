@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2025-11-06 12:02+0100\n"
+"PO-Revision-Date: 2025-11-14 00:50+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
@@ -2405,13 +2405,9 @@ msgid "Add"
 msgstr "Añadir"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr ""
-"Confiar en las decisiones tomadas para el contacto - Continúe con el paso 2"
+msgstr "Confiar en las decisiones tomadas para el contacto"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -3570,11 +3566,3 @@ msgstr "Cumpleaños"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "El contacto ya existe"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Abrir conversación"
