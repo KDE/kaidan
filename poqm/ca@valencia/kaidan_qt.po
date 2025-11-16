@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-10-13 09:05+0200\n"
+"PO-Revision-Date: 2025-11-12 09:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -259,12 +259,9 @@ msgid "Leaving group chat"
 msgstr "S'està eixint del grup de xat"
 
 #: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Cancel reply"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Cancel·la la resposta"
+msgstr "Cancel·lat"
 
 #: src/FileSharingController.cpp:393
 #, qt-format
@@ -273,20 +270,16 @@ msgid "Could not download file: %1"
 msgstr "No s'ha pogut baixar el fitxer: %1"
 
 #: src/FileSharingController.cpp:555
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
 
 #: src/FileSharingController.cpp:565
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "No s'ha pogut baixar el fitxer: %1"
+msgstr "No s'ha pogut pujar el fitxer: %1"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -2240,7 +2233,7 @@ msgstr "Obri la carpeta del fitxer seleccionat"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Torna a enviar"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2398,14 +2391,9 @@ msgid "Add"
 msgstr "Afig"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr ""
-"S'han pres les decisions de confiança per al contacte - Continueu amb el pas "
-"2"
+msgstr "Decisions de confiança efectuades pel contacte"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -3564,11 +3552,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "El contacte ja existix"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Obri un xat"
