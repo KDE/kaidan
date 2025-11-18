@@ -45,48 +45,48 @@ FormCard.FormCard {
 	}
 
 	FormCardCustomContentArea {
-		contentItem: ColumnLayout {
-			JidField {
-				id: jidField
-				text: root.account.settings.jid
-				inputField {
-					focus: true
-					rightActions: [
-						Kirigami.Action {
-							icon.name: "preferences-system-symbolic"
-							text: qsTr("Connection settings")
-							onTriggered: {
-								customConnectionSettings.visible = !customConnectionSettings.visible
+		contentItem: JidField {
+			id: jidField
+			text: root.account.settings.jid
+			inputField {
+				focus: true
+				rightActions: [
+					Kirigami.Action {
+						icon.name: "preferences-system-symbolic"
+						text: qsTr("Show connection settings")
+						onTriggered: {
+							customConnectionSettings.visible = !customConnectionSettings.visible
 
-								if (jidField.valid && customConnectionSettings.visible) {
-									customConnectionSettings.forceActiveFocus()
-								} else {
-									jidField.forceActiveFocus()
-								}
+							if (jidField.valid && customConnectionSettings.visible) {
+								customConnectionSettings.forceActiveFocus()
+							} else {
+								jidField.forceActiveFocus()
 							}
 						}
-					]
-					onAccepted: {
-						invalidHintMayBeShown = true
-						confirm()
 					}
-				}
-			}
-
-			CustomConnectionSettings {
-				id: customConnectionSettings
-				account: root.account
-				confirmationButton: loginButton
-				visible: false
-			}
-
-			PasswordField {
-				id: passwordField
-				inputField.onAccepted: {
-					jidField.invalidHintMayBeShown = true
+				]
+				onAccepted: {
 					invalidHintMayBeShown = true
 					confirm()
 				}
+			}
+		}
+	}
+
+	CustomConnectionSettings {
+		id: customConnectionSettings
+		accountSettings: root.account.settings
+		confirmationButton: loginButton
+		visible: false
+	}
+
+	FormCardCustomContentArea {
+		contentItem: PasswordField {
+			id: passwordField
+			inputField.onAccepted: {
+				jidField.invalidHintMayBeShown = true
+				invalidHintMayBeShown = true
+				confirm()
 			}
 		}
 	}
@@ -140,8 +140,6 @@ FormCard.FormCard {
 		} else {
 			root.account.settings.jid = jidField.text
 			root.account.settings.password = passwordField.text
-			root.account.settings.host = customConnectionSettings.hostField.text
-			root.account.settings.port = customConnectionSettings.portField.value
 
 			root.account.connection.logIn()
 		}

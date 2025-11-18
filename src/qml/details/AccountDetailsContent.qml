@@ -869,102 +869,76 @@ DetailsContent {
 			text: qsTr("Configure the hostname and port to connect to (empty fields for default values)")
 		}
 
-		FormCardCustomContentArea {
-			contentItem: ColumnLayout {
-				id: connectionSettings
+		CustomConnectionSettings {
+			id: customConnectionSettings
+			accountSettings: root.account.settings
+			confirmationButton: connectionSettingsButton
+			Component.onDestruction: {
+				if (changesPending) {
+					undoPendingChanges()
+				}
+			}
+		}
 
-				RowLayout {
-					CustomConnectionSettings {
-						id: customConnectionSettings
-						account: root.account
-						confirmationButton: connectionSettingsButton
+		Controls.Label {
+			id: connectionSettingsErrorMessage
+			visible: false
+			font.weight: Font.Medium
+			wrapMode: Text.WordWrap
+			padding: 10
+			Layout.fillWidth: true
+			background: RoundedRectangle {
+				color: Kirigami.Theme.negativeBackgroundColor
+			}
+		}
+
+		BusyIndicatorFormButton {
+			id: connectionSettingsButton
+			idleText: qsTr("Apply changes")
+			busyText: qsTr("Applying changes…")
+			onClicked: {
+				if (customConnectionSettings.changesPending) {
+					busy = true
+					customConnectionSettings.resetChangesPending()
+
+					// Reset the error message in case of previous button clicking without changed entered settings.
+					if (root.account.connection.error === ClientWorker.NoError) {
+						connectionSettingsErrorMessage.visible = false
 					}
 
-					Button {
-						id: connectionSettingsButton
-						Controls.ToolTip.text: qsTr("Change connection settings")
-						icon.name: "emblem-ok-symbolic"
-						visible: !connectionSettingsBusyIndicator.visible
-						flat: !hovered
-						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
-						Layout.alignment: Qt.AlignBottom
-						onClicked: {
-							if (customConnectionSettings.hostField.text === root.account.settings.host && customConnectionSettings.portField.value === root.account.settings.port) {
-								connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
-								connectionSettingsErrorMessage.visible = true
-							} else {
-								connectionSettingsBusyIndicator.visible = true
-
-								// Reset the error message in case of previous button clicking without changed entered settings.
-								if (root.account.connection.error === ClientWorker.NoError) {
-									connectionSettingsErrorMessage.visible = false
-								}
-
-								if (root.account.connection.state === Enums.StateDisconnected) {
-									connectionSettings.logIn()
-								} else {
-									root.account.logOut()
-								}
-							}
-						}
-					}
-
-					Controls.BusyIndicator {
-						id: connectionSettingsBusyIndicator
-						visible: false
-						Layout.preferredWidth: connectionSettingsButton.Layout.preferredWidth
-						Layout.preferredHeight: Layout.preferredWidth
-						Layout.alignment: connectionSettingsButton.Layout.alignment
+					if (root.account.connection.state === Enums.StateDisconnected) {
+						root.account.connection.logIn()
+					} else {
+						root.account.connection.logOut()
 					}
 				}
+			}
+		}
 
-				Controls.Label {
-					id: connectionSettingsErrorMessage
-					visible: false
-					font.weight: Font.Medium
-					wrapMode: Text.WordWrap
-					padding: 10
-					Layout.fillWidth: true
-					background: RoundedRectangle {
-						color: Kirigami.Theme.negativeBackgroundColor
-					}
+		Connections {
+			target: root.account.connection
+			// Skip connection state or error changes not invoked via the latest connection settings change.
+			enabled: connectionSettingsButton.busy
+
+			function onErrorChanged() {
+				if (root.account.connection.error === ClientWorker.NoError) {
+					connectionSettingsErrorMessage.visible = false
+				} else {
+					connectionSettingsErrorMessage.visible = true
+					connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(root.account.connection.errorText)
 				}
+			}
 
-				Connections {
-					target: root.account.connection
-
-					function onErrorChanged() {
-						// Skip connection error changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
-						if (root.account.connection.error === ClientWorker.NoError) {
-							connectionSettingsErrorMessage.visible = false
-						} else {
-							connectionSettingsErrorMessage.visible = true
-							connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(root.account.connection.errorText)
-						}
+			function onStateChanged() {
+				if (root.account.connection.state === Enums.StateDisconnected) {
+					if (root.account.connection.error === ClientWorker.NoError) {
+						root.account.connection.logIn()
+					} else {
+						connectionSettingsButton.busy = false
 					}
-
-					function onStateChanged() {
-						// Skip connection state changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
-						if (connectionSettingsBusyIndicator.visible) {
-							if (root.account.connection.state === Enums.StateDisconnected) {
-								if (root.account.connection.error === ClientWorker.NoError) {
-									connectionSettings.logIn()
-								} else {
-									connectionSettingsBusyIndicator.visible = false
-								}
-							} else if (root.account.connection.state === Enums.StateConnected) {
-								connectionSettingsBusyIndicator.visible = false
-								passiveNotification(qsTr("Connection settings changed"))
-							}
-						}
-					}
-				}
-
-				function logIn() {
-					root.account.settings.host = customConnectionSettings.hostField.text
-					root.account.settings.port = customConnectionSettings.portField.value
-					root.account.connection.logIn()
+				} else if (root.account.connection.state === Enums.StateConnected) {
+					connectionSettingsButton.busy = false
+					passiveNotification(qsTr("Connection settings changed"))
 				}
 			}
 		}

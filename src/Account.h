@@ -46,6 +46,7 @@ class AccountSettings : public QObject
     Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
     Q_PROPERTY(quint16 port READ port WRITE setPort NOTIFY portChanged)
     Q_PROPERTY(quint16 autoDetectPort READ autoDetectPort CONSTANT FINAL)
+    Q_PROPERTY(bool plainAuthAllowed READ plainAuthAllowed WRITE setPlainAuthAllowed NOTIFY plainAuthAllowedChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString displayName READ displayName NOTIFY nameChanged)
     Q_PROPERTY(bool enabled READ enabled NOTIFY enabledChanged)
@@ -132,6 +133,7 @@ public:
         QXmppConfiguration::StreamSecurityMode tlsRequirement = QXmppConfiguration::TLSRequired;
         QString host;
         quint16 port = AUTO_DETECT_PORT;
+        bool plainAuthAllowed = false;
         QString name;
         bool enabled = true;
         QString latestMessageStanzaId;
@@ -185,6 +187,10 @@ public:
     Q_SIGNAL void portChanged();
 
     quint16 autoDetectPort() const;
+
+    bool plainAuthAllowed() const;
+    void setPlainAuthAllowed(bool plainAuthAllowed);
+    Q_SIGNAL void plainAuthAllowedChanged();
 
     QString name() const;
     void setName(const QString &name);

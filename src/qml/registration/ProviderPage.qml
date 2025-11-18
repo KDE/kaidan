@@ -95,65 +95,58 @@ RegistrationRequestPage {
 								Component {
 									id: customProviderArea
 
-									FormCard.AbstractFormDelegate {
-										property alias providerField: providerField
-										property alias hostField: customConnectionSettings.hostField
-										property alias portField: customConnectionSettings.portField
-
+									ColumnLayout {
+										spacing: 0
 										width: providerContentArea.width
-										background: null
-										contentItem: ColumnLayout {
-											spacing: 0
 
-											Field {
-												id: providerField
-												labelText: qsTr("Provider Address")
-												placeholderText: "example.org"
-												inputMethodHints: Qt.ImhUrlCharactersOnly
-												inputField.onAccepted: {
+										property alias providerField: providerField
+
+										FormCard.FormTextFieldDelegate {
+											id: providerField
+											label: qsTr("Provider Address")
+											placeholderText: "example.org"
+											inputMethodHints: Qt.ImhUrlCharactersOnly
+											onAccepted: {
+												if (customConnectionSettings.visible) {
+													customConnectionSettings.forceActiveFocus()
+												} else {
+													choiceButton.clicked()
+												}
+											}
+											trailing: ClickableIcon {
+												Controls.ToolTip.text: qsTr("Show connection settings")
+												source: "preferences-system-symbolic"
+												implicitWidth: Kirigami.Units.iconSizes.small
+												implicitHeight: Kirigami.Units.iconSizes.small
+												Layout.leftMargin: Kirigami.Units.mediumSpacing
+												onClicked: {
+													customConnectionSettings.visible = !customConnectionSettings.visible
+
 													if (customConnectionSettings.visible) {
 														customConnectionSettings.forceActiveFocus()
 													} else {
-														choiceButton.clicked()
+														providerField.forceActiveFocus()
 													}
 												}
-												inputField.rightActions: [
-													Kirigami.Action {
-														icon.name: "preferences-system-symbolic"
-														text: qsTr("Connection settings")
-														onTriggered: {
-															customConnectionSettings.visible = !customConnectionSettings.visible
-
-															if (customConnectionSettings.visible) {
-																customConnectionSettings.forceActiveFocus()
-															} else {
-																providerField.forceActiveFocus()
-															}
-														}
-													}
-												]
 											}
+										}
 
-											CustomConnectionSettings {
-												id: customConnectionSettings
-												account: root.account
-												confirmationButton: choiceButton
-												visible: false
-												Layout.topMargin: Kirigami.Units.largeSpacing
-											}
+										CustomConnectionSettings {
+											id: customConnectionSettings
+											accountSettings: root.account.settings
+											confirmationButton: choiceButton
+											visible: false
+										}
 
-											Connections {
-												target: pageStack.layers
+										Connections {
+											target: pageStack.layers
 
-												function onCurrentItemChanged() {
-													const currentItem = pageStack.layers.currentItem
+											function onCurrentItemChanged() {
+												const currentItem = pageStack.layers.currentItem
 
-													// Focus providerField.inputField on first opening
-													// and when going back from sub pages (i.e., layers
-													// above).
-													if (currentItem === root) {
-														providerField.inputField.forceActiveFocus()
-													}
+												// Focus providerField on first opening and when going back from sub pages (i.e., layers above).
+												if (currentItem === root) {
+													providerField.forceActiveFocus()
 												}
 											}
 										}
@@ -164,8 +157,8 @@ RegistrationRequestPage {
 									id: regularProviderArea
 
 									ColumnLayout {
-										width: providerContentArea.width
 										spacing: 0
+										width: providerContentArea.width
 
 										FormCard.FormTextDelegate {
 											text: model.countries
@@ -229,10 +222,6 @@ RegistrationRequestPage {
 
 										if (chosenProvider) {
 											root.account.settings.jid = chosenProvider
-
-											root.account.settings.host = loadedCustomProviderArea.hostField.text
-											root.account.settings.port = loadedCustomProviderArea.portField.value
-
 											requestRegistrationForm()
 										} else {
 											passiveNotification(qsTr("You must enter a provider address"))

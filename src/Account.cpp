@@ -202,6 +202,19 @@ quint16 AccountSettings::autoDetectPort() const
     return AUTO_DETECT_PORT;
 }
 
+bool AccountSettings::plainAuthAllowed() const
+{
+    return m_data.plainAuthAllowed;
+}
+
+void AccountSettings::setPlainAuthAllowed(bool plainAuthAllowed)
+{
+    if (m_data.plainAuthAllowed != plainAuthAllowed) {
+        m_data.plainAuthAllowed = plainAuthAllowed;
+        Q_EMIT plainAuthAllowedChanged();
+    }
+}
+
 QString AccountSettings::name() const
 {
     return m_data.name;
@@ -408,6 +421,7 @@ void AccountSettings::storeTemporaryData()
             account.userAgentDeviceId = data.userAgentDeviceId;
             account.host = data.host;
             account.port = data.port;
+            account.plainAuthAllowed = data.plainAuthAllowed;
             account.name = data.name;
         });
     } else {

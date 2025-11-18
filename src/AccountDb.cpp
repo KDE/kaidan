@@ -92,6 +92,7 @@ QFuture<void> AccountDb::addAccount(const AccountSettings::Data &account)
                                                                 {u"jid", account.jid},
                                                                 {u"userAgentDeviceId", writeValue(account.userAgentDeviceId)},
                                                                 {u"host", account.host.isEmpty() ? QVariant{} : account.host},
+                                                                {u"plainAuthAllowed", account.plainAuthAllowed},
                                                                 {u"name", account.name.isEmpty() ? QVariant{} : account.name},
                                                             });
 
@@ -280,6 +281,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
     int idxPort = rec.indexOf(QStringLiteral("port"));
     int idxTlsErrorsIgnored = rec.indexOf(QStringLiteral("tlsErrorsIgnored"));
     int idxTlsRequirement = rec.indexOf(QStringLiteral("tlsRequirement"));
+    int idxPlainAuthAllowed = rec.indexOf(QStringLiteral("plainAuthAllowed"));
     int idxPasswordVisibility = rec.indexOf(QStringLiteral("passwordVisibility"));
     int idxUserAgentDeviceId = rec.indexOf(QStringLiteral("userAgentDeviceId"));
     int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
@@ -311,6 +313,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxPort, port, quint16);
         SET_IF(idxTlsErrorsIgnored, tlsErrorsIgnored, bool);
         SET_IF(idxTlsRequirement, tlsRequirement, QXmppConfiguration::StreamSecurityMode);
+        SET_IF(idxPlainAuthAllowed, plainAuthAllowed, bool);
         SET_IF(idxPasswordVisibility, passwordVisibility, AccountSettings::PasswordVisibility);
         SET_IF(idxUserAgentDeviceId, userAgentDeviceId, QUuid);
         SET_IF(idxEncryption, encryption, Encryption::Enum);
@@ -358,6 +361,7 @@ QSqlRecord AccountDb::createUpdateRecord(const AccountSettings::Data &oldAccount
     SET_IF_NEW(port, quint16);
     SET_IF_NEW(tlsErrorsIgnored, bool);
     SET_IF_NEW(tlsRequirement, QXmppConfiguration::StreamSecurityMode);
+    SET_IF_NEW(plainAuthAllowed, bool);
     SET_IF_NEW(passwordVisibility, AccountSettings::PasswordVisibility);
     SET_IF_NEW(userAgentDeviceId, QUuid);
     SET_IF_NEW(encryption, Encryption::Enum);

@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 55
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(55)
+#define DATABASE_LATEST_VERSION 56
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(56)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -370,9 +370,10 @@ void Database::createNewDatabase()
                                            SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
                                                SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT)
                                                    SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
-                                                       SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER)
-                                                           SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                                               SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
+                                                       SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(plainAuthAllowed, SQL_BOOL)
+                                                           SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
+                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
 
     // roster
     execQuery(query,
@@ -1951,6 +1952,54 @@ void Database::convertDatabaseToV55()
     );
 
     d->version = 55;
+}
+
+void Database::convertDatabaseToV56()
+{
+    DATABASE_CONVERT_TO_VERSION(55)
+    QSqlQuery query(currentDatabase());
+
+    // Add the column "plainAuthAllowed".
+    execQuery(query,
+              SQL_CREATE_TABLE("accounts_tmp",
+                               SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
+                                   SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
+                                       SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
+                                           SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
+                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
+                                                       SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(plainAuthAllowed, SQL_BOOL)
+                                                           SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
+                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
+
+    execQuery(query, QStringLiteral(R"(
+                                INSERT INTO accounts_tmp
+                                SELECT jid, name, latestMessageStanzaId, latestMessageStanzaTimestamp, httpUploadLimit,
+                                contactNotificationRule, groupChatNotificationRule, geoLocationMapPreviewEnabled,
+                                geoLocationMapService, enabled, credentials, host, port, tlsErrorsIgnored, tlsRequirement,
+                                0, passwordVisibility, userAgentDeviceId, encryption, automaticMediaDownloadsRule
+                                FROM accounts
+                            )"));
+
+    execQuery(query, QStringLiteral("DROP TABLE accounts"));
+    execQuery(query,
+              SQL_CREATE_TABLE("accounts",
+                               SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
+                                   SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
+                                       SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
+                                           SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
+                                               SQL_ATTRIBUTE(enabled, SQL_BOOL) SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
+                                                       SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(plainAuthAllowed, SQL_BOOL)
+                                                           SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
+                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
+
+    execQuery(query, QStringLiteral("INSERT INTO accounts SELECT * FROM accounts_tmp"));
+    execQuery(query, QStringLiteral("DROP TABLE accounts_tmp"));
+
+    d->version = 56;
 }
 
 #include "moc_Database.cpp"
