@@ -45,7 +45,7 @@ Kirigami.GlobalDrawer {
 	topContent: [
 		ColumnLayout {
 			spacing: Kirigami.Units.largeSpacing
-			Layout.margins: -3
+			Layout.rightMargin: 1
 
 			FormCard.FormCard {
 				Layout.fillWidth: true
