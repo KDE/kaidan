@@ -364,14 +364,14 @@ DetailsContent {
 	FormCard.FormCard {
 		id: providerArea
 
-		readonly property url providerUrl: providerListModel.providerFromBareJid(root.account.settings.jid).chosenWebsite
+		readonly property url providerUrl: providerModel.providerFromBareJid(root.account.settings.jid).chosenWebsite
 
 		visible: providerUrl.toString() || root.account.settings.chatSupportAddresses.length || root.account.settings.groupChatSupportAddresses.length
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 
-		ProviderListModel {
-			id: providerListModel
+		ProviderModel {
+			id: providerModel
 		}
 
 		FormCard.FormHeader {

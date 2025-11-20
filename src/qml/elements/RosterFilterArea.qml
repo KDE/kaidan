@@ -1,4 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
+// SPDX-FileCopyrightText: 2023 Bhavy Airi <airiraghav@gmail.com>
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 

@@ -10,6 +10,7 @@
 
 // Qt
 #include <QLatin1String>
+#include <QObject>
 // Kaidan
 #include <GlobalsGen.h>
 
@@ -95,6 +96,7 @@ constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
  */
 #define PROVIDER_COMPLETION_LIST_FILE_PATH QStringLiteral(":/data/providers-completion.json")
 
+const auto NO_SELECTION_TEXT = QObject::tr("No selection");
 constexpr QStringView DEFAULT_LANGUAGE_CODE = u"EN";
 constexpr QStringView DEFAULT_COUNTRY_CODE = u"US";
 

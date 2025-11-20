@@ -146,10 +146,12 @@ target_sources(libkaidancore PRIVATE
     OmemoDb.h
     PresenceCache.cpp
     PresenceCache.h
-    ProviderListItem.cpp
-    ProviderListItem.h
-    ProviderListModel.cpp
-    ProviderListModel.h
+    Provider.cpp
+    Provider.h
+    ProviderFilterModel.cpp
+    ProviderFilterModel.h
+    ProviderModel.cpp
+    ProviderModel.h
     PublicGroupChat.cpp
     PublicGroupChat.h
     PublicGroupChatModel.cpp

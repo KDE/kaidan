@@ -103,8 +103,9 @@
 #include "MessageComposition.h"
 #include "MessageModel.h"
 #include "MessageReactionModel.h"
-#include "ProviderListItem.h"
-#include "ProviderListModel.h"
+#include "Provider.h"
+#include "ProviderFilterModel.h"
+#include "ProviderModel.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchController.h"
@@ -301,7 +302,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     // register qMetaTypes
-    qRegisterMetaType<ProviderListItem>();
+    qRegisterMetaType<Provider>();
     qRegisterMetaType<RosterItem>();
     qRegisterMetaType<RosterItemWatcher *>();
     qRegisterMetaType<RosterModel *>();
@@ -353,7 +354,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<Presence::Availability>();
     qRegisterMetaType<Enums::DeliveryState>();
     qRegisterMetaType<MessageOrigin>();
-    qRegisterMetaType<ProviderListModel::Role>();
+    qRegisterMetaType<ProviderModel::Role>();
     qRegisterMetaType<ChatState::State>();
     qRegisterMetaType<Encryption>();
     qRegisterMetaType<MessageReactionDeliveryState>();
@@ -499,7 +500,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
     qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
     qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
-    qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
+    qmlRegisterType<ProviderModel>(APPLICATION_ID, 1, 0, "ProviderModel");
     qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
     qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
     qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
@@ -527,6 +528,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<VersionController>(APPLICATION_ID, 1, 0, "VersionController");
     qmlRegisterType<PresenceCache>(APPLICATION_ID, 1, 0, "PresenceCache");
     qmlRegisterType<AvatarWatcher>(APPLICATION_ID, 1, 0, "AvatarWatcher");
+    qmlRegisterType<ProviderFilterModel>(APPLICATION_ID, 1, 0, "ProviderFilterModel");
 
     // Q_OBJECT
     qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));

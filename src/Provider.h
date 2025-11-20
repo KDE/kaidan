@@ -7,17 +7,17 @@
 #pragma once
 
 // Qt
+#include <QDate>
 #include <QLocale>
 #include <QSharedDataPointer>
+#include <QUrl>
 // Kaidan
 #include "Globals.h"
 #include "SystemUtils.h"
 
-class ProviderListItemPrivate;
-class QUrl;
 class QJsonObject;
 
-class ProviderListItem
+class Provider
 {
     Q_GADGET
 
@@ -55,60 +55,44 @@ public:
         }
     };
 
-    static ProviderListItem fromJson(const QJsonObject &object);
-
-    explicit ProviderListItem(bool isCustomProvider = false);
-    ProviderListItem(const ProviderListItem &other);
-    ~ProviderListItem();
-
-    ProviderListItem &operator=(const ProviderListItem &other);
+    explicit Provider(const QJsonObject &object);
+    explicit Provider();
 
     bool isCustomProvider() const;
-    void setIsCustomProvider(bool isCustomProvider);
-
     QString jid() const;
-    void setJid(const QString &jid);
-
     bool supportsInBandRegistration() const;
-    void setSupportsInBandRegistration(bool supportsInBandRegistration);
-
     LanguageVariants<QUrl> registrationWebPages() const;
-    void setRegistrationWebPages(const LanguageVariants<QUrl> &registrationWebPages);
-
     QList<QString> languages() const;
-
     QList<QString> countries() const;
-    void setCountries(const QList<QString> &country);
-
     QList<QString> flags() const;
 
     LanguageVariants<QUrl> websites() const;
     void setWebsites(const LanguageVariants<QUrl> &websites);
     QUrl chosenWebsite() const;
 
+    int busFactor() const;
+    QString organization() const;
+    bool supportsPasswordReset() const;
+    bool hostedGreen() const;
     QDate since() const;
-    void setSince(const QDate &since);
-
-    int httpUploadSize() const;
-    void setHttpUploadSize(int httpUploadSize);
-
+    int httpUploadFileSize() const;
+    int httpUploadTotalSize() const;
+    int httpUploadStorageDuration() const;
     int messageStorageDuration() const;
-    void setMessageStorageDuration(int messageStorageDuration);
+    bool freeOfCharge() const;
 
     LanguageVariants<QList<QString>> chatSupport() const;
-    void setChatSupport(const LanguageVariants<QList<QString>> &chatSupport);
     QList<QString> chosenChatSupport() const;
 
     LanguageVariants<QList<QString>> groupChatSupport() const;
-    void setGroupChatSupport(const LanguageVariants<QList<QString>> &groupChatSupport);
     QList<QString> chosenGroupChatSupport() const;
 
-    bool operator<(const ProviderListItem &other) const;
-    bool operator>(const ProviderListItem &other) const;
-    bool operator<=(const ProviderListItem &other) const;
-    bool operator>=(const ProviderListItem &other) const;
+    bool operator<(const Provider &other) const;
+    bool operator>(const Provider &other) const;
+    bool operator<=(const Provider &other) const;
+    bool operator>=(const Provider &other) const;
 
-    bool operator==(const ProviderListItem &other) const;
+    bool operator==(const Provider &other) const;
 
 private:
     template<typename T>
@@ -120,5 +104,23 @@ private:
     template<typename T>
     static LanguageVariants<T> parseLanguageVariants(const QJsonObject &LanguageVariants, const std::function<T(const QJsonValue &)> &convertToTargetType);
 
-    QSharedDataPointer<ProviderListItemPrivate> d;
+    bool m_isCustomProvider;
+    QString m_jid;
+    bool m_supportsInBandRegistration = false;
+    Provider::LanguageVariants<QUrl> m_registrationWebPages;
+    QList<QString> m_languages;
+    QList<QString> m_countries;
+    Provider::LanguageVariants<QUrl> m_websites;
+    int m_busFactor = -1;
+    QString m_organization;
+    bool m_supportsPasswordReset = false;
+    bool m_hostedGreen = false;
+    QDate m_since;
+    int m_httpUploadFileSize = -1;
+    int m_httpUploadTotalSize = -1;
+    int m_httpUploadStorageDuration = -1;
+    int m_messageStorageDuration = -1;
+    bool m_freeOfCharge = false;
+    Provider::LanguageVariants<QList<QString>> m_chatSupport;
+    Provider::LanguageVariants<QList<QString>> m_groupChatSupport;
 };

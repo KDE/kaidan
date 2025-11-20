@@ -96,8 +96,8 @@ RegistrationPage {
 		}
 	}
 
-	ProviderListModel {
-		id: providerListModel
+	ProviderModel {
+		id: providerModel
 	}
 
 	Connections {
@@ -107,7 +107,7 @@ RegistrationPage {
 			if (root.account.connection.error !== ClientWorker.NoError) {
 				if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
 					loadingStackArea.busy = false
-				} else if (root.triedProviderIndexes.length < providerListModel.rowCount()){
+				} else if (root.triedProviderIndexes.length < providerModel.rowCount()){
 					requestRegistrationFormFromAnotherProvider()
 				} else {
 					passiveNotification(qsTr("Automatic registration failed because of problems with all providers"))
@@ -173,9 +173,9 @@ RegistrationPage {
 	 *        system's locale
 	 */
 	function chooseProviderRandomly(providersMatchingSystemLocaleOnly = true) {
-		const chosenIndex = providerListModel.randomlyChooseIndex(triedProviderIndexes, providersMatchingSystemLocaleOnly)
+		const chosenIndex = providerModel.randomlyChooseIndex(triedProviderIndexes, providersMatchingSystemLocaleOnly)
 		triedProviderIndexes.push(chosenIndex)
-		root.account.settings.jid = providerListModel.data(chosenIndex, ProviderListModel.JidRole)
+		root.account.settings.jid = providerModel.data(chosenIndex, ProviderModel.Jid)
 	}
 
 	/**
@@ -196,7 +196,7 @@ RegistrationPage {
 	 * Requests a registration form from another randomly chosen provider.
 	 */
 	function requestRegistrationFormFromAnotherProvider() {
-		if (triedProviderIndexes.length < providerListModel.providersMatchingSystemLocaleMinimumCount) {
+		if (triedProviderIndexes.length < providerModel.providersMatchingSystemLocaleMinimumCount) {
 			chooseProviderRandomly()
 		} else {
 			chooseProviderRandomly(false)

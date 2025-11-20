@@ -19,15 +19,26 @@ import "../elements/fields"
  */
 RegistrationRequestPage {
 	id: root
-	title: qsTr("Choose a Provider")
+	title: qsTr("Choose a Provider") + " (" + (providerListView.count - 1) + " / " + (filterModel.sourceModel.rowCount() - 1) + ")"
 	onBackRequested: account.settings.resetCustomConnectionSettings()
+	actions: [
+		Kirigami.Action {
+			text: qsTr("Filter")
+			icon.name: "filter-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			onTriggered: openView(providerFilterDialog, providerFilterPage)
+		}
+	]
 
 	ListView {
 		id: providerListView
 
 		property BusyIndicatorFormButton lastClickedButton
 
-		model: ProviderListModel {}
+		model: ProviderFilterModel {
+			id: filterModel
+			sourceModel: ProviderModel {}
+		}
 		spacing: Kirigami.Units.smallSpacing
 		leftMargin: root.horizontalPadding
 		rightMargin: leftMargin
@@ -59,8 +70,8 @@ RegistrationRequestPage {
 
 					FormCard.FormTextDelegate {
 						id: providerExpansionButton
-						text: model.jid
-						font.italic: model.index === 0
+						text: model.display
+						font.italic: model.isCustomProvider
 						width: parent.width
 						checkable: true
 						background: FormExpansionButtonBackground {
@@ -90,7 +101,7 @@ RegistrationRequestPage {
 
 							Loader {
 								id: contentAreaLoader
-								sourceComponent: model.index === 0 ? customProviderArea : regularProviderArea
+								sourceComponent: model.isCustomProvider ? customProviderArea : regularProviderArea
 
 								Component {
 									id: customProviderArea
@@ -161,28 +172,28 @@ RegistrationRequestPage {
 										width: providerContentArea.width
 
 										FormCard.FormTextDelegate {
-											text: model.countries
-											description: qsTr("Server locations")
+											text: qsTr("Data storage/processing locations")
+											description: model.flagsText
 										}
 
 										FormCard.FormTextDelegate {
-											text: model.languages
-											description: qsTr("Languages")
+											text: qsTr("Languages")
+											description: model.languages
 										}
 
 										FormCard.FormTextDelegate {
-											text: model.since
-											description: qsTr("Available/Listed since")
+											text: qsTr("Available/Listed since")
+											description: model.sinceText
 										}
 
 										FormCard.FormTextDelegate {
-											text: model.httpUploadSize
-											description: qsTr("Maximum size of shared media")
+											text: qsTr("Maximum size of shared media")
+											description: model.httpUploadFileSizeText
 										}
 
 										FormCard.FormTextDelegate {
-											text: model.messageStorageDuration
-											description: qsTr("Messages storage duration")
+											text: qsTr("Message storage duration")
+											description: model.messageStorageDurationText
 										}
 
 										UrlFormButtonDelegate {
@@ -215,7 +226,7 @@ RegistrationRequestPage {
 								onClicked: {
 									providerListView.lastClickedButton = this
 
-									if (model.index === 0) {
+									if (model.isCustomProvider) {
 										const loadedCustomProviderArea = contentAreaLoader.item
 										const providerField = loadedCustomProviderArea.providerField
 										const chosenProvider = providerField.text
@@ -248,6 +259,35 @@ RegistrationRequestPage {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	Component {
+		id: providerFilterDialog
+
+		Dialog {
+			title: qsTr("Filter")
+			bottomInset: - Kirigami.Units.cornerRadius
+
+			ProviderFilterArea {
+				providerFilterModel: filterModel
+			}
+		}
+	}
+
+	Component {
+		id: providerFilterPage
+
+		Kirigami.ScrollablePage {
+			title: qsTr("Filter")
+			background: Rectangle {
+				color: Kirigami.Theme.alternateBackgroundColor
+			}
+			bottomPadding: 0
+
+			ProviderFilterArea {
+				providerFilterModel: filterModel
 			}
 		}
 	}
