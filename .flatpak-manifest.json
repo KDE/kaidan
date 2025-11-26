@@ -39,20 +39,6 @@
             ]
         },
         {
-            "name": "kirigami-addons",
-            "config-opts": [
-                "-DBUILD_TESTING=OFF"
-            ],
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.4.0.tar.xz",
-                    "sha256": "56e3ceb52055b5603320ea08b27d3673d32a391a8d58646d998227d8b51f0a93"
-                }
-            ]
-        },
-        {
             "name": "kquickimageeditor",
             "buildsystem": "cmake-ninja",
             "sources": [
