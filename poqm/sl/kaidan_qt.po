@@ -18,44 +18,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.8\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Povezano"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Nepovezano"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Neveljavno uporabniško ime ali geslo."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ni se mogoče povezati na strežnik. Prosimo, preverite svojo internetno "
 "povezavo."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Napaka pri poskusu varne povezave."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Strežnik ne podpira varnih povezav."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -64,22 +64,22 @@ msgstr ""
 "Povezovanje na strežnik ni uspelo. Prosimo, preverite svojo internetno "
 "povezavo ali ime strežnika."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:518
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Strežnik je odklopljen ali pa je blokiran s strani požarnega zidu."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:520
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokol avtentikacije strežnik ne podpira."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:522
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Povezave ni bilo mogoče osvežiti."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:524
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -88,19 +88,19 @@ msgstr ""
 "Dostop do interneta ni dovoljen. Preverite konfiguracijo dostopa do "
 "interneta v vašem sistemu."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:526
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ta strežnik ne podpira registracije."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:528
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Ni se bilo mogoče prijaviti. Potrdite e-poštno sporočilo, ki ste ga najprej "
 "prejeli."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:530
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ni se bilo mogoče povezati s strežnikom."
@@ -1059,7 +1059,7 @@ msgid "New password"
 msgstr "Novo geslo"
 
 #: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Geslo"
@@ -1160,33 +1160,33 @@ msgstr ""
 "Nastavite ime strežnika in vrata za povezavo (privzete vrednosti so prazna "
 "polja)"
 
-#: src/qml/details/AccountDetailsContent.qml:885
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
-msgid "Change connection settings"
-msgstr "Spremeni nastavitve povezave"
+msgid "Apply changes"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:894
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
-msgid "Enter different connection settings to change them"
-msgstr "Vnesite drugačne nastavitve povezave, da bi jih spremenili"
+msgid "Applying changes…"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nastavitev povezave ni bilo mogoče spremeniti: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Nastavitve povezave so spremenjene"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Preklopi napravo"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1195,52 +1195,52 @@ msgstr ""
 "Nikoli ne kažite informacij v tem razdelku nikomur drugemu. To bi omogočilo "
 "neomejen dostop do vašega računa!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:962
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Prikaži kodo QR za prijavo"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Skenirajte kodo QR z drugo napravo, da se prijavite v njej"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Prikaži poverilnice"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:981
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "Vnesite poverilnice v drugo napravo, da se prijavite v njej"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Naslov klepeta"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1005
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Selitev"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Preseli račun"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1011
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Pripravljanje selitve računa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "To lahko traja nekaj časa"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1251,17 +1251,17 @@ msgstr ""
 "račun bo odstranjen iz te aplikacije. Izdelajte varovalno kopijo vaših "
 "poverilnic in zgodovine klepetov, če jih potrebujete!"
 
-#: src/qml/details/AccountDetailsContent.qml:1061
+#: src/qml/details/AccountDetailsContent.qml:1035
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Odstranitev"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Odstrani iz Kaidana"
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1042
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1270,29 +1270,29 @@ msgstr ""
 "Odstranite račun iz te aplikacije. Napravite varnostno kopijo vaših "
 "poverilnic in zgodovine klepetov, če je to potrebno!"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Odstranjevanje računa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Popolnoma izbriši"
 
-#: src/qml/details/AccountDetailsContent.qml:1084
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Izbriši račun iz ponudnika. Svojega računa ne boste več mogli uporabljati!"
 
-#: src/qml/details/AccountDetailsContent.qml:1092
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Brisanje računa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1073
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2449,20 +2449,32 @@ msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Kopiraj"
 
-#: src/qml/elements/CustomConnectionSettings.qml:28
+#: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Ime strežnika:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:32
+#: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "Ime strežnika ne sme vsebovati praznih presledkov"
 
-#: src/qml/elements/CustomConnectionSettings.qml:52
+#: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Vrata:"
+
+#: src/qml/elements/CustomConnectionSettings.qml:107
+msgctxt "CustomConnectionSettings|"
+msgid "Plain authentication (SASL PLAIN)"
+msgstr ""
+
+#: src/qml/elements/CustomConnectionSettings.qml:108
+msgctxt "CustomConnectionSettings|"
+msgid ""
+"Required if your provider uses LDAP which is often the case in organizations "
+"where you can log in with a single account"
+msgstr ""
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2725,10 +2737,13 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Prečeši kodo QR za prijavo"
 
-#: src/qml/elements/LoginArea.qml:57
+#: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
-msgid "Connection settings"
-msgstr "Nastavitve povezave"
+msgid "Show connection settings"
+msgstr "Spremeni nastavitve povezave"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3216,72 +3231,75 @@ msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "Za registracijo izberite ponudnika!"
 
-#: src/qml/registration/ProviderPage.qml:110
+#: src/qml/registration/ProviderPage.qml:106
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Naslov ponudnika"
 
-#: src/qml/registration/ProviderPage.qml:123
+#: src/qml/registration/ProviderPage.qml:117
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
-msgid "Connection settings"
-msgstr "Nastavitve povezave"
+msgid "Show connection settings"
+msgstr "Spremeni nastavitve povezave"
 
-#: src/qml/registration/ProviderPage.qml:172
+#: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
 msgid "Server locations"
 msgstr "Mesta strežnikov"
 
-#: src/qml/registration/ProviderPage.qml:177
+#: src/qml/registration/ProviderPage.qml:170
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Jeziki"
 
-#: src/qml/registration/ProviderPage.qml:182
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "Na voljo/na seznamu od"
 
-#: src/qml/registration/ProviderPage.qml:187
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "Največja velikost skupnih deljnih medijev"
 
-#: src/qml/registration/ProviderPage.qml:192
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
 msgstr "Trajanje shranjevanja sporočil"
 
-#: src/qml/registration/ProviderPage.qml:196
+#: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "Obiščite stran s podrobnostmi"
 
-#: src/qml/registration/ProviderPage.qml:197
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "Odpri spletno stran s podrobnostmi ponudnika"
 
-#: src/qml/registration/ProviderPage.qml:211
+#: src/qml/registration/ProviderPage.qml:204
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Izberi"
 
-#: src/qml/registration/ProviderPage.qml:212
+#: src/qml/registration/ProviderPage.qml:205
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "Zahteva za registracijo…"
 
-#: src/qml/registration/ProviderPage.qml:238
+#: src/qml/registration/ProviderPage.qml:227
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "Vnesti morate naslov ponudnika"
 
-#: src/qml/registration/ProviderPage.qml:304
+#: src/qml/registration/ProviderPage.qml:293
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Ponudnik ne podpira registracije prek te aplikacije."
 
-#: src/qml/registration/ProviderPage.qml:307
+#: src/qml/registration/ProviderPage.qml:296
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "Začasno ste blokirani: "
@@ -3515,6 +3533,18 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "Vnesite drugačne nastavitve povezave, da bi jih spremenili"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Nastavitve povezave"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Nastavitve povezave"
 
 #~ msgctxt "ContactAdditionContent|"
 #~ msgid "Contact already exists"

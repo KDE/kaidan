@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -15,7 +15,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Sambung"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:495
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -23,7 +23,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:497
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -31,7 +31,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Sambung"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -39,7 +39,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nama pengguna atau kata laluan tidak sah."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:510
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -47,7 +47,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Tidak dapat menghubungi pelayan. Sila periksa sambungan internet anda."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -55,7 +55,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Ralat ketika cuba untuk menyambung secara selamat."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:514
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -63,7 +63,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Pelayan tidak menyokong sambungan selamat."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:516
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -77,7 +77,7 @@ msgstr ""
 "Tidak boleh sambung ke pelayan. Sila periksa sambungan internet anda atau "
 "nama pelayan anda."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:518
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -85,7 +85,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Pelayan berada di luar talian atau disekat tembok api."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:520
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -93,7 +93,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokol pengesahan tidak disokong oleh pelayan."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:522
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -101,7 +101,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Sambungan tidak dapat disegarkan semula."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:524
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -115,7 +115,7 @@ msgstr ""
 "Capaian internet tidak dibenarkan. Sila periksa tatarajah capaian internet "
 "sistem anda."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:526
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -123,12 +123,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Pelayan ini tidak menyokong pendaftaran."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:528
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:516
+#: src/Account.cpp:530
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -1246,7 +1246,7 @@ msgid "New password"
 msgstr "Kata laluan baru:"
 
 #: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:993
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1383,23 +1383,17 @@ msgid ""
 "values)"
 msgstr "Tetapkan nama hos dan port untuk disambung"
 
-#: src/qml/details/AccountDetailsContent.qml:885
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
-msgid "Change connection settings"
-msgstr "Tetapan sambungan"
+msgid "Apply changes"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:894
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings changed"
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
-msgid "Enter different connection settings to change them"
-msgstr "Tetapan sambungan ditukar"
+msgid "Applying changes…"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:928
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -1407,7 +1401,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Tetapan sambungan tidak dapat ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:941
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1415,7 +1409,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Tetapan sambungan ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:952
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Switch device"
@@ -1423,7 +1417,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Tukar peranti"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:956
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1445,7 +1439,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:962
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1453,7 +1447,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Imbas kod QR"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1473,12 +1467,12 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:981
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1498,7 +1492,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:987
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1506,7 +1500,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Alamat sembang:"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1005
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1514,7 +1508,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Kapsyen"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Transfer account"
@@ -1522,7 +1516,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Pindah akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1011
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1530,12 +1524,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Keselamatan akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1543,7 +1537,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1061
+#: src/qml/details/AccountDetailsContent.qml:1035
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1551,7 +1545,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Buang"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -1559,14 +1553,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Buang daripada aplikasi ini"
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1042
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1050
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add new contact"
@@ -1574,7 +1568,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Tambah kenalan baru"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Delete completely"
@@ -1582,7 +1576,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Padam keseluruhannya"
 
-#: src/qml/details/AccountDetailsContent.qml:1084
+#: src/qml/details/AccountDetailsContent.qml:1058
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1597,7 +1591,7 @@ msgstr ""
 "dan juga daripada pelayan.\n"
 "Anda tidak akan mampu menggunakan akaun anda lagi!"
 
-#: src/qml/details/AccountDetailsContent.qml:1092
+#: src/qml/details/AccountDetailsContent.qml:1066
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1605,7 +1599,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Padam akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1073
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -3112,20 +3106,32 @@ msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Salin URL muat turun"
 
-#: src/qml/elements/CustomConnectionSettings.qml:28
+#: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Nama hos:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:32
+#: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "Nama hos tidak boleh mengandungi ruang kosong"
 
-#: src/qml/elements/CustomConnectionSettings.qml:52
+#: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Port:"
+
+#: src/qml/elements/CustomConnectionSettings.qml:107
+msgctxt "CustomConnectionSettings|"
+msgid "Plain authentication (SASL PLAIN)"
+msgstr ""
+
+#: src/qml/elements/CustomConnectionSettings.qml:108
+msgctxt "CustomConnectionSettings|"
+msgid ""
+"Required if your provider uses LDAP which is often the case in organizations "
+"where you can log in with a single account"
+msgstr ""
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -3468,12 +3474,12 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Imbas kod QR"
 
-#: src/qml/elements/LoginArea.qml:57
+#: src/qml/elements/LoginArea.qml:56
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
 msgctxt "LoginArea|"
-msgid "Connection settings"
+msgid "Show connection settings"
 msgstr "Tetapan sambungan"
 
 #: src/qml/elements/LoginArea.qml:101
@@ -4102,7 +4108,7 @@ msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:110
+#: src/qml/registration/ProviderPage.qml:106
 #, fuzzy
 #| msgctxt "ServerListModel|"
 #| msgid "Custom server"
@@ -4110,15 +4116,15 @@ msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Pelayan tersuai"
 
-#: src/qml/registration/ProviderPage.qml:123
+#: src/qml/registration/ProviderPage.qml:117
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
 msgctxt "ProviderPage|"
-msgid "Connection settings"
+msgid "Show connection settings"
 msgstr "Tetapan sambungan"
 
-#: src/qml/registration/ProviderPage.qml:172
+#: src/qml/registration/ProviderPage.qml:165
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -4126,37 +4132,37 @@ msgctxt "ProviderPage|"
 msgid "Server locations"
 msgstr "Hantar kedudukan"
 
-#: src/qml/registration/ProviderPage.qml:177
+#: src/qml/registration/ProviderPage.qml:170
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:182
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:187
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:192
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:196
+#: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:197
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:211
+#: src/qml/registration/ProviderPage.qml:204
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Choose file"
@@ -4164,17 +4170,17 @@ msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Pilih fail"
 
-#: src/qml/registration/ProviderPage.qml:212
+#: src/qml/registration/ProviderPage.qml:205
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:238
+#: src/qml/registration/ProviderPage.qml:227
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:304
+#: src/qml/registration/ProviderPage.qml:293
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -4182,7 +4188,7 @@ msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Pelayan ini tidak menyokong pendaftaran."
 
-#: src/qml/registration/ProviderPage.qml:307
+#: src/qml/registration/ProviderPage.qml:296
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr ""
@@ -4462,6 +4468,27 @@ msgstr "Hari lahir"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Laman web"
+
+#, fuzzy
+#~| msgctxt "ConnectionSettings|"
+#~| msgid "Connection settings changed"
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "Tetapan sambungan ditukar"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Tetapan sambungan"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Tetapan sambungan"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"

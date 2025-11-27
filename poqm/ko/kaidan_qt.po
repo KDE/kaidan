@@ -13,64 +13,64 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "연결됨"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/Account.cpp:483
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "연결 끊김"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:518
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:520
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:522
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "연결을 새로 고칠 수 없습니다."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:524
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -78,17 +78,17 @@ msgid ""
 msgstr ""
 "인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:526
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "이 서버에서 등록을 지원하지 않습니다."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:528
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "로그인할 수 없습니다. 먼저 받은 이메일 메시지를 확인하십시오."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:530
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "서버에 연결할 수 없습니다."
@@ -1045,7 +1045,7 @@ msgid "New password"
 msgstr "새 암호"
 
 #: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "암호"
@@ -1141,33 +1141,33 @@ msgid ""
 "values)"
 msgstr "연결할 호스트 이름과 포트 설정(비워 두면 기본값 사용)"
 
-#: src/qml/details/AccountDetailsContent.qml:885
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
-msgid "Change connection settings"
-msgstr "연결 설정 변경"
+msgid "Apply changes"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:894
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
-msgid "Enter different connection settings to change them"
-msgstr "다른 연결 설정을 입력하면 변경합니다"
+msgid "Applying changes…"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "연결 설정을 변경할 수 없음: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "연결 설정이 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "장치 전환"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1176,52 +1176,52 @@ msgstr ""
 "다른 사람에게 여기에 있는 정보를 보여 주지 마십시오. 계정에 무제한으로 접근"
 "할 수 있습니다!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:962
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "로그인 QR 코드 표시"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "다른 장치에서 QR 코드를 스캔하여 로그인"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "자격 증명 표시"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:981
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "다른 장치에서 자격 증명을 입력하여 로그인"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "대화 주소"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1005
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "마이그레이션"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "계정 이전"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1011
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "계정 이전 준비 중…"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "시간이 조금 걸릴 수도 있습니다"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1232,17 +1232,17 @@ msgstr ""
 "서 기존 계정 정보가 삭제됩니다. 필요하다면 자격 증명과 대화 기록을 백업하십시"
 "오!"
 
-#: src/qml/details/AccountDetailsContent.qml:1061
+#: src/qml/details/AccountDetailsContent.qml:1035
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan에서 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1042
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1250,28 +1250,28 @@ msgid ""
 msgstr ""
 "이 앱에서 계정을 삭제합니다. 필요하다면 자격 증명과 대화 기록을 백업하십시오!"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "계정 삭제 중…"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "완전히 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1084
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "공급자에서 계정을 삭제합니다. 이 계정에 다시 로그인할 수 없습니다!"
 
-#: src/qml/details/AccountDetailsContent.qml:1092
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "계정 삭제 중…"
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1073
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2420,20 +2420,32 @@ msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "복사"
 
-#: src/qml/elements/CustomConnectionSettings.qml:28
+#: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "호스트 이름:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:32
+#: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "호스트 이름에 공백이 포함되면 안 됨"
 
-#: src/qml/elements/CustomConnectionSettings.qml:52
+#: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "포트:"
+
+#: src/qml/elements/CustomConnectionSettings.qml:107
+msgctxt "CustomConnectionSettings|"
+msgid "Plain authentication (SASL PLAIN)"
+msgstr ""
+
+#: src/qml/elements/CustomConnectionSettings.qml:108
+msgctxt "CustomConnectionSettings|"
+msgid ""
+"Required if your provider uses LDAP which is often the case in organizations "
+"where you can log in with a single account"
+msgstr ""
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2696,10 +2708,13 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "로그인 QR 코드 스캔"
 
-#: src/qml/elements/LoginArea.qml:57
+#: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
-msgid "Connection settings"
-msgstr "연결 설정"
+msgid "Show connection settings"
+msgstr "연결 설정 변경"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3186,72 +3201,75 @@ msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "등록하려면 공급자를 선택하십시오!"
 
-#: src/qml/registration/ProviderPage.qml:110
+#: src/qml/registration/ProviderPage.qml:106
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "공급자 주소"
 
-#: src/qml/registration/ProviderPage.qml:123
+#: src/qml/registration/ProviderPage.qml:117
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
-msgid "Connection settings"
-msgstr "연결 설정"
+msgid "Show connection settings"
+msgstr "연결 설정 변경"
 
-#: src/qml/registration/ProviderPage.qml:172
+#: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
 msgid "Server locations"
 msgstr "서버 위치"
 
-#: src/qml/registration/ProviderPage.qml:177
+#: src/qml/registration/ProviderPage.qml:170
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "언어"
 
-#: src/qml/registration/ProviderPage.qml:182
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "다음 이후로 사용 가능/목록에 등록됨"
 
-#: src/qml/registration/ProviderPage.qml:187
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "최대 공유 미디어 크기"
 
-#: src/qml/registration/ProviderPage.qml:192
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
 msgstr "메시지 저장 기간"
 
-#: src/qml/registration/ProviderPage.qml:196
+#: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "자세한 정보 페이지 보기"
 
-#: src/qml/registration/ProviderPage.qml:197
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "공급자의 자세한 정보 웹 페이지 열기"
 
-#: src/qml/registration/ProviderPage.qml:211
+#: src/qml/registration/ProviderPage.qml:204
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "선택"
 
-#: src/qml/registration/ProviderPage.qml:212
+#: src/qml/registration/ProviderPage.qml:205
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "등록 요청 중…"
 
-#: src/qml/registration/ProviderPage.qml:238
+#: src/qml/registration/ProviderPage.qml:227
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "공급자 주소를 입력해야 함"
 
-#: src/qml/registration/ProviderPage.qml:304
+#: src/qml/registration/ProviderPage.qml:293
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "공급자가 이 앱을 통한 등록을 지원하지 않습니다."
 
-#: src/qml/registration/ProviderPage.qml:307
+#: src/qml/registration/ProviderPage.qml:296
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "임시로 차단되었습니다: "
@@ -3483,6 +3501,18 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "다른 연결 설정을 입력하면 변경합니다"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "연결 설정"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "연결 설정"
 
 #~ msgctxt "ContactAdditionContent|"
 #~ msgid "Contact already exists"

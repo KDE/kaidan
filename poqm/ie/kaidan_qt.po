@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:481
+#: src/Account.cpp:495
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/Account.cpp:483
+#: src/Account.cpp:497
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -37,73 +37,73 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:508
 #, fuzzy
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Contrasigne o nómine ínvalid"
 
-#: src/Account.cpp:496
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:498
+#: src/Account.cpp:512
 #, fuzzy
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Un error evenit cludente li session"
 
-#: src/Account.cpp:500
+#: src/Account.cpp:514
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:504
+#: src/Account.cpp:518
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Proxy,Servitor proxy,Firewall,Squid"
 
-#: src/Account.cpp:506
+#: src/Account.cpp:520
 #, fuzzy
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Li protocol %1 ne es supportat."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:522
 #, fuzzy
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ne successat crear un conexion de rete"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:524
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:512
+#: src/Account.cpp:526
 #, fuzzy
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:528
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:516
+#: src/Account.cpp:530
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -1132,7 +1132,7 @@ msgid "New password"
 msgstr "Nov contrasigne:"
 
 #: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:993
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -1239,73 +1239,69 @@ msgid ""
 "values)"
 msgstr "Ne successat conexer al local portu %i."
 
-#: src/qml/details/AccountDetailsContent.qml:885
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
-msgid "Change connection settings"
-msgstr "Parametres de conexion"
+msgid "Apply changes"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:894
-#, fuzzy
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
-msgid "Enter different connection settings to change them"
-msgstr "Parametres de conexion"
+msgid "Applying changes…"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:928
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Li gruppe ne posse esset changeat."
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:941
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Parametres de conexion"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:952
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Cambiar"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:962
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Celar li QR-code"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:981
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:987
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adresse de conversation:"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1005
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -1313,13 +1309,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Localisation"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Remover li conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1011
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1327,12 +1323,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Securitá del conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1340,7 +1336,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1061
+#: src/qml/details/AccountDetailsContent.qml:1035
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1348,44 +1344,44 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Remover"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Remover li conto %s?"
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1042
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1050
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Contacte"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Completmen"
 
-#: src/qml/details/AccountDetailsContent.qml:1084
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1092
+#: src/qml/details/AccountDetailsContent.qml:1066
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Remover li conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1073
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2696,20 +2692,32 @@ msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Copiar li URL del págine"
 
-#: src/qml/elements/CustomConnectionSettings.qml:28
+#: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Nómine de host:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:32
+#: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr ""
 
-#: src/qml/elements/CustomConnectionSettings.qml:52
+#: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Portu:"
+
+#: src/qml/elements/CustomConnectionSettings.qml:107
+msgctxt "CustomConnectionSettings|"
+msgid "Plain authentication (SASL PLAIN)"
+msgstr ""
+
+#: src/qml/elements/CustomConnectionSettings.qml:108
+msgctxt "CustomConnectionSettings|"
+msgid ""
+"Required if your provider uses LDAP which is often the case in organizations "
+"where you can log in with a single account"
+msgstr ""
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -3009,12 +3017,12 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Celar li QR-code"
 
-#: src/qml/elements/LoginArea.qml:57
+#: src/qml/elements/LoginArea.qml:56
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
 msgctxt "LoginArea|"
-msgid "Connection settings"
+msgid "Show connection settings"
 msgstr "Parametres de conexion"
 
 #: src/qml/elements/LoginArea.qml:101
@@ -3607,7 +3615,7 @@ msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:110
+#: src/qml/registration/ProviderPage.qml:106
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Provider"
@@ -3615,21 +3623,21 @@ msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Provisor"
 
-#: src/qml/registration/ProviderPage.qml:123
+#: src/qml/registration/ProviderPage.qml:117
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
 msgctxt "ProviderPage|"
-msgid "Connection settings"
+msgid "Show connection settings"
 msgstr "Parametres de conexion"
 
-#: src/qml/registration/ProviderPage.qml:172
+#: src/qml/registration/ProviderPage.qml:165
 #, fuzzy
 msgctxt "ProviderPage|"
 msgid "Server locations"
 msgstr "Localisationes"
 
-#: src/qml/registration/ProviderPage.qml:177
+#: src/qml/registration/ProviderPage.qml:170
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Languages:"
@@ -3637,33 +3645,33 @@ msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Lingues:"
 
-#: src/qml/registration/ProviderPage.qml:182
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:187
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:192
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:196
+#: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:197
+#: src/qml/registration/ProviderPage.qml:190
 #, fuzzy
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "Apert registration"
 
-#: src/qml/registration/ProviderPage.qml:211
+#: src/qml/registration/ProviderPage.qml:204
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Choose file"
@@ -3671,24 +3679,24 @@ msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Selecte un file"
 
-#: src/qml/registration/ProviderPage.qml:212
+#: src/qml/registration/ProviderPage.qml:205
 #, fuzzy
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "&Servitor:"
 
-#: src/qml/registration/ProviderPage.qml:238
+#: src/qml/registration/ProviderPage.qml:227
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:304
+#: src/qml/registration/ProviderPage.qml:293
 #, fuzzy
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/qml/registration/ProviderPage.qml:307
+#: src/qml/registration/ProviderPage.qml:296
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr ""
@@ -3952,6 +3960,25 @@ msgstr "Aniversarie"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#, fuzzy
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "Parametres de conexion"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Parametres de conexion"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Parametres de conexion"
 
 #, fuzzy
 #~ msgctxt "ContactAdditionContent|"

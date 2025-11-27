@@ -24,44 +24,44 @@ msgstr ""
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Connectat"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Desconnectat"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "El nom d'usuari o la contrasenya són incorrectes."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "No s'ha pogut connectar amb el servidor. Comproveu la vostra connexió amb "
 "Internet."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "S'ha produït un error en provar de connectar de forma segura."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "El servidor no és compatible amb les connexions segures."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -70,22 +70,22 @@ msgstr ""
 "No s'ha pogut connectar amb el servidor. Comproveu la vostra connexió amb "
 "Internet o el vostre nom de servidor."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:518
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:520
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:522
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "No s'ha pogut actualitzar la connexió."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:524
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -94,19 +94,19 @@ msgstr ""
 "No es permet l'accés a Internet. Comproveu la configuració d'accés a "
 "Internet del sistema."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:526
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Este servidor no permet el registre."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:528
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
 "electrònic que heu rebut."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:530
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "No s'ha pogut connectar amb el servidor."
@@ -1070,7 +1070,7 @@ msgid "New password"
 msgstr "Contrasenya nova"
 
 #: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasenya"
@@ -1171,33 +1171,33 @@ msgstr ""
 "Configura el nom de l'amfitrió i el port al qual connectar (camps buits per "
 "als valors predeterminats)"
 
-#: src/qml/details/AccountDetailsContent.qml:885
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
-msgid "Change connection settings"
-msgstr "Canvi de la configuració de la connexió"
+msgid "Apply changes"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:894
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
-msgid "Enter different connection settings to change them"
-msgstr "Introduïu paràmetres de connexió diferents per a canviar-los"
+msgid "Applying changes…"
+msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "No es pot canviar la configuració de la connexió: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:958
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1206,53 +1206,53 @@ msgstr ""
 "No mostreu mai la informació d'esta secció a ningú més. Permetria un accés "
 "il·limitat al vostre compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:962
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Mostra un codi QR d'inici de sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Escanegeu el codi QR en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Mostra les credencials"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:981
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "Introduïu les credencials en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adreça del xat"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1005
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migració"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migra el compte"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1011
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "S'està preparant la migració del compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "Açò pot tardar una estona"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1263,17 +1263,17 @@ msgstr ""
 "El compte actual s'eliminarà d'esta aplicació. Feu una còpia de seguretat de "
 "les vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1061
+#: src/qml/details/AccountDetailsContent.qml:1035
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminació"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Elimina de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1068
+#: src/qml/details/AccountDetailsContent.qml:1042
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1282,17 +1282,17 @@ msgstr ""
 "Elimina el compte d'esta aplicació. Feu una còpia de seguretat de les "
 "vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "S'està eliminant el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Suprimix completament"
 
-#: src/qml/details/AccountDetailsContent.qml:1084
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1300,12 +1300,12 @@ msgstr ""
 "Suprimix el compte en el proveïdor. No podreu tornar a utilitzar el vostre "
 "compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:1092
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "S'està suprimint el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1099
+#: src/qml/details/AccountDetailsContent.qml:1073
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2477,20 +2477,32 @@ msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
 msgstr "Copia"
 
-#: src/qml/elements/CustomConnectionSettings.qml:28
+#: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Nom del servidor:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:32
+#: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "El nom de l'amfitrió no pot contindre espais en blanc"
 
-#: src/qml/elements/CustomConnectionSettings.qml:52
+#: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Port:"
+
+#: src/qml/elements/CustomConnectionSettings.qml:107
+msgctxt "CustomConnectionSettings|"
+msgid "Plain authentication (SASL PLAIN)"
+msgstr ""
+
+#: src/qml/elements/CustomConnectionSettings.qml:108
+msgctxt "CustomConnectionSettings|"
+msgid ""
+"Required if your provider uses LDAP which is often the case in organizations "
+"where you can log in with a single account"
+msgstr ""
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2757,10 +2769,13 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Escaneja un codi QR d'inici de sessió"
 
-#: src/qml/elements/LoginArea.qml:57
+#: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
-msgid "Connection settings"
-msgstr "Configureu la connexió"
+msgid "Show connection settings"
+msgstr "Canvi de la configuració de la connexió"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3252,72 +3267,75 @@ msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "Trieu un proveïdor per a registrar-se!"
 
-#: src/qml/registration/ProviderPage.qml:110
+#: src/qml/registration/ProviderPage.qml:106
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Adreça del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:123
+#: src/qml/registration/ProviderPage.qml:117
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
-msgid "Connection settings"
-msgstr "Configureu la connexió"
+msgid "Show connection settings"
+msgstr "Canvi de la configuració de la connexió"
 
-#: src/qml/registration/ProviderPage.qml:172
+#: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
 msgid "Server locations"
 msgstr "Ubicacions dels servidors"
 
-#: src/qml/registration/ProviderPage.qml:177
+#: src/qml/registration/ProviderPage.qml:170
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Idiomes"
 
-#: src/qml/registration/ProviderPage.qml:182
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "Disponible/Llistat des de"
 
-#: src/qml/registration/ProviderPage.qml:187
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "Mida màxima dels elements multimèdia compartits"
 
-#: src/qml/registration/ProviderPage.qml:192
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
 msgstr "Duració de l'emmagatzematge de missatges"
 
-#: src/qml/registration/ProviderPage.qml:196
+#: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "Visiteu la pàgina dels detalls"
 
-#: src/qml/registration/ProviderPage.qml:197
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "Obri la pàgina web de detalls del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:211
+#: src/qml/registration/ProviderPage.qml:204
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Trieu"
 
-#: src/qml/registration/ProviderPage.qml:212
+#: src/qml/registration/ProviderPage.qml:205
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "S'està sol·licitant el registre…"
 
-#: src/qml/registration/ProviderPage.qml:238
+#: src/qml/registration/ProviderPage.qml:227
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "Cal introduir una adreça del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:304
+#: src/qml/registration/ProviderPage.qml:293
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "El proveïdor no permet el registre a través d'esta aplicació."
 
-#: src/qml/registration/ProviderPage.qml:307
+#: src/qml/registration/ProviderPage.qml:296
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "Vos han bloquejat temporalment: "
@@ -3552,3 +3570,15 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "Introduïu paràmetres de connexió diferents per a canviar-los"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Configureu la connexió"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Configureu la connexió"
