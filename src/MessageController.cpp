@@ -48,7 +48,6 @@
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
 
 using namespace std::placeholders;
-using std::ranges::find;
 
 MessageController::MessageController(AccountSettings *accountSettings,
                                      Connection *connection,
@@ -632,7 +631,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     message.spoilerHint = msg.spoilerHint();
 
     // file sharing messages for backwards-compatibility are ignored
-    if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) != msg.fallbackMarkers().end() && msg.sharedFiles().empty()) {
+    if (std::ranges::contains(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) && msg.sharedFiles().empty()) {
         return;
     }
 
