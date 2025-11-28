@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-12 08:44-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"PO-Revision-Date: 2025-11-27 01:55-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -249,24 +249,24 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Deixar o grupo de bate-papo"
 
-#: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
+#: src/FileSharingController.cpp:353 src/FileSharingController.cpp:471
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Cancelado"
 
-#: src/FileSharingController.cpp:393
+#: src/FileSharingController.cpp:392
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Não foi possível baixar arquivo: %1"
 
-#: src/FileSharingController.cpp:555
+#: src/FileSharingController.cpp:554
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Envio falhou: %1"
 
-#: src/FileSharingController.cpp:565
+#: src/FileSharingController.cpp:564
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
@@ -459,19 +459,19 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' não pode ser enviado porque é maior que %2"
 
-#: src/MessageController.cpp:274
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageController.cpp:647
+#: src/MessageController.cpp:646
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está criptografada com %1 mas não pode ser descriptografada"
 
-#: src/MessageController.cpp:1051
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -1169,12 +1169,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar mudanças"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Aplicando mudanças…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2490,7 +2490,7 @@ msgstr "Porta:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Autenticação simples (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2498,6 +2498,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Necessário se o seu provedor utiliza LDAP, o que é comum em organizações "
+"onde você pode fazer login com uma única conta"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2762,12 +2764,9 @@ msgid "Scan login QR code"
 msgstr "Escanear código QR de login"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Alterar configurações de conexão"
+msgstr "Exibir configurações de conexão"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3263,12 +3262,9 @@ msgid "Provider Address"
 msgstr "Endereço do servidor"
 
 #: src/qml/registration/ProviderPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Alterar configurações de conexão"
+msgstr "Exibir configurações de conexão"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"

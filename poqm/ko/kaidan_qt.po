@@ -234,7 +234,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "그룹 대화 떠나는 중"
 
-#: src/FileSharingController.cpp:354 src/FileSharingController.cpp:472
+#: src/FileSharingController.cpp:353 src/FileSharingController.cpp:471
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -242,13 +242,13 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "취소"
 
-#: src/FileSharingController.cpp:393
+#: src/FileSharingController.cpp:392
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "파일을 다운로드할 수 없음: %1"
 
-#: src/FileSharingController.cpp:555
+#: src/FileSharingController.cpp:554
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -256,7 +256,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "업로드 실패: %1"
 
-#: src/FileSharingController.cpp:565
+#: src/FileSharingController.cpp:564
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
@@ -450,18 +450,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageController.cpp:274
+#: src/MessageController.cpp:273
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:647
+#: src/MessageController.cpp:646
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1051
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
