@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-13 17:09+0100\n"
+"PO-Revision-Date: 2025-11-27 13:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1164,12 +1164,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Wijzigingen toepassen"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Wijzigingen worden toegepast…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2483,7 +2483,7 @@ msgstr "Poort:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Gewone authenticatie (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2491,6 +2491,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Vereist als uw leverancier LDAP gebruikt wat vaak het geval is in "
+"organisaties waar u zich aan kunt melden met een enkel account"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2756,12 +2758,9 @@ msgid "Scan login QR code"
 msgstr "QR-code voor aanmelden scannen"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Verbindingsinstellingen wijzigen"
+msgstr "Verbindingsinstellingen tonen"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3260,12 +3259,9 @@ msgid "Provider Address"
 msgstr "Leveranciersadres"
 
 #: src/qml/registration/ProviderPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Verbindingsinstellingen wijzigen"
+msgstr "Verbindingsinstellingen tonen"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
