@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2025-11-13 13:32+0100\n"
+"PO-Revision-Date: 2025-11-28 09:10+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.11.80\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:493
@@ -1180,12 +1180,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Appliquer les modifications"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Application des modifications en cours... "
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2529,7 +2529,7 @@ msgstr "Port :"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Authentification en clair (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2537,6 +2537,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Obligatoire si votre fournisseur utilise LDAP, ce qui est souvent le cas "
+"dans les organisations où vous pouvez vous connecter avec un seul compte"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2805,12 +2807,9 @@ msgid "Scan login QR code"
 msgstr "Lire un code « QR » de connexion"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Modifier la configuration de connexion"
+msgstr "Afficher la configuration de connexion"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3310,12 +3309,9 @@ msgid "Provider Address"
 msgstr "Adresse du fournisseur"
 
 #: src/qml/registration/ProviderPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Modifier la configuration de connexion"
+msgstr "Afficher la configuration de connexion"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"

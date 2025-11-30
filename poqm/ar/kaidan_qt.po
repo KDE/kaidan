@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-12 20:01+0400\n"
+"PO-Revision-Date: 2025-11-29 21:51+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1139,12 +1139,12 @@ msgstr "اضبط اسم المضيف والمنفذ للاتصال (الحقول
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "طبقّ التّعديلات"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "يطبق التّغييرات…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2425,7 +2425,7 @@ msgstr "المنفذ:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "استيثاق عادي (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2433,6 +2433,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"مطلوب إذا كان مزود الخدمة الخاص بك يستخدم LDAP، وهو ما يحدث غالبًا في "
+"المؤسسات التي يمكنك تسجيل الدخول إليها بحساب واحد."
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2696,12 +2698,9 @@ msgid "Scan login QR code"
 msgstr "امسح رمز الاستجابة للولوج"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "غير إعدادات الاتّصال"
+msgstr "أظهر إعدادات الاتّصال"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3194,12 +3193,9 @@ msgid "Provider Address"
 msgstr "عنوان المزود"
 
 #: src/qml/registration/ProviderPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "غير إعدادات الاتّصال"
+msgstr "أظهر إعدادات الاتّصال"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
