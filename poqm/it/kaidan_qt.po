@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-14 10:14+0100\n"
+"PO-Revision-Date: 2025-11-28 09:57+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1165,12 +1165,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Applica le modifiche"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Applicazione delle modifiche..."
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2489,7 +2489,7 @@ msgstr "Porta:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Autenticazione semplice (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2497,6 +2497,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Obbligatorio se il tuo fornitore utilizza LDAP, cosa che spesso accade nelle "
+"organizzazioni in cui è possibile accedere con un singolo account"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2765,12 +2767,9 @@ msgid "Scan login QR code"
 msgstr "Scansione del codice QR di accesso"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Modifica le impostazioni di connessione"
+msgstr "Mostra le impostazioni di connessione"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3267,12 +3266,9 @@ msgid "Provider Address"
 msgstr "Indirizzo del fornitore"
 
 #: src/qml/registration/ProviderPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Modifica le impostazioni di connessione"
+msgstr "Mostra le impostazioni di connessione"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
