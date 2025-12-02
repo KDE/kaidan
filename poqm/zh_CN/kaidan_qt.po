@@ -1133,12 +1133,12 @@ msgstr "配置要连接的主机名和端口（空字段为默认值）"
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "应用更改"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "正在应用更改…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2410,7 +2410,7 @@ msgstr "端口："
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "明文身份验证（SASL PLAIN）"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2418,6 +2418,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"如果您的服务提供者使用 LDAP，则需要启用此功能。这在可以使用单一账号登录的组织"
+"中很常见。"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2683,7 +2685,7 @@ msgstr "扫描登录二维码"
 #: src/qml/elements/LoginArea.qml:56
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "显示连接设置"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3176,7 +3178,7 @@ msgstr "提供者地址"
 #: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "显示连接设置"
 
 #: src/qml/registration/ProviderPage.qml:165
 msgctxt "ProviderPage|"
