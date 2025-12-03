@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-09-20 12:25+0200\n"
+"PO-Revision-Date: 2025-12-02 09:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -54,7 +54,7 @@ msgstr ""
 #: src/Account.cpp:459
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
-msgstr "S'ha produït un error en provar de connectar de forma segura."
+msgstr "S'ha produït un error mentre es provava de connectar de forma segura."
 
 #: src/Account.cpp:461
 msgctxt "Connection|"
@@ -1065,7 +1065,7 @@ msgstr "Canvia la contrasenya"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr "No s'ha pogut canviar la contrasenya: %1"
+msgstr "Ha fallat mentre es canviava la contrasenya: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
@@ -2079,7 +2079,7 @@ msgstr "Obri la pàgina de Mastodon de Kaidan en un navegador web"
 #: src/qml/elements/AboutContent.qml:33
 msgctxt "AboutContent|"
 msgid "Donate"
-msgstr "Donatius"
+msgstr "Donació"
 
 #: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
@@ -3415,7 +3415,7 @@ msgstr "%1 ha parat d'escriure…"
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "No s'ha pogut generar el codi QR: %1"
+msgstr "Ha fallat mentre es generava el codi QR: %1"
 
 #: src/RosterController.cpp:162
 #, qt-format
@@ -3453,7 +3453,7 @@ msgstr "No s'ha pogut permetre a %1 veure les vostres dades personals"
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "No s'ha pogut parar a %1 de veure les vostres dades personals"
+msgstr "Ha fallat mentre es parava a %1 de veure les vostres dades personals"
 
 #: src/RosterController.cpp:333
 msgctxt "RosterController|"
