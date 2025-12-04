@@ -241,7 +241,6 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 
 void ClientWorker::onConnected()
 {
-    // no mutex needed, because this is called from updateClient()
     qCDebug(KAIDAN_CORE_LOG) << "Connected to server";
 
     // If there was an error before, notify about its absence.
@@ -305,7 +304,6 @@ void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
 
 void ClientWorker::onConnectionError(const QXmppError &error)
 {
-    // no mutex needed, because this is called from updateClient()
     qCDebug(KAIDAN_CORE_LOG) << "Connection error:" << error.description;
 
     if (const auto socketError = error.value<QAbstractSocket::SocketError>()) {
