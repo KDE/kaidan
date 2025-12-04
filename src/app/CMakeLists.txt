@@ -27,6 +27,9 @@ if (NOT WIN32 AND NOT APPLE)
     target_link_libraries(${PROJECT_NAME} Qt::GuiPrivate)
 endif()
 
+if (WIN32)
+    target_link_libraries(${PROJECT_NAME} KF6::IconThemes)
+endif()
 
 # Set a custom plist file for the app bundle
 if(APPLE)

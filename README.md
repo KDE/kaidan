@@ -49,7 +49,7 @@ Kaidan yourself can be found in our [Wiki][wiki].
 The following dependencies are needed by Kaidan:
 
 * [Qt][qt-build-sources] >= 6.7.0 - Core | Concurrent | Qml | Quick | Svg | Sql | QuickControls2 | Xml | Multimedia | Positioning | Location | Qt6GuiPrivate (since Qt 6.10.0)
-* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KWindowSystem][kwindowsystem] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
+* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIconThemes][kiconthemes] (for Windows) [KWindowSystem][kwindowsystem] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
 * [KDSingleApplication][kdsingleapplication]
 * [Kirigami Addons][kirigami-addons] >= 1.4.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
@@ -88,6 +88,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [kdesecurity]: https://kde.org/info/security/
 [kdsingleapplication]: https://github.com/KDAB/KDSingleApplication
 [kf]: https://develop.kde.org/products/frameworks/
+[kiconthemes]: https://api.kde.org/kiconthemes-index.html
 [kio]: https://api.kde.org/frameworks/kio/html/index.html
 [kirigami-addons]: https://invent.kde.org/libraries/kirigami-addons
 [kirigami-repo]: https://invent.kde.org/frameworks/kirigami

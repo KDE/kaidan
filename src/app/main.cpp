@@ -45,6 +45,9 @@
 #if __has_include("KWindowSystem")
 #include <KWindowSystem>
 #endif
+#if defined(Q_OS_WINDOWS)
+#include <KIconTheme>
+#endif
 // KDAB
 #include <kdsingleapplication.h>
 // QXmpp
@@ -254,6 +257,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 #if defined(Q_OS_ANDROID) || defined(Q_OS_WINDOWS) || defined(Q_OS_APPLE)
     Q_INIT_RESOURCE(images);
+#endif
+
+#if defined(Q_OS_WINDOWS)
+    KIconTheme::initTheme();
 #endif
 
     // name, display name, description
