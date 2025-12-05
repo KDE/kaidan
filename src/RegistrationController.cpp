@@ -261,7 +261,7 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
     QXmppDataForm newDataForm = extractFormFromRegisterIq(iq, isFakeForm);
 
     // If there is no registration data form, try to use an out-of-band URL.
-    if (newDataForm.fields().isEmpty()) {
+    if (newDataForm.constFields().isEmpty()) {
         // If there is a standardized out-of-band URL, use that.
         if (!iq.outOfBandUrl().isEmpty()) {
             Q_EMIT registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
@@ -402,7 +402,8 @@ void RegistrationController::handlePasswordChangeFailed(const QXmppStanza::Error
 QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm)
 {
     QXmppDataForm newDataForm = iq.form();
-    if (newDataForm.fields().isEmpty()) {
+
+    if (newDataForm.constFields().isEmpty()) {
         // This is a hack, so we only need to implement one way of registering in QML.
         // A 'fake' data form model is created with a username and password field.
         isFakeForm = true;
@@ -412,7 +413,7 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
             field.setKey(QStringLiteral("username"));
             field.setRequired(true);
             field.setType(QXmppDataForm::Field::TextSingleField);
-            newDataForm.fields().append(field);
+            newDataForm.appendField(std::move(field));
         }
 
         if (!iq.password().isNull()) {
@@ -420,7 +421,7 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
             field.setKey(QStringLiteral("password"));
             field.setRequired(true);
             field.setType(QXmppDataForm::Field::TextPrivateField);
-            newDataForm.fields().append(field);
+            newDataForm.appendField(std::move(field));
         }
 
         if (!iq.email().isNull()) {
@@ -428,7 +429,7 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
             field.setKey(QStringLiteral("email"));
             field.setRequired(true);
             field.setType(QXmppDataForm::Field::TextPrivateField);
-            newDataForm.fields().append(field);
+            newDataForm.appendField(std::move(field));
         }
     } else {
         isFakeForm = false;
@@ -437,7 +438,7 @@ QXmppDataForm RegistrationController::extractFormFromRegisterIq(const QXmppRegis
     return newDataForm;
 }
 
-void RegistrationController::updateLastForm(const QXmppDataForm &newDataForm)
+void RegistrationController::updateLastForm(QXmppDataForm &newDataForm)
 {
     copyUserDefinedValuesToNewForm(m_dataFormModel->form(), newDataForm);
     m_dataFormModel = new RegistrationDataFormModel(newDataForm);
@@ -450,22 +451,24 @@ void RegistrationController::cleanUpLastForm()
     removeOldContentIds();
 }
 
-void RegistrationController::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm)
+void RegistrationController::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm)
 {
-    // Copy values from the last form.
-    const QList<QXmppDataForm::Field> oldFields = oldForm.fields();
-    for (const auto &field : oldFields) {
-        // Only copy fields which:
+    for (const auto &field : oldForm.constFields()) {
+        // Only copy fields that:
         //  * are required
         //  * are visible to the user
         //  * do not have a media element (e.g., a CAPTCHA)
         if (field.isRequired() && field.type() != QXmppDataForm::Field::HiddenField && field.mediaSources().isEmpty()) {
-            for (auto &fieldFromNewForm : newForm.fields()) {
-                if (fieldFromNewForm.key() == field.key()) {
-                    fieldFromNewForm.setValue(field.value());
+            auto newFormFields = newForm.fields();
+
+            for (auto &newFormField : newFormFields) {
+                if (newFormField.key() == field.key()) {
+                    newFormField.setValue(field.value());
                     break;
                 }
             }
+
+            newForm.setFields(newFormFields);
         }
     }
 }

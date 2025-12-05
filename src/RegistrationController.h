@@ -199,7 +199,7 @@ private:
     /**
      * Updates the last form used for registration.
      */
-    void updateLastForm(const QXmppDataForm &newDataForm);
+    void updateLastForm(QXmppDataForm &newDataForm);
 
     /**
      * Cleans up the last form used for registration.
@@ -212,7 +212,7 @@ private:
      * @param oldForm form with old values
      * @param newForm form with new values
      */
-    static void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm);
+    static void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm);
 
     /**
      * Removes content IDs from the last form.
