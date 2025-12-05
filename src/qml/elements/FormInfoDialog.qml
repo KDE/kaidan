@@ -11,7 +11,7 @@ Dialog {
 
 	// Set a negative inset to fix the rounded corners at the bottom of the dialog.
 	bottomInset: - Kirigami.Units.cornerRadius
-	preferredWidth: Kirigami.Units.gridUnit * 33
+	preferredWidth: Kirigami.Units.gridUnit * 32
 
 	ColumnLayout {
 		id: mainArea

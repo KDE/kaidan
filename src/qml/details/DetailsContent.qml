@@ -19,6 +19,7 @@ FormInfoContent {
 	id: root
 
 	property Account account
+	property Kirigami.Dialog dialog
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaAreaText: mediaAreaText.text

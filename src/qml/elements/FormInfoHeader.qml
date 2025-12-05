@@ -13,5 +13,5 @@ GridLayout {
 	Layout.topMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.smallSpacing * 5
 	Layout.bottomMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 2
 	Layout.leftMargin: Kirigami.Units.smallSpacing * 5
-	Layout.rightMargin: Layout.leftMargin + (dialog && dialog.contentItem.Controls.ScrollBar.vertical.visible ? dialog.contentItem.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing * 2 : 0)
+	Layout.rightMargin: Layout.leftMargin
 }
