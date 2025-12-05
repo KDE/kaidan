@@ -85,7 +85,7 @@ DetailsContent {
 						visible: !vCardBusyIndicator.visible
 						flat: !hovered
 						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
+						Layout.preferredHeight: vCardValueField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
 						onClicked: {
 							vCardBusyIndicator.visible = true
