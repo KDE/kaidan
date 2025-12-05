@@ -18,13 +18,18 @@ MediaButton {
 
 			Kirigami.Icon {
 				source: root.iconSource
+				implicitWidth: root.iconSize
+				implicitHeight: root.iconSize
 			}
 		}
 
 		Component {
 			id: busyIndicator
 
-			Controls.BusyIndicator {}
+			Controls.BusyIndicator {
+				implicitWidth: root.iconSize
+				implicitHeight: root.iconSize
+			}
 		}
 	}
 }

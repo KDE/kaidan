@@ -19,6 +19,12 @@ Controls.ItemDelegate {
 	background: Kirigami.ShadowedRectangle {
 		color: secondaryBackgroundColor
 		opacity: {
+			let defaultOpacity = root.strongBackgroundOpacityChange ? 0 : 0.8
+
+			if (!parent.enabled) {
+				return defaultOpacity
+			}
+
 			if (parent.pressed) {
 				return 1
 			}
@@ -27,7 +33,7 @@ Controls.ItemDelegate {
 				return root.strongBackgroundOpacityChange ? 0.5 : 0.9
 			}
 
-			return root.strongBackgroundOpacityChange ? 0 : 0.8
+			return defaultOpacity
 		}
 		radius: height / 2
 		shadow.color: Qt.darker(color, 1.2)

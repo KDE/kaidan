@@ -19,6 +19,7 @@ Dialog {
 	property FileSelectionModel fileSelectionModel
 	property alias captureSession: captureSession
 	property alias shutterRelease: shutterRelease
+	property bool savingCapturedData: false
 
 	preferredWidth: applicationWindow().width - Kirigami.Units.gridUnit * 3
 	preferredHeight: applicationWindow().height - Kirigami.Units.gridUnit * 6

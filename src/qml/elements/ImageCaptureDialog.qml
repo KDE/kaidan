@@ -18,7 +18,11 @@ NewMediaDialog {
 	captureSession.imageCapture: ImageCapture {}
 	shutterRelease {
 		iconSource: "camera-photo-symbolic"
-		onClicked: captureSession.imageCapture.captureToFile(MediaUtils.localFilePath(MediaUtils.newImageFileUrl()))
+		enabled: !root.savingCapturedData
+		onClicked: {
+			root.savingCapturedData
+			captureSession.imageCapture.captureToFile(MediaUtils.localFilePath(MediaUtils.newImageFileUrl()))
+		}
 	}
 
 	Connections {

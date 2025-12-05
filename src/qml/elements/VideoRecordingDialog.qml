@@ -21,8 +21,10 @@ NewMediaDialog {
 	}
 	shutterRelease {
 		iconSource: captureSession.recorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : "camera-video-symbolic"
+		enabled: !root.savingCapturedData
 		onClicked: {
 			if (captureSession.recorder.recorderState === MediaRecorder.RecordingState) {
+				root.savingCapturedData = true
 				captureSession.recorder.stop()
 			} else {
 				captureSession.recorder.outputLocation = MediaUtils.newVideoFileUrl()
@@ -33,7 +35,7 @@ NewMediaDialog {
 
 	// Recording indicator
 	Controls.Control {
-		visible: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState
+		visible: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState && !root.savingCapturedData
 		opacity: visible ? 0.9 : 0
 		topPadding: Kirigami.Units.smallSpacing
 		bottomPadding: topPadding
