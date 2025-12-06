@@ -281,6 +281,14 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Nie można pobrać pliku: %1"
 
+#: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
+msgctxt "QObject|"
+msgid "No selection"
+msgstr "Zapisz zaznaczenie"
+
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
@@ -655,22 +663,30 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Niedostępny"
 
-#: src/ProviderListModel.cpp:32
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
+msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Dostawca własny"
 
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:101 src/ProviderListModel.cpp:111
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
+msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Nieograniczona"
 
-#: src/ProviderListModel.cpp:113
-#, qt-format
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 dni"
 
@@ -2876,6 +2892,119 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Ponów uaktualnianie rekcji"
 
+#: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ProviderFilterArea|"
+msgid "Registration via Kaidan"
+msgstr "Nie udało się zarejestrować:"
+
+#: src/qml/elements/ProviderFilterArea.qml:19
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to create an account directly via Kaidan"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
+msgctxt "ProviderFilterArea|"
+msgid "Free of charge"
+msgstr "Chętny do rozmowy"
+
+#: src/qml/elements/ProviderFilterArea.qml:26
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that are free of charge"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "ProviderFilterArea|"
+msgid "Password reset"
+msgstr "Hasło"
+
+#: src/qml/elements/ProviderFilterArea.qml:33
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to reset your password"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:39
+msgctxt "ProviderFilterArea|"
+msgid "Green hosting"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:40
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers whose service runs on renewable energy"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:46
+msgctxt "ProviderFilterArea|"
+msgid "Bus factor"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ProviderFilterArea|"
+msgid "Location"
+msgstr "Położenie"
+
+#: src/qml/elements/ProviderFilterArea.qml:55
+msgctxt "ProviderFilterArea|"
+msgid ""
+"Show only providers that store and process their data in the selected country"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
+msgctxt "ProviderFilterArea|"
+msgid "Size of shared media"
+msgstr "Graniczny rozmiar udostępnianych multimediów"
+
+#: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Stores shared media up to:"
+msgctxt "ProviderFilterArea|"
+msgid "Size of all shared media in total"
+msgstr "Przechowuje udostępnione multimedia do:"
+
+#: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Media storage duration"
+msgstr "Czas przechowywania wiadomości"
+
+#: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Message storage duration"
+msgstr "Czas przechowywania wiadomości"
+
+#: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
+msgctxt "ProviderFilterArea|"
+msgid "Availability"
+msgstr "Dostępny"
+
+#: src/qml/elements/ProviderFilterArea.qml:102
+msgctxt "ProviderFilterArea|"
+msgid "Organization"
+msgstr ""
+
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2959,52 +3088,52 @@ msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Multimedia"
 
-#: src/qml/elements/RosterFilterArea.qml:27
+#: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Dostępne kontakty"
 
-#: src/qml/elements/RosterFilterArea.qml:31
+#: src/qml/elements/RosterFilterArea.qml:32
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Niedostępne kontakty"
 
-#: src/qml/elements/RosterFilterArea.qml:35
+#: src/qml/elements/RosterFilterArea.qml:36
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Grupy prywatne"
 
-#: src/qml/elements/RosterFilterArea.qml:39
+#: src/qml/elements/RosterFilterArea.qml:40
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Grupy publiczne"
 
-#: src/qml/elements/RosterFilterArea.qml:51
+#: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Odfiltruj po rodzaju"
 
-#: src/qml/elements/RosterFilterArea.qml:52
+#: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Pokaż wpisy tylko dla danych rodzajów"
 
-#: src/qml/elements/RosterFilterArea.qml:113
+#: src/qml/elements/RosterFilterArea.qml:114
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Odfiltruj po kontach"
 
-#: src/qml/elements/RosterFilterArea.qml:114
+#: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Pokaż rozmowy tylko dla wybranych kont"
 
-#: src/qml/elements/RosterFilterArea.qml:175
+#: src/qml/elements/RosterFilterArea.qml:176
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Odfiltruj po etykietach"
 
-#: src/qml/elements/RosterFilterArea.qml:176
+#: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Pokaż rozmowy z wybranymi etykietami"
@@ -3290,17 +3419,27 @@ msgctxt "ProviderPage|"
 msgid "Choose a Provider"
 msgstr "Wybierz dostawcę"
 
-#: src/qml/registration/ProviderPage.qml:39
+#: src/qml/registration/ProviderPage.qml:26
+#: src/qml/registration/ProviderPage.qml:270
+#: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
+msgctxt "ProviderPage|"
+msgid "Filter"
+msgstr "Filtr"
+
+#: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "Wybierz dostawcę, aby się zarejestrować!"
 
-#: src/qml/registration/ProviderPage.qml:106
+#: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Adres dostawcy"
 
-#: src/qml/registration/ProviderPage.qml:117
+#: src/qml/registration/ProviderPage.qml:128
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Change connection settings"
@@ -3308,62 +3447,65 @@ msgctxt "ProviderPage|"
 msgid "Show connection settings"
 msgstr "Zmień ustawienia połączenia"
 
-#: src/qml/registration/ProviderPage.qml:165
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
-msgid "Server locations"
-msgstr "Umiejscowienie serwerów"
+msgid "Data storage/processing locations"
+msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:170
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Języki"
 
-#: src/qml/registration/ProviderPage.qml:175
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "Dostępne/Wymienione od"
 
-#: src/qml/registration/ProviderPage.qml:180
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "Graniczny rozmiar udostępnianych multimediów"
 
-#: src/qml/registration/ProviderPage.qml:185
+#: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
-msgid "Messages storage duration"
+msgid "Message storage duration"
 msgstr "Czas przechowywania wiadomości"
 
-#: src/qml/registration/ProviderPage.qml:189
+#: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "Odwiedź stronę ze szczegółami"
 
-#: src/qml/registration/ProviderPage.qml:190
+#: src/qml/registration/ProviderPage.qml:201
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "Otwórz stronę ze szczegółami o dostawcy"
 
-#: src/qml/registration/ProviderPage.qml:204
+#: src/qml/registration/ProviderPage.qml:215
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Wybierz"
 
-#: src/qml/registration/ProviderPage.qml:205
+#: src/qml/registration/ProviderPage.qml:216
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "Proszenie o rejestrację…"
 
-#: src/qml/registration/ProviderPage.qml:227
+#: src/qml/registration/ProviderPage.qml:238
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "Musisz wpisać adres dostawcy"
 
-#: src/qml/registration/ProviderPage.qml:293
+#: src/qml/registration/ProviderPage.qml:333
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Dostawca nie obsługuje rejestrowania się przez tę aplikację."
 
-#: src/qml/registration/ProviderPage.qml:296
+#: src/qml/registration/ProviderPage.qml:336
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "Jesteś tymczasowo zablokowany: "
@@ -3601,6 +3743,10 @@ msgstr "Urodziny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Umiejscowienie serwerów"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
@@ -4099,10 +4245,6 @@ msgstr "Strona sieciowa"
 #~ msgctxt "ProviderView|"
 #~ msgid "Allows to share media up to:"
 #~ msgstr "Umożliwia udostępnianie multimediów do:"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Stores shared media up to:"
-#~ msgstr "Przechowuje udostępnione multimedia do:"
 
 #~ msgctxt "ProviderView|"
 #~ msgid "Open website"

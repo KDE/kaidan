@@ -268,6 +268,14 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "ფაილის ატვირთვის შეცდომა: %1"
 
+#: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
+msgctxt "QObject|"
+msgid "No selection"
+msgstr "მონიშნულის შენახვა"
+
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
@@ -637,22 +645,30 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "გათიშული"
 
-#: src/ProviderListModel.cpp:32
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
+msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "მორგებული მომწოდებელი"
 
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:101 src/ProviderListModel.cpp:111
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
+msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "შეუზღუდავი"
 
-#: src/ProviderListModel.cpp:113
-#, qt-format
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 დღე"
 
@@ -2821,6 +2837,119 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "რეაქციების განახლების თავიდან ცდა"
 
+#: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ProviderFilterArea|"
+msgid "Registration via Kaidan"
+msgstr "რეგისტრაციის შეცდომა:"
+
+#: src/qml/elements/ProviderFilterArea.qml:19
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to create an account directly via Kaidan"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
+msgctxt "ProviderFilterArea|"
+msgid "Free of charge"
+msgstr "სასაუბროდ თავისუფალი"
+
+#: src/qml/elements/ProviderFilterArea.qml:26
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that are free of charge"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "ProviderFilterArea|"
+msgid "Password reset"
+msgstr "პაროლი"
+
+#: src/qml/elements/ProviderFilterArea.qml:33
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to reset your password"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:39
+msgctxt "ProviderFilterArea|"
+msgid "Green hosting"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:40
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers whose service runs on renewable energy"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:46
+msgctxt "ProviderFilterArea|"
+msgid "Bus factor"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ProviderFilterArea|"
+msgid "Location"
+msgstr "მდებარეობა"
+
+#: src/qml/elements/ProviderFilterArea.qml:55
+msgctxt "ProviderFilterArea|"
+msgid ""
+"Show only providers that store and process their data in the selected country"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
+msgctxt "ProviderFilterArea|"
+msgid "Size of shared media"
+msgstr "გაზიარებული მედიის მაქსიმალური ზომა"
+
+#: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Stores shared media up to:"
+msgctxt "ProviderFilterArea|"
+msgid "Size of all shared media in total"
+msgstr "გაზიარებული მედიის შენახვა:"
+
+#: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Media storage duration"
+msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
+
+#: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Message storage duration"
+msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
+
+#: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
+msgctxt "ProviderFilterArea|"
+msgid "Availability"
+msgstr "ხელმისაწვდომია"
+
+#: src/qml/elements/ProviderFilterArea.qml:102
+msgctxt "ProviderFilterArea|"
+msgid "Organization"
+msgstr ""
+
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2906,52 +3035,52 @@ msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "მედია"
 
-#: src/qml/elements/RosterFilterArea.qml:27
+#: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "ხელმისაწვდომი კონტაქტები"
 
-#: src/qml/elements/RosterFilterArea.qml:31
+#: src/qml/elements/RosterFilterArea.qml:32
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "ხელმიუწვდომელი კონტაქტები"
 
-#: src/qml/elements/RosterFilterArea.qml:35
+#: src/qml/elements/RosterFilterArea.qml:36
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "პირადი ჯგუფები"
 
-#: src/qml/elements/RosterFilterArea.qml:39
+#: src/qml/elements/RosterFilterArea.qml:40
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "საჯარო ჯგუფები"
 
-#: src/qml/elements/RosterFilterArea.qml:51
+#: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "ტიპით გაფილტვრა"
 
-#: src/qml/elements/RosterFilterArea.qml:52
+#: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "მხოლოდ, მითითებული ტიპის მქონე ჩანაწერების ჩვენება"
 
-#: src/qml/elements/RosterFilterArea.qml:113
+#: src/qml/elements/RosterFilterArea.qml:114
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "ანგარიშებით გაფილტვრა"
 
-#: src/qml/elements/RosterFilterArea.qml:114
+#: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "მხოლოდ მონიშნული ანგარიშების ჩატის ჩვენება"
 
-#: src/qml/elements/RosterFilterArea.qml:175
+#: src/qml/elements/RosterFilterArea.qml:176
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "გაფილტვრა ჭდეებით"
 
-#: src/qml/elements/RosterFilterArea.qml:176
+#: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "მხოლოდ მონიშნული ჭდეების მქონე ჩატებს ჩვენება"
@@ -3236,77 +3365,90 @@ msgctxt "ProviderPage|"
 msgid "Choose a Provider"
 msgstr "მომწოდებლის არჩევა"
 
-#: src/qml/registration/ProviderPage.qml:39
+#: src/qml/registration/ProviderPage.qml:26
+#: src/qml/registration/ProviderPage.qml:270
+#: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
+msgctxt "ProviderPage|"
+msgid "Filter"
+msgstr "ფილტრი"
+
+#: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "აირჩიეთ პროვაიდერი რეგისტრაციისთვის!"
 
-#: src/qml/registration/ProviderPage.qml:106
+#: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "პროვაიდერის მისამართი"
 
-#: src/qml/registration/ProviderPage.qml:117
+#: src/qml/registration/ProviderPage.qml:128
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
 msgstr "კავშირის პარამეტრების ჩვენება"
 
-#: src/qml/registration/ProviderPage.qml:165
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
-msgid "Server locations"
-msgstr "სერვერის მდებარეობები"
+msgid "Data storage/processing locations"
+msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:170
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "ენები"
 
-#: src/qml/registration/ProviderPage.qml:175
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "ხელმისაწვდომია/სიაშია როდიდან"
 
-#: src/qml/registration/ProviderPage.qml:180
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "გაზიარებული მედიის მაქსიმალური ზომა"
 
-#: src/qml/registration/ProviderPage.qml:185
+#: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
-msgid "Messages storage duration"
+msgid "Message storage duration"
 msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
 
-#: src/qml/registration/ProviderPage.qml:189
+#: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "დეტალების გვერდზე გადასვლა"
 
-#: src/qml/registration/ProviderPage.qml:190
+#: src/qml/registration/ProviderPage.qml:201
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "პროვაიდერის დეტალების ვებგვერდის გახსნა"
 
-#: src/qml/registration/ProviderPage.qml:204
+#: src/qml/registration/ProviderPage.qml:215
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "არჩევა"
 
-#: src/qml/registration/ProviderPage.qml:205
+#: src/qml/registration/ProviderPage.qml:216
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "რეგისტრაციის მოთხოვნა…"
 
-#: src/qml/registration/ProviderPage.qml:227
+#: src/qml/registration/ProviderPage.qml:238
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "პროვაიდერის მისამართის შეყვანა აუცილებელია"
 
-#: src/qml/registration/ProviderPage.qml:293
+#: src/qml/registration/ProviderPage.qml:333
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "მომწოდებელს ამ აპიდან რეგისტრაციის მხარდაჭერა არ გააჩნია."
 
-#: src/qml/registration/ProviderPage.qml:296
+#: src/qml/registration/ProviderPage.qml:336
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "თქვენ დროებით დაბლოკილი ბრძანდებით: "
@@ -3539,6 +3681,10 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "სერვერის მდებარეობები"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
@@ -4070,10 +4216,6 @@ msgstr "ვებსაიტი"
 #~ msgctxt "ProviderView|"
 #~ msgid "Allows to share media up to:"
 #~ msgstr "მედიის გაზიარება:"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Stores shared media up to:"
-#~ msgstr "გაზიარებული მედიის შენახვა:"
 
 #~ msgctxt "ProviderView|"
 #~ msgid "Open website"

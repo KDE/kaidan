@@ -281,6 +281,14 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "No s'ha pogut pujar el fitxer: %1"
 
+#: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
+msgctxt "QObject|"
+msgid "No selection"
+msgstr "Guarda la selecció"
+
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
@@ -650,22 +658,30 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Desconnectat"
 
-#: src/ProviderListModel.cpp:32
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
+msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Proveïdor personalitzat"
 
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:101 src/ProviderListModel.cpp:111
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
+msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Sense límit"
 
-#: src/ProviderListModel.cpp:113
-#, qt-format
-msgctxt "ProviderListModel|"
+#: src/ProviderModel.cpp:132
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 dies"
 
@@ -2846,6 +2862,119 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Reintenta l'actualització de les reaccions"
 
+#: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ProviderFilterArea|"
+msgid "Registration via Kaidan"
+msgstr "Ha fallat el registre:"
+
+#: src/qml/elements/ProviderFilterArea.qml:19
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to create an account directly via Kaidan"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
+msgctxt "ProviderFilterArea|"
+msgid "Free of charge"
+msgstr "Lliure per a xat"
+
+#: src/qml/elements/ProviderFilterArea.qml:26
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that are free of charge"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
+msgctxt "ProviderFilterArea|"
+msgid "Password reset"
+msgstr "Contrasenya"
+
+#: src/qml/elements/ProviderFilterArea.qml:33
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers that allow to reset your password"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:39
+msgctxt "ProviderFilterArea|"
+msgid "Green hosting"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:40
+msgctxt "ProviderFilterArea|"
+msgid "Show only providers whose service runs on renewable energy"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:46
+msgctxt "ProviderFilterArea|"
+msgid "Bus factor"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ProviderFilterArea|"
+msgid "Location"
+msgstr "Ubicació"
+
+#: src/qml/elements/ProviderFilterArea.qml:55
+msgctxt "ProviderFilterArea|"
+msgid ""
+"Show only providers that store and process their data in the selected country"
+msgstr ""
+
+#: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
+msgctxt "ProviderFilterArea|"
+msgid "Size of shared media"
+msgstr "Mida màxima dels elements multimèdia compartits"
+
+#: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
+msgctxt "ProviderFilterArea|"
+msgid "Size of all shared media in total"
+msgstr "Mida màxima dels elements multimèdia compartits"
+
+#: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Media storage duration"
+msgstr "Duració de l'emmagatzematge de missatges"
+
+#: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
+msgctxt "ProviderFilterArea|"
+msgid "Message storage duration"
+msgstr "Duració de l'emmagatzematge de missatges"
+
+#: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
+msgctxt "ProviderFilterArea|"
+msgid "Availability"
+msgstr "Disponible"
+
+#: src/qml/elements/ProviderFilterArea.qml:102
+msgctxt "ProviderFilterArea|"
+msgid "Organization"
+msgstr ""
+
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2932,52 +3061,52 @@ msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Multimèdia"
 
-#: src/qml/elements/RosterFilterArea.qml:27
+#: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Contactes disponibles"
 
-#: src/qml/elements/RosterFilterArea.qml:31
+#: src/qml/elements/RosterFilterArea.qml:32
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Contactes no disponibles"
 
-#: src/qml/elements/RosterFilterArea.qml:35
+#: src/qml/elements/RosterFilterArea.qml:36
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Grups privats"
 
-#: src/qml/elements/RosterFilterArea.qml:39
+#: src/qml/elements/RosterFilterArea.qml:40
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Grups públics"
 
-#: src/qml/elements/RosterFilterArea.qml:51
+#: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Filtra per tipus"
 
-#: src/qml/elements/RosterFilterArea.qml:52
+#: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Mostra només les entrades de tipus específic"
 
-#: src/qml/elements/RosterFilterArea.qml:113
+#: src/qml/elements/RosterFilterArea.qml:114
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Filtra per comptes"
 
-#: src/qml/elements/RosterFilterArea.qml:114
+#: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Mostra només els xats dels comptes seleccionats"
 
-#: src/qml/elements/RosterFilterArea.qml:175
+#: src/qml/elements/RosterFilterArea.qml:176
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Filtra per etiquetes"
 
-#: src/qml/elements/RosterFilterArea.qml:176
+#: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Mostra només els xats amb les etiquetes seleccionades"
@@ -3261,77 +3390,90 @@ msgctxt "ProviderPage|"
 msgid "Choose a Provider"
 msgstr "Trieu un proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:39
+#: src/qml/registration/ProviderPage.qml:26
+#: src/qml/registration/ProviderPage.qml:270
+#: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
+msgctxt "ProviderPage|"
+msgid "Filter"
+msgstr "Filtre"
+
+#: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
 msgstr "Trieu un proveïdor per a registrar-se!"
 
-#: src/qml/registration/ProviderPage.qml:106
+#: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
 msgid "Provider Address"
 msgstr "Adreça del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:117
+#: src/qml/registration/ProviderPage.qml:128
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
 msgstr "Mostra la configuració de la connexió"
 
-#: src/qml/registration/ProviderPage.qml:165
+#: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
-msgid "Server locations"
-msgstr "Ubicacions dels servidors"
+msgid "Data storage/processing locations"
+msgstr ""
 
-#: src/qml/registration/ProviderPage.qml:170
+#: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "Idiomes"
 
-#: src/qml/registration/ProviderPage.qml:175
+#: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
 msgstr "Disponible/Llistat des de"
 
-#: src/qml/registration/ProviderPage.qml:180
+#: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
 msgstr "Mida màxima dels elements multimèdia compartits"
 
-#: src/qml/registration/ProviderPage.qml:185
+#: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
-msgid "Messages storage duration"
+msgid "Message storage duration"
 msgstr "Duració de l'emmagatzematge de missatges"
 
-#: src/qml/registration/ProviderPage.qml:189
+#: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
 msgid "Visit details page"
 msgstr "Visiteu la pàgina dels detalls"
 
-#: src/qml/registration/ProviderPage.qml:190
+#: src/qml/registration/ProviderPage.qml:201
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
 msgstr "Obri la pàgina web de detalls del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:204
+#: src/qml/registration/ProviderPage.qml:215
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Trieu"
 
-#: src/qml/registration/ProviderPage.qml:205
+#: src/qml/registration/ProviderPage.qml:216
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
 msgstr "S'està sol·licitant el registre…"
 
-#: src/qml/registration/ProviderPage.qml:227
+#: src/qml/registration/ProviderPage.qml:238
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
 msgstr "Cal introduir una adreça del proveïdor"
 
-#: src/qml/registration/ProviderPage.qml:293
+#: src/qml/registration/ProviderPage.qml:333
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "El proveïdor no permet el registre a través d'esta aplicació."
 
-#: src/qml/registration/ProviderPage.qml:296
+#: src/qml/registration/ProviderPage.qml:336
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
 msgstr "Vos han bloquejat temporalment: "
@@ -3566,3 +3708,7 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Ubicacions dels servidors"
