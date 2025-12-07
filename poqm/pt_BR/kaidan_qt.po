@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-27 01:55-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"PO-Revision-Date: 2025-12-06 05:51-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -273,12 +273,9 @@ msgid "Could not upload file: %1"
 msgstr "Não foi possível enviar arquivo: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Salvar seleção"
+msgstr "Nenhuma seleção"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -653,9 +650,6 @@ msgid "Offline"
 msgstr "Desconectado"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Servidor personalizado"
@@ -664,17 +658,12 @@ msgstr "Servidor personalizado"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Ilimitado"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 dias"
@@ -2855,63 +2844,54 @@ msgid "Retry updating reactions"
 msgstr "Tentar novamente atualizar reações"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Registro falhou:"
+msgstr "Registro via Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Mostrar apenas os provedores que permitem criar uma conta diretamente pelo "
+"Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Livre para bate-papo"
+msgstr "Gratuito"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Mostrar apenas os provedores gratuitos"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Senha"
+msgstr "Redefinição de senha"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Mostrar apenas os provedores que permitem redefinir sua senha"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "Provedor verde"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
+"Mostrar apenas os provedores cujo serviço funciona com energia renovável"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Fator barramento"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Local"
@@ -2921,51 +2901,38 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Mostrar apenas os provedores que armazenam e processam os seus dados no país "
+"selecionado"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Tamanho máximo para mídias compartilhadas"
+msgstr "Tamanho das mídias compartilhadas"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Tamanho máximo para mídias compartilhadas"
+msgstr "Tamanho de todas as mídias compartilhadas no total"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Duração do armazenamento das mensagens"
+msgstr "Duração do armazenamento de mídia"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
-msgstr "Duração do armazenamento das mensagens"
+msgstr "Duração do armazenamento de mensagens"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Disponível"
+msgstr "Disponibilidade"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Organização"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3383,9 +3350,6 @@ msgstr "Selecione um servidor"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "Filtro"
@@ -3408,7 +3372,7 @@ msgstr "Exibir configurações de conexão"
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Localização dos dados de armazenamento/processamento"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3426,12 +3390,9 @@ msgid "Maximum size of shared media"
 msgstr "Tamanho máximo para mídias compartilhadas"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
-msgstr "Duração do armazenamento das mensagens"
+msgstr "Duração do armazenamento de mensagens"
 
 #: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"

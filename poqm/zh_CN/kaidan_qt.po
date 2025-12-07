@@ -259,12 +259,9 @@ msgid "Could not upload file: %1"
 msgstr "无法上传文件：%1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "保存选择"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -636,31 +633,23 @@ msgid "Offline"
 msgstr "离线"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "自定义提供者"
+msgstr ""
 
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
-msgstr "无限制"
+msgstr ""
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
-msgstr "%1 天"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -2774,12 +2763,9 @@ msgid "Retry updating reactions"
 msgstr "重试更新回应"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "注册失败："
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
@@ -2787,12 +2773,9 @@ msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "有空聊天"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
@@ -2800,12 +2783,9 @@ msgid "Show only providers that are free of charge"
 msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "密码"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
@@ -2828,12 +2808,9 @@ msgid "Bus factor"
 msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:55
 msgctxt "ProviderFilterArea|"
@@ -2842,44 +2819,29 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "分享媒体的最大大小"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "分享媒体的最大大小"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "消息存储期限"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
-msgstr "消息存储期限"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "在线"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
@@ -3297,12 +3259,9 @@ msgstr "选择提供者"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
-msgstr "筛选器"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
@@ -3340,12 +3299,9 @@ msgid "Maximum size of shared media"
 msgstr "分享媒体的最大大小"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
-msgstr "消息存储期限"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
@@ -3608,7 +3564,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "服务器位置"

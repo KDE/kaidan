@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-11-27 13:59+0200\n"
+"PO-Revision-Date: 2025-12-06 16:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -274,12 +274,9 @@ msgid "Could not upload file: %1"
 msgstr "Не вдалося вивантажити файл: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Зберегти вибір"
+msgstr "Нічого не позначено"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -652,9 +649,6 @@ msgid "Offline"
 msgstr "Поза мережею"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Нетиповий надавач послуг"
@@ -663,20 +657,15 @@ msgstr "Нетиповий надавач послуг"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Без обмежень"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
-msgstr "%1 дні"
+msgstr "%1 днів"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -2863,63 +2852,55 @@ msgid "Retry updating reactions"
 msgstr "Повторити оновлення реакцій"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Не вдалося зареєструватися:"
+msgstr "Реєстрація за допомогою Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Показувати лише надавачів послуг, які надають змогу створювати обліковий "
+"запис у Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Вільний для спілкування"
+msgstr "Безкоштовно"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Показувати лише надавачів безкоштовних послуг"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Пароль"
+msgstr "Скидання пароля"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Показувати лише надавачів послуг, які дозволяють скидання пароля"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "«Зелена» робота з даними"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
+"Показувати лише надавачів послуг, служби яких працюють на відновлюваних "
+"джерелах енергії"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Фактор автобуса"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Місце"
@@ -2929,51 +2910,38 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Показувати лише надавачів послуг, які зберігають і обробляють дані у "
+"вибраній країні"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Максимальний розмір оприлюдненого мультимедіа"
+msgstr "Розмір оприлюдненого мультимедіа"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Зберігає оприлюднені дані аж до:"
+msgstr "Загальний розмір усіх оприлюднених мультимедійних даних"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Тривалість зберігання повідомлень"
+msgstr "Тривалість зберігання мультимедійних даних"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "Тривалість зберігання повідомлень"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Доступний"
+msgstr "Доступність"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Організація"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3392,12 +3360,9 @@ msgstr "Виберіть надавача послуг"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
-msgstr "Фільтрувати"
+msgstr "Фільтр"
 
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
@@ -3417,7 +3382,7 @@ msgstr "Показати параметри з'єднання"
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Місця зберігання/обробки даних"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3435,9 +3400,6 @@ msgid "Maximum size of shared media"
 msgstr "Максимальний розмір оприлюдненого мультимедіа"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "Тривалість зберігання повідомлень"
