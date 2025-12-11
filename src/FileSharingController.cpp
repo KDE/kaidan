@@ -11,7 +11,6 @@
 // Qt
 #include <QDir>
 #include <QImage>
-#include <QMimeDatabase>
 #include <QNetworkReply>
 #include <QStandardPaths>
 #include <QStringBuilder>

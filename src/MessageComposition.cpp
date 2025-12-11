@@ -12,7 +12,6 @@
 #include <QFutureWatcher>
 #include <QGuiApplication>
 #include <QImageReader>
-#include <QMimeDatabase>
 // KDE
 #include <KFileItem>
 #include <KIO/PreviewJob>

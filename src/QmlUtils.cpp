@@ -12,8 +12,6 @@
 #include <QGeoCoordinate>
 #include <QGuiApplication>
 #include <QImage>
-#include <QMimeData>
-#include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QStandardPaths>
 // QXmpp
