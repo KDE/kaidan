@@ -231,24 +231,24 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr ""
 
-#: src/FileSharingController.cpp:353 src/FileSharingController.cpp:471
+#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:392
+#: src/FileSharingController.cpp:391
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:554
+#: src/FileSharingController.cpp:553
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Odeslání se nezdařilo: %1"
 
-#: src/FileSharingController.cpp:564
+#: src/FileSharingController.cpp:563
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
@@ -432,17 +432,17 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:289
+#: src/MessageComposition.cpp:288
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Oprava zprávy nebyla úspěšná"
 
-#: src/MessageComposition.cpp:523
+#: src/MessageComposition.cpp:522
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
-#: src/MessageComposition.cpp:567
+#: src/MessageComposition.cpp:566
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -643,20 +643,15 @@ msgstr "Poskytovatel"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
-msgstr "Bez omezení"
+msgstr ""
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
-msgstr "%1 dny"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -2672,12 +2667,9 @@ msgid "Scan login QR code"
 msgstr ""
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Nastavení připojení"
+msgstr ""
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -3279,12 +3271,9 @@ msgid "Provider Address"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:128
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Nastavení připojení"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
@@ -3464,24 +3453,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr ""
 
-#: src/QmlUtils.cpp:225
+#: src/QmlUtils.cpp:223
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
-#: src/QmlUtils.cpp:240
+#: src/QmlUtils.cpp:238
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 je online"
 
-#: src/QmlUtils.cpp:242
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 píše..."
 
-#: src/QmlUtils.cpp:244
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3572,7 +3561,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Otevřít rozhovor"

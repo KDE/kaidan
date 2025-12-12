@@ -241,7 +241,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Lämnar gruppchatt"
 
-#: src/FileSharingController.cpp:353 src/FileSharingController.cpp:471
+#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -249,13 +249,13 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Avbryt"
 
-#: src/FileSharingController.cpp:392
+#: src/FileSharingController.cpp:391
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Kunde inte ladda ner fil: %1"
 
-#: src/FileSharingController.cpp:554
+#: src/FileSharingController.cpp:553
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -263,7 +263,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Uppladdning misslyckades: %1"
 
-#: src/FileSharingController.cpp:564
+#: src/FileSharingController.cpp:563
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
@@ -449,17 +449,17 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Inbjudan till grupp %1"
 
-#: src/MessageComposition.cpp:289
+#: src/MessageComposition.cpp:288
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Rättning av meddelande lyckades inte"
 
-#: src/MessageComposition.cpp:523
+#: src/MessageComposition.cpp:522
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/MessageComposition.cpp:567
+#: src/MessageComposition.cpp:566
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -3570,24 +3570,24 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Skapa ett konto manuellt"
 
-#: src/QmlUtils.cpp:225
+#: src/QmlUtils.cpp:223
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/QmlUtils.cpp:240
+#: src/QmlUtils.cpp:238
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 är uppkopplad"
 
-#: src/QmlUtils.cpp:242
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 skriver…"
 
-#: src/QmlUtils.cpp:244
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
