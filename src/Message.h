@@ -78,7 +78,7 @@ struct File {
     Q_PROPERTY(File::TransferState transferState MEMBER transferState CONSTANT)
     Q_PROPERTY(bool pending READ isPending CONSTANT)
     Q_PROPERTY(bool transferring READ isTransferring CONSTANT)
-    Q_PROPERTY(bool canceled READ isCanceled CONSTANT)
+    Q_PROPERTY(bool canceledByUser READ isCanceledByUser CONSTANT)
     Q_PROPERTY(bool failed READ isFailed CONSTANT)
     Q_PROPERTY(bool done READ isDone CONSTANT)
 
@@ -86,7 +86,7 @@ public:
     enum class TransferState {
         Pending,
         Transferring,
-        Canceled,
+        CanceledByUser,
         Failed,
         Done,
     };
@@ -153,7 +153,7 @@ public:
 
     bool isPending() const;
     bool isTransferring() const;
-    bool isCanceled() const;
+    bool isCanceledByUser() const;
     bool isFailed() const;
     bool isDone() const;
 };

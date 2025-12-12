@@ -12,11 +12,15 @@
 // Kaidan
 #include "AbstractNotifier.h"
 
+using CancelCallback = std::function<void()>;
+
 struct FileProgress {
+    QString accountJid;
     quint64 bytesSent = 0;
     quint64 bytesTotal = 0;
     float progress = 0;
-    bool canceled = false;
+    CancelCallback cancel;
+    bool canceledByUser = false;
 };
 
 using FileProgressNotifier = AbstractNotifier<qint64, std::optional<FileProgress>>;
@@ -55,10 +59,6 @@ public:
     {
         return m_progress.progress;
     }
-    [[nodiscard]] bool canceled() const
-    {
-        return m_progress.canceled;
-    }
 
     Q_SIGNAL void progressChanged();
 
@@ -77,6 +77,8 @@ public:
 
     std::optional<FileProgress> progress(qint64 fileId);
     void reportProgress(qint64 fileId, std::optional<FileProgress> progress);
+
+    void cancelTransfers(const QString &jid);
 
 private:
     FileProgressCache();

@@ -164,6 +164,11 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings,
     , m_clientWorker(clientWorker)
     , m_manager(clientWorker->fileSharingManager())
 {
+    connect(m_connection, &Connection::stateChanged, this, [this]() {
+        if (m_connection->state() == Enums::ConnectionState::StateDisconnected) {
+            FileProgressCache::instance().cancelTransfers(m_accountSettings->jid());
+        }
+    });
     connect(m_clientWorker->uploadRequestManager(), &QXmppUploadRequestManager::serviceFoundChanged, this, &FileSharingController::handleUploadServicesChanged);
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &FileSharingController::handleMessageAdded);
 }
@@ -275,7 +280,7 @@ void FileSharingController::handleMessageAdded(const Message &message, MessageOr
 
 void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)
 {
-    runOnThread(m_manager, [this, chatJid, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
+    runOnThread(m_manager, [this, chatJid, messageId, fileId = file.id, fileShare = file.toQXmpp(), accountJid = m_accountSettings->jid()] {
         QString dirPath = SystemUtils::downloadDirectory();
 
         if (auto dir = QDir(dirPath); !dir.exists()) {
@@ -318,7 +323,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
             return;
         }
 
-        MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
+        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [=](Message &message) {
             auto file = find_if(message.files, [=](const auto &file) {
                 return file.id == fileId;
             });
@@ -329,23 +334,35 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
         });
 
         auto download = m_manager->downloadFile(fileShare, std::move(output));
-
         std::weak_ptr<QXmppFileDownload> downloadPtr = download;
+
+        FileProgressCache::instance().reportProgress(fileId,
+                                                     FileProgress{
+                                                         accountJid,
+                                                         0,
+                                                         download->bytesTotal(),
+                                                         0.0F,
+                                                         [downloadPtr]() {
+                                                             if (auto download = downloadPtr.lock()) {
+                                                                 download->cancel();
+                                                             }
+                                                         },
+                                                     });
+
         connect(download.get(), &QXmppFileDownload::progressChanged, this, [=]() {
             if (auto download = downloadPtr.lock()) {
-                if (auto progress = FileProgressCache::instance().progress(fileId)) {
-                    if (progress->canceled) {
-                        download->cancel();
-                        return;
-                    }
-                }
+                auto progress = FileProgressCache::instance().progress(fileId);
+                Q_ASSERT(progress);
 
-                FileProgressCache::instance().reportProgress(fileId,
-                                                             FileProgress{download->bytesTransferred(), quint64(download->bytesTotal()), download->progress()});
+                progress->bytesSent = download->bytesTransferred();
+                progress->bytesTotal = download->bytesTotal();
+                progress->progress = download->progress();
+
+                FileProgressCache::instance().reportProgress(fileId, progress);
             }
         });
 
-        connect(download.get(), &QXmppFileDownload::finished, this, [this, chatJid, messageId, fileId, filePath, download]() mutable {
+        connect(download.get(), &QXmppFileDownload::finished, this, [this, accountJid, chatJid, messageId, fileId, filePath, download]() mutable {
             auto result = download->result();
             auto error = [&result]() -> std::optional<QXmppError> {
                 if (std::holds_alternative<QXmpp::Cancelled>(result)) {
@@ -358,7 +375,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
             }();
 
             if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
-                MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
+                MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [=](Message &message) {
                     auto file = find_if(message.files, [=](const auto &file) {
                         return file.id == fileId;
                     });
@@ -371,25 +388,18 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
                     // metadata may be missing if the sender only used out of band urls
                 });
             } else if (error) {
-                const bool canceled = error->isNetworkError() && error->value<QNetworkReply::NetworkError>() == QNetworkReply::OperationCanceledError;
+                auto progress = FileProgressCache::instance().progress(fileId);
+                Q_ASSERT(progress);
+
                 const auto errorText = error->description;
 
-                MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [=](Message &message) {
-                    auto file = find_if(message.files, [=](const auto &file) {
-                        return file.id == fileId;
-                    });
-
-                    if (file != message.files.end()) {
-                        file->transferState = canceled ? File::TransferState::Canceled : File::TransferState::Failed;
-                    }
+                handleTransferError(chatJid, messageId, fileId, *progress, *error, [errorText]() {
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
                 });
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
-                removeFile(filePath);
 
-                if (!canceled) {
-                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
-                }
+                removeFile(filePath);
             }
 
             FileProgressCache::instance().reportProgress(fileId, {});
@@ -418,11 +428,11 @@ void FileSharingController::cancelFile(const File &file)
 {
     auto progress = FileProgressCache::instance().progress(file.id);
 
-    if (progress) {
-        auto updatedProgress = *progress;
-        updatedProgress.canceled = true;
+    if (progress && progress->cancel) {
+        progress->canceledByUser = true;
+        FileProgressCache::instance().reportProgress(file.id, progress);
 
-        FileProgressCache::instance().reportProgress(file.id, updatedProgress);
+        progress->cancel();
     }
 }
 
@@ -430,11 +440,11 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
 {
     auto promise = std::make_shared<QPromise<bool>>();
 
-    runOnThread(m_manager, [=, this]() mutable {
+    runOnThread(m_manager, [=, this, accountJid = m_accountSettings->jid()]() mutable {
         auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
                                 : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
 
-        MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [fileId = file.id](Message &message) {
+        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId = file.id](Message &message) {
             auto file = find_if(message.files, [=](const auto &file) {
                 return file.id == fileId;
             });
@@ -445,21 +455,31 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
         });
 
         auto upload = m_manager->uploadFile(provider, file.localFilePath, file.description);
-
-        FileProgressCache::instance().reportProgress(file.id, FileProgress{0, quint64(upload->bytesTotal()), 0.0F});
-
         std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
+
+        FileProgressCache::instance().reportProgress(file.id,
+                                                     FileProgress{
+                                                         accountJid,
+                                                         0,
+                                                         upload->bytesTotal(),
+                                                         0.0F,
+                                                         [uploadPtr]() {
+                                                             if (auto upload = uploadPtr.lock()) {
+                                                                 upload->cancel();
+                                                             }
+                                                         },
+                                                     });
+
         connect(upload.get(), &QXmppFileUpload::progressChanged, this, [=] {
             if (auto upload = uploadPtr.lock()) {
-                if (auto progress = FileProgressCache::instance().progress(file.id)) {
-                    if (progress->canceled) {
-                        upload->cancel();
-                        return;
-                    }
-                }
+                auto progress = FileProgressCache::instance().progress(file.id);
+                Q_ASSERT(progress);
 
-                FileProgressCache::instance().reportProgress(file.id,
-                                                             FileProgress{upload->bytesTransferred(), quint64(upload->bytesTotal()), upload->progress()});
+                progress->bytesSent = upload->bytesTransferred();
+                progress->bytesTotal = upload->bytesTotal();
+                progress->progress = upload->progress();
+
+                FileProgressCache::instance().reportProgress(file.id, progress);
             }
         });
 
@@ -477,7 +497,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
 
             if (auto fileResult = std::get_if<QXmppFileUpload::FileResult>(&result)) {
                 MessageDb::instance()
-                    ->updateMessage(m_accountSettings->jid(),
+                    ->updateMessage(accountJid,
                                     chatJid,
                                     messageId,
                                     [=, fileResult = *fileResult](Message &message) {
@@ -534,43 +554,65 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
                         promise->finish();
                     });
             } else if (error) {
-                const bool canceled = error->isNetworkError() && error->value<QNetworkReply::NetworkError>() == QNetworkReply::OperationCanceledError;
+                auto progress = FileProgressCache::instance().progress(file.id);
+                Q_ASSERT(progress);
+
                 const auto errorText = error->description;
 
-                MessageDb::instance()
-                    ->updateMessage(m_accountSettings->jid(),
-                                    chatJid,
-                                    messageId,
-                                    [=](Message &message) {
-                                        auto it = find_if(message.files, [=](const auto &f) {
-                                            return f.id == file.id;
-                                        });
-
-                                        if (it != message.files.end()) {
-                                            it->transferState = canceled ? File::TransferState::Canceled : File::TransferState::Failed;
-                                        }
-
-                                        message.errorText = tr("Upload failed: %1").arg(errorText);
-                                    })
-                    .then([promise]() {
-                        promise->addResult(false);
-                        promise->finish();
-                    });
+                handleTransferError(chatJid, messageId, file.id, *progress, *error, [errorText]() {
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1").arg(errorText));
+                }).then([promise]() {
+                    promise->addResult(false);
+                    promise->finish();
+                });
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not upload file:" << errorText;
-
-                if (!canceled) {
-                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1").arg(errorText));
-                }
             }
 
-            FileProgressCache::instance().reportProgress(file.id, std::nullopt);
+            FileProgressCache::instance().reportProgress(file.id, {});
             // reduce ref count
             upload.reset();
         });
     });
 
     return promise->future();
+}
+
+QFuture<void> FileSharingController::handleTransferError(const QString &chatJid,
+                                                         const QString &messageId,
+                                                         qint64 fileId,
+                                                         const FileProgress &progress,
+                                                         const QXmppError &error,
+                                                         std::function<void()> &&handleFailure)
+{
+    return MessageDb::instance()->updateMessage(
+        m_accountSettings->jid(),
+        chatJid,
+        messageId,
+        [fileId,
+         errorText = error.description,
+         canceled = error.isNetworkError() && error.value<QNetworkReply::NetworkError>() == QNetworkReply::OperationCanceledError,
+         canceledByUser = progress.canceledByUser,
+         handleFailure](Message &message) {
+            auto it = find_if(message.files, [=](const auto &file) {
+                return file.id == fileId;
+            });
+
+            if (it != message.files.end()) {
+                // If the file transfer is automatically canceled (e.g., because of a logout), the file transfer is marked as pending.
+                // That is done in order to start the transfer again later (e.g., after a login).
+                if (canceledByUser) {
+                    it->transferState = File::TransferState::CanceledByUser;
+                    message.errorText = tr("Transfer canceled");
+                } else if (canceled) {
+                    it->transferState = File::TransferState::Pending;
+                } else {
+                    it->transferState = File::TransferState::Failed;
+                    message.errorText = tr("Transfer failed: %1").arg(errorText);
+                    handleFailure();
+                }
+            }
+        });
 }
 
 #include "moc_FileSharingController.cpp"

@@ -17,6 +17,7 @@ class AccountSettings;
 class ClientWorker;
 class Connection;
 struct File;
+struct FileProgress;
 class QXmppClient;
 class Message;
 class MessageController;
@@ -48,6 +49,12 @@ private:
 
     void handleUploadServicesChanged();
     void handleMessageAdded(const Message &message, MessageOrigin origin);
+    QFuture<void> handleTransferError(const QString &chatJid,
+                                      const QString &messageId,
+                                      qint64 fileId,
+                                      const FileProgress &progress,
+                                      const QXmppError &error,
+                                      std::function<void()> &&handleFailure);
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;

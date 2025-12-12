@@ -174,9 +174,9 @@ bool File::isTransferring() const
     return transferState == TransferState::Transferring;
 }
 
-bool File::isCanceled() const
+bool File::isCanceledByUser() const
 {
-    return transferState == TransferState::Canceled;
+    return transferState == TransferState::CanceledByUser;
 }
 
 bool File::isFailed() const

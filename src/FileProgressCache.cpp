@@ -78,4 +78,17 @@ void FileProgressCache::reportProgress(qint64 fileId, std::optional<FileProgress
     });
 }
 
+void FileProgressCache::cancelTransfers(const QString &accountJid)
+{
+    std::scoped_lock locker(m_mutex);
+
+    for (auto &file : m_files) {
+        if (file.second.accountJid == accountJid) {
+            if (file.second.cancel) {
+                file.second.cancel();
+            }
+        }
+    }
+}
+
 #include "moc_FileProgressCache.cpp"
