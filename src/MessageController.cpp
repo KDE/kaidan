@@ -260,7 +260,7 @@ void MessageController::sendPendingMessage(Message message)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
         if (!std::ranges::all_of(message.files, [](const File &file) {
-                return file.isDone();
+                return file.done();
             })) {
             m_fileSharingController->sendPendingFiles(message.chatJid, message.id, message.files, message.encryption != Encryption::NoEncryption);
             return;

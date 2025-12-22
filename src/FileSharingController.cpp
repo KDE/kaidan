@@ -172,13 +172,13 @@ void FileSharingController::sendPendingFiles(const QString &chatJid, const QStri
     join(this,
          transform(files,
                    [this, chatJid, messageId, encrypt](const auto &file) {
-                       if (file.isPending()) {
+                       if (file.pending()) {
                            return sendFileTask(chatJid, messageId, file, encrypt);
                        }
 
                        auto promise = std::make_shared<QPromise<bool>>();
                        promise->start();
-                       promise->addResult(file.isDone());
+                       promise->addResult(file.done());
                        promise->finish();
                        return promise->future();
                    }))
@@ -191,7 +191,7 @@ void FileSharingController::sendPendingFiles(const QString &chatJid, const QStri
 
 void FileSharingController::sendFile(const QString &chatJid, const QString &messageId, const File &file, bool encrypt)
 {
-    if (file.isDone()) {
+    if (file.done()) {
         maybeSendPendingMessage(chatJid, messageId);
     } else {
         sendFileTask(chatJid, messageId, file, encrypt).then([this, chatJid, messageId](bool ok) {
@@ -490,7 +490,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
                                             }
 
                                             if (all_of(message.files, [](const auto &f) {
-                                                    return f.isDone();
+                                                    return f.done();
                                                 })) {
                                                 message.errorText.clear();
                                             }
@@ -543,7 +543,7 @@ void FileSharingController::maybeSendPendingMessage(const QString &chatJid, cons
     MessageDb::instance()->fetchMessage(m_accountSettings->jid(), chatJid, messageId).then([this](std::optional<Message> &&message) {
         if (message) {
             if (all_of(message->files, [](const auto &f) {
-                    return f.isDone();
+                    return f.done();
                 })) {
                 Q_EMIT filesUploadedForPendingMessage(*message);
             }

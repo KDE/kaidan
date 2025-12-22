@@ -14,11 +14,8 @@ MediumPreview {
 
 	property var file
 	property Item message
-
-	readonly property bool messagePending: message.deliveryState === Enums.DeliveryState.Pending
-	readonly property bool encryptionUsed: message.encryption !== Encryption.NoEncryption
-	readonly property bool fileDownloadNeeded: !messagePending && (!file.done || !file.locallyAvailable)
-	readonly property bool fileUploadNeeded: messagePending && file.transferOutgoing && !file.done
+	readonly property bool fileDownloadNeeded: message.deliveryState !== Enums.DeliveryState.Pending && (!file.done || !file.locallyAvailable)
+	readonly property bool fileUploadNeeded: message.deliveryState === Enums.DeliveryState.Pending && file.transferOutgoing && !file.done
 
 	name: file.name
 	description: file.description
@@ -37,7 +34,7 @@ MediumPreview {
 					} else if (root.fileDownloadNeeded) {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
 					} else if (root.fileUploadNeeded) {
-						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, encryptionUsed)
+						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, message.encryption !== Encryption.NoEncryption)
 					} else if (root.file.locallyAvailable) {
 						root.open()
 					}
