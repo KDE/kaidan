@@ -76,7 +76,7 @@ MediumPreview {
 
 			Kirigami.Icon {
 				source: {
-					if (root.file.transferring) {
+					if (root.file.pending || root.file.transferring) {
 						return "content-loading-symbolic"
 					}
 
