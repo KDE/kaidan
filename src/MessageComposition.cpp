@@ -639,7 +639,7 @@ const QList<File> &FileSelectionModel::files() const
 void FileSelectionModel::deleteNewFile(const File &file)
 {
     if (file.isNew) {
-        MediaUtils::deleteFile(file.localFileUrl());
+        QFile::remove(file.localFilePath);
     }
 }
 
