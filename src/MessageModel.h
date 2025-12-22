@@ -149,6 +149,8 @@ public:
 
     Q_INVOKABLE bool canCorrectMessage(int index) const;
 
+    Q_INVOKABLE void deleteFile(int index, const File &file);
+
     /**
      * Removes a message locally.
      *

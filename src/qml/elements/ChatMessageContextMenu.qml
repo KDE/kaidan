@@ -53,7 +53,7 @@ Kirigami.Dialog {
 			source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
-			onClicked: deleteFile()
+			onClicked: message.chatController.messageModel.deleteFile(root.message.modelIndex, file)
 		}
 
 		ChatMessageContextMenuButton {
@@ -167,18 +167,8 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Remove from this device")
 			source: "edit-delete-symbolic"
 			contextMenu: root
-			onClicked: {
-				root.message.chatController.messageModel.removeMessage(root.message.msgId)
-
-				if (root.file && root.file.localFilePath) {
-					deleteFile()
-				}
-			}
+			onClicked: root.message.chatController.messageModel.removeMessage(root.message.msgId)
 		}
-	}
-
-	function deleteFile() {
-		message.chatController.account.fileSharingController.deleteFile(message.chatController.jid, message.msgId, file)
 	}
 
 	function expandButtons() {

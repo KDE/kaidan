@@ -836,6 +836,20 @@ bool MessageModel::canCorrectMessage(int index) const
     return true;
 }
 
+void MessageModel::deleteFile(int index, const File &file)
+{
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), m_messages.at(index).id, [fileId = file.id](Message &message) {
+        auto it = std::ranges::find_if(message.files, [fileId](const auto &file) {
+            return file.id == fileId;
+        });
+        if (it != message.files.end()) {
+            it->localFilePath.clear();
+        }
+    });
+
+    MediaUtils::deleteDownloadedFile(file.localFilePath);
+}
+
 void MessageModel::removeMessage(const QString &messageId)
 {
     const auto hasCorrectId = [&messageId](const Message &message) {
@@ -879,9 +893,14 @@ void MessageModel::removeMessage(const QString &messageId)
             }
         }
 
-        // Remove the message from the database and model.
+        // Remove the message from the database/model and delete included files.
 
         MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, messageId);
+
+        for (auto &file : itr->files) {
+            MediaUtils::deleteDownloadedFile(file.localFilePath);
+        }
+
         updateLastReadOwnMessageId();
 
         QModelIndex index = createIndex(readMessageIndex, 0);

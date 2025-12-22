@@ -42,6 +42,11 @@ public:
     Q_INVOKABLE static void deleteFile(const QUrl &url);
 
     /**
+     * Deletes a downloaded file.
+     */
+    Q_INVOKABLE static void deleteDownloadedFile(const QString &localFilePath);
+
+    /**
      * Returns the path of a local file URL.
      */
     Q_INVOKABLE static QString localFilePath(const QUrl &localFileUrl);

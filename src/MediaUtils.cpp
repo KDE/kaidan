@@ -207,6 +207,13 @@ void MediaUtils::deleteFile(const QUrl &url)
     QFile::remove(url.toLocalFile());
 }
 
+void MediaUtils::deleteDownloadedFile(const QString &localFilePath)
+{
+    if (localFilePath.startsWith(SystemUtils::downloadDirectory())) {
+        QFile::remove(localFilePath);
+    }
+}
+
 QString MediaUtils::localFilePath(const QUrl &localFileUrl)
 {
     return localFileUrl.toLocalFile();

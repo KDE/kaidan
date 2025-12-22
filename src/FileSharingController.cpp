@@ -36,6 +36,7 @@
 #include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
+#include "MediaUtils.h"
 #include "MessageDb.h"
 #include "RosterModel.h"
 #include "SystemUtils.h"
@@ -323,7 +324,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
 
                 qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
 
-                removeFile(filePath);
+                MediaUtils::deleteDownloadedFile(filePath);
             }
 
             FileProgressCache::instance().reportProgress(fileId, {});
@@ -331,20 +332,6 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
             download.reset();
         });
     });
-}
-
-void FileSharingController::deleteFile(const QString &chatJid, const QString &messageId, const File &file)
-{
-    MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [fileId = file.id](Message &message) {
-        auto it = find_if(message.files, [fileId](const auto &file) {
-            return file.id == fileId;
-        });
-        if (it != message.files.end()) {
-            it->localFilePath.clear();
-        }
-    });
-
-    removeFile(file.localFilePath);
 }
 
 void FileSharingController::cancelFile(const File &file)
@@ -527,14 +514,6 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
         });
 
     return promise->future();
-}
-
-void FileSharingController::removeFile(const QString &filePath)
-{
-    // Only remove files that were downloaded by the user.
-    if (filePath.startsWith(SystemUtils::downloadDirectory())) {
-        QFile::remove(filePath);
-    }
 }
 
 void FileSharingController::maybeSendPendingMessage(const QString &chatJid, const QString &messageId)
