@@ -814,31 +814,10 @@ MessageDb::updateMessage(const QString &accountJid, const QString &chatJid, cons
 QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 {
     return run([this, accountJid]() {
+        _removeReactions(accountJid);
+        _removeFiles(accountJid);
+
         auto query = createQuery();
-
-        // remove files
-        {
-            execQuery(query,
-                      QStringLiteral(R"(
-                                        SELECT fileGroupId
-                                        FROM messages
-                                        WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
-                                    )"),
-                      {
-                          {u":accountJid", accountJid},
-                      });
-
-            QList<qint64> fileIds;
-            reserve(fileIds, query);
-            while (query.next()) {
-                fileIds.append(query.value(0).toLongLong());
-            }
-            if (!fileIds.isEmpty()) {
-                _removeFiles(fileIds);
-                _removeFileHashes(fileIds);
-            }
-        }
-
         execQuery(query,
                   QStringLiteral(R"(
                                     DELETE FROM messages WHERE accountJid = :accountJid
@@ -852,32 +831,10 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 QFuture<void> MessageDb::removeMessages(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
+        _removeReactions(accountJid);
+        _removeFiles(accountJid, chatJid);
+
         auto query = createQuery();
-
-        // remove files
-        {
-            execQuery(query,
-                      QStringLiteral(R"(
-                                        SELECT fileGroupId
-                                        FROM messages
-                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
-                                    )"),
-                      {
-                          {u":accountJid", accountJid},
-                          {u":chatJid", chatJid},
-                      });
-
-            QList<qint64> fileIds;
-            reserve(fileIds, query);
-            while (query.next()) {
-                fileIds.append(query.value(0).toLongLong());
-            }
-            if (!fileIds.isEmpty()) {
-                _removeFiles(fileIds);
-                _removeFileHashes(fileIds);
-            }
-        }
-
         execQuery(query,
                   QStringLiteral(R"(
                                     DELETE FROM messages WHERE accountJid = :accountJid AND chatJid = :chatJid
@@ -898,7 +855,7 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 
         execQuery(query,
                   QStringLiteral(R"(
-                                    SELECT *
+                                    SELECT id
                                     FROM chatMessages
                                     WHERE
                                         accountJid = :accountJid AND chatJid = :chatJid AND
@@ -911,7 +868,12 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
                       {u":messageId", messageId},
                   });
 
-        if (query.first()) {
+        if (query.next()) {
+            const auto foundMessageId = query.value(0).toString();
+
+            _removeReactions(accountJid, chatJid, messageId);
+            _removeFiles(accountJid, chatJid, foundMessageId);
+
             // Set the message's content to NULL and the "removed" flag to true.
             execQuery(query,
                       QStringLiteral(R"(
@@ -922,31 +884,20 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
                                             replyQuote = NULL,
                                             body = NULL,
                                             spoilerHint = NULL,
+                                            fileGroupId = NULL,
                                             groupChatInviterJid = NULL,
                                             groupChatInviteeJid = NULL,
                                             groupChatInvitationJid = NULL,
                                             groupChatToken = NULL,
+                                            errorText = NULL,
                                             removed = 1
                                         WHERE
-                                            accountJid = :accountJid AND chatJid = :chatJid AND
-                                            (id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
+                                            accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
                                     )"),
                       {
                           {u":accountJid", accountJid},
                           {u":chatJid", chatJid},
-                          {u":messageId", messageId},
-                      });
-
-            // Remove reactions corresponding to the removed message.
-            execQuery(query,
-                      QStringLiteral(R"(
-                                        DELETE FROM messageReactions
-                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
-                                    )"),
-                      {
-                          {u":accountJid", accountJid},
-                          {u":chatJid", chatJid},
-                          {u":messageId", messageId},
+                          {u":messageId", foundMessageId},
                       });
         }
 
@@ -1250,7 +1201,6 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                 return !newFileIds.contains(id);
             });
             _removeFiles(removedFileIds);
-            _removeFileHashes(removedFileIds);
 
             // add new files, replace changed files
             _setFiles(newMessage.files);
@@ -1458,13 +1408,88 @@ void MessageDb::_setEncryptedSources(const QList<EncryptedSource> &sources)
     }
 }
 
+void MessageDb::_removeFiles(const QString &accountJid)
+{
+    _removeFiles(QStringLiteral(R"(
+                                   SELECT fileGroupId
+                                   FROM messages
+                                   WHERE accountJid = :accountJid
+                                )"),
+                 {
+                     {u":accountJid", accountJid},
+                 });
+}
+
+void MessageDb::_removeFiles(const QString &accountJid, const QString &chatJid)
+{
+    _removeFiles(QStringLiteral(R"(
+                                   SELECT fileGroupId
+                                   FROM messages
+                                   WHERE accountJid = :accountJid AND chatJid = :chatJid
+                                )"),
+                 {
+                     {u":accountJid", accountJid},
+                     {u":chatJid", chatJid},
+                 });
+}
+
+void MessageDb::_removeFiles(const QString &accountJid, const QString &chatJid, const QString &messageId)
+{
+    _removeFiles(QStringLiteral(R"(
+                                   SELECT fileGroupId
+                                   FROM messages
+                                   WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
+                                )"),
+                 {
+                     {u":accountJid", accountJid},
+                     {u":chatJid", chatJid},
+                     {u":messageId", messageId},
+                 });
+}
+
 void MessageDb::_removeFiles(const QList<qint64> &fileIds)
 {
+    _removeFileHashes(fileIds);
+    _removeHttpSources(fileIds);
+    _removeEncryptedSources(fileIds);
+
     auto query = createQuery();
     prepareQuery(query, QStringLiteral("DELETE FROM files WHERE id = :fileId"));
     for (auto fileId : fileIds) {
         bindValues(query, {{u":fileId", fileId}});
         execQuery(query);
+    }
+}
+
+void MessageDb::_removeFiles(const QString &statement, const QueryBindValues &bindValues)
+{
+    auto query = createQuery();
+    execQuery(query, statement, bindValues);
+
+    while (query.next()) {
+        const auto fileGroupId = query.value(0).toLongLong();
+
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+                                SELECT id
+                                FROM files
+                                WHERE fileGroupId = :fileGroupId
+                            )"),
+                  {
+                      {u":fileGroupId", fileGroupId},
+                  });
+
+        QList<qint64> fileIds;
+        reserve(fileIds, query);
+
+        while (query.next()) {
+            fileIds.append(query.value(0).toLongLong());
+        }
+
+        if (!fileIds.isEmpty()) {
+            _removeFiles(fileIds);
+        }
     }
 }
 
@@ -1755,6 +1780,48 @@ void MessageDb::_fetchReactions(QList<Message> &messages)
             reactionSender.reactions.append(reaction);
         }
     }
+}
+
+void MessageDb::_removeReactions(const QString &accountJid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                DELETE FROM messageReactions
+                                WHERE accountJid = :accountJid
+                            )"),
+              {
+                  {u":accountJid", accountJid},
+              });
+}
+
+void MessageDb::_removeReactions(const QString &accountJid, const QString &chatJid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                DELETE FROM messageReactions
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid
+                            )"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+              });
+}
+
+void MessageDb::_removeReactions(const QString &accountJid, const QString &chatJid, const QString &messageId)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                DELETE FROM messageReactions
+                                WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
+                            )"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":messageId", messageId},
+              });
 }
 
 void MessageDb::_fetchGroupChatUsers(QList<Message> &messages)

@@ -323,7 +323,11 @@ private:
     void _setFileHashes(const QList<FileHash> &fileHashes);
     void _setHttpSources(const QList<HttpSource> &sources);
     void _setEncryptedSources(const QList<EncryptedSource> &sources);
+    void _removeFiles(const QString &accountJid);
+    void _removeFiles(const QString &accountJid, const QString &chatJid);
+    void _removeFiles(const QString &accountJid, const QString &chatJid, const QString &messageId);
     void _removeFiles(const QList<qint64> &fileIds);
+    void _removeFiles(const QString &statement, const QueryBindValues &bindValues);
     void _removeFileHashes(const QList<qint64> &fileIds);
     void _removeHttpSources(const QList<qint64> &fileIds);
     void _removeEncryptedSources(const QList<qint64> &fileIds);
@@ -338,9 +342,15 @@ private:
     QList<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
     void _fetchAdditionalData(QList<Message> &messages);
+
     void _fetchReactions(QList<Message> &messages);
+    void _removeReactions(const QString &accountJid);
+    void _removeReactions(const QString &accountJid, const QString &chatJid);
+    void _removeReactions(const QString &accountJid, const QString &chatJid, const QString &messageId);
+
     void _fetchGroupChatUsers(QList<Message> &messages);
     void _fetchGroupChatUser(Message &message);
+
     void _fetchTrustLevels(QList<Message> &messages);
     void _fetchTrustLevel(Message &messages);
 
