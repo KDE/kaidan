@@ -83,7 +83,11 @@ RosterController::RosterController(AccountSettings *accountSettings,
         const auto accountJid = m_accountSettings->jid();
         MessageDb::instance()->removeMessages(accountJid, jid);
         RosterDb::instance()->removeItem(accountJid, jid);
-        m_encryptionController->removeContactDevices(jid);
+
+        // Do not remove own devices in case the notes chat is removed.
+        if (jid != accountJid) {
+            m_encryptionController->removeContactDevices(jid);
+        }
     });
 
     connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived, this, &RosterController::handleSubscriptionRequest);
