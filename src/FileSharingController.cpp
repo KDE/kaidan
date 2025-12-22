@@ -341,7 +341,6 @@ void FileSharingController::deleteFile(const QString &chatJid, const QString &me
         });
         if (it != message.files.end()) {
             it->localFilePath.clear();
-            it->transferState = File::TransferState::Pending;
         }
     });
 
