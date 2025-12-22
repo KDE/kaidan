@@ -68,6 +68,7 @@ struct File {
     Q_PROPERTY(QDateTime lastModified MEMBER lastModified)
     Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
     Q_PROPERTY(QUrl downloadUrl READ downloadUrl CONSTANT)
+    Q_PROPERTY(bool locallyAvailable READ locallyAvailable CONSTANT)
     Q_PROPERTY(QString localFilePath MEMBER localFilePath)
     Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
     Q_PROPERTY(QString externalId MEMBER externalId)
@@ -141,6 +142,7 @@ public:
         return disposition == QXmppFileShare::Inline;
     }
     [[nodiscard]] QUrl downloadUrl() const;
+    [[nodiscard]] bool locallyAvailable() const;
     [[nodiscard]] QUrl localFileUrl() const;
     [[nodiscard]] Enums::MessageType type() const;
     [[nodiscard]] QString fileId() const

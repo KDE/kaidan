@@ -21,7 +21,7 @@ Kirigami.Dialog {
 
 	required property Item message
 	property var file: null
-	readonly property bool localFileAvailable: file && file.localFilePath
+	readonly property bool localFileAvailable: file && file.locallyAvailable
 
 	padding: Kirigami.Units.smallSpacing * 3
 	background: Kirigami.ShadowedRectangle {

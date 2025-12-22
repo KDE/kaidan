@@ -17,8 +17,7 @@ MediumPreview {
 
 	readonly property bool messagePending: message.deliveryState === Enums.DeliveryState.Pending
 	readonly property bool encryptionUsed: message.encryption !== Encryption.NoEncryption
-	readonly property bool localFileAvailable: file.localFileUrl.toString()
-	readonly property bool fileDownloadNeeded: !messagePending && (!file.done || !localFileAvailable)
+	readonly property bool fileDownloadNeeded: !messagePending && (!file.done || !file.locallyAvailable)
 	readonly property bool fileUploadNeeded: messagePending && file.transferOutgoing && !file.done
 
 	name: file.name
@@ -39,11 +38,11 @@ MediumPreview {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
 					} else if (root.fileUploadNeeded) {
 						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, encryptionUsed)
-					} else if (root.localFileAvailable) {
+					} else if (root.file.locallyAvailable) {
 						root.open()
 					}
 				} else if (event.button === Qt.RightButton) {
-				   if (root.localFileAvailable) {
+				   if (root.file.locallyAvailable) {
 					   root.message.showContextMenu(this, root.file)
 				   } else {
 					   root.message.showContextMenu(this)

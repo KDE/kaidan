@@ -108,9 +108,14 @@ QUrl File::downloadUrl() const
     return {};
 }
 
+bool File::locallyAvailable() const
+{
+    return MediaUtils::localFileAvailable(localFilePath);
+}
+
 QUrl File::localFileUrl() const
 {
-    if (MediaUtils::localFileAvailable(localFilePath)) {
+    if (locallyAvailable()) {
         return MediaUtils::localFileUrl(localFilePath);
     }
 

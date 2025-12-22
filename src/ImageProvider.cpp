@@ -164,7 +164,7 @@ bool ImageProvider::removeImage(const QXmppBitsOfBinaryContentId &cid)
 
 QUrl ImageProvider::generatedFileImageUrl(const File &file)
 {
-    if (MediaUtils::localFileAvailable(file.localFilePath)) {
+    if (file.locallyAvailable()) {
         return generatedLocalFileImageUrl(file.localFilePath);
     }
 
