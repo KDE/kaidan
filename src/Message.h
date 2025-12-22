@@ -76,11 +76,7 @@ struct File {
     Q_PROPERTY(QString details READ details CONSTANT)
     Q_PROPERTY(bool isNew MEMBER isNew)
     Q_PROPERTY(bool transferOutgoing MEMBER transferOutgoing CONSTANT)
-    Q_PROPERTY(bool pending READ pending CONSTANT)
-    Q_PROPERTY(bool transferring READ transferring CONSTANT)
-    Q_PROPERTY(bool canceledByUser READ canceledByUser CONSTANT)
-    Q_PROPERTY(bool failed READ failed CONSTANT)
-    Q_PROPERTY(bool done READ done CONSTANT)
+    Q_PROPERTY(TransferState transferState MEMBER transferState CONSTANT)
 
 public:
     enum class TransferState {
@@ -151,12 +147,6 @@ public:
     [[nodiscard]] QString details() const;
     [[nodiscard]] QString formattedSize() const;
     [[nodiscard]] QString formattedDateTime() const;
-
-    bool pending() const;
-    bool transferring() const;
-    bool canceledByUser() const;
-    bool failed() const;
-    bool done() const;
 };
 
 class MessageReactionDeliveryState

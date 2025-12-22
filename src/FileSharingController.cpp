@@ -173,13 +173,13 @@ void FileSharingController::sendPendingFiles(const QString &chatJid, const QStri
     join(this,
          transform(files,
                    [this, chatJid, messageId, encrypt](const auto &file) {
-                       if (file.pending()) {
+                       if (file.transferState == File::TransferState::Pending) {
                            return sendFileTask(chatJid, messageId, file, encrypt);
                        }
 
                        auto promise = std::make_shared<QPromise<bool>>();
                        promise->start();
-                       promise->addResult(file.done());
+                       promise->addResult(file.transferState == File::TransferState::Done);
                        promise->finish();
                        return promise->future();
                    }))
@@ -192,7 +192,7 @@ void FileSharingController::sendPendingFiles(const QString &chatJid, const QStri
 
 void FileSharingController::sendFile(const QString &chatJid, const QString &messageId, const File &file, bool encrypt)
 {
-    if (file.done()) {
+    if (file.transferState == File::TransferState::Done) {
         maybeSendPendingMessage(chatJid, messageId);
     } else {
         sendFileTask(chatJid, messageId, file, encrypt).then([this, chatJid, messageId](bool ok) {
@@ -475,8 +475,8 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
                                                 });
                                             }
 
-                                            if (all_of(message.files, [](const auto &f) {
-                                                    return f.done();
+                                            if (all_of(message.files, [](const auto &file) {
+                                                    return file.transferState == File::TransferState::Done;
                                                 })) {
                                                 message.errorText.clear();
                                             }
@@ -520,8 +520,8 @@ void FileSharingController::maybeSendPendingMessage(const QString &chatJid, cons
 {
     MessageDb::instance()->fetchMessage(m_accountSettings->jid(), chatJid, messageId).then([this](std::optional<Message> &&message) {
         if (message) {
-            if (all_of(message->files, [](const auto &f) {
-                    return f.done();
+            if (all_of(message->files, [](const auto &file) {
+                    return file.transferState == File::TransferState::Done;
                 })) {
                 Q_EMIT filesUploadedForPendingMessage(*message);
             }

@@ -14,8 +14,8 @@ MediumPreview {
 
 	property var file
 	property Item message
-	readonly property bool fileDownloadNeeded: message.deliveryState !== Enums.DeliveryState.Pending && (!file.done || !file.locallyAvailable)
-	readonly property bool fileUploadNeeded: message.deliveryState === Enums.DeliveryState.Pending && file.transferOutgoing && !file.done
+	readonly property bool fileDownloadNeeded: message.deliveryState !== Enums.DeliveryState.Pending && (file.transferState !== File.TransferState.Done || !file.locallyAvailable)
+	readonly property bool fileUploadNeeded: message.deliveryState === Enums.DeliveryState.Pending && file.transferOutgoing && file.transferState !== File.TransferState.Done
 
 	name: file.name
 	description: file.description
@@ -29,7 +29,7 @@ MediumPreview {
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {
-					if (root.file.transferring) {
+					if (root.file.transferState === File.TransferState.Transferring) {
 						root.message.chatController.account.fileSharingController.cancelFile(root.file)
 					} else if (root.fileDownloadNeeded) {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
@@ -58,7 +58,7 @@ MediumPreview {
 		}
 	}
 	previewImage {
-		readonly property bool iconShown: root.file.transferring || root.fileDownloadNeeded || root.fileUploadNeeded
+		readonly property bool iconShown: root.file.transferState === File.TransferState.Transferring || root.fileDownloadNeeded || root.fileUploadNeeded
 
 		opacity: iconShown ? 1 : mainAreaBackground.opacity
 		source: ImageProvider.generatedFileImageUrl(file)
@@ -76,7 +76,7 @@ MediumPreview {
 
 			Kirigami.Icon {
 				source: {
-					if (root.file.pending || root.file.transferring) {
+					if (root.file.transferState === File.TransferState.Pending || root.file.transferState === File.TransferState.Transferring) {
 						return "content-loading-symbolic"
 					}
 
@@ -88,7 +88,7 @@ MediumPreview {
 						return "folder-download-symbolic"
 					}
 				}
-				color: root.file.transferring ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+				color: root.file.transferState === File.TransferState.Transferring ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
 				isMask: true
 				anchors.centerIn: parent
 			}

@@ -169,31 +169,6 @@ QString File::formattedDateTime() const
     return QString();
 }
 
-bool File::pending() const
-{
-    return transferState == TransferState::Pending;
-}
-
-bool File::transferring() const
-{
-    return transferState == TransferState::Transferring;
-}
-
-bool File::canceledByUser() const
-{
-    return transferState == TransferState::CanceledByUser;
-}
-
-bool File::failed() const
-{
-    return transferState == TransferState::Failed;
-}
-
-bool File::done() const
-{
-    return transferState == TransferState::Done;
-}
-
 QXmppMixInvitation GroupChatInvitation::toQXmpp() const
 {
     QXmppMixInvitation mixInvitation;
