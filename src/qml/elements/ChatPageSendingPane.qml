@@ -279,7 +279,7 @@ Controls.Pane {
 				Keys.onReturnPressed: event => {
 					if (event.key === Qt.Key_Return) {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
-							messageArea.append("")
+							messageArea.insert(messageArea.cursorPosition, "\n")
 						} else {
 							if (participantPicker) {
 								participantPicker.selectCurrentIndex()
