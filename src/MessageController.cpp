@@ -33,6 +33,7 @@
 #include "AccountDb.h"
 #include "Algorithms.h"
 #include "EncryptionController.h"
+#include "FileSharingController.h"
 #include "Globals.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
@@ -53,6 +54,7 @@ MessageController::MessageController(AccountSettings *accountSettings,
                                      Connection *connection,
                                      EncryptionController *encryptionController,
                                      RosterController *rosterController,
+                                     FileSharingController *fileSharingController,
                                      QXmppClient *client,
                                      QXmppMamManager *mamManager,
                                      QXmppMessageReceiptManager *messageReceiptManager,
@@ -62,11 +64,14 @@ MessageController::MessageController(AccountSettings *accountSettings,
     , m_connection(connection)
     , m_encryptionController(encryptionController)
     , m_rosterController(rosterController)
+    , m_fileSharingController(fileSharingController)
     , m_client(client)
     , m_mamManager(mamManager)
     , m_messageReceiptManager(messageReceiptManager)
 {
     connect(RosterDb::instance(), &RosterDb::itemsReplaced, this, &MessageController::handleRosterReceived);
+
+    connect(m_fileSharingController, &FileSharingController::filesUploadedForPendingMessage, this, &MessageController::sendPendingMessageWithUploadedFiles);
 
     runOnThread(m_client, [this]() {
         connect(m_client, &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
@@ -254,63 +259,67 @@ void MessageController::updateMessageReactionsAfterSending(const QString &chatJi
 void MessageController::sendPendingMessage(Message message)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
-            send(message.toQXmpp(), message.encryption, encryptionJids)
-                .then(this,
-                      [this,
-                       accountJid = m_accountSettings->jid(),
-                       chatJid = message.chatJid,
-                       messageId = message.id,
-                       fileFallbackMessages = message.fileFallbackMessages(),
-                       encryption = message.encryption,
-                       encryptionJids](QXmpp::SendResult result) mutable {
-                          if (const auto error = std::get_if<QXmppError>(&result)) {
-                              qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
+        if (!std::ranges::all_of(message.files, [](const File &file) {
+                return file.isDone();
+            })) {
+            m_fileSharingController->sendPendingFiles(message.chatJid, message.id, message.files, message.encryption != Encryption::NoEncryption);
+            return;
+        }
 
-                              // The error message of the message is saved untranslated. To make
-                              // translation work in the UI, the tr() call of the passive
-                              // notification must contain exactly the same string.
-                              Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message could not be sent."));
-                              MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
-                                  msg.deliveryState = Enums::DeliveryState::Error;
-                                  msg.errorText = QStringLiteral("Message could not be sent.");
-                              });
-                          } else {
-                              MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
-                                  msg.deliveryState = Enums::DeliveryState::Sent;
-                                  msg.errorText.clear();
-                              });
+        sendPendingMessageWithUploadedFiles(message);
+    }
+}
 
-                              for (auto &fileFallbackMessage : fileFallbackMessages) {
-                                  // TODO: Track sending of fallback messages individually
-                                  // Needed for the case when the success differs between the main message
-                                  // and the fallback messages.
-                                  send(std::move(fileFallbackMessage), encryption, encryptionJids);
-                              }
+void MessageController::sendPendingMessageWithUploadedFiles(Message message)
+{
+    auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
+        send(message.toQXmpp(), message.encryption, encryptionJids)
+            .then(this,
+                  [this,
+                   accountJid = m_accountSettings->jid(),
+                   chatJid = message.chatJid,
+                   messageId = message.id,
+                   fileFallbackMessages = message.fileFallbackMessages(),
+                   encryption = message.encryption,
+                   encryptionJids](QXmpp::SendResult result) mutable {
+                      if (const auto error = std::get_if<QXmppError>(&result)) {
+                          qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
+                          Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message could not be sent"));
+
+                          MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
+                              msg.deliveryState = Enums::DeliveryState::Error;
+                              msg.errorText = tr("Message could not be sent.");
+                          });
+                      } else {
+                          MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
+                              msg.deliveryState = Enums::DeliveryState::Sent;
+                              msg.errorText.clear();
+                          });
+
+                          for (auto &fileFallbackMessage : fileFallbackMessages) {
+                              // TODO: Track sending of fallback messages individually
+                              // Needed for the case when the success differs between the main message
+                              // and the fallback messages.
+                              send(std::move(fileFallbackMessage), encryption, encryptionJids);
                           }
-                      });
-        };
+                      }
+                  });
+    };
 
-        // if the message is a pending edition of the existing in the history message
-        // I need to send it with the most recent stamp
-        // for that I'm gonna copy that message and update in the copy just the stamp
-        if (!message.replaceId.isEmpty()) {
-            message.timestamp = QDateTime::currentDateTimeUtc();
-        }
+    if (!message.replaceId.isEmpty()) {
+        message.timestamp = QDateTime::currentDateTimeUtc();
+    }
 
-        const auto isGroupChatMessage = message.isGroupChatMessage();
+    const auto isGroupChatMessage = message.isGroupChatMessage();
 
-        message.receiptRequested = !isGroupChatMessage;
+    message.receiptRequested = !isGroupChatMessage;
 
-        if (isGroupChatMessage) {
-            GroupChatUserDb::instance()
-                ->userJids(message.accountJid, message.chatJid)
-                .then(this, [sendMessage, message](QList<QString> &&encryptionJids) mutable {
-                    sendMessage(std::move(message), encryptionJids);
-                });
-        } else {
-            sendMessage(std::move(message));
-        }
+    if (isGroupChatMessage) {
+        GroupChatUserDb::instance()->userJids(message.accountJid, message.chatJid).then(this, [sendMessage, message](QList<QString> &&encryptionJids) mutable {
+            sendMessage(std::move(message), encryptionJids);
+        });
+    } else {
+        sendMessage(std::move(message));
     }
 }
 

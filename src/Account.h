@@ -404,8 +404,8 @@ private:
     BlockingController *const m_blockingController;
     EncryptionController *const m_encryptionController;
     RosterController *const m_rosterController;
-    MessageController *const m_messageController;
     FileSharingController *const m_fileSharingController;
+    MessageController *const m_messageController;
     GroupChatController *const m_groupChatController;
     NotificationController *const m_notificationController;
     VCardController *const m_vCardController;

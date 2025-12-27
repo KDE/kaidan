@@ -452,7 +452,7 @@ Controls.Pane {
 			ClickableIcon {
 				Controls.ToolTip.text: qsTr("Send a voice message")
 				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && root.chatPage.chatController.account.connection.state === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
+				visible: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId
 				opacity: visible ? 1 : 0
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
@@ -472,7 +472,7 @@ Controls.Pane {
 			ClickableIcon {
 				id: sendButton
 				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && root.chatPage.chatController.account.connection.state === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
+				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				onClicked: {

@@ -213,7 +213,7 @@ void MessageComposition::send()
     message.receiptRequested = true;
 
     // generate file IDs if needed
-    if (m_fileSelectionModel->hasFiles()) {
+    if (!message.files.isEmpty()) {
         message.fileGroupId = MessageDb::instance()->newFileGroupId();
 
         for (auto &file : message.files) {
@@ -226,19 +226,7 @@ void MessageComposition::send()
     // add pending message to database
     MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
 
-    if (m_fileSelectionModel->hasFiles()) {
-        // upload files and send message after uploading
-
-        // whether to symmetrically encrypt the files
-        bool encrypt = message.encryption != Encryption::NoEncryption;
-
-        // upload files
-        m_fileSharingController->sendFiles(message.chatJid, message.id, message.files, encrypt);
-        m_fileSelectionModel->clear();
-    } else {
-        // directly send message
-        m_messageController->sendPendingMessage(std::move(message));
-    }
+    m_messageController->sendPendingMessage(std::move(message));
 
     reset();
 }
@@ -327,6 +315,8 @@ void MessageComposition::clear()
     setSpoiler(false);
     setIsDraft(false);
     setIsForwarding(false);
+
+    m_fileSelectionModel->clear();
 }
 
 void MessageComposition::setReply(Message &message,

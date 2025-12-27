@@ -215,10 +215,6 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
     const QList<File> &files() const;
-    bool hasFiles() const
-    {
-        return !m_files.empty();
-    }
 
 private:
     // Deletes a file that the user created via Kaidan.

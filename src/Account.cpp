@@ -585,15 +585,16 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     , m_blockingController(new BlockingController(m_settings, m_connection, m_client.worker, this))
     , m_encryptionController(new EncryptionController(m_settings, m_presenceCache, m_client.worker->omemoManager(), this))
     , m_rosterController(new RosterController(m_settings, m_connection, m_encryptionController, m_client.worker->rosterManager(), this))
+    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_client.worker, this))
     , m_messageController(new MessageController(m_settings,
                                                 m_connection,
                                                 m_encryptionController,
                                                 m_rosterController,
+                                                m_fileSharingController,
                                                 m_client.worker->xmppClient(),
                                                 m_client.worker->mamManager(),
                                                 m_client.worker->messageReceiptManager(),
                                                 this))
-    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_messageController, m_client.worker, this))
     , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_client.worker->mixManager(), this))
     , m_notificationController(new NotificationController(m_settings, m_messageController, this))
     , m_vCardController(new VCardController(m_settings, m_connection, m_presenceCache, m_client.worker->xmppClient(), m_client.worker->vCardManager(), this))

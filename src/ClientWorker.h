@@ -24,6 +24,7 @@ class QXmppDiscoveryManager;
 class QXmppEncryptedFileSharingProvider;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
+class QXmppHttpUploadManager;
 class QXmppMamManager;
 class QXmppMessageReceiptManager;
 class QXmppMixManager;
@@ -31,7 +32,6 @@ class QXmppMovedManager;
 class QXmppOmemoManager;
 class QXmppRegistrationManager;
 class QXmppRosterManager;
-class QXmppUploadRequestManager;
 class QXmppVCardManager;
 class QXmppVersionManager;
 class RegistrationController;
@@ -132,9 +132,9 @@ public:
         return m_rosterManager;
     }
 
-    QXmppUploadRequestManager *uploadRequestManager() const
+    QXmppHttpUploadManager *uploadManager() const
     {
-        return m_uploadRequestManager;
+        return m_uploadManager;
     }
 
     QXmppVCardManager *vCardManager() const
@@ -244,7 +244,7 @@ private:
     QXmppOmemoManager *m_omemoManager;
     QXmppRegistrationManager *m_registrationManager;
     QXmppRosterManager *m_rosterManager;
-    QXmppUploadRequestManager *m_uploadRequestManager;
+    QXmppHttpUploadManager *m_uploadManager;
     QXmppVCardManager *m_vCardManager;
     QXmppVersionManager *m_versionManager;
 

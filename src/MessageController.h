@@ -18,6 +18,7 @@ class AccountSettings;
 class ClientWorker;
 class Connection;
 class EncryptionController;
+class FileSharingController;
 class QXmppClient;
 class QXmppMamManager;
 class QXmppMessage;
@@ -33,6 +34,7 @@ public:
                       Connection *connection,
                       EncryptionController *encryptionController,
                       RosterController *rosterController,
+                      FileSharingController *fileSharingController,
                       QXmppClient *client,
                       QXmppMamManager *mamManager,
                       QXmppMessageReceiptManager *messageReceiptManager,
@@ -74,6 +76,7 @@ public:
     void updateMessageReactionsAfterSending(const QString &chatJid, const QString &messageId, const QString &senderJid);
 
     void sendPendingMessage(Message message);
+    void sendPendingMessageWithUploadedFiles(Message message);
 
     QFuture<bool> retrieveBacklogMessages(const QString &jid, bool isGroupChat, const QString &oldestMessageStanzaId = QLatin1String(""));
 
@@ -131,6 +134,7 @@ private:
     Connection *const m_connection;
     EncryptionController *const m_encryptionController;
     RosterController *const m_rosterController;
+    FileSharingController *const m_fileSharingController;
     QXmppClient *const m_client;
     QXmppMamManager *const m_mamManager;
     QXmppMessageReceiptManager *const m_messageReceiptManager;

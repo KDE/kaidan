@@ -34,7 +34,6 @@
 #include <QXmppRosterManager.h>
 #include <QXmppSasl2UserAgent.h>
 #include <QXmppStreamError.h>
-#include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
 #include <QXmppVCardManager.h>
 #include <QXmppVersionManager.h>
@@ -63,7 +62,7 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     m_client->addNewExtension<QXmppCarbonManagerV2>();
     m_discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
     m_client->addNewExtension<QXmppEntityTimeManager>();
-    auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(networkAccessManager);
+    m_uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(networkAccessManager);
     m_mamManager = m_client->addNewExtension<QXmppMamManager>();
     m_client->addNewExtension<QXmppPubSubManager>();
     m_movedManager = m_client->addNewExtension<QXmppMovedManager>();
@@ -73,7 +72,6 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     m_messageReceiptManager = m_client->addNewExtension<QXmppMessageReceiptManager>();
     m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
     m_rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
-    m_uploadRequestManager = m_client->addNewExtension<QXmppUploadRequestManager>();
     m_vCardManager = m_client->addNewExtension<QXmppVCardManager>();
     m_versionManager = m_client->addNewExtension<QXmppVersionManager>();
     m_mixManager = m_client->addNewExtension<QXmppMixManager>();
@@ -81,7 +79,7 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     // file sharing manager
     m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
     m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
-    m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(uploadManager, networkAccessManager);
+    m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(m_uploadManager, networkAccessManager);
     m_encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
     m_fileSharingManager->registerProvider(m_httpProvider);
     m_fileSharingManager->registerProvider(m_encryptedProvider);
@@ -275,7 +273,15 @@ void ClientWorker::onConnected()
 
             runOnThread(m_encryptionController, [this]() {
                 m_encryptionController->setUp().then(m_messageController, [this]() {
-                    m_messageController->sendPendingData();
+                    if (m_uploadManager->support() == QXmppHttpUploadManager::Support::Unknown) {
+                        connect(m_uploadManager,
+                                &QXmppHttpUploadManager::servicesChanged,
+                                m_messageController,
+                                &MessageController::sendPendingData,
+                                Qt::SingleShotConnection);
+                    } else {
+                        m_messageController->sendPendingData();
+                    }
                 });
             });
         });
