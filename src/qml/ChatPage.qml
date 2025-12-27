@@ -43,7 +43,6 @@ ChatPageBase {
 		visible: !Kirigami.Settings.isMobile
 		focusPolicy: Qt.NoFocus
 		hoverEnabled: true
-		leftPadding: pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? Kirigami.Units.smallSpacing * 3 : - Kirigami.Units.smallSpacing
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		contentItem: RowLayout {
 			AccountRelatedAvatar {
