@@ -42,6 +42,8 @@ public:
 private:
     QFuture<bool> sendFileTask(const QString &chatJid, const QString &messageId, const File &file, bool encrypt);
     void maybeSendPendingMessage(const QString &chatJid, const QString &messageId);
+    static void resetError(Message &message);
+    static bool checkAllTransfersCompleted(const Message &message);
 
     void handleUploadSupportChanged();
     void handleMessageAdded(const Message &message, MessageOrigin origin);

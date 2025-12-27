@@ -309,6 +309,9 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
                         file->localFilePath = filePath;
                         file->transferState = File::TransferState::Done;
                     }
+
+                    resetError(message);
+
                     // TODO: generate possibly missing metadata
                     // metadata may be missing if the sender only used out of band urls
                 });
@@ -475,11 +478,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
                                                 });
                                             }
 
-                                            if (all_of(message.files, [](const auto &file) {
-                                                    return file.transferState == File::TransferState::Done;
-                                                })) {
-                                                message.errorText.clear();
-                                            }
+                                            resetError(message);
                                         })
                         .then([promise]() {
                             promise->addResult(true);
@@ -520,12 +519,24 @@ void FileSharingController::maybeSendPendingMessage(const QString &chatJid, cons
 {
     MessageDb::instance()->fetchMessage(m_accountSettings->jid(), chatJid, messageId).then([this](std::optional<Message> &&message) {
         if (message) {
-            if (all_of(message->files, [](const auto &file) {
-                    return file.transferState == File::TransferState::Done;
-                })) {
+            if (checkAllTransfersCompleted(*message)) {
                 Q_EMIT filesUploadedForPendingMessage(*message);
             }
         }
+    });
+}
+
+void FileSharingController::resetError(Message &message)
+{
+    if (checkAllTransfersCompleted(message)) {
+        message.errorText.clear();
+    }
+}
+
+bool FileSharingController::checkAllTransfersCompleted(const Message &message)
+{
+    return all_of(message.files, [](const auto &file) {
+        return file.transferState == File::TransferState::Done;
     });
 }
 
