@@ -366,6 +366,74 @@ QFuture<QList<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, 
     });
 }
 
+QFuture<QList<MessageDb::DownloadableFile>> MessageDb::fetchAutomaticallyDownloadableFiles(const QString &accountJid)
+{
+    return run([this, accountJid]() {
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+                                    SELECT m.chatJid, m.id, f.*
+                                    FROM files AS f
+                                    INNER JOIN chatMessages AS m ON m.fileGroupId = f.fileGroupId
+                                    INNER JOIN roster AS r ON r.accountJid = m.accountJid AND r.jid = m.chatJid
+                                    INNER JOIN accounts AS a ON a.jid = m.accountJid
+                                    WHERE m.accountJid = :accountJid AND f.transferState = 0 AND f.localFilePath IS NULL
+                                )"),
+                  {
+                      {u":accountJid", accountJid},
+                  });
+
+        enum {
+            ChatJid,
+            MessageId,
+            Id,
+            FileGroupId,
+            Name,
+            Description,
+            MimeType,
+            Size,
+            LastModified,
+            Disposition,
+            Thumbnail,
+            LocalFilePath,
+            ExternalId,
+            TransferOutgoing,
+            TransferState,
+        };
+
+        QList<DownloadableFile> files;
+        reserve(files, query);
+
+        while (query.next()) {
+            const auto chatJid = query.value(ChatJid).toString();
+            const auto messageId = query.value(MessageId).toString();
+            const auto id = query.value(Id).toLongLong();
+
+            File file;
+            file.id = id;
+            file.fileGroupId = query.value(FileGroupId).toLongLong();
+            file.name = variantToOptional<QString>(query.value(Name));
+            file.description = variantToOptional<QString>(query.value(Description));
+            file.mimeType = QMimeDatabase().mimeTypeForName(query.value(MimeType).toString());
+            file.size = variantToOptional<long long>(query.value(Size));
+            file.lastModified = parseDateTime(query, LastModified);
+            file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
+            file.localFilePath = query.value(LocalFilePath).toString();
+            file.externalId = query.value(ExternalId).toString();
+            file.transferOutgoing = query.value(TransferOutgoing).toBool();
+            file.transferState = query.value(TransferState).value<File::TransferState>();
+            file.hashes = _fetchFileHashes(id);
+            file.thumbnail = query.value(Thumbnail).toByteArray();
+            file.httpSources = _fetchHttpSource(id);
+            file.encryptedSources = _fetchEncryptedSource(id);
+
+            files.append({chatJid, messageId, file});
+        }
+
+        return files;
+    });
+}
+
 QFuture<QList<Message>> MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
 {
     return run([this, accountJid, chatJid, index]() {
@@ -1520,10 +1588,10 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
     QList<File> files;
     reserve(files, query);
     while (query.next()) {
-        auto id = query.value(Id).toLongLong();
+        const auto id = query.value(Id).toLongLong();
 
         File file;
-        file.id = query.value(Id).toLongLong();
+        file.id = id;
         file.fileGroupId = fileGroupId;
         file.name = variantToOptional<QString>(query.value(Name));
         file.description = variantToOptional<QString>(query.value(Description));

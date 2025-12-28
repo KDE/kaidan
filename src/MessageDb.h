@@ -37,6 +37,12 @@ public:
         int queryIndex = -1;
     };
 
+    struct DownloadableFile {
+        QString chatJid;
+        QString messageId;
+        File file;
+    };
+
     explicit MessageDb(QObject *parent = nullptr);
     ~MessageDb() override;
 
@@ -112,6 +118,15 @@ public:
      * @return the fetched files
      */
     QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
+
+    /**
+     * Fetches automatically downloadable shared media of an account from the database.
+     *
+     * @param accountJid bare JID of the user's account
+     *
+     * @return the fetched files
+     */
+    QFuture<QList<DownloadableFile>> fetchAutomaticallyDownloadableFiles(const QString &accountJid);
 
     /**
      * Fetches messages until the first message of a specific chat.

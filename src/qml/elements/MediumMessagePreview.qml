@@ -14,7 +14,6 @@ MediumPreview {
 
 	property var file
 	property Item message
-	readonly property bool fileDownloadNeeded: message.deliveryState !== Enums.DeliveryState.Pending && (file.transferState !== File.TransferState.Done || !file.locallyAvailable)
 	readonly property bool fileUploadNeeded: message.deliveryState === Enums.DeliveryState.Pending && file.transferOutgoing && file.transferState !== File.TransferState.Done
 
 	name: file.name
@@ -29,9 +28,9 @@ MediumPreview {
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {
-					if (root.file.transferState === File.TransferState.Transferring) {
-						root.message.chatController.account.fileSharingController.cancelFile(root.file)
-					} else if (root.fileDownloadNeeded) {
+					if (root.file.transferState === File.TransferState.Pending || root.file.transferState === File.TransferState.Transferring) {
+						root.message.chatController.account.fileSharingController.cancelTransfer(root.message.chatController.jid, root.message.msgId, root.file)
+					} else if (!root.file.locallyAvailable) {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
 					} else if (root.fileUploadNeeded) {
 						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, message.encryption !== Encryption.NoEncryption)
@@ -58,7 +57,7 @@ MediumPreview {
 		}
 	}
 	previewImage {
-		readonly property bool iconShown: root.file.transferState === File.TransferState.Transferring || root.fileDownloadNeeded || root.fileUploadNeeded
+		readonly property bool iconShown: root.file.transferState === File.TransferState.Transferring || !root.file.locallyAvailable || root.fileUploadNeeded
 
 		opacity: iconShown ? 1 : mainAreaBackground.opacity
 		source: ImageProvider.generatedFileImageUrl(file)
@@ -84,7 +83,7 @@ MediumPreview {
 						return "view-refresh-symbolic"
 					}
 
-					if (root.fileDownloadNeeded) {
+					if (!root.file.locallyAvailable) {
 						return "folder-download-symbolic"
 					}
 				}

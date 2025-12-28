@@ -37,13 +37,15 @@ public:
 
     Q_INVOKABLE void sendFile(const QString &chatJid, const QString &messageId, const File &file, bool encrypt);
     Q_INVOKABLE void downloadFile(const QString &chatJid, const QString &messageId, const File &file);
-    Q_INVOKABLE void cancelFile(const File &file);
+    Q_INVOKABLE void cancelTransfer(const QString &chatJid, const QString &messageId, const File &file);
 
 private:
     QFuture<bool> sendFileTask(const QString &chatJid, const QString &messageId, const File &file, bool encrypt);
     void maybeSendPendingMessage(const QString &chatJid, const QString &messageId);
     static void resetError(Message &message);
     static bool checkAllTransfersCompleted(const Message &message);
+
+    void downloadPendingFiles();
 
     void handleUploadSupportChanged();
     void handleMessageAdded(const Message &message, MessageOrigin origin);

@@ -160,7 +160,9 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings, C
     , m_manager(clientWorker->fileSharingManager())
 {
     connect(m_connection, &Connection::stateChanged, this, [this]() {
-        if (m_connection->state() == Enums::ConnectionState::StateDisconnected) {
+        if (m_connection->state() == Enums::ConnectionState::StateConnected) {
+            downloadPendingFiles();
+        } else if (m_connection->state() == Enums::ConnectionState::StateDisconnected) {
             FileProgressCache::instance().cancelTransfers(m_accountSettings->jid());
         }
     });
@@ -205,7 +207,24 @@ void FileSharingController::sendFile(const QString &chatJid, const QString &mess
 
 void FileSharingController::downloadFile(const QString &chatJid, const QString &messageId, const File &file)
 {
-    runOnThread(m_manager, [this, accountJid = m_accountSettings->jid(), chatJid, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
+    const auto accountJid = m_accountSettings->jid();
+    const auto fileId = file.id;
+
+    if (m_connection->state() != Enums::ConnectionState::StateConnected) {
+        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId = file.id](Message &message) {
+            auto file = find_if(message.files, [fileId](const auto &file) {
+                return file.id == fileId;
+            });
+
+            if (file != message.files.end()) {
+                file->transferState = File::TransferState::Pending;
+            }
+        });
+
+        return;
+    }
+
+    runOnThread(m_manager, [this, accountJid, chatJid, messageId, fileId, fileShare = file.toQXmpp()] {
         QString dirPath = SystemUtils::downloadDirectory();
 
         if (auto dir = QDir(dirPath); !dir.exists()) {
@@ -267,10 +286,12 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
                                                          0,
                                                          download->bytesTotal(),
                                                          0.0F,
-                                                         [downloadPtr]() {
-                                                             if (auto download = downloadPtr.lock()) {
-                                                                 download->cancel();
-                                                             }
+                                                         [this, downloadPtr]() {
+                                                             runOnThread(m_manager, [downloadPtr]() {
+                                                                 if (auto download = downloadPtr.lock()) {
+                                                                     download->cancel();
+                                                                 }
+                                                             });
                                                          },
                                                      });
 
@@ -337,7 +358,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
     });
 }
 
-void FileSharingController::cancelFile(const File &file)
+void FileSharingController::cancelTransfer(const QString &chatJid, const QString &messageId, const File &file)
 {
     auto progress = FileProgressCache::instance().progress(file.id);
 
@@ -346,6 +367,16 @@ void FileSharingController::cancelFile(const File &file)
         FileProgressCache::instance().reportProgress(file.id, progress);
 
         progress->cancel();
+    } else {
+        MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [fileId = file.id](Message &message) {
+            auto file = find_if(message.files, [fileId](const auto &file) {
+                return file.id == fileId;
+            });
+
+            if (file != message.files.end()) {
+                file->transferState = File::TransferState::CanceledByUser;
+            }
+        });
     }
 }
 
@@ -398,10 +429,12 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
                                                              0,
                                                              upload->bytesTotal(),
                                                              0.0F,
-                                                             [uploadPtr]() {
-                                                                 if (auto upload = uploadPtr.lock()) {
-                                                                     upload->cancel();
-                                                                 }
+                                                             [this, uploadPtr]() {
+                                                                 runOnThread(m_manager, [uploadPtr]() {
+                                                                     if (auto upload = uploadPtr.lock()) {
+                                                                         upload->cancel();
+                                                                     }
+                                                                 });
                                                              },
                                                          });
 
@@ -540,6 +573,15 @@ bool FileSharingController::checkAllTransfersCompleted(const Message &message)
     });
 }
 
+void FileSharingController::downloadPendingFiles()
+{
+    MessageDb::instance()->fetchAutomaticallyDownloadableFiles(m_accountSettings->jid()).then(this, [this](QList<MessageDb::DownloadableFile> &&files) {
+        for (MessageDb::DownloadableFile &file : files) {
+            downloadFile(file.chatJid, file.messageId, file.file);
+        }
+    });
+}
+
 void FileSharingController::handleUploadSupportChanged()
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
@@ -611,6 +653,12 @@ void FileSharingController::handleMessageAdded(const Message &message, MessageOr
                     }
                 }
             }
+        } else {
+            MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.relevantId(), [](Message &message) {
+                for (auto &file : message.files) {
+                    file.transferState = File::TransferState::Done;
+                }
+            });
         }
     }
 }
@@ -636,12 +684,11 @@ QFuture<void> FileSharingController::handleTransferError(const QString &chatJid,
             });
 
             if (it != message.files.end()) {
-                // If the file transfer is automatically canceled (e.g., because of a logout), the file transfer is marked as pending.
-                // That is done in order to start the transfer again later (e.g., after a login).
                 if (canceledByUser) {
                     it->transferState = File::TransferState::CanceledByUser;
                     message.errorText = tr("Transfer canceled");
                 } else if (canceled) {
+                    // The file transfer is started again once connected to the server.
                     it->transferState = File::TransferState::Pending;
                 } else {
                     it->transferState = File::TransferState::Failed;
