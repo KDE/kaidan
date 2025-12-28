@@ -160,7 +160,7 @@ void OmemoController::initializeChat(const QList<QString> &jids)
         // If there is a subscription but the chat partner is offline, the device list is requested
         // manually because it could result in the server not distributing the device list via PEP's
         // presence-based subscription.
-        if (RosterModel::instance()->isPresenceSubscribedByItem(m_accountSettings->jid(), jid)) {
+        if (RosterModel::instance()->item(m_accountSettings->jid(), jid)->isReceivingPresence()) {
             if (m_presenceCache->resourcesCount(jid) == 0) {
                 deviceListRequestJids.append(jid);
             }

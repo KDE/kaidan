@@ -33,6 +33,7 @@ public:
         JidRole,
         NameRole,
         GroupsRole,
+        IsNotesChatRole,
         IsProviderChatRole,
         IsGroupChatRole,
         IsPublicGroupChatRole,
@@ -80,16 +81,6 @@ public:
      */
     QStringList groups() const;
     Q_SIGNAL void groupsChanged();
-
-    /**
-     * Returns whether an account's presence is subscribed by a roster item.
-     *
-     * @param accountJid JID of the account whose roster item's presence subscription is requested
-     * @param jid JID of the roster item
-     *
-     * @return whether the presence is subscribed by the item
-     */
-    bool isPresenceSubscribedByItem(const QString &accountJid, const QString &jid) const;
 
     std::optional<Encryption::Enum> itemEncryption(const QString &accountJid, const QString &jid) const;
     void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);

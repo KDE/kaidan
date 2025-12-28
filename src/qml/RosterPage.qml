@@ -50,13 +50,14 @@ SearchBarPage {
 		}
 		delegate: RosterItemDelegate {
 			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
+			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
 			width: rosterListView.width
 			listView: rosterListView
 			accountJid: model.account.settings.jid
 			accountName: model.account.settings.displayName
 			jid: model.jid
 			name: model.name
-			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === account.settings.jid && root.activeChatPage.chatController.jid === jid
+			isNotesChat: model.isNotesChat
 			isProviderChat: model.isProviderChat
 			isGroupChat: model.isGroupChat
 			isPublicGroupChat: model.isPublicGroupChat

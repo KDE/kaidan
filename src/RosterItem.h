@@ -91,6 +91,11 @@ public:
     bool isReceivingPresence() const;
 
     /**
+     * Returns whether the item is a chat with oneself.
+     */
+    bool isNotesChat() const;
+
+    /**
      * Returns whether the item is a chat with the own service provider.
      *
      * Such a chat is often used for receiving a welcome message after account creation or for service announcements.
@@ -102,6 +107,7 @@ public:
     bool isDeletedGroupChat() const;
 
     EffectiveNotificationRule effectiveNotificationRule() const;
+    bool automaticDownloadsEnabled() const;
 
     bool operator==(const RosterItem &other) const = default;
     std::strong_ordering operator<=>(const RosterItem &other) const;

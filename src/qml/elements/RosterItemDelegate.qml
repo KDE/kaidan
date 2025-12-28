@@ -22,7 +22,7 @@ ClickableItemDelegate {
 	property string accountName
 	property string jid
 	property string name
-	readonly property bool isNotesChat: accountJid === jid
+	property bool isNotesChat
 	property bool isProviderChat
 	property bool isGroupChat
 	property bool isPublicGroupChat

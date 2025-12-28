@@ -74,6 +74,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
     roles[JidRole] = QByteArrayLiteral("jid");
     roles[NameRole] = QByteArrayLiteral("name");
     roles[GroupsRole] = QByteArrayLiteral("groups");
+    roles[IsNotesChatRole] = QByteArrayLiteral("isNotesChat");
     roles[IsProviderChatRole] = QByteArrayLiteral("isProviderChat");
     roles[IsGroupChatRole] = QByteArrayLiteral("isGroupChat");
     roles[IsPublicGroupChatRole] = QByteArrayLiteral("isPublicGroupChat");
@@ -109,6 +110,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         return item.displayName();
     case GroupsRole:
         return QVariant::fromValue(item.groups);
+    case IsNotesChatRole:
+        return item.isNotesChat();
     case IsProviderChatRole:
         return item.isProviderChat();
     case IsGroupChatRole:
@@ -171,14 +174,6 @@ QStringList RosterModel::groups() const
     std::sort(groups.begin(), groups.end());
 
     return groups;
-}
-
-bool RosterModel::isPresenceSubscribedByItem(const QString &accountJid, const QString &jid) const
-{
-    if (auto foundItem = item(accountJid, jid)) {
-        return foundItem->subscription == QXmppRosterIq::Item::From || foundItem->subscription == QXmppRosterIq::Item::Both;
-    }
-    return false;
 }
 
 std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &accountJid, const QString &jid) const

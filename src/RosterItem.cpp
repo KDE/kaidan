@@ -70,6 +70,11 @@ bool RosterItem::isReceivingPresence() const
     return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
 }
 
+bool RosterItem::isNotesChat() const
+{
+    return accountJid == jid;
+}
+
 bool RosterItem::isProviderChat() const
 {
     return QXmppUtils::jidToUser(jid).isEmpty() && QXmppUtils::jidToDomain(jid) == QXmppUtils::jidToDomain(accountJid);
@@ -128,6 +133,28 @@ RosterItem::EffectiveNotificationRule RosterItem::effectiveNotificationRule() co
         return EffectiveNotificationRule::Mentioned;
     case NotificationRule::Always:
         return EffectiveNotificationRule::Always;
+    }
+
+    Q_UNREACHABLE();
+}
+
+bool RosterItem::automaticDownloadsEnabled() const
+{
+    switch (automaticMediaDownloadsRule) {
+    case RosterItem::AutomaticMediaDownloadsRule::Account:
+        switch (AccountController::instance()->account(accountJid)->settings()->automaticMediaDownloadsRule()) {
+        case AccountSettings::AutomaticMediaDownloadsRule::Never:
+            return false;
+        case AccountSettings::AutomaticMediaDownloadsRule::PresenceOnly:
+            return isReceivingPresence() || isNotesChat();
+        case AccountSettings::AutomaticMediaDownloadsRule::Always:
+            return true;
+        }
+        Q_UNREACHABLE();
+    case RosterItem::AutomaticMediaDownloadsRule::Never:
+        return false;
+    case RosterItem::AutomaticMediaDownloadsRule::Always:
+        return true;
     }
 
     Q_UNREACHABLE();
