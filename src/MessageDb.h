@@ -80,7 +80,7 @@ public:
      *
      * @param accountJid bare JID of the user's account
      *
-     * @return the fetched messages
+     * @return the fetched files
      */
     QFuture<QList<File>> fetchFiles(const QString &accountJid);
 
@@ -90,7 +90,7 @@ public:
      * @param accountJid bare JID of the user's account
      * @param chatJid bare JID of the chat
      *
-     * @return the fetched messages
+     * @return the fetched files
      */
     QFuture<QList<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
 
@@ -99,7 +99,7 @@ public:
      *
      * @param accountJid bare JID of the user's account
      *
-     * @return the fetched messages
+     * @return the fetched files
      */
     QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid);
 
@@ -109,7 +109,7 @@ public:
      * @param accountJid bare JID of the user's account
      * @param chatJid bare JID of the chat
      *
-     * @return the fetched messages
+     * @return the fetched files
      */
     QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
 
