@@ -350,6 +350,7 @@ merge_release_branch() {
     fi
 
     # Clean up since the release branch is not needed anymore.
+    git ls-remote -b --exit-code "${remote}" "refs/heads/${release_branch}" && \
     git push -d "${remote}" "${release_branch}"
     git remote prune "${remote}"
     git branch -D "${release_branch}"
