@@ -287,7 +287,7 @@ push_release_branch() {
 
 set_up_stable_branch() {
     # Create, push and configure a new stable branch if none exists.
-    if [ ! $(git ls-remote --exit-code --heads "${remote}" "refs/heads/${stable_branch}") ]
+    if [ ! $(git ls-remote -b --exit-code "${remote}" "refs/heads/${stable_branch}") ]
     then
         git checkout -b "${stable_branch}" "${remote}/${default_branch}"
         git push "${remote}" "${stable_branch}"
