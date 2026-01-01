@@ -335,7 +335,7 @@ update_release_branch() {
 
 merge_release_branch() {
     # Merge the release branch into the stable branch if not already done.
-    if [ ! $(git log "${remote}/${stable_branch}" --pretty=oneline --grep="${release_commit_message}") ]
+    if [[ ! $(git log "${remote}/${stable_branch}" --pretty=oneline --grep="${release_commit_message}") ]]
     then
         # Rebase the release branch on the stable branch.
         git checkout "${release_branch}"
@@ -357,7 +357,7 @@ merge_release_branch() {
 
 merge_stable_branch() {
     # Merge the stable branch into the default branch if not already done.
-    if [ ! $(git log "${remote}/${default_branch}" --pretty=oneline --grep="${release_commit_message}") ]
+    if [[ ! $(git log "${remote}/${default_branch}" --pretty=oneline --grep="${release_commit_message}") ]]
     then
         git checkout "${stable_branch}"
         git pull
