@@ -1,4 +1,43 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.14.0
+--------------
+Released: 2026-01-01
+
+Features:
+* Keep draft messages on top of pinned/unpinned chat list items (pehg)
+* Optimize thumbnail creation (fazevedo)
+* Display border around searched/referenced message instead of bar (melvo)
+* Display border around message if its context menu is shown (melvo)
+* Highlight message's avatar if hovered (melvo)
+* Display provider chat (used for welcome messages and service announcements) as such (melvo)
+* Always display same name and proper avatar initials for notes chats (melvo)
+* Allow to cancel downloads/uploads (fazevedo)
+* Allow to restart canceled uploads (fazevedo)
+* Allow to resend failed message via context menu (melvo)
+* Retrieve support addresses from server instead of provider list (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (melvo)
+* Allow adding contact by entering XMPP URI (including authentication of OMEMO 2 keys) (melvo)
+* Allow joining group chat by entering XMPP URI (melvo)
+* Add option for allowing SASL PLAIN (needed for servers using LDAP) to custom connection settings (melvo)
+* Add filtering options to choose provider for registration (melvo)
+* Cancel file transfers on disconnecting from server (fazevedo)
+* Add support for offline media sharing queue (fazevedo)
+* Restart downloads canceled on logout once logged in (melvo)
+* Remove all related data on message removal (such as reactions and media) (melvo)
+
+Bugfixes:
+* Fix displaying message reaction details (melvo)
+* Fix adding unneeded separator on mention after new line (melvo)
+* Wrap hint for actions needing user to be connected to server (melvo)
+* Fix displaying icons on Windows (pehg)
+* Fix adding new line at cursor position (melvo)
+* Ensure that own encryption devices are not removed if notes chat is removed (melvo)
+
+Notes:
+* Kaidan requires KIconThemes (for Windows) now
+* Kaidan requires Qt6GuiPrivate (for Qt 6.10 or above) now
+* Kaidan requires Qt 6.7 now
+* Kaidan requires QXmpp 1.13 now
+
 Version 0.13.0
 --------------
 Released: 2025-09-21
