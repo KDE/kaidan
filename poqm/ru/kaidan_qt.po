@@ -319,7 +319,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Выход из группового чата"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -327,27 +327,42 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Отмена"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Не удалось загрузить файл: %1"
 
-#: src/FileSharingController.cpp:553
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Не удалось выполнить отправку: %1"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr ""
+
+#: src/FileSharingController.cpp:527
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Не удалось загрузить файл: %1"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+#| msgctxt "MessageComposition|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "Не удалось выполнить отправку: %1"
 
 #: src/Globals.h:99
 #, fuzzy
@@ -399,166 +414,174 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Не удалось переименовать группу %1: %2"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Аудио"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Документ"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Местоположение"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Изображение"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Видео"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Файл"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Сделать снимок"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Записать видео"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Записать аудио"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Отправить местоположение"
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Выбрать файл"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Выбрать изображение"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Выбрать видео"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Выбрать аудио"
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Выбрать документ"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Изображения"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Видео"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Аудио"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Документы"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Нет информации"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM в hh:mm"
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 msgctxt "Message|"
 msgid "Location"
 msgstr "Местоположение"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Приглашение в группу %1"
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Не удалось исправить сообщение"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Неизвестный размер"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Не удалось отправить «%1» из-за превышения допустимого размера (%2)"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "Не удалось отправить сообщение."
+
+#: src/MessageController.cpp:291
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Это сообщение зашифровано с помощью %1, но его не удалось расшифровать"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -596,12 +619,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить реакции: %1"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчера"
@@ -776,22 +799,22 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "О программе Kaidan"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Подробности…"
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -799,12 +822,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Чтобы начать обмен сообщениями, выберите чат"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Перетащите файлы для отправки"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -812,7 +835,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Выполнена разблокировка %1"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -820,7 +843,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Отменить"
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -828,7 +851,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Не удалось заблокировать %1: %2"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -3789,8 +3812,8 @@ msgstr ""
 "Шаг 2: выполните вход с использованием вашей зарегистрированной учётной "
 "записи"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Фильтр"
@@ -3856,7 +3879,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 делает паузу"
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -3864,7 +3887,7 @@ msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Не удалось добавить %1: %2"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact as a result of not being connected."
@@ -3872,7 +3895,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Не удалось добавить контакт из-за отсутствия подключения."
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact as a result of not being connected."
@@ -3880,7 +3903,7 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Не удалось переименовать контакт из-за отсутствия подключения."
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -3894,7 +3917,7 @@ msgstr ""
 "Из-за проблемы с подключением не удалось отправить запрос на получение "
 "личных данных %1: %2"
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -3902,7 +3925,7 @@ msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Не удалось разрешить %1 получать ваши личные данные"
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -3910,7 +3933,7 @@ msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Не удалось остановить получение %1 ваших личных данных"
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact as a result of not being connected."
@@ -3931,7 +3954,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Заметки"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчера"

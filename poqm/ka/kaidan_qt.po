@@ -245,28 +245,48 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "ჯგუფური ჩატიდან გასვლა"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "გაუქმებულია"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "ფაილის გადმოწერის შეცდომა: %1"
 
-#: src/FileSharingController.cpp:553
-#, qt-format
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "ატვირთვის შეცდომა: %1"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+#, fuzzy
+#| msgctxt "AccountSelectionDialog|"
+#| msgid "Feature unsupported"
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr "ფუნქცია მხარდაჭერილი არაა"
+
+#: src/FileSharingController.cpp:527
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "ფაილის ატვირთვის შეცდომა: %1"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "ატვირთვის შეცდომა: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -311,166 +331,174 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "აუდიო"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "დოკუმენტი"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "მდებარეობა"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "გამოსახულება"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "ვიდეო"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "ფაილი"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "სურათის გადაღება"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "ვიდეოს ჩაწერა"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "ხმის ჩაწერა"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "მდებარეობის გაგზავნა"
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "ფაილის არჩევა"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "გამოსახულების არჩევა"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "ვიდეოს არჩევა"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "აუდო ფაილის არჩევა"
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "დოკუმენტის არჩევა"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "ასლები"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "ვიდეო"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "აუდიო ფაილები"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "დოკუმენტები"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
 msgstr "ინფორმაციის გარეშე"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "დდ თთთ სს:წწ"
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 msgctxt "Message|"
 msgid "Location"
 msgstr "მდებარეობა"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "მოსაწვევი ჯგუფში %1"
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "შეტყობინების ჩასწორება წარუმატებელია"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'-ის გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "შეტყობინების გაგზავნა შეუძლებელია."
+
+#: src/MessageController.cpp:291
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "შეტყობინების გაგზავნა შეუძლებელია."
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "შეტყობინება %1-ითაა დაშიფრული, მაგრამ გაშიფვრა შეუძლებელია"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -508,12 +536,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -671,49 +699,49 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Kaidan-ის შესახებ"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "დეტალები…"
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "გადაგზავნის გაუქმება"
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "აირჩიეთ ჩატი შეტყობინების გადასაგზავნად"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3494,8 +3522,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "ნაბიჯი 2: შედით თქვენი რეგისტრირებული ანგარიშით"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "ფილტრი"
@@ -3558,23 +3586,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1-მა შეწყვიტა კრეფა"
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1-ის დამატება შეუძლებელია: %2"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "კონტაქტის დამატება შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "კონტაქტის სახელის გადარქმევა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -3583,19 +3611,19 @@ msgid ""
 msgstr ""
 "%1-ის პირადი მონაცემების ნახვის მოთხოვნა ჩავარდა მიერთების პრობლემის გამო: %2"
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების დაშვება ჩავარდა"
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარა"
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "კონტაქტის წაშლა შეუძლებელია. მიერთებული არ ბრძანდებით."
@@ -3610,7 +3638,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "გუშინ"

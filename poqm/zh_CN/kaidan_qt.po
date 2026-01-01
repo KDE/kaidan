@@ -235,28 +235,48 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "无法下载文件：%1"
 
-#: src/FileSharingController.cpp:553
-#, qt-format
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "上传失败：%1"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+#, fuzzy
+#| msgctxt "AccountSelectionDialog|"
+#| msgid "Feature unsupported"
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr "功能不受支持"
+
+#: src/FileSharingController.cpp:527
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "无法上传文件：%1"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "上传失败：%1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -301,166 +321,174 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "无法生成二维码：%1"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "音频"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "位置"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "拍摄照片"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "录制视频"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "录制语音"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "选择文件"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "选择图片"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "选择视频"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "选择音频文件"
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "选择文档"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "所有文件"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "音频文件"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
 msgstr "无信息"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM 于 hh:mm"
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "剧透"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 msgctxt "Message|"
 msgid "Location"
 msgstr "位置"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "群聊 %1 的邀请"
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "消息更正未成功"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "无法发送消息。"
+
+#: src/MessageController.cpp:291
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此消息已用 %1 加密，但无法解密"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -498,12 +526,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -661,49 +689,49 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "关于 Kaidan"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "详情…"
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "取消转发"
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3415,8 +3443,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"
@@ -3479,23 +3507,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 已暂停输入"
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -3503,19 +3531,19 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
@@ -3530,7 +3558,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

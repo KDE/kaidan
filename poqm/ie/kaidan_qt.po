@@ -266,7 +266,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Líber"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -274,23 +274,38 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Anullar"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/FileSharingController.cpp:553
-#, fuzzy, qt-format
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Ne successat cargar un image"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr ""
+
+#: src/FileSharingController.cpp:527
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ne successat trovar li action «%1»"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "Ne successat cargar un image"
 
 #: src/Globals.h:99
 #, fuzzy
@@ -336,118 +351,118 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Localisation"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Image"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "File"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Capturar un image del ecran"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Registrar un video"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr " Voce"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "In_viar a..."
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Selecte un file"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Selecte un image"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Selecte un video"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Selecter un file..."
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Selecte un document"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Omni files"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Images"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videos"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Audiofiles"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documentes"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -455,17 +470,17 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Localisation"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -473,42 +488,48 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Localisation"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 #, fuzzy
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Rapid copiation (sin correction de errores)"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Ínconosset grandore"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "Inviat"
+
+#: src/MessageController.cpp:291
 #, fuzzy
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Inviat"
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, fuzzy, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Ne successat importar %1, un duplicat missage"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, fuzzy, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -546,12 +567,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Inviat"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -722,50 +743,50 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Serchar"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 #, fuzzy
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Contacte"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, fuzzy, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, fuzzy, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3914,8 +3935,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Registrar un nov conto"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -3989,23 +4010,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 tippa..."
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, fuzzy, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Inviat"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -4013,19 +4034,19 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr ""
@@ -4043,7 +4064,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

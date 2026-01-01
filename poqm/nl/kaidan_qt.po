@@ -248,28 +248,48 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Groeps-chat wordt verlaten"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Kon niet downloaden bestand: %1"
 
-#: src/FileSharingController.cpp:553
-#, qt-format
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Uploaden is mislukt: %1"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+#, fuzzy
+#| msgctxt "AccountSelectionDialog|"
+#| msgid "Feature unsupported"
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr "Mogelijkheid niet ondersteund"
+
+#: src/FileSharingController.cpp:527
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Kon niet uploaden bestand: %1"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "Uploaden is mislukt: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -314,166 +334,174 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Kon QR-code niet genereren: %1"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Locatie"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Afbeelding"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Bestand"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Neem foto's"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Video opnemen"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Video opnemen"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Stuur locatie"
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Kies bestand"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Kies een afbeelding"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Kies video"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Kies audiobestand"
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Kies een document"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Afbeeldingen"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Video's"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Geluidsbestanden"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documenten"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Geen informatie"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM om hh:mm"
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 msgctxt "Message|"
 msgid "Location"
 msgstr "Locatie"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Uitnodiging aan groep %1"
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Het corrigeren van het bericht is mislukt"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' kan niet verzonden worden omdat het groter is dan %2"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "Het bericht kon niet worden verzonden."
+
+#: src/MessageController.cpp:291
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -511,12 +539,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reacties konden niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -674,49 +702,49 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Over Kaidan"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Details…"
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Doorsturen annuleren"
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Selecteer een chat om het bericht door te sturen"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Te verzenden bestanden laten vallen"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3507,8 +3535,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Stap 2: aanmelden met uw geregistreerde account"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
@@ -3571,25 +3599,25 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 is gepauzeerd met typen"
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Kan geen contactpersoon toevoegen omdat er geen verbinding is."
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "De naam van de contactpersoon kon niet worden veranderd, doordat er geen "
 "verbinding beschikbaar is."
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -3599,19 +3627,19 @@ msgstr ""
 "Verzoek om de persoonlijke gegevens van %1 te zien is mislukt vanwege een "
 "probleem met de verbinding: %2"
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 toestaan om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kan de contactpersoon niet verwijderen omdat er geen verbinding is."
@@ -3626,7 +3654,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notities"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Gisteren"

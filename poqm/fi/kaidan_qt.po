@@ -242,7 +242,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Poistutaan ryhmäkeskustelusta"
 
-#: src/FileSharingController.cpp:352 src/FileSharingController.cpp:470
+#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -250,27 +250,45 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Peru"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:346
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Tiedostoa ei voitu ladata: %1"
 
-#: src/FileSharingController.cpp:553
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Lähetys epäonnistui: %1"
+msgid "Media sharing support is unknown"
+msgstr ""
 
-#: src/FileSharingController.cpp:563
+#: src/FileSharingController.cpp:402
+#, fuzzy
+#| msgctxt "AccountSelectionDialog|"
+#| msgid "Feature unsupported"
+msgctxt "FileSharingController|"
+msgid "Media sharing is unsupported"
+msgstr "Ominaisuutta ei tueta"
+
+#: src/FileSharingController.cpp:527
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Tiedostoa ei voitu ladata: %1"
+
+#: src/FileSharingController.cpp:659
+msgctxt "FileSharingController|"
+msgid "Transfer canceled"
+msgstr ""
+
+#: src/FileSharingController.cpp:665
+#, fuzzy, qt-format
+#| msgctxt "MessageComposition|"
+#| msgid "Upload failed: %1"
+msgctxt "FileSharingController|"
+msgid "Transfer failed: %1"
+msgstr "Lähetys epäonnistui: %1"
 
 #: src/Globals.h:99
 #, fuzzy
@@ -318,166 +336,174 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "QR-koodia ei voitu luoda: %1"
 
-#: src/MediaUtils.cpp:309
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Ääni"
 
-#: src/MediaUtils.cpp:311
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Tiedosto"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Sijainti"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Kuva"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Tiedosto"
 
-#: src/MediaUtils.cpp:330
+#: src/MediaUtils.cpp:337
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Ota kuva"
 
-#: src/MediaUtils.cpp:332
+#: src/MediaUtils.cpp:339
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Nauhoita video"
 
-#: src/MediaUtils.cpp:334
+#: src/MediaUtils.cpp:341
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Nauhoita ääntä"
 
-#: src/MediaUtils.cpp:336
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Lähetä sijainti"
 
-#: src/MediaUtils.cpp:374
+#: src/MediaUtils.cpp:381
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Valitse tiedosto"
 
-#: src/MediaUtils.cpp:376
+#: src/MediaUtils.cpp:383
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Valitse kuva"
 
-#: src/MediaUtils.cpp:378
+#: src/MediaUtils.cpp:385
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Valitse video"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Valitse äänitiedosto"
 
-#: src/MediaUtils.cpp:382
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Valitse tiedosto"
 
-#: src/MediaUtils.cpp:404
+#: src/MediaUtils.cpp:411
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MediaUtils.cpp:406
+#: src/MediaUtils.cpp:413
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Kuvat"
 
-#: src/MediaUtils.cpp:408
+#: src/MediaUtils.cpp:415
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videot"
 
-#: src/MediaUtils.cpp:410
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Äänitiedostot"
 
-#: src/MediaUtils.cpp:412
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Tiedostot"
 
-#: src/MediaUtils.cpp:437
+#: src/MediaUtils.cpp:444
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:131
+#: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Ei tietoa"
 
-#: src/Message.cpp:161
+#: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "pp KKK klo tt:mm"
 
-#: src/Message.cpp:374
+#: src/Message.cpp:354
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/Message.cpp:384
+#: src/Message.cpp:364
 msgctxt "Message|"
 msgid "Location"
 msgstr "Sijainti"
 
-#: src/Message.cpp:472
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Kutsu ryhmään %1"
 
-#: src/MessageComposition.cpp:288
+#: src/MessageComposition.cpp:276
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Viestin korjaaminen ei onnistunut"
 
-#: src/MessageComposition.cpp:522
+#: src/MessageComposition.cpp:512
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/MessageComposition.cpp:566
+#: src/MessageComposition.cpp:556
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "”%1”: ei voida lähettää, koska on yli %2"
 
-#: src/MessageController.cpp:273
+#: src/MessageController.cpp:287
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
+msgid "Message could not be sent"
+msgstr "Viestiä ei voitu lähettää."
+
+#: src/MessageController.cpp:291
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:646
+#: src/MessageController.cpp:655
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Viesti on salattu (%1), mutta salausta ei voi purkaa"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1059
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -515,12 +541,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reaktioita ei voitu lähettää: %1"
 
-#: src/MessageModel.cpp:1287
+#: src/MessageModel.cpp:1306
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Tänään"
 
-#: src/MessageModel.cpp:1290
+#: src/MessageModel.cpp:1309
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Eilen"
@@ -686,49 +712,49 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Tietoa Kaidanista"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Yksityiskohdat…"
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:474
+#: src/qml/ChatPage.qml:473
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Peru edentäminen"
 
-#: src/qml/ChatPage.qml:489
+#: src/qml/ChatPage.qml:488
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Edennä viesti valitsemalla keskustelu"
 
-#: src/qml/ChatPage.qml:540
+#: src/qml/ChatPage.qml:539
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Pudota lähetettävät tiedostot"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/ChatPage.qml:741
+#: src/qml/ChatPage.qml:740
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/ChatPage.qml:748
+#: src/qml/ChatPage.qml:747
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/ChatPage.qml:752
+#: src/qml/ChatPage.qml:751
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3545,8 +3571,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Vaihe 2: kirjaudu rekisteröidyllä tililläsi"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:201
-#: src/qml/RosterPage.qml:214
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
+#: src/qml/RosterPage.qml:215
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Suodata"
@@ -3609,23 +3635,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 keskeytti kirjoittamisen"
 
-#: src/RosterController.cpp:162
+#: src/RosterController.cpp:166
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä käyttäjää %1: %2"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:175
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska ei olla verkossa."
 
-#: src/RosterController.cpp:183
+#: src/RosterController.cpp:187
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Nimeä ei voitu muuttaa, koska ei olla verkossa."
 
-#: src/RosterController.cpp:199
+#: src/RosterController.cpp:203
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -3635,19 +3661,19 @@ msgstr ""
 "Yhteysongelman vuoksi käyttäjän %1 pyyntö nähdä henkilökohtaisia tietojasi "
 "epäonnistui: %2"
 
-#: src/RosterController.cpp:215
+#: src/RosterController.cpp:219
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Käyttäjän %1 salliminen henkilökohtaisiin tietoihisi epäonnistui"
 
-#: src/RosterController.cpp:232
+#: src/RosterController.cpp:236
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Käyttäjän %1 pääsyä henkilökohtaisiin tietoihisi ei saatu lopetetuksi"
 
-#: src/RosterController.cpp:333
+#: src/RosterController.cpp:337
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
@@ -3662,7 +3688,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"
