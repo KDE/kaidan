@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
   <id>im.kaidan.kaidan</id>
-  <name>Kaidan</name>
   <name xml:lang="ar">كيدان</name>
+  <name>Kaidan</name>
   <name xml:lang="ca">Kaidan</name>
   <name xml:lang="ca-valencia">Kaidan</name>
   <name xml:lang="cs">Kaidan</name>
@@ -35,8 +35,8 @@
   <name xml:lang="uk">Kaidan</name>
   <name xml:lang="zh-CN">Kaidan</name>
   <name xml:lang="zh-TW">Kaidan</name>
-  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ar">تطبيق دردشة حديث لكل جهاز</summary>
+  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ca">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="ca-valencia">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="cs">Moderní klient pro rozhovory pro každé zařízení</summary>
@@ -146,8 +146,8 @@
   <translation type="qt">kaidan_qt</translation>
   <screenshots>
     <screenshot type="default">
-      <caption>Chat List and Chat in Landscape Mode</caption>
       <caption xml:lang="ar">قائمة الدردشة والدردشة في الوضع الأفقي</caption>
+      <caption>Chat List and Chat in Landscape Mode</caption>
       <caption xml:lang="ca">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="ca-valencia">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="es">Lista de conversaciones y conversación en modo apaisado</caption>
@@ -168,8 +168,8 @@
       <image type="source">https://www.kaidan.im/images/screenshots/screenshot-horizontal.png</image>
     </screenshot>
     <screenshot>
-      <caption>Chat in Portrait Mode</caption>
       <caption xml:lang="ar">الدردشة في الوضع الرأسي</caption>
+      <caption>Chat in Portrait Mode</caption>
       <caption xml:lang="ca">Xat en mode retrat</caption>
       <caption xml:lang="ca-valencia">Xat en mode retrat</caption>
       <caption xml:lang="es">Conversación en modo retrato</caption>
@@ -191,6 +191,45 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.14.0" date="2026-01-01T00:00:00Z">
+      <description>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>Keep draft messages on top of pinned/unpinned chat list items (pehg)</li>
+          <li>Optimize thumbnail creation (fazevedo)</li>
+          <li>Display border around searched/referenced message instead of bar (melvo)</li>
+          <li>Display border around message if its context menu is shown (melvo)</li>
+          <li>Highlight message's avatar if hovered (melvo)</li>
+          <li>Display provider chat (used for welcome messages and service announcements) as such (melvo)</li>
+          <li>Always display same name and proper avatar initials for notes chats (melvo)</li>
+          <li>Allow to cancel downloads/uploads (fazevedo)</li>
+          <li>Allow to restart canceled uploads (fazevedo)</li>
+          <li>Allow to resend failed message via context menu (melvo)</li>
+          <li>Retrieve support addresses from server instead of provider list (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (melvo)</li>
+          <li>Allow adding contact by entering XMPP URI (including authentication of OMEMO 2 keys) (melvo)</li>
+          <li>Allow joining group chat by entering XMPP URI (melvo)</li>
+          <li>Add option for allowing SASL PLAIN (needed for servers using LDAP) to custom connection settings (melvo)</li>
+          <li>Add filtering options to choose provider for registration (melvo)</li>
+          <li>Cancel file transfers on disconnecting from server (fazevedo)</li>
+          <li>Add support for offline media sharing queue (fazevedo)</li>
+          <li>Restart downloads canceled on logout once logged in (melvo)</li>
+          <li>Remove all related data on message removal (such as reactions and media) (melvo)</li>
+        </ul>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Fix displaying message reaction details (melvo)</li>
+          <li>Fix adding unneeded separator on mention after new line (melvo)</li>
+          <li>Wrap hint for actions needing user to be connected to server (melvo)</li>
+          <li>Fix displaying icons on Windows (pehg)</li>
+          <li>Fix adding new line at cursor position (melvo)</li>
+          <li>Ensure that own encryption devices are not removed if notes chat is removed (melvo)</li>
+        </ul>
+        <p>Kaidan requires KIconThemes (for Windows) now</p>
+        <p>Kaidan requires Qt6GuiPrivate (for Qt 6.10 or above) now</p>
+        <p>Kaidan requires Qt 6.7 now</p>
+        <p>Kaidan requires QXmpp 1.13 now</p>
+      </description>
+    </release>
     <release type="stable" version="0.13.0" date="2025-09-21T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>
@@ -408,7 +447,7 @@
           <li>Fix displaying errors and encryption warnings for messages (melvo)</li>
           <li>Fix fetching messages from server's archive (melvo)</li>
           <li>Fix various encryption problems (melvo)</li>
-          <li>Send delivery receipts for catched up messages (melvo)</li>
+          <li>Send delivery receipts for caught up messages (melvo)</li>
           <li>Do not hide last message date if contact name is too long (melvo)</li>
           <li>Fix displaying emojis (melvo)</li>
           <li>Fix several OMEMO bugs (melvo)</li>
@@ -528,7 +567,7 @@
           <li>Roster names are not updated in the database (melvo)</li>
           <li>Roster items are not updated in the model correctly (melvo)</li>
           <li>All sheets contain two headers: It uses the new built-in header property now (jbb)</li>
-          <li>Unreadable buttons with white text on withe background in some styles (jbb)</li>
+          <li>Unreadable buttons with white text on with background in some styles (jbb)</li>
           <li>Database version isn't saved correctly (melvo)</li>
           <li>Errors when building with newer ZXing versions (vkrause)</li>
         </ul>
@@ -718,7 +757,7 @@
           <li>New roster design - showing round avatars and last message (#118) (@LNJ2)</li>
           <li>New chat page design - showing time, delivery status and round avatars (#123) (@LNJ2)</li>
           <li>Switched to XMPP client library "gloox" (#114) (@LNJ2)</li>
-          <li>Rewritten most of the back-end for gloox and partialy also restructured it (#114) (@LNJ2)</li>
+          <li>Rewritten most of the back-end for gloox and partially also restructured it (#114) (@LNJ2)</li>
           <li>(Re)written new LogHandler for gloox (Swiften had this already included) (#114) (@LNJ2)</li>
         </ul>
       </description>

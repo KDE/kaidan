@@ -380,3 +380,5 @@ QFuture<QImage> ImageProvider::generateBitsOfBinaryImage(const QXmppBitsOfBinary
     promise->finish();
     return promise->future();
 }
+
+#include "moc_ImageProvider.cpp"
