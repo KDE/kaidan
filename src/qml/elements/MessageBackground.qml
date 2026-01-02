@@ -43,9 +43,9 @@ Item {
 		}
 
 		Rectangle {
-			color: root.highlighted ? root._highlightColor : root.color
+			color: root.highlighted ? root._highlightColor : mainBG.color
 			anchors.fill: parent
-			anchors.bottomMargin: 4
+			anchors.bottomMargin: mainBG.radius
 			anchors.leftMargin: root.message.isOwn ? -root.tailSize : 0
 			anchors.rightMargin: root.message.isOwn ? 0 : -root.tailSize
 		}
