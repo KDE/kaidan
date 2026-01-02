@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-06 10:55+0100\n"
+"PO-Revision-Date: 2026-01-01 14:59+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -262,15 +262,12 @@ msgstr "Kon niet downloaden bestand: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Ondersteuning voor gedeelde media is onbekend"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Mogelijkheid niet ondersteund"
+msgstr "Delen van media wordt niet ondersteund"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -281,15 +278,13 @@ msgstr "Kon niet uploaden bestand: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Overdracht is geannuleerd"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Uploaden is mislukt: %1"
+msgstr "Overdracht is mislukt: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -483,12 +478,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' kan niet verzonden worden omdat het groter is dan %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Het bericht kon niet worden verzonden."
+msgstr "Bericht kon niet worden verzonden"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

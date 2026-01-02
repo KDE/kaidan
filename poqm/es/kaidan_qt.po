@@ -1,14 +1,15 @@
 # Spanish translations for kaidan_qt.po package.
-# Copyright (C) 2022-2025 This file is copyright:
+# Copyright (C) 2022-2026 This file is copyright:
 # This file is distributed under the same license as the kaidan package.
 # Automatically generated, 2022.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2025-12-06 16:52+0100\n"
+"POT-Creation-Date: 2026-01-01 16:36+0100\n"
+"PO-Revision-Date: 2026-01-01 16:36+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -268,15 +269,12 @@ msgstr "No se ha podido descargar el archivo: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Se desconoce si se pueden compartir medios"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Función no permitida"
+msgstr "No se permite el uso compartido de medios"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -287,15 +285,13 @@ msgstr "No se ha podido enviar el archivo: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Transferencia cancelada"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "El envío ha fallado: %1"
+msgstr "La transferencia ha fallado: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -489,12 +485,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "No se puede enviar «%1» porque es mayor de %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "No se ha podido enviar el mensaje."
+msgstr "No se ha podido enviar el mensaje"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

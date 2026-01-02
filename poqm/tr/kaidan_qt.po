@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 # Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-19 12:26+0300\n"
+"PO-Revision-Date: 2026-01-01 12:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.11.80\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -254,15 +254,12 @@ msgstr "Dosya indirilemedi: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Ortam paylaşma desteği durumu bilinmiyor"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Özellik desteklenmiyor"
+msgstr "Ortam paylaşımı özelliği desteklenmiyor"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -273,15 +270,13 @@ msgstr "Dosya karşıya yüklenemedi: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Aktarım iptal edildi"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Karşıya yükleme başarısız: %1"
+msgstr "Aktarım başarısız: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -440,7 +435,7 @@ msgstr "Bilgi yok"
 #: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr "gg DDD, ss:dd"
+msgstr "dd MMM, hh:mm"
 
 #: src/Message.cpp:354
 msgctxt "Message|"
@@ -475,12 +470,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "İleti gönderilemedi."
+msgstr "İleti gönderilemedi"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

@@ -259,15 +259,12 @@ msgstr "ფაილის გადმოწერის შეცდომა:
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "მედიის გაზიარების მხარდაჭერა უცნობია"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "ფუნქცია მხარდაჭერილი არაა"
+msgstr "მედიის გაზიარება მხარდაჭერილი არაა"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -278,15 +275,13 @@ msgstr "ფაილის ატვირთვის შეცდომა: %1
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "გადაცემა გაუქმდა"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "ატვირთვის შეცდომა: %1"
+msgstr "გადაცემა ჩავარდა: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -480,12 +475,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'-ის გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "შეტყობინების გაგზავნა შეუძლებელია."
+msgstr "შეტყობინების გაგზავნა შეუძლებელია"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

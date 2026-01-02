@@ -1,5 +1,5 @@
 # Translation of kaidan_qt.po to Catalan (Valencian)
-# Copyright (C) 2019-2025 This_file_is_part_of_KDE
+# Copyright (C) 2019-2026 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 # or the same license as the source of its messages in English.
@@ -8,11 +8,11 @@
 # SPDX-FileCopyrightText: 2019 Joan CiberSheep <cibersheep@gmail.com>
 # SPDX-FileCopyrightText: 2019 Txaume <txaumevw@gmail.com>
 # SPDX-FileCopyrightText: 2020 Adolfo Jayme Barrientos <fitojb@ubuntu.com>
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2025-12-06 12:51+0100\n"
+"PO-Revision-Date: 2026-01-01 11:08+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.12.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -272,15 +272,12 @@ msgstr "No s'ha pogut baixar el fitxer: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Es desconeix si hi ha implementació de compartir elements multimèdia"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Característica no admesa"
+msgstr "La compartició d'elements multimèdia no està implementada"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -291,15 +288,13 @@ msgstr "No s'ha pogut pujar el fitxer: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "S'ha cancel·lat la transferència"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Ha fallat la pujada: %1"
+msgstr "Ha fallat la transferència: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -493,12 +488,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "No s'ha pogut enviar «%1» perquè és més gran que %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "No s'ha pogut enviar el missatge"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
@@ -1201,8 +1193,8 @@ msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
-"Configura el nom de l'amfitrió i el port al qual connectar (camps buits per "
-"als valors predeterminats)"
+"Configura el nom i el port de l'amfitrió amb el qual connectar (camps buits "
+"per als valors predeterminats)"
 
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"

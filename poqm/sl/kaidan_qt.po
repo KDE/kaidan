@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-12-06 09:04+0100\n"
+"PO-Revision-Date: 2026-01-01 08:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -265,15 +265,12 @@ msgstr "Ni bilo mogoče prenesti datoteke: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Podpora za deljenje medijev ni znana"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Zmožnost ni podprta"
+msgstr "Deljenje medijev ni podprto"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -284,15 +281,13 @@ msgstr "Ni bilo mogoče prenesti datoteke tja: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Prenos preklican"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Prenos tja je spodletel: %1"
+msgstr "Prenos spodletel: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -486,12 +481,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' ni mogoče poslati, ker je večji kot %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Sporočila ni bilo mogoče poslati."
+msgstr "Sporočila ni bilo mogoče poslati"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

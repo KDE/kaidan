@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-06 05:51-0300\n"
+"PO-Revision-Date: 2025-12-31 22:34-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Language: pt_BR\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -263,15 +263,12 @@ msgstr "Não foi possível baixar arquivo: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "O suporte para compartilhamento de mídia é desconhecido"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Funcionalidade não suportada"
+msgstr "O compartilhamento de mídia não é suportado"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -282,15 +279,13 @@ msgstr "Não foi possível enviar arquivo: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Transferência cancelada"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Envio falhou: %1"
+msgstr "Transferência falhou: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -485,12 +480,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' não pode ser enviado porque é maior que %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Não foi possível enviar a mensagem."
+msgstr "Não foi possível enviar a mensagem"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
