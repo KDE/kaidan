@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-12 14:29+0200\n"
+"PO-Revision-Date: 2025-10-09 00:20+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -61,6 +61,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
@@ -311,22 +314,26 @@ msgid "Banned"
 msgstr "차단됨"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "잘못된 원본을 클립보드에 복사할 수 없음: %1"
+msgstr "클립보드에 대화 상대 복사됨"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "섬네일을 생성할 수 없음: %1이(가) 없음"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "QR 코드를 생성할 수 없음: %1"
+msgstr "%1 그룹의 이름을 바꿀 수 없음: %2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -2026,39 +2033,61 @@ msgid "Notes Details"
 msgstr "메모 자세한 정보"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "삭제"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "공급자 대화와 전체 대화 기록 삭제"
+msgstr "메모 대화와 전체 대화 기록 삭제"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "공급자 대화 삭제 중…"
+msgstr "메모 대화 삭제 중…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "공급자 자세한 정보"
+msgstr "그룹 자세한 정보"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "이 대화의 메시지는 서비스 공급자에서 전송함"
+msgstr "이 대화의 메시지는 내 모든 장치에 메모로 동기화됨"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "공급자 자세한 정보"
+msgstr "그룹 자세한 정보"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -3626,6 +3655,9 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대를 삭제할 수 없었습니다."
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "공급자"
@@ -3670,29 +3702,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "서버 위치"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "다른 연결 설정을 입력하면 변경합니다"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "연결 설정"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "연결 설정"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "대화 상대가 이미 존재함"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "대화 열기"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3702,15 +3714,31 @@ msgstr "웹사이트"
 #~ msgid "Maximize avatar"
 #~ msgstr "아바타 최대화"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "대화 상대가 이미 존재함"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "대화 열기"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "연결 설정"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "연결 설정"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "서버 위치"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR 코드 생성 실패: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "첫 읽지 않은 상태로 표시"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "계정을 이전할 수 없음: 다른 이전 작업이 진행 중"
@@ -3734,6 +3762,10 @@ msgstr "웹사이트"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "시간이 걸릴 수 있습니다"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "첫 읽지 않은 상태로 표시"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

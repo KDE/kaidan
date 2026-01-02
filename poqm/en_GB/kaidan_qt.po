@@ -237,9 +237,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connecting…"
@@ -4044,29 +4041,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Server locations"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Enter different connection settings to change them"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Connection settings"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Connection settings"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Contact already exists"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Open chat"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4076,6 +4053,26 @@ msgstr "Website"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximise avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Contact already exists"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Open chat"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Connection settings"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Connection settings"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Server locations"
+
 #, fuzzy
 #~| msgctxt "AbstractQrCodeGenerator|"
 #~| msgid "Generating the QR code failed: %1"
@@ -4083,15 +4080,7 @@ msgstr "Website"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generating the QR code failed: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Mark as first unread"
-
-#, fuzzy
-#~| msgctxt "AccountMigrationManager|"
-#~| msgid ""
-#~| "Account could not be migrated: Another migration is already in progress"
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
@@ -4116,6 +4105,10 @@ msgstr "Website"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "That can take long"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Mark as first unread"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

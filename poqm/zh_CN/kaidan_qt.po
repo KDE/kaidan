@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
-"X-Crowdin-File-ID: 57154\n"
+"X-Crowdin-File: /kf6-stable/messages/kaidan/kaidan_qt.pot\n"
+"X-Crowdin-File-ID: 57166\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -63,6 +63,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
@@ -236,9 +239,12 @@ msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Cancel reply"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "已取消"
+msgstr "取消回复"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -260,10 +266,12 @@ msgid "Media sharing is unsupported"
 msgstr "功能不受支持"
 
 #: src/FileSharingController.cpp:527
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "无法上传文件：%1"
+msgstr "无法下载文件：%1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
@@ -272,16 +280,19 @@ msgstr ""
 
 #: src/FileSharingController.cpp:665
 #, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
+#| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
 msgstr "上传失败：%1"
 
 #: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "未选择"
+msgstr "保存选择"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -304,22 +315,26 @@ msgid "Banned"
 msgstr "已封禁"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "无法将无效源复制到剪贴板：%1"
+msgstr "联系人已复制到剪贴板"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "无法生成缩略图：%1 不存在"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "无法生成二维码：%1"
+msgstr "无法重命名群聊 %1：%2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -661,6 +676,9 @@ msgid "Offline"
 msgstr "离线"
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "自定义提供者"
@@ -669,12 +687,17 @@ msgstr "自定义提供者"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "无限制"
 
 #: src/ProviderModel.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 天"
@@ -1166,12 +1189,12 @@ msgstr "配置要连接的主机名和端口（空字段为默认值）"
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr "应用更改"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "正在应用更改…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -1995,39 +2018,61 @@ msgid "Notes Details"
 msgstr "备注详情"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "移除提供者聊天以及全部聊天记录"
+msgstr "移除聊天备注和全部聊天记录"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "正在移除提供者聊天…"
+msgstr "正在移除聊天备注…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "提供者详情"
+msgstr "群聊详情"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "此聊天中的消息来自您的服务提供者"
+msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "提供者详情"
+msgstr "群聊详情"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2183,7 +2228,7 @@ msgstr "打开所选文件的文件夹"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "重新发送"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2341,9 +2386,12 @@ msgid "Add"
 msgstr "添加"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "为联系人做出信任决定"
+msgstr "为联系人做出信任决定 - 继续执行步骤 2"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2401,6 +2449,9 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
+#, fuzzy
+#| msgctxt "GroupChatParticipantPicker|"
+#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "邀请联系人加入此群聊…"
@@ -2443,7 +2494,7 @@ msgstr "端口："
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr "明文身份验证（SASL PLAIN）"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2451,8 +2502,6 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
-"如果您的服务提供者使用 LDAP，则需要启用此功能。这在可以使用单一账号登录的组织"
-"中很常见。"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2716,9 +2765,12 @@ msgid "Scan login QR code"
 msgstr "扫描登录二维码"
 
 #: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "显示连接设置"
+msgstr "更改连接设置"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2791,51 +2843,63 @@ msgid "Retry updating reactions"
 msgstr "重试更新回应"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "通过 Kaidan 注册"
+msgstr "注册失败："
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
-msgstr "仅显示允许直接通过 Kaidan 创建账号的提供者"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "免费"
+msgstr "有空聊天"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr "仅显示免费的提供者"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "密码重置"
+msgstr "密码"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr "仅显示允许重置密码的提供者"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr "绿色托管"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
-msgstr "仅显示使用可再生能源提供服务的提供者"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "巴士因子"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "位置"
@@ -2844,37 +2908,52 @@ msgstr "位置"
 msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
-msgstr "仅显示在所选国家/地区存储和处理数据的提供者"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "分享媒体的大小"
+msgstr "分享媒体的最大大小"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "所有分享媒体的总大小"
+msgstr "分享媒体的最大大小"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "媒体存储时长"
+msgstr "消息存储时长"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "消息存储时长"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "可用性"
+msgstr "在线"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr "组织"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3287,9 +3366,12 @@ msgstr "选择提供者"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
-msgstr "筛选"
+msgstr "筛选器"
 
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
@@ -3302,14 +3384,17 @@ msgid "Provider Address"
 msgstr "提供者地址"
 
 #: src/qml/registration/ProviderPage.qml:128
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "显示连接设置"
+msgstr "更改连接设置"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr "数据存储/处理位置"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3327,6 +3412,9 @@ msgid "Maximum size of shared media"
 msgstr "分享媒体的最大大小"
 
 #: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "消息存储时长"
@@ -3549,6 +3637,9 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "提供者"
@@ -3592,3 +3683,39 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter different connection settings to change them"
+#~ msgstr "输入不同的连接设置以进行更改"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "最大化头像"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "最大化头像"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "联系人已存在"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "打开聊天"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "连接设置"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "连接设置"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "服务器位置"
+
+#~ msgctxt "QrCodeGenerator|"
+#~ msgid "Generating the QR code failed: %1"
+#~ msgstr "生成二维码失败：%1"

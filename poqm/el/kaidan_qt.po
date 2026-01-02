@@ -168,12 +168,9 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr "Ασφάλεια λογαριασμού"
+msgstr ""
 
 #: src/ChatHintModel.cpp:282
 #, qt-format
@@ -672,12 +669,9 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "Διεύθυνση συνομιλίας:"
+msgstr ""
 
 #. Unlimited file size for uploading
 #. ----------
@@ -4046,11 +4040,18 @@ msgid "Website"
 msgstr "Ιστότοπος"
 
 #, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Mute notifications"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Σίγαση ειδοποιήσεων"
+#~| msgctxt "ChangePassword|"
+#~| msgid "New password:"
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Νέος κωδικός πρόσβασης:"
+
+#, fuzzy
+#~| msgctxt "ChangePassword|"
+#~| msgid "New password:"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Νέος κωδικός πρόσβασης:"
 
 #, fuzzy
 #~| msgctxt "AccountSecurity|"
@@ -4067,18 +4068,11 @@ msgstr "Ιστότοπος"
 #~ msgstr "Ασφάλεια λογαριασμού"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "New password:"
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Νέος κωδικός πρόσβασης:"
-
-#, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "New password:"
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Νέος κωδικός πρόσβασης:"
+#~| msgctxt "ChatPage|"
+#~| msgid "Mute notifications"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Σίγαση ειδοποιήσεων"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

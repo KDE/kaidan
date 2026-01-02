@@ -4763,16 +4763,28 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
 
-#, fuzzy
-#~| msgctxt "ProviderView|"
-#~| msgid "Server locations:"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Localizações dos servidores:"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Indique uma configuração diferente para a modificar"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximizar o avatar"
+
+#, fuzzy
+#~| msgctxt "ContactDetailsHeader|"
+#~| msgid "Maximize avatar"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximizar o avatar"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "O contacto já existe"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Abrir uma conversa"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4788,24 +4800,12 @@ msgstr "Página Web"
 #~ msgid "Connection settings"
 #~ msgstr "Configuração da ligação"
 
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "O contacto já existe"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Abrir uma conversa"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximizar o avatar"
-
 #, fuzzy
-#~| msgctxt "ContactDetailsHeader|"
-#~| msgid "Maximize avatar"
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximizar o avatar"
+#~| msgctxt "ProviderView|"
+#~| msgid "Server locations:"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Localizações dos servidores:"
 
 #, fuzzy
 #~| msgctxt "QrCodeGenerator|"
@@ -4813,10 +4813,6 @@ msgstr "Página Web"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "A geração do código QR foi mal-sucedida: %1"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marcar como primeira não-lida"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4833,6 +4829,10 @@ msgstr "Página Web"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "A ligação será aberta depois de ter estabelecido a ligação."
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marcar como primeira não-lida"
 
 #, fuzzy
 #~| msgctxt "ChatMessageContextMenu|"

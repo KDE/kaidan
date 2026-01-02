@@ -14,24 +14,36 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:493
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr ""
+msgstr "Připojit se"
 
 #: src/Account.cpp:495
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/Account.cpp:497
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr ""
+msgstr "Připojit se"
 
 #: src/Account.cpp:508
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "Neplatné jméno uživatele nebo heslo."
 
 #: src/Account.cpp:510
 msgctxt "Connection|"
@@ -66,9 +78,12 @@ msgid "Authentication protocol not supported by the server."
 msgstr ""
 
 #: src/Account.cpp:522
+#, fuzzy
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "Reakci nelze odeslat: %1"
 
 #: src/Account.cpp:524
 msgctxt "Connection|"
@@ -88,25 +103,38 @@ msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
 #: src/Account.cpp:530
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "Na server se nelze připojit."
 
 #: src/AccountMigrationController.cpp:332
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid ""
+#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "Účet nelze migrovat: již probíhá jiná migrace"
 
 #: src/AccountMigrationController.cpp:355
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid ""
+#| "Account could not be migrated: Another migration is already in progress"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Účet nelze migrovat: již probíhá jiná migrace"
 
 #: src/AccountMigrationController.cpp:405
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr ""
+msgstr "Migrace účtu"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:77
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -151,14 +179,20 @@ msgid "Enable"
 msgstr ""
 
 #: src/ChatHintModel.cpp:259
+#, fuzzy
+#| msgctxt "LoadingArea|"
+#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr ""
+msgstr "Probíhá načítání…"
 
 #: src/ChatHintModel.cpp:266
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr ""
+msgstr "Na server se nelze připojit."
 
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
@@ -232,15 +266,20 @@ msgid "Leaving group chat"
 msgstr ""
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/FileSharingController.cpp:346
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
@@ -253,10 +292,12 @@ msgid "Media sharing is unsupported"
 msgstr ""
 
 #: src/FileSharingController.cpp:527
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
@@ -265,7 +306,7 @@ msgstr ""
 
 #: src/FileSharingController.cpp:665
 #, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
+#| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -312,10 +353,12 @@ msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -612,14 +655,20 @@ msgid "Requests to receive your personal data"
 msgstr ""
 
 #: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 #: src/NotificationController.cpp:305
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Označit jako přečtené"
 
 #: src/OmemoController.cpp:114
 msgctxt "OmemoController|"
@@ -668,15 +717,20 @@ msgstr "Poskytovatel"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Bez omezení"
 
 #: src/ProviderModel.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dny"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -714,27 +768,36 @@ msgid "Drop files to be sent"
 msgstr ""
 
 #: src/qml/ChatPage.qml:740
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Odblokován %1"
 
 #: src/qml/ChatPage.qml:740
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
-msgstr ""
+msgstr "Zpět"
 
 #: src/qml/ChatPage.qml:747
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/qml/ChatPage.qml:751
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:21
 #, qt-format
@@ -1187,9 +1250,12 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:962
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Show QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr ""
+msgstr "Zobrazit QR kód"
 
 #: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
@@ -1197,9 +1263,12 @@ msgid "Scan the QR code by another device to log in on it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:980
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr ""
+msgstr "Zobrazit podrobnosti"
 
 #: src/qml/details/AccountDetailsContent.qml:981
 msgctxt "AccountDetailsContent|"
@@ -1207,9 +1276,12 @@ msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:987
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr ""
+msgstr "Adresa"
 
 #: src/qml/details/AccountDetailsContent.qml:1005
 msgctxt "AccountDetailsContent|"
@@ -1973,14 +2045,20 @@ msgid "Notes Details"
 msgstr ""
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Odstranění"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
@@ -1988,14 +2066,20 @@ msgid "Remove provider chat and complete chat history"
 msgstr ""
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Removing contact…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr ""
+msgstr "Odstraňuji kontakt…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr ""
+msgstr "Poskytovatel"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
 msgctxt "ProviderChatDetailsHeader|"
@@ -2003,9 +2087,12 @@ msgid "Messages in this chat are from your service provider"
 msgstr ""
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr ""
+msgstr "Poskytovatel"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2399,9 +2486,12 @@ msgid "Unverified contact devices"
 msgstr ""
 
 #: src/qml/elements/CopyFormTextDelegate.qml:19
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
@@ -2692,9 +2782,12 @@ msgid "Scan login QR code"
 msgstr ""
 
 #: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2868,15 +2961,20 @@ msgid "Organization"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GlobalDrawer|"
+#| msgid "Search public groups"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
-msgstr ""
+msgstr "Prohledat veřejné skupiny"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:72
+#, fuzzy
+#| msgctxt "LoadingArea|"
+#| msgid "Loading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
-msgstr ""
+msgstr "Probíhá načítání…"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2884,10 +2982,12 @@ msgid "Retry"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr ""
+msgstr "Reakce nelze odeslat: %1"
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
@@ -2950,29 +3050,44 @@ msgid "Media"
 msgstr "Média"
 
 #: src/qml/elements/RosterFilterArea.qml:28
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
-msgstr ""
+msgstr "Dostupné kontakty"
 
 #: src/qml/elements/RosterFilterArea.qml:32
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr ""
+msgstr "Dostupné kontakty"
 
 #: src/qml/elements/RosterFilterArea.qml:36
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Create group"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "Vytvořit skupinu"
 
 #: src/qml/elements/RosterFilterArea.qml:40
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
-msgstr ""
+msgstr "Veřejné skupiny"
 
 #: src/qml/elements/RosterFilterArea.qml:52
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
-msgstr ""
+msgstr "Filtrovat podle typu"
 
 #: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
@@ -2980,9 +3095,12 @@ msgid "Show only entries of specific types"
 msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:114
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
-msgstr ""
+msgstr "Filtrovat podle typu"
 
 #: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
@@ -2990,9 +3108,12 @@ msgid "Show only chats of selected accounts"
 msgstr ""
 
 #: src/qml/elements/RosterFilterArea.qml:176
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "Filtrovat podle typu"
 
 #: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
@@ -3000,40 +3121,60 @@ msgid "Show only chats with selected labels"
 msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:132
+#, fuzzy
+#| msgctxt "GroupChatDetailsHeader|"
+#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
-msgstr ""
+msgstr "Smazáno"
 
 #: src/qml/elements/RosterItemDelegate.qml:146
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
-msgstr ""
+msgstr "Příchozí zprávy"
 
 #: src/qml/elements/RosterItemDelegate.qml:162
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
-msgstr ""
+msgstr "Koncept:"
 
 #: src/qml/elements/RosterItemDelegate.qml:165
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
-msgstr ""
+msgstr "Já:"
 
 #: src/qml/elements/RosterItemDelegate.qml:169
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterListItem|"
+#| msgid "%1:"
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr ""
+msgstr "Odepnout kartu"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
+#, fuzzy
+#| msgctxt "RosterListItemContextMenu|"
+#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
-msgstr ""
+msgstr "Připnout"
 
 #: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
@@ -3061,19 +3202,28 @@ msgid "Accounts"
 msgstr "Účty"
 
 #: src/qml/GlobalDrawer.qml:118
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
 msgctxt "GlobalDrawer|"
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: src/qml/GlobalDrawer.qml:119
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr ""
+msgstr "Zadejte své současné heslo"
 
 #: src/qml/GlobalDrawer.qml:128
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid "Copy password"
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
-msgstr ""
+msgstr "Kopírovat heslo"
 
 #: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
@@ -3106,9 +3256,12 @@ msgid "Create group"
 msgstr "Vytvořit skupinu"
 
 #: src/qml/GlobalDrawer.qml:197
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Create group"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr ""
+msgstr "Vytvořit skupinu"
 
 #: src/qml/GlobalDrawer.qml:223
 msgctxt "GlobalDrawer|"
@@ -3131,27 +3284,36 @@ msgid "About"
 msgstr "O aplikaci"
 
 #: src/qml/GlobalDrawer.qml:454
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Odblokován %1"
 
 #: src/qml/GlobalDrawer.qml:454
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
-msgstr ""
+msgstr "Zpět"
 
 #: src/qml/GlobalDrawer.qml:461
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/qml/GlobalDrawer.qml:465
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
@@ -3296,9 +3458,12 @@ msgid "Provider Address"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:128
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
@@ -3454,9 +3619,12 @@ msgid "Account Migration"
 msgstr "Migrace účtu"
 
 #: src/qml/StartPage.qml:27
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr ""
+msgstr "Migrace účtu"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3502,10 +3670,12 @@ msgid "%1 paused typing"
 msgstr ""
 
 #: src/RosterController.cpp:166
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
-msgstr ""
+msgstr "%1 nelze přidat: %2"
 
 #: src/RosterController.cpp:175
 msgctxt "RosterController|"
@@ -3543,9 +3713,12 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr ""
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
-msgstr ""
+msgstr "Poskytovatel"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
@@ -3586,3 +3759,35 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Otevřít rozhovor"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Online"
+#~ msgstr "Připojen"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Connecting…"
+#~ msgstr "Navazuji spojení…"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Offline"
+#~ msgstr "Odpojen"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Označit jako první nepřečtené"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Deleted"
+#~ msgstr "Smazáno"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "Pozor:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Heslo:"

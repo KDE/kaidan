@@ -62,9 +62,12 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
-msgstr "Palvelin ei tue todennuskäytäntöä."
+msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
 #: src/Account.cpp:522
 msgctxt "Connection|"
@@ -319,22 +322,26 @@ msgid "Banned"
 msgstr "Estetty"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Virheellistä lähdettä ei voitu kopioida leikepöydälle: %1"
+msgstr "Yhteystieto kopioitiin leikepöydälle"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "Pienoiskuvaa ei voi luoda: tiedostoa %1 ei ole olemassa"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "QR-koodia ei voitu luoda: %1"
+msgstr "Ryhmän %1 nimeä ei voitu muuttaa: %2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -2068,39 +2075,62 @@ msgid "Notes Details"
 msgstr "Muistiinpanon tiedot"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "Poista"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "Poista tarjoajakeskustelu ja koko keskusteluhistoria"
+msgstr "Poista muistiinpanokeskustelu ja koko keskusteluhistoria"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Poistetaan tarjoajakeskustelua…"
+msgstr "Poistetaan muistiinpanokeskustelua…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Tarjoajan tiedot"
+msgstr "Ryhmän tiedot"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "Tämän keskustelun viestit ovat palveluntarjoajaltasi"
+msgstr ""
+"Tämän keskustelun viestit tahdistetaan muistiinpanoiksi laitteittesi välillä"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Tarjoajan tiedot"
+msgstr "Ryhmän tiedot"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2479,9 +2509,12 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Vaihe 2: Anna yhteyskumppanisi lukea <b>sinun</b> QR-koodisi"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
+#, fuzzy
+#| msgctxt "GroupChatParticipantPicker|"
+#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "Kutsu ihmisiä tähän ryhmään…"
+msgstr "Kutsu tähän ryhmään ihmisiä…"
 
 # ”Contact” tässä ”yhteyskumppani”, koska ”ihminen”, ”henkilö” tai ”yhteystieto” eivät oikein sovi
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
@@ -3679,9 +3712,12 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
-msgstr "Tarjoaja"
+msgstr "Palveluntarjoaja"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
@@ -3723,29 +3759,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Palvelinsijainnit"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Anna eri yhteysasetukset muuttaaksesi niitä"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Yhteysasetukset"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Yhteysasetukset"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Yhteystieto on jo olemassa"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Avaa keskustelu"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3755,15 +3771,31 @@ msgstr "Sivusto"
 #~ msgid "Maximize avatar"
 #~ msgstr "Suurenna avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Yhteystieto on jo olemassa"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Avaa keskustelu"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Yhteysasetukset"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Yhteysasetukset"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Palvelinsijainnit"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR-koodin luonti epäonnistui: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Merkitse ensimmäiseksi ei-luetuksi"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Tiliä ei voitu siirtää: toinen siirto on jo meneillään"
@@ -3787,6 +3819,10 @@ msgstr "Sivusto"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Tämä voi kestää"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Merkitse ensimmäiseksi ei-luetuksi"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

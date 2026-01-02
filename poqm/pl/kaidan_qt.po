@@ -170,7 +170,7 @@ msgstr "Włączanie…"
 
 #: src/ChatHintModel.cpp:266
 #, fuzzy
-#| msgctxt "Connection|"
+#| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
@@ -3770,29 +3770,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Umiejscowienie serwerów"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Wpisz inne ustawienia połączenia, aby je zmienić"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Ustawienia połączenia"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Ustawienia połączenia"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Znajomy już istnieje"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Rozpocznij rozmowę"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3802,15 +3782,31 @@ msgstr "Strona sieciowa"
 #~ msgid "Maximize avatar"
 #~ msgstr "Zmaksymalizuj awatara"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Znajomy już istnieje"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Rozpocznij rozmowę"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Ustawienia połączenia"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Ustawienia połączenia"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Umiejscowienie serwerów"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Nie udało utworzyć kodu QR: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Nie można przenieść konta: Już trwa jakieś przenoszenie"
@@ -3834,6 +3830,10 @@ msgstr "Strona sieciowa"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "To może trochę zająć"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

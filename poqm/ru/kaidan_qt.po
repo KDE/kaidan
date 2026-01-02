@@ -247,9 +247,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:269
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Подключение…"
@@ -3989,29 +3986,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Веб-сайт"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Расположение серверов"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Введите другие параметры подключения, чтобы изменить их"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Параметры подключения"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Параметры подключения"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Контакт уже существует"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Открыть чат"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4021,6 +3998,26 @@ msgstr "Веб-сайт"
 #~ msgid "Maximize avatar"
 #~ msgstr "Развернуть аватар"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Контакт уже существует"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Открыть чат"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметры подключения"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметры подключения"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Расположение серверов"
+
 #, fuzzy
 #~| msgctxt "AbstractQrCodeGenerator|"
 #~| msgid "Generating the QR code failed: %1"
@@ -4028,15 +4025,7 @@ msgstr "Веб-сайт"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Не удалось сгенерировать QR-код: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Отметить как первое непрочитанное"
-
-#, fuzzy
-#~| msgctxt "AccountMigrationManager|"
-#~| msgid ""
-#~| "Account could not be migrated: Another migration is already in progress"
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
@@ -4062,6 +4051,10 @@ msgstr "Веб-сайт"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "На это может потребоваться много времени"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Отметить как первое непрочитанное"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
@@ -4104,26 +4097,38 @@ msgstr "Веб-сайт"
 #~ msgstr "Переключиться на другое устройство"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Choose image"
 #~ msgctxt "AvatarChangePage|"
 #~ msgid "Choose profile image"
 #~ msgstr "Выбрать изображение"
 
 #, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Log in"
 #~ msgctxt "QrCodeOnboardingPage|"
 #~ msgid "Log in"
 #~ msgstr "Вход"
 
 #, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Log in"
 #~ msgctxt "StartPage|"
 #~ msgid "Log in"
 #~ msgstr "Вход"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Recording…"
 #~ msgctxt "CameraStatus|"
 #~ msgid "Loading camera…"
 #~ msgstr "Запись…"
 
 #, fuzzy
+#~| msgctxt "QrCodeScanner|"
+#~| msgid ""
+#~| "Your camera is busy.\n"
+#~| "Try to close other applications using the camera."
 #~ msgctxt "CameraStatus|"
 #~ msgid ""
 #~ "Camera busy\n"
@@ -4189,26 +4194,36 @@ msgstr "Веб-сайт"
 #~ msgstr "Запись… %1"
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "NewMediaSheet|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Audio files"
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Share files"
 #~ msgstr "Аудио"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Choose file"
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Choose files"
 #~ msgstr "Выбрать файл"
 
 #, fuzzy
+#~| msgctxt "ChatPageSendingPane|"
+#~| msgid "Compose message"
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Compose message"
 #~ msgstr "Написать сообщение"
 
 #, fuzzy
+#~| msgctxt "RosterAddContactSheet|"
+#~| msgid "Add"
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Add"
 #~ msgstr "Добавить"
@@ -4218,6 +4233,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Отправить"
 
 #, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Search"
 #~ msgctxt "SearchPublicGroupChatSheet|"
 #~ msgid "Search…"
 #~ msgstr "Поиск"
@@ -4227,6 +4244,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Настройки"
 
 #, fuzzy
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
 #~ msgctxt "AboutPage|"
 #~ msgid "Visit website"
 #~ msgstr "Веб-сайт"
@@ -4240,6 +4259,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Камера"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Audio input"
 #~ msgctxt "MultimediaSettings|"
 #~ msgid "Audio Input"
 #~ msgstr "Аудио вход"
@@ -4261,54 +4282,81 @@ msgstr "Веб-сайт"
 #~ msgstr "Настройки"
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Verify <b>your</b> devices to encrypt for them"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Verify <b>your</b> devices for maximum security"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Verify your <b>contact</b> to enable encryption"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Verify your <b>contact</b> for maximum security"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "GroupChatDetailsContent|"
 #~ msgid "Verify <b>your</b> devices to encrypt for them"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "GroupChatDetailsContent|"
 #~ msgid "Verify <b>your</b> devices for maximum security"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "GroupChatDetailsContent|"
 #~ msgid "Verify a <b>participant</b> to enable encryption"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "NotesChatDetailsContent|"
 #~ msgid "Verify <b>your</b> devices to encrypt for them"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "NotesChatDetailsContent|"
 #~ msgid "Verify <b>your</b> devices for maximum security"
 #~ msgstr ""
@@ -4331,66 +4379,92 @@ msgstr "Веб-сайт"
 #~ msgstr "Просмотреть исходный код онлайн"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Confirm"
 #~ msgstr "Настроить"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Confirm"
 #~ msgstr "Настроить"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
 #~ msgctxt "GroupChatDetailsContent|"
 #~ msgid "Confirm"
 #~ msgstr "Настроить"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
 #~ msgctxt "NotesChatDetailsContent|"
 #~ msgid "Confirm"
 #~ msgstr "Настроить"
 
 #, fuzzy
+#~| msgctxt "RegistrationLoginDecisionPage|"
+#~| msgid "Register a new account"
 #~ msgctxt "ManualRegistrationPage|"
 #~ msgid "Register manually"
 #~ msgstr "Зарегистрироваться"
 
 #, fuzzy
+#~| msgctxt "QmlUtils|"
+#~| msgid "This server does not support registration."
 #~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "Этот сервер не поддерживает регистрацию."
 
 #, fuzzy
+#~| msgctxt "ServerListModel|"
+#~| msgid "Custom server"
 #~ msgctxt "ProviderView|"
 #~ msgid "Provider"
 #~ msgstr "Другой сервер"
 
 #, fuzzy
+#~| msgctxt "ConnectionSettings|"
+#~| msgid "Connection settings"
 #~ msgctxt "ProviderView|"
 #~ msgid "Connection settings"
 #~ msgstr "Настройки подключения"
 
 #, fuzzy
+#~| msgctxt "UserProfilePage|"
+#~| msgid "Online devices"
 #~ msgctxt "ProviderView|"
 #~ msgid "Online since:"
 #~ msgstr "Устройства в сети"
 
 #, fuzzy
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
 #~ msgctxt "ProviderView|"
 #~ msgid "Open website"
 #~ msgstr "Веб-сайт"
 
 #, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
 #~ msgctxt "ProviderView|"
 #~ msgid "Copy website address"
 #~ msgstr "Копировать адрес"
 
 #, fuzzy
+#~| msgctxt "QmlUtils|"
+#~| msgid "This server does not support registration."
 #~ msgctxt "AutomaticRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "Этот сервер не поддерживает регистрацию."
 
 #, fuzzy
+#~| msgctxt "Kaidan|"
+#~| msgid "No valid login QR code found."
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"
 #~ msgstr "QR код для входа не найден."
@@ -4412,23 +4486,33 @@ msgstr "Веб-сайт"
 #~ msgstr "Цитировать сообщение"
 
 #, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Select a file"
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Delete file"
 #~ msgstr "Выберите файл"
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid ""
+#~| "Scan the QR code from your existing device to transfer your account."
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 #~ msgstr ""
 #~ "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Delete account"
 #~ msgctxt "RosterFilteringArea|"
 #~ msgid "Filter by availability"
 #~ msgstr "Удалить аккаунт"
@@ -4438,11 +4522,15 @@ msgstr "Веб-сайт"
 #~ msgstr "Пригласить друзей"
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid "Scan QR code"
 #~ msgctxt "KeyAuthenticationPage|"
 #~ msgid "Step 1: Scan your <b>contact's</b> QR code"
 #~ msgstr "Cканировать QR-код"
 
 #, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Transfer account to another device"
 #~ msgctxt "DeviceSwitchingPage|"
 #~ msgid "Transfer account to another device"
 #~ msgstr "Перенести учётную запись на другое устройство"
@@ -4477,11 +4565,15 @@ msgstr "Веб-сайт"
 #~ msgstr "Начнём"
 
 #, fuzzy
+#~| msgctxt "QrCodeOnboardingPage|"
+#~| msgid "Show explanation"
 #~ msgctxt "QrCodePage|"
 #~ msgid "Show explanation"
 #~ msgstr "Показать пояснения"
 
 #, fuzzy
+#~| msgctxt "GlobalDrawer|"
+#~| msgid "Add new contact"
 #~ msgctxt "QrCodePage|"
 #~ msgid "Adding contact…"
 #~ msgstr "Добавить контакт"
@@ -4519,6 +4611,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Скачать"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Less information"
 #~ msgstr "Карта"
@@ -4564,6 +4658,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Простой и удобный Jabber/XMPP клиент"
 
 #, fuzzy
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
 #~ msgctxt "AboutPage|"
 #~ msgid "Visit Website"
 #~ msgstr "Веб-сайт"
@@ -4577,6 +4673,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Отмена"
 
 #, fuzzy
+#~| msgctxt "UserProfilePage|"
+#~| msgid "Remove contact"
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Remove contact"
 #~ msgstr "Удалить контакт"
@@ -4607,31 +4705,43 @@ msgstr "Веб-сайт"
 #~ msgstr "Не показывать пароль на экране"
 
 #, fuzzy
+#~| msgctxt "ServerListModel|"
+#~| msgid "Custom server"
 #~ msgctxt "AccountSettings|"
 #~ msgid "Provider"
 #~ msgstr "Другой сервер"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Choose image"
 #~ msgctxt "ChangeAvatar|"
 #~ msgid "Choose avatar image"
 #~ msgstr "Выбрать изображение"
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "ChangeAvatar|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
 
 #, fuzzy
+#~| msgctxt "ChangePassword|"
+#~| msgid "Change"
 #~ msgctxt "ChangeAvatar|"
 #~ msgid "Change"
 #~ msgstr "Изменить"
 
 #, fuzzy
+#~| msgctxt "ChangePassword|"
+#~| msgid "Password changed successfully"
 #~ msgctxt "ChangeAvatar|"
 #~ msgid "Avatar changed successfully"
 #~ msgstr "Пароль успешно изменён"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "ChangePassword|"
 #~ msgid "Information"
 #~ msgstr "Карта"
@@ -4669,6 +4779,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Не позволять узнать пароль никаким способом"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "DisablePasswordDisplay|"
 #~ msgid "Information"
 #~ msgstr "Карта"
@@ -4690,6 +4802,8 @@ msgstr "Веб-сайт"
 #~ "тем, чтобы сохранить пароль где-либо ещё."
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "DisablePasswordDisplay|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
@@ -4703,6 +4817,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Не показывать пароль на экране"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "DisablePlainTextPasswordDisplay|"
 #~ msgid "Information"
 #~ msgstr "Карта"
@@ -4725,6 +4841,8 @@ msgstr "Веб-сайт"
 #~ "либо ещё."
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "DisablePlainTextPasswordDisplay|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
@@ -4734,11 +4852,18 @@ msgstr "Веб-сайт"
 #~ msgstr "Не показывать пароль на экране"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Information"
 #~ msgstr "Карта"
 
 #, fuzzy
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid ""
+#~| "Your account will be removed from this app.\n"
+#~| "Your password will be deleted, make sure it is stored in a password "
+#~| "manager or you know it!"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid ""
 #~ "Your account will be removed from this app.Your password will be deleted, "
@@ -4749,11 +4874,15 @@ msgstr "Веб-сайт"
 #~ "диспетчере паролей или вы его знаете!"
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
 
 #, fuzzy
+#~| msgctxt "GlobalDrawer|"
+#~| msgid "Log out"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Log out"
 #~ msgstr "Выйти"
@@ -4776,11 +4905,15 @@ msgstr "Веб-сайт"
 #~ msgstr "Полностью удалить"
 
 #, fuzzy
+#~| msgctxt "ConfirmationPage|"
+#~| msgid "Cancel"
 #~ msgctxt "RemoteAccountDeletion|"
 #~ msgid "Cancel"
 #~ msgstr "Отмена"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Delete account"
 #~ msgctxt "RemoteAccountDeletion|"
 #~ msgid "Delete Account"
 #~ msgstr "Удалить аккаунт"
@@ -4790,6 +4923,8 @@ msgstr "Веб-сайт"
 #~ msgstr "Изменить пароль"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Change password"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Change your account's password"
 #~ msgstr "Изменить пароль"
@@ -4799,6 +4934,9 @@ msgstr "Веб-сайт"
 #~ msgstr "Безопасность аккаунта"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid ""
+#~| "Configure whether this device can be used to log in on another device"
 #~ msgctxt "SettingsContent|"
 #~ msgid ""
 #~ "Configure whether this device can be used to switch to another device"
@@ -4807,21 +4945,29 @@ msgstr "Веб-сайт"
 #~ "устройства"
 
 #, fuzzy
+#~| msgctxt "GlobalDrawer|"
+#~| msgid "Log out"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Log out"
 #~ msgstr "Выйти"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Remove account from this app"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Log out account from this app"
 #~ msgstr "Удалить аккаунт из приложения"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Delete account from the server"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Delete account from the server"
 #~ msgstr "Удалить аккаунт на сервере"
 
 #, fuzzy
+#~| msgctxt "SettingsContent|"
+#~| msgid "Connection Settings"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Application Settings"
 #~ msgstr "Настройки подключения"
@@ -4831,26 +4977,36 @@ msgstr "Веб-сайт"
 #~ msgstr "Настройки подключения"
 
 #, fuzzy
+#~| msgctxt "GlobalDrawer|"
+#~| msgid "About"
 #~ msgctxt "SettingsContent|"
 #~ msgid "About"
 #~ msgstr "О программе"
 
 #, fuzzy
+#~| msgctxt "RosterRenameContactSheet|"
+#~| msgid "Rename contact"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Rename contact"
 #~ msgstr "Переименовать контакт"
 
 #, fuzzy
+#~| msgctxt "UserProfilePage|"
+#~| msgid "Remove contact"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Remove contact"
 #~ msgstr "Удалить контакт"
 
 #, fuzzy
+#~| msgctxt "QrCodeScanner|"
+#~| msgid "There is no camera available."
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "No information available"
 #~ msgstr "Не удалось обнаружить камеру."
 
 #, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Mute notifications"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Mute notifications"
 #~ msgstr "Отключить уведомления"
@@ -4932,16 +5088,22 @@ msgstr "Веб-сайт"
 #~ msgstr "Удалить"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Record video"
 #~ msgctxt "ChatPageSendingPane|"
 #~ msgid "Record Video"
 #~ msgstr "Записать видео"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Document"
 #~ msgctxt "ChatPageSendingPane|"
 #~ msgid "Document"
 #~ msgstr "Документ"
 
 #, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
 #~ msgctxt "ChatPageSendingPane|"
 #~ msgid "Location"
 #~ msgstr "Карта"

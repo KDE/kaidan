@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-08 16:50+0400\n"
+"PO-Revision-Date: 2025-09-20 20:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -62,6 +62,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "الخادم غير متصل أو محظور بواسطة جدار الحماية."
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "ميفاق الاستيثاق غير متاح على الخادم."
@@ -237,9 +240,12 @@ msgid "Leaving group chat"
 msgstr "يترك الدردشة الجماعية"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "أُلغي"
+msgstr "ألغِ"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -261,10 +267,12 @@ msgid "Media sharing is unsupported"
 msgstr "ميزة غير مدعومة"
 
 #: src/FileSharingController.cpp:527
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "تحميل الملف غير ممكن: %1"
+msgstr "تعذر تنزيل الملف: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
@@ -273,16 +281,19 @@ msgstr ""
 
 #: src/FileSharingController.cpp:665
 #, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
+#| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
 msgstr "فشل الرفع: %1"
 
 #: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "لا يوجد تحديد"
+msgstr "احفظ الاختيار"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -305,22 +316,26 @@ msgid "Banned"
 msgstr "حُظر"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "تعذر نسخ المصدر غير الصالح إلى الحافظة: %1"
+msgstr "نسخ المتراسل إلى الحافظة"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "تعذر إنشاء الصورة المصغرة: %1 غير موجود"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "تعذر إنشاء رمز الاستجابة السريعة: %1"
+msgstr "لا يمكن إعادة تسمية المجموعة %1: %2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -662,6 +677,9 @@ msgid "Offline"
 msgstr "غير متّصل"
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "مزود مخصص"
@@ -670,12 +688,17 @@ msgstr "مزود مخصص"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "غير محدود"
 
 #: src/ProviderModel.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 يوم"
@@ -1172,12 +1195,12 @@ msgstr "اضبط اسم المضيف والمنفذ للاتصال (الحقول
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr "طبقّ التّعديلات"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "يطبق التّغييرات…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2008,39 +2031,61 @@ msgid "Notes Details"
 msgstr "تفاصيل الملاحظات"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "الإزالة"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "احذف"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "أزل دردشة المزود وإكمال سجل الدردشة"
+msgstr "أزل دردشة الملاحظات وكامل سجل الدردشة"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "يزيل دردشة المزود…"
+msgstr "يزيل دردشة الملاحظات…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "تفاصيل المزود"
+msgstr "تفاصيل المجموعة"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "الرسائل في هذه الدردشة هي من مزود الخدمة الخاص بك"
+msgstr "انتهت مزامنة الرسائل في هذه الدردشة كملاحظات عبر جميع أجهزتك"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "تفاصيل المزود"
+msgstr "تفاصيل المجموعة"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2196,9 +2241,12 @@ msgid "Open selected file's folder"
 msgstr "افتح مجلد الملف المحدد"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
+#, fuzzy
+#| msgctxt "LoginSettingsPage|"
+#| msgid "Reset"
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "أعد الإرسال"
+msgstr "صفّر"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2356,9 +2404,12 @@ msgid "Add"
 msgstr "أضف"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "قرارات الثقة المتخذة للاتصال"
+msgstr "قرارات الثقة المتخذة للاتصال - تابع الخطوة 2"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2416,6 +2467,9 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "الخطوة 2: اسمح لمتراسلك بمسح رمز الاستجابة السريعة <b>الخاص بك</b>"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
+#, fuzzy
+#| msgctxt "GroupChatParticipantPicker|"
+#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "أدعو متراسلين لهذه المجموعة…"
@@ -2458,7 +2512,7 @@ msgstr "المنفذ:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr "استيثاق عادي (SASL PLAIN)"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2466,8 +2520,6 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
-"مطلوب إذا كان مزود الخدمة الخاص بك يستخدم LDAP، وهو ما يحدث غالبًا في "
-"المؤسسات التي يمكنك تسجيل الدخول إليها بحساب واحد."
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2731,9 +2783,12 @@ msgid "Scan login QR code"
 msgstr "امسح رمز الاستجابة للولوج"
 
 #: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "أظهر إعدادات الاتّصال"
+msgstr "غير إعدادات الاتّصال"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2806,90 +2861,117 @@ msgid "Retry updating reactions"
 msgstr "إعادة محاولة تحديث التفاعلات"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "التسجيل عن طريق كايدان"
+msgstr "فشل التسجيل:"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
-msgstr "اعرض فقط المزودين الذين يسمحون بإنشاء حساب مباشرة عبر كايدان"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "دون تكلفة"
+msgstr "متفرغ للدردشة"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr "اعرض فقط المزودين المجانيين"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "تصفّر كلمة السّر"
+msgstr "كلمة السّر"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr "اعرض فقط المزودين الذين يسمحون بتصفير كلمة سرك"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr "استضافة خضراء"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
-msgstr "اعرض فقط مزودي الخدمة الذين يعملون بالطاقة المتجددة"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "معامل الباص"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
-msgstr "الموقع"
+msgstr "المكان"
 
 #: src/qml/elements/ProviderFilterArea.qml:55
 msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
-msgstr "اعرض فقط المزودين الذين يخزنون بياناتهم ويعالجونها في البلد المحدد"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "حجم الوسائط المشاركة"
+msgstr "الحد الأقصى لحجم الوسائط المشاركة"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "حجم جميع الوسائط المشاركة"
+msgstr "يسمح بحفظ الوسائط إلى حد:"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "مدة تخزين الوسائط"
+msgstr "مدة تخزين الرسائل"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
-msgstr "مدة تخزين الوسائط"
+msgstr "مدة تخزين الرسائل"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "التوفّريّة"
+msgstr "متوفّرة"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr "المنظّمة"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3304,6 +3386,9 @@ msgstr "اختر مزود"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "المُرشِّح"
@@ -3319,14 +3404,17 @@ msgid "Provider Address"
 msgstr "عنوان المزود"
 
 #: src/qml/registration/ProviderPage.qml:128
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "أظهر إعدادات الاتّصال"
+msgstr "غير إعدادات الاتّصال"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr "مواقع تخزين/معالجة البيانات"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3344,9 +3432,12 @@ msgid "Maximum size of shared media"
 msgstr "الحد الأقصى لحجم الوسائط المشاركة"
 
 #: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
-msgstr "مدة تخزين الوسائط"
+msgstr "مدة تخزين الرسائل"
 
 #: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
@@ -3567,6 +3658,9 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "تعذر إزالة جهة الاتصال بسبب عدم توفر الاتصال."
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "المزود"
@@ -3611,29 +3705,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "الموقع الإلكتروني"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "مواقع الخادم"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "أدخل إعدادات اتصال مختلفة لتغييرها"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "إعدادات الاتّصال"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "إعدادات الاتّصال"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "الاتصال موجود فعلًا"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "افتح دردشة"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3643,18 +3717,34 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "Maximize avatar"
 #~ msgstr "كبّر الصورة الرمزية"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "الاتصال موجود فعلًا"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "افتح دردشة"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "مواقع الخادم"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "فشل إنشاء رمز الاستجابة السريعة: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "علّم كَغَير مقروءة من قبل"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم بالفعل"
+#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم فعلًا"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -3671,13 +3761,17 @@ msgstr "الموقع الإلكتروني"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr ""
-#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للإنضمام إلى "
+#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للانضمام إلى "
 #~ "محادثة)\n"
-#~ "سيتم فتح هذا الرابط عندما تتصل بالإنترنت."
+#~ "سيُفتح هذا الرابط عندما تتصل بالإنترنت."
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "يمكن أن يستغرق وقتًا طويلاً"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "علّم كَغَير مقروءة من قبل"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

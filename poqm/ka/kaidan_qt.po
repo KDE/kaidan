@@ -11,12 +11,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.7\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "დაკავშირება"
+msgstr "დაკავშირებულია"
 
 #: src/Account.cpp:495
 msgctxt "Connection|"
@@ -63,6 +63,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "სერვერი გამორთულია ან დაბლოკილია ბრანდმაუერით."
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "ავთენტიკაციის პროტოკოლი მხარდაუჭერელია სერვერის მიერ."
@@ -172,7 +175,7 @@ msgstr "მიერთების პრობლემა"
 #: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr "შეცდომი&ს ჩვენება"
+msgstr "შეცდომის ჩვენება"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -196,9 +199,9 @@ msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"თქვენი კონტაქტი %1 (%2) ახლა არის %3 (%4) და სურს მიიღოს თქვენი პირადი "
-"მონაცემები, როგორიცაა ხელმისაწვდომობა, მოწყობილობები და სხვა პირად "
-"ინფორმაცია კიდევ ერთხელ %5"
+"თქვენი კონტაქტი %1 (%2) არის% %3 (%4) ახლა და სურს თქვენი პერსონალური "
+"მონაცემების მიღება, როგორიცაა ხელმისაწვდომობა, მოწყობილობები და სხვა "
+"პერსონალური ინფორმაცია %5"
 
 #: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
@@ -246,9 +249,12 @@ msgid "Leaving group chat"
 msgstr "ჯგუფური ჩატიდან გასვლა"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "გაუქმებულია"
+msgstr "გაუქმება"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -270,10 +276,12 @@ msgid "Media sharing is unsupported"
 msgstr "ფუნქცია მხარდაჭერილი არაა"
 
 #: src/FileSharingController.cpp:527
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "ფაილის ატვირთვის შეცდომა: %1"
+msgstr "ფაილის გადმოწერის შეცდომა: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
@@ -282,16 +290,19 @@ msgstr ""
 
 #: src/FileSharingController.cpp:665
 #, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
+#| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
 msgstr "ატვირთვის შეცდომა: %1"
 
 #: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "მონიშნულის გარეშე"
+msgstr "მონიშნულის შენახვა"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -314,22 +325,26 @@ msgid "Banned"
 msgstr "ბანი ადევს"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "ვერ დავაკოპირე არასწორი წყარო ბუფერში: %1"
+msgstr "კონტაქტი წარმატებით დაკოპირდა ბუფერში"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "მინიატურის გენერაცია შეუძლებელია: %1 არ არსებობს"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
+msgstr "შეუძლებელია სახელის გადარქმევა ჯგუფისთვის %1: %2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -671,6 +686,9 @@ msgid "Offline"
 msgstr "გათიშული"
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "მორგებული მომწოდებელი"
@@ -679,12 +697,17 @@ msgstr "მორგებული მომწოდებელი"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "შეუზღუდავი"
 
 #: src/ProviderModel.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 დღე"
@@ -1193,12 +1216,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr "ცვლილებების გადატარება"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "ცვლილებების გადატარება…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2052,39 +2075,62 @@ msgid "Notes Details"
 msgstr "შენიშვნები დეტალები"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "წაშლა"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "წაშლა"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "პროვაიდერის ჩატისა და ჩატის ისტორიის სრულად წაშლა"
+msgstr "შენიშვნების ჩატისა და ჩატის ისტორიის სრულად წაშლა"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "პროვაიდერის ჩატის წაშლა…"
+msgstr "შენიშვნების ჩატის წაშლა…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "პროვაიდერის დეტალები"
+msgstr "ჯგუფის დეტალები"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "ამ ჩატში არსებული შეტყობინებები თქვენმა პროვაიდერმა გამოგიგზავნათ"
+msgstr ""
+"ამ ჩატში არსებული შეტყობინებები, ყველა, თქვენს მოწყობილობაზე დასინქრონდება"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "პროვაიდერის დეტალები"
+msgstr "ჯგუფის დეტალები"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2243,7 +2289,7 @@ msgstr "მონიშნული ფაილის საქაღალდ�
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "გადაგზავნა"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2401,9 +2447,13 @@ msgid "Add"
 msgstr "დამატება"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "კონტაქტისთვის მიღებული ნდობის გადაწყვეტილებები"
+msgstr ""
+"კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა - მეორე ნაბიჯზე გაგრძელება"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2462,9 +2512,12 @@ msgstr ""
 "ნაბიჯი 2: მიეცით უფლება თქვენს კონტაქტს, <b>თქვენი</b> QR კოდი დაასკანეროს"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
+#, fuzzy
+#| msgctxt "GroupChatParticipantPicker|"
+#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "კონტაქტების მოწვევა ამ ჯგუფში…"
+msgstr "კონტაქტების მოწვევაა ამ ჯგუფში…"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2505,7 +2558,7 @@ msgstr "პორტი:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr "უბრალო ავთენტიკაცია (SASL PLAIN)"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2513,8 +2566,6 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
-"აუცილებელია, თუ თქვენი პროვაიდერი იყენებს LDAP-ს, რომელიც ხშირად ხდება "
-"ორგანიზაციებში, სადაც ერთი ანგარიშით ყველგან შედიხართ"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2780,9 +2831,12 @@ msgid "Scan login QR code"
 msgstr "შესვლის QR კოდის სკანირება"
 
 #: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "კავშირის პარამეტრების ჩვენება"
+msgstr "შეერთების პარამეტრების შეცვლა"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2855,56 +2909,63 @@ msgid "Retry updating reactions"
 msgstr "რეაქციების განახლების თავიდან ცდა"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "რეგისტრაციის Kaidan-დან"
+msgstr "რეგისტრაციის შეცდომა:"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
-"მხოლოდ, იმ პროვაიდერების ჩვენება, რომლების ანგარიშის შექმნა პირდაპირ Kaidan-"
-"იდანაა შესაძლებელი"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "უფასო"
+msgstr "სასაუბროდ თავისუფალი"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr "მხოლოდ, უფასო პროვაიდერების ჩვენება"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "პაროლის ჩამოყრა"
+msgstr "პაროლი"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
 msgstr ""
-"მხოლოდ იმ პროვაიდერების ჩვენება, რომლებიც თქვენი პაროლის ჩამოყრის საშუალებას "
-"იძლევიან"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr "მწვანე ჰოსტინგი"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
-"მხოლოდ, იმ პროვაიდერების ჩვენება, რომლებიც განახლებად ენერგიაზე მუშაობენ"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "ავტობუსის ფაქტორი"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "მდებარეობა"
@@ -2914,38 +2975,51 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
-"მხოლოდ, იმ პროვაიდერების ჩვენება, რომლებიც თავიანთ მონაცემებს არჩეულ "
-"ქვეყანაში ინახავენ და ამუშავებენ"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "გაზიარებული მედიის ზომა"
+msgstr "გაზიარებული მედიის მაქსიმალური ზომა"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "ყველა გაზიარებული მედიის ჯამური ზომა"
+msgstr "გაზიარებული მედიის შენახვა:"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "მედიის შენახვის ხანგრძლივობა"
+msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "წვდომადობა"
+msgstr "ხელმისაწვდომია"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr "ორგანიზაცია"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3111,7 +3185,7 @@ msgstr "%1:"
 #: src/qml/elements/RosterItemDelegate.qml:284
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr "ჩამოხსნა"
+msgstr "მოხსნა"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
 msgctxt "RosterItemDelegate|"
@@ -3365,6 +3439,9 @@ msgstr "მომწოდებლის არჩევა"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "ფილტრი"
@@ -3380,14 +3457,17 @@ msgid "Provider Address"
 msgstr "პროვაიდერის მისამართი"
 
 #: src/qml/registration/ProviderPage.qml:128
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "კავშირის პარამეტრების ჩვენება"
+msgstr "შეერთების პარამეტრების შეცვლა"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr "მონაცემების შენახვის/დამუშავების მდებარეობები"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3405,6 +3485,9 @@ msgid "Maximum size of shared media"
 msgstr "გაზიარებული მედიის მაქსიმალური ზომა"
 
 #: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "შეტყობინებების შენახვის ხანგრძლივობა"
@@ -3621,7 +3704,7 @@ msgstr "%1-სთვის თქვენი პირადი მონაც
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარა"
+msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარდა"
 
 #: src/RosterController.cpp:337
 msgctxt "RosterController|"
@@ -3629,6 +3712,9 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "კონტაქტის წაშლა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "სერვისის მომწოდებელი"
@@ -3673,29 +3759,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "სერვერის მდებარეობები"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "მიერთების პარამეტრები შეიცვალა"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "შეერთების მორგება"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "კავშირის პარამეტრები"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "კონტაქტი უკვე არსებობს"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "ჩატის გახსნა"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3705,15 +3771,31 @@ msgstr "ვებსაიტი"
 #~ msgid "Maximize avatar"
 #~ msgstr "ავატარის გადიდება"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "კონტაქტი უკვე არსებობს"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "ჩატის გახსნა"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "შეერთების მორგება"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "კავშირის პარამეტრები"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "სერვერის მდებარეობები"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "ანგარიშის მიგრაცია შეუძლებელია: უკვე მიმდინარეობს სხვა მიგრაცია"
@@ -3737,6 +3819,10 @@ msgstr "ვებსაიტი"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "ამას, შეიძლება, დიდი დრო დასჭირდეს"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

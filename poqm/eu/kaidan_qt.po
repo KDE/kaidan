@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-08 19:23+0100\n"
+"PO-Revision-Date: 2025-10-19 23:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: eu\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -63,15 +63,18 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
+"Ezin izan du zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
 #: src/Account.cpp:518
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
+msgstr "Zerbitzaria lerroz kanpo dago edo suhesi batek oztopatzen du."
 
 #: src/Account.cpp:520
+#, fuzzy
+#| msgctxt "Connection|"
+#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
@@ -99,18 +102,18 @@ msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
-"Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
+"Ezin izan du saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
 #: src/Account.cpp:530
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr "Ezin izan da zerbitzariarekin konektatu."
+msgstr "Ezin izan du zerbitzarira konektatu."
 
 #: src/AccountMigrationController.cpp:332
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
-"Ezin izan da kontua migratu: Esportatutako kontuaren datuak ezin izan ditu "
+"Kontua ezin izan da migratu: Ezin izan ditu esportatutako kontuaren datuak "
 "zamatu"
 
 #: src/AccountMigrationController.cpp:355
@@ -254,9 +257,12 @@ msgid "Leaving group chat"
 msgstr "Talde-berriketatik alde egitea"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Ezeztatuta"
+msgstr "Utzi"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -278,10 +284,12 @@ msgid "Media sharing is unsupported"
 msgstr "Onartu gabeko ezaugarria"
 
 #: src/FileSharingController.cpp:527
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Ezin izan da fitxategia zama-igo: %1"
+msgstr "Ezin izan da fitxategia zama-jaitsi: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
@@ -290,16 +298,19 @@ msgstr ""
 
 #: src/FileSharingController.cpp:665
 #, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
+#| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
 msgstr "Zama-igotzea huts egin du: %1"
 
 #: src/Globals.h:99
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Hautapenik ez"
+msgstr "Gorde hautapena"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -322,22 +333,26 @@ msgid "Banned"
 msgstr "Debeku duna"
 
 #: src/ImageProvider.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Ezin izan du sorburu baliogabea arbelera kopiatu: %1"
+msgstr "Kontaktua arbelera kopiatu da"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "Ezin izan du koadro txikia sortu: %1 ez da existitzen"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Ezin izan du QR kodea sortu: %1"
+msgstr "Ezin izan da %1 talde berrizendatu: %2"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -679,20 +694,28 @@ msgid "Offline"
 msgstr "Lerroz kanpo"
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "Neurriko hornitzailea"
+msgstr "Neurrira ipinitako hornitzailea"
 
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Mugagabea"
 
 #: src/ProviderModel.cpp:132
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderListModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 egun"
@@ -1202,12 +1225,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr "Aplikatu aldaketak"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "Aldaketak aplikatzen…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2066,39 +2089,63 @@ msgid "Notes Details"
 msgstr "Oharren xehetasunak"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "Kentzea"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "Kendu"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "Kendu hornitzailearen berriketa eta berriketa-historia osoa"
+msgstr "Kendu ohar-berriketa eta berriketa-historia osoa"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Hornitzailearen berriketa kentzen…"
+msgstr "Ohar-berriketa kentzen..."
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Hornitzailearen xehetasunak"
+msgstr "Taldearen xehetasunak"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
+#, fuzzy
+#| msgctxt "NotesChatDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr "Berriketa honetako mezuak zure zerbitzu-hornitzailearenak dira"
+msgstr ""
+"Berriketa honetako mezuak ohar gisa gailu guztietan zehar sinkronizatuta "
+"daude"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Hornitzailearen xehetasunak"
+msgstr "Taldearen xehetasunak"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2255,7 +2302,7 @@ msgstr "Ireki hautatutako fitxategiaren karpeta"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "Birbidali"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2413,9 +2460,12 @@ msgid "Add"
 msgstr "Gehitu"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "Kontakturako hartutako konfiantza erabakiak"
+msgstr "Kontakturako hartutako konfiantza erabakiak - Jarraitu 2. urratsarekin"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2473,9 +2523,12 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "2. urratsa: Utzi zure kontaktuari <b>zure</b> QR kodea eskaneatzen"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
+#, fuzzy
+#| msgctxt "GroupChatParticipantPicker|"
+#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "Gonbidatu kontaktua talde honetara…"
+msgstr "Gonbidatu kontaktua talde honetara..."
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2515,7 +2568,7 @@ msgstr "Ataka:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr "Autentifikazio arrunta (SASL PLAIN)"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2523,8 +2576,6 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
-"Beharrezkoa zure hornitzaileak LDAP erabiltzen badu, hala izaten da kontu "
-"bakarra erabiliz saioa has daitekeen erakundeetan"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2793,9 +2844,12 @@ msgid "Scan login QR code"
 msgstr "Eskaneatu saioan sartzeko QR kodea"
 
 #: src/qml/elements/LoginArea.qml:56
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Erakutsi konexio ezarpenak"
+msgstr "Aldatu konexioaren ezarpenak"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2868,57 +2922,63 @@ msgid "Retry updating reactions"
 msgstr "Berriz saiatu erreakzioak eguneratzen"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Izen-ematea Kaidan bidez"
+msgstr "Erregistratzeak huts egin du:"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
-"Erakutsi kontu bat zuzenean Kaidan bidez sortzeko aukera ematen duten "
-"hornitzaileak bakarrik"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Doakoa"
+msgstr "Berriketarako libre"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr "Erakutsi doako hornitzaileak bakarrik"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Pasahitza berri"
+msgstr "Pasahitza"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
 msgstr ""
-"Erakutsi zure pasahitza berrezartzeko aukera eskaintzen duten hornitzaileak "
-"bakarrik"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr "Ostatu berdea"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
-"Erakutsi zerbitzuak energia berriztagarriekin ibiltzen dituzten "
-"hornitzaileak bakarrik"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "Autobus-faktorea"
+msgstr ""
 
 #: src/qml/elements/ProviderFilterArea.qml:54
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Kokalekua"
@@ -2928,38 +2988,51 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
-"Erakutsi datuak hautatutako herrialdean gorde eta prozesatzen dituzten "
-"hornitzaileak bakarrik"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Partekatutako hedabideen neurria"
+msgstr "Partekatutako hedabideen gehienezko tamaina"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Partekatutako hedabide guztien neurri osoa"
+msgstr "Partekatutako hedabideen gehienezko tamaina"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Hedabideen biltegiratze iraupena"
+msgstr "Mezuen biltegiratze iraupena"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "Mezuen biltegiratze iraupena"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Eskuragarritasuna"
+msgstr "Erabilgarri"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr "Erakundea"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3378,6 +3451,9 @@ msgstr "Aukeratu hornitzaile bat"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "Iragazi"
@@ -3393,14 +3469,17 @@ msgid "Provider Address"
 msgstr "Hornitzailearen helbidea"
 
 #: src/qml/registration/ProviderPage.qml:128
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Erakutsi konexio ezarpenak"
+msgstr "Aldatu konexioaren ezarpenak"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr "Datuen biltegiratze/prozesatze kokapenak"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3418,6 +3497,9 @@ msgid "Maximum size of shared media"
 msgstr "Partekatutako hedabideen gehienezko tamaina"
 
 #: src/qml/registration/ProviderPage.qml:195
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "Mezuen biltegiratze iraupena"
@@ -3645,6 +3727,9 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "Ezin izan da kontaktua kendu, konektatuta ez dagoelako."
 
 #: src/RosterItem.cpp:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Hornitzailea"
@@ -3689,29 +3774,9 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Zerbitzarien kokalekuak"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Sartu beste konexioa ezarpen batzuk haiek aldatzeko"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Konexioaren ezarpenak"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Konexio-ezarpenak"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontaktua jada existitzen da"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Ireki berriketa"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3721,18 +3786,34 @@ msgstr "Webgunea"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximizatu abatarra"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontaktua jada existitzen da"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Ireki berriketa"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Konexioaren ezarpenak"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Konexio-ezarpenak"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Zerbitzarien kokalekuak"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR-kodea sortzea huts egin du: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markatu lehenengo ez irakurri gisa"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "Ezin izan da kontua migratu: beste migrazio bat abian da"
+#~ msgstr "Kontua ezin izan da migratu: Beste migrazioa bat egiten ari da"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -3753,6 +3834,10 @@ msgstr "Webgunea"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Horrek luze jo dezake"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markatu lehenengo ez irakurri gisa"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
