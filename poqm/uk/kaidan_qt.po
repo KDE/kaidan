@@ -1,8 +1,8 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-06 16:49+0200\n"
+"PO-Revision-Date: 2026-01-01 11:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -264,15 +264,12 @@ msgstr "Не вдалося отримати файл: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Невідомий стан підтримки оприлюднення мультимедіа"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Підтримки можливості не передбачено"
+msgstr "Підтримки оприлюднення мультимедіа не передбачено"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -283,15 +280,13 @@ msgstr "Не вдалося вивантажити файл: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Передавання скасовано"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Невдала спроба вивантаження: %1"
+msgstr "Не вдалося передати: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -485,12 +480,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Неможливо надіслати «%1», оскільки його розмір перевищує %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Повідомлення не вдалося надіслати"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-06 08:26+0200\n"
+"PO-Revision-Date: 2026-01-01 09:09+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -252,15 +252,12 @@ msgstr "לא ניתן להוריד את הקובץ: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "התמיכה בשיתוף מדיה לא ידועה"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "היכולת לא נתמכת"
+msgstr "שיתוף מדיה לא נתמך"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -271,15 +268,13 @@ msgstr "לא ניתן להעלות את הקובץ: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "ההעברה בוטלה"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "ההעלאה נכשלה: %1"
+msgstr "ההעברה נכשלה: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -473,12 +468,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "לא ניתן לשלוח את ‚%1’ כיוון שגודלו עולה על %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "לא ניתן לשלוח את ההודעה."
+msgstr "לא ניתן לשלוח את ההודעה"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
