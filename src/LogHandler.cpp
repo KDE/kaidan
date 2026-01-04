@@ -30,6 +30,13 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
+    // Filter out stream management acknowledgments.
+    if ((type == QXmppLogger::ReceivedMessage || type == QXmppLogger::SentMessage)
+        && (text.startsWith(u"<a xmlns=\"urn:xmpp:sm:3\"") || text.startsWith(u"<a xmlns='urn:xmpp:sm:3'") || text.startsWith(u"<r xmlns=\"urn:xmpp:sm:3\"")
+            || text.startsWith(u"<r xmlns='urn:xmpp:sm:3'"))) {
+        return;
+    }
+
     switch (type) {
     case QXmppLogger::DebugMessage:
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [debug]" << text;
