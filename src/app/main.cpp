@@ -552,7 +552,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                                                            "AccountMigrationController",
                                                            QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
-    qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
