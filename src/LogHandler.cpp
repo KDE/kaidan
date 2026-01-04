@@ -55,6 +55,7 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [warn]" << text;
         break;
     default:
+        qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [various]" << text;
         break;
     }
 }
