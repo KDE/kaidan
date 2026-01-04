@@ -539,17 +539,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<ProviderFilterModel>(APPLICATION_ID, 1, 0, "ProviderFilterModel");
 
     // Q_OBJECT
-    qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<AccountSettings>(APPLICATION_ID, 1, 0, "AccountSettings", QStringLiteral("Cannot create object"));
+    qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Not creatable from QML"));
+    qmlRegisterUncreatableType<AccountSettings>(APPLICATION_ID, 1, 0, "AccountSettings", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<AtmController>(APPLICATION_ID, 1, 0, "AtmController", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<QAbstractItemModel>(APPLICATION_ID, 1, 0, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
     qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<RegistrationController>(APPLICATION_ID,
-                                                       1,
-                                                       0,
-                                                       "RegistrationController",
-                                                       QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<RegistrationController>(APPLICATION_ID, 1, 0, "RegistrationController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<AccountMigrationController>(APPLICATION_ID,
                                                            1,
                                                            0,
@@ -558,7 +554,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
     qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
 
     // Q_GADGET
