@@ -18,6 +18,7 @@
 #include "AccountController.h"
 #include "AccountDb.h"
 #include "AvatarCache.h"
+#include "CallController.h"
 #include "Database.h"
 #include "Globals.h"
 #include "GroupChatUserDb.h"
@@ -78,6 +79,19 @@ void MainController::receiveMessage(const QStringList &arguments, const QString 
     Q_UNUSED(workingDirectory)
     for (const QString &arg : arguments) {
         addOpenUri(arg);
+    }
+}
+
+Call *MainController::activeCall() const
+{
+    return m_activeCall;
+}
+
+void MainController::setActiveCall(Call *activeCall)
+{
+    if (m_activeCall != activeCall) {
+        m_activeCall = activeCall;
+        Q_EMIT activeCallChanged();
     }
 }
 

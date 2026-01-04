@@ -16,6 +16,7 @@
 #include "Message.h"
 
 class AccountSettings;
+class Call;
 class ChatController;
 class MessageController;
 class KNotification;
@@ -57,6 +58,8 @@ public:
 
     void sendPresenceSubscriptionRequestNotification(const QString &chatJid);
     void closePresenceSubscriptionRequestNotification(const QString &chatJid);
+
+    void sendCallNotification(Call *call);
 
     void setChatController(ChatController *chatController);
 

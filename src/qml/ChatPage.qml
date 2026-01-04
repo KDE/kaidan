@@ -15,6 +15,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
+import QtMultimedia
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -38,50 +39,94 @@ ChatPageBase {
 		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
 	}
 
-	titleDelegate: Controls.AbstractButton {
-		id: avatarActionButton
-		visible: !Kirigami.Settings.isMobile
-		focusPolicy: Qt.NoFocus
-		hoverEnabled: true
-		rightPadding: Kirigami.Units.smallSpacing * 3
-		contentItem: RowLayout {
-			AccountRelatedAvatar {
-				jid: root.chatController.jid
-				name: root.chatController.account.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
-				isProviderChat: root.chatController.rosterItem.isProviderChat
-				isGroupChat: root.chatController.rosterItem.isGroupChat
-				accountAvatar {
-					jid: root.chatController.account.settings.jid
-					name: root.chatController.account.settings.displayName
-				}
-				accountAvatarBorder.color: Kirigami.Theme.backgroundColor
-				opacity: avatarActionButton.hovered ? 0.7 : 1
+	titleDelegate: RowLayout {
+		spacing: Kirigami.Units.mediumSpacing * 2
+		Layout.preferredWidth: root.width -  pageStack.globalToolBar.leftReservedSpace - (pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? 0 : Kirigami.Units.smallSpacing * 13)
 
-				Behavior on opacity {
-					NumberAnimation {}
+		Controls.AbstractButton {
+			id: avatarActionButton
+			visible: !Kirigami.Settings.isMobile
+			focusPolicy: Qt.NoFocus
+			hoverEnabled: true
+			contentItem: RowLayout {
+				AccountRelatedAvatar {
+					jid: root.chatController.jid
+					name: root.chatController.account.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
+					isProviderChat: root.chatController.rosterItem.isProviderChat
+					isGroupChat: root.chatController.rosterItem.isGroupChat
+					accountAvatar {
+						jid: root.chatController.account.settings.jid
+						name: root.chatController.account.settings.displayName
+					}
+					accountAvatarBorder.color: Kirigami.Theme.backgroundColor
+					opacity: avatarActionButton.hovered ? 0.7 : 1
+
+					Behavior on opacity {
+						NumberAnimation {}
+					}
+				}
+
+				Kirigami.Heading {
+					text: root.chatController.rosterItem.displayName
+					elide: Text.ElideMiddle
+					Layout.fillWidth: true
+					opacity: avatarActionButton.hovered ? 0.7 : 1
+
+					Behavior on opacity {
+						NumberAnimation {}
+					}
 				}
 			}
-
-			Kirigami.Heading {
-				id: chatTitle
-				text: root.chatController.rosterItem.displayName
-				Layout.fillWidth: true
-				opacity: avatarActionButton.hovered ? 0.7 : 1
-
-				Behavior on opacity {
-					NumberAnimation {}
+			Layout.leftMargin: pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? - Kirigami.Units.largeSpacing : 0
+			Layout.fillWidth: true
+			onClicked: {
+				if (root.chatController.rosterItem.isProviderChat) {
+					openOverlay(providerChatDetailsDialog)
+				} else if (root.chatController.account.settings.jid === root.chatController.jid) {
+					openOverlay(notesChatDetailsDialog)
+				} else if (root.chatController.rosterItem.isGroupChat) {
+					openOverlay(groupChatDetailsDialog)
+				} else {
+					openOverlay(contactDetailsDialog)
 				}
 			}
 		}
-		onClicked: {
-			if (root.chatController.rosterItem.isProviderChat) {
-				openOverlay(providerChatDetailsDialog)
-			} else if (root.chatController.account.settings.jid === root.chatController.jid) {
-				openOverlay(notesChatDetailsDialog)
-			} else if (root.chatController.rosterItem.isGroupChat) {
-				openOverlay(groupChatDetailsDialog)
-			} else {
-				openOverlay(contactDetailsDialog)
+
+		ToolbarCallButton {
+			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
+			source: "call-start-symbolic"
+			visible: root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length && (!MainController.activeCall || MainController.activeCall.audioOnly)
+			onClicked: {
+				if (MainController.activeCall) {
+					openPage(callPage)
+				} else {
+					root.chatController.account.callController.startAudioCall(root.chatController.jid)
+				}
+			}
+		}
+
+		ToolbarCallButton {
+			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
+			source: "camera-video-symbolic"
+			visible: root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length && (!MainController.activeCall || !MainController.activeCall.audioOnly)
+			onClicked: {
+				if (MainController.activeCall) {
+					openPage(callPage)
+				} else {
+					root.chatController.account.callController.startVideoCall(root.chatController.jid)
+				}
+			}
+		}
+
+		ToolbarButton {
+			Controls.ToolTip.text: searchBar.active ? qsTr("Quit search") : qsTr("Search")
+			source: "system-search-symbolic"
+			onClicked: {
+				if (searchBar.active) {
+					searchBar.close()
+				} else {
+					searchBar.open()
+				}
 			}
 		}
 	}
@@ -92,9 +137,9 @@ ChatPageBase {
 	keyboardNavigationEnabled: true
 	actions: [
 		Kirigami.Action {
-			visible: Kirigami.Settings.isMobile
-			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
+			icon.name: "avatar-default-symbolic"
+			visible: Kirigami.Settings.isMobile
 			onTriggered: {
 				if (root.chatController.rosterItem.isProviderChat) {
 					openPage(providerChatDetailsPage)
@@ -105,19 +150,6 @@ ChatPageBase {
 				} else {
 					openPage(contactDetailsPage)
 				}
-			}
-		},
-		// Action to toggle the message search bar
-		Kirigami.Action {
-			id: searchAction
-			text: qsTr("Search")
-			icon.name: "system-search-symbolic"
-			displayHint: Kirigami.DisplayHint.IconOnly
-			onTriggered: {
-				if (searchBar.active)
-					searchBar.close()
-				else
-					searchBar.open()
 			}
 		}
 	]
@@ -717,6 +749,10 @@ ChatPageBase {
 				addFile(url)
 			}
 		}
+	}
+
+	MediaDevices {
+		id: mediaDevices
 	}
 
 	Connections {

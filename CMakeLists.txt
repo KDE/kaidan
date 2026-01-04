@@ -68,7 +68,7 @@ if (NOT ANDROID)
 endif()
 
 find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
-find_package(QXmppQt6 1.13.0 REQUIRED COMPONENTS Omemo)
+find_package(QXmppQt6 1.14.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
 set_package_properties(ICU PROPERTIES
@@ -82,6 +82,8 @@ set_package_properties(Qt6Keychain PROPERTIES
     DESCRIPTION "Secure credential storage"
     URL "https://github.com/frankosterfeld/qtkeychain"
 )
+
+pkg_check_modules(GStreamer REQUIRED IMPORTED_TARGET gstreamer-1.0>=1.20)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.8.0

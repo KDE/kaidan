@@ -56,6 +56,10 @@ target_sources(libkaidancore PRIVATE
     AvatarCache.h
     Blocking.cpp
     Blocking.h
+    Call.cpp
+    Call.h
+    CallController.cpp
+    CallController.h
     ChatController.cpp
     ChatController.h
     ChatHintModel.cpp
@@ -243,6 +247,7 @@ target_link_libraries(libkaidancore
     KF6::KIOWidgets
     KF6::Kirigami
     KF6::Prison
+    PkgConfig::GStreamer
     Qt::Concurrent
     Qt::Core
     Qt::Location

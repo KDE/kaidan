@@ -16,6 +16,7 @@
 #endif
 // Kaidan
 #include "Account.h"
+#include "Call.h"
 #include "ChatController.h"
 #include "GroupChatUserDb.h"
 #include "MainController.h"
@@ -36,9 +37,14 @@ using namespace std::chrono_literals;
 constexpr QStringView NEW_MESSAGE_EVENT_ID = u"new-message";
 constexpr QStringView NEW_SUBSEQUENT_MESSAGE_EVENT_ID = u"new-subsequent-message";
 constexpr QStringView PRESENCE_SUBSCRIPTION_REQUEST_EVENT_ID = u"presence-subscription-request";
+constexpr QStringView NEW_CALL_EVENT_ID = u"new-call";
 
 constexpr auto SUBSEQUENT_MESSAGE_INTERVAL = 5s;
 constexpr int MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT = 6;
+
+#ifdef DESKTOP_LINUX_ALIKE_OS
+static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
+#endif
 
 NotificationController::NotificationController(AccountSettings *accountSettings, MessageController *messageController, QObject *parent)
     : QObject(parent)
@@ -132,10 +138,6 @@ void NotificationController::closeMessageNotification(const QString &chatJid)
 
 void NotificationController::sendPresenceSubscriptionRequestNotification(const QString &chatJid)
 {
-#ifdef DESKTOP_LINUX_ALIKE_OS
-    static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
-#endif
-
     auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(),
                                                m_openPresenceSubscriptionRequestNotifications.end(),
                                                [&chatJid](const auto &notificationWrapper) {
@@ -196,6 +198,43 @@ void NotificationController::closePresenceSubscriptionRequestNotification(const 
     }
 }
 
+void NotificationController::sendCallNotification(Call *call)
+{
+    const auto chatJid = call->chatJid();
+
+    KNotification *notification = new KNotification(NEW_CALL_EVENT_ID.toString());
+    if (call->audioOnly()) {
+        notification->setTitle(tr("Incoming call from %1").arg(determineChatName(chatJid)));
+    } else {
+        notification->setTitle(tr("Incoming video call from %1").arg(determineChatName(chatJid)));
+    }
+
+#ifdef DESKTOP_LINUX_ALIKE_OS
+    if (IS_USING_GNOME) {
+        notification->setFlags(KNotification::Persistent);
+    }
+#endif
+#ifdef Q_OS_ANDROID
+    notification->setIconName("kaidan-bw");
+#endif
+
+    connect(call, &Call::destroyed, notification, &KNotification::close);
+
+    connect(notification->addDefaultAction(tr("Accept")), &KNotificationAction::activated, this, [this, call, chatJid, notification] {
+        showChat(chatJid);
+        MainController::instance()->setActiveCall(call);
+        call->accept();
+        notification->close();
+    });
+
+    connect(notification->addAction(tr("Reject")), &KNotificationAction::activated, this, [call, notification] {
+        call->reject();
+        notification->close();
+    });
+
+    notification->sendEvent();
+}
+
 void NotificationController::setChatController(ChatController *chatController)
 {
     m_chatController = chatController;
@@ -203,10 +242,6 @@ void NotificationController::setChatController(ChatController *chatController)
 
 void NotificationController::sendMessageNotification(const QString &chatJid, const QString &messageId, const QString &messageBody)
 {
-#ifdef DESKTOP_LINUX_ALIKE_OS
-    static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
-#endif
-
     KNotification *notification = nullptr;
 
     auto notificationWrapperItr =

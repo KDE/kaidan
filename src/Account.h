@@ -7,7 +7,9 @@
 
 // Qt
 #include <QDateTime>
+#include <QFutureWatcher>
 #include <QObject>
+#include <QPromise>
 #include <QString>
 #include <QUuid>
 // QXmpp
@@ -22,7 +24,7 @@ constexpr quint16 AUTO_DETECT_PORT = 0;
 
 class AtmController;
 class BlockingController;
-class ChatController;
+class CallController;
 class ClientWorker;
 class EncryptionController;
 class FileSharingController;
@@ -35,7 +37,6 @@ class RegistrationController;
 class RosterController;
 class VCardController;
 class VersionController;
-class XmppThread;
 
 class AccountSettings : public QObject
 {
@@ -271,10 +272,18 @@ class Connection : public QObject
     Q_PROPERTY(QString errorText READ errorText NOTIFY errorChanged)
 
 public:
+    struct LogOutTaskWrapper {
+        std::shared_ptr<QPromise<void>> promise;
+        std::shared_ptr<QFutureWatcher<void>> watcher;
+    };
+
     explicit Connection(ClientWorker *clientWorker, QObject *parent = nullptr);
 
     Q_INVOKABLE void logIn();
     Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
+
+    std::shared_ptr<QPromise<void>> addLogOutTask(std::function<void()> logOutTask);
+    void removeLogOutTask(std::shared_ptr<QPromise<void>> promise);
 
     Enums::ConnectionState state() const;
     Q_SIGNAL void stateChanged();
@@ -297,6 +306,8 @@ private:
 
     Enums::ConnectionState m_state = Enums::ConnectionState::StateDisconnected;
     ClientWorker::ConnectionError m_error = ClientWorker::NoError;
+
+    QList<LogOutTaskWrapper> m_logOutTaskWrappers;
 };
 
 class Account : public QObject
@@ -308,6 +319,7 @@ class Account : public QObject
 
     Q_PROPERTY(AtmController *atmController READ atmController CONSTANT)
     Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
+    Q_PROPERTY(CallController *callController READ callController CONSTANT)
     Q_PROPERTY(EncryptionController *encryptionController READ encryptionController CONSTANT)
     Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
     Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
@@ -332,7 +344,6 @@ public:
 
     explicit Account(QObject *parent = nullptr);
     explicit Account(AccountSettings::Data accountSettingsData, QObject *parent = nullptr);
-    ~Account() override;
 
     AccountSettings *settings() const;
     Connection *connection() const;
@@ -341,6 +352,7 @@ public:
 
     AtmController *atmController() const;
     BlockingController *blockingController() const;
+    CallController *callController() const;
     EncryptionController *encryptionController() const;
     FileSharingController *fileSharingController() const;
     GroupChatController *groupChatController() const;
@@ -391,11 +403,7 @@ public:
 private:
     AccountSettings *const m_settings;
 
-    struct XmppClient {
-        XmppThread *thread;
-        ClientWorker *worker;
-    } m_client;
-
+    ClientWorker *const m_clientWorker;
     Connection *const m_connection;
 
     PresenceCache *const m_presenceCache;
@@ -408,6 +416,7 @@ private:
     MessageController *const m_messageController;
     GroupChatController *const m_groupChatController;
     NotificationController *const m_notificationController;
+    CallController *const m_callController;
     VCardController *const m_vCardController;
     RegistrationController *const m_registrationController;
     VersionController *const m_versionController;

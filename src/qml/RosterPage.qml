@@ -49,8 +49,10 @@ SearchBarPage {
 			sourceModel: RosterModel
 		}
 		delegate: RosterItemDelegate {
+			property bool active: root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
+
 			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
-			checked: !Kirigami.Settings.isMobile && root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
+			checked: !Kirigami.Settings.isMobile && active
 			width: rosterListView.width
 			listView: rosterListView
 			accountJid: model.account.settings.jid
@@ -74,7 +76,7 @@ SearchBarPage {
 			effectiveNotificationRule: model.effectiveNotificationRule
 			onClicked: {
 				// Open the chatPage.
-				if (checked) {
+				if (active) {
 					if (!pageStack.wideMode) {
 						pageStack.goForward()
 					}
@@ -121,6 +123,8 @@ SearchBarPage {
 			 * @param chatJid JID of the chat for that the chat page is opened
 			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
+				globalDrawer.close()
+
 				if (Kirigami.Settings.isMobile) {
 					root.toggleSearchBar()
 				} else {

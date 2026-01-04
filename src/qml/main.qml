@@ -93,6 +93,7 @@ Kirigami.ApplicationWindow {
 	Component {id: startPage; StartPage {}}
 	Component {id: rosterPage; RosterPage {}}
 	Component {id: emptyChatPage; EmptyChatPage {}}
+	Component {id: callPage; CallPage {}}
 
 	// Forces closing the application if the client does not disconnect from the server.
 	// That can happen if there are connection problems.
@@ -125,6 +126,12 @@ Kirigami.ApplicationWindow {
 
 		function onOpenStartPageRequested() {
 			openStartPage(true)
+		}
+
+		function onActiveCallChanged() {
+			if (MainController.activeCall) {
+				openPage(callPage)
+			}
 		}
 	}
 

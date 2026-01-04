@@ -18,12 +18,16 @@
 // Qt
 #include <QObject>
 #include <QStringList>
+// Kaidan
+#include "Call.h"
 
 class RosterModel;
 
 class MainController : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(Call *activeCall READ activeCall WRITE setActiveCall NOTIFY activeCallChanged)
 
 public:
     static MainController *instance();
@@ -76,7 +80,13 @@ public:
      */
     Q_SIGNAL void passiveNotificationRequested(QString text, const QString duration = {});
 
+    Call *activeCall() const;
+    void setActiveCall(Call *activeCall);
+    Q_SIGNAL void activeCallChanged();
+
 private:
+    Call *m_activeCall = nullptr;
+
     static MainController *s_instance;
 };
 

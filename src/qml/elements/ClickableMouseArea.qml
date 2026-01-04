@@ -50,7 +50,7 @@ MouseArea {
 		}
 	}
 	onExited: {
-		parent.color = Kirigami.Theme.textColor
+		parent.color = Kirigami.Theme.disabledTextColor
 	}
 	onClicked: {
 		parent.clicked()

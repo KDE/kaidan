@@ -50,6 +50,8 @@
 #endif
 // KDAB
 #include <kdsingleapplication.h>
+// GStreamer
+#include <gst/gst.h>
 // QXmpp
 #include <QXmppClient.h>
 #include <QXmppMixInfoItem.h>
@@ -69,6 +71,7 @@
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarCache.h"
 #include "Blocking.h"
+#include "CallController.h"
 #include "ChatController.h"
 #include "ChatHintModel.h"
 #include "ContactTrustMessageUriGenerator.h"
@@ -338,6 +341,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QList<GroupChatUser>>();
     qRegisterMetaType<std::function<void(GroupChatUser &)>>();
     qRegisterMetaType<GroupChatUserModel *>();
+    qRegisterMetaType<CallController *>();
     // The alias is needed because the type shares its QMetaType::id() with quint32.
     qRegisterMetaType<uint32_t>("uint32_t");
 
@@ -486,6 +490,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }
 #endif
 
+    // Allow importing org.freedesktop.gstreamer.Qt6GLVideoItem and using GstGLQt6VideoItem in QML.
+    gst_init(&argc, &argv);
+    gst_element_factory_make("qml6glsink", NULL);
+
     // QML type bindings
     qmlRegisterType<StatusBar>(APPLICATION_ID, 1, 0, "StatusBar");
     qmlRegisterType<EmojiModel>(APPLICATION_ID, 1, 0, "EmojiModel");
@@ -551,6 +559,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
 
     // Q_GADGET
     qmlRegisterUncreatableMetaObject(Emoji::staticMetaObject, APPLICATION_ID, 1, 0, "Emoji", QStringLiteral("Used by emoji models"));
@@ -625,13 +634,18 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     });
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-    if (engine.rootObjects().isEmpty())
+    if (engine.rootObjects().isEmpty()) {
         return -1;
+    }
 
 #ifdef Q_OS_ANDROID
     QtAndroid::hideSplashScreen();
 #endif
 
     // enter qt main loop
-    return app.exec();
+    auto returnCode = app.exec();
+
+    gst_deinit();
+
+    return returnCode;
 }
