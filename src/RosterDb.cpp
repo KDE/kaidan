@@ -333,7 +333,7 @@ void RosterDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &allIt
             if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
                 item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
             } else {
-                const auto itr = std::find_if(allItems.cbegin(), allItems.cend(), [accountJid, lastMessageSenderJid](const RosterItem &rosterItem) {
+                const auto itr = std::ranges::find_if(allItems, [accountJid, lastMessageSenderJid](const RosterItem &rosterItem) {
                     return rosterItem.accountJid == accountJid && rosterItem.jid == lastMessageSenderJid;
                 });
 

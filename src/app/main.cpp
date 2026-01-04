@@ -218,13 +218,13 @@ void filterLog(QtMsgType type, const QMessageLogContext &context, const QString 
         }
     }
 
-    if (const auto match = std::find_if(filterStrings.cbegin(),
-                                        filterStrings.cend(),
-                                        [&msg](const QString &filter) {
-                                            const auto rx =
-                                                QRegularExpression::fromWildcard(filter, Qt::CaseInsensitive, QRegularExpression::UnanchoredWildcardConversion);
-                                            return msg.contains(rx);
-                                        });
+    if (const auto match =
+            std::ranges::find_if(filterStrings,
+                                 [&msg](const QString &filter) {
+                                     const auto rx =
+                                         QRegularExpression::fromWildcard(filter, Qt::CaseInsensitive, QRegularExpression::UnanchoredWildcardConversion);
+                                     return msg.contains(rx);
+                                 });
         match != filterStrings.cend()) {
         return;
     }

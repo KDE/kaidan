@@ -126,10 +126,9 @@ void NotificationController::handleMessage(const Message &message, MessageOrigin
 
 void NotificationController::closeMessageNotification(const QString &chatJid)
 {
-    const auto notificationWrapperItr =
-        std::find_if(m_openMessageNotifications.cbegin(), m_openMessageNotifications.cend(), [chatJid](const MessageNotificationWrapper &notificationWrapper) {
-            return notificationWrapper.chatJid == chatJid;
-        });
+    const auto notificationWrapperItr = std::ranges::find_if(m_openMessageNotifications, [chatJid](const MessageNotificationWrapper &notificationWrapper) {
+        return notificationWrapper.chatJid == chatJid;
+    });
 
     if (notificationWrapperItr != m_openMessageNotifications.cend()) {
         notificationWrapperItr->notification->close();
@@ -138,11 +137,9 @@ void NotificationController::closeMessageNotification(const QString &chatJid)
 
 void NotificationController::sendPresenceSubscriptionRequestNotification(const QString &chatJid)
 {
-    auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(),
-                                               m_openPresenceSubscriptionRequestNotifications.end(),
-                                               [&chatJid](const auto &notificationWrapper) {
-                                                   return notificationWrapper.chatJid == chatJid;
-                                               });
+    auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications, [&chatJid](const auto &notificationWrapper) {
+        return notificationWrapper.chatJid == chatJid;
+    });
 
     // Only create a new notification if none exists.
     if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
@@ -171,11 +168,10 @@ void NotificationController::sendPresenceSubscriptionRequestNotification(const Q
     });
 
     connect(notification, &KNotification::closed, this, [=, this]() {
-        auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(),
-                                                   m_openPresenceSubscriptionRequestNotifications.end(),
-                                                   [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
-                                                       return notificationWrapper.chatJid == chatJid;
-                                                   });
+        auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications,
+                                                           [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
+                                                               return notificationWrapper.chatJid == chatJid;
+                                                           });
 
         if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
             m_openPresenceSubscriptionRequestNotifications.erase(notificationWrapperItr);
@@ -187,11 +183,10 @@ void NotificationController::sendPresenceSubscriptionRequestNotification(const Q
 
 void NotificationController::closePresenceSubscriptionRequestNotification(const QString &chatJid)
 {
-    const auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.cbegin(),
-                                                     m_openPresenceSubscriptionRequestNotifications.cend(),
-                                                     [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
-                                                         return notificationWrapper.chatJid == chatJid;
-                                                     });
+    const auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications,
+                                                             [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
+                                                                 return notificationWrapper.chatJid == chatJid;
+                                                             });
 
     if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.cend()) {
         notificationWrapperItr->notification->close();
@@ -244,10 +239,9 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
 {
     KNotification *notification = nullptr;
 
-    auto notificationWrapperItr =
-        std::find_if(m_openMessageNotifications.begin(), m_openMessageNotifications.end(), [&chatJid](const auto &notificationWrapper) {
-            return notificationWrapper.chatJid == chatJid;
-        });
+    auto notificationWrapperItr = std::ranges::find_if(m_openMessageNotifications, [&chatJid](const auto &notificationWrapper) {
+        return notificationWrapper.chatJid == chatJid;
+    });
 
     // Update an existing notification or create a new one.
     if (notificationWrapperItr != m_openMessageNotifications.end()) {
@@ -348,11 +342,9 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
     });
 
     connect(notification, &KNotification::closed, this, [=, this]() {
-        auto notificationWrapperItr = std::find_if(m_openMessageNotifications.begin(),
-                                                   m_openMessageNotifications.end(),
-                                                   [chatJid](const MessageNotificationWrapper &notificationWrapper) {
-                                                       return notificationWrapper.chatJid == chatJid;
-                                                   });
+        auto notificationWrapperItr = std::ranges::find_if(m_openMessageNotifications, [chatJid](const MessageNotificationWrapper &notificationWrapper) {
+            return notificationWrapper.chatJid == chatJid;
+        });
 
         if (notificationWrapperItr != m_openMessageNotifications.end()) {
             if (notificationWrapperItr->isDeletionEnabled) {

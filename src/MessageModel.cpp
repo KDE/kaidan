@@ -297,11 +297,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             const auto ownReactionsIterated = itr.key() == m_accountSettings->jid();
 
             for (const auto &reaction : std::as_const(itr->reactions)) {
-                auto reactionItr = std::find_if(displayedMessageReactions.begin(),
-                                                displayedMessageReactions.end(),
-                                                [=](const DisplayedMessageReaction &displayedMessageReaction) {
-                                                    return displayedMessageReaction.emoji == reaction.emoji;
-                                                });
+                auto reactionItr = std::ranges::find_if(displayedMessageReactions, [=](const DisplayedMessageReaction &displayedMessageReaction) {
+                    return displayedMessageReaction.emoji == reaction.emoji;
+                });
 
                 if (ownReactionsIterated) {
                     if (reactionItr == displayedMessageReactions.end()) {
@@ -534,7 +532,7 @@ void MessageModel::setMessageMarked(int index, bool marked)
 
 void MessageModel::addMessageReaction(const QString &messageId, const QString &emoji)
 {
-    const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
+    const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
         return message.relevantId() == messageId;
     });
 
@@ -595,23 +593,22 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
                         if (const auto error = std::get_if<QXmppError>(&result)) {
                             Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
-                            MessageDb::instance()->updateMessage(
-                                m_chatController->account()->settings()->jid(),
-                                m_chatController->jid(),
-                                messageId,
-                                [senderId, emoji](Message &message) {
-                                    auto &reactionSender = message.reactionSenders[senderId];
-                                    reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
-                                    auto &reactions = reactionSender.reactions;
+                            MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
+                                                                 m_chatController->jid(),
+                                                                 messageId,
+                                                                 [senderId, emoji](Message &message) {
+                                                                     auto &reactionSender = message.reactionSenders[senderId];
+                                                                     reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+                                                                     auto &reactions = reactionSender.reactions;
 
-                                    auto itr = std::find_if(reactions.begin(), reactions.end(), [emoji](const MessageReaction &reaction) {
-                                        return reaction.emoji == emoji;
-                                    });
+                                                                     auto itr = std::ranges::find_if(reactions, [emoji](const MessageReaction &reaction) {
+                                                                         return reaction.emoji == emoji;
+                                                                     });
 
-                                    if (itr != reactions.end()) {
-                                        itr->deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
-                                    }
-                                });
+                                                                     if (itr != reactions.end()) {
+                                                                         itr->deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+                                                                     }
+                                                                 });
                         } else {
                             m_messageController->updateMessageReactionsAfterSending(m_chatController->jid(), messageId, senderId);
                         }
@@ -623,7 +620,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 
 void MessageModel::removeMessageReaction(const QString &messageId, const QString &emoji)
 {
-    const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
+    const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
         return message.relevantId() == messageId;
     });
 
@@ -643,10 +640,9 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                                                                auto &reactionSenders = message.reactionSenders;
                                                                auto &reactions = reactionSenders[senderId].reactions;
 
-                                                               const auto itr =
-                                                                   std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                                                                       return reaction.emoji == emoji;
-                                                                   });
+                                                               const auto itr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
+                                                                   return reaction.emoji == emoji;
+                                                               });
 
                                                                switch (auto &deliveryState = itr->deliveryState) {
                                                                case MessageReactionDeliveryState::Sent:
@@ -699,10 +695,9 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                                                                  [senderId, emoji](Message &message) {
                                                                      auto &reactions = message.reactionSenders[senderId].reactions;
 
-                                                                     const auto itr =
-                                                                         std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-                                                                             return reaction.emoji == emoji;
-                                                                         });
+                                                                     const auto itr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
+                                                                         return reaction.emoji == emoji;
+                                                                     });
 
                                                                      switch (auto &deliveryState = itr->deliveryState) {
                                                                      case MessageReactionDeliveryState::Sent:
@@ -726,7 +721,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 
 void MessageModel::resendMessageReactions(const QString &messageId)
 {
-    const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
+    const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
         return message.relevantId() == messageId;
     });
 
@@ -1203,7 +1198,7 @@ void MessageModel::emitMessagesUpdated(const QList<QString> &messageIds, Message
 
 bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QList<MessageReaction> &reactions)
 {
-    const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+    const auto reactionItr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
         return reaction.emoji == emoji;
     });
 
@@ -1214,7 +1209,7 @@ bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QS
                                              [senderJid, emoji](Message &message) {
                                                  auto &reactions = message.reactionSenders[senderJid].reactions;
 
-                                                 const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                 const auto itr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
                                                      return reaction.emoji == emoji;
                                                  });
 
@@ -1243,7 +1238,7 @@ bool MessageModel::undoMessageReactionAddition(const QString &messageId,
                                                const QString &emoji,
                                                const QList<MessageReaction> &reactions)
 {
-    const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+    const auto reactionItr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
         return reaction.emoji == emoji
             && (reaction.deliveryState == MessageReactionDeliveryState::PendingAddition
                 || reaction.deliveryState == MessageReactionDeliveryState::ErrorOnAddition);
@@ -1257,7 +1252,7 @@ bool MessageModel::undoMessageReactionAddition(const QString &messageId,
                                                  auto &reactionSenders = message.reactionSenders;
                                                  auto &reactions = reactionSenders[senderJid].reactions;
 
-                                                 const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+                                                 const auto itr = std::ranges::find_if(reactions, [&](const MessageReaction &reaction) {
                                                      return reaction.emoji == emoji;
                                                  });
 

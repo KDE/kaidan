@@ -234,7 +234,7 @@ void BlockingController::registerModel(BlockingModel *model)
 
 void BlockingController::unregisterModel(BlockingModel *model)
 {
-    m_registeredModels.erase(std::find(m_registeredModels.begin(), m_registeredModels.end(), model));
+    m_registeredModels.erase(std::ranges::find(m_registeredModels, model));
 }
 
 void BlockingController::setRunning(uint running)
@@ -401,11 +401,10 @@ void BlockingModel::setBlockingController(BlockingController *blockingController
 
 bool BlockingModel::contains(const QString &jid)
 {
-    return std::find_if(m_entries.cbegin(),
-                        m_entries.cend(),
-                        [&](const auto &e) {
-                            return e.jid == jid;
-                        })
+    return std::ranges::find_if(m_entries,
+                                [&](const auto &e) {
+                                    return e.jid == jid;
+                                })
         != m_entries.cend();
 }
 
@@ -436,7 +435,7 @@ void BlockingModel::handleBlocked(const QList<QString> &jids)
 void BlockingModel::handleUnblocked(const QList<QString> &jids)
 {
     for (const auto &jid : jids) {
-        auto itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {
+        auto itr = std::ranges::find_if(m_entries, [&](const auto &e) {
             return e.jid == jid;
         });
         auto index = std::distance(m_entries.begin(), itr);

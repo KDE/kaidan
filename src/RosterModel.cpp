@@ -457,7 +457,7 @@ void RosterModel::handleAccountNotificationRuleChanged()
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&message](const RosterItem &item) {
         return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
@@ -493,7 +493,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 void RosterModel::handleMessageUpdated(const Message &message)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&message](const RosterItem &item) {
         return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
@@ -518,7 +518,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
 
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&newLastMessage](const RosterItem &item) {
         return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
     });
 
@@ -552,7 +552,7 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 
 void RosterModel::handleDraftMessageAdded(const Message &message)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&message](const RosterItem &item) {
         return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
@@ -570,7 +570,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 
 void RosterModel::handleDraftMessageUpdated(const Message &message)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&message](const RosterItem &item) {
         return item.accountJid == message.accountJid && item.jid == message.chatJid;
     });
 
@@ -587,7 +587,7 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 
 void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 {
-    auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
+    auto itr = std::ranges::find_if(m_items, [&newLastMessage](const RosterItem &item) {
         return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
     });
 

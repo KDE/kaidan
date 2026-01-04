@@ -563,7 +563,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     // That is needed if the own server archives group chat messages resulting in a second stanza
     // ID added by the own server to the group chat message.
     if (receivedFromGroupChat) {
-        const auto itr = std::find_if(stanzaIds.cbegin(), stanzaIds.cend(), [senderJid](const QXmppStanzaId &stanzaId) {
+        const auto itr = std::ranges::find_if(stanzaIds, [senderJid](const QXmppStanzaId &stanzaId) {
             return stanzaId.by == senderJid;
         });
 
@@ -960,7 +960,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
                 const auto &bobData = message.bitsOfBinaryData();
                 if (!fileShare.metadata().thumbnails().empty()) {
                     auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(fileShare.metadata().thumbnails().front().uri());
-                    const auto thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
+                    const auto thumbnailData = std::ranges::find_if(bobData, [&](auto bobBlob) {
                         return bobBlob.cid() == cid;
                     });
 

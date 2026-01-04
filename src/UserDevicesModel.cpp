@@ -113,7 +113,7 @@ void UserDevicesModel::handleClientVersionReceived(const QXmppVersionIq &version
 
     // find the VersionInfo and update values
     const auto resource = QXmppUtils::jidToResource(versionIq.from());
-    auto info = std::find_if(m_devices.begin(), m_devices.end(), [&](const auto &device) {
+    auto info = std::ranges::find_if(m_devices, [&](const auto &device) {
         return device.resource == resource;
     });
     if (info != m_devices.end()) {

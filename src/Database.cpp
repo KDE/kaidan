@@ -1716,11 +1716,10 @@ void Database::convertDatabaseToV48()
                 QList<AccountSettings::Data> accounts;
                 AccountDb::parseAccountsFromQuery(query, accounts);
 
-                if (const auto it = std::find_if(accounts.cbegin(),
-                                                 accounts.cend(),
-                                                 [jid = settingsAccount->jid](const AccountSettings::Data &acc) {
-                                                     return jid == acc.jid;
-                                                 });
+                if (const auto it = std::ranges::find_if(accounts,
+                                                         [jid = settingsAccount->jid](const AccountSettings::Data &acc) {
+                                                             return jid == acc.jid;
+                                                         });
                     it != accounts.cend()) {
                     auto acc = *it;
 

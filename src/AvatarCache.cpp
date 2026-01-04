@@ -138,7 +138,7 @@ void AvatarCache::cleanUp(QString &oldHash)
         return;
 
     // check if the same avatar is still used by another account
-    if (std::find(m_jidAvatarMap.cbegin(), m_jidAvatarMap.cend(), oldHash) != m_jidAvatarMap.cend())
+    if (std::ranges::find(m_jidAvatarMap, oldHash) != m_jidAvatarMap.cend())
         return;
 
     // delete the old avatar locally

@@ -35,8 +35,6 @@ Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
 
-using std::ranges::find;
-
 template<typename T>
 QVariant optionalToVariant(std::optional<T> value)
 {
@@ -928,7 +926,7 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
         auto message = msgs.takeFirst();
 
         // find file with external ID
-        auto fileItr = find(message.files, externalFileId, &File::externalId);
+        auto fileItr = std::ranges::find(message.files, externalFileId, &File::externalId);
         if (fileItr == message.files.end()) {
             qCDebug(KAIDAN_CORE_LOG) << "Could not attach sources to message with ID" << messageId << ": No file with external ID of" << externalFileId
                                      << "found.";

@@ -275,7 +275,7 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
     if (QXmppBitsOfBinaryContentId::isBitsOfBinaryContentId(id, true)) {
         QMutexLocker locker(&m_cacheMutex);
 
-        const auto item = std::find_if(m_cache.cbegin(), m_cache.cend(), [&](const QXmppBitsOfBinaryData &item) {
+        const auto item = std::ranges::find_if(m_cache, [&](const QXmppBitsOfBinaryData &item) {
             return item.cid().toCidUrl() == id;
         });
 
