@@ -147,7 +147,7 @@ Controls.Control {
 				}
 			}
 
-			// tool bar for actions on selected media
+			// toolbar for actions on selected media
 			RowLayout {
 				visible: root.selectionMode
 				Layout.minimumHeight: tabBar.height

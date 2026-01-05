@@ -97,7 +97,7 @@ Bugfixes:
 * Fix deleting/sending voice messages (melvo)
 * Fix crash during login (melvo)
 * Fix opening chat again after going back to chat list on narrow window (melvo)
-* Increase tool bar height to fix avatar not being recognizable (melvo)
+* Increase toolbar height to fix avatar not being recognizable (melvo)
 * Fix width of search bar above chat list to take available space while showing all buttons (melvo)
 * Fix storing changed password (melvo)
 * Fix setting custom host/port for account registration (melvo)
