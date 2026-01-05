@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-08 07:34+0100\n"
+"PO-Revision-Date: 2026-01-01 23:03+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:493
@@ -260,15 +260,12 @@ msgstr "Impossibile scaricare il file: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Il supporto per la condivisione dei media è sconosciuto"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Funzionalità non supportata"
+msgstr "La condivisione dei media non è supportata"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -279,15 +276,13 @@ msgstr "Impossibile caricare il file: %1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Trasferimento annullato"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Caricamento non riuscito: %1"
+msgstr "Trasferimento non riuscito: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -481,12 +476,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "«%1» non può essere inviato poiché è più grande di %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Il messaggio non può essere inviato."
+msgstr "Il messaggio non può essere inviato"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
