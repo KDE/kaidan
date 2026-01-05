@@ -41,7 +41,7 @@ Q_NAMESPACE
 enum class ConnectionState {
     StateDisconnected = QXmppClient::DisconnectedState,
     StateConnecting = QXmppClient::ConnectingState,
-    StateConnected = QXmppClient::ConnectedState
+    StateConnected = QXmppClient::ConnectedState,
 };
 Q_ENUM_NS(ConnectionState)
 

@@ -475,12 +475,12 @@ Enums::ConnectionState Connection::state() const
 QString Connection::stateText() const
 {
     switch (m_state) {
-    case Enums::ConnectionState::StateConnected:
-        return tr("Connected");
-    case Enums::ConnectionState::StateConnecting:
-        return tr("Connecting…");
     case Enums::ConnectionState::StateDisconnected:
         return tr("Disconnected");
+    case Enums::ConnectionState::StateConnecting:
+        return tr("Connecting…");
+    case Enums::ConnectionState::StateConnected:
+        return tr("Connected");
     }
     return {};
 }
