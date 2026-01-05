@@ -47,14 +47,15 @@ Dialog {
 		width: root.width
 		height: root.height - root.header.height - Kirigami.Units.cornerRadius / 2
 
-		VideoOutput {
-			id: videoOutput
-			fillMode: VideoOutput.PreserveAspectCrop
-			layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
-			layer.effect: Kirigami.ShadowedTexture {
-				corners {
-					bottomLeftRadius: Kirigami.Units.cornerRadius
-					bottomRightRadius: Kirigami.Units.cornerRadius
+		CameraArea {
+			id: cameraArea
+			output {
+				layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+				layer.effect: Kirigami.ShadowedTexture {
+					corners {
+						bottomLeftRadius: Kirigami.Units.cornerRadius
+						bottomRightRadius: Kirigami.Units.cornerRadius
+					}
 				}
 			}
 			anchors.fill: parent
@@ -92,7 +93,7 @@ Dialog {
 	CaptureSession {
 		id: captureSession
 		camera: cameraLoader.item
-		videoOutput: videoOutput
+		videoOutput: cameraArea.output
 	}
 
 	Loader {
