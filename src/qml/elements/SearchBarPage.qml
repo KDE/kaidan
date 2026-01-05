@@ -25,6 +25,7 @@ Kirigami.ScrollablePage {
 	}
 	bottomPadding: 0
 	actions: Kirigami.Action {
+		id: searchAction
 		text: qsTr("Search")
 		icon.name: "system-search-symbolic"
 		visible: isSearchActionShown
@@ -160,6 +161,6 @@ Kirigami.ScrollablePage {
 
 	function resetSearchBar() {
 		header = null
-		root.actions.main.checked = false
+		searchAction.checked = false
 	}
 }
