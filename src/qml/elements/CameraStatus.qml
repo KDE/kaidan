@@ -28,7 +28,7 @@ Rectangle {
 			Kirigami.Icon {
 				id: cameraStatusIcon
 				source: "camera-disabled-symbolic"
-				fallback: "camera-off-symbolic"
+				fallback: "camera-off"
 				Layout.maximumWidth: Kirigami.Units.iconSizes.enormous
 				Layout.maximumHeight: Layout.maximumWidth
 				Layout.fillWidth: true
