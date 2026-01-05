@@ -1,8 +1,8 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-07 22:16+0300\n"
+"PO-Revision-Date: 2026-01-04 12:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -67,9 +67,6 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
 #: src/Account.cpp:520
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
@@ -254,12 +251,9 @@ msgid "Leaving group chat"
 msgstr "Полишаємо групове спілкування"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Скасувати"
+msgstr "Скасовано"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -270,44 +264,34 @@ msgstr "Не вдалося отримати файл: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Невідомий стан підтримки оприлюднення мультимедіа"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Підтримки можливості не передбачено"
+msgstr "Підтримки оприлюднення мультимедіа не передбачено"
 
 #: src/FileSharingController.cpp:527
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Не вдалося отримати файл: %1"
+msgstr "Не вдалося вивантажити файл: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Передавання скасовано"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Невдала спроба вивантаження: %1"
+msgstr "Не вдалося передати: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Зберегти вибір"
+msgstr "Нічого не позначено"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -330,26 +314,22 @@ msgid "Banned"
 msgstr "Заблоковано"
 
 #: src/ImageProvider.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "Дані контакту скопійовано до буфера даних"
+msgstr "Не вдалося скопіювати некоректне джерело до буфера обміну даними: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Не вдалося створити мініатюру: %1 не існує"
 
 #: src/ImageProvider.cpp:353
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "Не вдалося перейменувати групу %1: %2"
+msgstr "Не вдалося створити QR-код: %1"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
@@ -500,12 +480,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Неможливо надіслати «%1», оскільки його розмір перевищує %2"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Повідомлення не вдалося надіслати"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
@@ -692,9 +669,6 @@ msgid "Offline"
 msgstr "Поза мережею"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Нетиповий надавач послуг"
@@ -703,20 +677,15 @@ msgstr "Нетиповий надавач послуг"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Без обмежень"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
-msgstr "%1 дні"
+msgstr "%1 днів"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -1229,12 +1198,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Застосувати зміни"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Застосування змін…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2100,63 +2069,39 @@ msgid "Notes Details"
 msgstr "Параметри нотаток"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "Вилучити"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Remove notes chat and complete chat history"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "Вилучити нотатки спілкування і завершити журнал спілкування"
+msgstr "Вилучити спілкування з надавачем послуг і завершити журнал спілкування"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Вилучаємо обмін нотатками…"
+msgstr "Вилучаємо спілкування з надавачем послуг…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Параметри групи"
+msgstr "Параметри надавача"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
-#, fuzzy
-#| msgctxt "NotesChatDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr ""
-"Повідомлення у цьому спілкуванні буде синхронізовано як нотатки на усіх "
-"ваших пристроях"
+msgstr "Повідомлення у цьому спілкуванні надходять від вашого надавача послуг"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
-#, fuzzy
-#| msgctxt "GroupChatDetailsDialog|"
-#| msgid "Group Details"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Параметри групи"
+msgstr "Параметри надавача"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2313,12 +2258,9 @@ msgid "Open selected file's folder"
 msgstr "Відкрити теку позначеного файла"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
-#, fuzzy
-#| msgctxt "LoginSettingsPage|"
-#| msgid "Reset"
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr "Скинути"
+msgstr "Надіслати ще раз"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2476,12 +2418,9 @@ msgid "Add"
 msgstr "Додати"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "Рішення щодо довіри для контакту — перейдіть до кроку 2"
+msgstr "Рішення щодо довіри для контакту"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2539,9 +2478,6 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Крок 2: передайте вашому контакту <b>ваш</b> QR-код"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
-#, fuzzy
-#| msgctxt "GroupChatParticipantPicker|"
-#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "Запросити контакти до цієї групи…"
@@ -2584,7 +2520,7 @@ msgstr "Порт:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Просте розпізнавання (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2592,6 +2528,9 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Потрібне, якщо ваш надавач послуг використовує LDAP, що часто трапляється в "
+"установах, де ви маєте змогу входити всюди за допомогою єдиного облікового "
+"запису"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2858,12 +2797,9 @@ msgid "Scan login QR code"
 msgstr "Сканування вхідного QR-коду"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Змінити параметри з'єднання"
+msgstr "Показати параметри з'єднання"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2936,63 +2872,55 @@ msgid "Retry updating reactions"
 msgstr "Повторити оновлення реакцій"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Не вдалося зареєструватися:"
+msgstr "Реєстрація за допомогою Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Показувати лише надавачів послуг, які надають змогу створювати обліковий "
+"запис у Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Вільний для спілкування"
+msgstr "Безкоштовно"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Показувати лише надавачів безкоштовних послуг"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Пароль"
+msgstr "Скидання пароля"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Показувати лише надавачів послуг, які дозволяють скидання пароля"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "«Зелена» робота з даними"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
+"Показувати лише надавачів послуг, служби яких працюють на відновлюваних "
+"джерелах енергії"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Фактор автобуса"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Місце"
@@ -3002,51 +2930,38 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Показувати лише надавачів послуг, які зберігають і обробляють дані у "
+"вибраній країні"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Максимальний розмір оприлюдненого мультимедіа"
+msgstr "Розмір оприлюдненого мультимедіа"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Зберігає оприлюднені дані аж до:"
+msgstr "Загальний розмір усіх оприлюднених мультимедійних даних"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Тривалість зберігання повідомлень"
+msgstr "Тривалість зберігання мультимедійних даних"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "Тривалість зберігання повідомлень"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Доступний"
+msgstr "Доступність"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Організація"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3465,12 +3380,9 @@ msgstr "Виберіть надавача послуг"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
-msgstr "Фільтрувати"
+msgstr "Фільтр"
 
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
@@ -3483,17 +3395,14 @@ msgid "Provider Address"
 msgstr "Адреса надавача послуг"
 
 #: src/qml/registration/ProviderPage.qml:128
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Змінити параметри з'єднання"
+msgstr "Показати параметри з'єднання"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Місця зберігання/обробки даних"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3511,9 +3420,6 @@ msgid "Maximum size of shared media"
 msgstr "Максимальний розмір оприлюдненого мультимедіа"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "Тривалість зберігання повідомлень"
@@ -3744,9 +3650,6 @@ msgid "Could not remove contact as a result of not being connected."
 msgstr "Не вдалося вилучити контакт через те, що немає з'єднання."
 
 #: src/RosterItem.cpp:31
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Надавач послуг"
