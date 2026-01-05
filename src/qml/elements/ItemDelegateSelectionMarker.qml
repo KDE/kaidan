@@ -17,7 +17,7 @@ Rectangle {
 	property Controls.ItemDelegate itemDelegate
 
 	color: {
-		let colorOpacity = 0;
+		let colorOpacity = 0
 
 		if (itemDelegate.pressed) {
 			colorOpacity = 0.35

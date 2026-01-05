@@ -19,20 +19,52 @@ ExplainedContentPage {
 	states: [
 		State {
 			name: "explanationAreaDisplayed"
-			PropertyChanges { target: explanationArea; visible: true }
-			PropertyChanges { target: secondaryArea; visible: false }
+
+			PropertyChanges {
+				target: explanationArea
+				visible: true
+			}
+
+			PropertyChanges {
+				target: secondaryArea
+				visible: false
+			}
 		},
 		State {
 			name: "primaryAreaDisplayed"
-			PropertyChanges { target: explanationArea; visible: false }
-			PropertyChanges { target: primaryArea; visible: true }
-			PropertyChanges { target: secondaryArea; visible: false }
+
+			PropertyChanges {
+				target: explanationArea
+				visible: false
+			}
+
+			PropertyChanges {
+				target: primaryArea
+				visible: true
+			}
+
+			PropertyChanges {
+				target: secondaryArea
+				visible: false
+			}
 		},
 		State {
 			name: "secondaryAreaDisplayed"
-			PropertyChanges { target: explanationArea; visible: false }
-			PropertyChanges { target: primaryArea; visible: false }
-			PropertyChanges { target: secondaryArea; visible: true }
+
+			PropertyChanges {
+				target: explanationArea
+				visible: false
+			}
+
+			PropertyChanges {
+				target: primaryArea
+				visible: false
+			}
+
+			PropertyChanges {
+				target: secondaryArea
+				visible: true
+			}
 		}
 	]
 	content: Item {

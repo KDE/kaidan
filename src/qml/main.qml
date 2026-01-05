@@ -58,8 +58,8 @@ Kirigami.ApplicationWindow {
 		}
 	}
 	Component.onCompleted: {
-		HostCompletionModel.rosterModel = RosterModel;
-		HostCompletionModel.aggregateKnownProviders();
+		HostCompletionModel.rosterModel = RosterModel
+		HostCompletionModel.aggregateKnownProviders()
 
 		// Restore the latest application window state if it is stored.
 		if (!Kirigami.Settings.isMobile) {
@@ -89,11 +89,25 @@ Kirigami.ApplicationWindow {
 		color: Material.Material.color(Material.Material.Green, Material.Material.Shade700)
 	}
 
-	// components for all main pages
-	Component {id: startPage; StartPage {}}
-	Component {id: rosterPage; RosterPage {}}
-	Component {id: emptyChatPage; EmptyChatPage {}}
-	Component {id: callPage; CallPage {}}
+	Component {
+		id: startPage
+		StartPage {}
+	}
+
+	Component {
+		id: rosterPage
+		RosterPage {}
+	}
+
+	Component {
+		id: emptyChatPage
+		EmptyChatPage {}
+	}
+
+	Component {
+		id: callPage
+		CallPage {}
+	}
 
 	// Forces closing the application if the client does not disconnect from the server.
 	// That can happen if there are connection problems.

@@ -151,7 +151,7 @@ FormCard.FormCard {
 	}
 
 	function clearFields() {
-		jidField.text = "";
-		passwordField.text = "";
+		jidField.text = ""
+		passwordField.text = ""
 	}
 }

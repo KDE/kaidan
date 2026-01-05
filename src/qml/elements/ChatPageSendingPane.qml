@@ -491,7 +491,7 @@ Controls.Pane {
 						root.composition.send()
 					}
 
-					root.chatPage.chatController.resetComposingChatState();
+					root.chatPage.chatController.resetComposingChatState()
 					clear()
 
 					root.chatPage.messageListView.positionViewAtLatestMessage()

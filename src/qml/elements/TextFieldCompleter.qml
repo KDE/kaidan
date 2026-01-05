@@ -245,7 +245,7 @@ Kirigami.ActionTextField {
 
 			case Qt.Key_Return:
 				root.accepted()
-				event.accepted = true;
+				event.accepted = true
 				break
 			}
 		} else {

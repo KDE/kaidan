@@ -59,7 +59,7 @@ Controls.Popup {
 				}
 
 				onClicked: {
-					emojiView.model.addFavoriteEmoji(model.index);
+					emojiView.model.addFavoriteEmoji(model.index)
 					textArea.remove(textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
 					textArea.insert(textArea.cursorPosition, model.unicode + " ")
 					close()
