@@ -165,7 +165,7 @@ void Call::startCall()
 {
     m_jmiManager->propose(m_chatJid, m_descriptions).then(this, [this](QXmppJingleMessageInitiationManager::ProposeResult &&result) {
         if (auto *error = std::get_if<QXmppError>(&result)) {
-            qCDebug(KAIDAN_CORE_LOG) << "Could not propose a call:" << error->description;
+            qCDebug(KAIDAN_CORE_LOG) << "Could not propose call:" << error->description;
         } else {
             m_jmi = std::get<std::shared_ptr<QXmppJingleMessageInitiation>>(result);
 
@@ -231,14 +231,16 @@ void Call::setUpAudioStream(QXmppCallStream *stream)
     // Output receiving audio.
     stream->setReceivePadCallback([pipeline](GstPad *receivePad) {
         GstElement *output = gst_parse_bin_from_description("audioresample ! audioconvert ! autoaudiosink", true, nullptr);
+
         if (!gst_bin_add(GST_BIN(pipeline), output)) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to add audio playback to pipeline";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not add audio playback to pipeline";
             return;
         }
 
         if (gst_pad_link(receivePad, gst_element_get_static_pad(output, "sink")) != GST_PAD_LINK_OK) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to link receive pad to audio playback";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not link receive pad to audio playback";
         }
+
         gst_element_sync_state_with_parent(output);
 
         qCDebug(KAIDAN_CORE_LOG) << "Audio playback (receive pad) set up";
@@ -247,14 +249,16 @@ void Call::setUpAudioStream(QXmppCallStream *stream)
     // Record and send microphone input.
     stream->setSendPadCallback([pipeline](GstPad *sendPad) {
         GstElement *output = gst_parse_bin_from_description("autoaudiosrc ! audioconvert ! audioresample ! queue max-size-time=1000000", true, nullptr);
+
         if (!gst_bin_add(GST_BIN(pipeline), output)) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to add audio recorder to pipeline";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not add audio recorder to pipeline";
             return;
         }
 
         if (gst_pad_link(gst_element_get_static_pad(output, "src"), sendPad) != GST_PAD_LINK_OK) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to link audio recorder output to send pad";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not link audio recorder output to send pad";
         }
+
         gst_element_sync_state_with_parent(output);
 
         qCDebug(KAIDAN_CORE_LOG) << "Audio recorder (send pad) set up";
@@ -278,8 +282,9 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
         g_assert(contactVideoItem);
 
         GstElement *output = gst_parse_bin_from_description("videoconvert ! glupload ! qml6glsink name=contactVideoSink", true, nullptr);
+
         if (!gst_bin_add(GST_BIN(pipeline), output)) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to add video playback to pipeline";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not add video playback to pipeline";
             return;
         }
 
@@ -288,10 +293,10 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
         g_object_set(contactVideoSink, "widget", contactVideoItem, NULL);
 
         if (gst_pad_link(receivePad, gst_element_get_static_pad(output, "sink")) != GST_PAD_LINK_OK) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to link receive pad to video playback";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not link receive pad to video playback";
         }
-        gst_element_sync_state_with_parent(output);
 
+        gst_element_sync_state_with_parent(output);
         rootObject->scheduleRenderJob(new VideoOutputRenderJob(pipeline), QQuickWindow::BeforeSynchronizingStage);
 
         qCDebug(KAIDAN_CORE_LOG) << "Video playback (receive pad) set up";
@@ -299,14 +304,16 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
 
     stream->setSendPadCallback([pipeline](GstPad *sendPad) {
         GstElement *input = gst_parse_bin_from_description("v4l2src ! videoconvert", true, nullptr);
+
         if (!gst_bin_add(GST_BIN(pipeline), input)) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to add video source to pipeline";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not add video source to pipeline";
             return;
         }
 
         if (gst_pad_link(gst_element_get_static_pad(input, "src"), sendPad) != GST_PAD_LINK_OK) {
-            qCFatal(KAIDAN_CORE_LOG) << "Failed to link video source to send pad";
+            qCFatal(KAIDAN_CORE_LOG) << "Could not link video source to send pad";
         }
+
         gst_element_sync_state_with_parent(input);
 
         qCDebug(KAIDAN_CORE_LOG) << "Video source (send pad) set up";

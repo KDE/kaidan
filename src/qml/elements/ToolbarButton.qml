@@ -5,7 +5,7 @@
 import org.kde.kirigami as Kirigami
 
 /**
- * This is a clickable icon to be used inside of the tool bar.
+ * This is a clickable icon to be used inside of the toolbar.
  */
 ClickableIcon  {
 	isMask: true

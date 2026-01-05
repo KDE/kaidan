@@ -41,7 +41,7 @@ Kirigami.Page {
 			jid: MainController.activeCall && MainController.activeCall.accountJid
 			name: MainController.activeCall && AccountController.account(MainController.activeCall.accountJid).settings.displayName
 		}
-		implicitWidth: Math.min(parent.width, parent.height) * 0.4
+		implicitWidth: Math.min(parent.width, parent.height) * 0.35
 		implicitHeight: implicitWidth
 		anchors.centerIn: parent
 	}

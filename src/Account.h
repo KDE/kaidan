@@ -22,6 +22,9 @@
 
 constexpr quint16 AUTO_DETECT_PORT = 0;
 
+// Qt
+class QGeoCoordinate;
+// Kaidan
 class AtmController;
 class BlockingController;
 class CallController;
@@ -32,7 +35,6 @@ class GroupChatController;
 class MessageController;
 class NotificationController;
 class PresenceCache;
-class QGeoCoordinate;
 class RegistrationController;
 class RosterController;
 class VCardController;

@@ -8,7 +8,7 @@ import org.kde.kirigami as Kirigami
 import im.kaidan.kaidan
 
 /**
- * This is a button to be used for calls inside of the tool bar.
+ * This is a button to be used for calls inside of the toolbar.
  */
 ToolbarButton  {
 	id: root

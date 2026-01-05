@@ -6,8 +6,6 @@
 
 // Qt
 #include <QObject>
-// QXmpp
-#include <QXmppJingleData.h>
 
 // QXmpp
 class QXmppCall;
@@ -15,6 +13,7 @@ class QXmppCallManager;
 class QXmppCallStream;
 class QXmppJingleMessageInitiation;
 class QXmppJingleMessageInitiationManager;
+class QXmppJingleRtpDescription;
 
 typedef struct _GstElement GstElement;
 
@@ -65,9 +64,8 @@ private:
 
     void terminate();
 
-    QString m_accountJid;
-    QString m_chatJid;
-    bool m_proposedCallAccepted = false;
+    const QString m_accountJid;
+    const QString m_chatJid;
 
     QXmppJingleMessageInitiationManager *const m_jmiManager;
     QXmppCallManager *const m_callManager;
@@ -75,4 +73,6 @@ private:
     std::shared_ptr<QXmppJingleMessageInitiation> m_jmi;
     QList<QXmppJingleRtpDescription> m_descriptions;
     QXmppCall *m_call = nullptr;
+
+    bool m_proposedCallAccepted = false;
 };
