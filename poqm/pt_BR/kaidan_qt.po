@@ -15,44 +15,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Conectado"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conectando…"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Desconectado"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nome de usuário ou senha inválido."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Não é possível conectar ao servidor. Por favor, verifique sua conexão de "
 "internet."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Erro ao tentar conectar-se de modo seguro."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor não suporta conexões seguras."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Não foi possível conectar com o servidor. Verifique sua conexão com a "
 "internet ou o nome do seu servidor."
 
-#: src/Account.cpp:518
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desconectado ou bloqueado por um firewall."
 
-#: src/Account.cpp:520
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "O protocolo de autenticação não é compatível com o servidor."
 
-#: src/Account.cpp:522
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "A conexão não pôde ser atualizada."
 
-#: src/Account.cpp:524
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,18 +85,18 @@ msgstr ""
 "O acesso à Internet não é permitido. Por favor, verifique a configuração de "
 "acesso à Internet do seu sistema."
 
-#: src/Account.cpp:526
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Este servidor não suporta registro."
 
-#: src/Account.cpp:528
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Não foi possível entrar. Primeiro, confirme a mensagem de e-mail recebida."
 
-#: src/Account.cpp:530
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Não foi possível conectar ao servidor."
@@ -618,17 +618,45 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Você não pode excluir o grupo"
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:154
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pedidos para receber seus dados pessoais"
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/NotificationController.cpp:305
+#: src/NotificationController.cpp:207
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:209
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming video call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:223
+#, fuzzy
+#| msgctxt "SubRequestAcceptSheet|"
+#| msgid "Accept"
+msgctxt "NotificationController|"
+msgid "Accept"
+msgstr "Aceitar"
+
+#: src/NotificationController.cpp:230
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Objects"
+msgctxt "NotificationController|"
+msgid "Reject"
+msgstr "Objetos"
+
+#: src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar como lido"
@@ -698,49 +726,85 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Sobre o Kaidan"
 
-#: src/qml/ChatPage.qml:97
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "Detalhes…"
+#: src/qml/CallPage.qml:18
+msgctxt "CallPage|"
+msgid "Call"
+msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:96
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
+msgctxt "ChatPage|"
+msgid "Open audio call"
+msgstr "Abrir bate-papo de suporte"
+
+#: src/qml/ChatPage.qml:96
+msgctxt "ChatPage|"
+msgid "Start audio call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Open video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Start video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:122
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
+msgctxt "ChatPage|"
+msgid "Quit search"
+msgstr "Fechar pesquisa"
+
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Pesquisar"
 
-#: src/qml/ChatPage.qml:473
+#: src/qml/ChatPage.qml:140
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr "Detalhes…"
+
+#: src/qml/ChatPage.qml:505
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Cancelar encaminhamento"
 
-#: src/qml/ChatPage.qml:488
+#: src/qml/ChatPage.qml:520
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Selecione um bate-papo para encaminhar a mensagem"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:571
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Solte os arquivos a serem enviados"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 desbloqueado"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desfazer"
 
-#: src/qml/ChatPage.qml:747
+#: src/qml/ChatPage.qml:783
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Não foi possível bloquear %1: %2"
 
-#: src/qml/ChatPage.qml:751
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3527,8 +3591,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Passo 2: Entre com sua conta registrada"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
-#: src/qml/RosterPage.qml:215
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
+#: src/qml/RosterPage.qml:219
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtro"
@@ -4307,10 +4371,6 @@ msgstr "Site da web"
 #~ msgid "Decline"
 #~ msgstr "Rejeitar"
 
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Accept"
-#~ msgstr "Aceitar"
-
 #~ msgctxt "ChatPageSendingPane|"
 #~ msgid "Spoiler hint"
 #~ msgstr "Dica de spoiler"
@@ -4947,10 +5007,6 @@ msgstr "Site da web"
 #~ msgctxt "EmojiPicker|"
 #~ msgid "Travel"
 #~ msgstr "Viagens"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Objects"
-#~ msgstr "Objetos"
 
 #~ msgctxt "EmojiPicker|"
 #~ msgid "Symbols"

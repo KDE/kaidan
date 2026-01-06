@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -16,7 +16,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:481
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -24,7 +24,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:483
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -32,7 +32,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -40,7 +40,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Անվավեր օգտանուն կամ գաղտնաբառ։"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -49,7 +49,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Համոզվեք, որ ինտերնետ կապը միացված է։"
 
-#: src/Account.cpp:512
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -57,7 +57,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Անվտանգ կապ հաստատելը ձախողվել է։"
 
-#: src/Account.cpp:514
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -65,7 +65,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Սերվերը չի սպասարկում անվտանգ կապեր։"
 
-#: src/Account.cpp:516
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Ստուգեք Ձեր ինտերնետի կարգավորումները "
 "կամ Ձեր սերվերի անվանումը։"
 
-#: src/Account.cpp:518
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -87,7 +87,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Այս սերվերը անցանց է կամ կասեցված հրապատի կողմից։"
 
-#: src/Account.cpp:520
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -95,7 +95,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Նույնականացման մեթոդը չի սպասարկվում սերվերի կողմից։"
 
-#: src/Account.cpp:522
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -103,7 +103,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Չհաջողվեց թարմացնել կապը։"
 
-#: src/Account.cpp:524
+#: src/Account.cpp:510
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 "Չհաջողվեց հաստատել ինտերնետային կապ։ Ստուգեք Ձեր ինտերնետի կարգավորումները։"
 
-#: src/Account.cpp:526
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -124,12 +124,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
 
-#: src/Account.cpp:528
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:530
+#: src/Account.cpp:516
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account from the server"
@@ -723,17 +723,42 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:154
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr ""
 
-#: src/NotificationController.cpp:305
+#: src/NotificationController.cpp:207
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:209
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming video call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:223
+#, fuzzy
+#| msgctxt "SubRequestAcceptSheet|"
+#| msgid "Accept"
+msgctxt "NotificationController|"
+msgid "Accept"
+msgstr "Համաձայնել"
+
+#: src/NotificationController.cpp:230
+msgctxt "NotificationController|"
+msgid "Reject"
+msgstr ""
+
+#: src/NotificationController.cpp:340
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -810,22 +835,55 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/ChatPage.qml:97
-msgctxt "ChatPage|"
-msgid "Details…"
+#: src/qml/CallPage.qml:18
+msgctxt "CallPage|"
+msgid "Call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:96
+msgctxt "ChatPage|"
+msgid "Open audio call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:96
+msgctxt "ChatPage|"
+msgid "Start audio call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Open video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Start video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:122
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Close message search bar"
+msgctxt "ChatPage|"
+msgid "Quit search"
+msgstr "Ավարտել որոնումը"
+
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Որոնել"
 
-#: src/qml/ChatPage.qml:473
+#: src/qml/ChatPage.qml:140
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr ""
+
+#: src/qml/ChatPage.qml:505
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:488
+#: src/qml/ChatPage.qml:520
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -833,23 +891,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Ընտրեք զրույց և սկսեք շփվել"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:571
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:747
+#: src/qml/ChatPage.qml:783
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -857,7 +915,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/qml/ChatPage.qml:751
+#: src/qml/ChatPage.qml:787
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -4378,8 +4436,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Մուտք գործեք Ձեր XMPP հաշիվ"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
-#: src/qml/RosterPage.qml:215
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
+#: src/qml/RosterPage.qml:219
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -5188,10 +5246,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "SubRequestAcceptSheet|"
 #~ msgid "Decline"
 #~ msgstr "Մերժել"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Accept"
-#~ msgstr "Համաձայնել"
 
 #~ msgctxt "ChatPageSendingPane|"
 #~ msgid "Spoiler hint"

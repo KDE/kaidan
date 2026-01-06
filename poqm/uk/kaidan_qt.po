@@ -15,44 +15,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "З'єднано"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Від'єднано"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/Account.cpp:518
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/Account.cpp:520
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/Account.cpp:522
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/Account.cpp:524
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,19 +85,19 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/Account.cpp:526
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/Account.cpp:528
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/Account.cpp:530
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
@@ -618,17 +618,45 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам заборонено вилучення групи"
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:154
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Запити для отримання особистих даних"
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/NotificationController.cpp:305
+#: src/NotificationController.cpp:207
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:209
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming video call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:223
+#, fuzzy
+#| msgctxt "SubRequestAcceptSheet|"
+#| msgid "Accept"
+msgctxt "NotificationController|"
+msgid "Accept"
+msgstr "Прийняти"
+
+#: src/NotificationController.cpp:230
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Objects"
+msgctxt "NotificationController|"
+msgid "Reject"
+msgstr "Об'єкти"
+
+#: src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
@@ -697,49 +725,85 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Про Kaidan"
 
-#: src/qml/ChatPage.qml:97
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "Подробиці…"
+#: src/qml/CallPage.qml:18
+msgctxt "CallPage|"
+msgid "Call"
+msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:96
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
+msgctxt "ChatPage|"
+msgid "Open audio call"
+msgstr "Відкрити спілкування з підтримкою"
+
+#: src/qml/ChatPage.qml:96
+msgctxt "ChatPage|"
+msgid "Start audio call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Open video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Start video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:122
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
+msgctxt "ChatPage|"
+msgid "Quit search"
+msgstr "Закрити вікно пошуку"
+
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/ChatPage.qml:473
+#: src/qml/ChatPage.qml:140
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr "Подробиці…"
+
+#: src/qml/ChatPage.qml:505
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Скасувати переспрямування"
 
-#: src/qml/ChatPage.qml:488
+#: src/qml/ChatPage.qml:520
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Виберіть спілкування для переспрямування повідомлення"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:571
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Скиньте файли, які буде надіслано"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Розблоковано %1"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/qml/ChatPage.qml:747
+#: src/qml/ChatPage.qml:783
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Не вдалося заблокувати %1: %2"
 
-#: src/qml/ChatPage.qml:751
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -3539,8 +3603,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Крок 2. Вхід до зареєстрованого облікового запису"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
-#: src/qml/RosterPage.qml:215
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
+#: src/qml/RosterPage.qml:219
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Фільтрувати"
@@ -4399,10 +4463,6 @@ msgstr "Сайт"
 #~ msgid "Decline"
 #~ msgstr "Відхилити"
 
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Accept"
-#~ msgstr "Прийняти"
-
 #~ msgctxt "RosterManager|"
 #~ msgid "Disallowing %1 to see your status failed"
 #~ msgstr "Спроба заборони для %1 перегляду вашого стану зазнала невдачі"
@@ -5049,10 +5109,6 @@ msgstr "Сайт"
 #~ msgctxt "EmojiPicker|"
 #~ msgid "Travel"
 #~ msgstr "Подорожі"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Objects"
-#~ msgstr "Об'єкти"
 
 #~ msgctxt "EmojiPicker|"
 #~ msgid "Symbols"

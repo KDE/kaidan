@@ -15,81 +15,81 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
 "X-Crowdin-File-ID: 57154\n"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "已连接"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:483
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "已断开连接"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "用户名或密码无效。"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "无法连接到服务器。请检查您的互联网连接。"
 
-#: src/Account.cpp:512
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "尝试安全连接时出错。"
 
-#: src/Account.cpp:514
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "服务器不支持安全连接。"
 
-#: src/Account.cpp:516
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "无法连接到服务器。请检查您的互联网连接或服务器名称。"
 
-#: src/Account.cpp:518
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
-#: src/Account.cpp:520
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
 
-#: src/Account.cpp:522
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "无法刷新连接。"
 
-#: src/Account.cpp:524
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "不允许访问互联网。请检查系统的互联网访问配置。"
 
-#: src/Account.cpp:526
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "此服务器不支持注册。"
 
-#: src/Account.cpp:528
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "无法登录。请先确认您收到的电子邮件。"
 
-#: src/Account.cpp:530
+#: src/Account.cpp:516
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
@@ -249,12 +249,12 @@ msgstr "无法下载文件：%1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "媒体分享支持情况未知"
 
 #: src/FileSharingController.cpp:402
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr ""
+msgstr "媒体分享功能不受支持"
 
 #: src/FileSharingController.cpp:527
 #, qt-format
@@ -265,13 +265,13 @@ msgstr "无法上传文件：%1"
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "传输已取消"
 
 #: src/FileSharingController.cpp:665
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr ""
+msgstr "传输失败：%1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -467,7 +467,7 @@ msgstr "无法发送“%1”，因为它大于 %2"
 #: src/MessageController.cpp:287
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr ""
+msgstr "无法发送消息"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
@@ -602,17 +602,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
-#: src/NotificationController.cpp:152
+#: src/NotificationController.cpp:154
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
-#: src/NotificationController.cpp:166 src/NotificationController.cpp:301
+#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "打开"
 
-#: src/NotificationController.cpp:305
+#: src/NotificationController.cpp:207
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:209
+#, qt-format
+msgctxt "NotificationController|"
+msgid "Incoming video call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:223
+msgctxt "NotificationController|"
+msgid "Accept"
+msgstr ""
+
+#: src/NotificationController.cpp:230
+msgctxt "NotificationController|"
+msgid "Reject"
+msgstr ""
+
+#: src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
@@ -681,49 +703,85 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "关于 Kaidan"
 
-#: src/qml/ChatPage.qml:97
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "详情…"
+#: src/qml/CallPage.qml:18
+msgctxt "CallPage|"
+msgid "Call"
+msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:96
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
+msgctxt "ChatPage|"
+msgid "Open audio call"
+msgstr "打开支持聊天"
+
+#: src/qml/ChatPage.qml:96
+msgctxt "ChatPage|"
+msgid "Start audio call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Open video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:109
+msgctxt "ChatPage|"
+msgid "Start video call"
+msgstr ""
+
+#: src/qml/ChatPage.qml:122
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
+msgctxt "ChatPage|"
+msgid "Quit search"
+msgstr "关闭搜索"
+
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:473
+#: src/qml/ChatPage.qml:140
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr "详情…"
+
+#: src/qml/ChatPage.qml:505
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "取消转发"
 
-#: src/qml/ChatPage.qml:488
+#: src/qml/ChatPage.qml:520
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:571
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:740
+#: src/qml/ChatPage.qml:776
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:747
+#: src/qml/ChatPage.qml:783
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:751
+#: src/qml/ChatPage.qml:787
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2395,7 +2453,7 @@ msgstr "步骤 2：让您的联系人扫描<b>您的</b>二维码"
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "邀请联系人加入此群聊…"
+msgstr ""
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
@@ -3435,8 +3493,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:202
-#: src/qml/RosterPage.qml:215
+#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
+#: src/qml/RosterPage.qml:219
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"
