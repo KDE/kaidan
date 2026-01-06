@@ -60,7 +60,7 @@ public:
                            ClientWorker *clientWorker,
                            QObject *parent = nullptr);
 
-    QFuture<bool> registerOnConnectEnabled();
+    bool registerOnConnectEnabled() const;
 
     /**
      * Connects to the server and requests a data form for account registration.

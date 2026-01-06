@@ -14,10 +14,9 @@ using namespace SqlUtils;
 
 constexpr std::initializer_list<QStringView> OMEMO_TABLES = {u"omemoDevicesOwn", u"omemoDevices", u"omemoPreKeyPairs", u"omemoPreKeyPairsSigned"};
 
-OmemoDb::OmemoDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent)
+OmemoDb::OmemoDb(AccountSettings *accountSettings, QObject *parent)
     : DatabaseComponent(parent)
     , m_accountSettings(accountSettings)
-    , m_xmppContext(xmppContext)
 {
 }
 

@@ -73,22 +73,20 @@ MessageController::MessageController(AccountSettings *accountSettings,
 
     connect(m_fileSharingController, &FileSharingController::filesUploadedForPendingMessage, this, &MessageController::sendPendingMessageWithUploadedFiles);
 
-    runOnThread(m_client, [this]() {
-        connect(m_client, &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
-            handleMessage(msg, MessageOrigin::Stream);
-        });
+    connect(m_client, &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
+        handleMessage(msg, MessageOrigin::Stream);
+    });
 
-        connect(m_messageReceiptManager, &QXmppMessageReceiptManager::messageDelivered, this, [this](const QString &jid, const QString &messageId) {
-            const auto accountJid = m_accountSettings->jid();
-            const auto chatJid = QXmppUtils::jidToBareJid(jid);
+    connect(m_messageReceiptManager, &QXmppMessageReceiptManager::messageDelivered, this, [this](const QString &jid, const QString &messageId) {
+        const auto accountJid = m_accountSettings->jid();
+        const auto chatJid = QXmppUtils::jidToBareJid(jid);
 
-            MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [accountJid, chatJid](Message &message) {
-                // Only the recipient of the message is allowed to confirm its delivery.
-                if (message.accountJid == accountJid && message.chatJid == chatJid) {
-                    message.deliveryState = Enums::DeliveryState::Delivered;
-                    message.errorText.clear();
-                }
-            });
+        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [accountJid, chatJid](Message &message) {
+            // Only the recipient of the message is allowed to confirm its delivery.
+            if (message.accountJid == accountJid && message.chatJid == chatJid) {
+                message.deliveryState = Enums::DeliveryState::Delivered;
+                message.errorText.clear();
+            }
         });
     });
 }
@@ -109,26 +107,20 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message, Encry
             message.addHint(QXmppMessage::Store);
         }
 
-        runOnThread(m_client, [this, promise, message]() mutable {
-            m_client->send(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
-                reportFinishedResult(*promise, result);
-            });
+        m_client->send(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
+            reportFinishedResult(*promise, result);
         });
     } else {
         if (encryptionJids.isEmpty()) {
-            runOnThread(m_client, [this, promise, message]() mutable {
-                m_client->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
-                    reportFinishedResult(*promise, result);
-                });
+            m_client->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
+                reportFinishedResult(*promise, result);
             });
         } else {
             QXmppSendStanzaParams params;
             params.setEncryptionJids(encryptionJids);
 
-            runOnThread(m_client, [this, promise, message, params]() mutable {
-                m_client->sendSensitive(std::move(message), params).then(this, [=](QXmpp::SendResult &&result) mutable {
-                    reportFinishedResult(*promise, result);
-                });
+            m_client->sendSensitive(std::move(message), params).then(this, [=](QXmpp::SendResult &&result) mutable {
+                reportFinishedResult(*promise, result);
             });
         }
     }
@@ -333,13 +325,8 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
     queryLimit.setBefore(oldestMessageStanzaId);
 
     // TODO: Find out why sometimes messages are not correctly retrieved (maybe not even correctly parsed, at least with Tigase)
-    callRemoteTask(
-        m_mamManager,
-        [this, jid, isGroupChat, queryLimit]() {
-            return std::pair{m_mamManager->retrieveMessages(isGroupChat ? jid : QString{}, {}, isGroupChat ? QString{} : jid, {}, {}, queryLimit), this};
-        },
-        this,
-        [this, promise, jid](QXmppMamManager::RetrieveResult &&result) mutable {
+    m_mamManager->retrieveMessages(isGroupChat ? jid : QString{}, {}, isGroupChat ? QString{} : jid, {}, {}, queryLimit)
+        .then(this, [this, promise, jid](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
                 qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve backlog messages:" << error->description;
                 reportFinishedResult(*promise, false);
@@ -429,13 +416,8 @@ void MessageController::retrieveInitialMessage(const QString &jid, bool isGroupC
     queryLimit.setMax(1);
     queryLimit.setBefore(offsetMessageId);
 
-    callRemoteTask(
-        m_mamManager,
-        [this, jid, isGroupChat, queryLimit]() {
-            return std::pair{m_mamManager->retrieveMessages(isGroupChat ? jid : QString{}, {}, isGroupChat ? QString{} : jid, {}, {}, queryLimit), this};
-        },
-        this,
-        [this, jid, isGroupChat](QXmppMamManager::RetrieveResult &&result) mutable {
+    m_mamManager->retrieveMessages(isGroupChat ? jid : QString{}, {}, isGroupChat ? QString{} : jid, {}, {}, queryLimit)
+        .then(this, [this, jid, isGroupChat](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
                 qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve initial message:" << error->description;
             } else {
@@ -456,26 +438,20 @@ void MessageController::retrieveInitialMessage(const QString &jid, bool isGroupC
 
 void MessageController::retrieveAllMessages(const QString &groupChatJid)
 {
-    callRemoteTask(
-        m_mamManager,
-        [this, groupChatJid]() {
-            return std::pair{m_mamManager->retrieveMessages(groupChatJid), this};
-        },
-        this,
-        [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
-            if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve all messages:" << error->description;
-            } else {
-                const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+    m_mamManager->retrieveMessages(groupChatJid).then(this, [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
+        if (auto error = std::get_if<QXmppError>(&result)) {
+            qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve all messages:" << error->description;
+        } else {
+            const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
-                for (const auto &message : std::as_const(retrievedMessages.messages)) {
-                    handleMessage(message, MessageOrigin::MamCatchUp);
+            for (const auto &message : std::as_const(retrievedMessages.messages)) {
+                handleMessage(message, MessageOrigin::MamCatchUp);
 
-                    // Send delivery receipts for the retrieved message.
-                    m_messageReceiptManager->handleMessage(message);
-                }
+                // Send delivery receipts for the retrieved message.
+                m_messageReceiptManager->handleMessage(message);
             }
-        });
+        }
+    });
 }
 
 void MessageController::retrieveCatchUpMessages(const QString &latestMessageStanzaId, const QString &groupChatJid)
@@ -483,26 +459,20 @@ void MessageController::retrieveCatchUpMessages(const QString &latestMessageStan
     QXmppResultSetQuery queryLimit;
     queryLimit.setAfter(latestMessageStanzaId);
 
-    callRemoteTask(
-        m_mamManager,
-        [this, groupChatJid, queryLimit]() {
-            return std::pair{m_mamManager->retrieveMessages(groupChatJid, {}, {}, {}, {}, queryLimit), this};
-        },
-        this,
-        [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
-            if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve catch-up messages:" << error->description;
-            } else {
-                const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+    m_mamManager->retrieveMessages(groupChatJid, {}, {}, {}, {}, queryLimit).then(this, [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
+        if (auto error = std::get_if<QXmppError>(&result)) {
+            qCDebug(KAIDAN_CORE_LOG) << "Could not retrieve catch-up messages:" << error->description;
+        } else {
+            const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
-                for (const auto &message : std::as_const(retrievedMessages.messages)) {
-                    handleMessage(message, MessageOrigin::MamCatchUp);
+            for (const auto &message : std::as_const(retrievedMessages.messages)) {
+                handleMessage(message, MessageOrigin::MamCatchUp);
 
-                    // Send delivery receipts for the retrieved message.
-                    m_messageReceiptManager->handleMessage(message);
-                }
+                // Send delivery receipts for the retrieved message.
+                m_messageReceiptManager->handleMessage(message);
             }
-        });
+        }
+    });
 }
 
 void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin origin)

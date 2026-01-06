@@ -69,40 +69,29 @@ QList<GroupChatService> MixController::groupChatServices() const
 
 void MixController::createPrivateChannel(const QString &serviceJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, serviceJid]() {
-            return std::pair{m_manager->createChannel(serviceJid), this};
-        },
-        this,
-        [this, serviceJid](QXmppMixManager::CreationResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                QString errorMessage;
+    m_manager->createChannel(serviceJid).then(this, [this, serviceJid](QXmppMixManager::CreationResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            QString errorMessage;
 
-                if (error->isStanzaError()) {
-                    const auto stanzaError = error->value<QXmppStanza::Error>();
-                    errorMessage = stanzaError->text();
-                } else {
-                    errorMessage = error->description;
-                }
-
-                Q_EMIT m_groupChatController->privateGroupChatCreationFailed(serviceJid, errorMessage);
+            if (error->isStanzaError()) {
+                const auto stanzaError = error->value<QXmppStanza::Error>();
+                errorMessage = stanzaError->text();
             } else {
-                const auto channelJid = std::get<QXmppMixManager::ChannelJid>(result);
-                Q_EMIT m_groupChatController->groupChatCreated(channelJid);
+                errorMessage = error->description;
             }
-        });
+
+            Q_EMIT m_groupChatController->privateGroupChatCreationFailed(serviceJid, errorMessage);
+        } else {
+            const auto channelJid = std::get<QXmppMixManager::ChannelJid>(result);
+            Q_EMIT m_groupChatController->groupChatCreated(channelJid);
+        }
+    });
 }
 
 void MixController::createPublicChannel(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->createChannel(QXmppUtils::jidToDomain(channelJid), QXmppUtils::jidToUser(channelJid)), this};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::CreationResult &&result) {
+    m_manager->createChannel(QXmppUtils::jidToDomain(channelJid), QXmppUtils::jidToUser(channelJid))
+        .then(this, [this, channelJid](QXmppMixManager::CreationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 QString errorMessage;
 
@@ -130,106 +119,84 @@ void MixController::createPublicChannel(const QString &channelJid)
 
 void MixController::requestChannelAccessibility(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            const auto serviceJid = QXmppUtils::jidToDomain(channelJid);
-            return std::pair{m_manager->requestChannelJids(serviceJid), this};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::ChannelJidResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
-            } else if (const auto channelJids = std::get<QList<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
-                m_groupChatController->groupChatMadePublic(channelJid);
-            } else {
-                m_groupChatController->groupChatMadePrivate(channelJid);
-            }
-        });
+    m_manager->requestChannelJids(QXmppUtils::jidToDomain(channelJid)).then(this, [this, channelJid](QXmppMixManager::ChannelJidResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
+        } else if (const auto channelJids = std::get<QList<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
+            m_groupChatController->groupChatMadePublic(channelJid);
+        } else {
+            m_groupChatController->groupChatMadePrivate(channelJid);
+        }
+    });
 }
 
 void MixController::requestChannelInformation(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->requestChannelInformation(channelJid), this};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::InformationResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
-            } else {
-                handleChannelInformationUpdated(channelJid, std::get<QXmppMixInfoItem>(result));
-            }
-        });
+    m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid](QXmppMixManager::InformationResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
+        } else {
+            handleChannelInformationUpdated(channelJid, std::get<QXmppMixInfoItem>(result));
+        }
+    });
 }
 
 void MixController::renameChannel(const QString &channelJid, const QString &newChannelName)
 {
-    runOnThread(m_manager, [this, channelJid, newChannelName]() {
-        m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName](QXmppMixManager::InformationResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
-            } else {
-                auto information = std::get<QXmppMixInfoItem>(result);
-                information.setName(newChannelName);
+    m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName](QXmppMixManager::InformationResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+        } else {
+            auto information = std::get<QXmppMixInfoItem>(result);
+            information.setName(newChannelName);
 
-                auto future = m_manager->updateChannelInformation(channelJid, information);
-                future.then(this, [channelJid, newChannelName](QXmppClient::EmptyResult &&result) {
-                    if (const auto error = std::get_if<QXmppError>(&result)) {
-                        Q_EMIT MainController::instance()->passiveNotificationRequested(
-                            tr("Could not rename group %1: %2").arg(channelJid, error->description));
-                    }
-                });
-            }
-        });
+            auto future = m_manager->updateChannelInformation(channelJid, information);
+            future.then(this, [channelJid, newChannelName](QXmppClient::EmptyResult &&result) {
+                if (const auto error = std::get_if<QXmppError>(&result)) {
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                }
+            });
+        }
     });
 }
 
 void MixController::joinChannel(const QString &channelJid, const QString &nickname)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid, nickname]() {
-            return std::pair{m_manager->joinChannel(channelJid, nickname), m_manager};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::JoiningResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                QString errorMessage;
+    m_manager->joinChannel(channelJid, nickname).then(this, [this, channelJid](QXmppMixManager::JoiningResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            QString errorMessage;
 
-                if (error->isStanzaError()) {
-                    const auto stanzaError = error->value<QXmppStanza::Error>();
+            if (error->isStanzaError()) {
+                const auto stanzaError = error->value<QXmppStanza::Error>();
 
-                    switch (stanzaError->type()) {
-                    case QXmppStanza::Error::Cancel:
-                        switch (stanzaError->condition()) {
-                        case QXmppStanza::Error::ItemNotFound:
-                            errorMessage = tr("The group does not exist");
-                            break;
-                        case QXmppStanza::Error::NotAllowed:
-                            errorMessage = tr("You aren't allowed to join the group");
-                            break;
-                        default:
-                            break;
-                        }
-
+                switch (stanzaError->type()) {
+                case QXmppStanza::Error::Cancel:
+                    switch (stanzaError->condition()) {
+                    case QXmppStanza::Error::ItemNotFound:
+                        errorMessage = tr("The group does not exist");
+                        break;
+                    case QXmppStanza::Error::NotAllowed:
+                        errorMessage = tr("You aren't allowed to join the group");
                         break;
                     default:
-                        errorMessage = stanzaError->text();
+                        break;
                     }
-                } else {
-                    errorMessage = error->description;
-                }
 
-                Q_EMIT m_groupChatController->groupChatJoiningFailed(channelJid, errorMessage);
+                    break;
+                default:
+                    errorMessage = stanzaError->text();
+                }
             } else {
-                Q_EMIT m_groupChatController->groupChatJoined(channelJid);
+                errorMessage = error->description;
             }
-        });
+
+            Q_EMIT m_groupChatController->groupChatJoiningFailed(channelJid, errorMessage);
+        } else {
+            Q_EMIT m_groupChatController->groupChatJoined(channelJid);
+        }
+    });
 }
 
 void MixController::inviteContactToChannel(const QString &channelJid, const QString &contactJid, bool channelPublic)
@@ -262,25 +229,15 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
     if (channelPublic) {
         sendInvitation();
     } else {
-        callRemoteTask(
-            m_manager,
-            [this, channelJid]() {
-                return std::pair{m_manager->requestChannelNodes(channelJid), this};
-            },
-            this,
-            [this, sendInvitation, message, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
+        m_manager->requestChannelNodes(channelJid)
+            .then(this, [this, sendInvitation, message, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
                 if (const auto error = std::get_if<QXmppError>(&result)) {
                     Q_EMIT MainController::instance()->passiveNotificationRequested(
                         tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
                 } else {
                     auto allowJid = [this, sendInvitation, message, channelJid, contactJid]() {
-                        callRemoteTask(
-                            m_manager,
-                            [this, channelJid, contactJid]() {
-                                return std::pair{m_manager->allowJid(channelJid, contactJid), this};
-                            },
-                            this,
-                            [sendInvitation, message, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
+                        m_manager->allowJid(channelJid, contactJid)
+                            .then(this, [sendInvitation, message, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
                                 if (const auto error = std::get_if<QXmppError>(&result)) {
                                     Q_EMIT MainController::instance()->passiveNotificationRequested(
                                         tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
@@ -307,185 +264,130 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
 
 void MixController::requestChannelUsers(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->requestChannelNodes(channelJid), this};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::ChannelNodeResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("Nodes of %1 could not be retrieved: %2").arg(channelJid, error->description));
-            } else {
-                const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
+    m_manager->requestChannelNodes(channelJid).then(this, [this, channelJid](QXmppMixManager::ChannelNodeResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Nodes of %1 could not be retrieved: %2").arg(channelJid, error->description));
+        } else {
+            const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
 
-                if (nodes.testFlag(QXmppMixConfigItem::Node::AllowedJids)) {
-                    callRemoteTask(
-                        m_manager,
-                        [this, channelJid]() {
-                            return std::pair{m_manager->requestAllowedJids(channelJid), this};
-                        },
-                        this,
-                        [this, channelJid](QXmppMixManager::JidResult &&result) {
-                            if (const auto error = std::get_if<QXmppError>(&result)) {
-                                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                                    tr("Allowed users of %1 could not be retrieved: %2").arg(channelJid, error->description));
-                            } else {
-                                const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
-                                for (const auto &jid : jids) {
-                                    handleJidAllowed(channelJid, jid);
-                                }
-                            }
-                        });
-                }
-
-                if (nodes.testFlag(QXmppMixConfigItem::Node::BannedJids)) {
-                    callRemoteTask(
-                        m_manager,
-                        [this, channelJid]() {
-                            return std::pair{m_manager->requestBannedJids(channelJid), this};
-                        },
-                        this,
-                        [this, channelJid](QXmppMixManager::JidResult &&result) {
-                            if (const auto error = std::get_if<QXmppError>(&result)) {
-                                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                                    tr("Banned users of %1 could not be retrieved: %2").arg(channelJid, error->description));
-                            } else {
-                                const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
-                                for (const auto &jid : jids) {
-                                    handleJidBanned(channelJid, jid);
-                                }
-                            }
-                        });
-                }
+            if (nodes.testFlag(QXmppMixConfigItem::Node::AllowedJids)) {
+                m_manager->requestAllowedJids(channelJid).then(this, [this, channelJid](QXmppMixManager::JidResult &&result) {
+                    if (const auto error = std::get_if<QXmppError>(&result)) {
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(
+                            tr("Allowed users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                    } else {
+                        const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
+                        for (const auto &jid : jids) {
+                            handleJidAllowed(channelJid, jid);
+                        }
+                    }
+                });
             }
-        });
 
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->requestParticipants(channelJid), this};
-        },
-        this,
-        [this, channelJid](QXmppMixManager::ParticipantResult result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
-            } else {
-                const auto participants = std::get<QList<QXmppMixParticipantItem>>(result);
-                for (const auto &participant : participants) {
-                    handleParticipantReceived(channelJid, participant);
-                }
+            if (nodes.testFlag(QXmppMixConfigItem::Node::BannedJids)) {
+                m_manager->requestBannedJids(channelJid).then(this, [this, channelJid](QXmppMixManager::JidResult &&result) {
+                    if (const auto error = std::get_if<QXmppError>(&result)) {
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(
+                            tr("Banned users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                    } else {
+                        const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
+                        for (const auto &jid : jids) {
+                            handleJidBanned(channelJid, jid);
+                        }
+                    }
+                });
             }
-        });
+        }
+    });
+
+    m_manager->requestParticipants(channelJid).then(this, [this, channelJid](QXmppMixManager::ParticipantResult result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+        } else {
+            const auto participants = std::get<QList<QXmppMixParticipantItem>>(result);
+            for (const auto &participant : participants) {
+                handleParticipantReceived(channelJid, participant);
+            }
+        }
+    });
 }
 
 void MixController::banUser(const QString &channelJid, const QString &userJid)
 {
-    runOnThread(m_manager, [this, channelJid, userJid]() {
-        m_manager->requestChannelConfiguration(channelJid).then(m_manager, [this, channelJid, userJid](QXmppMixManager::ConfigurationResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("%1 could not be banned from %2: %3").arg(userJid, channelJid, error->description));
-            } else {
-                auto channelConfiguration = std::get<QXmppMixConfigItem>(result);
-                auto banJid = [this, channelJid, userJid]() {
-                    m_manager->banJid(channelJid, userJid);
-                };
+    m_manager->requestChannelConfiguration(channelJid).then(m_manager, [this, channelJid, userJid](QXmppMixManager::ConfigurationResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("%1 could not be banned from %2: %3").arg(userJid, channelJid, error->description));
+        } else {
+            auto channelConfiguration = std::get<QXmppMixConfigItem>(result);
+            auto banJid = [this, channelJid, userJid]() {
+                m_manager->banJid(channelJid, userJid);
+            };
 
-                if (channelConfiguration.nodes().testFlag(QXmppMixConfigItem::Node::BannedJids)) {
-                    banJid();
-                } else {
-                    channelConfiguration.setNodes(channelConfiguration.nodes() | QXmppMixConfigItem::Node::BannedJids);
-                    m_manager->updateChannelConfiguration(channelJid, channelConfiguration).then(m_manager, [this, channelJid, banJid](auto) {
-                        m_manager->updateSubscriptions(channelJid, {QXmppMixConfigItem::Node::BannedJids}).then(m_manager, [banJid](auto) {
-                            banJid();
-                        });
+            if (channelConfiguration.nodes().testFlag(QXmppMixConfigItem::Node::BannedJids)) {
+                banJid();
+            } else {
+                channelConfiguration.setNodes(channelConfiguration.nodes() | QXmppMixConfigItem::Node::BannedJids);
+                m_manager->updateChannelConfiguration(channelJid, channelConfiguration).then(m_manager, [this, channelJid, banJid](auto) {
+                    m_manager->updateSubscriptions(channelJid, {QXmppMixConfigItem::Node::BannedJids}).then(m_manager, [banJid](auto) {
+                        banJid();
                     });
-                }
+                });
             }
-        });
+        }
     });
 }
 
 void MixController::leaveChannel(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->leaveChannel(channelJid), this};
-        },
-        this,
-        [this, channelJid](QXmppClient::EmptyResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT m_groupChatController->groupChatLeavingFailed(channelJid, error->description);
-            } else {
-                Q_EMIT m_groupChatController->groupChatLeft(channelJid);
-            }
-        });
+    m_manager->leaveChannel(channelJid).then(this, [this, channelJid](QXmppClient::EmptyResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT m_groupChatController->groupChatLeavingFailed(channelJid, error->description);
+        } else {
+            Q_EMIT m_groupChatController->groupChatLeft(channelJid);
+        }
+    });
 }
 
 void MixController::deleteChannel(const QString &channelJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, channelJid]() {
-            return std::pair{m_manager->deleteChannel(channelJid), this};
-        },
-        this,
-        [this, channelJid](QXmppClient::EmptyResult &&result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                QString errorMessage;
+    m_manager->deleteChannel(channelJid).then(this, [this, channelJid](QXmppClient::EmptyResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            QString errorMessage;
 
-                if (error->isStanzaError()) {
-                    const auto stanzaError = error->value<QXmppStanza::Error>();
+            if (error->isStanzaError()) {
+                const auto stanzaError = error->value<QXmppStanza::Error>();
 
-                    switch (stanzaError->type()) {
-                    case QXmppStanza::Error::Cancel:
-                        if (stanzaError->condition() == QXmppStanza::Error::NotAllowed)
-                            errorMessage = tr("You aren't allowed to delete the group");
-                        break;
-                    default:
-                        errorMessage = stanzaError->text();
-                    }
-                } else {
-                    errorMessage = error->description;
+                switch (stanzaError->type()) {
+                case QXmppStanza::Error::Cancel:
+                    if (stanzaError->condition() == QXmppStanza::Error::NotAllowed)
+                        errorMessage = tr("You aren't allowed to delete the group");
+                    break;
+                default:
+                    errorMessage = stanzaError->text();
                 }
-
-                Q_EMIT m_groupChatController->groupChatDeletionFailed(channelJid, errorMessage);
             } else {
-                leaveChannel(channelJid);
+                errorMessage = error->description;
             }
-        });
+
+            Q_EMIT m_groupChatController->groupChatDeletionFailed(channelJid, errorMessage);
+        } else {
+            leaveChannel(channelJid);
+        }
+    });
 }
 
 void MixController::handleParticipantSupportChanged()
 {
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->participantSupport();
-        },
-        this,
-        [this](QXmppMixManager::Support participantSupport) {
-            m_channelParticipationSupported = (participantSupport == QXmppMixManager::Support::Supported);
-            Q_EMIT m_groupChatController->groupChatParticipationSupportedChanged();
-        });
+    m_channelParticipationSupported = m_manager->participantSupport() == QXmppMixManager::Support::Supported;
+    Q_EMIT m_groupChatController->groupChatParticipationSupportedChanged();
 }
 
 void MixController::handleServicesChanged()
 {
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->services();
-        },
-        this,
-        [this](const QList<QXmppMixManager::Service> &&services) {
-            m_services = services;
-            Q_EMIT m_groupChatController->groupChatServicesChanged();
-        });
+    m_services = m_manager->services();
+    Q_EMIT m_groupChatController->groupChatServicesChanged();
 }
 
 void MixController::handleChannelInformationUpdated(const QString &channelJid, const QXmppMixInfoItem &information)

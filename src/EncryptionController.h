@@ -55,7 +55,7 @@ public:
     QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
     Q_SIGNAL void keysChanged(const QList<QString> &jids);
 
-    QFuture<EncryptionController::OwnDevice> ownDevice();
+    OwnDevice ownDevice();
     Q_SIGNAL void ownDeviceChanged();
 
     QFuture<QList<EncryptionController::Device>> devices(const QList<QString> &jids);

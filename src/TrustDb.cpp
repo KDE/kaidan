@@ -70,10 +70,9 @@ QString trustFlagsToString(TrustLevels levels)
     return levelStrings.join(u", ");
 }
 
-TrustDb::TrustDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent)
+TrustDb::TrustDb(AccountSettings *accountSettings, QObject *parent)
     : DatabaseComponent(parent)
     , m_accountSettings(accountSettings)
-    , m_xmppContext(xmppContext)
 {
 }
 

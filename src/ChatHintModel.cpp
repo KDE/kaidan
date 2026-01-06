@@ -90,15 +90,11 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
     switch (type) {
     case ChatHintButton::Dismiss:
         if (i == chatHintIndex(ChatHintButton::AllowPresenceSubscription)) {
-            const auto jid = m_chatController->jid();
-
-            m_rosterController->refuseSubscriptionToPresence(jid).then(this, [this, i, jid](bool succeeded) {
-                if (succeeded) {
-                    removeChatHint(i);
-                } else {
-                    setLoading(i, false);
-                }
-            });
+            if (m_rosterController->refuseSubscriptionToPresence(m_chatController->jid())) {
+                removeChatHint(i);
+            } else {
+                setLoading(i, false);
+            }
         } else {
             removeChatHint(i);
         }
@@ -113,15 +109,12 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
         return;
     case ChatHintButton::AllowPresenceSubscription: {
         setLoading(i, true);
-        const auto jid = m_chatController->jid();
 
-        m_rosterController->acceptSubscriptionToPresence(jid).then(this, [this, i, jid](bool succeeded) {
-            if (succeeded) {
-                removeChatHint(i);
-            } else {
-                setLoading(i, false);
-            }
-        });
+        if (m_rosterController->acceptSubscriptionToPresence(m_chatController->jid())) {
+            removeChatHint(i);
+        } else {
+            setLoading(i, false);
+        }
 
         return;
     }

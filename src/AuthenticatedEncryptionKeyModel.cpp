@@ -72,11 +72,10 @@ void AuthenticatedEncryptionKeyModel::handleDevicesChanged(const QList<QString> 
 
 void AuthenticatedEncryptionKeyModel::updateOwnKey()
 {
-    encryptionController()->ownDevice().then(this, [this](EncryptionController::OwnDevice &&ownDevice) {
-        beginInsertRows(QModelIndex(), 0, 0);
-        m_ownKey = {ownDevice.label + QStringLiteral(" · ") + tr("This device"), ownDevice.keyId};
-        endInsertRows();
-    });
+    beginInsertRows(QModelIndex(), 0, 0);
+    const auto ownDevice = encryptionController()->ownDevice();
+    m_ownKey = {ownDevice.label + QStringLiteral(" · ") + tr("This device"), ownDevice.keyId};
+    endInsertRows();
 }
 
 void AuthenticatedEncryptionKeyModel::updateKeys()

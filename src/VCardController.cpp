@@ -61,26 +61,20 @@ VCardController::VCardController(AccountSettings *accountSettings,
 void VCardController::requestVCard(const QString &jid)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        runOnThread(m_manager, [this, jid]() {
-            m_manager->requestVCard(jid);
-        });
+        m_manager->requestVCard(jid);
     }
 }
 
 void VCardController::requestOwnVCard()
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        runOnThread(m_manager, [this]() {
-            m_manager->requestClientVCard();
-        });
+        m_manager->requestClientVCard();
     }
 }
 
 void VCardController::updateOwnVCard(const QXmppVCardIq &vCard)
 {
-    runOnThread(m_manager, [this, vCard]() {
-        m_manager->setClientVCard(vCard);
-    });
+    m_manager->setClientVCard(vCard);
 }
 
 void VCardController::changeNickname(const QString &nickname)
@@ -157,19 +151,12 @@ void VCardController::handleOwnVCardReceived()
         changeAvatarAfterReceivingCurrentVCard();
     }
 
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->clientVCard();
-        },
-        this,
-        [this](QXmppVCardIq &&vCard) {
-            Q_EMIT vCardReceived(vCard);
+    const auto ownVCard = m_manager->clientVCard();
+    Q_EMIT vCardReceived(ownVCard);
 
-            if (m_nicknameToBeSetAfterReceivingCurrentVCard.isNull()) {
-                m_accountSettings->setName(vCard.nickName());
-            }
-        });
+    if (m_nicknameToBeSetAfterReceivingCurrentVCard.isNull()) {
+        m_accountSettings->setName(ownVCard.nickName());
+    }
 }
 
 void VCardController::handlePresenceReceived(const QXmppPresence &presence)
@@ -180,9 +167,7 @@ void VCardController::handlePresenceReceived(const QXmppPresence &presence)
 
         // check if hash differs and we need to refetch the avatar
         if (hash != newHash) {
-            runOnThread(m_manager, [this, presence]() {
-                m_manager->requestVCard(QXmppUtils::jidToBareJid(presence.from()));
-            });
+            m_manager->requestVCard(QXmppUtils::jidToBareJid(presence.from()));
         }
     } else if (presence.vCardUpdateType() == QXmppPresence::VCardUpdateNoPhoto) {
         QString bareJid = QXmppUtils::jidToBareJid(presence.from());
@@ -193,50 +178,30 @@ void VCardController::handlePresenceReceived(const QXmppPresence &presence)
 
 void VCardController::changeNicknameAfterReceivingCurrentVCard()
 {
-    runOnThread(
-        m_manager,
-        [this, nickname = m_nicknameToBeSetAfterReceivingCurrentVCard]() {
-            QXmppVCardIq vCard = m_manager->clientVCard();
-            vCard.setNickName(nickname);
-            m_manager->setClientVCard(vCard);
-        },
-        this,
-        [this]() {
-            m_nicknameToBeSetAfterReceivingCurrentVCard.clear();
-        });
+    QXmppVCardIq vCard = m_manager->clientVCard();
+    vCard.setNickName(m_nicknameToBeSetAfterReceivingCurrentVCard);
+    m_manager->setClientVCard(vCard);
+    m_nicknameToBeSetAfterReceivingCurrentVCard.clear();
 }
 
 void VCardController::changeAvatarAfterReceivingCurrentVCard()
 {
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->clientVCard();
-        },
-        this,
-        [this](QXmppVCardIq &&vCard) {
-            if (m_isAvatarToBeReset) {
-                m_isAvatarToBeReset = false;
-                vCard.setPhoto({});
-            } else {
-                QByteArray avatar;
-                QBuffer buffer(&avatar);
-                buffer.open(QIODevice::WriteOnly);
-                m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
-                vCard.setPhoto(avatar);
-            }
+    auto vCard = m_manager->clientVCard();
 
-            runOnThread(
-                m_manager,
-                [this, vCard]() {
-                    m_manager->setClientVCard(vCard);
-                },
-                this,
-                [this]() {
-                    m_avatarToBeSetAfterReceivingCurrentVCard = {};
-                    Q_EMIT avatarChangeSucceeded();
-                });
-        });
+    if (m_isAvatarToBeReset) {
+        m_isAvatarToBeReset = false;
+        vCard.setPhoto({});
+    } else {
+        QByteArray avatar;
+        QBuffer buffer(&avatar);
+        buffer.open(QIODevice::WriteOnly);
+        m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
+        vCard.setPhoto(avatar);
+    }
+
+    m_manager->setClientVCard(vCard);
+    m_avatarToBeSetAfterReceivingCurrentVCard = {};
+    Q_EMIT avatarChangeSucceeded();
 }
 
 void VCardController::addAvatar(const QXmppVCardIq &vCard)

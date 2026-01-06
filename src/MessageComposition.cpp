@@ -261,7 +261,7 @@ void MessageComposition::correct()
 
                 message.deliveryState = Enums::DeliveryState::Pending;
 
-                runOnThread(this, [this, message]() mutable {
+                QMetaObject::invokeMethod(this, [this, message]() mutable {
                     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
                         // the trick with the time is important for the servers
                         // this way they can tell which version of the message is the latest

@@ -8,7 +8,6 @@
 // QXmpp
 #include <QXmppVersionManager.h>
 // Kaidan
-#include "FutureUtils.h"
 #include "Globals.h"
 #include "PresenceCache.h"
 
@@ -32,14 +31,10 @@ void VersionController::fetchVersions(const QString &bareJid, const QString &res
     };
 
     if (resource.isEmpty()) {
-        runOnThread(m_versionManager, [this, bareJid, resource, fetchVersion]() {
-            const auto resources = m_presenceCache->resources(bareJid);
-            std::for_each(resources.cbegin(), resources.cend(), fetchVersion);
-        });
+        const auto resources = m_presenceCache->resources(bareJid);
+        std::for_each(resources.cbegin(), resources.cend(), fetchVersion);
     } else {
-        runOnThread(m_versionManager, [resource, fetchVersion]() {
-            fetchVersion(resource);
-        });
+        fetchVersion(resource);
     }
 }
 

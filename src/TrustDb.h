@@ -29,7 +29,7 @@ public:
     using TrustChanges = QHash<QString, QMultiHash<QString, QByteArray>>;
     using SecurityPolicy = QXmpp::TrustSecurityPolicy;
 
-    TrustDb(AccountSettings *accountSettings, QObject *xmppContext, QObject *parent = nullptr);
+    TrustDb(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     auto securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy> override;
     auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void> override;
@@ -78,7 +78,7 @@ private:
     template<typename Functor>
     auto runTask(Functor function) const
     {
-        return runAsyncTask(m_xmppContext, dbWorker(), function);
+        return runAsyncTask(dbWorker(), function);
     }
 
     auto insertKeys(std::vector<Key> &&) -> QXmppTask<void>;
@@ -89,5 +89,4 @@ private:
     inline QString accountJid() const;
 
     AccountSettings *const m_accountSettings;
-    QObject *m_xmppContext;
 };

@@ -43,7 +43,7 @@ QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> EncryptionController:
     return m_omemoController->keys(jids, trustLevels);
 }
 
-QFuture<EncryptionController::OwnDevice> EncryptionController::ownDevice()
+EncryptionController::OwnDevice EncryptionController::ownDevice()
 {
     return m_omemoController->ownDevice();
 }

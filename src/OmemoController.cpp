@@ -68,16 +68,10 @@ QFuture<void> OmemoController::load()
     if (m_isLoaded) {
         promise->finish();
     } else {
-        callRemoteTask(
-            m_manager,
-            [this]() {
-                return std::pair{m_manager->load(), this};
-            },
-            this,
-            [this, promise](bool isLoaded) mutable {
-                m_isLoaded = isLoaded;
-                promise->finish();
-            });
+        m_manager->load().then(this, [this, promise](bool isLoaded) mutable {
+            m_isLoaded = isLoaded;
+            promise->finish();
+        });
     }
 
     return promise->future();
@@ -92,30 +86,28 @@ QFuture<void> OmemoController::setUp()
         enableSessionBuildingForNewDevices();
         promise->finish();
     } else {
-        runOnThread(m_manager, [this, promise]() {
-            m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa).then(m_manager, [this, promise]() mutable {
-                m_manager->setUp(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % SystemUtils::productName())
-                    .then(this, [this, promise](bool isSetUp) mutable {
-                        if (isSetUp) {
-                            m_isLoaded = true;
+        m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa).then(this, [this, promise]() mutable {
+            m_manager->setUp(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % SystemUtils::productName())
+                .then(this, [this, promise](bool isSetUp) mutable {
+                    if (isSetUp) {
+                        m_isLoaded = true;
 
-                            // Enabling the session building for new devices is delayed after all (or at least
-                            // most) devices are automatically received from the servers.
-                            // That way, the sessions for those devices, which are only new during this setup,
-                            // are not built at once.
-                            // Instead, only sessions for devices that are received after this setup are built
-                            // when opening a chat (i.e., even before sending the first message).
-                            // The default behavior would otherwise build sessions not before sending a message
-                            // which leads to longer waiting times.
-                            QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL,
-                                               this,
-                                               &OmemoController::enableSessionBuildingForNewDevices);
-                        } else {
-                            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
-                            promise->finish();
-                        }
-                    });
-            });
+                        // Enabling the session building for new devices is delayed after all (or at least
+                        // most) devices are automatically received from the servers.
+                        // That way, the sessions for those devices, which are only new during this setup,
+                        // are not built at once.
+                        // Instead, only sessions for devices that are received after this setup are built
+                        // when opening a chat (i.e., even before sending the first message).
+                        // The default behavior would otherwise build sessions not before sending a message
+                        // which leads to longer waiting times.
+                        QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL,
+                                           this,
+                                           &OmemoController::enableSessionBuildingForNewDevices);
+                    } else {
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
+                        promise->finish();
+                    }
+                });
         });
     }
 
@@ -188,24 +180,18 @@ QFuture<bool> OmemoController::hasUsableDevices(const QList<QString> &jids)
     auto promise = std::make_shared<QPromise<bool>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, jids]() {
-            return std::pair{m_manager->devices(jids), this};
-        },
-        this,
-        [promise](QList<QXmppOmemoDevice> devices) mutable {
-            for (const auto &device : std::as_const(devices)) {
-                const auto trustLevel = device.trustLevel();
+    m_manager->devices(jids).then(this, [promise](QList<QXmppOmemoDevice> devices) mutable {
+        for (const auto &device : std::as_const(devices)) {
+            const auto trustLevel = device.trustLevel();
 
-                if (TRUST_LEVEL_USABLE.testFlag(trustLevel)) {
-                    reportFinishedResult(*promise, true);
-                    return;
-                }
+            if (TRUST_LEVEL_USABLE.testFlag(trustLevel)) {
+                reportFinishedResult(*promise, true);
+                return;
             }
+        }
 
-            reportFinishedResult(*promise, false);
-        });
+        reportFinishedResult(*promise, false);
+    });
 
     return promise->future();
 }
@@ -215,15 +201,9 @@ QFuture<void> OmemoController::requestDeviceLists(const QList<QString> &jids)
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, jids]() {
-            return std::pair{m_manager->requestDeviceLists(jids), this};
-        },
-        this,
-        [promise](auto) mutable {
-            promise->finish();
-        });
+    m_manager->requestDeviceLists(jids).then(this, [promise](auto) mutable {
+        promise->finish();
+    });
 
     return promise->future();
 }
@@ -233,15 +213,9 @@ QFuture<void> OmemoController::subscribeToDeviceLists(const QList<QString> &jids
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, jids]() {
-            return std::pair{m_manager->subscribeToDeviceLists(jids), this};
-        },
-        this,
-        [promise](auto) mutable {
-            promise->finish();
-        });
+    m_manager->subscribeToDeviceLists(jids).then(this, [promise](auto) mutable {
+        promise->finish();
+    });
 
     return promise->future();
 }
@@ -251,16 +225,10 @@ QFuture<void> OmemoController::reset()
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this]() {
-            return std::pair{m_manager->resetOwnDevice(), this};
-        },
-        this,
-        [this, promise](auto) mutable {
-            m_isLoaded = false;
-            promise->finish();
-        });
+    m_manager->resetOwnDevice().then(this, [this, promise](auto) mutable {
+        m_isLoaded = false;
+        promise->finish();
+    });
 
     return promise->future();
 }
@@ -270,16 +238,10 @@ QFuture<void> OmemoController::resetLocally()
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    callVoidRemoteTask(
-        m_manager,
-        [this]() {
-            return std::pair{m_manager->resetOwnDeviceLocally(), this};
-        },
-        this,
-        [this, promise]() mutable {
-            m_isLoaded = false;
-            promise->finish();
-        });
+    m_manager->resetOwnDeviceLocally().then(this, [this, promise]() mutable {
+        m_isLoaded = false;
+        promise->finish();
+    });
 
     return promise->future();
 }
@@ -289,15 +251,9 @@ QFuture<QString> OmemoController::ownKey()
     auto promise = std::make_shared<QPromise<QString>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this]() {
-            return std::pair{m_manager->ownKey(), this};
-        },
-        this,
-        [promise](QByteArray &&key) mutable {
-            reportFinishedResult(*promise, QString::fromUtf8(key.toHex()));
-        });
+    m_manager->ownKey().then(this, [promise](QByteArray &&key) mutable {
+        reportFinishedResult(*promise, QString::fromUtf8(key.toHex()));
+    });
 
     return promise->future();
 }
@@ -307,46 +263,28 @@ QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> OmemoController::keys
     auto promise = std::make_shared<QPromise<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, jids, trustLevels]() {
-            return std::pair{m_manager->keys(jids, trustLevels), this};
-        },
-        this,
-        [promise](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
-            QHash<QString, QHash<QString, QXmpp::TrustLevel>> processedKeys;
+    m_manager->keys(jids, trustLevels).then(this, [promise](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
+        QHash<QString, QHash<QString, QXmpp::TrustLevel>> processedKeys;
 
-            for (auto itr = keys.cbegin(); itr != keys.cend(); ++itr) {
-                const auto &jid = itr.key();
-                const auto &trustLevels = itr.value();
+        for (auto itr = keys.cbegin(); itr != keys.cend(); ++itr) {
+            const auto &jid = itr.key();
+            const auto &trustLevels = itr.value();
 
-                for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend(); ++trustLevelItr) {
-                    processedKeys[jid].insert(QString::fromUtf8(trustLevelItr.key().toHex()), trustLevelItr.value());
-                }
+            for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend(); ++trustLevelItr) {
+                processedKeys[jid].insert(QString::fromUtf8(trustLevelItr.key().toHex()), trustLevelItr.value());
             }
+        }
 
-            reportFinishedResult(*promise, std::move(processedKeys));
-        });
+        reportFinishedResult(*promise, std::move(processedKeys));
+    });
 
     return promise->future();
 }
 
-QFuture<EncryptionController::OwnDevice> OmemoController::ownDevice()
+EncryptionController::OwnDevice OmemoController::ownDevice()
 {
-    auto promise = std::make_shared<QPromise<EncryptionController::OwnDevice>>();
-    promise->start();
-
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->ownDevice();
-        },
-        this,
-        [promise](QXmppOmemoOwnDevice &&ownDevice) mutable {
-            reportFinishedResult(*promise, {ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex())});
-        });
-
-    return promise->future();
+    const auto ownDevice = m_manager->ownDevice();
+    return {ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex())};
 }
 
 QFuture<QList<EncryptionController::Device>> OmemoController::devices(const QList<QString> &jids)
@@ -354,42 +292,30 @@ QFuture<QList<EncryptionController::Device>> OmemoController::devices(const QLis
     auto promise = std::make_shared<QPromise<QList<EncryptionController::Device>>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, jids]() {
-            return std::pair{m_manager->devices(jids), this};
-        },
-        this,
-        [promise](QList<QXmppOmemoDevice> &&devices) mutable {
-            const auto processedDevices = transform(std::move(devices), [](const QXmppOmemoDevice &device) {
-                return EncryptionController::Device{device.jid(), device.label(), QString::fromUtf8(device.keyId().toHex()), device.trustLevel()};
-            });
-
-            reportFinishedResult(*promise, processedDevices);
+    m_manager->devices(jids).then(this, [promise](QList<QXmppOmemoDevice> &&devices) mutable {
+        const auto processedDevices = transform(std::move(devices), [](const QXmppOmemoDevice &device) {
+            return EncryptionController::Device{device.jid(), device.label(), QString::fromUtf8(device.keyId().toHex()), device.trustLevel()};
         });
+
+        reportFinishedResult(*promise, processedDevices);
+    });
 
     return promise->future();
 };
 
 void OmemoController::removeContactDevices(const QString &jid)
 {
-    runOnThread(m_manager, [this, jid]() {
-        m_manager->removeContactDevices(jid);
-    });
+    m_manager->removeContactDevices(jid);
 }
 
 void OmemoController::buildMissingSessions(const QList<QString> &jids)
 {
-    runOnThread(m_manager, [this, jids]() mutable {
-        m_manager->buildMissingSessions(jids);
-    });
+    m_manager->buildMissingSessions(jids);
 }
 
 void OmemoController::enableSessionBuildingForNewDevices()
 {
-    runOnThread(m_manager, [this]() {
-        m_manager->setNewDeviceAutoSessionBuildingEnabled(true);
-    });
+    m_manager->setNewDeviceAutoSessionBuildingEnabled(true);
 }
 
 QFuture<void> OmemoController::unsubscribeFromDeviceLists()
@@ -397,15 +323,9 @@ QFuture<void> OmemoController::unsubscribeFromDeviceLists()
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this]() {
-            return std::pair{m_manager->unsubscribeFromDeviceLists(), this};
-        },
-        this,
-        [promise](auto) mutable {
-            promise->finish();
-        });
+    m_manager->unsubscribeFromDeviceLists().then(this, [promise](auto) mutable {
+        promise->finish();
+    });
 
     return promise->future();
 }

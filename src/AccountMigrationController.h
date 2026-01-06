@@ -39,7 +39,7 @@ private:
     ClientSettings exportClientSettings();
     QFuture<void> importClientSettings(Account *newAccount, const ClientSettings &oldClientSettings);
 
-    QXmppTask<QXmppAccountMigrationManager::Result<>> notifyContacts(Account *newAccount, const QList<QString> &contactJids);
+    QFuture<QXmppAccountMigrationManager::Result<>> notifyContacts(Account *newAccount, const QList<QString> &contactJids);
 
     Account *m_oldAccount;
     QXmppExportData m_exportData;

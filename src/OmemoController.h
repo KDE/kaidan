@@ -45,7 +45,7 @@ public:
     QFuture<QString> ownKey();
     QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
 
-    QFuture<EncryptionController::OwnDevice> ownDevice();
+    EncryptionController::OwnDevice ownDevice();
     QFuture<QList<EncryptionController::Device>> devices(const QList<QString> &jids);
 
     void removeContactDevices(const QString &jid);

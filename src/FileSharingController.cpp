@@ -224,137 +224,134 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
         return;
     }
 
-    runOnThread(m_manager, [this, accountJid, chatJid, messageId, fileId, fileShare = file.toQXmpp()] {
-        QString dirPath = SystemUtils::downloadDirectory();
+    const auto fileShare = file.toQXmpp();
+    QString dirPath = SystemUtils::downloadDirectory();
 
-        if (auto dir = QDir(dirPath); !dir.exists()) {
-            dir.mkpath(QStringLiteral("."));
+    if (auto dir = QDir(dirPath); !dir.exists()) {
+        dir.mkpath(QStringLiteral("."));
+    }
+
+    // Sanitize file name, if given
+    auto maybeFileName = andThen(fileShare.metadata().filename(), sanitizeFilename);
+
+    // Add fallback file name, so we always have a file name
+    auto fileName = [&]() {
+        if (maybeFileName) {
+            return maybeFileName->first;
         }
+        return QDateTime::currentDateTime().toString();
+    }();
 
-        // Sanitize file name, if given
-        auto maybeFileName = andThen(fileShare.metadata().filename(), sanitizeFilename);
-
-        // Add fallback file name, so we always have a file name
-        auto fileName = [&]() {
-            if (maybeFileName) {
-                return maybeFileName->first;
-            }
-            return QDateTime::currentDateTime().toString();
-        }();
-
-        const auto fileExtension = [&]() {
-            auto extension = fileShare.metadata().mediaType()->preferredSuffix();
-            if (!extension.isEmpty()) {
-                return extension;
-            }
-            if (maybeFileName) {
-                return maybeFileName->second;
-            }
-            return QString();
-        }();
-
-        const QString fileNameWithExtension = fileName + QLatin1Char('.') + fileExtension;
-
-        // Ensure that the file name is locally unique.
-        const auto uniqueFileNameWithExtension = KFileUtils::suggestName(QUrl::fromLocalFile(dirPath), fileNameWithExtension);
-        const QString filePath = dirPath + QDir::separator() + uniqueFileNameWithExtension;
-
-        // Open the file at the resulting path
-        auto output = std::make_unique<QFile>(filePath);
-
-        if (!output->open(QIODevice::WriteOnly)) {
-            qCDebug(KAIDAN_CORE_LOG) << "Failed to open output file at" << filePath;
-            return;
+    const auto fileExtension = [&]() {
+        auto extension = fileShare.metadata().mediaType()->preferredSuffix();
+        if (!extension.isEmpty()) {
+            return extension;
         }
+        if (maybeFileName) {
+            return maybeFileName->second;
+        }
+        return QString();
+    }();
 
-        MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId](Message &message) {
-            auto file = find_if(message.files, [fileId](const auto &file) {
-                return file.id == fileId;
-            });
+    const QString fileNameWithExtension = fileName + QLatin1Char('.') + fileExtension;
 
-            if (file != message.files.end()) {
-                file->transferState = File::TransferState::Transferring;
-            }
+    // Ensure that the file name is locally unique.
+    const auto uniqueFileNameWithExtension = KFileUtils::suggestName(QUrl::fromLocalFile(dirPath), fileNameWithExtension);
+    const QString filePath = dirPath + QDir::separator() + uniqueFileNameWithExtension;
+
+    // Open the file at the resulting path
+    auto output = std::make_unique<QFile>(filePath);
+
+    if (!output->open(QIODevice::WriteOnly)) {
+        qCDebug(KAIDAN_CORE_LOG) << "Failed to open output file at" << filePath;
+        return;
+    }
+
+    MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId](Message &message) {
+        auto file = find_if(message.files, [fileId](const auto &file) {
+            return file.id == fileId;
         });
 
-        auto download = m_manager->downloadFile(fileShare, std::move(output));
-        std::weak_ptr<QXmppFileDownload> downloadPtr = download;
+        if (file != message.files.end()) {
+            file->transferState = File::TransferState::Transferring;
+        }
+    });
 
-        FileProgressCache::instance().reportProgress(fileId,
-                                                     FileProgress{
-                                                         accountJid,
-                                                         0,
-                                                         download->bytesTotal(),
-                                                         0.0F,
-                                                         [this, downloadPtr]() {
-                                                             runOnThread(m_manager, [downloadPtr]() {
-                                                                 if (auto download = downloadPtr.lock()) {
-                                                                     download->cancel();
-                                                                 }
-                                                             });
-                                                         },
-                                                     });
+    auto download = m_manager->downloadFile(fileShare, std::move(output));
+    std::weak_ptr<QXmppFileDownload> downloadPtr = download;
 
-        connect(download.get(), &QXmppFileDownload::progressChanged, this, [fileId, downloadPtr]() {
-            if (auto download = downloadPtr.lock()) {
-                auto progress = FileProgressCache::instance().progress(fileId);
-                Q_ASSERT(progress);
+    FileProgressCache::instance().reportProgress(fileId,
+                                                 FileProgress{
+                                                     accountJid,
+                                                     0,
+                                                     download->bytesTotal(),
+                                                     0.0F,
+                                                     [downloadPtr]() {
+                                                         if (auto download = downloadPtr.lock()) {
+                                                             download->cancel();
+                                                         }
+                                                     },
+                                                 });
 
-                progress->bytesSent = download->bytesTransferred();
-                progress->bytesTotal = download->bytesTotal();
-                progress->progress = download->progress();
+    connect(download.get(), &QXmppFileDownload::progressChanged, this, [fileId, downloadPtr]() {
+        if (auto download = downloadPtr.lock()) {
+            auto progress = FileProgressCache::instance().progress(fileId);
+            Q_ASSERT(progress);
 
-                FileProgressCache::instance().reportProgress(fileId, progress);
+            progress->bytesSent = download->bytesTransferred();
+            progress->bytesTotal = download->bytesTotal();
+            progress->progress = download->progress();
+
+            FileProgressCache::instance().reportProgress(fileId, progress);
+        }
+    });
+
+    connect(download.get(), &QXmppFileDownload::finished, this, [this, accountJid, chatJid, messageId, fileId, filePath, download]() mutable {
+        auto result = download->result();
+        auto error = [&result]() -> std::optional<QXmppError> {
+            if (std::holds_alternative<QXmpp::Cancelled>(result)) {
+                return QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError};
+            } else if (std::holds_alternative<QXmppError>(result)) {
+                return std::get<QXmppError>(result);
             }
-        });
 
-        connect(download.get(), &QXmppFileDownload::finished, this, [this, accountJid, chatJid, messageId, fileId, filePath, download]() mutable {
-            auto result = download->result();
-            auto error = [&result]() -> std::optional<QXmppError> {
-                if (std::holds_alternative<QXmpp::Cancelled>(result)) {
-                    return QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError};
-                } else if (std::holds_alternative<QXmppError>(result)) {
-                    return std::get<QXmppError>(result);
+            return {};
+        }();
+
+        if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
+            MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId, filePath](Message &message) {
+                auto file = find_if(message.files, [fileId](const auto &file) {
+                    return file.id == fileId;
+                });
+
+                if (file != message.files.end()) {
+                    file->localFilePath = filePath;
+                    file->transferState = File::TransferState::Done;
                 }
 
-                return {};
-            }();
+                resetError(message);
 
-            if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
-                MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId, filePath](Message &message) {
-                    auto file = find_if(message.files, [fileId](const auto &file) {
-                        return file.id == fileId;
-                    });
+                // TODO: generate possibly missing metadata
+                // metadata may be missing if the sender only used out of band urls
+            });
+        } else if (error) {
+            auto progress = FileProgressCache::instance().progress(fileId);
+            Q_ASSERT(progress);
 
-                    if (file != message.files.end()) {
-                        file->localFilePath = filePath;
-                        file->transferState = File::TransferState::Done;
-                    }
+            const auto errorText = error->description;
 
-                    resetError(message);
+            handleTransferError(chatJid, messageId, fileId, *progress, *error, [errorText]() {
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
+            });
 
-                    // TODO: generate possibly missing metadata
-                    // metadata may be missing if the sender only used out of band urls
-                });
-            } else if (error) {
-                auto progress = FileProgressCache::instance().progress(fileId);
-                Q_ASSERT(progress);
+            qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
 
-                const auto errorText = error->description;
+            MediaUtils::deleteDownloadedFile(filePath);
+        }
 
-                handleTransferError(chatJid, messageId, fileId, *progress, *error, [errorText]() {
-                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not download file: %1").arg(errorText));
-                });
-
-                qCDebug(KAIDAN_CORE_LOG) << "Could not download file:" << errorText;
-
-                MediaUtils::deleteDownloadedFile(filePath);
-            }
-
-            FileProgressCache::instance().reportProgress(fileId, {});
-            // reduce ref count
-            download.reset();
-        });
+        FileProgressCache::instance().reportProgress(fileId, {});
+        // reduce ref count
+        download.reset();
     });
 }
 
@@ -387,163 +384,155 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
             message.errorText = text;
         });
     };
+
+    const auto accountJid = m_accountSettings->jid();
+    switch (m_uploadSupport) {
+    case QXmppHttpUploadManager::Support::Unknown:
+        updateMessageError(tr("Media sharing support is unknown"));
+        return makeReadyFuture(false);
+    case QXmppHttpUploadManager::Support::Unsupported:
+        updateMessageError(tr("Media sharing is unsupported"));
+        return makeReadyFuture(false);
+    case QXmppHttpUploadManager::Support::Supported:
+        break;
+    }
+
     auto promise = std::make_shared<QPromise<bool>>();
 
-    runOnThread(
-        m_manager,
-        [this, accountJid = m_accountSettings->jid(), chatJid, messageId, file, encrypt, support = m_uploadSupport, updateMessageError, promise]() mutable {
-            switch (support) {
-            case QXmppHttpUploadManager::Support::Unknown:
-                updateMessageError(tr("Media sharing support is unknown"));
-                promise->addResult(false);
-                promise->finish();
-                return;
-            case QXmppHttpUploadManager::Support::Unsupported:
-                updateMessageError(tr("Media sharing is unsupported"));
-                promise->addResult(false);
-                promise->finish();
-                return;
-            case QXmppHttpUploadManager::Support::Supported:
-                break;
+    auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
+                            : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
+
+    MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId = file.id](Message &message) {
+        auto file = find_if(message.files, [fileId](const auto &file) {
+            return file.id == fileId;
+        });
+
+        if (file != message.files.end()) {
+            file->transferState = File::TransferState::Transferring;
+        }
+    });
+
+    auto upload = m_manager->uploadFile(provider, file.localFilePath, file.description);
+    std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
+
+    FileProgressCache::instance().reportProgress(file.id,
+                                                 FileProgress{
+                                                     accountJid,
+                                                     0,
+                                                     upload->bytesTotal(),
+                                                     0.0F,
+                                                     [uploadPtr]() {
+                                                         if (auto upload = uploadPtr.lock()) {
+                                                             upload->cancel();
+                                                         }
+                                                     },
+                                                 });
+
+    connect(upload.get(), &QXmppFileUpload::progressChanged, this, [file, uploadPtr] {
+        if (auto upload = uploadPtr.lock()) {
+            auto progress = FileProgressCache::instance().progress(file.id);
+            Q_ASSERT(progress);
+
+            progress->bytesSent = upload->bytesTransferred();
+            progress->bytesTotal = upload->bytesTotal();
+            progress->progress = upload->progress();
+
+            FileProgressCache::instance().reportProgress(file.id, progress);
+        }
+    });
+
+    auto handleUploadFinished = [this, accountJid, chatJid, messageId, file, upload, promise]() mutable {
+        auto result = upload->result();
+        auto error = [&result]() -> std::optional<QXmppError> {
+            if (std::holds_alternative<QXmpp::Cancelled>(result)) {
+                return QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError};
+            } else if (std::holds_alternative<QXmppError>(result)) {
+                return std::get<QXmppError>(result);
             }
 
-            auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
-                                    : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
+            return std::nullopt;
+        }();
 
-            MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId = file.id](Message &message) {
-                auto file = find_if(message.files, [fileId](const auto &file) {
-                    return file.id == fileId;
-                });
+        if (auto fileResult = std::get_if<QXmppFileUpload::FileResult>(&result)) {
+            MessageDb::instance()
+                ->updateMessage(accountJid,
+                                chatJid,
+                                messageId,
+                                [file, fileResult = *fileResult](Message &message) {
+                                    auto it = find_if(message.files, [file](const auto &f) {
+                                        return f.id == file.id;
+                                    });
 
-                if (file != message.files.end()) {
-                    file->transferState = File::TransferState::Transferring;
-                }
-            });
+                                    if (it != message.files.end()) {
+                                        it->transferState = File::TransferState::Done;
 
-            auto upload = m_manager->uploadFile(provider, file.localFilePath, file.description);
-            std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
+                                        if (!fileResult.dataBlobs.empty()) {
+                                            it->thumbnail = fileResult.dataBlobs.constFirst().data();
+                                        }
 
-            FileProgressCache::instance().reportProgress(file.id,
-                                                         FileProgress{
-                                                             accountJid,
-                                                             0,
-                                                             upload->bytesTotal(),
-                                                             0.0F,
-                                                             [this, uploadPtr]() {
-                                                                 runOnThread(m_manager, [uploadPtr]() {
-                                                                     if (auto upload = uploadPtr.lock()) {
-                                                                         upload->cancel();
-                                                                     }
-                                                                 });
-                                                             },
-                                                         });
+                                        it->httpSources = transform(fileResult.fileShare.httpSources(), [&](const auto &s) {
+                                            return HttpSource{it->id, s.url()};
+                                        });
 
-            connect(upload.get(), &QXmppFileUpload::progressChanged, this, [file, uploadPtr] {
-                if (auto upload = uploadPtr.lock()) {
-                    auto progress = FileProgressCache::instance().progress(file.id);
-                    Q_ASSERT(progress);
-
-                    progress->bytesSent = upload->bytesTransferred();
-                    progress->bytesTotal = upload->bytesTotal();
-                    progress->progress = upload->progress();
-
-                    FileProgressCache::instance().reportProgress(file.id, progress);
-                }
-            });
-
-            auto handleUploadFinished = [this, accountJid, chatJid, messageId, file, upload, promise]() mutable {
-                auto result = upload->result();
-                auto error = [&result]() -> std::optional<QXmppError> {
-                    if (std::holds_alternative<QXmpp::Cancelled>(result)) {
-                        return QXmppError{tr("Canceled"), QNetworkReply::OperationCanceledError};
-                    } else if (std::holds_alternative<QXmppError>(result)) {
-                        return std::get<QXmppError>(result);
-                    }
-
-                    return std::nullopt;
-                }();
-
-                if (auto fileResult = std::get_if<QXmppFileUpload::FileResult>(&result)) {
-                    MessageDb::instance()
-                        ->updateMessage(accountJid,
-                                        chatJid,
-                                        messageId,
-                                        [file, fileResult = *fileResult](Message &message) {
-                                            auto it = find_if(message.files, [file](const auto &f) {
-                                                return f.id == file.id;
-                                            });
-
-                                            if (it != message.files.end()) {
-                                                it->transferState = File::TransferState::Done;
-
-                                                if (!fileResult.dataBlobs.empty()) {
-                                                    it->thumbnail = fileResult.dataBlobs.constFirst().data();
-                                                }
-
-                                                it->httpSources = transform(fileResult.fileShare.httpSources(), [&](const auto &s) {
-                                                    return HttpSource{it->id, s.url()};
-                                                });
-
-                                                it->encryptedSources = transform(fileResult.fileShare.encryptedSources(), [&](const auto &s) {
-                                                    QUrl sourceUrl;
-                                                    if (!s.httpSources().empty()) {
-                                                        sourceUrl = s.httpSources().first().url();
-                                                    }
-
-                                                    std::optional<qint64> encryptedDataId;
-                                                    if (!s.hashes().empty()) {
-                                                        encryptedDataId = MessageDb::instance()->newFileId();
-                                                    }
-
-                                                    return EncryptedSource{it->id,
-                                                                           sourceUrl,
-                                                                           s.cipher(),
-                                                                           s.key(),
-                                                                           s.iv(),
-                                                                           encryptedDataId,
-                                                                           transform(s.hashes(), [&](const auto &hash) {
-                                                                               return FileHash{encryptedDataId.value(), hash.algorithm(), hash.hash()};
-                                                                           })};
-                                                });
-
-                                                it->hashes = transform(fileResult.fileShare.metadata().hashes(), [&](const auto &hash) {
-                                                    return FileHash{it->id, hash.algorithm(), hash.hash()};
-                                                });
+                                        it->encryptedSources = transform(fileResult.fileShare.encryptedSources(), [&](const auto &s) {
+                                            QUrl sourceUrl;
+                                            if (!s.httpSources().empty()) {
+                                                sourceUrl = s.httpSources().first().url();
                                             }
 
-                                            resetError(message);
-                                        })
-                        .then([promise]() {
-                            promise->addResult(true);
-                            promise->finish();
-                        });
-                } else if (error) {
-                    auto progress = FileProgressCache::instance().progress(file.id);
-                    Q_ASSERT(progress);
+                                            std::optional<qint64> encryptedDataId;
+                                            if (!s.hashes().empty()) {
+                                                encryptedDataId = MessageDb::instance()->newFileId();
+                                            }
 
-                    const auto errorText = error->description;
+                                            return EncryptedSource{it->id,
+                                                                   sourceUrl,
+                                                                   s.cipher(),
+                                                                   s.key(),
+                                                                   s.iv(),
+                                                                   encryptedDataId,
+                                                                   transform(s.hashes(), [&](const auto &hash) {
+                                                                       return FileHash{encryptedDataId.value(), hash.algorithm(), hash.hash()};
+                                                                   })};
+                                        });
 
-                    handleTransferError(chatJid, messageId, file.id, *progress, *error, [errorText]() {
-                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1").arg(errorText));
-                    }).then([promise]() {
-                        promise->addResult(false);
-                        promise->finish();
-                    });
+                                        it->hashes = transform(fileResult.fileShare.metadata().hashes(), [&](const auto &hash) {
+                                            return FileHash{it->id, hash.algorithm(), hash.hash()};
+                                        });
+                                    }
 
-                    qCDebug(KAIDAN_CORE_LOG) << "Could not upload file:" << errorText;
-                }
+                                    resetError(message);
+                                })
+                .then([promise]() {
+                    promise->addResult(true);
+                    promise->finish();
+                });
+        } else if (error) {
+            auto progress = FileProgressCache::instance().progress(file.id);
+            Q_ASSERT(progress);
 
-                FileProgressCache::instance().reportProgress(file.id, {});
-                // reduce ref count
-                upload.reset();
-            };
+            const auto errorText = error->description;
 
-            connect(upload.get(), &QXmppFileUpload::finished, this, handleUploadFinished);
+            handleTransferError(chatJid, messageId, file.id, *progress, *error, [errorText]() {
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1").arg(errorText));
+            }).then([promise]() {
+                promise->addResult(false);
+                promise->finish();
+            });
 
-            if (upload->isFinished()) {
-                handleUploadFinished();
-            }
-        });
+            qCDebug(KAIDAN_CORE_LOG) << "Could not upload file:" << errorText;
+        }
+
+        FileProgressCache::instance().reportProgress(file.id, {});
+        // reduce ref count
+        upload.reset();
+    };
+
+    connect(upload.get(), &QXmppFileUpload::finished, this, handleUploadFinished);
+
+    if (upload->isFinished()) {
+        handleUploadFinished();
+    }
 
     return promise->future();
 }
@@ -587,28 +576,12 @@ void FileSharingController::handleUploadSupportChanged()
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
         auto *uploadManager = m_clientWorker->uploadManager();
 
-        struct Result {
-            QXmppHttpUploadManager::Support support;
-            qint64 limit = 0;
-        };
+        if (const auto services = uploadManager->services(); !services.isEmpty()) {
+            const auto limit = services.constFirst().sizeLimit();
+            m_accountSettings->setHttpUploadLimit(limit ? static_cast<qint64>(*limit) : -1);
+        }
 
-        runOnThread(
-            uploadManager,
-            [uploadManager]() {
-                Result res{uploadManager->support()};
-
-                if (const auto services = uploadManager->services(); !services.isEmpty()) {
-                    const auto limit = services.constFirst().sizeLimit();
-                    res.limit = limit ? static_cast<qint64>(*limit) : -1;
-                }
-
-                return res;
-            },
-            this,
-            [this](Result &&result) {
-                m_accountSettings->setHttpUploadLimit(result.limit);
-                m_uploadSupport = result.support;
-            });
+        m_uploadSupport = uploadManager->support();
     } else {
         m_uploadSupport = QXmppHttpUploadManager::Support::Unknown;
     }

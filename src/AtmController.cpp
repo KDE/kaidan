@@ -51,9 +51,7 @@ AtmController::TrustDecisionWithUriResult AtmController::makeTrustDecisionsWithU
 
 void AtmController::makeTrustDecisions(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting)
 {
-    runOnThread(m_manager, [this, jid, keyIdsForAuthentication, keyIdsForDistrusting]() {
-        m_manager->makeTrustDecisions(XMLNS_OMEMO_2, jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
-    });
+    m_manager->makeTrustDecisions(XMLNS_OMEMO_2, jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
 }
 
 QFuture<QXmpp::TrustLevel> AtmController::trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
@@ -61,15 +59,9 @@ QFuture<QXmpp::TrustLevel> AtmController::trustLevel(const QString &encryption, 
     auto promise = std::make_shared<QPromise<QXmpp::TrustLevel>>();
     promise->start();
 
-    callRemoteTask(
-        m_manager,
-        [this, encryption, keyOwnerJid, keyId]() {
-            return std::pair{m_manager->trustLevel(encryption, keyOwnerJid, keyId), this};
-        },
-        this,
-        [promise](QXmpp::TrustLevel &&trustLevel) mutable {
-            reportFinishedResult(*promise, std::move(trustLevel));
-        });
+    m_manager->trustLevel(encryption, keyOwnerJid, keyId).then(this, [promise](QXmpp::TrustLevel &&trustLevel) mutable {
+        reportFinishedResult(*promise, std::move(trustLevel));
+    });
 
     return promise->future();
 }

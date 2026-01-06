@@ -333,22 +333,16 @@ QFuture<bool> AccountMigrationController::startMigration(Account *oldAccount)
                 reportFinishedResult(*promise, false);
             }
         } else {
-            callRemoteTask(
-                migrationManager,
-                [this, migrationManager]() {
-                    return std::pair{migrationManager->exportData(), this};
-                },
-                this,
-                [this, promise](QXmppAccountMigrationManager::Result<QXmppExportData> &&result) mutable {
-                    if (const auto error = std::get_if<QXmppError>(&result)) {
-                        informUser(error->description);
-                        reportFinishedResult(*promise, false);
-                    } else {
-                        m_exportData = std::move(std::get<QXmppExportData>(std::move(result)));
-                        m_exportData.setExtension(exportClientSettings());
-                        reportFinishedResult(*promise, true);
-                    }
-                });
+            migrationManager->exportData().then(this, [this, promise](QXmppAccountMigrationManager::Result<QXmppExportData> &&result) mutable {
+                if (const auto error = std::get_if<QXmppError>(&result)) {
+                    informUser(error->description);
+                    reportFinishedResult(*promise, false);
+                } else {
+                    m_exportData = std::move(std::get<QXmppExportData>(std::move(result)));
+                    m_exportData.setExtension(exportClientSettings());
+                    reportFinishedResult(*promise, true);
+                }
+            });
         }
 
     } else {
@@ -364,41 +358,29 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    auto *migrationManager = newAccount->clientWorker()->accountMigrationManager();
+    newAccount->clientWorker()->accountMigrationManager()->importData(m_exportData).then(this, [this, promise, newAccount](auto &&result) mutable {
+        if (const auto accountFilePath = diskAccountFilePath(); const auto error = std::get_if<QXmppError>(&result)) {
+            saveAccountDataToDisk(accountFilePath, m_exportData);
+            informUser(error->description);
+            promise->finish();
+        } else {
+            if (QFile::exists(accountFilePath)) {
+                QFile::remove(accountFilePath);
+            }
 
-    callRemoteTask(
-        migrationManager,
-        [this, migrationManager, exportData = m_exportData]() {
-            return std::pair{migrationManager->importData(exportData), this};
-        },
-        this,
-        [this, promise, newAccount](auto &&result) mutable {
-            if (const auto accountFilePath = diskAccountFilePath(); const auto error = std::get_if<QXmppError>(&result)) {
-                saveAccountDataToDisk(accountFilePath, m_exportData);
-                informUser(error->description);
-                promise->finish();
-            } else {
-                if (QFile::exists(accountFilePath)) {
-                    QFile::remove(accountFilePath);
-                }
-
-                if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
-                    importClientSettings(newAccount, *oldClientSettings)
-                        .then(this, [this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
-                            auto *movedManager = m_oldAccount->clientWorker()->movedManager();
-
-                            callRemoteTask(
-                                movedManager,
-                                [this, movedManager, newAccountJid = newAccount->settings()->jid()]() {
-                                    return std::pair{movedManager->publishStatement(newAccountJid), this};
-                                },
-                                this,
-                                [this, promise, newAccount, oldContacts](auto &&result) mutable {
-                                    if (const auto error = std::get_if<QXmppError>(&result)) {
-                                        informUser(error->description);
-                                        promise->finish();
-                                    } else {
-                                        notifyContacts(newAccount, oldContacts).then(this, [this, promise, newAccount](auto &&result) mutable {
+            if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
+                importClientSettings(newAccount, *oldClientSettings)
+                    .then(this, [this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
+                        m_oldAccount->clientWorker()
+                            ->movedManager()
+                            ->publishStatement(newAccount->settings()->jid())
+                            .then(this, [this, promise, newAccount, oldContacts](auto &&result) mutable {
+                                if (const auto error = std::get_if<QXmppError>(&result)) {
+                                    informUser(error->description);
+                                    promise->finish();
+                                } else {
+                                    notifyContacts(newAccount, oldContacts)
+                                        .then([this, promise, newAccount](QXmppAccountMigrationManager::Result<> result) mutable {
                                             if (const auto error = std::get_if<QXmppError>(&result)) {
                                                 informUser(error->description);
                                             } else {
@@ -409,14 +391,14 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
 
                                             promise->finish();
                                         });
-                                    }
-                                });
-                        });
-                } else {
-                    promise->finish();
-                }
+                                }
+                            });
+                    });
+            } else {
+                promise->finish();
             }
-        });
+        }
+    });
 
     return promise->future();
 }
@@ -602,41 +584,40 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
     return promise->future();
 }
 
-QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationController::notifyContacts(Account *newAccount, const QList<QString> &contactJids)
+QFuture<QXmppAccountMigrationManager::Result<>> AccountMigrationController::notifyContacts(Account *newAccount, const QList<QString> &contactJids)
 {
     if (contactJids.isEmpty()) {
-        return makeReadyTask<QXmppAccountMigrationManager::Result<>>({});
+        return makeReadyFuture<QXmppAccountMigrationManager::Result<>>({});
     }
 
-    QXmppPromise<QXmppAccountMigrationManager::Result<>> promise;
+    auto promise = std::make_shared<QPromise<QXmppAccountMigrationManager::Result<>>>();
+    promise->start();
+
     auto counter = std::make_shared<int>(contactJids.size());
 
     for (const QString &contactJid : contactJids) {
-        auto *movedManager = newAccount->clientWorker()->movedManager();
-
-        callRemoteTask(
-            movedManager,
-            [this, movedManager, contactJid, oldAccountJid = m_exportData.accountJid()]() {
-                return std::pair{movedManager->notifyContact(contactJid, oldAccountJid, false), this};
-            },
-            this,
-            [promise, counter](auto &&result) mutable {
-                if (promise.task().isFinished()) {
+        newAccount->clientWorker()
+            ->movedManager()
+            ->notifyContact(contactJid, m_exportData.accountJid(), false)
+            .then(this, [promise, counter](auto &&result) mutable {
+                if (promise->future().isFinished()) {
                     return;
                 }
 
                 if (const auto error = std::get_if<QXmppError>(&result)) {
-                    promise.finish(*error);
+                    promise->addResult(*error);
+                    promise->finish();
                     return;
                 }
 
                 if ((--(*counter)) == 0) {
-                    promise.finish(QXmpp::Success());
+                    promise->addResult(QXmpp::Success());
+                    promise->finish();
                 }
             });
     }
 
-    return promise.task();
+    return promise->future();
 }
 
 #include "moc_AccountMigrationController.cpp"

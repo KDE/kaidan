@@ -37,46 +37,30 @@ RosterController::RosterController(AccountSettings *accountSettings,
     connect(m_manager, &QXmppRosterManager::rosterReceived, this, &RosterController::populateRoster);
 
     connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
-        runOnThread(
-            m_manager,
-            [this, jid]() {
-                return m_manager->getRosterEntry(jid);
-            },
-            this,
-            [this, jid](QXmppRosterIq::Item &&addedItem) {
-                RosterItem rosterItem{m_accountSettings->jid(), addedItem};
-                rosterItem.encryption = m_accountSettings->encryption();
-                rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
-                RosterDb::instance()->addItem(rosterItem);
+        RosterItem item{m_accountSettings->jid(), m_manager->getRosterEntry(jid)};
+        item.encryption = m_accountSettings->encryption();
+        item.lastMessageDateTime = QDateTime::currentDateTimeUtc();
+        RosterDb::instance()->addItem(item);
 
-                if (m_pendingSubscriptionRequests.contains(jid)) {
-                    const auto subscriptionRequest = m_pendingSubscriptionRequests.take(jid);
-                    applyOldContactData(subscriptionRequest.oldJid(), jid);
-                    addUnrespondedSubscriptionRequest(jid, subscriptionRequest);
-                }
-            });
+        if (m_pendingSubscriptionRequests.contains(jid)) {
+            const auto subscriptionRequest = m_pendingSubscriptionRequests.take(jid);
+            applyOldContactData(subscriptionRequest.oldJid(), jid);
+            addUnrespondedSubscriptionRequest(jid, subscriptionRequest);
+        }
     });
 
     connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
-        runOnThread(
-            m_manager,
-            [this, jid]() {
-                return m_manager->getRosterEntry(jid);
-            },
-            this,
-            [this, jid](QXmppRosterIq::Item &&changedItem) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem](RosterItem &item) {
-                    item.name = changedItem.name();
-                    item.subscription = changedItem.subscriptionType();
+        RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
+            item.name = changedItem.name();
+            item.subscription = changedItem.subscriptionType();
 
-                    const auto groups = changedItem.groups();
-                    item.groups = {groups.cbegin(), groups.cend()};
-                });
+            const auto groups = changedItem.groups();
+            item.groups = {groups.cbegin(), groups.cend()};
+        });
 
-                if (m_isItemBeingChanged) {
-                    m_isItemBeingChanged = false;
-                }
-            });
+        if (m_isItemBeingChanged) {
+            m_isItemBeingChanged = false;
+        }
     });
 
     connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
@@ -141,11 +125,7 @@ void RosterController::addContact(const QString &jid, const QString &name, const
                 Q_EMIT contactAdditionFailed(jid);
             }
         } else {
-            callRemoteTask(
-                m_manager,
-                [this, jid, name]() {
-                    return std::pair{m_manager->addRosterItem(jid, name), this};
-                },
+            m_manager->addRosterItem(jid, name).then(
                 this,
                 [this, jid, message, automaticInitialAddition, ownJidBeingAdded](QXmppRosterManager::Result &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
@@ -165,9 +145,7 @@ void RosterController::addContact(const QString &jid, const QString &name, const
 
                         Q_EMIT MainController::instance()->passiveNotificationRequested(tr("%1 could not be added: %2").arg(jid, error->description));
                     } else if (!ownJidBeingAdded && !QXmppUtils::jidToUser(jid).isEmpty()) {
-                        runOnThread(m_manager, [this, jid, message]() {
-                            m_manager->subscribeTo(jid, message);
-                        });
+                        m_manager->subscribeTo(jid, message);
                     }
                 });
         }
@@ -180,9 +158,7 @@ void RosterController::addContact(const QString &jid, const QString &name, const
 void RosterController::renameContact(const QString &jid, const QString &newContactName)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        runOnThread(m_manager, [this, jid, newContactName]() {
-            m_manager->renameItem(jid, newContactName);
-        });
+        m_manager->renameItem(jid, newContactName);
     } else {
         Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename contact as a result of not being connected."));
         qCWarning(KAIDAN_CORE_LOG) << "Could not rename contact as a result of not being connected.";
@@ -191,52 +167,34 @@ void RosterController::renameContact(const QString &jid, const QString &newConta
 
 void RosterController::subscribeToPresence(const QString &contactJid)
 {
-    callRemoteTask(
-        m_manager,
-        [this, contactJid]() {
-            return std::pair{m_manager->subscribeTo(contactJid), this};
-        },
-        this,
-        [contactJid](QXmpp::SendResult result) {
-            if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("Requesting to see the personal data of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
-            }
-        });
+    m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Requesting to see the personal data of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
+        }
+    });
 }
 
-QFuture<bool> RosterController::acceptSubscriptionToPresence(const QString &contactJid)
+bool RosterController::acceptSubscriptionToPresence(const QString &contactJid)
 {
-    return runAsync(m_manager,
-                    [this, contactJid]() {
-                        return m_manager->acceptSubscription(contactJid);
-                    })
-        .then(this, [this, contactJid](bool succeeded) {
-            if (succeeded) {
-                m_unrespondedSubscriptionRequests.remove(contactJid);
-                return true;
-            } else {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
-                return false;
-            }
-        });
+    if (m_manager->acceptSubscription(contactJid)) {
+        m_unrespondedSubscriptionRequests.remove(contactJid);
+        return true;
+    } else {
+        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
+        return false;
+    }
 }
 
-QFuture<bool> RosterController::refuseSubscriptionToPresence(const QString &contactJid)
+bool RosterController::refuseSubscriptionToPresence(const QString &contactJid)
 {
-    return runAsync(m_manager,
-                    [this, contactJid]() {
-                        return m_manager->refuseSubscription(contactJid);
-                    })
-        .then(this, [this, contactJid](bool succeeded) {
-            if (succeeded) {
-                m_unrespondedSubscriptionRequests.remove(contactJid);
-                return true;
-            } else {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
-                return false;
-            }
-        });
+    if (m_manager->refuseSubscription(contactJid)) {
+        m_unrespondedSubscriptionRequests.remove(contactJid);
+        return true;
+    } else {
+        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
+        return false;
+    }
 }
 
 QMap<QString, QXmppPresence> RosterController::unrespondedPresenceSubscriptionRequests()
@@ -293,10 +251,8 @@ void RosterController::updateGroups(const QString &jid, const QString &name, con
 {
     m_isItemBeingChanged = true;
 
-    runOnThread(m_manager, [this, jid, name, groups]() {
-        // TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
-        m_manager->addItem(jid, name, {groups.cbegin(), groups.cend()});
-    });
+    // TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
+    m_manager->addItem(jid, name, {groups.cbegin(), groups.cend()});
 }
 
 void RosterController::setChatStateSendingEnabled(const QString &jid, bool chatStateSendingEnabled)
@@ -330,9 +286,7 @@ void RosterController::setAutomaticMediaDownloadsRule(const QString &jid, Roster
 void RosterController::removeContact(const QString &jid)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        runOnThread(m_manager, [this, jid]() {
-            m_manager->removeItem(jid);
-        });
+        m_manager->removeItem(jid);
     } else {
         Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not remove contact as a result of not being connected."));
         qCWarning(KAIDAN_CORE_LOG) << "Could not remove contact as a result of not being connected.";
@@ -345,71 +299,47 @@ void RosterController::populateRoster()
 
     const auto accountJid = m_accountSettings->jid();
 
-    runOnThread(
-        m_manager,
-        [this, accountJid, encryption = m_accountSettings->encryption()]() {
-            QList<RosterItem> rosterItems;
-            const auto jids = m_manager->getRosterBareJids();
+    QList<RosterItem> rosterItems;
+    const auto jids = m_manager->getRosterBareJids();
 
-            for (const auto &jid : jids) {
-                RosterItem rosterItem = {accountJid, m_manager->getRosterEntry(jid)};
-                rosterItem.encryption = encryption;
-                rosterItems.append(rosterItem);
-            }
+    for (const auto &jid : jids) {
+        RosterItem rosterItem = {accountJid, m_manager->getRosterEntry(jid)};
+        rosterItem.encryption = m_accountSettings->encryption();
+        rosterItems.append(rosterItem);
+    }
 
-            return rosterItems;
-        },
-        this,
-        [this, accountJid](QList<RosterItem> &&rosterItems) {
-            for (auto itr = rosterItems.begin(); itr != rosterItems.end(); ++itr) {
-                const auto jid = itr->jid;
+    for (auto itr = rosterItems.begin(); itr != rosterItems.end(); ++itr) {
+        const auto jid = itr->jid;
 
-                // Process subscription requests from roster items that were received before the roster was
-                // received.
-                if (m_unprocessedSubscriptionRequests.contains(jid)) {
-                    addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
-                }
-            }
+        // Process subscription requests from roster items that were received before the roster was
+        // received.
+        if (m_unprocessedSubscriptionRequests.contains(jid)) {
+            addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
+        }
+    }
 
-            // replace current contacts with new ones from server
-            RosterDb::instance()->replaceItems(accountJid, rosterItems);
+    // replace current contacts with new ones from server
+    RosterDb::instance()->replaceItems(accountJid, rosterItems);
 
-            // Process subscription requests from strangers that were received before the roster was
-            // received.
-            for (auto itr = m_unprocessedSubscriptionRequests.begin(); itr != m_unprocessedSubscriptionRequests.end();) {
-                processSubscriptionRequestFromStranger(itr.key(), itr.value());
-                itr = m_unprocessedSubscriptionRequests.erase(itr);
-            }
-        });
+    // Process subscription requests from strangers that were received before the roster was
+    // received.
+    for (auto itr = m_unprocessedSubscriptionRequests.begin(); itr != m_unprocessedSubscriptionRequests.end();) {
+        processSubscriptionRequestFromStranger(itr.key(), itr.value());
+        itr = m_unprocessedSubscriptionRequests.erase(itr);
+    }
 }
 
 void RosterController::handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request)
 {
-    runOnThread(
-        m_manager,
-        [this]() {
-            return m_manager->isRosterReceived();
-        },
-        this,
-        [this, subscriberJid, request](bool rosterReceived) {
-            if (rosterReceived) {
-                runOnThread(
-                    m_manager,
-                    [this, subscriberJid]() {
-                        return m_manager->getRosterBareJids().contains(subscriberJid);
-                    },
-                    this,
-                    [this, subscriberJid, request](bool isSubscriberInRoster) {
-                        if (isSubscriberInRoster) {
-                            addUnrespondedSubscriptionRequest(subscriberJid, request);
-                        } else {
-                            processSubscriptionRequestFromStranger(subscriberJid, request);
-                        }
-                    });
-            } else {
-                m_unprocessedSubscriptionRequests.insert(subscriberJid, request);
-            }
-        });
+    if (m_manager->isRosterReceived()) {
+        if (m_manager->getRosterBareJids().contains(subscriberJid)) {
+            addUnrespondedSubscriptionRequest(subscriberJid, request);
+        } else {
+            processSubscriptionRequestFromStranger(subscriberJid, request);
+        }
+    } else {
+        m_unprocessedSubscriptionRequests.insert(subscriberJid, request);
+    }
 }
 
 void RosterController::processSubscriptionRequestFromStranger(const QString &subscriberJid, const QXmppPresence &request)

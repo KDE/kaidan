@@ -30,24 +30,22 @@ DiscoveryController::DiscoveryController(AccountSettings *accountSettings, Conne
 {
     connect(connection, &Connection::connected, this, &DiscoveryController::updateData);
 
-    runOnThread(m_manager, [this]() {
-        QXmppDiscoIdentity identity;
-        identity.setCategory(CATEGORY);
+    QXmppDiscoIdentity identity;
+    identity.setCategory(CATEGORY);
 #if defined Q_OS_ANDROID
-        // For systems such as Ubuntu Touch and Android, the type is determined by Kaidan's build.
-        identity->setType(MOBILE_TYPE);
+    // For systems such as Ubuntu Touch and Android, the type is determined by Kaidan's build.
+    identity->setType(MOBILE_TYPE);
 #else
-        // For systems such as Plasma Mobile, the type is not determined by Kaidan's build.
-        if (!qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")) {
-            identity.setType(MOBILE_TYPE);
-        } else {
-            identity.setType(DESKTOP_TYPE);
-        }
+    // For systems such as Plasma Mobile, the type is not determined by Kaidan's build.
+    if (!qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")) {
+        identity.setType(MOBILE_TYPE);
+    } else {
+        identity.setType(DESKTOP_TYPE);
+    }
 #endif
-        identity.setName(QStringLiteral(APPLICATION_DISPLAY_NAME));
+    identity.setName(QStringLiteral(APPLICATION_DISPLAY_NAME));
 
-        m_manager->setIdentities({identity});
-    });
+    m_manager->setIdentities({identity});
 }
 
 DiscoveryController::~DiscoveryController()
@@ -58,19 +56,13 @@ void DiscoveryController::updateData()
 {
     const auto serverJid = QXmppUtils::jidToDomain(m_accountSettings->jid());
 
-    callRemoteTask(
-        m_manager,
-        [this, serverJid]() {
-            return std::pair{m_manager->info(serverJid), this};
-        },
-        this,
-        [this, serverJid](QXmpp::Result<QXmppDiscoInfo> &&result) mutable {
-            if (const auto *error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery info for %1: %2").arg(serverJid, error->description);
-            } else {
-                handleOwnServerInfo(std::get<QXmppDiscoInfo>(std::move(result)));
-            }
-        });
+    m_manager->info(serverJid).then(this, [this, serverJid](QXmpp::Result<QXmppDiscoInfo> &&result) mutable {
+        if (const auto *error = std::get_if<QXmppError>(&result)) {
+            qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery info for %1: %2").arg(serverJid, error->description);
+        } else {
+            handleOwnServerInfo(std::get<QXmppDiscoInfo>(std::move(result)));
+        }
+    });
 
     updateDataForManagers();
 }
@@ -78,34 +70,24 @@ void DiscoveryController::updateData()
 void DiscoveryController::updateDataForManagers()
 {
     // Get info for the user JID.
-    runOnThread(m_manager, [this]() {
-        m_manager->requestInfo({});
-    });
+    m_manager->requestInfo({});
 
     const auto serverJid = QXmppUtils::jidToDomain(m_accountSettings->jid());
 
-    runOnThread(m_manager, [this, serverJid]() {
-        m_manager->requestInfo(serverJid);
-    });
+    m_manager->requestInfo(serverJid);
 
-    callRemoteTask(
-        m_manager,
-        [this, serverJid]() {
-            return std::pair{m_manager->requestDiscoItems(serverJid), this};
-        },
-        this,
-        [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) mutable {
-            if (const auto *error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery items of %1: %2").arg(serverJid, error->description);
-            } else {
-                const auto items = std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result));
+    m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) mutable {
+        if (const auto *error = std::get_if<QXmppError>(&result)) {
+            qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery items of %1: %2").arg(serverJid, error->description);
+        } else {
+            const auto items = std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result));
 
-                // Get info of all child items.
-                for (const auto &item : items) {
-                    m_manager->requestInfo(item.jid());
-                }
+            // Get info of all child items.
+            for (const auto &item : items) {
+                m_manager->requestInfo(item.jid());
             }
-        });
+        }
+    });
 }
 
 void DiscoveryController::handleOwnServerInfo(QXmppDiscoInfo &&info)

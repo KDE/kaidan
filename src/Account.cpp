@@ -413,9 +413,7 @@ Connection::Connection(ClientWorker *clientWorker, QObject *parent)
 
 void Connection::logIn()
 {
-    runOnThread(m_clientWorker, [this]() {
-        m_clientWorker->logIn();
-    });
+    m_clientWorker->logIn();
 }
 
 void Connection::logOut(bool isApplicationBeingClosed)
@@ -580,9 +578,7 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     new LogHandler(m_settings, m_clientWorker->xmppClient(), this);
     new DiscoveryController(m_settings, m_connection, m_clientWorker->discoveryManager(), this);
 
-    runOnThread(m_clientWorker, [this]() {
-        m_clientWorker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
-    });
+    m_clientWorker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
 }
 
 AccountSettings *Account::settings() const
