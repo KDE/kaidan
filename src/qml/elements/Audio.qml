@@ -16,12 +16,19 @@ ExtendedMessageContent {
 	property var file
 	property Item message
 
-	mainArea.data: MouseArea {
+	mainArea.data: MediumMouseArea {
 		// This mouse area must be below the other elements to not overlap their mouse areas.
 		z: - 1
+		opacityItem: parent.background
+		selected: (root.message.contextMenu && root.message.contextMenu.file === file) || playButton.active || playPositionSlider.hovered
 		acceptedButtons: Qt.RightButton
 		anchors.fill: parent
 		onClicked: root.showContextMenu(this)
+	}
+	mainAreaBackground {
+		Behavior on opacity {
+			NumberAnimation {}
+		}
 	}
 	contentArea.data: [
 		ClickableIcon {
@@ -36,6 +43,7 @@ ExtendedMessageContent {
 		},
 
 		Slider {
+			id: playPositionSlider
 			to: player.duration
 			value: player.position
 			Layout.preferredWidth: Kirigami.Units.gridUnit * 15

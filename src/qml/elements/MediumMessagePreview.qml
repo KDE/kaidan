@@ -22,9 +22,10 @@ MediumPreview {
 	localFileUrl: file.localFileUrl
 	type: file.type
 	mainArea {
-		data: OpacityChangingMouseArea {
+		data: MediumMouseArea {
 			id: opacityChangingMouseArea
 			opacityItem: parent.background
+			selected: root.message.contextMenu && root.message.contextMenu.file === file
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {
