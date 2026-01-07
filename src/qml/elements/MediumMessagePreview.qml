@@ -47,10 +47,6 @@ MediumPreview {
 				}
 			}
 		}
-
-		Behavior on opacity {
-			NumberAnimation {}
-		}
 	}
 	mainAreaBackground {
 		Behavior on opacity {
