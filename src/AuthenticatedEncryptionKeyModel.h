@@ -27,5 +27,5 @@ private:
     void updateOwnKey();
     void updateKeys();
 
-    Key m_ownKey;
+    std::optional<Key> m_ownKey;
 };

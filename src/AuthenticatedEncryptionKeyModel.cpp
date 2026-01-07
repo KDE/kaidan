@@ -36,9 +36,9 @@ QVariant AuthenticatedEncryptionKeyModel::data(const QModelIndex &index, int rol
 
     Key key;
 
-    if (row == 0) {
-        key.deviceLabel = m_ownKey.deviceLabel;
-        key.id = m_ownKey.id;
+    if (m_ownKey && row == 0) {
+        key.deviceLabel = m_ownKey->deviceLabel;
+        key.id = m_ownKey->id;
     } else {
         key = m_keys.at(row - 1);
     }
@@ -72,10 +72,21 @@ void AuthenticatedEncryptionKeyModel::handleDevicesChanged(const QList<QString> 
 
 void AuthenticatedEncryptionKeyModel::updateOwnKey()
 {
-    beginInsertRows(QModelIndex(), 0, 0);
     const auto ownDevice = encryptionController()->ownDevice();
-    m_ownKey = {ownDevice.label + QStringLiteral(" · ") + tr("This device"), ownDevice.keyId};
-    endInsertRows();
+
+    auto setOwnKey = [this, ownDevice]() {
+        m_ownKey = {ownDevice.label + QStringLiteral(" · ") + tr("This device"), ownDevice.keyId};
+    };
+
+    if (m_ownKey) {
+        setOwnKey();
+        const auto modelIndex = index(0);
+        dataChanged(modelIndex, modelIndex);
+    } else {
+        beginInsertRows(QModelIndex(), 0, 0);
+        setOwnKey();
+        endInsertRows();
+    }
 }
 
 void AuthenticatedEncryptionKeyModel::updateKeys()
@@ -96,9 +107,29 @@ void AuthenticatedEncryptionKeyModel::updateKeys()
                 }
             }
 
-            beginResetModel();
-            m_keys = authenticatedKeys;
-            endResetModel();
+            auto setKeys = [this, authenticatedKeys]() {
+                m_keys = authenticatedKeys;
+            };
+
+            if (m_ownKey) {
+                if (m_keys.isEmpty()) {
+                    beginInsertRows(QModelIndex(), 1, authenticatedKeys.size());
+                    setKeys();
+                    endInsertRows();
+                } else {
+                    setKeys();
+                    dataChanged(index(1), index(m_keys.size()));
+                }
+            } else {
+                if (m_keys.isEmpty()) {
+                    beginInsertRows(QModelIndex(), 0, authenticatedKeys.size() - 1);
+                    setKeys();
+                    endInsertRows();
+                } else {
+                    setKeys();
+                    dataChanged(index(0), index(m_keys.size() - 1));
+                }
+            }
         });
     });
 }
