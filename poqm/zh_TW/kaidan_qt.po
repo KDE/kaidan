@@ -18,7 +18,7 @@ msgstr ""
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
 msgctxt "Connection|"
-msgid "Connected"
+msgid "Disconnected"
 msgstr "連線"
 
 #: src/Account.cpp:481
@@ -34,7 +34,7 @@ msgstr "連線中…"
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
 msgctxt "Connection|"
-msgid "Disconnected"
+msgid "Connected"
 msgstr "連線"
 
 #: src/Account.cpp:494
@@ -611,24 +611,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "錯誤"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -726,7 +726,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -734,7 +734,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -742,29 +742,29 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "開啟"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -3936,7 +3936,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "釘選"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "搜尋"

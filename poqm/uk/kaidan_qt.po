@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-01 11:55+0200\n"
+"PO-Revision-Date: 2026-01-06 08:34+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -17,8 +17,8 @@ msgstr ""
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "З'єднано"
+msgid "Disconnected"
+msgstr "Від'єднано"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -27,8 +27,8 @@ msgstr "Встановлюємо з'єднання…"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "Від'єднано"
+msgid "Connected"
+msgstr "З'єднано"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -522,24 +522,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Помилка"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не вдалося надіслати реакцію: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не вдалося надіслати реакції: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -618,45 +618,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам заборонено вилучення групи"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Запити для отримання особистих даних"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Вхідний дзвінок від %1"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Вхідний відеовиклик від %1"
 
-#: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/NotificationController.cpp:230
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Objects"
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "Об'єкти"
+msgstr "Відмовити"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
@@ -728,35 +722,29 @@ msgstr "Про Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Виклик"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Відкрити спілкування з підтримкою"
+msgstr "Відкрити аудіовиклик"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Почати аудіовиклик"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Відкрити відеовиклик"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Почати відеовиклик"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Закрити вікно пошуку"
@@ -3195,7 +3183,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Пришпилити"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Пошук"

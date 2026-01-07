@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-01-01 08:42+0100\n"
+"PO-Revision-Date: 2026-01-06 06:58+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20,8 +20,8 @@ msgstr ""
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "Povezano"
+msgid "Disconnected"
+msgstr "Nepovezano"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -30,8 +30,8 @@ msgstr "Povezovanje…"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "Nepovezano"
+msgid "Connected"
+msgstr "Povezano"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -522,24 +522,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Odzivov ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Danes"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -618,42 +618,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Nimate dovoljenja za brisanje skupine"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Zahteve za prejem vaših osebnih podatkov"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Odpri"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Dohodni klic od %1"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Dohodni video klic od %1"
 
-#: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Zavrni"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
@@ -725,38 +722,32 @@ msgstr "O Kaidanu"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Klic"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Odpri klepet s podporo"
+msgstr "Odpri zvočni klic"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Začni zvočni klic"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Odpri video klic"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Začni video klic"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Zapri iskanje"
+msgstr "Zapusti iskanje"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -3160,7 +3151,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Pripni"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Išči"

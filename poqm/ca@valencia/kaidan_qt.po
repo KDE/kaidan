@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-01-01 11:08+0100\n"
+"PO-Revision-Date: 2026-01-06 12:36+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,14 +20,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "Connectat"
+msgid "Disconnected"
+msgstr "Desconnectat"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -36,8 +36,8 @@ msgstr "S'està connectant…"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "Desconnectat"
+msgid "Connected"
+msgstr "Connectat"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -529,24 +529,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "S'ha produït un error"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "No s'ha pogut enviar la reacció: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "No s'han pogut enviar les reaccions: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hui"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ahir"
@@ -625,39 +625,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "No teniu permís per a suprimir el grup"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Sol·licita rebre les vostres dades personals"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Obri"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Tocada entrant de %1"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Tocada entrant de vídeo de %1"
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "Accepta"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Rebutja"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marca com a llegit"
@@ -729,38 +729,32 @@ msgstr "Quant a Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Toca"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Obri un xat d'assistència"
+msgstr "Obri una tocada d'àudio"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Inicia una tocada d'àudio"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Obri una tocada de vídeo"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Inicia una tocada de vídeo"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Tanca la busca"
+msgstr "Ix de la busca"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -3193,7 +3187,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fixa"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Busca"

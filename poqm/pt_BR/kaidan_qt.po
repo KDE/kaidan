@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-31 22:34-0300\n"
+"PO-Revision-Date: 2026-01-06 07:03-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -17,8 +17,8 @@ msgstr ""
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "Conectado"
+msgid "Disconnected"
+msgstr "Desconectado"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -27,8 +27,8 @@ msgstr "Conectando…"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "Desconectado"
+msgid "Connected"
+msgstr "Conectado"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -522,24 +522,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Não foi possível enviar a reação: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Não foi possível enviar as reações: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hoje"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ontem"
@@ -618,45 +618,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Você não pode excluir o grupo"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pedidos para receber seus dados pessoais"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Chamada recebida de %1"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Chamada de vídeo recebida de %1"
 
-#: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Aceitar"
 
-#: src/NotificationController.cpp:230
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Objects"
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "Objetos"
+msgstr "Rejeitar"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar como lido"
@@ -729,38 +723,32 @@ msgstr "Sobre o Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Chamar"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Abrir bate-papo de suporte"
+msgstr "Abrir chamada de áudio"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Iniciar chamada de áudio"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Abrir chamada de vídeo"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Iniciar chamada de vídeo"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Fechar pesquisa"
+msgstr "Sair da pesquisa"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -3188,7 +3176,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fixar"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Pesquisar"

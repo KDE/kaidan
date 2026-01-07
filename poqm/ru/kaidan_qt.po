@@ -20,7 +20,7 @@ msgstr ""
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
 msgctxt "Connection|"
-msgid "Connected"
+msgid "Disconnected"
 msgstr "Подключиться"
 
 #: src/Account.cpp:481
@@ -36,7 +36,7 @@ msgstr "Подключение…"
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
 msgctxt "Connection|"
-msgid "Disconnected"
+msgid "Connected"
 msgstr "Подключиться"
 
 #: src/Account.cpp:494
@@ -607,24 +607,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить реакцию: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить реакции: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчера"
@@ -703,7 +703,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам не разрешается удалять группу"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -711,7 +711,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Запросы на получение личных данных"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -719,19 +719,19 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Открыть"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:218
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -739,7 +739,7 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 #, fuzzy
 #| msgctxt "EmojiPicker|"
 #| msgid "Objects"
@@ -747,7 +747,7 @@ msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Объекты"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -3444,7 +3444,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Закрепить"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Поиск"

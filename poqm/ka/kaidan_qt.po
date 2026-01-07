@@ -15,8 +15,8 @@ msgstr ""
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "დაკავშირება"
+msgid "Disconnected"
+msgstr "გათიშულია"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -25,8 +25,8 @@ msgstr "დაკავშირება…"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "გათიშულია"
+msgid "Connected"
+msgstr "დაკავშირება"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -516,24 +516,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -612,42 +612,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "ჯგუფის წაშლის უფლება არ გაქვთ"
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "გთხოვთ თქვენი პირადი მონაცემების მიღებას"
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "შემომავალი ზარი %1-დან"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "შემომავალი ვიდეოზარი %1-დან"
 
-#: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr "დასტური"
+msgstr "მიღება"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "უარყოფა"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "მონიშნე როგორც წაკითხული"
@@ -719,38 +716,32 @@ msgstr "Kaidan-ის შესახებ"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "ზარი"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "მხარდაჭერის ჩატის გახსნა"
+msgstr "აუდიოზარის გახსნა"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "აუდიოზარის დაწყება"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "ვიდეოზარის გახსნა"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "ვიდეოზარის დაწყება"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "ძებნის დახურვა"
+msgstr "ძებნიდან გასვლა"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -3171,7 +3162,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "მიმაგრება"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "ძებნა"

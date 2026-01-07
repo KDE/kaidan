@@ -8,12 +8,9 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:479
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+msgid "Disconnected"
+msgstr ""
 
 #: src/Account.cpp:481
 #, fuzzy
@@ -24,9 +21,12 @@ msgid "Connecting…"
 msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
 
 #: src/Account.cpp:483
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr ""
+msgid "Connected"
+msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -514,24 +514,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr ""
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -610,39 +610,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr ""
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:218
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr ""
@@ -3268,7 +3268,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr ""
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr ""

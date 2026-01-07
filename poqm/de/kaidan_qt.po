@@ -16,8 +16,8 @@ msgstr ""
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
-msgid "Connected"
-msgstr "Verbunden"
+msgid "Disconnected"
+msgstr "Nicht verbunden"
 
 #: src/Account.cpp:481
 msgctxt "Connection|"
@@ -26,8 +26,8 @@ msgstr "Verbindung wird aufgebaut …"
 
 #: src/Account.cpp:483
 msgctxt "Connection|"
-msgid "Disconnected"
-msgstr "Nicht verbunden"
+msgid "Connected"
+msgstr "Verbunden"
 
 #: src/Account.cpp:494
 msgctxt "Connection|"
@@ -542,7 +542,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:694
+#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -550,7 +550,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:779
+#: src/MessageModel.cpp:774
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -558,12 +558,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:1306
+#: src/MessageModel.cpp:1301
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Heute"
 
-#: src/MessageModel.cpp:1309
+#: src/MessageModel.cpp:1304
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Gestern"
@@ -656,29 +656,29 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:154
+#: src/NotificationController.cpp:151
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:168 src/NotificationController.cpp:336
+#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:202
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:204
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:218
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -686,7 +686,7 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Annehmen"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:225
 #, fuzzy
 #| msgctxt "EmojiPicker|"
 #| msgid "Objects"
@@ -694,7 +694,7 @@ msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Gegenstände"
 
-#: src/NotificationController.cpp:340
+#: src/NotificationController.cpp:334
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Als gelesen markieren"
@@ -3594,7 +3594,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr ""
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search"
