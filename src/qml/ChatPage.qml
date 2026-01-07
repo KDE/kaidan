@@ -540,6 +540,7 @@ ChatPageBase {
 			id: dropAreaInfo
 			color: secondaryBackgroundColor
 			opacity: 0
+			visible: opacity
 			anchors.fill: parent
 
 			Behavior on opacity {
