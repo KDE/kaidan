@@ -99,6 +99,7 @@ E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-t
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 
 Kaidan stores passwords in an unencrypted file if no password manager is available.
+By using the `--unencrypted-keychain` command-line option, you can force that behavior even if a password manager is available.
 
 ## Logging
 

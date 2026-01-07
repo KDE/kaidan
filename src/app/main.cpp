@@ -171,6 +171,7 @@ enum CommandLineParseResult {
     CommandLineError,
     CommandLineVersionRequested,
     CommandLineHelpRequested,
+    CommandLineUnencryptedKeychainRequested,
 };
 
 CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *errorMessage)
@@ -181,9 +182,12 @@ CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *err
     // add all possible arguments
     QCommandLineOption helpOption = parser.addHelpOption();
     QCommandLineOption versionOption = parser.addVersionOption();
+    QCommandLineOption unencryptedKeychainOption = {{QStringLiteral("u"), QStringLiteral("unencrypted-keychain")},
+                                                    QStringLiteral("Store passwords in an unencrypted file.")};
 #ifndef NDEBUG
     parser.addOption({{QStringLiteral("m"), QStringLiteral("multiple")}, QStringLiteral("Allow multiple instances to be started.")});
 #endif
+    parser.addOption(unencryptedKeychainOption);
     parser.addPositionalArgument(QStringLiteral("xmpp-uri"), QStringLiteral("An XMPP-URI to open (i.e. join a chat)."), QStringLiteral("[xmpp-uri]"));
 
     // parse arguments
@@ -198,6 +202,10 @@ CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *err
 
     if (parser.isSet(helpOption))
         return CommandLineHelpRequested;
+
+    if (parser.isSet(unencryptedKeychainOption))
+        return CommandLineUnencryptedKeychainRequested;
+
     // if nothing special happened, return OK
     return CommandLineOk;
 }
@@ -409,6 +417,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     case CommandLineHelpRequested:
         parser.showHelp();
         return 0;
+    case CommandLineUnencryptedKeychainRequested:
+        qCWarning(KAIDAN_LOG, "Passwords will be stored in an unencrypted file");
+        QKeychainFuture::setUnencryptedFallback(true);
+        Q_FALLTHROUGH();
     case CommandLineOk:
         break;
     }
