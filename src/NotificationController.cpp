@@ -102,6 +102,11 @@ void NotificationController::handleMessage(const Message &message, MessageOrigin
         };
 
         auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
+            if (const auto reply = message.reply; reply && reply->toGroupChatParticipantId.isEmpty()) {
+                sendNotification();
+                return;
+            }
+
             GroupChatUserDb::instance()
                 ->user(accountJid, chatJid, rosterItem->groupChatParticipantId)
                 .then(this, [body = message.body(), sendNotification](const std::optional<GroupChatUser> user) {
