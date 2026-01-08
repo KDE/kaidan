@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/Account.cpp:483
+#: src/Account.cpp:481
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -37,73 +37,73 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Contrasigne o nómine ínvalid"
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Un error evenit cludente li session"
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Proxy,Servitor proxy,Firewall,Squid"
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Li protocol %1 ne es supportat."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ne successat crear un conexion de rete"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 #, fuzzy
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:516
+#: src/Account.cpp:514
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -114,12 +114,12 @@ msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:355
+#: src/AccountMigrationController.cpp:349
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:405
+#: src/AccountMigrationController.cpp:387
 #, fuzzy, qt-format
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -133,12 +133,12 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Cambiar"
 
-#: src/Blocking.cpp:375
+#: src/Blocking.cpp:357
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr ""
 
-#: src/Blocking.cpp:377
+#: src/Blocking.cpp:359
 #, fuzzy
 #| msgctxt "UsernameView|"
 #| msgid "Username"
@@ -146,51 +146,51 @@ msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Nómine de usator"
 
-#: src/Blocking.cpp:379
+#: src/Blocking.cpp:361
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr ""
 
-#: src/Blocking.cpp:381
+#: src/Blocking.cpp:363
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:256
+#: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
 
-#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
-#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:257
+#: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:259
+#: src/ChatHintModel.cpp:252
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Inicialisante"
 
-#: src/ChatHintModel.cpp:266
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "Server-Definition löschen"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr ""
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:262
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -198,7 +198,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:275
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -206,7 +206,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:287
+#: src/ChatHintModel.cpp:280
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -214,17 +214,17 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr ""
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:289
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -232,41 +232,41 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Registration..."
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:311
+#: src/ChatHintModel.cpp:304
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Contacte"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:306
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Apert registration"
 
-#: src/ChatHintModel.cpp:331
+#: src/ChatHintModel.cpp:324
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Inviat"
 
-#: src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:334
+#: src/ChatHintModel.cpp:327
 #, fuzzy
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Líber"
 
-#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -274,34 +274,34 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Anullar"
 
-#: src/FileSharingController.cpp:346
+#: src/FileSharingController.cpp:344
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/FileSharingController.cpp:397
+#: src/FileSharingController.cpp:391
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:402
+#: src/FileSharingController.cpp:394
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:527
+#: src/FileSharingController.cpp:517
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/FileSharingController.cpp:659
+#: src/FileSharingController.cpp:632
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:665
+#: src/FileSharingController.cpp:638
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -511,25 +511,25 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:287
+#: src/MessageController.cpp:279
 #, fuzzy
 msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "Inviat"
 
-#: src/MessageController.cpp:291
+#: src/MessageController.cpp:283
 #, fuzzy
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Inviat"
 
-#: src/MessageController.cpp:655
+#: src/MessageController.cpp:625
 #, fuzzy, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Ne successat importar %1, un duplicat missage"
 
-#: src/MessageController.cpp:1059
+#: src/MessageController.cpp:1029
 #, fuzzy, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -577,105 +577,105 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:104
 #, fuzzy
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Statu"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:125
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Inviat"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:150 src/MixController.cpp:158
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:178
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr ""
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:181
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:274 src/MixController.cpp:286
+#: src/MixController.cpp:236 src/MixController.cpp:243
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Inviat"
 
-#: src/MixController.cpp:319
+#: src/MixController.cpp:269
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Inviat"
 
-#: src/MixController.cpp:333
+#: src/MixController.cpp:277
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Inviat"
 
-#: src/MixController.cpp:353
+#: src/MixController.cpp:291
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Inviat"
 
-#: src/MixController.cpp:374
+#: src/MixController.cpp:306
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Inviat"
 
-#: src/MixController.cpp:390
+#: src/MixController.cpp:321
 #, fuzzy, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Inviat"
 
-#: src/MixController.cpp:447
+#: src/MixController.cpp:365
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:156
 #, fuzzy
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Statu: "
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
+#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr ""
 
-#: src/NotificationController.cpp:202
+#: src/NotificationController.cpp:207
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:204
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:218
+#: src/NotificationController.cpp:223
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -683,12 +683,12 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Acceptar"
 
-#: src/NotificationController.cpp:225
+#: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:334
+#: src/NotificationController.cpp:339
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -696,7 +696,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar quam leet"
 
-#: src/OmemoController.cpp:114
+#: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr ""
@@ -4066,23 +4066,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 tippa..."
 
-#: src/RosterController.cpp:166
+#: src/RosterController.cpp:146
 #, fuzzy, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Inviat"
 
-#: src/RosterController.cpp:175
+#: src/RosterController.cpp:153
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 
-#: src/RosterController.cpp:187
+#: src/RosterController.cpp:163
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 
-#: src/RosterController.cpp:203
+#: src/RosterController.cpp:173
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -4090,19 +4090,19 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterController.cpp:219
+#: src/RosterController.cpp:184
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:236
+#: src/RosterController.cpp:195
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:337
+#: src/RosterController.cpp:291
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr ""

@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-01 12:20+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2026-01-07 20:45+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Bağlantı kesildi"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:481
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Bağlı"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Geçersiz kullanıcı adı veya parola."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Sunucuya bağlanamadı. Lütfen internet bağlantınızı denetleyin."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -57,22 +57,22 @@ msgid ""
 msgstr ""
 "Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Bağlantı yenilenemedi."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,17 +81,17 @@ msgstr ""
 "İnternet erişimine izin verilmiyor. Lütfen isteminizin internet erişim "
 "yapılandırmasını denetleyin."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Oturum açılamadı. Öncelikle size gelen e-posta iletisini onaylayın."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Sunucuya bağlanılamadı."
@@ -101,12 +101,12 @@ msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Hesap göç ettirilemedi: Dışa aktarılan hesap verisi yüklenemedi."
 
-#: src/AccountMigrationController.cpp:355
+#: src/AccountMigrationController.cpp:349
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Hesap göç ettirilemedi: Bağlı olmanız gerekiyor."
 
-#: src/AccountMigrationController.cpp:405
+#: src/AccountMigrationController.cpp:387
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
@@ -117,65 +117,65 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Bu aygıt"
 
-#: src/Blocking.cpp:375
+#: src/Blocking.cpp:357
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/Blocking.cpp:377
+#: src/Blocking.cpp:359
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: src/Blocking.cpp:379
+#: src/Blocking.cpp:361
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Sunucular"
 
-#: src/Blocking.cpp:381
+#: src/Blocking.cpp:363
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
-#: src/ChatHintModel.cpp:256
+#: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
 "Hesabınız etkin değil — İletiler, etkinleştirildiğinde gönderilir ve alınır"
 
-#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
-#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Kapat"
 
-#: src/ChatHintModel.cpp:257
+#: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: src/ChatHintModel.cpp:259
+#: src/ChatHintModel.cpp:252
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Etkinleştiriliyor…"
 
-#: src/ChatHintModel.cpp:266
+#: src/ChatHintModel.cpp:259
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "Bağlanılamadı"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr "Hatayı Göster"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:262
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:275
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -185,7 +185,7 @@ msgstr ""
 "%1; uygunluk, aygıtlar ve diğer kişisel bilgilerinizi içeren verinizi almak "
 "ister%2"
 
-#: src/ChatHintModel.cpp:287
+#: src/ChatHintModel.cpp:280
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -195,84 +195,84 @@ msgstr ""
 "Kişiniz %1 (%2) artık %3 (%4) ve uygunluk, aygıtlar ve başka kişisel "
 "bilgilerinizi yeniden almak istiyor%5"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Reddet"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "İzin Ver"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:289
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "İzin veriliyor…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Bu grupta kullanıcı yok"
 
-#: src/ChatHintModel.cpp:311
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Kişileri davet et"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Davet alanı açılıyor"
 
-#: src/ChatHintModel.cpp:331
+#: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Grup silinmiş"
 
-#: src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Ayrıl"
 
-#: src/ChatHintModel.cpp:334
+#: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
-#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "İptal Edildi"
 
-#: src/FileSharingController.cpp:346
+#: src/FileSharingController.cpp:344
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Dosya indirilemedi: %1"
 
-#: src/FileSharingController.cpp:397
+#: src/FileSharingController.cpp:391
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr "Ortam paylaşma desteği durumu bilinmiyor"
 
-#: src/FileSharingController.cpp:402
+#: src/FileSharingController.cpp:394
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr "Ortam paylaşımı özelliği desteklenmiyor"
 
-#: src/FileSharingController.cpp:527
+#: src/FileSharingController.cpp:517
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Dosya karşıya yüklenemedi: %1"
 
-#: src/FileSharingController.cpp:659
+#: src/FileSharingController.cpp:632
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr "Aktarım iptal edildi"
 
-#: src/FileSharingController.cpp:665
+#: src/FileSharingController.cpp:638
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -469,23 +469,23 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
 
-#: src/MessageController.cpp:287
+#: src/MessageController.cpp:279
 msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "İleti gönderilemedi"
 
-#: src/MessageController.cpp:291
+#: src/MessageController.cpp:283
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
 
-#: src/MessageController.cpp:655
+#: src/MessageController.cpp:625
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageController.cpp:1059
+#: src/MessageController.cpp:1029
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -533,118 +533,118 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:104
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Grup halihazırda var"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:125
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "%1 ögesinin genel olup olmadığı algılanamadı: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "%1 grubunun bilgisi alınamadı: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:150 src/MixController.cpp:158
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "%1 grubu yeniden adlandırılamadı: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:178
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Bu grup yok"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:181
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Bu gruba katılmanıza izin yok"
 
-#: src/MixController.cpp:274 src/MixController.cpp:286
+#: src/MixController.cpp:236 src/MixController.cpp:243
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1, %2 grubuna davet edilemedi: %3"
 
-#: src/MixController.cpp:319
+#: src/MixController.cpp:269
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1 düğümleri alınamadı: %2"
 
-#: src/MixController.cpp:333
+#: src/MixController.cpp:277
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1 için izin verilen kullanıcılar alınamadı: %2"
 
-#: src/MixController.cpp:353
+#: src/MixController.cpp:291
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1 için yasaklı olan kullanıcılar alınamadı: %2"
 
-#: src/MixController.cpp:374
+#: src/MixController.cpp:306
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1 için katılmış olan kullanıcılar alınamadı: %2"
 
-#: src/MixController.cpp:390
+#: src/MixController.cpp:321
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kişisine %2 için yasak getirilemedi: %3"
 
-#: src/MixController.cpp:447
+#: src/MixController.cpp:365
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Bu grubu silmenize izin yok"
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:156
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Kişisel verinizi alma isteği"
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
+#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Aç"
 
-#: src/NotificationController.cpp:202
+#: src/NotificationController.cpp:207
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "%1 kişisinden gelen arama"
 
-#: src/NotificationController.cpp:204
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "%1 kişisinden gelen görüntülü arama"
 
-#: src/NotificationController.cpp:218
+#: src/NotificationController.cpp:223
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "Kabul Et"
 
-#: src/NotificationController.cpp:225
+#: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Reddet"
 
-#: src/NotificationController.cpp:334
+#: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Okundu Olarak İmle"
 
-#: src/OmemoController.cpp:114
+#: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "OMEMO 2 aracılığıyla uçtan uca şifreleme ayarlanamadı"
@@ -711,38 +711,32 @@ msgstr "Kaidan Hakkında"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Ara"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Destek sohbeti aç"
+msgstr "Sesli Aramayı Aç"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Sesli Arama Başlat"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Görüntülü Aramayı Aç"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Görüntülü Arama Başlat"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Aramayı kapat"
+msgstr "Aramadan çık"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -3618,23 +3612,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
 
-#: src/RosterController.cpp:166
+#: src/RosterController.cpp:146
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "%1 eklenemedi: %2"
 
-#: src/RosterController.cpp:175
+#: src/RosterController.cpp:153
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi eklenemedi."
 
-#: src/RosterController.cpp:187
+#: src/RosterController.cpp:163
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
-#: src/RosterController.cpp:203
+#: src/RosterController.cpp:173
 #, qt-format
 msgctxt "RosterController|"
 msgid ""
@@ -3644,20 +3638,20 @@ msgstr ""
 "%1 kişisinin kişisel verisini görme isteği, bir bağlantı sorunu yüzünden "
 "başarısız oldu: %2"
 
-#: src/RosterController.cpp:219
+#: src/RosterController.cpp:184
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 kişisinin sizin kişisel verinizi görme isteği başarısız oldu"
 
-#: src/RosterController.cpp:236
+#: src/RosterController.cpp:195
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 "%1 kişisinin sizin kişisel verinizi görme isteğini durdurma başarısız oldu"
 
-#: src/RosterController.cpp:337
+#: src/RosterController.cpp:291
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi kaldırılamadı."

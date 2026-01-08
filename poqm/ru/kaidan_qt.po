@@ -15,7 +15,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -23,7 +23,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Подключиться"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -31,7 +31,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Подключение…"
 
-#: src/Account.cpp:483
+#: src/Account.cpp:481
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -39,7 +39,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Подключиться"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -47,7 +47,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Неверное имя пользователя или пароль."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -55,7 +55,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Не удалось подключиться к серверу. Проверьте подключение к сети."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -63,7 +63,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Ошибка при попытке установить защищённое соединение."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -71,7 +71,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Сервер не поддерживает защищённое соединение."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -85,7 +85,7 @@ msgstr ""
 "Не удалось подключиться к серверу. Проверьте подключение к сети и имя узла "
 "сервера."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -93,7 +93,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Этот сервер не работает или заблокирован сетевым экраном."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -101,7 +101,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Сервер не поддерживает этот протокол аутентификации."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -109,7 +109,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не удалось обновить соединение."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -123,7 +123,7 @@ msgstr ""
 "Доступ в сеть закрыт. Проверьте системные параметры настройки доступа в "
 "Интернет."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -131,7 +131,7 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Этот сервер не поддерживает регистрацию."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not log in. Confirm the email message you received first."
@@ -141,7 +141,7 @@ msgstr ""
 "Не удалось войти. Сначала подтвердите получение сообщения по электронной "
 "почте."
 
-#: src/Account.cpp:516
+#: src/Account.cpp:514
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -159,7 +159,7 @@ msgstr ""
 "Не удалось выполнить перенос учётной записи: ошибка загрузки данных "
 "экспортируемой учётной записи"
 
-#: src/AccountMigrationController.cpp:355
+#: src/AccountMigrationController.cpp:349
 #, fuzzy
 #| msgctxt "AccountMigrationManager|"
 #| msgid "Account could not be migrated: You need to be connected"
@@ -169,7 +169,7 @@ msgstr ""
 "Не удалось выполнить перенос учётной записи: сначала необходимо установить "
 "соединение"
 
-#: src/AccountMigrationController.cpp:405
+#: src/AccountMigrationController.cpp:387
 #, fuzzy, qt-format
 #| msgctxt "StartPage|"
 #| msgid "Account Migration"
@@ -182,27 +182,27 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Это устройство"
 
-#: src/Blocking.cpp:375
+#: src/Blocking.cpp:357
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Устройства"
 
-#: src/Blocking.cpp:377
+#: src/Blocking.cpp:359
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Пользователи"
 
-#: src/Blocking.cpp:379
+#: src/Blocking.cpp:361
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Серверы"
 
-#: src/Blocking.cpp:381
+#: src/Blocking.cpp:363
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Устройства на серверах"
 
-#: src/ChatHintModel.cpp:256
+#: src/ChatHintModel.cpp:249
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -214,18 +214,18 @@ msgstr ""
 "Подключение отсутствует — отправка и получение сообщений будут выполняться "
 "после подключения"
 
-#: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
-#: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Отклонить"
 
-#: src/ChatHintModel.cpp:257
+#: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:259
+#: src/ChatHintModel.cpp:252
 #, fuzzy
 #| msgctxt "NewMedia|"
 #| msgid "Initializing…"
@@ -233,7 +233,7 @@ msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Инициализация…"
 
-#: src/ChatHintModel.cpp:266
+#: src/ChatHintModel.cpp:259
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -241,12 +241,12 @@ msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "Не удалось подключиться к серверу."
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr ""
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:262
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -254,7 +254,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Подключение…"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:275
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -264,7 +264,7 @@ msgstr ""
 "%1 запрашивает ваши личные данные, такие как сведения о доступности и "
 "устройствах, а также другие личные сведения%2"
 
-#: src/ChatHintModel.cpp:287
+#: src/ChatHintModel.cpp:280
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -274,52 +274,52 @@ msgstr ""
 "Контакт %1 (%2) теперь %3 (%4) и снова запрашивает ваши личные данные, такие "
 "как сведения о доступности и устройствах, а также другие личные сведения%5"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Отказаться"
 
-#: src/ChatHintModel.cpp:294
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Разрешить"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:289
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Разрешение…"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "В этой группе нет пользователей"
 
-#: src/ChatHintModel.cpp:311
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Пригласить контакты"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Открытие области приглашений"
 
-#: src/ChatHintModel.cpp:331
+#: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Эта группа удалена"
 
-#: src/ChatHintModel.cpp:332
+#: src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Выйти"
 
-#: src/ChatHintModel.cpp:334
+#: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Выход из группового чата"
 
-#: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
+#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -327,23 +327,23 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Отмена"
 
-#: src/FileSharingController.cpp:346
+#: src/FileSharingController.cpp:344
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Не удалось загрузить файл: %1"
 
-#: src/FileSharingController.cpp:397
+#: src/FileSharingController.cpp:391
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:402
+#: src/FileSharingController.cpp:394
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:527
+#: src/FileSharingController.cpp:517
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
@@ -351,12 +351,12 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Не удалось загрузить файл: %1"
 
-#: src/FileSharingController.cpp:659
+#: src/FileSharingController.cpp:632
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:665
+#: src/FileSharingController.cpp:638
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -562,7 +562,7 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Не удалось отправить «%1» из-за превышения допустимого размера (%2)"
 
-#: src/MessageController.cpp:287
+#: src/MessageController.cpp:279
 #, fuzzy
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -570,18 +570,18 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:291
+#: src/MessageController.cpp:283
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:655
+#: src/MessageController.cpp:625
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Это сообщение зашифровано с помощью %1, но его не удалось расшифровать"
 
-#: src/MessageController.cpp:1059
+#: src/MessageController.cpp:1029
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -629,81 +629,81 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: src/MixController.cpp:115
+#: src/MixController.cpp:104
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Группа уже существует"
 
-#: src/MixController.cpp:143
+#: src/MixController.cpp:125
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Не удалось определить общедоступность %1: %2"
 
-#: src/MixController.cpp:163
+#: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Не удалось получить информацию о группе %1: %2"
 
-#: src/MixController.cpp:175 src/MixController.cpp:184
+#: src/MixController.cpp:150 src/MixController.cpp:158
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Не удалось переименовать группу %1: %2"
 
-#: src/MixController.cpp:211
+#: src/MixController.cpp:178
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Группа не существует"
 
-#: src/MixController.cpp:214
+#: src/MixController.cpp:181
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Вам не разрешается присоединяться к группе"
 
-#: src/MixController.cpp:274 src/MixController.cpp:286
+#: src/MixController.cpp:236 src/MixController.cpp:243
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Не удалось пригласить %1 в %2: %3"
 
-#: src/MixController.cpp:319
+#: src/MixController.cpp:269
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Не удалось получить узлы %1: %2"
 
-#: src/MixController.cpp:333
+#: src/MixController.cpp:277
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Не удалось получить перечень разрешённых пользователей %1: %2"
 
-#: src/MixController.cpp:353
+#: src/MixController.cpp:291
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Не удалось получить перечень забаненных пользователей %1: %2"
 
-#: src/MixController.cpp:374
+#: src/MixController.cpp:306
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Не удалось получить перечень присоединившихся пользователей %1: %2"
 
-#: src/MixController.cpp:390
+#: src/MixController.cpp:321
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Не удалось забанить %1 в %2: %3"
 
-#: src/MixController.cpp:447
+#: src/MixController.cpp:365
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Вам не разрешается удалять группу"
 
-#: src/NotificationController.cpp:151
+#: src/NotificationController.cpp:156
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -711,7 +711,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Запросы на получение личных данных"
 
-#: src/NotificationController.cpp:165 src/NotificationController.cpp:330
+#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -719,19 +719,19 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Открыть"
 
-#: src/NotificationController.cpp:202
+#: src/NotificationController.cpp:207
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:204
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:218
+#: src/NotificationController.cpp:223
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -739,7 +739,7 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Принять"
 
-#: src/NotificationController.cpp:225
+#: src/NotificationController.cpp:230
 #, fuzzy
 #| msgctxt "EmojiPicker|"
 #| msgid "Objects"
@@ -747,7 +747,7 @@ msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Объекты"
 
-#: src/NotificationController.cpp:334
+#: src/NotificationController.cpp:339
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -755,7 +755,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Отметить как прочитанное"
 
-#: src/OmemoController.cpp:114
+#: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Не удалось настроить сквозное шифрование с помощью OMEMO 2"
@@ -3943,7 +3943,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 делает паузу"
 
-#: src/RosterController.cpp:166
+#: src/RosterController.cpp:146
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -3951,7 +3951,7 @@ msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Не удалось добавить %1: %2"
 
-#: src/RosterController.cpp:175
+#: src/RosterController.cpp:153
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact as a result of not being connected."
@@ -3959,7 +3959,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Не удалось добавить контакт из-за отсутствия подключения."
 
-#: src/RosterController.cpp:187
+#: src/RosterController.cpp:163
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact as a result of not being connected."
@@ -3967,7 +3967,7 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Не удалось переименовать контакт из-за отсутствия подключения."
 
-#: src/RosterController.cpp:203
+#: src/RosterController.cpp:173
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -3981,7 +3981,7 @@ msgstr ""
 "Из-за проблемы с подключением не удалось отправить запрос на получение "
 "личных данных %1: %2"
 
-#: src/RosterController.cpp:219
+#: src/RosterController.cpp:184
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -3989,7 +3989,7 @@ msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Не удалось разрешить %1 получать ваши личные данные"
 
-#: src/RosterController.cpp:236
+#: src/RosterController.cpp:195
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -3997,7 +3997,7 @@ msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Не удалось остановить получение %1 ваших личных данных"
 
-#: src/RosterController.cpp:337
+#: src/RosterController.cpp:291
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact as a result of not being connected."
