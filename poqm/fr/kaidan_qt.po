@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2026-01-06 16:36+0100\n"
+"PO-Revision-Date: 2026-01-07 10:42+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -636,29 +636,23 @@ msgstr "Ouvrir"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Appel entrant en provenance de %1"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Appel vidéo entrant en provenance de %1"
 
 #: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Accepter"
 
 #: src/NotificationController.cpp:230
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Objects"
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "Objets"
+msgstr "Rejeter"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -734,35 +728,29 @@ msgstr "À propos de Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Appeler"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Ouvrir la discussion d'entre-aide"
+msgstr "Ouvrir un appel audio"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Démarrer l'appel audio"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Ouvrir un appel vidéo"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Démarrer l'appel vidéo"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Terminer la recherche"

@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-12-08 16:50+0400\n"
+"PO-Revision-Date: 2026-01-08 13:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -250,15 +250,12 @@ msgstr "تعذر تنزيل الملف: %1"
 #: src/FileSharingController.cpp:391
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "إمكانية مشاركة الوسائط غير معروفة"
 
 #: src/FileSharingController.cpp:394
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "ميزة غير مدعومة"
+msgstr "مشاركة الوسائط غير متاحة"
 
 #: src/FileSharingController.cpp:517
 #, qt-format
@@ -269,15 +266,13 @@ msgstr "تحميل الملف غير ممكن: %1"
 #: src/FileSharingController.cpp:632
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "أُلغي النقل"
 
 #: src/FileSharingController.cpp:638
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "فشل الرفع: %1"
+msgstr "فشل النقل: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -471,12 +466,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "لا يمكن إرسال '%1' لأنه أكبر من %2"
 
 #: src/MessageController.cpp:279
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "تعذر إرسال الرسالة."
+msgstr "تعذر إرسال الرسالة"
 
 #: src/MessageController.cpp:283
 msgctxt "MessageController|"
@@ -625,29 +617,23 @@ msgstr "افتح"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "مكالمة واردة من %1"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "مكالمة فيديو واردة من %1"
 
 #: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr "قبول"
+msgstr "اقبل"
 
 #: src/NotificationController.cpp:230
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Objects"
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "أشياء"
+msgstr "ارفض"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -721,35 +707,29 @@ msgstr "عن كيدان"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "اتصل"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "افتح دردشة الدعم"
+msgstr "افتح مكالمة صوتية"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "ابدأ مكالمة صوتية"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "افتح مكالمة الفيديو"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "ابدأ مكالمة فيديو"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "أغلق البحث"
