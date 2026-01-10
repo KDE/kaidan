@@ -1,4 +1,11 @@
+<!--
+SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+
 Version 0.14.0
 --------------
 Released: 2026-01-01
