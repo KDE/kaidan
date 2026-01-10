@@ -110,7 +110,7 @@ msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
 msgstr "账号“%1”已迁移到“%2”"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:77
+#: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "此设备"
@@ -616,23 +616,23 @@ msgstr "打开"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "来自 %1 的来电"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "来自 %1 的视频通话来电"
 
 #: src/NotificationController.cpp:223
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "接受"
 
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "拒绝"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -706,32 +706,32 @@ msgstr "关于 Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "通话"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr ""
+msgstr "打开音频通话"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "开始音频通话"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "打开视频通话"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "开始视频通话"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr ""
+msgstr "退出搜索"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
@@ -753,29 +753,29 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:571
+#: src/qml/ChatPage.qml:572
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:776
+#: src/qml/ChatPage.qml:777
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:776
+#: src/qml/ChatPage.qml:777
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:783
+#: src/qml/ChatPage.qml:784
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:787
+#: src/qml/ChatPage.qml:788
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2183,12 +2183,12 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr "功能不受支持"
 
-#: src/qml/elements/Audio.qml:32
+#: src/qml/elements/Audio.qml:39
 msgctxt "Audio|"
 msgid "Pause"
 msgstr "暂停"
 
-#: src/qml/elements/Audio.qml:32
+#: src/qml/elements/Audio.qml:39
 msgctxt "Audio|"
 msgid "Play"
 msgstr "播放"
