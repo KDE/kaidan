@@ -67,7 +67,7 @@ if (NOT ANDROID)
    find_package(KF6WindowSystem ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
-find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
+find_package(KF6KirigamiAddons 1.8.0 REQUIRED)
 find_package(QXmppQt6 1.14.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
