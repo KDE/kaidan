@@ -39,11 +39,7 @@ MediumPreview {
 						root.open()
 					}
 				} else if (event.button === Qt.RightButton) {
-				   if (root.file.locallyAvailable) {
-					   root.message.showContextMenu(this, root.file)
-				   } else {
-					   root.message.showContextMenu(this)
-				   }
+					root.message.showContextMenu(this, root.file)
 				}
 			}
 		}
@@ -60,7 +56,7 @@ MediumPreview {
 		source: ImageProvider.generatedFileImageUrl(file)
 		data: CircleProgressBar {
 			value: transferWatcher.progress
-			opacity: iconShown ? (opacityChangingMouseArea.containsMouse ?  0.8 : 0.5) : 0
+			opacity: iconShown ? (opacityChangingMouseArea.containsMouse || opacityChangingMouseArea.selected ? 0.8 : 0.5) : 0
 			// Do not apply the opacity to child items.
 			layer.enabled: true
 			anchors.fill: parent
