@@ -43,12 +43,6 @@ void FileProgressWatcher::notify(const std::optional<FileProgress> &value)
 
 FileProgressCache::FileProgressCache() = default;
 
-FileProgressCache::~FileProgressCache()
-{
-    // wait for other threads to finish
-    std::scoped_lock locker(m_mutex);
-}
-
 FileProgressCache &FileProgressCache::instance()
 {
     static FileProgressCache cache;
@@ -57,32 +51,29 @@ FileProgressCache &FileProgressCache::instance()
 
 std::optional<FileProgress> FileProgressCache::progress(qint64 fileId)
 {
-    std::scoped_lock locker(m_mutex);
     if (auto itr = m_files.find(fileId); itr != m_files.end()) {
         return itr->second;
     }
+
     return {};
 }
 
 void FileProgressCache::reportProgress(qint64 fileId, std::optional<FileProgress> progress)
 {
-    std::scoped_lock locker(m_mutex);
     if (progress) {
         m_files.insert_or_assign(fileId, *progress);
     } else {
         m_files.erase(fileId);
     }
-    // watchers live on main thread
-    QMetaObject::invokeMethod(QCoreApplication::instance(), [fileId, progress] {
-        FileProgressNotifier::instance().notifyWatchers(fileId, progress);
-    });
+
+    FileProgressNotifier::instance().notifyWatchers(fileId, progress);
 }
 
 void FileProgressCache::cancelTransfers(const QString &accountJid)
 {
-    std::scoped_lock locker(m_mutex);
+    const auto files = m_files;
 
-    for (auto &file : m_files) {
+    for (const auto &file : files) {
         if (file.second.accountJid == accountJid) {
             if (file.second.cancel) {
                 file.second.cancel();

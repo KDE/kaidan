@@ -5,8 +5,6 @@
 
 #pragma once
 
-// std
-#include <mutex>
 // Qt
 #include <QObject>
 // Kaidan
@@ -71,8 +69,6 @@ private:
 class FileProgressCache
 {
 public:
-    ~FileProgressCache();
-
     static FileProgressCache &instance();
 
     std::optional<FileProgress> progress(qint64 fileId);
@@ -83,6 +79,5 @@ public:
 private:
     FileProgressCache();
 
-    std::mutex m_mutex;
     std::unordered_map<qint64, FileProgress> m_files;
 };
