@@ -40,9 +40,11 @@ Kirigami.Page {
 		accountAvatar {
 			jid: MainController.activeCall && MainController.activeCall.accountJid
 			name: MainController.activeCall && AccountController.account(MainController.activeCall.accountJid).settings.displayName
+			asynchronous: false
 		}
 		implicitWidth: Math.min(parent.width, parent.height) * 0.35
 		implicitHeight: implicitWidth
+		asynchronous: false
 		anchors.centerIn: parent
 	}
 
