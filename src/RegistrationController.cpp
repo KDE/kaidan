@@ -182,7 +182,7 @@ void RegistrationController::handleDisconnected()
     // Delete the account from the client if the account was deleted from the server or the client
     // was connected and had to disconnect first.
     if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
-        m_encryptionController->resetLocally().then(this, [this]() {
+        m_encryptionController->resetLocally().then([this]() {
             removeLocalAccountData();
         });
     } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {

@@ -369,7 +369,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
 
             if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
                 importClientSettings(newAccount, *oldClientSettings)
-                    .then(this, [this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
+                    .then([this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
                         m_oldAccount->clientController()
                             ->movedManager()
                             ->publishStatement(newAccount->settings()->jid())

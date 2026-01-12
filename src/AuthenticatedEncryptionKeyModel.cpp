@@ -91,14 +91,14 @@ void AuthenticatedEncryptionKeyModel::updateOwnKey()
 
 void AuthenticatedEncryptionKeyModel::updateKeys()
 {
-    encryptionController()->keys({accountJid()}, QXmpp::TrustLevel::Authenticated).then(this, [this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) {
+    encryptionController()->keys({accountJid()}, QXmpp::TrustLevel::Authenticated).then([this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) {
         const auto keyIds = keys.value(accountJid()).keys();
 
         auto authenticatedKeys = transform(keyIds, [](const QString &keyId) {
             return Key{{}, keyId};
         });
 
-        encryptionController()->devices({accountJid()}).then(this, [this, authenticatedKeys](QList<EncryptionController::Device> &&devices) mutable {
+        encryptionController()->devices({accountJid()}).then([this, authenticatedKeys](QList<EncryptionController::Device> &&devices) mutable {
             for (const auto &device : std::as_const(devices)) {
                 for (auto &authenticatedKey : authenticatedKeys) {
                     if (device.keyId == authenticatedKey.id) {

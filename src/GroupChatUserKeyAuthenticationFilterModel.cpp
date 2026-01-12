@@ -74,7 +74,7 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
         return;
     }
 
-    m_encryptionController->devices(model->userJids()).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    m_encryptionController->devices(model->userJids()).then([this](QList<EncryptionController::Device> &&devices) {
         const auto jids = transformFilter<QList<QString>>(std::as_const(devices), [](const EncryptionController::Device &device) -> std::optional<QString> {
             if (TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel)) {
                 return device.jid;

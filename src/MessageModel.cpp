@@ -422,11 +422,11 @@ void MessageModel::fetchMore(const QModelIndex &)
             const auto isGroupChat = m_chatController->rosterItem().isGroupChat();
 
             if (m_messages.isEmpty()) {
-                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat).then(this, [this](bool complete) {
+                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat).then([this](bool complete) {
                     handleMamBacklogRetrieved(complete);
                 });
             } else {
-                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat, m_messages.constLast().stanzaId).then(this, [this](bool complete) {
+                m_messageController->retrieveBacklogMessages(chatJid, isGroupChat, m_messages.constLast().stanzaId).then([this](bool complete) {
                     handleMamBacklogRetrieved(complete);
                 });
             }
@@ -589,7 +589,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
                                           emojis,
                                           m_chatController->activeEncryption(),
                                           m_chatController->groupChatUserJids())
-                    .then(this, [this, addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
+                    .then([this, addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
                             Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
@@ -685,7 +685,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                                           emojis,
                                           m_chatController->activeEncryption(),
                                           m_chatController->groupChatUserJids())
-                    .then(this, [this, messageId, senderId, emoji](QXmpp::SendResult &&result) {
+                    .then([this, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
                             Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
@@ -769,7 +769,7 @@ void MessageModel::resendMessageReactions(const QString &messageId)
                                       emojis,
                                       m_chatController->activeEncryption(),
                                       m_chatController->groupChatUserJids())
-                .then(this, [this, messageId, senderId](QXmpp::SendResult &&result) {
+                .then([this, messageId, senderId](QXmpp::SendResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
                         Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
 
@@ -1097,7 +1097,7 @@ void MessageModel::handleDevicesChanged(QList<QString> jids)
                 continue;
             }
 
-            m_atmController->trustLevel(XMLNS_OMEMO_2, senderJid, itr->senderKey).then(this, [this, itr](QXmpp::TrustLevel trustLevel) {
+            m_atmController->trustLevel(XMLNS_OMEMO_2, senderJid, itr->senderKey).then([this, itr](QXmpp::TrustLevel trustLevel) {
                 // TODO: Search message again here because itr may not be up-to-date
 
                 itr->preciseTrustLevel = trustLevel;

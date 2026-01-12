@@ -16,7 +16,7 @@ void ContactTrustMessageUriGenerator::updateKeys()
 {
     encryptionController()
         ->keys({jid()}, QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated)
-        .then(this, [this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
+        .then([this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
             const auto keyIds = keys.value(jid());
 
             QList<QString> authenticatedKeys;

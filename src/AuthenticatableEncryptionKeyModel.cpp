@@ -91,7 +91,7 @@ void AuthenticatableEncryptionKeyModel::handleDevicesChanged(QList<QString> jids
 
 void AuthenticatableEncryptionKeyModel::updateKeys()
 {
-    encryptionController()->devices({m_chatJid}).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    encryptionController()->devices({m_chatJid}).then([this](QList<EncryptionController::Device> &&devices) {
         beginResetModel();
 
         m_keys = transformFilter<QList<Key>>(devices, [](const EncryptionController::Device &device) -> std::optional<Key> {

@@ -466,7 +466,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
         return;
     }
 
-    updateLastMessage(itr, message).then(this, [this, origin, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, message).then([this, origin, itr](QList<int> &&changedRoles) mutable {
         switch (origin) {
         case MessageOrigin::Stream:
         case MessageOrigin::UserInput:
@@ -502,7 +502,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
         return;
     }
 
-    updateLastMessage(itr, message).then(this, [this, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, message).then([this, itr](QList<int> &&changedRoles) mutable {
         MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
             if (markedMessageCount != itr->markedMessageCount) {
                 itr->markedMessageCount = markedMessageCount;
@@ -527,7 +527,7 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
         return;
     }
 
-    updateLastMessage(itr, newLastMessage, false).then(this, [this, itr](QList<int> &&changedRoles) mutable {
+    updateLastMessage(itr, newLastMessage, false).then([this, itr](QList<int> &&changedRoles) mutable {
         MessageDb::instance()
             ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
             .then([this, itr, changedRoles](int unreadMessageCount) mutable {

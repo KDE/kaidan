@@ -155,11 +155,11 @@ void MessageController::sendMessageWithUndecidedEncryption(Message message)
         if (rosterItem->isGroupChat()) {
             GroupChatUserDb::instance()->userJids(accountJid, chatJid).then(this, [this, processMessage](QList<QString> &&encryptionJids) mutable {
                 if (!encryptionJids.isEmpty()) {
-                    m_encryptionController->hasUsableDevices(encryptionJids).then(this, processMessage);
+                    m_encryptionController->hasUsableDevices(encryptionJids).then(processMessage);
                 }
             });
         } else {
-            m_encryptionController->hasUsableDevices({chatJid}).then(this, processMessage);
+            m_encryptionController->hasUsableDevices({chatJid}).then(processMessage);
         }
     }
 }
@@ -266,36 +266,35 @@ void MessageController::sendPendingMessageWithUploadedFiles(Message message)
 {
     auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
         send(message.toQXmpp(), message.encryption, encryptionJids)
-            .then(this,
-                  [this,
+            .then([this,
                    accountJid = m_accountSettings->jid(),
                    chatJid = message.chatJid,
                    messageId = message.id,
                    fileFallbackMessages = message.fileFallbackMessages(),
                    encryption = message.encryption,
                    encryptionJids](QXmpp::SendResult result) mutable {
-                      if (const auto error = std::get_if<QXmppError>(&result)) {
-                          qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
-                          Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message could not be sent"));
+                if (const auto error = std::get_if<QXmppError>(&result)) {
+                    qCWarning(KAIDAN_CORE_LOG) << "Could not send message:" << error->description;
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message could not be sent"));
 
-                          MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
-                              msg.deliveryState = Enums::DeliveryState::Error;
-                              msg.errorText = tr("Message could not be sent.");
-                          });
-                      } else {
-                          MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
-                              msg.deliveryState = Enums::DeliveryState::Sent;
-                              msg.errorText.clear();
-                          });
+                    MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
+                        msg.deliveryState = Enums::DeliveryState::Error;
+                        msg.errorText = tr("Message could not be sent.");
+                    });
+                } else {
+                    MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [](Message &msg) {
+                        msg.deliveryState = Enums::DeliveryState::Sent;
+                        msg.errorText.clear();
+                    });
 
-                          for (auto &fileFallbackMessage : fileFallbackMessages) {
-                              // TODO: Track sending of fallback messages individually
-                              // Needed for the case when the success differs between the main message
-                              // and the fallback messages.
-                              send(std::move(fileFallbackMessage), encryption, encryptionJids);
-                          }
-                      }
-                  });
+                    for (auto &fileFallbackMessage : fileFallbackMessages) {
+                        // TODO: Track sending of fallback messages individually
+                        // Needed for the case when the success differs between the main message
+                        // and the fallback messages.
+                        send(std::move(fileFallbackMessage), encryption, encryptionJids);
+                    }
+                }
+            });
     };
 
     if (!message.replaceId.isEmpty()) {
@@ -1024,7 +1023,7 @@ void MessageController::sendPendingMessageReactions()
                                                                        Encryption::Enum encryption = Encryption::NoEncryption,
                                                                        const QList<QString> &encryptionJids = {}) {
                     sendMessageReaction(chatJid, messageId, isGroupChat, emojis, encryption, encryptionJids)
-                        .then(this, [this, chatJid, messageId, accountJid = m_accountSettings->jid()](QXmpp::SendResult &&result) {
+                        .then([this, chatJid, messageId, accountJid = m_accountSettings->jid()](QXmpp::SendResult &&result) {
                             if (const auto error = std::get_if<QXmppError>(&result)) {
                                 Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
@@ -1063,7 +1062,7 @@ void MessageController::sendPendingMessageReactions()
                             .then(this, [this, sendReaction, encryption](QList<QString> &&encryptionJids) mutable {
                                 if (!encryptionJids.isEmpty()) {
                                     m_encryptionController->hasUsableDevices(encryptionJids)
-                                        .then(this, [sendReaction, encryption, encryptionJids](bool hasUsableDevices) mutable {
+                                        .then([sendReaction, encryption, encryptionJids](bool hasUsableDevices) mutable {
                                             if (hasUsableDevices) {
                                                 sendReaction(true, encryption, encryptionJids);
                                             } else {
@@ -1073,7 +1072,7 @@ void MessageController::sendPendingMessageReactions()
                                 }
                             });
                     } else {
-                        m_encryptionController->hasUsableDevices({chatJid}).then(this, [sendReaction, encryption](bool hasUsableDevices) mutable {
+                        m_encryptionController->hasUsableDevices({chatJid}).then([sendReaction, encryption](bool hasUsableDevices) mutable {
                             if (hasUsableDevices) {
                                 sendReaction(false, encryption);
                             } else {
@@ -1105,7 +1104,7 @@ void MessageController::sendPendingReadMarkers()
                             .then(this, [this, chatJid, messageId, encryption](QList<QString> &&encryptionJids) mutable {
                                 if (!encryptionJids.isEmpty()) {
                                     m_encryptionController->hasUsableDevices(encryptionJids)
-                                        .then(this, [this, chatJid, messageId, encryption, encryptionJids](bool hasUsableDevices) mutable {
+                                        .then([this, chatJid, messageId, encryption, encryptionJids](bool hasUsableDevices) mutable {
                                             if (hasUsableDevices) {
                                                 sendReadMarker(chatJid, messageId, encryption, encryptionJids);
                                             } else {
@@ -1115,7 +1114,7 @@ void MessageController::sendPendingReadMarkers()
                                 }
                             });
                     } else {
-                        m_encryptionController->hasUsableDevices({chatJid}).then(this, [this, chatJid, messageId, encryption](bool hasUsableDevices) mutable {
+                        m_encryptionController->hasUsableDevices({chatJid}).then([this, chatJid, messageId, encryption](bool hasUsableDevices) mutable {
                             if (hasUsableDevices) {
                                 sendReadMarker(chatJid, messageId, encryption);
                             } else {

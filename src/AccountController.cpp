@@ -175,7 +175,7 @@ void AccountController::handleAccountAdded(const AccountSettings::Data &accountS
                 &Connection::connected,
                 this,
                 [this, account]() {
-                    m_migrationController->finalizeMigration(account).then(this, [this]() {
+                    m_migrationController->finalizeMigration(account).then([this]() {
                         cancelMigration();
                     });
                 },

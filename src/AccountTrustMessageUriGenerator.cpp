@@ -14,12 +14,12 @@ AccountTrustMessageUriGenerator::AccountTrustMessageUriGenerator(QObject *parent
 
 void AccountTrustMessageUriGenerator::updateKeys()
 {
-    encryptionController()->ownKey().then(this, [this](QString &&key) {
+    encryptionController()->ownKey().then([this](QString &&key) {
         QList<QString> authenticatedKeys = {key};
 
         encryptionController()
             ->keys({jid()}, QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated)
-            .then(this, [this, authenticatedKeys](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
+            .then([this, authenticatedKeys](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
                 const auto keyIds = keys.value(jid());
                 QList<QString> distrustedKeys;
 

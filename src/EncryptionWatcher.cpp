@@ -88,7 +88,7 @@ void EncryptionWatcher::handleDevicesChanged(QList<QString> jids)
 
 void EncryptionWatcher::update()
 {
-    m_encryptionController->devices(m_jids).then(this, [this](QList<EncryptionController::Device> &&devices) {
+    m_encryptionController->devices(m_jids).then([this](QList<EncryptionController::Device> &&devices) {
         const auto distrustedDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
         });

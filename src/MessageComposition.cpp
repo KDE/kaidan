@@ -53,7 +53,7 @@ void MessageComposition::setChatController(ChatController *chatController)
         });
 
         connect(m_chatController, &ChatController::chatChanged, this, [this]() {
-            loadDraft().then(this, [this]() {
+            loadDraft().then([this]() {
                 if (const auto messageBodyToForward = m_chatController->messageBodyToForward(); !messageBodyToForward.isEmpty()) {
                     const auto forwardedMessage = [this, messageBodyToForward]() {
                         const QString quotedBody = m_chatController->account()->settings()->displayName() + u":\n" + QmlUtils::quote(messageBodyToForward);
@@ -269,7 +269,7 @@ void MessageComposition::correct()
 
                         auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
                             m_messageController->send(message.toQXmpp(), message.encryption, encryptionJids)
-                                .then(this, [accountJid = message.accountJid, chatJid = message.chatJid, messageId = message.id](QXmpp::SendResult &&result) {
+                                .then([accountJid = message.accountJid, chatJid = message.chatJid, messageId = message.id](QXmpp::SendResult &&result) {
                                     if (std::holds_alternative<QXmppError>(result)) {
                                         // TODO store in the database only error codes, assign text messages right in the
                                         // QML
