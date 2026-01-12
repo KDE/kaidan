@@ -1011,7 +1011,7 @@ DetailsContent {
 			busyText: qsTr("Preparing account migration…")
 			busy: AccountController.migrating
 			description: busy ? qsTr("This may take a while") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
-			idleIconSource: "edit-copy-symbolic"
+			idleIconSource: "system-switch-user-symbolic"
 			onClicked: AccountController.startMigration(root.account)
 
 			Connections {
