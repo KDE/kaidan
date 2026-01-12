@@ -24,13 +24,6 @@ public:
 private:
     void updateData();
 
-    /**
-     * Requests disco info and items for the server JID and updates the locally cached data.
-     *
-     * The results are used, for example, by various managers such as QXmppMixManager.
-     */
-    void updateDataForManagers();
-
     void handleOwnServerInfo(QXmppDiscoInfo &&info);
 
     AccountSettings *const m_accountSettings;

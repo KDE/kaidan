@@ -62,31 +62,6 @@ void DiscoveryController::updateData()
             handleOwnServerInfo(std::get<QXmppDiscoInfo>(std::move(result)));
         }
     });
-
-    updateDataForManagers();
-}
-
-void DiscoveryController::updateDataForManagers()
-{
-    // Get info for the user JID.
-    m_manager->requestInfo({});
-
-    const auto serverJid = QXmppUtils::jidToDomain(m_accountSettings->jid());
-
-    m_manager->requestInfo(serverJid);
-
-    m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) mutable {
-        if (const auto *error = std::get_if<QXmppError>(&result)) {
-            qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery items of %1: %2").arg(serverJid, error->description);
-        } else {
-            const auto items = std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result));
-
-            // Get info of all child items.
-            for (const auto &item : items) {
-                m_manager->requestInfo(item.jid());
-            }
-        }
-    });
 }
 
 void DiscoveryController::handleOwnServerInfo(QXmppDiscoInfo &&info)
