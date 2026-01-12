@@ -22,7 +22,6 @@
 #include "DiscoveryController.h"
 #include "EncryptionController.h"
 #include "FileSharingController.h"
-#include "FutureUtils.h"
 #include "GroupChatController.h"
 #include "LogHandler.h"
 #include "MessageController.h"

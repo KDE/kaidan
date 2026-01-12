@@ -18,7 +18,6 @@
 // Kaidan
 #include "Account.h"
 #include "AvatarCache.h"
-#include "FutureUtils.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
 

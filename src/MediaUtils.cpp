@@ -26,7 +26,6 @@
 #include <KIO/OpenFileManagerWindowJob>
 #include <KIO/PreviewJob>
 // Kaidan
-#include "FutureUtils.h"
 #include "Globals.h"
 #include "ImageProvider.h"
 #include "KaidanCoreLog.h"

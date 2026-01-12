@@ -18,7 +18,6 @@
 #include "AccountDb.h"
 #include "ClientController.h"
 #include "EncryptionController.h"
-#include "FutureUtils.h"
 #include "ImageProvider.h"
 #include "MessageDb.h"
 #include "RegistrationDataFormModel.h"

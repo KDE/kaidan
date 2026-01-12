@@ -20,7 +20,6 @@
 #include "AccountDb.h"
 #include "Algorithms.h"
 #include "Encryption.h"
-#include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "RosterDb.h"

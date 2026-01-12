@@ -33,7 +33,6 @@
 #include "Account.h"
 #include "Algorithms.h"
 #include "FileProgressCache.h"
-#include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "MediaUtils.h"
