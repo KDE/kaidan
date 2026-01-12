@@ -92,21 +92,25 @@ Kirigami.ApplicationWindow {
 
 	Component {
 		id: startPage
+
 		StartPage {}
 	}
 
 	Component {
 		id: rosterPage
+
 		RosterPage {}
 	}
 
 	Component {
 		id: emptyChatPage
+
 		EmptyChatPage {}
 	}
 
 	Component {
 		id: callPage
+
 		CallPage {}
 	}
 
