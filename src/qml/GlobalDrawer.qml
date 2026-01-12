@@ -24,6 +24,7 @@ Kirigami.GlobalDrawer {
 	property Account selectedAccount
 	property Component nextOverlayToOpen
 	property Component nextPageToOpen
+	property Item lastFocusedItem
 
 	property var accounts: AccountController.accounts
 
@@ -301,6 +302,12 @@ Kirigami.GlobalDrawer {
 			}
 		}
 	}
+	onClosed: {
+		// Focus the item that was focused before opening.
+		if (lastFocusedItem) {
+			lastFocusedItem.forceActiveFocus()
+		}
+	}
 
 	Component {
 		id: accountDetailsDialog
@@ -503,5 +510,18 @@ Kirigami.GlobalDrawer {
 		}
 
 		close()
+	}
+
+	Connections {
+		target: applicationWindow()
+
+		function onActiveFocusItemChanged() {
+			const focusedItem = applicationWindow().activeFocusItem
+
+			// Update lastFocusedItem unless the drawer handle is focused.
+			if (!root.handle.visibleChildren.includes(focusedItem)) {
+				root.lastFocusedItem = focusedItem
+			}
+		}
 	}
 }
