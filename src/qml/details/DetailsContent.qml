@@ -162,11 +162,10 @@ FormInfoContent {
 			title: qsTr("Sharing")
 		}
 
-		FormCard.FormButtonDelegate {
+		FormExpansionButtonDelegate {
 			id: qrCodeExpansionButton
 			text: qsTr("Show QR code")
 			icon.name: "view-barcode-qr"
-			checkable: true
 		}
 
 		FormCard.AbstractFormDelegate {

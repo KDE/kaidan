@@ -35,6 +35,7 @@ Kirigami.ApplicationWindow {
 		const accentColor = secondaryBackgroundColor
 		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.8))
 	}
+	readonly property real reducedBackgroundOpacity: 0.4
 	// radius for using rounded corners
 	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 1.5
 	readonly property int largeButtonWidth: Kirigami.Units.gridUnit * 25

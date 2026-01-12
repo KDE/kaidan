@@ -395,9 +395,11 @@ DetailsContent {
 			}
 		}
 
-		FormCard.FormButtonDelegate {
+		FormExpansionButtonDelegate {
+			id: chatSupportExpansionButton
 			text: qsTr("Open support chat")
 			description: qsTr("Start chat with your provider's support contact")
+			checkable: root.account.settings.chatSupportAddresses.length > 1
 			visible: root.account.settings.enabled && root.account.settings.chatSupportAddresses.length
 			onClicked: {
 				if (root.account.settings.chatSupportAddresses.length === 1) {
@@ -408,15 +410,13 @@ DetailsContent {
 					if (root.dialog) {
 						root.dialog.close()
 					}
-				} else {
-					chatSupportListView.visible = !chatSupportListView.visible
 				}
 			}
 		}
 
 		InlineListView {
 			id: chatSupportListView
-			visible: false
+			visible: chatSupportExpansionButton.checked
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
 			model: root.account.settings.chatSupportAddresses
@@ -437,22 +437,21 @@ DetailsContent {
 			}
 		}
 
-		FormCard.FormButtonDelegate {
+		FormExpansionButtonDelegate {
+			id: groupChatSupportExpansionButton
 			text: qsTr("Open support group")
 			description: qsTr("Join your provider's public support group")
+			checkable: root.account.settings.groupChatSupportAddresses.length > 1
 			visible: root.account.settings.groupChatSupportAddresses.length
 			onClicked: {
 				if (root.account.settings.groupChatSupportAddresses.length === 1) {
 					Qt.openUrlExternally(Utils.groupChatUri(root.account.settings.groupChatSupportAddresses[0]))
-				} else {
-					groupChatSupportListView.visible = !groupChatSupportListView.visible
 				}
 			}
 		}
 
 		InlineListView {
-			id: groupChatSupportListView
-			visible: false
+			visible: groupChatSupportExpansionButton.checked
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
 			model: root.account.settings.groupChatSupportAddresses
@@ -957,12 +956,11 @@ DetailsContent {
 			visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Invisible
 		}
 
-		FormCard.FormButtonDelegate {
+		FormExpansionButtonDelegate {
 			id: loginQrCodeExpansionButton
 			text: qsTr("Show login QR code")
 			description: qsTr("Scan the QR code by another device to log in on it")
 			icon.name: "view-barcode-qr"
-			checkable: true
 		}
 
 		FormCard.AbstractFormDelegate {
@@ -975,7 +973,7 @@ DetailsContent {
 			Layout.preferredHeight: Layout.preferredWidth
 		}
 
-		FormCard.FormButtonDelegate {
+		FormExpansionButtonDelegate {
 			id: credentialsExpansionButton
 			text: qsTr("Show credentials")
 			description: qsTr("Enter the credentials in another device to log in on it")

@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 /**
- * Used to expand and collapse form entries.
+ * Button used to expand and collapse form entries above it.
  */
 FormIconButton {
 	id: root

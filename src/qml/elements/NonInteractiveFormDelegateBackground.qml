@@ -10,4 +10,5 @@ import org.kde.kirigamiaddons.formcard as FormCard
 FormCard.FormDelegateBackground {
 	control: parent
 	color: secondaryBackgroundColor
+	opacity: reducedBackgroundOpacity
 }

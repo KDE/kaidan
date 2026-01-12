@@ -12,14 +12,14 @@ FormCard.FormDelegateBackground {
 	control: parent
 	color: {
 		const color = secondaryBackgroundColor
-		let colorOpacity = 0.4
+		let colorOpacity = reducedBackgroundOpacity
 
 		if (!control.enabled) {
 			colorOpacity = 0.2
 		} else if (control.pressed) {
 			colorOpacity = 1
 		} else if (control.visualFocus) {
-			colorOpacity = 0.4
+			colorOpacity = reducedBackgroundOpacity
 		} else if (!Kirigami.Settings.tabletMode && control.hovered) {
 			colorOpacity = 0.7
 		}

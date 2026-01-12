@@ -28,7 +28,7 @@ ColumnLayout {
 
 	spacing: 0
 
-	FormCard.FormButtonDelegate {
+	FormExpansionButtonDelegate {
 		id: button
 		background: FormCard.FormDelegateBackground {
 			control: parent
@@ -39,14 +39,13 @@ ColumnLayout {
 				bottomRightRadius: root._bottomCornersRounded && !confirmationButton.visible ? Kirigami.Units.smallSpacing : 0
 			}
 		}
-		onClicked: confirmationButton.visible = !confirmationButton.visible
 	}
 
 	BusyIndicatorFormButton {
 		id: confirmationButton
 		idleText: qsTr("Confirm")
-		visible: false
-		background: FormCard.FormDelegateBackground {
+		visible: root.button.checked
+		background: SecondaryFormButtonBackground {
 			control: parent
 			// Needed since the corners would otherwise not be rounded because this button is not a
 			// direct child of FormCard.FormCard.
