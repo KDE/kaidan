@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-01 23:03+0100\n"
+"PO-Revision-Date: 2026-01-07 18:45+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -627,18 +627,15 @@ msgstr "Apri"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Chiamata in ingresso da %1"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Chiamata video in ingresso da %1"
 
 #: src/NotificationController.cpp:223
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Accetta"
@@ -646,7 +643,7 @@ msgstr "Accetta"
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Rifiuta"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -720,35 +717,29 @@ msgstr "Informazioni su Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Chiama"
 
 #: src/qml/ChatPage.qml:96
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Apri la chat di supporto"
+msgstr "Apri la chiamata audio"
 
 #: src/qml/ChatPage.qml:96
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Avvia la chiamata audio"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Apri la chiamata video"
 
 #: src/qml/ChatPage.qml:109
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Avvia la chiamata video"
 
 #: src/qml/ChatPage.qml:122
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Chiudi la ricerca"
