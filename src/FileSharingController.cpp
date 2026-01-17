@@ -389,10 +389,10 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
     switch (m_uploadSupport) {
     case QXmppHttpUploadManager::Support::Unknown:
         updateMessageError(tr("Media sharing support is unknown"));
-        return makeReadyFuture(false);
+        return QtFuture::makeReadyValueFuture(false);
     case QXmppHttpUploadManager::Support::Unsupported:
         updateMessageError(tr("Media sharing is unsupported"));
-        return makeReadyFuture(false);
+        return QtFuture::makeReadyValueFuture(false);
     case QXmppHttpUploadManager::Support::Supported:
         break;
     }

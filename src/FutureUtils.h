@@ -8,25 +8,9 @@
 
 // Qt
 #include <QFuture>
-#include <QFutureWatcher>
 // QXmpp
 #include <QXmppPromise.h>
 #include <QXmppTask.h>
-
-template<typename ValueType>
-auto qFutureValueType(QFuture<ValueType>) -> ValueType;
-template<typename Future>
-using QFutureValueType = decltype(qFutureValueType(Future()));
-
-template<typename T>
-QFuture<T> makeReadyFuture(T &&value)
-{
-    QPromise<T> promise;
-    promise.start();
-    promise.addResult(std::move(value));
-    promise.finish();
-    return promise.future();
-}
 
 template<typename T>
 void reportFinishedResult(QPromise<T> &promise, const T &result)
@@ -90,7 +74,7 @@ template<typename T>
 QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
 {
     if (futures.empty()) {
-        return makeReadyFuture<QList<T>>({});
+        return QtFuture::makeReadyValueFuture<QList<T>>({});
     }
 
     struct State {

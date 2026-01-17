@@ -305,7 +305,7 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
         return generateQrCodeImage(value, requestedEdge, devicePixelRatio).then(context, then);
     }
 
-    return makeReadyFuture(QImage()).then(context, then);
+    return QtFuture::makeReadyValueFuture(QImage()).then(context, then);
 }
 
 QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePath, int edgePixelCount, qreal devicePixelRatio, QObject *context)

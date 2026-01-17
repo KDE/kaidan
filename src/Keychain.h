@@ -13,8 +13,6 @@
 #include <QFuture>
 #include <QGuiApplication>
 #include <qt6keychain/keychain.h>
-// Kaidan
-#include "FutureUtils.h"
 
 using namespace std::chrono;
 
@@ -29,6 +27,11 @@ template<typename T>
 using ReadFuture = QFuture<ReadResult<T>>;
 using WriteFuture = QFuture<WriteResult>;
 using DeleteFuture = QFuture<DeleteResult>;
+
+template<typename ValueType>
+auto qFutureValueType(QFuture<ValueType>) -> ValueType;
+template<typename Future>
+using QFutureValueType = decltype(qFutureValueType(Future()));
 
 // Helpers
 

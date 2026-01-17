@@ -587,7 +587,7 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
 QFuture<QXmppAccountMigrationManager::Result<>> AccountMigrationController::notifyContacts(Account *newAccount, const QList<QString> &contactJids)
 {
     if (contactJids.isEmpty()) {
-        return makeReadyFuture<QXmppAccountMigrationManager::Result<>>({});
+        return QtFuture::makeReadyValueFuture<QXmppAccountMigrationManager::Result<>>({});
     }
 
     auto promise = std::make_shared<QPromise<QXmppAccountMigrationManager::Result<>>>();

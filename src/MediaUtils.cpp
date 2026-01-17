@@ -611,7 +611,7 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
     auto *file = dynamic_cast<QFile *>(f.get());
     if (!file) {
         // other io devices can't be handled
-        return makeReadyFuture<std::shared_ptr<Result>>(std::move(result));
+        return QtFuture::makeReadyValueFuture<std::shared_ptr<Result>>(std::move(result));
     }
 
     auto promise = std::make_shared<QPromise<std::shared_ptr<Result>>>();
