@@ -169,7 +169,7 @@ void OmemoController::initializeChat(const QList<QString> &jids)
         futures.append(subscribeToDeviceLists(deviceListSubscriptionJids));
     }
 
-    joinVoidFutures(this, std::move(futures)).then(this, [this, jids = jids]() mutable {
+    joinVoidFutures(std::move(futures)).then([this, jids = jids]() mutable {
         jids.append(m_accountSettings->jid());
         buildMissingSessions(jids);
     });

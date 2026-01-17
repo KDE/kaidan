@@ -427,7 +427,7 @@ void Connection::logOut(bool isApplicationBeingClosed)
     if (futures.isEmpty()) {
         m_clientController->logOut(isApplicationBeingClosed);
     } else {
-        joinVoidFutures(this, std::move(futures)).then(this, [this, isApplicationBeingClosed]() {
+        joinVoidFutures(std::move(futures)).then(this, [this, isApplicationBeingClosed]() {
             m_logOutTaskWrappers.clear();
             m_clientController->logOut(isApplicationBeingClosed);
         });

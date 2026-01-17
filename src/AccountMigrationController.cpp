@@ -576,7 +576,7 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
                 }
             }
 
-            joinVoidFutures(this, std::move(futures)).then([promise]() mutable {
+            joinVoidFutures(std::move(futures)).then([promise]() mutable {
                 promise->finish();
             });
         });

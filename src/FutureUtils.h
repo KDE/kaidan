@@ -86,20 +86,10 @@ QFuture<QList<T>> join(QList<QFuture<T>> &&futures)
 
 // Creates a future for multiple futures without a return value.
 template<typename T>
-QFuture<void> joinVoidFutures(QObject *context, QList<QFuture<T>> &&futures)
+QFuture<void> joinVoidFutures(QList<QFuture<T>> &&futures)
 {
-    int futureCount = futures.size();
-    auto finishedFutureCount = std::make_shared<int>();
-
-    auto promise = std::make_shared<QPromise<void>>();
-
-    for (auto future : futures) {
-        future.then(context, [=]() mutable {
-            if (++(*finishedFutureCount) == futureCount) {
-                promise->finish();
-            }
-        });
-    }
-
-    return promise->future();
+    return QtFuture::whenAll(futures.begin(), futures.end()).then([](const QList<QFuture<T>> &futures) {
+        Q_UNUSED(futures)
+        return;
+    });
 }
