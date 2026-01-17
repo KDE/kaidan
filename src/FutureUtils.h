@@ -11,6 +11,8 @@
 // QXmpp
 #include <QXmppPromise.h>
 #include <QXmppTask.h>
+// Kaidan
+#include "Algorithms.h"
 
 template<typename T>
 void reportFinishedResult(QPromise<T> &promise, const T &result)
@@ -71,47 +73,15 @@ auto runAsyncTask(QObject *callerObject, QObject *targetObject, Function functio
 
 // Creates a future with the results from all given futures (preserving order).
 template<typename T>
-QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
+QFuture<QList<T>> join(QList<QFuture<T>> &&futures)
 {
-    if (futures.empty()) {
-        return QtFuture::makeReadyValueFuture<QList<T>>({});
-    }
+    Q_ASSERT(!futures.isEmpty());
 
-    struct State {
-        QPromise<QList<T>> promise;
-        QObject *context = nullptr;
-        QList<T> results;
-        QList<QFuture<T>> futures;
-        qsizetype i = 0;
-        // keep-alive during awaits()
-        std::shared_ptr<State> self;
-
-        void joinOne()
-        {
-            if (i < futures.size()) {
-                futures[i].then(context, [this](T &&value) {
-                    results.push_back(std::move(value));
-                    i++;
-                    joinOne();
-                });
-            } else {
-                promise.addResult(results);
-                promise.finish();
-                // release
-                self.reset();
-            }
-        }
-    };
-
-    auto state = std::make_shared<State>();
-    state->context = context;
-    state->results.reserve(futures.size());
-    state->futures = futures;
-    state->self = state;
-
-    auto future = state->promise.future();
-    state->joinOne();
-    return future;
+    return QtFuture::whenAll(futures.begin(), futures.end()).then([](const QList<QFuture<T>> &futures) {
+        return transform(futures, [](const QFuture<T> &future) {
+            return future.result();
+        });
+    });
 }
 
 // Creates a future for multiple futures without a return value.

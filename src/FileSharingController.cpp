@@ -172,24 +172,17 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings, C
 
 void FileSharingController::sendPendingFiles(const QString &chatJid, const QString &messageId, const QList<File> &files, bool encrypt)
 {
-    join(this,
-         transform(files,
-                   [this, chatJid, messageId, encrypt](const auto &file) {
-                       if (file.transferState == File::TransferState::Pending) {
-                           return sendFileTask(chatJid, messageId, file, encrypt);
-                       }
+    join(transform(files, [this, chatJid, messageId, encrypt](const auto &file) {
+        if (file.transferState == File::TransferState::Pending) {
+            return sendFileTask(chatJid, messageId, file, encrypt);
+        }
 
-                       auto promise = std::make_shared<QPromise<bool>>();
-                       promise->start();
-                       promise->addResult(file.transferState == File::TransferState::Done);
-                       promise->finish();
-                       return promise->future();
-                   }))
-        .then([this, chatJid, messageId](const QList<bool> oks) {
-            if (all_true(oks)) {
-                maybeSendPendingMessage(chatJid, messageId);
-            }
-        });
+        return QtFuture::makeReadyValueFuture<bool>(file.transferState == File::TransferState::Done);
+    })).then([this, chatJid, messageId](const QList<bool> &allFilesUploaded) {
+        if (all_true(allFilesUploaded)) {
+            maybeSendPendingMessage(chatJid, messageId);
+        }
+    });
 }
 
 void FileSharingController::sendFile(const QString &chatJid, const QString &messageId, const File &file, bool encrypt)

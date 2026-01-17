@@ -23,7 +23,7 @@ void FutureUtilsTest::testJoin()
     QPromise<int> i3;
 
     QList futures = {i1.future(), i2.future(), i3.future()};
-    auto joinedFuture = join(this, futures);
+    auto joinedFuture = join(std::move(futures));
 
     i2.addResult(10);
     i2.finish();
