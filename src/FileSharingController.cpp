@@ -302,7 +302,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
             progress->bytesTotal = download->bytesTotal();
             progress->progress = download->progress();
 
-            FileProgressCache::instance().reportProgress(fileId, progress);
+            FileProgressCache::instance().reportProgress(fileId, *progress);
         }
     });
 
@@ -349,7 +349,7 @@ void FileSharingController::downloadFile(const QString &chatJid, const QString &
             MediaUtils::deleteDownloadedFile(filePath);
         }
 
-        FileProgressCache::instance().reportProgress(fileId, {});
+        FileProgressCache::instance().reportFinished(fileId);
         // reduce ref count
         download.reset();
     });
@@ -361,7 +361,7 @@ void FileSharingController::cancelTransfer(const QString &chatJid, const QString
 
     if (progress && progress->cancel) {
         progress->canceledByUser = true;
-        FileProgressCache::instance().reportProgress(file.id, progress);
+        FileProgressCache::instance().reportProgress(file.id, *progress);
 
         progress->cancel();
     } else {
@@ -437,7 +437,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
             progress->bytesTotal = upload->bytesTotal();
             progress->progress = upload->progress();
 
-            FileProgressCache::instance().reportProgress(file.id, progress);
+            FileProgressCache::instance().reportProgress(file.id, *progress);
         }
     });
 
@@ -523,7 +523,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
             qCDebug(KAIDAN_CORE_LOG) << "Could not upload file:" << errorText;
         }
 
-        FileProgressCache::instance().reportProgress(file.id, {});
+        FileProgressCache::instance().reportFinished(file.id);
         // reduce ref count
         upload.reset();
     };
