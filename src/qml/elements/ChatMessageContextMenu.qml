@@ -49,7 +49,7 @@ Kirigami.Dialog {
 		implicitHeight: 1
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Remove selected file")
+			Controls.ToolTip.text: qsTr("Remove file")
 			source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
@@ -57,7 +57,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Open selected file's folder")
+			Controls.ToolTip.text: qsTr("Open file in folder")
 			source: "folder-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
