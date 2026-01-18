@@ -35,7 +35,7 @@ void reportFinishedResult(QPromise<T> &promise, const T &result)
     promise.finish();
 }
 
-// Runs a function on targetObject's thread and returns the result via QFuture.
+// Runs a function on targetObject's thread and reports the result via QFuture.
 template<typename Function>
 auto runAsync(QObject *targetObject, Function function)
 {
@@ -58,25 +58,31 @@ auto runAsync(QObject *targetObject, Function function)
     return promise->future();
 }
 
-// Runs a function on targetObject's thread and returns the result via QXmppTask.
+// Runs a function on targetObject's thread and reports the result via QXmppTask on callerObject's thread.
+// That is required because QXmppTask is not thread-safe.
 template<typename Function>
-auto runAsyncTask(QObject *targetObject, Function function)
+auto runAsyncTask(QObject *callerObject, QObject *targetObject, Function function)
 {
     using ValueType = std::invoke_result_t<Function>;
 
     QXmppPromise<ValueType> promise;
+    auto task = promise.task();
 
-    QMetaObject::invokeMethod(targetObject, [promise, function = std::move(function)]() mutable {
+    QMetaObject::invokeMethod(targetObject, [callerObject, promise = std::move(promise), function = std::move(function)]() mutable {
         if constexpr (std::is_same_v<ValueType, void>) {
             function();
-            promise.finish();
+            QMetaObject::invokeMethod(callerObject, [promise = std::move(promise)]() mutable {
+                promise.finish();
+            });
         } else {
             auto value = function();
-            promise.finish(std::move(value));
+            QMetaObject::invokeMethod(callerObject, [promise = std::move(promise), value = std::move(value)]() mutable {
+                promise.finish(std::move(value));
+            });
         }
     });
 
-    return promise.task();
+    return task;
 }
 
 // Creates a future with the results from all given futures (preserving order).

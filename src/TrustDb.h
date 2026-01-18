@@ -76,9 +76,9 @@ public:
 
 private:
     template<typename Functor>
-    auto runTask(Functor function) const
+    auto runTask(Functor function)
     {
-        return runAsyncTask(dbWorker(), function);
+        return runAsyncTask(this, dbWorker(), function);
     }
 
     auto insertKeys(std::vector<Key> &&) -> QXmppTask<void>;
