@@ -8,6 +8,8 @@
 #include "AccountDb.h"
 #include "AccountMigrationController.h"
 #include "Algorithms.h"
+#include "KaidanCoreLog.h"
+#include "Keychain.h"
 #include "MainController.h"
 
 AccountController *AccountController::s_instance = nullptr;
@@ -30,7 +32,18 @@ AccountController::AccountController(QObject *parent)
     connect(AccountDb::instance(), &AccountDb::accountAdded, this, &AccountController::handleAccountAdded);
     connect(AccountDb::instance(), &AccountDb::accountRemoved, this, &AccountController::removeAccount);
 
-    loadAccounts();
+    QKeychainFuture::migrateServiceToEncryptedKeychain(QKeychainFuture::serviceKey())
+        .onFailed([](const QKeychainFuture::Error &error) {
+            qCWarning(KAIDAN_CORE_LOG, "Could not delete unencrypted keychain file: %s", error.what());
+            return error.error();
+        })
+        .then(this, [this](QKeychain::Error error) {
+            if (error == QKeychain::NoError) {
+                loadAccounts();
+            } else {
+                qCFatal(KAIDAN_CORE_LOG, "Could not migrate passwords from unencrypted keychain file to password manager, error: %i", error);
+            }
+        });
 }
 
 AccountController::~AccountController()

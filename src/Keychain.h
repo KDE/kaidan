@@ -41,6 +41,7 @@ bool unencryptedFallback();
 void setUnencryptedFallback(bool unencryptedFallback);
 QString serviceKey();
 std::unique_ptr<QSettings> unencryptedSettings();
+QFuture<QKeychain::Error> migrateServiceToEncryptedKeychain(const QString &service);
 
 template<typename T>
 bool waitForFinished(const QFuture<T> &future, std::chrono::milliseconds msecs = -1ms)
