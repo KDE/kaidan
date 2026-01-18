@@ -14,7 +14,7 @@
 #include <QXmppStanza.h>
 
 class AccountSettings;
-class ClientWorker;
+class ClientController;
 class Connection;
 class DataFormModel;
 class EncryptionController;
@@ -57,7 +57,7 @@ public:
                            Connection *connection,
                            EncryptionController *encryptionController,
                            VCardController *vCardController,
-                           ClientWorker *clientWorker,
+                           ClientController *clientController,
                            QObject *parent = nullptr);
 
     bool registerOnConnectEnabled() const;
@@ -237,7 +237,7 @@ private:
     Connection *const m_connection;
     EncryptionController *const m_encryptionController;
     VCardController *const m_vCardController;
-    ClientWorker *const m_clientWorker;
+    ClientController *const m_clientController;
     QXmppClient *const m_client;
     QXmppRegistrationManager *const m_manager;
 

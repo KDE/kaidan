@@ -15,7 +15,7 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
-#include "ClientWorker.h"
+#include "ClientController.h"
 #include "EncryptionController.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"

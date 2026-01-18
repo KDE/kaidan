@@ -14,7 +14,7 @@
 #include "Account.h"
 #include "Algorithms.h"
 #include "ChatController.h"
-#include "ClientWorker.h"
+#include "ClientController.h"
 #include "GroupChatController.h"
 #include "GroupChatUser.h"
 #include "MainController.h"

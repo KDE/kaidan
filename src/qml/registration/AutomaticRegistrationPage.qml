@@ -77,7 +77,7 @@ RegistrationPage {
 			CustomDataFormArea {
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
-				visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired
+				visible: root.account.connection.error !== ClientController.EmailConfirmationRequired
 				Layout.fillWidth: true
 				onVisibleChanged: {
 					if (visible) {
@@ -104,8 +104,8 @@ RegistrationPage {
 		target: root.account.connection
 
 		function onErrorChanged() {
-			if (root.account.connection.error !== ClientWorker.NoError) {
-				if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
+			if (root.account.connection.error !== ClientController.NoError) {
+				if (root.account.connection.error === ClientController.EmailConfirmationRequired) {
 					loadingStackArea.busy = false
 				} else if (root.triedProviderIndexes.length < providerModel.rowCount()){
 					requestRegistrationFormFromAnotherProvider()

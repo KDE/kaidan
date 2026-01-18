@@ -157,7 +157,7 @@ void ChatHintModel::handleConnectionStateChanged()
 
 void ChatHintModel::handleConnectionErrorChanged()
 {
-    const auto chatHintShouldBeShown = m_connection->error() != ClientWorker::NoError;
+    const auto chatHintShouldBeShown = m_connection->error() != ClientController::NoError;
 
     if (const auto i = chatHintIndex(ChatHintButton::ShowConnectionError); i == -1) {
         if (chatHintShouldBeShown) {

@@ -16,7 +16,7 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
-#include "ClientWorker.h"
+#include "ClientController.h"
 #include "EncryptionController.h"
 #include "FutureUtils.h"
 #include "ImageProvider.h"
@@ -33,16 +33,16 @@ RegistrationController::RegistrationController(AccountSettings *accountSettings,
                                                Connection *connection,
                                                EncryptionController *encryptionController,
                                                VCardController *vCardController,
-                                               ClientWorker *clientWorker,
+                                               ClientController *clientController,
                                                QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_connection(connection)
     , m_encryptionController(encryptionController)
     , m_vCardController(vCardController)
-    , m_clientWorker(clientWorker)
-    , m_client(clientWorker->xmppClient())
-    , m_manager(clientWorker->registrationManager())
+    , m_clientController(clientController)
+    , m_client(clientController->xmppClient())
+    , m_manager(clientController->registrationManager())
 {
     connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationController::handleInBandRegistrationSupportedChanged);
 
@@ -73,16 +73,16 @@ void RegistrationController::requestRegistrationForm()
                 m_manager->requestRegistrationForm();
             } else {
                 m_client->disconnectFromServer();
-                m_clientWorker->connectToServer();
+                m_clientController->connectToServer();
             }
         } else {
             m_client->disconnectFromServer();
             m_manager->setRegisterOnConnectEnabled(true);
-            m_clientWorker->connectToServer();
+            m_clientController->connectToServer();
         }
     } else {
         m_manager->setRegisterOnConnectEnabled(true);
-        m_clientWorker->connectToServer();
+        m_clientController->connectToServer();
     }
 }
 
@@ -105,7 +105,7 @@ void RegistrationController::sendRegistrationForm()
     if (m_connection->state() != Enums::ConnectionState::StateDisconnected) {
         m_manager->sendCachedRegistrationForm();
     } else {
-        m_clientWorker->connectToServer();
+        m_clientController->connectToServer();
     }
 }
 
@@ -134,9 +134,9 @@ void RegistrationController::deleteAccountFromClient()
 
     // If the client is not yet disconnected, disconnect first and delete the account afterwards.
     // Otherwise, delete the account directly from the client.
-    if (m_clientWorker->xmppClient()->isAuthenticated()) {
+    if (m_clientController->xmppClient()->isAuthenticated()) {
         m_encryptionController->reset().then([this]() {
-            m_clientWorker->logOut();
+            m_clientController->logOut();
         });
     } else {
         m_connection->logIn();
@@ -149,7 +149,7 @@ void RegistrationController::deleteAccountFromClientAndServer()
 
     // If the client is already connected, delete the account directly from the server.
     // Otherwise, connect first and delete the account afterwards.
-    if (m_clientWorker->xmppClient()->isAuthenticated()) {
+    if (m_clientController->xmppClient()->isAuthenticated()) {
         m_manager->deleteAccount();
 
         // Start a timer to disconnect from the server after a specified timeout triggering
@@ -231,7 +231,7 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
         }
 
         // If no URL has been found in the instructions, there is a problem with the server.
-        Q_EMIT m_clientWorker->connectionErrorChanged(ClientWorker::RegistrationUnsupported);
+        Q_EMIT m_clientController->connectionErrorChanged(ClientController::RegistrationUnsupported);
         abortRegistration();
         return;
     }
@@ -272,7 +272,7 @@ void RegistrationController::handleRegistrationSucceeded()
         },
         Qt::SingleShotConnection);
 
-    m_clientWorker->logIn();
+    m_clientController->logIn();
     cleanUpLastForm();
 }
 
@@ -438,7 +438,7 @@ void RegistrationController::handleAccountDeletionFromServerFailed(const QXmppSt
 
     if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
         m_deletionStates = DeletionState::NotToBeDeleted;
-        m_clientWorker->logOut();
+        m_clientController->logOut();
     } else {
         m_deletionStates = DeletionState::NotToBeDeleted;
     }

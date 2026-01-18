@@ -24,11 +24,11 @@ FormCard.FormCard {
 
 	BusyIndicatorFormButton {
 		id: button
-		idleText: root.account.connection.error === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
-		busyText: root.account.connection.error === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
+		idleText: root.account.connection.error === ClientController.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
+		busyText: root.account.connection.error === ClientController.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
 		background: HighlightedFormButtonBackground {}
 		onClicked: {
-			if (root.account.connection.error === ClientWorker.EmailConfirmationRequired) {
+			if (root.account.connection.error === ClientController.EmailConfirmationRequired) {
 				loginFunction()
 			} else {
 				registrationFunction()

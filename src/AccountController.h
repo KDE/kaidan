@@ -12,7 +12,7 @@
 #include "Account.h"
 
 class AccountMigrationController;
-class ClientWorker;
+class ClientController;
 
 class AccountController : public QObject
 {

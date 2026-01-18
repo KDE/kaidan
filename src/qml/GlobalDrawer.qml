@@ -108,7 +108,7 @@ Kirigami.GlobalDrawer {
 						}
 
 						FormCard.FormCard {
-							visible: modelData.connection.error === ClientWorker.AuthenticationFailed
+							visible: modelData.connection.error === ClientController.AuthenticationFailed
 							Layout.fillWidth: true
 
 							FormCardCustomContentArea {

@@ -353,7 +353,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<MessageType>();
     qRegisterMetaType<Enums::ConnectionState>();
     qRegisterMetaType<PublicGroupChatModel::CustomRole>();
-    qRegisterMetaType<ClientWorker::ConnectionError>();
+    qRegisterMetaType<ClientController::ConnectionError>();
     qRegisterMetaType<Enums::MessageType>();
     qRegisterMetaType<Presence::Availability>();
     qRegisterMetaType<Enums::DeliveryState>();
@@ -543,7 +543,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<AccountSettings>(APPLICATION_ID, 1, 0, "AccountSettings", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<AtmController>(APPLICATION_ID, 1, 0, "AtmController", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<QAbstractItemModel>(APPLICATION_ID, 1, 0, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
-    qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<ClientController>(APPLICATION_ID, 1, 0, "ClientController", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<RegistrationController>(APPLICATION_ID, 1, 0, "RegistrationController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<AccountMigrationController>(APPLICATION_ID,

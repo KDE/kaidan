@@ -38,10 +38,7 @@ class QXmppVCardManager;
 class QXmppVersionManager;
 class RegistrationController;
 
-/**
- * The ClientWorker is used as a QObject-based worker on the ClientThread.
- */
-class ClientWorker : public QObject
+class ClientController : public QObject
 {
     Q_OBJECT
 
@@ -67,7 +64,7 @@ public:
     };
     Q_ENUM(ConnectionError)
 
-    ClientWorker(AccountSettings *accountSettings, QObject *parent = nullptr);
+    ClientController(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     QXmppClient *xmppClient() const
     {
@@ -209,7 +206,7 @@ public:
      *
      * @param error new connection error
      */
-    Q_SIGNAL void connectionErrorChanged(ClientWorker::ConnectionError error);
+    Q_SIGNAL void connectionErrorChanged(ClientController::ConnectionError error);
 
 private:
     /**

@@ -401,17 +401,17 @@ void AccountSettings::generateUserAgentDeviceId()
     }
 }
 
-Connection::Connection(ClientWorker *clientWorker, QObject *parent)
+Connection::Connection(ClientController *clientController, QObject *parent)
     : QObject(parent)
-    , m_clientWorker(clientWorker)
+    , m_clientController(clientController)
 {
-    connect(m_clientWorker, &ClientWorker::connectionStateChanged, this, &Connection::setState);
-    connect(m_clientWorker, &ClientWorker::connectionErrorChanged, this, &Connection::setError);
+    connect(m_clientController, &ClientController::connectionStateChanged, this, &Connection::setState);
+    connect(m_clientController, &ClientController::connectionErrorChanged, this, &Connection::setError);
 }
 
 void Connection::logIn()
 {
-    m_clientWorker->logIn();
+    m_clientController->logIn();
 }
 
 void Connection::logOut(bool isApplicationBeingClosed)
@@ -425,11 +425,11 @@ void Connection::logOut(bool isApplicationBeingClosed)
     }
 
     if (futures.isEmpty()) {
-        m_clientWorker->logOut(isApplicationBeingClosed);
+        m_clientController->logOut(isApplicationBeingClosed);
     } else {
         joinVoidFutures(this, std::move(futures)).then(this, [this, isApplicationBeingClosed]() {
             m_logOutTaskWrappers.clear();
-            m_clientWorker->logOut(isApplicationBeingClosed);
+            m_clientController->logOut(isApplicationBeingClosed);
         });
     }
 }
@@ -484,37 +484,37 @@ QString Connection::stateText() const
 QString Connection::errorText() const
 {
     switch (m_error) {
-    case ClientWorker::NoError:
+    case ClientController::NoError:
         return {};
-    case ClientWorker::AuthenticationFailed:
+    case ClientController::AuthenticationFailed:
         return tr("Invalid username or password.");
-    case ClientWorker::NotConnected:
+    case ClientController::NotConnected:
         return tr("Cannot connect to the server. Please check your internet connection.");
-    case ClientWorker::TlsFailed:
+    case ClientController::TlsFailed:
         return tr("Error while trying to connect securely.");
-    case ClientWorker::TlsNotAvailable:
+    case ClientController::TlsNotAvailable:
         return tr("The server doesn't support secure connections.");
-    case ClientWorker::DnsError:
+    case ClientController::DnsError:
         return tr("Could not connect to the server. Please check your internet connection or your server name.");
-    case ClientWorker::ConnectionRefused:
+    case ClientController::ConnectionRefused:
         return tr("The server is offline or blocked by a firewall.");
-    case ClientWorker::NoSupportedAuth:
+    case ClientController::NoSupportedAuth:
         return tr("Authentication protocol not supported by the server.");
-    case ClientWorker::KeepAliveError:
+    case ClientController::KeepAliveError:
         return tr("The connection could not be refreshed.");
-    case ClientWorker::NoNetworkPermission:
+    case ClientController::NoNetworkPermission:
         return tr("The internet access is not permitted. Please check your system's internet access configuration.");
-    case ClientWorker::RegistrationUnsupported:
+    case ClientController::RegistrationUnsupported:
         return tr("This server does not support registration.");
-    case ClientWorker::EmailConfirmationRequired:
+    case ClientController::EmailConfirmationRequired:
         return tr("Could not log in. Confirm the email message you received first.");
-    case ClientWorker::UnknownError:
+    case ClientController::UnknownError:
         return tr("Could not connect to the server.");
     }
     Q_UNREACHABLE();
 }
 
-ClientWorker::ConnectionError Connection::error() const
+ClientController::ConnectionError Connection::error() const
 {
     return m_error;
 }
@@ -531,7 +531,7 @@ void Connection::setState(Enums::ConnectionState state)
     }
 }
 
-void Connection::setError(ClientWorker::ConnectionError error)
+void Connection::setError(ClientController::ConnectionError error)
 {
     // For displaying errors to the user, every new error (even if it is the same as before) must be
     // emitted.
@@ -548,35 +548,36 @@ Account::Account(QObject *parent)
 Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     : QObject(parent)
     , m_settings(new AccountSettings(accountSettingsData, this))
-    , m_clientWorker(new ClientWorker(m_settings))
-    , m_connection(new Connection(m_clientWorker, this))
+    , m_clientController(new ClientController(m_settings))
+    , m_connection(new Connection(m_clientController, this))
     , m_presenceCache(new PresenceCache(this))
-    , m_atmController(new AtmController(m_clientWorker->atmManager(), this))
-    , m_blockingController(new BlockingController(m_settings, m_connection, m_clientWorker, this))
-    , m_encryptionController(new EncryptionController(m_settings, m_presenceCache, m_clientWorker->omemoManager(), this))
-    , m_rosterController(new RosterController(m_settings, m_connection, m_encryptionController, m_clientWorker->rosterManager(), this))
-    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_clientWorker, this))
+    , m_atmController(new AtmController(m_clientController->atmManager(), this))
+    , m_blockingController(new BlockingController(m_settings, m_connection, m_clientController, this))
+    , m_encryptionController(new EncryptionController(m_settings, m_presenceCache, m_clientController->omemoManager(), this))
+    , m_rosterController(new RosterController(m_settings, m_connection, m_encryptionController, m_clientController->rosterManager(), this))
+    , m_fileSharingController(new FileSharingController(m_settings, m_connection, m_clientController, this))
     , m_messageController(new MessageController(m_settings,
                                                 m_connection,
                                                 m_encryptionController,
                                                 m_rosterController,
                                                 m_fileSharingController,
-                                                m_clientWorker->xmppClient(),
-                                                m_clientWorker->mamManager(),
-                                                m_clientWorker->messageReceiptManager(),
+                                                m_clientController->xmppClient(),
+                                                m_clientController->mamManager(),
+                                                m_clientController->messageReceiptManager(),
                                                 this))
-    , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientWorker->mixManager(), this))
+    , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientController->mixManager(), this))
     , m_notificationController(new NotificationController(m_settings, m_messageController, this))
     , m_callController(
-          new CallController(m_settings, m_connection, m_notificationController, m_clientWorker->jmiManager(), m_clientWorker->callManager(), this))
-    , m_vCardController(new VCardController(m_settings, m_connection, m_presenceCache, m_clientWorker->xmppClient(), m_clientWorker->vCardManager(), this))
-    , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_clientWorker, this))
-    , m_versionController(new VersionController(m_presenceCache, m_clientWorker->versionManager()))
+          new CallController(m_settings, m_connection, m_notificationController, m_clientController->jmiManager(), m_clientController->callManager(), this))
+    , m_vCardController(
+          new VCardController(m_settings, m_connection, m_presenceCache, m_clientController->xmppClient(), m_clientController->vCardManager(), this))
+    , m_registrationController(new RegistrationController(m_settings, m_connection, m_encryptionController, m_vCardController, m_clientController, this))
+    , m_versionController(new VersionController(m_presenceCache, m_clientController->versionManager()))
 {
-    new LogHandler(m_settings, m_clientWorker->xmppClient(), this);
-    new DiscoveryController(m_settings, m_connection, m_clientWorker->discoveryManager(), this);
+    new LogHandler(m_settings, m_clientController->xmppClient(), this);
+    new DiscoveryController(m_settings, m_connection, m_clientController->discoveryManager(), this);
 
-    m_clientWorker->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
+    m_clientController->initialize(m_atmController, m_encryptionController, m_messageController, m_registrationController, m_presenceCache);
 }
 
 AccountSettings *Account::settings() const
@@ -589,9 +590,9 @@ Connection *Account::connection() const
     return m_connection;
 }
 
-ClientWorker *Account::clientWorker() const
+ClientController *Account::clientController() const
 {
-    return m_clientWorker;
+    return m_clientController;
 }
 
 AtmController *Account::atmController() const

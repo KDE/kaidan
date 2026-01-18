@@ -15,7 +15,7 @@ class AccountSettings;
 class Connection;
 class BlockingModel;
 class BlockingWatcher;
-class ClientWorker;
+class ClientController;
 
 class BlockingDb : public DatabaseComponent
 {
@@ -37,7 +37,7 @@ class BlockingController : public QObject
     Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
 
 public:
-    BlockingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent = nullptr);
+    BlockingController(AccountSettings *accountSettings, Connection *connection, ClientController *clientController, QObject *parent = nullptr);
 
     void subscribeToBlocklist();
     [[nodiscard]] std::optional<QXmppBlocklist> blocklist() const;
@@ -78,7 +78,7 @@ private:
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;
-    ClientWorker *const m_clientWorker;
+    ClientController *const m_clientController;
     QXmppBlockingManager *const m_manager;
 
     bool m_subscribed = false;

@@ -15,7 +15,7 @@
 #include <Message.h>
 
 class AccountSettings;
-class ClientWorker;
+class ClientController;
 class Connection;
 struct File;
 struct FileProgress;
@@ -30,7 +30,7 @@ public:
     using SendFilesResult = std::unordered_map<qint64, SendFileResult>;
     using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
-    FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent = nullptr);
+    FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientController *clientController, QObject *parent = nullptr);
 
     void sendPendingFiles(const QString &chatJid, const QString &messageId, const QList<File> &files, bool encrypt);
     Q_SIGNAL void filesUploadedForPendingMessage(const Message &message);
@@ -58,7 +58,7 @@ private:
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;
-    ClientWorker *const m_clientWorker;
+    ClientController *const m_clientController;
     QXmppFileSharingManager *const m_manager;
     QXmppHttpUploadManager::Support m_uploadSupport;
 };

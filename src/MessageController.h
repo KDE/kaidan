@@ -15,7 +15,7 @@
 #include "Message.h"
 
 class AccountSettings;
-class ClientWorker;
+class ClientController;
 class Connection;
 class EncryptionController;
 class FileSharingController;

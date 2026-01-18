@@ -902,7 +902,7 @@ DetailsContent {
 					customConnectionSettings.resetChangesPending()
 
 					// Reset the error message in case of previous button clicking without changed entered settings.
-					if (root.account.connection.error === ClientWorker.NoError) {
+					if (root.account.connection.error === ClientController.NoError) {
 						connectionSettingsErrorMessage.visible = false
 					}
 
@@ -921,7 +921,7 @@ DetailsContent {
 			enabled: connectionSettingsButton.busy
 
 			function onErrorChanged() {
-				if (root.account.connection.error === ClientWorker.NoError) {
+				if (root.account.connection.error === ClientController.NoError) {
 					connectionSettingsErrorMessage.visible = false
 				} else {
 					connectionSettingsErrorMessage.visible = true
@@ -931,7 +931,7 @@ DetailsContent {
 
 			function onStateChanged() {
 				if (root.account.connection.state === Enums.StateDisconnected) {
-					if (root.account.connection.error === ClientWorker.NoError) {
+					if (root.account.connection.error === ClientController.NoError) {
 						root.account.connection.logIn()
 					} else {
 						connectionSettingsButton.busy = false

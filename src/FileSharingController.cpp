@@ -152,12 +152,12 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
     return std::pair{filename, fileExtension};
 }
 
-FileSharingController::FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent)
+FileSharingController::FileSharingController(AccountSettings *accountSettings, Connection *connection, ClientController *clientController, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_connection(connection)
-    , m_clientWorker(clientWorker)
-    , m_manager(clientWorker->fileSharingManager())
+    , m_clientController(clientController)
+    , m_manager(clientController->fileSharingManager())
 {
     connect(m_connection, &Connection::stateChanged, this, [this]() {
         if (m_connection->state() == Enums::ConnectionState::StateConnected) {
@@ -166,7 +166,7 @@ FileSharingController::FileSharingController(AccountSettings *accountSettings, C
             FileProgressCache::instance().cancelTransfers(m_accountSettings->jid());
         }
     });
-    connect(m_clientWorker->uploadManager(), &QXmppHttpUploadManager::supportChanged, this, &FileSharingController::handleUploadSupportChanged);
+    connect(m_clientController->uploadManager(), &QXmppHttpUploadManager::supportChanged, this, &FileSharingController::handleUploadSupportChanged);
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &FileSharingController::handleMessageAdded);
 }
 
@@ -399,8 +399,8 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
 
     auto promise = std::make_shared<QPromise<bool>>();
 
-    auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->encryptedHttpFileSharingProvider())
-                            : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientWorker->httpFileSharingProvider());
+    auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(m_clientController->encryptedHttpFileSharingProvider())
+                            : std::static_pointer_cast<QXmppFileSharingProvider>(m_clientController->httpFileSharingProvider());
 
     MessageDb::instance()->updateMessage(accountJid, chatJid, messageId, [fileId = file.id](Message &message) {
         auto file = find_if(message.files, [fileId](const auto &file) {
@@ -574,7 +574,7 @@ void FileSharingController::downloadPendingFiles()
 void FileSharingController::handleUploadSupportChanged()
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-        auto *uploadManager = m_clientWorker->uploadManager();
+        auto *uploadManager = m_clientController->uploadManager();
 
         if (const auto services = uploadManager->services(); !services.isEmpty()) {
             const auto limit = services.constFirst().sizeLimit();

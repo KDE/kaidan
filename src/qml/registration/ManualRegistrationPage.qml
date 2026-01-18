@@ -59,7 +59,7 @@ RegistrationPage {
 
 		CustomContentFormCard {
 			title: qsTr("Enter your desired credentials")
-			visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
+			visible: root.account.connection.error !== ClientController.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
 			Layout.fillWidth: true
 
 			ColumnLayout {
@@ -98,7 +98,7 @@ RegistrationPage {
 			id: customDataFormArea
 			model: root.formFilterModel
 			lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
-			visible: root.account.connection.error !== ClientWorker.EmailConfirmationRequired && root.customFormFieldsAvailable
+			visible: root.account.connection.error !== ClientController.EmailConfirmationRequired && root.customFormFieldsAvailable
 			Layout.fillWidth: true
 		}
 

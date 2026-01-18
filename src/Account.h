@@ -16,7 +16,7 @@
 #include <QXmppConfiguration.h>
 #include <QXmppCredentials.h>
 // Kaidan
-#include "ClientWorker.h"
+#include "ClientController.h"
 #include "Encryption.h"
 #include "Globals.h"
 
@@ -28,7 +28,7 @@ class QGeoCoordinate;
 class AtmController;
 class BlockingController;
 class CallController;
-class ClientWorker;
+class ClientController;
 class EncryptionController;
 class FileSharingController;
 class GroupChatController;
@@ -270,7 +270,7 @@ class Connection : public QObject
 
     Q_PROPERTY(Enums::ConnectionState state READ state NOTIFY stateChanged)
     Q_PROPERTY(QString stateText READ stateText NOTIFY stateChanged)
-    Q_PROPERTY(ClientWorker::ConnectionError error READ error NOTIFY errorChanged)
+    Q_PROPERTY(ClientController::ConnectionError error READ error NOTIFY errorChanged)
     Q_PROPERTY(QString errorText READ errorText NOTIFY errorChanged)
 
 public:
@@ -279,7 +279,7 @@ public:
         std::shared_ptr<QFutureWatcher<void>> watcher;
     };
 
-    explicit Connection(ClientWorker *clientWorker, QObject *parent = nullptr);
+    explicit Connection(ClientController *clientController, QObject *parent = nullptr);
 
     Q_INVOKABLE void logIn();
     Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
@@ -297,17 +297,17 @@ public:
     /**
      * Returns the last connection error.
      */
-    ClientWorker::ConnectionError error() const;
+    ClientController::ConnectionError error() const;
     Q_SIGNAL void errorChanged();
 
 private:
     void setState(Enums::ConnectionState connectionState);
-    void setError(ClientWorker::ConnectionError error);
+    void setError(ClientController::ConnectionError error);
 
-    ClientWorker *const m_clientWorker;
+    ClientController *const m_clientController;
 
     Enums::ConnectionState m_state = Enums::ConnectionState::StateDisconnected;
-    ClientWorker::ConnectionError m_error = ClientWorker::NoError;
+    ClientController::ConnectionError m_error = ClientController::NoError;
 
     QList<LogOutTaskWrapper> m_logOutTaskWrappers;
 };
@@ -350,7 +350,7 @@ public:
     AccountSettings *settings() const;
     Connection *connection() const;
 
-    ClientWorker *clientWorker() const;
+    ClientController *clientController() const;
 
     AtmController *atmController() const;
     BlockingController *blockingController() const;
@@ -405,7 +405,7 @@ public:
 private:
     AccountSettings *const m_settings;
 
-    ClientWorker *const m_clientWorker;
+    ClientController *const m_clientController;
     Connection *const m_connection;
 
     PresenceCache *const m_presenceCache;

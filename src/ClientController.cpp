@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "ClientWorker.h"
+#include "ClientController.h"
 
 // Qt
 #include <QGuiApplication>
@@ -52,7 +52,7 @@
 #include "RegistrationController.h"
 #include "TrustDb.h"
 
-ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
+ClientController::ClientController(AccountSettings *accountSettings, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
@@ -88,11 +88,11 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     m_fileSharingManager->registerProvider(m_httpProvider);
     m_fileSharingManager->registerProvider(m_encryptedProvider);
 
-    connect(m_client, &QXmppClient::connected, this, &ClientWorker::onConnected);
-    connect(m_client, &QXmppClient::disconnected, this, &ClientWorker::onDisconnected);
+    connect(m_client, &QXmppClient::connected, this, &ClientController::onConnected);
+    connect(m_client, &QXmppClient::disconnected, this, &ClientController::onDisconnected);
 
-    connect(m_client, &QXmppClient::stateChanged, this, &ClientWorker::onConnectionStateChanged);
-    connect(m_client, &QXmppClient::errorOccurred, this, &ClientWorker::onConnectionError);
+    connect(m_client, &QXmppClient::stateChanged, this, &ClientController::onConnectionStateChanged);
+    connect(m_client, &QXmppClient::errorOccurred, this, &ClientController::onConnectionError);
 
     connect(m_client, &QXmppClient::credentialsChanged, this, [this]() {
         m_accountSettings->setCredentials(m_client->configuration().credentials());
@@ -108,11 +108,11 @@ ClientWorker::ClientWorker(AccountSettings *accountSettings, QObject *parent)
     });
 }
 
-void ClientWorker::initialize(AtmController *atmController,
-                              EncryptionController *encryptionController,
-                              MessageController *messageController,
-                              RegistrationController *registrationController,
-                              PresenceCache *presenceCache)
+void ClientController::initialize(AtmController *atmController,
+                                  EncryptionController *encryptionController,
+                                  MessageController *messageController,
+                                  RegistrationController *registrationController,
+                                  PresenceCache *presenceCache)
 {
     m_atmController = atmController;
     m_encryptionController = encryptionController;
@@ -124,10 +124,10 @@ void ClientWorker::initialize(AtmController *atmController,
     connect(m_client, &QXmppClient::disconnected, m_presenceCache, &PresenceCache::clear);
 }
 
-void ClientWorker::logIn()
+void ClientController::logIn()
 {
     if (m_accountSettings->password().isEmpty() && m_accountSettings->credentials() == QXmppCredentials()) {
-        Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
+        Q_EMIT connectionErrorChanged(ClientController::AuthenticationFailed);
         return;
     }
 
@@ -148,7 +148,7 @@ void ClientWorker::logIn()
     });
 }
 
-void ClientWorker::connectToServer(QXmppConfiguration config)
+void ClientController::connectToServer(QXmppConfiguration config)
 {
     switch (m_client->state()) {
     case QXmppClient::ConnectingState:
@@ -193,7 +193,7 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
     }
 }
 
-void ClientWorker::logOut(bool isApplicationBeingClosed)
+void ClientController::logOut(bool isApplicationBeingClosed)
 {
     switch (m_client->state()) {
     case QXmppClient::DisconnectedState:
@@ -218,12 +218,12 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
     }
 }
 
-void ClientWorker::onConnected()
+void ClientController::onConnected()
 {
     qCDebug(KAIDAN_CORE_LOG) << "Connected to server";
 
     // If there was an error before, notify about its absence.
-    Q_EMIT connectionErrorChanged(ClientWorker::NoError);
+    Q_EMIT connectionErrorChanged(ClientController::NoError);
 
     if (m_registrationController->handleConnected()) {
         return;
@@ -255,7 +255,7 @@ void ClientWorker::onConnected()
     });
 }
 
-void ClientWorker::onDisconnected()
+void ClientController::onDisconnected()
 {
     qCDebug(KAIDAN_CORE_LOG) << "Disconnected from server";
 
@@ -269,12 +269,12 @@ void ClientWorker::onDisconnected()
     m_registrationController->handleDisconnected();
 }
 
-void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
+void ClientController::onConnectionStateChanged(QXmppClient::State connectionState)
 {
     Q_EMIT connectionStateChanged(Enums::ConnectionState(connectionState));
 }
 
-void ClientWorker::onConnectionError(const QXmppError &error)
+void ClientController::onConnectionError(const QXmppError &error)
 {
     qCDebug(KAIDAN_CORE_LOG) << "Connection error:" << error.description;
 
@@ -282,30 +282,30 @@ void ClientWorker::onConnectionError(const QXmppError &error)
         switch (*socketError) {
         case QAbstractSocket::ConnectionRefusedError:
         case QAbstractSocket::RemoteHostClosedError:
-            Q_EMIT connectionErrorChanged(ClientWorker::ConnectionRefused);
+            Q_EMIT connectionErrorChanged(ClientController::ConnectionRefused);
             break;
         case QAbstractSocket::HostNotFoundError:
-            Q_EMIT connectionErrorChanged(ClientWorker::DnsError);
+            Q_EMIT connectionErrorChanged(ClientController::DnsError);
             break;
         case QAbstractSocket::SocketAccessError:
-            Q_EMIT connectionErrorChanged(ClientWorker::NoNetworkPermission);
+            Q_EMIT connectionErrorChanged(ClientController::NoNetworkPermission);
             break;
         case QAbstractSocket::SocketTimeoutError:
-            Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
+            Q_EMIT connectionErrorChanged(ClientController::KeepAliveError);
             break;
         case QAbstractSocket::SslHandshakeFailedError:
         case QAbstractSocket::SslInternalError:
-            Q_EMIT connectionErrorChanged(ClientWorker::TlsFailed);
+            Q_EMIT connectionErrorChanged(ClientController::TlsFailed);
             break;
         default:
-            Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
+            Q_EMIT connectionErrorChanged(ClientController::NotConnected);
         }
         return;
     } else if (error.holdsType<QXmpp::TimeoutError>()) {
-        Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
+        Q_EMIT connectionErrorChanged(ClientController::KeepAliveError);
         return;
     } else if (error.holdsType<QXmpp::StreamError>()) {
-        Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
+        Q_EMIT connectionErrorChanged(ClientController::NotConnected);
         return;
     } else if (const auto authenticationError = error.value<QXmpp::AuthenticationError>()) {
         const auto type = authenticationError->type;
@@ -317,16 +317,16 @@ void ClientWorker::onConnectionError(const QXmppError &error)
         // Afterwards, the account is activated and the user can log in.
         if ((type == QXmpp::AuthenticationError::AccountDisabled || type == QXmpp::AuthenticationError::NotAuthorized)
             && text.contains(QStringLiteral("activat")) && text.contains(QStringLiteral("mail"))) {
-            Q_EMIT connectionErrorChanged(ClientWorker::EmailConfirmationRequired);
+            Q_EMIT connectionErrorChanged(ClientController::EmailConfirmationRequired);
             return;
         } else if (type == QXmpp::AuthenticationError::NotAuthorized) {
             m_accountSettings->setCredentials({});
-            Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
+            Q_EMIT connectionErrorChanged(ClientController::AuthenticationFailed);
             return;
         }
     }
 
-    Q_EMIT connectionErrorChanged(ClientWorker::UnknownError);
+    Q_EMIT connectionErrorChanged(ClientController::UnknownError);
 }
 
-#include "moc_ClientWorker.cpp"
+#include "moc_ClientController.cpp"

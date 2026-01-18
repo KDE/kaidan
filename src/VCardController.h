@@ -16,7 +16,7 @@
 struct RosterItem;
 
 class AccountSettings;
-class ClientWorker;
+class ClientController;
 class Connection;
 class PresenceCache;
 class QXmppClient;

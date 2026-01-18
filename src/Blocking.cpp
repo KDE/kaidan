@@ -11,7 +11,7 @@
 // Kaidan
 #include "Account.h"
 #include "Algorithms.h"
-#include "ClientWorker.h"
+#include "ClientController.h"
 #include "Globals.h"
 #include "KaidanCoreLog.h"
 #include "SqlUtils.h"
@@ -99,12 +99,12 @@ QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QList<
     });
 }
 
-BlockingController::BlockingController(AccountSettings *accountSettings, Connection *connection, ClientWorker *clientWorker, QObject *parent)
+BlockingController::BlockingController(AccountSettings *accountSettings, Connection *connection, ClientController *clientController, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_connection(connection)
-    , m_clientWorker(clientWorker)
-    , m_manager(m_clientWorker->blockingManager())
+    , m_clientController(clientController)
+    , m_manager(m_clientController->blockingManager())
     , m_db(std::make_unique<BlockingDb>())
 {
 }
@@ -137,7 +137,7 @@ void BlockingController::subscribeToBlocklist()
     connect(m_manager, &QXmppBlockingManager::unblocked, this, &BlockingController::onJidsUnblocked);
 
     // re-subscribe to blocklist on reconnect (without stream resumption)
-    connect(m_clientWorker, &ClientWorker::connectionStateChanged, this, [this, fetchBlocklist](auto connState) {
+    connect(m_clientController, &ClientController::connectionStateChanged, this, [this, fetchBlocklist](auto connState) {
         if (connState != Enums::ConnectionState::StateConnected) {
             return;
         }

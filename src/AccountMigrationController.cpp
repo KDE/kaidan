@@ -317,7 +317,7 @@ QFuture<bool> AccountMigrationController::startMigration(Account *oldAccount)
     promise->start();
 
     m_oldAccount = oldAccount;
-    auto *migrationManager = m_oldAccount->clientWorker()->accountMigrationManager();
+    auto *migrationManager = m_oldAccount->clientController()->accountMigrationManager();
 
     connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this, promise](const QXmppError &error) mutable {
         informUser(error.description);
@@ -358,7 +358,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    newAccount->clientWorker()->accountMigrationManager()->importData(m_exportData).then(this, [this, promise, newAccount](auto &&result) mutable {
+    newAccount->clientController()->accountMigrationManager()->importData(m_exportData).then(this, [this, promise, newAccount](auto &&result) mutable {
         if (const auto accountFilePath = diskAccountFilePath(); const auto error = std::get_if<QXmppError>(&result)) {
             saveAccountDataToDisk(accountFilePath, m_exportData);
             informUser(error->description);
@@ -371,7 +371,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
             if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
                 importClientSettings(newAccount, *oldClientSettings)
                     .then(this, [this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
-                        m_oldAccount->clientWorker()
+                        m_oldAccount->clientController()
                             ->movedManager()
                             ->publishStatement(newAccount->settings()->jid())
                             .then(this, [this, promise, newAccount, oldContacts](auto &&result) mutable {
@@ -596,7 +596,7 @@ QFuture<QXmppAccountMigrationManager::Result<>> AccountMigrationController::noti
     auto counter = std::make_shared<int>(contactJids.size());
 
     for (const QString &contactJid : contactJids) {
-        newAccount->clientWorker()
+        newAccount->clientController()
             ->movedManager()
             ->notifyContact(contactJid, m_exportData.accountJid(), false)
             .then(this, [promise, counter](auto &&result) mutable {

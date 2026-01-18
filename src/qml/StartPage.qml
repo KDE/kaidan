@@ -124,7 +124,7 @@ ImageBackgroundPage {
 		target: root.account.connection
 
 		function onErrorChanged() {
-			if (root.account.connection.error !== ClientWorker.NoError && !(pageStack.currentItem instanceof AutomaticRegistrationPage)) {
+			if (root.account.connection.error !== ClientController.NoError && !(pageStack.currentItem instanceof AutomaticRegistrationPage)) {
 				passiveNotification(root.account.connection.errorText)
 			}
 		}
