@@ -72,7 +72,7 @@ ExtendedMessageContent {
 		switch(type) {
 		case Enums.MessageUnknown:
 		case Enums.MessageFile:
-			Qt.openUrlExternally(MediaUtils.localFileDirectoryUrl(localFileUrl))
+			MediaUtils.openFileInFolder(localFileUrl)
 			break
 		default:
 			Qt.openUrlExternally(localFileUrl)

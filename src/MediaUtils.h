@@ -56,11 +56,6 @@ public:
      */
     Q_INVOKABLE static QUrl localFileUrl(const QString &localFilePath);
 
-    /**
-     * Returns the URL of a local file's directory.
-     */
-    Q_INVOKABLE static QUrl localFileDirectoryUrl(const QUrl &localFileUrl);
-
     Q_INVOKABLE static bool imageValid(const QImage &image);
 
     Q_INVOKABLE static QMimeType mimeType(const QByteArray &data);
@@ -85,6 +80,11 @@ public:
     Q_INVOKABLE static QUrl newVideoFileUrl();
 
     Q_INVOKABLE static QUrl openFile();
+
+    /**
+     * Opens a file's directory in a file browser and, if supported, selects the file.
+     */
+    Q_INVOKABLE static void openFileInFolder(const QUrl &localFileUrl);
 
     static QString mediaTypeName(Enums::MessageType mediaType);
     Q_INVOKABLE static QString newMediaLabel(Enums::MessageType hint);

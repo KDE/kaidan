@@ -61,7 +61,7 @@ Kirigami.Dialog {
 			source: "folder-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
-			onClicked: Qt.openUrlExternally(MediaUtils.localFileDirectoryUrl(root.file.localFileUrl))
+			onClicked: MediaUtils.openFileInFolder(root.file.localFileUrl)
 		}
 
 		Kirigami.Separator {

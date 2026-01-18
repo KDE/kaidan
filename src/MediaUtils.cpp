@@ -23,6 +23,7 @@
 #include <QUrl>
 // KDE
 #include <KFileItem>
+#include <KIO/OpenFileManagerWindowJob>
 #include <KIO/PreviewJob>
 // Kaidan
 #include "FutureUtils.h"
@@ -224,11 +225,6 @@ QUrl MediaUtils::localFileUrl(const QString &localFilePath)
     return QUrl::fromLocalFile(localFilePath);
 }
 
-QUrl MediaUtils::localFileDirectoryUrl(const QUrl &localFileUrl)
-{
-    return QUrl::fromLocalFile(QFileInfo(localFilePath(localFileUrl)).absolutePath());
-}
-
 bool MediaUtils::imageValid(const QImage &image)
 {
     return !image.isNull();
@@ -307,6 +303,17 @@ QUrl MediaUtils::newVideoFileUrl()
 QUrl MediaUtils::openFile()
 {
     return QFileDialog::getOpenFileUrl();
+}
+
+void MediaUtils::openFileInFolder(const QUrl &localFileUrl)
+{
+    auto *job = KIO::highlightInFileManager({localFileUrl});
+
+    QObject::connect(job, &KJob::result, job, [](KJob *job) {
+        if (job->error()) {
+            qCWarning(KAIDAN_CORE_LOG) << "Could not open file in folder:" << job->errorString();
+        }
+    });
 }
 
 QString MediaUtils::mediaTypeName(Enums::MessageType mediaType)
