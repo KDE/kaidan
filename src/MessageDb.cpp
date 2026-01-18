@@ -62,8 +62,7 @@ MessageDb::MessageDb(QObject *parent)
     Q_ASSERT(!s_instance);
     s_instance = this;
 
-    _fetchLatestFileId();
-    _fetchLatestFileGroupId();
+    fetchLatestFileData();
 }
 
 MessageDb::~MessageDb()
@@ -1204,6 +1203,14 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
             _setFiles(newMessage.files);
         }
     }
+}
+
+void MessageDb::fetchLatestFileData()
+{
+    run([this]() {
+        _fetchLatestFileId();
+        _fetchLatestFileGroupId();
+    });
 }
 
 void MessageDb::_fetchLatestFileId()

@@ -317,6 +317,7 @@ private:
     void _updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
 
     // Setters do INSERT OR REPLACE INTO
+    void fetchLatestFileData();
     void _fetchLatestFileId();
     void _fetchLatestFileGroupId();
     void _setFiles(const QList<File> &files);
