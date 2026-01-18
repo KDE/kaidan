@@ -8,8 +8,6 @@
 #include <QDesktopServices>
 #include <QFile>
 #include <QGeoCoordinate>
-#include <QThread>
-#include <QWaitCondition>
 // QXmpp
 #include "QXmppSasl2UserAgent.h"
 #include <QXmppUri.h>
