@@ -1797,13 +1797,6 @@ void Database::convertDatabaseToV50()
 
 void Database::convertDatabaseToV51()
 {
-    using namespace QKeychain;
-
-    if (!QKeychain::isAvailable()) {
-        qCWarning(KAIDAN_CORE_LOG, "The passwords will be moved from the database to an unencrypted file since there is no usable backend.");
-        QKeychainFuture::setInsecureFallback(true);
-    }
-
     DATABASE_CONVERT_TO_VERSION(50)
     QSqlQuery query(currentDatabase());
     execQuery(query, QStringLiteral("SELECT jid, password FROM accounts"));

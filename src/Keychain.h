@@ -6,12 +6,14 @@
 
 // std
 #include <chrono>
+#include <memory>
 #include <variant>
 // Qt
 #include <QDeadlineTimer>
 #include <QException>
 #include <QFuture>
 #include <QGuiApplication>
+#include <QSettings>
 #include <qt6keychain/keychain.h>
 
 using namespace std::chrono;
@@ -35,9 +37,10 @@ using QFutureValueType = decltype(qFutureValueType(Future()));
 
 // Helpers
 
-bool insecureFallback();
-void setInsecureFallback(bool insecureFallback);
+bool unencryptedFallback();
+void setUnencryptedFallback(bool unencryptedFallback);
 QString serviceKey();
+std::unique_ptr<QSettings> unencryptedSettings();
 
 template<typename T>
 bool waitForFinished(const QFuture<T> &future, std::chrono::milliseconds msecs = -1ms)
@@ -78,10 +81,26 @@ ReadFuture<T> readServiceKey(const QString &service, const QString &key)
     QPromise<QFutureValueType<ReadFuture<T>>> promise;
     auto future = promise.future();
 
+    if (QKeychainFuture::unencryptedFallback()) {
+        auto settings = QKeychainFuture::unencryptedSettings();
+
+        settings->beginGroup(service);
+        if (settings->contains(key)) {
+            promise.addResult(settings->value(key).value<T>());
+        } else {
+            promise.setException(Error(QKeychain::EntryNotFound, QStringLiteral("Could not find entry")));
+            promise.addResult(QKeychain::EntryNotFound);
+        }
+        settings->endGroup();
+
+        promise.finish();
+
+        return future;
+    }
+
     QMetaObject::invokeMethod(qApp, [service, key, promise = std::move(promise)]() mutable {
         auto job = new QKeychain::ReadPasswordJob(service);
 
-        job->setInsecureFallback(QKeychainFuture::insecureFallback());
         job->setKey(key);
 
         promise.start();
@@ -127,10 +146,29 @@ WriteFuture writeServiceKey(const QString &service, const QString &key, const T 
     QPromise<QFutureValueType<WriteFuture>> promise;
     auto future = promise.future();
 
+    if (QKeychainFuture::unencryptedFallback()) {
+        auto settings = QKeychainFuture::unencryptedSettings();
+
+        settings->beginGroup(service);
+        settings->setValue(key, value);
+        settings->endGroup();
+        settings->sync();
+
+        if (settings->status() == QSettings::NoError) {
+            promise.addResult(QKeychain::NoError);
+        } else {
+            promise.setException(Error(QKeychain::OtherError, QStringLiteral("Could not write entry")));
+            promise.addResult(QKeychain::OtherError);
+        }
+
+        promise.finish();
+
+        return future;
+    }
+
     QMetaObject::invokeMethod(qApp, [service, key, value, promise = std::move(promise)]() mutable {
         auto job = new QKeychain::WritePasswordJob(service);
 
-        job->setInsecureFallback(QKeychainFuture::insecureFallback());
         job->setKey(key);
 
         if constexpr (std::is_same_v<T, QString>) {

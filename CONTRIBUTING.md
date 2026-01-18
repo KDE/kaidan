@@ -98,6 +98,8 @@ It defines their filename suffixes after a separating `-` while their file exten
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 
+Kaidan stores passwords in an unencrypted file if no password manager is available.
+
 ## Logging
 
 The environment variable [`QT_LOGGING_RULES`](https://doc.qt.io/qt-6/qloggingcategory.html#logging-rules) controls what is logged.

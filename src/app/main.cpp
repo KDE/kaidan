@@ -101,6 +101,7 @@
 #include "HostCompletionProxyModel.h"
 #include "ImageProvider.h"
 #include "KaidanLog.h"
+#include "Keychain.h"
 #include "MainController.h"
 #include "MediaUtils.h"
 #include "Message.h"
@@ -382,6 +383,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QXmppMixInfoItem>();
     qRegisterMetaType<QXmppMixParticipantItem>();
     qRegisterMetaType<QMultiHash<QString, QByteArray>>();
+
+    // Keychain
+
+    if (!QKeychain::isAvailable()) {
+        qCWarning(KAIDAN_LOG, "Account passwords will be stored in unencrypted file since no password manager is available");
+        QKeychainFuture::setUnencryptedFallback(true);
+    }
 
     //
     // Command line arguments

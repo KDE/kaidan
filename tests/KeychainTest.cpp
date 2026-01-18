@@ -43,12 +43,12 @@ private Q_SLOTS:
     void initTestCase() override
     {
         Test::initTestCase();
-        QKeychainFuture::setInsecureFallback(true);
+        QKeychainFuture::setUnencryptedFallback(true);
     }
 
     void cleanupTestCase()
     {
-        QKeychainFuture::setInsecureFallback(false);
+        QKeychainFuture::setUnencryptedFallback(false);
     }
 
     void testKeychain()
