@@ -12,7 +12,6 @@
 #include <QBuffer>
 #include <QFile>
 #include <QMimeDatabase>
-#include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlField>
 #include <QSqlRecord>
