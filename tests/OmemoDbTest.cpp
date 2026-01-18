@@ -51,7 +51,7 @@ OmemoDbTest::OmemoDbTest()
 {
     AccountSettings::Data settingsData;
     settingsData.jid = QStringLiteral("user@example.org");
-    storage = new OmemoDb(new AccountSettings(settingsData, this), this, this);
+    storage = new OmemoDb(new AccountSettings(settingsData, this), this);
 }
 
 void OmemoDbTest::testOwnDevice()

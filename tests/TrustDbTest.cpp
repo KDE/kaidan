@@ -44,7 +44,7 @@ TrustDbTest::TrustDbTest()
 {
     AccountSettings::Data settingsData;
     settingsData.jid = QStringLiteral("user@example.org");
-    storage = new TrustDb(new AccountSettings(settingsData, this), this, this);
+    storage = new TrustDb(new AccountSettings(settingsData, this), this);
 }
 
 void TrustDbTest::testSecurityPolicy()
