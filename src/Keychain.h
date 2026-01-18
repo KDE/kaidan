@@ -77,29 +77,32 @@ ReadFuture<T> readServiceKey(const QString &service, const QString &key)
 {
     QPromise<QFutureValueType<ReadFuture<T>>> promise;
     auto future = promise.future();
-    auto job = new QKeychain::ReadPasswordJob(service);
 
-    job->setInsecureFallback(QKeychainFuture::insecureFallback());
-    job->setKey(key);
+    QMetaObject::invokeMethod(qApp, [service, key, promise = std::move(promise)]() mutable {
+        auto job = new QKeychain::ReadPasswordJob(service);
 
-    promise.start();
+        job->setInsecureFallback(QKeychainFuture::insecureFallback());
+        job->setKey(key);
 
-    QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
-        if (job->error() != QKeychain::NoError) {
-            promise.setException(Error(job->error(), job->errorString()));
-            promise.addResult(job->error());
-        } else {
-            if constexpr (std::is_same_v<T, QString>) {
-                promise.addResult(job->textData());
-            } else if constexpr (std::is_same_v<T, QByteArray>) {
-                promise.addResult(job->binaryData());
+        promise.start();
+
+        QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
+            if (job->error() != QKeychain::NoError) {
+                promise.setException(Error(job->error(), job->errorString()));
+                promise.addResult(job->error());
+            } else {
+                if constexpr (std::is_same_v<T, QString>) {
+                    promise.addResult(job->textData());
+                } else if constexpr (std::is_same_v<T, QByteArray>) {
+                    promise.addResult(job->binaryData());
+                }
             }
-        }
 
-        promise.finish();
+            promise.finish();
+        });
+
+        job->start();
     });
-
-    job->start();
 
     return future;
 }
@@ -123,29 +126,32 @@ WriteFuture writeServiceKey(const QString &service, const QString &key, const T 
 {
     QPromise<QFutureValueType<WriteFuture>> promise;
     auto future = promise.future();
-    auto job = new QKeychain::WritePasswordJob(service);
 
-    job->setInsecureFallback(QKeychainFuture::insecureFallback());
-    job->setKey(key);
+    QMetaObject::invokeMethod(qApp, [service, key, value, promise = std::move(promise)]() mutable {
+        auto job = new QKeychain::WritePasswordJob(service);
 
-    if constexpr (std::is_same_v<T, QString>) {
-        job->setTextData(value);
-    } else if constexpr (std::is_same_v<T, QByteArray>) {
-        job->setBinaryData(value);
-    }
+        job->setInsecureFallback(QKeychainFuture::insecureFallback());
+        job->setKey(key);
 
-    promise.start();
-
-    QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
-        if (job->error() != QKeychain::NoError) {
-            promise.setException(Error(job->error(), job->errorString()));
+        if constexpr (std::is_same_v<T, QString>) {
+            job->setTextData(value);
+        } else if constexpr (std::is_same_v<T, QByteArray>) {
+            job->setBinaryData(value);
         }
 
-        promise.addResult(job->error());
-        promise.finish();
-    });
+        promise.start();
 
-    job->start();
+        QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
+            if (job->error() != QKeychain::NoError) {
+                promise.setException(Error(job->error(), job->errorString()));
+            }
+
+            promise.addResult(job->error());
+            promise.finish();
+        });
+
+        job->start();
+    });
 
     return future;
 }

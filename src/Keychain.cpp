@@ -62,23 +62,26 @@ QKeychainFuture::DeleteFuture QKeychainFuture::deleteServiceKey(const QString &s
 {
     QPromise<QFutureValueType<DeleteFuture>> promise;
     auto future = promise.future();
-    auto job = new QKeychain::DeletePasswordJob(service);
 
-    job->setInsecureFallback(QKeychainFuture::insecureFallback());
-    job->setKey(key);
+    QMetaObject::invokeMethod(qApp, [service, key, promise = std::move(promise)]() mutable {
+        auto job = new QKeychain::DeletePasswordJob(service);
 
-    promise.start();
+        job->setInsecureFallback(QKeychainFuture::insecureFallback());
+        job->setKey(key);
 
-    QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
-        if (job->error() != QKeychain::NoError) {
-            promise.setException(Error(job->error(), job->errorString()));
-        }
+        promise.start();
 
-        promise.addResult(job->error());
-        promise.finish();
+        QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
+            if (job->error() != QKeychain::NoError) {
+                promise.setException(Error(job->error(), job->errorString()));
+            }
+
+            promise.addResult(job->error());
+            promise.finish();
+        });
+
+        job->start();
     });
-
-    job->start();
 
     return future;
 }
