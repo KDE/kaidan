@@ -418,8 +418,8 @@ void Connection::logOut(bool isApplicationBeingClosed)
 {
     QList<QFuture<void>> futures;
 
-    for (auto &logOutTaskWrapper : m_logOutTaskWrappers) {
-        auto promise = logOutTaskWrapper.promise;
+    for (auto &logoutTaskWrapper : m_logoutTaskWrappers) {
+        auto promise = logoutTaskWrapper.promise;
         futures.append(promise->future());
         promise->start();
     }
@@ -428,39 +428,39 @@ void Connection::logOut(bool isApplicationBeingClosed)
         m_clientController->logOut(isApplicationBeingClosed);
     } else {
         joinVoidFutures(std::move(futures)).then(this, [this, isApplicationBeingClosed]() {
-            m_logOutTaskWrappers.clear();
+            m_logoutTaskWrappers.clear();
             m_clientController->logOut(isApplicationBeingClosed);
         });
     }
 }
 
-std::shared_ptr<QPromise<void>> Connection::addLogOutTask(std::function<void()> logOutTask)
+std::shared_ptr<QPromise<void>> Connection::addLogoutTask(std::function<void()> logoutTask)
 {
     auto promise = std::make_shared<QPromise<void>>();
 
     auto watcher = std::make_shared<QFutureWatcher<void>>();
     watcher->setFuture(promise->future());
 
-    connect(watcher.get(), &QFutureWatcher<void>::started, this, logOutTask);
+    connect(watcher.get(), &QFutureWatcher<void>::started, this, logoutTask);
 
-    LogOutTaskWrapper logOutTaskWrapper = {
+    LogoutTaskWrapper logoutTaskWrapper = {
         .promise = promise,
         .watcher = watcher,
     };
 
-    m_logOutTaskWrappers.append(logOutTaskWrapper);
+    m_logoutTaskWrappers.append(logoutTaskWrapper);
 
     return promise;
 }
 
-void Connection::removeLogOutTask(std::shared_ptr<QPromise<void>> promise)
+void Connection::removeLogoutTask(std::shared_ptr<QPromise<void>> promise)
 {
-    m_logOutTaskWrappers.erase(std::ranges::remove_if(m_logOutTaskWrappers,
-                                                      [promise](LogOutTaskWrapper &logOutTaskWrapper) {
-                                                          return logOutTaskWrapper.promise == promise;
+    m_logoutTaskWrappers.erase(std::ranges::remove_if(m_logoutTaskWrappers,
+                                                      [promise](LogoutTaskWrapper &logoutTaskWrapper) {
+                                                          return logoutTaskWrapper.promise == promise;
                                                       })
                                    .begin(),
-                               m_logOutTaskWrappers.end());
+                               m_logoutTaskWrappers.end());
 }
 
 Enums::ConnectionState Connection::state() const

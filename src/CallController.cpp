@@ -80,8 +80,8 @@ Call *CallController::addCall(const QString &chatJid)
 
     CallWrapper callWrapper;
     callWrapper.call = call;
-    callWrapper.promise = m_connection->addLogOutTask([this, call]() {
-        removeCallOnLogOut(call);
+    callWrapper.promise = m_connection->addLogoutTask([this, call]() {
+        removeCallOnLogout(call);
     });
 
     m_callWrappers.append(callWrapper);
@@ -105,14 +105,14 @@ void CallController::removeQuitCall(Call *call)
         if (itr->promise->future().isStarted()) {
             itr->promise->finish();
         } else {
-            m_connection->removeLogOutTask(itr->promise);
+            m_connection->removeLogoutTask(itr->promise);
         }
 
         m_callWrappers.erase(itr);
     }
 }
 
-void CallController::removeCallOnLogOut(Call *call)
+void CallController::removeCallOnLogout(Call *call)
 {
     if (MainController::instance()->activeCall() == call) {
         call->hangUp();

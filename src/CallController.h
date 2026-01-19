@@ -46,7 +46,7 @@ private:
 
     Call *addCall(const QString &chatJid);
     void removeQuitCall(Call *call);
-    void removeCallOnLogOut(Call *call);
+    void removeCallOnLogout(Call *call);
     Call *findCall(const QString &chatJid);
 
     AccountSettings *const m_accountSettings;

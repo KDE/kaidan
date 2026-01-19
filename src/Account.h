@@ -274,7 +274,7 @@ class Connection : public QObject
     Q_PROPERTY(QString errorText READ errorText NOTIFY errorChanged)
 
 public:
-    struct LogOutTaskWrapper {
+    struct LogoutTaskWrapper {
         std::shared_ptr<QPromise<void>> promise;
         std::shared_ptr<QFutureWatcher<void>> watcher;
     };
@@ -284,8 +284,8 @@ public:
     Q_INVOKABLE void logIn();
     Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
 
-    std::shared_ptr<QPromise<void>> addLogOutTask(std::function<void()> logOutTask);
-    void removeLogOutTask(std::shared_ptr<QPromise<void>> promise);
+    std::shared_ptr<QPromise<void>> addLogoutTask(std::function<void()> logOutTask);
+    void removeLogoutTask(std::shared_ptr<QPromise<void>> promise);
 
     Enums::ConnectionState state() const;
     Q_SIGNAL void stateChanged();
@@ -309,7 +309,7 @@ private:
     Enums::ConnectionState m_state = Enums::ConnectionState::StateDisconnected;
     ClientController::ConnectionError m_error = ClientController::NoError;
 
-    QList<LogOutTaskWrapper> m_logOutTaskWrappers;
+    QList<LogoutTaskWrapper> m_logoutTaskWrappers;
 };
 
 class Account : public QObject
