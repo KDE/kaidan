@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -15,7 +15,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Sambung"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -23,7 +23,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -31,7 +31,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Sambung"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -39,7 +39,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nama pengguna atau kata laluan tidak sah."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -47,7 +47,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Tidak dapat menghubungi pelayan. Sila periksa sambungan internet anda."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -55,7 +55,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Ralat ketika cuba untuk menyambung secara selamat."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -63,7 +63,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Pelayan tidak menyokong sambungan selamat."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -77,7 +77,7 @@ msgstr ""
 "Tidak boleh sambung ke pelayan. Sila periksa sambungan internet anda atau "
 "nama pelayan anda."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -85,7 +85,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Pelayan berada di luar talian atau disekat tembok api."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -93,7 +93,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokol pengesahan tidak disokong oleh pelayan."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -101,7 +101,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Sambungan tidak dapat disegarkan semula."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -115,7 +115,7 @@ msgstr ""
 "Capaian internet tidak dibenarkan. Sila periksa tatarajah capaian internet "
 "sistem anda."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -123,12 +123,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Pelayan ini tidak menyokong pendaftaran."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -303,7 +303,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Boleh sembang"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -311,7 +311,7 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Batal"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -319,17 +319,17 @@ msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -337,12 +337,12 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -400,107 +400,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokumen"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Lokasi"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Imej"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fail"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Ambil gambar"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Rakam video"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Rakam suara"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Hantar kedudukan"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Pilih fail"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Pilih imej"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Pilih video"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Pilih fail audio"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Pilih dokumen"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Semua fail"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Imej"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fail audio"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumen"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2840,7 +2840,7 @@ msgstr ""
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
+msgid "Remove file"
 msgstr "Buang"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
@@ -2848,7 +2848,7 @@ msgstr "Buang"
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Buang"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -4662,6 +4662,13 @@ msgstr "Hari lahir"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Laman web"
+
+#, fuzzy
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Buang"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

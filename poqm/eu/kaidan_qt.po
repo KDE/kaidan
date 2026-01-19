@@ -20,44 +20,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Deskonektatuta"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konektatuta"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Erabiltzaile-izen edo pasahitz baliogabea."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ezin du zerbitzariarekin konektatu. Mesedez, egiaztatu zure Interneterako "
 "konexioa."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Errorea era seguruan konektatzen saiatzean."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Zerbitzariak ez ditu konexio seguruak onartzen."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -66,22 +66,22 @@ msgstr ""
 "Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ezin izan da konexioa berritu."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -90,18 +90,18 @@ msgstr ""
 "Interneterako sarbidea ez dago baimenduta. Mesedez, egiaztatu zure "
 "sistemaren interneterako sarbidearen konfigurazioa."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ezin izan da zerbitzariarekin konektatu."
@@ -253,39 +253,39 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Talde-berriketatik alde egitea"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Ezeztatuta"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ezin izan da fitxategia zama-jaitsi: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr "Hedabideak partekatzeko euskarri ezezaguna"
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr "Hedabideak partekatzea ez du euskarririk"
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ezin izan da fitxategia zama-igo: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr "Transferentzia ezeztatu da"
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -334,107 +334,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Ezin izan du QR kodea sortu: %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audioa"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokumentua"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Kokalekua"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Irudia"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Bideoa"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fitxategia"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Argazkia atera"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Grabatu bideoa"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Grabatu ahotsa"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Bidali kokalekua"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Hautatu fitxategia"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Hautatu irudia"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Hautatu bideoa"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Hautatu audio-fitxategia"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Hautatu dokumentua"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Irudiak"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Bideoak"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Audio-fitxategiak"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumentuak"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2287,13 +2287,19 @@ msgid "%1 has read up to this point"
 msgstr "%1(e)k honaino irakurri du"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr "Kendu hautatutako fitxategia"
+msgid "Remove file"
+msgstr "Kendu fitxategia"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Ireki hautatutako fitxategiaren karpeta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -3732,6 +3738,10 @@ msgstr "Jaioteguna"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Kendu hautatutako fitxategia"
 
 #~ msgctxt "ProviderPage|"
 #~ msgid "Server locations"

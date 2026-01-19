@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -37,73 +37,73 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Conexente..."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 #, fuzzy
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Contrasigne o nómine ínvalid"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Un error evenit cludente li session"
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Proxy,Servitor proxy,Firewall,Squid"
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Li protocol %1 ne es supportat."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ne successat crear un conexion de rete"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -266,7 +266,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Líber"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -274,34 +274,34 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Anullar"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, fuzzy, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -351,112 +351,112 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Localisation"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Image"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "File"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Capturar un image del ecran"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Registrar un video"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr " Voce"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "In_viar a..."
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Selecte un file"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Selecte un image"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Selecte un video"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Selecter un file..."
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Selecte un document"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Omni files"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Images"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videos"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Audiofiles"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documentes"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2468,7 +2468,7 @@ msgstr ""
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
+msgid "Remove file"
 msgstr "Remover li file"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
@@ -2476,7 +2476,7 @@ msgstr "Remover li file"
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Remover li file"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -4154,6 +4154,13 @@ msgstr "Aniversarie"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#, fuzzy
+#~| msgctxt "SendMediaSheet|"
+#~| msgid "Remove file"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Remover li file"
 
 #, fuzzy
 #~ msgctxt "ProviderPage|"

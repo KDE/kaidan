@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Bağlantı kesildi"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Bağlı"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Geçersiz kullanıcı adı veya parola."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Sunucuya bağlanamadı. Lütfen internet bağlantınızı denetleyin."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -57,22 +57,22 @@ msgid ""
 msgstr ""
 "Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Bağlantı yenilenemedi."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,17 +81,17 @@ msgstr ""
 "İnternet erişimine izin verilmiyor. Lütfen isteminizin internet erişim "
 "yapılandırmasını denetleyin."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Oturum açılamadı. Öncelikle size gelen e-posta iletisini onaylayın."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Sunucuya bağlanılamadı."
@@ -240,39 +240,39 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "İptal Edildi"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Dosya indirilemedi: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr "Ortam paylaşma desteği durumu bilinmiyor"
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr "Ortam paylaşımı özelliği desteklenmiyor"
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Dosya karşıya yüklenemedi: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr "Aktarım iptal edildi"
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -321,107 +321,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Kare kod oluşturulamadı: %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Ses"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Belge"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Konum"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Görsel"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Dosya"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Resim çek"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Video kaydet"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ses kaydet"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Konum gönder"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Dosya seç"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Görsel seç"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Video seç"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Ses dosyası seç"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Belge seç"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Görseller"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videolar"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Ses dosyaları"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Belgeler"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2263,13 +2263,19 @@ msgid "%1 has read up to this point"
 msgstr "%1, bu noktaya kadar okudu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr "Seçili Dosyayı Kaldır"
+msgid "Remove file"
+msgstr "Dosyayı kaldır"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Seçili dosyanın klasörünü aç"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -3700,6 +3706,10 @@ msgstr "Doğum günü"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Seçili Dosyayı Kaldır"
 
 #~ msgctxt "ProviderPage|"
 #~ msgid "Server locations"

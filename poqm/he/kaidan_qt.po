@@ -15,42 +15,42 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "מנותק"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "בהתחברות…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "מחובר"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "שם משתמש או סיסמה שגויים."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט תקין."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "שגיאה בעת הניסיון להתחבר בצורה מאובטחת."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "השרת לא תומך בחיבורים מאובטחים."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -58,39 +58,39 @@ msgid ""
 msgstr ""
 "לא ניתן להתחבר לשרת. נא לבדוק שהחיבור שלך לאינטרנט או שם השרת שלך תקינים."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "השרת מנותק או שחסום על ידי חומת אש."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "פרוטוקול האימות לא נתמך על ידי השרת."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "לא ניתן לרענן את החיבור."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "הגישה לאינטרנט אסורה. נא לבדוק את הגדרות הגישה של המערכת לאינטרנט."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "השרת הזה לא תומך ברישום."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "לא ניתן להיכנס. נא לאשר תחילה את ההודעה שקיבלת בדוא״ל."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "לא ניתן להתחבר לשרת."
@@ -238,39 +238,39 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "עזבת את הצ׳אט הקבוצתי"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "בוטל"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "לא ניתן להוריד את הקובץ: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr "התמיכה בשיתוף מדיה לא ידועה"
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr "שיתוף מדיה לא נתמך"
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "לא ניתן להעלות את הקובץ: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr "ההעברה בוטלה"
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -319,107 +319,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "לא ניתן לייצר קוד QR:‏ %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "שמע"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "מסמך"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "מקום"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "תמונה"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "וידאו"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "קובץ"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "צילום תמונה"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "הקלטת סרטון"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "הקלטת קול"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "שליחת מיקום"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "בחירת קובץ"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "בחירת תמונה"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "בחירת סרטון"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "בחירת קובץ שמע"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "בחירת מסמך"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "תמונות"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "סרטונים"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "קובצי שמע"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "מסמכים"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2230,13 +2230,19 @@ msgid "%1 has read up to this point"
 msgstr "%1 קרא או קראה עד לנקודה הזאת"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr "הסרת הקובץ הנבחר"
+msgid "Remove file"
+msgstr "הסרת קובץ"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "פתיחת התיקייה של הקובץ הנבחר"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -3653,6 +3659,10 @@ msgstr "יום הולדת"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "אתר אינטרנט"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "הסרת הקובץ הנבחר"
 
 #~ msgctxt "ProviderPage|"
 #~ msgid "Server locations"

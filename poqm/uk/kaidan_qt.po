@@ -15,44 +15,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Від'єднано"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "З'єднано"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,19 +85,19 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
 "електронної пошти."
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
@@ -250,39 +250,39 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Полишаємо групове спілкування"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Скасовано"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr "Невідомий стан підтримки оприлюднення мультимедіа"
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr "Підтримки оприлюднення мультимедіа не передбачено"
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Не вдалося вивантажити файл: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr "Передавання скасовано"
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -331,107 +331,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Не вдалося створити QR-код: %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Звук"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Документ"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Місце"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Зображення"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Відео"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Файл"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Зробити знімок"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Записати відео"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Записати голосове повідомлення"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Надіслати адресу"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Виберіть файл"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Виберіть зображення"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Виберіть відео"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Виберіть звуковий файл"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Виберіть документ"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "усі файли"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "зображення"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "відео"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "файли звукових даних"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "документи"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2300,13 +2300,19 @@ msgid "%1 has read up to this point"
 msgstr "%1 прочитано до цього місця"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr "Вилучити позначений файл"
+msgid "Remove file"
+msgstr "Вилучити файл"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Відкрити теку позначеного файла"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -3745,6 +3751,10 @@ msgstr "День народження"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Вилучити позначений файл"
 
 #~ msgctxt "ProviderPage|"
 #~ msgid "Server locations"

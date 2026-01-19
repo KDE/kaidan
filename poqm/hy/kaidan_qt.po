@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -16,7 +16,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -24,7 +24,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -32,7 +32,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -40,7 +40,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Անվավեր օգտանուն կամ գաղտնաբառ։"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -49,7 +49,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Համոզվեք, որ ինտերնետ կապը միացված է։"
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -57,7 +57,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Անվտանգ կապ հաստատելը ձախողվել է։"
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -65,7 +65,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Սերվերը չի սպասարկում անվտանգ կապեր։"
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Ստուգեք Ձեր ինտերնետի կարգավորումները "
 "կամ Ձեր սերվերի անվանումը։"
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -87,7 +87,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Այս սերվերը անցանց է կամ կասեցված հրապատի կողմից։"
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -95,7 +95,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Նույնականացման մեթոդը չի սպասարկվում սերվերի կողմից։"
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -103,7 +103,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Չհաջողվեց թարմացնել կապը։"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 "Չհաջողվեց հաստատել ինտերնետային կապ։ Ստուգեք Ձեր ինտերնետի կարգավորումները։"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -124,12 +124,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account from the server"
@@ -305,7 +305,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Ցանկանում եմ զրուցել"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -313,7 +313,7 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Չեղարկել"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -321,17 +321,17 @@ msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -339,12 +339,12 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -402,107 +402,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Աուդիո"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Փաստաթուղթ"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Տեղադրություն"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Նկար"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Տեսանյութ"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Ֆայլ"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Լուսանկարել"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Ձայնագրել տեսաֆիլմ"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ձայնագրել աուդիո"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Ուղարկել ֆայլ"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Ընտրել նկար"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Ընտրել տեսաֆայլ"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Ընտրել աուդիո ֆայլ"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Ընտրել փաստաթուղթ"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Բոլոր ֆայլերի տեսակները"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Նկարներ"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Տեսանյութեր"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Աուդիո ֆայլեր"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Փաստաթղթեր"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2800,7 +2800,7 @@ msgstr ""
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
+msgid "Remove file"
 msgstr "Հեռացնել"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
@@ -2808,7 +2808,7 @@ msgstr "Հեռացնել"
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Հեռացնել"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -4614,6 +4614,13 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Հեռացնել"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

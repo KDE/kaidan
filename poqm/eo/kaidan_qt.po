@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -27,7 +27,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Konekti"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -35,7 +35,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -43,7 +43,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konekti"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -51,7 +51,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nevalida uzantnomo aŭ pasvorto."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -60,7 +60,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ne povas konekti al la servilo. Bonvolu kontroli vian interretan konekton."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -68,7 +68,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Eraro dum provado sekure konektiĝi."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -76,7 +76,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "La servilo ne subtenas sekurajn konektojn."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -90,7 +90,7 @@ msgstr ""
 "Ne eblis konekti al la servilo. Bonvolu kontroli vian interretan konekton aŭ "
 "vian servilnomon."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -98,7 +98,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "La servilo estas eksterreta aŭ blokita de fajroŝirmilo."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -106,7 +106,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Aŭtentikiga protokolo ne subtenata de la servilo."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -114,7 +114,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "La konekto ne povis esti refreŝigita."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -128,7 +128,7 @@ msgstr ""
 "La interreta aliro ne estas permesita. Bonvolu kontroli la agordon de "
 "interreta aliro de via sistemo."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -136,12 +136,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ĉi tiu servilo ne subtenas registradon."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -309,7 +309,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Forlasas grupan babilejon"
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -317,23 +317,23 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "Nuligi"
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ne eblis elŝuti dosieron: %1"
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
@@ -341,12 +341,12 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ne eblis elŝuti dosieron: %1"
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -404,107 +404,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "Ne eblis alinomi grupon %1: %2"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Aŭdaĵo"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokumento"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Loko"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Bildo"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Dosiero"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Foti"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Registra video"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Registri voĉon"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Sendi lokon"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Elekti dosieron"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Elekti bildon"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Elekti videon"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Elekti sondosieron"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Elekti dokumenton"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Bildoj"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videoj"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Sondosieroj"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumentoj"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2437,13 +2437,19 @@ msgid "%1 has read up to this point"
 msgstr "%1 legis ĝis ĉi tiu punkto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr "Forigi elektitan dosieron"
+msgid "Remove file"
+msgstr "Forigi dosieron"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr "Malfermu la dosierujon de elektita dosiero"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
@@ -4011,6 +4017,10 @@ msgstr "Naskiĝtago"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Forigi elektitan dosieron"
 
 #~ msgctxt "ProviderPage|"
 #~ msgid "Server locations"

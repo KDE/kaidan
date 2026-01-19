@@ -19,48 +19,48 @@ msgstr ""
 "X-Text-Markup: qtrich\n"
 "X-Generator: Lokalize 22.04.0\n"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr ""
 
-#: src/Account.cpp:479
+#: src/Account.cpp:477
 #, fuzzy
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Kobler til …"
 
-#: src/Account.cpp:481
+#: src/Account.cpp:479
 #, fuzzy
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Kobler til …"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:490
 #, fuzzy
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Ugyldig brukernavn eller passord."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:492
 #, fuzzy
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:494
 #, fuzzy
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Feil under forsøk på sikker tilkobling."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:496
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Tjeneren støtter ikke sikre tilkoblinger."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:498
 #, fuzzy
 msgctxt "Connection|"
 msgid ""
@@ -70,25 +70,25 @@ msgstr ""
 "Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er "
 "oppe, og tjenernavnet ditt."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:500
 #, fuzzy
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Tjeneren er nede eller blokkert av en brannmur."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:502
 #, fuzzy
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:504
 #, fuzzy
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:506
 #, fuzzy
 msgctxt "Connection|"
 msgid ""
@@ -96,18 +96,18 @@ msgid ""
 "access configuration."
 msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:508
 #, fuzzy
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Denne tjeneren støtter ikke registrering."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:514
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
@@ -252,39 +252,39 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr ""
 
-#: src/FileSharingController.cpp:313 src/FileSharingController.cpp:448
+#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
 msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:344
+#: src/FileSharingController.cpp:337
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:391
+#: src/FileSharingController.cpp:384
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:394
+#: src/FileSharingController.cpp:387
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:517
+#: src/FileSharingController.cpp:510
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:632
+#: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:638
+#: src/FileSharingController.cpp:631
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
@@ -333,107 +333,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr ""
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Lyd"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokument"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Plassering"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Bilde"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:328
+#: src/MediaUtils.cpp:335
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fil"
 
-#: src/MediaUtils.cpp:337
+#: src/MediaUtils.cpp:344
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Ta bilde"
 
-#: src/MediaUtils.cpp:339
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Ta opp video"
 
-#: src/MediaUtils.cpp:341
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ta opp stemme"
 
-#: src/MediaUtils.cpp:343
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Send plassering"
 
-#: src/MediaUtils.cpp:381
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Velg fil"
 
-#: src/MediaUtils.cpp:383
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Velg bilde"
 
-#: src/MediaUtils.cpp:385
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Velg video"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Velg lydfil"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:396
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Velg dokument"
 
-#: src/MediaUtils.cpp:411
+#: src/MediaUtils.cpp:418
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MediaUtils.cpp:413
+#: src/MediaUtils.cpp:420
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Bilder"
 
-#: src/MediaUtils.cpp:415
+#: src/MediaUtils.cpp:422
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videoer"
 
-#: src/MediaUtils.cpp:417
+#: src/MediaUtils.cpp:424
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Lydfiler"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:426
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumenter"
 
-#: src/MediaUtils.cpp:444
+#: src/MediaUtils.cpp:451
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2218,13 +2218,16 @@ msgid "%1 has read up to this point"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Remove selected file"
-msgstr ""
+msgid "Remove file"
+msgstr "Velg fil"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
 msgctxt "ChatMessageContextMenu|"
-msgid "Open selected file's folder"
+msgid "Open file in folder"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
