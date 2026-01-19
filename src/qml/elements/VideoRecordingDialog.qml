@@ -17,11 +17,18 @@ NewMediaDialog {
 	title: qsTr("Record a video")
 	captureSession {
 		audioInput: AudioInput {}
-		recorder: MediaRecorder {}
+		recorder: MediaRecorder {
+			onRecorderStateChanged: {
+				const actualLocation = root.captureSession.recorder.actualLocation
+
+				if (root.captureSession.recorder.recorderState !== MediaRecorder.RecordingState && actualLocation) {
+					root.addFile(actualLocation)
+				}
+			}
+		}
 	}
 	shutterRelease {
 		iconSource: captureSession.recorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : "camera-video-symbolic"
-		enabled: !root.savingCapturedData
 		onClicked: {
 			if (captureSession.recorder.recorderState === MediaRecorder.RecordingState) {
 				root.savingCapturedData = true
@@ -35,13 +42,9 @@ NewMediaDialog {
 
 	// Recording indicator
 	Controls.Control {
-		visible: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState && !root.savingCapturedData
-		opacity: visible ? 0.9 : 0
+		opacity: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState && !root.savingCapturedData ? 0.9 : 0
 		topPadding: Kirigami.Units.smallSpacing
 		bottomPadding: topPadding
-		Behavior on opacity {
-			NumberAnimation {}
-		}
 		background: Kirigami.ShadowedRectangle {
 			color: primaryBackgroundColor
 			opacity: 0.9
@@ -57,18 +60,9 @@ NewMediaDialog {
 			rightMargin: Kirigami.Units.largeSpacing
 			verticalCenter: root.shutterRelease.verticalCenter
 		}
-	}
 
-	Connections {
-		target: root.captureSession.recorder
-		ignoreUnknownSignals: true
-
-		function onRecorderStateChanged() {
-			const actualLocation = root.captureSession.recorder.actualLocation
-
-			if (root.captureSession.recorder.recorderState !== MediaRecorder.RecordingState && actualLocation) {
-				root.addFile(actualLocation)
-			}
+		Behavior on opacity {
+			NumberAnimation {}
 		}
 	}
 }

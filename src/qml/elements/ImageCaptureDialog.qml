@@ -15,22 +15,45 @@ import im.kaidan.kaidan
 NewMediaDialog {
 	id: root
 	title: qsTr("Take a picture")
-	captureSession.imageCapture: ImageCapture {}
+	captureSession.imageCapture: ImageCapture {
+		onImageSaved: (requestId, path) => {
+			root.addFile(MediaUtils.localFileUrl(path))
+		}
+	}
 	shutterRelease {
+		z: imagePreview.z + 1
 		iconSource: "camera-photo-symbolic"
-		enabled: !root.savingCapturedData
 		onClicked: {
-			root.savingCapturedData
+			root.savingCapturedData = true
 			captureSession.imageCapture.captureToFile(MediaUtils.localFilePath(MediaUtils.newImageFileUrl()))
 		}
 	}
+	zoomSlider {
+		z: imagePreview.z + 1
+	}
 
-	Connections {
-		target: root.captureSession.imageCapture
-		ignoreUnknownSignals: true
-
-		function onImageSaved(requestId, path) {
-			root.addFile(MediaUtils.localFileUrl(path))
+	Image {
+		id: imagePreview
+		source: root.captureSession.imageCapture.preview
+		fillMode: VideoOutput.PreserveAspectCrop
+		visible: source.toString()
+		layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+		layer.effect: Kirigami.ShadowedTexture {
+			corners {
+				bottomLeftRadius: Kirigami.Units.cornerRadius
+				bottomRightRadius: Kirigami.Units.cornerRadius
+			}
+		}
+		anchors.fill: parent
+		// Mirror the image on desktop devices.
+		transform: Rotation {
+			origin.x: width / 2
+			axis {
+				x: 0
+				y: 1
+				z: 0
+			}
+			angle: Kirigami.Settings.isMobile ? 0 : 180
 		}
 	}
 }

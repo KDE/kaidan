@@ -19,6 +19,7 @@ Dialog {
 	property FileSelectionModel fileSelectionModel
 	property alias captureSession: captureSession
 	property alias shutterRelease: shutterRelease
+	property alias zoomSlider: zoomSlider
 	property bool savingCapturedData: false
 
 	preferredWidth: applicationWindow().width - Kirigami.Units.gridUnit * 3
@@ -71,10 +72,15 @@ Dialog {
 		ShutterRelease {
 			id: shutterRelease
 			visible: captureSession.camera
+			enabled: !root.savingCapturedData
 			anchors {
 				horizontalCenter: zoomSlider.horizontalCenter
 				bottom: zoomSlider.top
-				bottomMargin: Kirigami.Units.smallSpacing * 3
+				bottomMargin: zoomSlider.opacity > 0.5 ? Kirigami.Units.smallSpacing * 3 : - Kirigami.Units.smallSpacing * 5 - zoomSlider.height
+
+				Behavior on bottomMargin {
+					SmoothedAnimation {}
+				}
 			}
 			Keys.onPressed: {
 				if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
@@ -85,9 +91,13 @@ Dialog {
 
 		ZoomSlider {
 			id: zoomSlider
-			visible: captureSession.camera
+			opacity: captureSession.camera && !root.savingCapturedData ? 1 : 0
 			// TODO: Make the slider not stop to zoom when the handle reached a quarter of the total width
 			to: captureSession.camera ? captureSession.camera.maximumZoomFactor : 0
+
+			Behavior on opacity {
+				NumberAnimation {}
+			}
 		}
 	}
 
