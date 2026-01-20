@@ -10,15 +10,13 @@
 
 #include "ChatController.h"
 
-// std
-#include <chrono>
-// Qt
-#include <QTimer>
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
 #include "ChatHintModel.h"
+#include "ChatStateCache.h"
+#include "ChatStateController.h"
 #include "EncryptionController.h"
 #include "EncryptionWatcher.h"
 #include "GroupChatController.h"
@@ -28,20 +26,10 @@
 #include "NotificationController.h"
 #include "RosterModel.h"
 
-using namespace std::chrono_literals;
-
-constexpr auto PAUSED_TYPING_TIMEOUT = 10s;
-constexpr auto ACTIVE_TIMEOUT = 2min;
-constexpr auto TYPING_TIMEOUT = 2s;
-
 ChatController::ChatController(QObject *parent)
     : QObject(parent)
     , m_accountEncryptionWatcher(new EncryptionWatcher(this))
     , m_chatEncryptionWatcher(new EncryptionWatcher(this))
-    , m_composingTimer(new QTimer(this))
-    , m_stateTimeoutTimer(new QTimer(this))
-    , m_inactiveTimer(new QTimer(this))
-    , m_chatPartnerChatStateTimer(new QTimer(this))
 {
     connect(&m_rosterItemWatcher, &RosterItemWatcher::itemChanged, this, &ChatController::rosterItemChanged);
     connect(&m_rosterItemWatcher, &RosterItemWatcher::itemChanged, this, &ChatController::isEncryptionEnabledChanged);
@@ -56,8 +44,8 @@ ChatController::ChatController(QObject *parent)
 
 ChatController::~ChatController()
 {
-    sendChatState(QXmppMessage::State::Gone);
     m_notificationController->setChatController(nullptr);
+    resetPreviousChat();
 }
 
 void ChatController::initialize(Account *account, const QString &jid)
@@ -68,15 +56,8 @@ void ChatController::initialize(Account *account, const QString &jid)
 
     Q_EMIT aboutToChangeChat();
 
-    std::ranges::for_each(m_offlineConnections, [](const QMetaObject::Connection &connection) {
-        QObject::disconnect(connection);
-    });
-    m_offlineConnections.clear();
-
-    // Reset the previous chat.
-    if (m_account || !m_jid.isEmpty()) {
-        resetChatStates();
-        m_messageModel->removeAllMessages();
+    if (m_account) {
+        resetPreviousChat();
     }
 
     if (m_account != account) {
@@ -92,14 +73,10 @@ void ChatController::initialize(Account *account, const QString &jid)
     m_rosterItemWatcher.setAccountJid(account->settings()->jid());
     m_rosterItemWatcher.setJid(jid);
 
-    m_contactResourcesWatcher.setJid(jid);
-    m_contactResourcesWatcher.setPresenceCache(account->presenceCache());
-
     initializeEncryption();
     initializeGroupChat();
 
     m_messageController = account->messageController();
-    connect(m_messageController, &MessageController::chatStateReceived, this, &ChatController::handleChatState);
 
     m_notificationController = account->notificationController();
     m_notificationController->setChatController(this);
@@ -118,7 +95,6 @@ void ChatController::initialize(Account *account, const QString &jid)
     Q_EMIT messageModelChanged();
 
     initializeChatStateHandling();
-    sendChatState(QXmppMessage::State::Active);
 
     Q_EMIT chatChanged();
 }
@@ -136,6 +112,11 @@ QString ChatController::jid()
 const RosterItem &ChatController::rosterItem() const
 {
     return m_rosterItemWatcher.item();
+}
+
+ChatStateController *ChatController::chatStateController() const
+{
+    return m_chatStateController;
 }
 
 EncryptionWatcher *ChatController::accountEncryptionWatcher() const
@@ -184,58 +165,25 @@ QList<QString> ChatController::groupChatUserJids() const
     return m_groupChatUserJids;
 }
 
-void ChatController::resetComposingChatState()
+QString ChatController::chatStateText() const
 {
-    m_composingTimer->stop();
-    m_stateTimeoutTimer->stop();
-
-    // Reset composing chat state after message is sent
-    sendChatState(QXmppMessage::State::Active);
-}
-
-QXmppMessage::State ChatController::chatState() const
-{
-    return m_chatPartnerChatState;
-}
-
-void ChatController::sendChatState(ChatState::State state)
-{
-    sendChatState(QXmppMessage::State(state));
-}
-
-void ChatController::sendChatState(QXmppMessage::State state)
-{
-    if (m_contactResourcesWatcher.resourcesCount() == 0 || !rosterItem().chatStateSendingEnabled) {
-        return;
+    if (!m_account) {
+        return {};
     }
 
-    // Handle some special cases
-    switch (QXmppMessage::State(state)) {
+    switch (m_account->chatStateCache()->chatState(m_jid)) {
     case QXmppMessage::State::Composing:
-        // Restart timer if new character was typed in
-        m_composingTimer->start();
-        break;
+        return tr("%1 is typing…").arg(rosterItem().displayName());
+    case QXmppMessage::State::Paused:
+        return tr("%1 paused typing").arg(rosterItem().displayName());
     case QXmppMessage::State::Active:
-        // Start inactive timer when active was sent,
-        // so we can set the state to inactive two minutes later
-        m_inactiveTimer->start();
-        m_composingTimer->stop();
+    case QXmppMessage::State::Inactive:
+    case QXmppMessage::State::Gone:
+    case QXmppMessage::State::None:
         break;
-    default:
-        break;
-    }
+    };
 
-    // Only send if the state changed, filter duplicated
-    if (state != m_ownChatState) {
-        m_ownChatState = state;
-        const auto encryption = activeEncryption();
-
-        if (const auto isGroupChat = rosterItem().isGroupChat()) {
-            m_messageController->sendChatState(m_jid, isGroupChat, state, encryption, m_groupChatUserJids);
-        } else {
-            m_messageController->sendChatState(m_jid, isGroupChat, state, encryption);
-        }
-    }
+    return {};
 }
 
 QString ChatController::messageBodyToForward() const
@@ -367,60 +315,18 @@ void ChatController::setGroupChatUserJids(const QList<QString> &groupChatUserJid
 
 void ChatController::initializeChatStateHandling()
 {
-    // Timer to set state to paused
-    m_composingTimer->setSingleShot(true);
-    m_composingTimer->setInterval(TYPING_TIMEOUT);
-    m_composingTimer->callOnTimeout(this, [this] {
-        sendChatState(QXmppMessage::Paused);
+    m_chatStateController = new ChatStateController(m_account->connection(), m_account->presenceCache(), this, m_messageController, this);
+    Q_EMIT chatStateControllerChanged();
 
-        // 10 seconds after user stopped typing, remove "paused" state
-        m_stateTimeoutTimer->start(PAUSED_TYPING_TIMEOUT);
-    });
-
-    // Timer to reset typing-related notifications like paused and composing to active
-    m_stateTimeoutTimer->setSingleShot(true);
-    m_stateTimeoutTimer->callOnTimeout(this, [this] {
-        sendChatState(QXmppMessage::Active);
-    });
-
-    // Timer to time out active state
-    m_inactiveTimer->setSingleShot(true);
-    m_inactiveTimer->setInterval(ACTIVE_TIMEOUT);
-    m_inactiveTimer->callOnTimeout(this, [this] {
-        sendChatState(QXmppMessage::Inactive);
-    });
-
-    // Timer to reset the chat partners state
-    // if they lost connection while a state other then gone was active
-    m_chatPartnerChatStateTimer->setSingleShot(true);
-    m_chatPartnerChatStateTimer->setInterval(ACTIVE_TIMEOUT);
-    m_chatPartnerChatStateTimer->callOnTimeout(this, [this] {
-        m_chatPartnerChatState = QXmppMessage::Gone;
-        m_chatStateCache.insert(m_jid, QXmppMessage::Gone);
-        Q_EMIT chatStateChanged();
-    });
+    addConnection(connect(m_account->chatStateCache(), &ChatStateCache::chatStateChanged, this, &ChatController::handleChatStateChanged));
+    addConnection(connect(m_account->chatStateCache(), &ChatStateCache::chatStatesChanged, this, &ChatController::chatStateTextChanged));
+    Q_EMIT chatStateTextChanged();
 }
 
-void ChatController::resetChatStates()
+void ChatController::handleChatStateChanged(const QString &jid)
 {
-    sendChatState(QXmppMessage::State::Gone);
-
-    m_ownChatState = QXmppMessage::State::None;
-    m_chatPartnerChatState = m_chatStateCache.value(m_jid, QXmppMessage::State::Gone);
-    m_composingTimer->stop();
-    m_stateTimeoutTimer->stop();
-    m_inactiveTimer->stop();
-    m_chatPartnerChatStateTimer->stop();
-}
-
-void ChatController::handleChatState(const QString &bareJid, QXmppMessage::State state)
-{
-    m_chatStateCache[bareJid] = state;
-
-    if (bareJid == m_jid) {
-        m_chatPartnerChatState = state;
-        m_chatPartnerChatStateTimer->start();
-        Q_EMIT chatStateChanged();
+    if (jid == m_jid) {
+        Q_EMIT chatStateTextChanged();
     }
 }
 
@@ -431,8 +337,34 @@ void ChatController::executeOnceConnected(std::function<void()> &&function)
     if (connection->state() == Enums::ConnectionState::StateConnected) {
         function();
     } else {
-        m_offlineConnections.append(connect(connection, &Connection::connected, this, std::move(function), Qt::SingleShotConnection));
+        addConnection(connect(connection, &Connection::connected, this, std::move(function), Qt::SingleShotConnection));
     }
+}
+
+void ChatController::addConnection(const QMetaObject::Connection &connection)
+{
+    m_connections.append(connection);
+}
+
+void ChatController::removeConnections()
+{
+    std::ranges::for_each(m_connections, [](const QMetaObject::Connection &connection) {
+        QObject::disconnect(connection);
+    });
+    m_connections.clear();
+}
+
+void ChatController::resetPreviousChat()
+{
+    removeConnections();
+
+    m_chatHintModel->deleteLater();
+
+    m_messageModel->removeAllMessages();
+    m_messageModel->deleteLater();
+
+    m_chatStateController->resetPreviousChat();
+    m_chatStateController->deleteLater();
 }
 
 #include "moc_ChatController.cpp"

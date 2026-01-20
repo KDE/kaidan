@@ -153,7 +153,7 @@ RosterItemDetailsContent {
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("Send typing notifications")
-			description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
+			description: qsTr("Indicate when you are typing")
 			checked: root.chatController.rosterItem.chatStateSendingEnabled
 			onToggled: root.chatController.account.rosterController.setChatStateSendingEnabled(root.chatController.jid, checked)
 		}

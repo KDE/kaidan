@@ -74,6 +74,7 @@
 #include "CallController.h"
 #include "ChatController.h"
 #include "ChatHintModel.h"
+#include "ChatStateController.h"
 #include "ContactTrustMessageUriGenerator.h"
 #include "CredentialsGenerator.h"
 #include "CredentialsValidator.h"
@@ -359,7 +360,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<Enums::DeliveryState>();
     qRegisterMetaType<MessageOrigin>();
     qRegisterMetaType<ProviderModel::Role>();
-    qRegisterMetaType<ChatState::State>();
     qRegisterMetaType<Encryption>();
     qRegisterMetaType<MessageReactionDeliveryState>();
     qRegisterMetaType<FileModel::Role>();
@@ -551,7 +551,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                                                            0,
                                                            "AccountMigrationController",
                                                            QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
     qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
@@ -586,12 +585,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                                      QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableMetaObject(Message::staticMetaObject, APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableMetaObject(QMimeType::staticMetaObject, APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
-    qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "ChatState",
-                                     QStringLiteral("Can't create object; only enums defined!"));
+    qmlRegisterUncreatableType<ChatStateController>(APPLICATION_ID, 1, 0, "ChatStateController", QStringLiteral("Not creatable from QML"));
 
     // Q_NAMESPACE
     qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));

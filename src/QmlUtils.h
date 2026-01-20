@@ -9,8 +9,6 @@
 // Qt
 #include <QObject>
 #include <QUrl>
-// QXmpp
-#include <QXmppMessage.h>
 
 class QGeoCoordinate;
 
@@ -175,11 +173,6 @@ public:
      * Returns a consistent user color generated from the nickname.
      */
     Q_INVOKABLE static QColor userColor(const QString &id, const QString &name);
-
-    /**
-     * Returns a human-readable string describing the state of the chat.
-     */
-    Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
     Q_INVOKABLE static QString osmUserAgent();
 

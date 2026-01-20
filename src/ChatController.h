@@ -10,39 +10,18 @@
 
 #pragma once
 
-// QXmpp
-#include <QXmppMessage.h>
 // Kaidan
-#include "PresenceCache.h"
 #include "RosterItemWatcher.h"
 
 class Account;
 class ChatHintModel;
+class ChatStateController;
 class EncryptionController;
 class EncryptionWatcher;
 class GroupChatController;
 class MessageController;
 class MessageModel;
 class NotificationController;
-class QTimer;
-
-class ChatState : public QObject
-{
-    Q_OBJECT
-
-public:
-    enum State {
-        None = QXmppMessage::None,
-        Active = QXmppMessage::Active,
-        Inactive = QXmppMessage::Inactive,
-        Gone = QXmppMessage::Gone,
-        Composing = QXmppMessage::Composing,
-        Paused = QXmppMessage::Paused
-    };
-    Q_ENUM(State)
-};
-
-Q_DECLARE_METATYPE(ChatState::State)
 
 class ChatController : public QObject
 {
@@ -53,6 +32,8 @@ class ChatController : public QObject
 
     Q_PROPERTY(const RosterItem &rosterItem READ rosterItem NOTIFY rosterItemChanged)
 
+    Q_PROPERTY(ChatStateController *chatStateController READ chatStateController NOTIFY chatStateControllerChanged)
+
     Q_PROPERTY(EncryptionWatcher *accountEncryptionWatcher READ accountEncryptionWatcher CONSTANT)
     Q_PROPERTY(EncryptionWatcher *chatEncryptionWatcher READ chatEncryptionWatcher CONSTANT)
 
@@ -62,7 +43,7 @@ class ChatController : public QObject
     Q_PROPERTY(bool isEncryptionEnabled READ isEncryptionEnabled NOTIFY isEncryptionEnabledChanged)
     Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
     Q_PROPERTY(QList<QString> groupChatUserJids READ groupChatUserJids NOTIFY groupChatUserJidsChanged)
-    Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
+    Q_PROPERTY(QString chatStateText READ chatStateText NOTIFY chatStateTextChanged)
     Q_PROPERTY(QString messageBodyToForward READ messageBodyToForward WRITE setMessageBodyToForward NOTIFY messageBodyToForwardChanged)
 
 public:
@@ -86,6 +67,9 @@ public:
     EncryptionWatcher *accountEncryptionWatcher() const;
     EncryptionWatcher *chatEncryptionWatcher() const;
 
+    ChatStateController *chatStateController() const;
+    Q_SIGNAL void chatStateControllerChanged();
+
     ChatHintModel *chatHintModel() const;
     Q_SIGNAL void chatHintModelChanged();
 
@@ -104,13 +88,8 @@ public:
     QList<QString> groupChatUserJids() const;
     Q_SIGNAL void groupChatUserJidsChanged();
 
-    Q_INVOKABLE void resetComposingChatState();
-
-    QXmppMessage::State chatState() const;
-    Q_SIGNAL void chatStateChanged();
-
-    Q_INVOKABLE void sendChatState(ChatState::State state);
-    void sendChatState(QXmppMessage::State state);
+    QString chatStateText() const;
+    Q_SIGNAL void chatStateTextChanged();
 
     QString messageBodyToForward() const;
     void setMessageBodyToForward(const QString &messageBodyToForward);
@@ -126,37 +105,34 @@ private:
     void setGroupChatUserJids(const QList<QString> &groupChatUserJids);
 
     void initializeChatStateHandling();
-    void resetChatStates();
-    void handleChatState(const QString &bareJid, QXmppMessage::State state);
+    void handleChatStateChanged(const QString &jid);
 
     void executeOnceConnected(std::function<void()> &&function);
+
+    void addConnection(const QMetaObject::Connection &connection);
+    void removeConnections();
+
+    void resetPreviousChat();
 
     Account *m_account = nullptr;
     QString m_jid;
 
+    ChatStateController *m_chatStateController = nullptr;
     EncryptionController *m_encryptionController = nullptr;
     GroupChatController *m_groupChatController = nullptr;
     MessageController *m_messageController = nullptr;
     NotificationController *m_notificationController = nullptr;
 
     RosterItemWatcher m_rosterItemWatcher;
-    UserResourcesWatcher m_contactResourcesWatcher;
+
     EncryptionWatcher *const m_accountEncryptionWatcher;
     EncryptionWatcher *const m_chatEncryptionWatcher;
 
     ChatHintModel *m_chatHintModel = nullptr;
     MessageModel *m_messageModel = nullptr;
 
-    QXmppMessage::State m_chatPartnerChatState = QXmppMessage::State::None;
-    QXmppMessage::State m_ownChatState = QXmppMessage::State::None;
-    QTimer *const m_composingTimer;
-    QTimer *const m_stateTimeoutTimer;
-    QTimer *const m_inactiveTimer;
-    QTimer *const m_chatPartnerChatStateTimer;
-    QMap<QString, QXmppMessage::State> m_chatStateCache;
-
     QList<QString> m_groupChatUserJids;
     QString m_messageBodyToForward;
 
-    QList<QMetaObject::Connection> m_offlineConnections;
+    QList<QMetaObject::Connection> m_connections;
 };

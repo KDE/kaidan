@@ -98,6 +98,7 @@ SPDX-License-Identifier: CC0-1.0
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>2.1</xmpp:version>
         <xmpp:since>0.8</xmpp:since>
+        <xmpp:note>Only used for composing messages (states: 'composing', 'paused', 'inactive')</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>

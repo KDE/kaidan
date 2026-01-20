@@ -64,6 +64,10 @@ target_sources(libkaidancore PRIVATE
     ChatController.h
     ChatHintModel.cpp
     ChatHintModel.h
+    ChatStateCache.h
+    ChatStateCache.cpp
+    ChatStateController.cpp
+    ChatStateController.h
     ClientController.cpp
     ClientController.h
     ContactTrustMessageUriGenerator.cpp

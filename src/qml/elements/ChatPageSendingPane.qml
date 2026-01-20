@@ -235,9 +235,9 @@ Controls.Pane {
 
 					// Skip events in which the text field was emptied (probably automatically after sending)
 					if (text) {
-						root.chatPage.chatController.sendChatState(ChatState.Composing)
+						root.chatPage.chatController.chatStateController.setComposing()
 					} else {
-						root.chatPage.chatController.sendChatState(ChatState.Active)
+						root.chatPage.chatController.chatStateController.resetChatState()
 					}
 				}
 				Keys.onDownPressed: event => {
@@ -491,7 +491,6 @@ Controls.Pane {
 						root.composition.send()
 					}
 
-					root.chatPage.chatController.resetComposingChatState()
 					clear()
 
 					root.chatPage.messageListView.positionViewAtLatestMessage()

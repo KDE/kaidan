@@ -17,6 +17,7 @@
 #include "AtmController.h"
 #include "Blocking.h"
 #include "CallController.h"
+#include "ChatStateCache.h"
 #include "CredentialsValidator.h"
 #include "DiscoveryController.h"
 #include "EncryptionController.h"
@@ -566,6 +567,7 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
                                                 m_clientController->mamManager(),
                                                 m_clientController->messageReceiptManager(),
                                                 this))
+    , m_chatStateCache(new ChatStateCache(m_connection, m_messageController))
     , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientController->mixManager(), this))
     , m_notificationController(new NotificationController(m_settings, m_messageController, this))
     , m_callController(
@@ -654,6 +656,11 @@ VCardController *Account::vCardController() const
 VersionController *Account::versionController() const
 {
     return m_versionController;
+}
+
+ChatStateCache *Account::chatStateCache() const
+{
+    return m_chatStateCache;
 }
 
 PresenceCache *Account::presenceCache() const

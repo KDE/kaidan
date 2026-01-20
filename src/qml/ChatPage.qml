@@ -368,7 +368,7 @@ ChatPageBase {
 
 			// chat state
 			Controls.Label {
-				text: Utils.chatStateDescription(root.chatController.rosterItem.displayName, root.chatController.chatState)
+				text: root.chatController.chatStateText
 				elide: Qt.ElideMiddle
 				Layout.alignment: Qt.AlignCenter
 				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4

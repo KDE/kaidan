@@ -27,6 +27,7 @@ class QGeoCoordinate;
 class AtmController;
 class BlockingController;
 class CallController;
+class ChatStateCache;
 class ClientController;
 class EncryptionController;
 class FileSharingController;
@@ -365,6 +366,7 @@ public:
     VCardController *vCardController() const;
     VersionController *versionController() const;
 
+    ChatStateCache *chatStateCache() const;
     PresenceCache *presenceCache() const;
 
     Q_INVOKABLE void enable();
@@ -416,6 +418,7 @@ private:
     RosterController *const m_rosterController;
     FileSharingController *const m_fileSharingController;
     MessageController *const m_messageController;
+    ChatStateCache *const m_chatStateCache;
     GroupChatController *const m_groupChatController;
     NotificationController *const m_notificationController;
     CallController *const m_callController;
