@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-06 12:49+0100\n"
+"PO-Revision-Date: 2026-01-19 10:50+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,12 +12,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Niet verbonden"
+msgstr "Verbinding verbroken"
 
 #: src/Account.cpp:477
 msgctxt "Connection|"
@@ -2288,20 +2288,14 @@ msgid "%1 has read up to this point"
 msgstr "%1 heeft tot dit punt gelezen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Verwijder bestand"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Map van geselecteerd bestand openen"
+msgstr "Bestand in map openen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"

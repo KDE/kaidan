@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-15 21:04+0300\n"
+"PO-Revision-Date: 2026-01-16 17:54+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -243,12 +243,9 @@ msgid "Leaving group chat"
 msgstr "Poistutaan ryhmäkeskustelusta"
 
 #: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Peru"
+msgstr "Peruttu"
 
 #: src/FileSharingController.cpp:337
 #, qt-format
@@ -270,12 +267,10 @@ msgid "Media sharing is unsupported"
 msgstr "Ominaisuutta ei tueta"
 
 #: src/FileSharingController.cpp:510
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Tiedostoa ei voitu ladata: %1"
+msgstr "Tiedostoa ei voitu lähettää: %1"
 
 #: src/FileSharingController.cpp:625
 msgctxt "FileSharingController|"
@@ -291,12 +286,9 @@ msgid "Transfer failed: %1"
 msgstr "Lähetys epäonnistui: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Tallenna valinta"
+msgstr "Ei valintaa"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -701,9 +693,6 @@ msgid "Offline"
 msgstr "Ei verkossa"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Oma palveluntarjoaja"
@@ -712,17 +701,12 @@ msgstr "Oma palveluntarjoaja"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Ei rajoitettu"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 päivää"
@@ -1261,12 +1245,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Ota muutokset käyttöön"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Otetaan muutoksia käyttöön…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2323,7 +2307,7 @@ msgstr "Avaa valitun tiedoston kansio"
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Lähetä uudelleen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2481,12 +2465,9 @@ msgid "Add"
 msgstr "Lisää"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "Luottamuspäätöksiä tehty – jatka toiseen vaiheeseen"
+msgstr "Yhteystiedolle tehdyt luottamuspäätökset"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2591,7 +2572,7 @@ msgstr "Portti:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Yksinkertainen todennus (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2599,6 +2580,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Vaaditaan, jos palveluntarjoaja käyttää LDAPia kuten usein organisaatioissa, "
+"joissa yksi tili riittää kirjautumiseen"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2862,12 +2845,9 @@ msgid "Scan login QR code"
 msgstr "Lue kirjautumisen QR-koodi"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Muuta yhteysasetuksia"
+msgstr "Näytä yhteysasetukset"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2940,63 +2920,54 @@ msgid "Retry updating reactions"
 msgstr "Yritä päivittää reaktiot uudelleen"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Rekisteröityminen epäonnistui:"
+msgstr "Rekisteröityminen Kaidanilla"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Näytä vain palveluntarjoajat, jotka sallivat luoda tilin suoraan Kaidanilla"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Vapaana juttelemaan"
+msgstr "Ilmainen"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Näytä vain ilmaiset palveluntarjoajat"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Salasana"
+msgstr "Salasanan nollaus"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Näytä vain palveluntarjoajat, jotka sallivat salasanan nollauksen"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "Vihreät palvelut"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
-msgstr ""
+msgstr "Näytä vain uusiutuvaa energiaa käyttävät palveluntarjoajat"
 
+# Heitto; ks.
+# https://en.wikipedia.org/wiki/Bus_factor
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Riskikerroin"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Sijainti"
@@ -3006,51 +2977,37 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Näytä vain palveluntarjoajat, jotka tallettavat tietonsa valittuun maahan"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Jaetun median enimmäiskoko"
+msgstr "Jaetun median koko"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Tallentaa jaetun median tähän asti:"
+msgstr "Kaiken jaetun median yhteiskoko"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Viestien talletuskesto"
+msgstr "Mediatalletuksen kesto"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
-msgstr "Viestien talletuskesto"
+msgstr "Viestitalletuksen kesto"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Käytettävissä"
+msgstr "Saatavuus"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Organisaatio"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3473,12 +3430,9 @@ msgstr "Valitse palveluntarjoaja"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
-msgstr "Suodata"
+msgstr "Suodatin"
 
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
@@ -3491,17 +3445,14 @@ msgid "Provider Address"
 msgstr "Palveluntarjoajan osoite"
 
 #: src/qml/registration/ProviderPage.qml:128
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Muuta yhteysasetuksia"
+msgstr "Näytä yhteysasetukset"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Tiedon talletus- ja käsittelysijainnit"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3519,12 +3470,9 @@ msgid "Maximum size of shared media"
 msgstr "Jaetun median enimmäiskoko"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
-msgstr "Viestien talletuskesto"
+msgstr "Viestitalletuksen kesto"
 
 #: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
