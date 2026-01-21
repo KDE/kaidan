@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:474
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "連線"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:476
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:478
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -37,7 +37,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "連線"
 
-#: src/Account.cpp:490
+#: src/Account.cpp:489
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -45,7 +45,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:491
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -53,7 +53,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -61,7 +61,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
-#: src/Account.cpp:496
+#: src/Account.cpp:495
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -69,7 +69,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
-#: src/Account.cpp:498
+#: src/Account.cpp:497
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "your server name."
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
-#: src/Account.cpp:500
+#: src/Account.cpp:499
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -89,7 +89,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
-#: src/Account.cpp:502
+#: src/Account.cpp:501
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -97,7 +97,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
-#: src/Account.cpp:504
+#: src/Account.cpp:503
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -105,7 +105,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
-#: src/Account.cpp:506
+#: src/Account.cpp:505
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -117,7 +117,7 @@ msgid ""
 "access configuration."
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:507
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -125,27 +125,27 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:512
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/AccountMigrationController.cpp:332
+#: src/AccountMigrationController.cpp:331
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:349
+#: src/AccountMigrationController.cpp:348
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:387
+#: src/AccountMigrationController.cpp:386
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -308,7 +308,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "能夠聊天"
 
-#: src/FileSharingController.cpp:306 src/FileSharingController.cpp:441
+#: src/FileSharingController.cpp:305 src/FileSharingController.cpp:440
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -316,7 +316,7 @@ msgctxt "FileSharingController|"
 msgid "Canceled"
 msgstr "取消"
 
-#: src/FileSharingController.cpp:337
+#: src/FileSharingController.cpp:336
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -324,17 +324,17 @@ msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "無法下載檔案：%1"
 
-#: src/FileSharingController.cpp:384
+#: src/FileSharingController.cpp:383
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
 msgstr ""
 
-#: src/FileSharingController.cpp:387
+#: src/FileSharingController.cpp:386
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
 msgstr ""
 
-#: src/FileSharingController.cpp:510
+#: src/FileSharingController.cpp:509
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -342,12 +342,12 @@ msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "無法下載檔案：%1"
 
-#: src/FileSharingController.cpp:625
+#: src/FileSharingController.cpp:624
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
 msgstr ""
 
-#: src/FileSharingController.cpp:631
+#: src/FileSharingController.cpp:630
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
@@ -405,107 +405,107 @@ msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
 msgstr "無法解除封鎖 %1：%2"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "音訊"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:327
+#: src/MediaUtils.cpp:326
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "位置"
 
-#: src/MediaUtils.cpp:329
+#: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "影像"
 
-#: src/MediaUtils.cpp:331
+#: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "影片"
 
-#: src/MediaUtils.cpp:335
+#: src/MediaUtils.cpp:334
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "檔案"
 
-#: src/MediaUtils.cpp:344
+#: src/MediaUtils.cpp:343
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/MediaUtils.cpp:346
+#: src/MediaUtils.cpp:345
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "錄製影片"
 
-#: src/MediaUtils.cpp:348
+#: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "錄製聲音"
 
-#: src/MediaUtils.cpp:350
+#: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "傳送位置"
 
-#: src/MediaUtils.cpp:388
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "選擇檔案…"
 
-#: src/MediaUtils.cpp:390
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "選擇影像"
 
-#: src/MediaUtils.cpp:392
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "選擇影片"
 
-#: src/MediaUtils.cpp:394
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "選擇音效檔"
 
-#: src/MediaUtils.cpp:396
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "選擇文件"
 
-#: src/MediaUtils.cpp:418
+#: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "影像"
 
-#: src/MediaUtils.cpp:422
+#: src/MediaUtils.cpp:421
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "影片"
 
-#: src/MediaUtils.cpp:424
+#: src/MediaUtils.cpp:423
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "音效檔"
 
-#: src/MediaUtils.cpp:426
+#: src/MediaUtils.cpp:425
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:451
+#: src/MediaUtils.cpp:450
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -559,7 +559,7 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "「%1」無法傳送，因為它比 %2 還大"
 
-#: src/MessageController.cpp:279
+#: src/MessageController.cpp:278
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -567,7 +567,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "訊息無法傳送。"
 
-#: src/MessageController.cpp:283
+#: src/MessageController.cpp:282
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -575,7 +575,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "訊息無法傳送。"
 
-#: src/MessageController.cpp:625
+#: src/MessageController.cpp:624
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -583,7 +583,7 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此訊息已用 %1 加密但無法解密"
 
-#: src/MessageController.cpp:1029
+#: src/MessageController.cpp:1028
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %1"
@@ -1187,17 +1187,17 @@ msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "網站位址已複製到剪貼簿"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "開啟支援聊天"
 
-#: src/qml/details/AccountDetailsContent.qml:400
+#: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "與您的使用者支援聯絡人開始聊天"
 
-#: src/qml/details/AccountDetailsContent.qml:406
+#: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "支援"
@@ -1208,28 +1208,28 @@ msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "支援 %1"
 
-#: src/qml/details/AccountDetailsContent.qml:441
+#: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "開啟支援群組"
 
-#: src/qml/details/AccountDetailsContent.qml:442
+#: src/qml/details/AccountDetailsContent.qml:443
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "加入您的提供者的公開支援群組"
 
-#: src/qml/details/AccountDetailsContent.qml:460
+#: src/qml/details/AccountDetailsContent.qml:459
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "群組支援 %1"
 
-#: src/qml/details/AccountDetailsContent.qml:475
+#: src/qml/details/AccountDetailsContent.qml:474
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "已封鎖的聊天位址"
 
-#: src/qml/details/AccountDetailsContent.qml:479
+#: src/qml/details/AccountDetailsContent.qml:478
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -1238,42 +1238,42 @@ msgstr ""
 "封鎖某個使用者（例如 user@example.org）或是某個伺服器上的所有使用者（例如 "
 "example.org）"
 
-#: src/qml/details/AccountDetailsContent.qml:507
+#: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "您必須已連線才能封鎖或解除封鎖聊天位址"
 
-#: src/qml/details/AccountDetailsContent.qml:515
+#: src/qml/details/AccountDetailsContent.qml:514
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:530
+#: src/qml/details/AccountDetailsContent.qml:529
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "封鎖聊天位址"
 
-#: src/qml/details/AccountDetailsContent.qml:592
+#: src/qml/details/AccountDetailsContent.qml:591
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "變更聊天位址…"
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:622
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "解除封鎖"
 
-#: src/qml/details/AccountDetailsContent.qml:647
+#: src/qml/details/AccountDetailsContent.qml:646
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "筆記本"
 
-#: src/qml/details/AccountDetailsContent.qml:653
+#: src/qml/details/AccountDetailsContent.qml:652
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "新增筆記用的聊天室"
 
-#: src/qml/details/AccountDetailsContent.qml:654
+#: src/qml/details/AccountDetailsContent.qml:653
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1281,12 +1281,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:655
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "新增將筆記在您所有裝置間同步用的聊天室"
 
-#: src/qml/details/AccountDetailsContent.qml:668
+#: src/qml/details/AccountDetailsContent.qml:667
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -1298,76 +1298,76 @@ msgid ""
 "does not support that"
 msgstr "筆記聊天無法加入您的聯絡人清單中，因為您的伺服器不支援"
 
-#: src/qml/details/AccountDetailsContent.qml:703
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "密碼變更"
 
-#: src/qml/details/AccountDetailsContent.qml:707
+#: src/qml/details/AccountDetailsContent.qml:706
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr "變更您的密碼。您將須在所有其他的裝置上輸入您的密碼！"
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "目前密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:717
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "輸入您目前的密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "輸入目前密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:730
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "新密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:993
+#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:991
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:732
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "輸入您的新密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:734
+#: src/qml/details/AccountDetailsContent.qml:733
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "輸入不同的密碼來變更密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:745
+#: src/qml/details/AccountDetailsContent.qml:744
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "變更密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:785
+#: src/qml/details/AccountDetailsContent.qml:784
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "變更密碼失敗：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:791
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "密碼已成功變更"
 
-#: src/qml/details/AccountDetailsContent.qml:823
+#: src/qml/details/AccountDetailsContent.qml:822
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "密碼可見性"
 
-#: src/qml/details/AccountDetailsContent.qml:827
+#: src/qml/details/AccountDetailsContent.qml:826
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1379,19 +1379,19 @@ msgstr ""
 "夠變更密碼或是在別的裝置上使用您的帳號，<b>請考慮將密碼存在別的地方。這個動作"
 "無法復原！</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:832
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "不要將密碼作為文字顯示"
 
-#: src/qml/details/AccountDetailsContent.qml:834
+#: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr "允許利用登入 QR code 新增額外裝置，但不顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:840
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1399,57 +1399,57 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:847
+#: src/qml/details/AccountDetailsContent.qml:846
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "不要用任何方式顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:848
+#: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr "不允許使用登入 QR code 新增額外裝置，也不顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:855
+#: src/qml/details/AccountDetailsContent.qml:854
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "連線"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:868
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "設定要連線到的主機名稱與連接埠（留空以使用預設值）"
 
-#: src/qml/details/AccountDetailsContent.qml:897
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:898
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:928
+#: src/qml/details/AccountDetailsContent.qml:927
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "無法變更連線設定：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:940
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "連線設定已變更"
 
-#: src/qml/details/AccountDetailsContent.qml:952
+#: src/qml/details/AccountDetailsContent.qml:951
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Switch device"
@@ -1457,7 +1457,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "切換裝置"
 
-#: src/qml/details/AccountDetailsContent.qml:956
+#: src/qml/details/AccountDetailsContent.qml:955
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1471,7 +1471,7 @@ msgstr ""
 "不要將這個 QR code 顯示給別人。任何看得到這個 QR code 的人都能無限制地存取您"
 "的帳號！"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:961
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1479,7 +1479,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "掃描 QR code"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:962
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1490,12 +1490,12 @@ msgid "Scan the QR code by another device to log in on it"
 msgstr ""
 "在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
 
-#: src/qml/details/AccountDetailsContent.qml:980
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:981
+#: src/qml/details/AccountDetailsContent.qml:979
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1506,7 +1506,7 @@ msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
 
-#: src/qml/details/AccountDetailsContent.qml:987
+#: src/qml/details/AccountDetailsContent.qml:985
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -1514,7 +1514,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "聊天位址"
 
-#: src/qml/details/AccountDetailsContent.qml:1005
+#: src/qml/details/AccountDetailsContent.qml:1003
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
@@ -1522,7 +1522,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "沒有資訊"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1008
 #, fuzzy
 #| msgctxt "RosterFilteringArea|"
 #| msgid "Filter by accounts"
@@ -1530,7 +1530,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "依帳號過濾"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1009
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -1538,12 +1538,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "帳號預設"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:1011
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:1011
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1556,24 +1556,24 @@ msgid ""
 "history if needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:1035
+#: src/qml/details/AccountDetailsContent.qml:1033
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1041
+#: src/qml/details/AccountDetailsContent.qml:1039
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "從 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1042
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1048
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1581,18 +1581,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1057
+#: src/qml/details/AccountDetailsContent.qml:1055
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全刪除"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1056
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1064
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1600,7 +1600,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1073
+#: src/qml/details/AccountDetailsContent.qml:1071
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -2016,7 +2016,7 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "顯示 QR 碼"
 
-#: src/qml/details/DetailsContent.qml:182
+#: src/qml/details/DetailsContent.qml:181
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show QR code"
@@ -2024,7 +2024,7 @@ msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "顯示 QR 碼"
 
-#: src/qml/details/DetailsContent.qml:184
+#: src/qml/details/DetailsContent.qml:183
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
@@ -2032,7 +2032,7 @@ msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "聯絡人已複製到剪貼簿"
 
-#: src/qml/details/DetailsContent.qml:189
+#: src/qml/details/DetailsContent.qml:188
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Copy chat address"
@@ -2040,12 +2040,12 @@ msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "複製聊天位址"
 
-#: src/qml/details/DetailsContent.qml:195
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:197
+#: src/qml/details/DetailsContent.qml:196
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -3018,7 +3018,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "傳送"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:47
+#: src/qml/elements/ConfirmationFormButtonArea.qml:46
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -3965,12 +3965,12 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/GlobalDrawer.qml:54
+#: src/qml/GlobalDrawer.qml:55
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/qml/GlobalDrawer.qml:118
+#: src/qml/GlobalDrawer.qml:119
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password"
@@ -3978,7 +3978,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密碼"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:120
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter your current password"
@@ -3986,7 +3986,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "輸入您目前的密碼"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:129
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Copy password"
@@ -3994,37 +3994,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "複製密碼"
 
-#: src/qml/GlobalDrawer.qml:174
+#: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "動作"
 
-#: src/qml/GlobalDrawer.qml:178
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:178
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:183
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "用 QR code 新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:190
+#: src/qml/GlobalDrawer.qml:191
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "依聊天位址新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:197
+#: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:197
+#: src/qml/GlobalDrawer.qml:198
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -4032,22 +4032,22 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "能夠聊天"
 
-#: src/qml/GlobalDrawer.qml:223
+#: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:223
+#: src/qml/GlobalDrawer.qml:224
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:250
+#: src/qml/GlobalDrawer.qml:251
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜尋公開群組"
 
-#: src/qml/GlobalDrawer.qml:264
+#: src/qml/GlobalDrawer.qml:265
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -4055,7 +4055,7 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/GlobalDrawer.qml:454
+#: src/qml/GlobalDrawer.qml:461
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -4063,7 +4063,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/GlobalDrawer.qml:454
+#: src/qml/GlobalDrawer.qml:461
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -4071,7 +4071,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:468
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -4079,7 +4079,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/GlobalDrawer.qml:465
+#: src/qml/GlobalDrawer.qml:472
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
