@@ -18,7 +18,6 @@
 // Kaidan
 #include "ClientController.h"
 #include "Encryption.h"
-#include "Globals.h"
 
 constexpr quint16 AUTO_DETECT_PORT = 0;
 
