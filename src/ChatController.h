@@ -61,7 +61,6 @@ class ChatController : public QObject
 
     Q_PROPERTY(bool isEncryptionEnabled READ isEncryptionEnabled NOTIFY isEncryptionEnabledChanged)
     Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
-    Q_PROPERTY(Encryption::Enum activeEncryption READ activeEncryption NOTIFY encryptionChanged)
     Q_PROPERTY(QList<QString> groupChatUserJids READ groupChatUserJids NOTIFY groupChatUserJidsChanged)
     Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
     Q_PROPERTY(QString messageBodyToForward READ messageBodyToForward WRITE setMessageBodyToForward NOTIFY messageBodyToForwardChanged)
