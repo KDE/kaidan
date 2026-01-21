@@ -289,6 +289,7 @@ public:
     Enums::ConnectionState state() const;
     Q_SIGNAL void stateChanged();
     Q_SIGNAL void connected();
+    Q_SIGNAL void disconnected();
 
     QString stateText() const;
     QString errorText() const;

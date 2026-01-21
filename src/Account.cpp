@@ -526,6 +526,8 @@ void Connection::setState(Enums::ConnectionState state)
 
         if (state == Enums::ConnectionState::StateConnected) {
             Q_EMIT connected();
+        } else if (state == Enums::ConnectionState::StateDisconnected) {
+            Q_EMIT disconnected();
         }
     }
 }
