@@ -1,50 +1,53 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk-kf 5\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Connected"
-msgstr ""
+msgstr "Prisijungta"
 
 #: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Jungiamasi…"
 
 #: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr ""
+msgstr "Atsijungta"
 
 #: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "Neteisingas naudotojo vardas ar slaptažodis."
 
 #: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
+msgstr "Nepavyksta prisijungti prie serverio. Patikrinkite interneto ryšį."
 
 #: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
-msgstr ""
+msgstr "Klaida bandant saugiai prisijungti."
 
 #: src/Account.cpp:514
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
-msgstr ""
+msgstr "Serveris nepalaiko saugių ryšių."
 
 #: src/Account.cpp:516
 msgctxt "Connection|"
@@ -52,6 +55,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"Nepavyko prisijungti prie serverio. Patikrinkite interneto ryšį arba "
+"serverio pavadinimą."
 
 #: src/Account.cpp:518
 msgctxt "Connection|"
@@ -61,7 +66,7 @@ msgstr ""
 #: src/Account.cpp:520
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
-msgstr ""
+msgstr "Serveris nepalaiko tapatybės nustatymo protokolo."
 
 #: src/Account.cpp:522
 msgctxt "Connection|"
@@ -74,11 +79,13 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"Prieiga prie interneto yra neleidžiama. Patikrinkite savo sistemos prieigos "
+"prie interneto konfigūraciją."
 
 #: src/Account.cpp:526
 msgctxt "Connection|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "Šis serveris nepalaiko registracijos."
 
 #: src/Account.cpp:528
 msgctxt "Connection|"
@@ -88,7 +95,7 @@ msgstr ""
 #: src/Account.cpp:530
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "Nepavyko prisijungti prie serverio."
 
 #: src/AccountMigrationController.cpp:332
 msgctxt "AccountMigrationController|"
@@ -2107,12 +2114,12 @@ msgstr ""
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Pause"
-msgstr ""
+msgstr "Pristabdyti"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "Atkurti"
 
 #: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
@@ -2666,27 +2673,27 @@ msgstr ""
 #: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
 msgid "Loading…"
-msgstr ""
+msgstr "Įkeliama…"
 
 #: src/qml/elements/LoginArea.qml:29 src/qml/elements/LoginArea.qml:100
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr ""
+msgstr "Prisijungti"
 
 #: src/qml/elements/LoginArea.qml:38
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr ""
+msgstr "Skenuoti prisijungimo QR kodą"
 
 #: src/qml/elements/LoginArea.qml:56
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "Rodyti ryšio nuostatas"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Jungiamasi…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
 msgctxt "MediumSendingPreview|"
@@ -3450,7 +3457,7 @@ msgstr ""
 #: src/QmlUtils.cpp:223
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Nežinomas dydis"
 
 #: src/QmlUtils.cpp:238
 #, qt-format
@@ -3462,7 +3469,7 @@ msgstr ""
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 rašo…"
 
 #: src/QmlUtils.cpp:242
 #, qt-format
@@ -3524,7 +3531,7 @@ msgstr ""
 #: src/RosterModel.cpp:755
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "Vakar"
 
 #: src/VCardModel.cpp:131
 msgctxt "VCardModel|"
