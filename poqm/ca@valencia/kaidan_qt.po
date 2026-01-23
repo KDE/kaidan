@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-01-06 12:36+0100\n"
+"PO-Revision-Date: 2026-01-19 09:12+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2298,20 +2298,14 @@ msgid "%1 has read up to this point"
 msgstr "%1 ha llegit fins este punt"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:52
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Elimina el fitxer"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Obri la carpeta del fitxer seleccionat"
+msgstr "Obri un fitxer en la carpeta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
@@ -3748,7 +3742,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Elimina el fitxer seleccionat"
