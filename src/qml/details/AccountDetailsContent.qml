@@ -530,7 +530,7 @@ DetailsContent {
 									icon.name: "list-add-symbolic"
 									visible: !root.account.blockingController.busy
 									enabled: blockingTextField.text.length
-									flat: !hovered
+									flat: !hovered || !enabled
 									Layout.preferredWidth: Layout.preferredHeight
 									Layout.preferredHeight: blockingTextField.implicitHeight
 									Layout.rightMargin: Kirigami.Units.largeSpacing

@@ -80,7 +80,7 @@ DetailsContent {
 								icon.name: "list-add-symbolic"
 								enabled: rosterGroupField.text.length
 								visible: !rosterGroupBusyIndicator.visible
-								flat: !hovered
+								flat: !hovered || !enabled
 								Layout.preferredWidth: Layout.preferredHeight
 								Layout.preferredHeight: rosterGroupField.implicitHeight
 								Layout.rightMargin: Kirigami.Units.largeSpacing
