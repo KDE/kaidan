@@ -518,8 +518,10 @@ Kirigami.GlobalDrawer {
 		function onActiveFocusItemChanged() {
 			const focusedItem = applicationWindow().activeFocusItem
 
-			// Update lastFocusedItem unless the drawer handle is focused.
-			if (!root.handle.visibleChildren.includes(focusedItem)) {
+			// Update root.lastFocusedItem to become any focused item outside of GlobalDrawer.
+			// "!root.handle.visibleChildren.includes(focusedItem)" is used to filter out the drawer handle.
+			// "focusedItem !== root.lastFocusedItem" avoids setting root.lastFocusedItem twice for the same item.
+			if (!root.handle.visibleChildren.includes(focusedItem) && !root.drawerOpen && focusedItem !== root.lastFocusedItem) {
 				root.lastFocusedItem = focusedItem
 			}
 		}
