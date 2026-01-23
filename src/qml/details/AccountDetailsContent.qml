@@ -536,14 +536,15 @@ DetailsContent {
 									Layout.rightMargin: Kirigami.Units.largeSpacing
 									onClicked: {
 										const jid = blockingTextField.text
+
 										if (blockingListView.model.contains(jid)) {
 											blockingTextField.clear()
 										} else if (enabled) {
 											root.account.blockingController.block(jid)
 											blockingTextField.clear()
-										} else {
-											blockingTextField.forceActiveFocus()
 										}
+
+										blockingTextField.forceActiveFocus()
 									}
 								}
 

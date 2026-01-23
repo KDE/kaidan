@@ -96,9 +96,9 @@ DetailsContent {
 										root.chatController.account.rosterController.updateGroups(root.chatController.jid, root.chatController.rosterItem.name, groups)
 
 										rosterGroupField.clear()
-									} else {
-										rosterGroupField.forceActiveFocus()
 									}
+
+									rosterGroupField.forceActiveFocus()
 								}
 							}
 
