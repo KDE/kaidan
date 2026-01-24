@@ -485,7 +485,11 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
                 });
             break;
         case MessageOrigin::MamBacklog:
+            break;
         case MessageOrigin::MamInitial:
+            if (!changedRoles.isEmpty()) {
+                updateOnMessageChange(itr, changedRoles);
+            }
             break;
         }
     });
