@@ -383,15 +383,13 @@ void MessageController::handleRosterReceived(const QString &accountJid)
             }
         });
 
-        if (const auto rosterItems = RosterModel::instance()->items(m_accountSettings->jid()); !rosterItems.isEmpty()) {
-            // TODO: Check whether the own server supports archiving group chat messages and skip the retrieval for each group chat in that case
-            for (const auto &rosterItem : std::as_const(rosterItems)) {
-                if (rosterItem.isGroupChat() && !rosterItem.isDeletedGroupChat()) {
-                    if (rosterItem.latestGroupChatMessageStanzaId.isEmpty()) {
-                        retrieveAllMessages(rosterItem.jid);
-                    } else {
-                        retrieveCatchUpMessages(rosterItem.latestGroupChatMessageStanzaId, rosterItem.jid);
-                    }
+        // TODO: Check whether the own server supports archiving group chat messages and skip the retrieval for each group chat in that case
+        for (const auto &rosterItem : RosterModel::instance()->items(m_accountSettings->jid())) {
+            if (rosterItem.isGroupChat() && !rosterItem.isDeletedGroupChat()) {
+                if (rosterItem.latestGroupChatMessageStanzaId.isEmpty()) {
+                    retrieveAllMessages(rosterItem.jid);
+                } else {
+                    retrieveCatchUpMessages(rosterItem.latestGroupChatMessageStanzaId, rosterItem.jid);
                 }
             }
         }
@@ -402,10 +400,8 @@ void MessageController::handleRosterReceived(const QString &accountJid)
 
 void MessageController::retrieveInitialMessages()
 {
-    if (const auto rosterItems = RosterModel::instance()->items(m_accountSettings->jid()); !rosterItems.isEmpty()) {
-        for (const auto &rosterItem : std::as_const(rosterItems)) {
-            retrieveInitialMessage(rosterItem.jid, rosterItem.isGroupChat());
-        }
+    for (const auto &rosterItem : RosterModel::instance()->items(m_accountSettings->jid())) {
+        retrieveInitialMessage(rosterItem.jid, rosterItem.isGroupChat());
     }
 }
 
