@@ -246,7 +246,7 @@ void ChatHintModel::handleGroupChatDeleted(const QString &groupChatJid)
 int ChatHintModel::addEnableAccountChatHint()
 {
     return addChatHint({
-        tr("Your account is not enabled - Messages are sent and received once enabled"),
+        tr("Your account is disabled - Messages are exchanged once connected"),
         {ChatHintButton{ChatHintButton::Dismiss, tr("Dismiss")}, ChatHintButton{ChatHintButton::EnableAccount, tr("Enable")}},
         false,
         tr("Enabling…"),
