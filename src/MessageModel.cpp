@@ -804,6 +804,32 @@ void MessageModel::resendMessageReactions(const QString &messageId)
     }
 }
 
+int MessageModel::nextCorrectableMessageIndex(int indexOffset) const
+{
+    for (int i = indexOffset; i < m_messages.size(); i++) {
+        if (canCorrectMessage(i)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+int MessageModel::previousCorrectableMessageIndex(int indexOffset) const
+{
+    if (indexOffset >= m_messages.size()) {
+        return -1;
+    }
+
+    for (int i = indexOffset; i >= 0; i--) {
+        if (canCorrectMessage(i)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
 bool MessageModel::canCorrectMessage(int index) const
 {
     // The message must be loaded.

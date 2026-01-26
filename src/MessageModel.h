@@ -147,6 +147,9 @@ public:
      */
     Q_INVOKABLE void resendMessageReactions(const QString &messageId);
 
+    Q_INVOKABLE int nextCorrectableMessageIndex(int indexOffset) const;
+    Q_INVOKABLE int previousCorrectableMessageIndex(int indexOffset) const;
+
     Q_INVOKABLE bool canCorrectMessage(int index) const;
 
     Q_INVOKABLE void deleteFile(int index, const File &file);

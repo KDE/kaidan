@@ -647,6 +647,8 @@ ChatPageBase {
 					}
 
 					root.viewPositioned = true
+
+					root.sendingPane.setCurrentItemToMessageBeingCorrected()
 				}
 			}
 		}

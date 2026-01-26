@@ -514,8 +514,7 @@ Controls.Pane {
 						voiceMessageRecorder.recordingCanceled = true
 						voiceMessageRecorder.stop()
 					} else {
-						root.composition.clear()
-						root.clear()
+						root.cancelCorrection()
 					}
 				}
 
@@ -586,6 +585,32 @@ Controls.Pane {
 		}
 	}
 
+	// Shortcut to prepare a possible correction of a message older than the currently selected one.
+	Shortcut {
+		sequence: "Ctrl+Up"
+		onActivated: {
+			const correctableMessageIndex = root.chatPage.chatController.messageModel.nextCorrectableMessageIndex(root.chatPage.messageListView.currentIndex + 1)
+
+			if (correctableMessageIndex !== -1) {
+				root.prepareCorrectionByShortcut(correctableMessageIndex)
+			}
+		}
+	}
+
+	// Shortcut to prepare a possible correction of a message more recent than the currently selected one.
+	Shortcut {
+		sequence: "Ctrl+Down"
+		onActivated: {
+			const correctableMessageIndex = root.chatPage.chatController.messageModel.previousCorrectableMessageIndex(root.chatPage.messageListView.currentIndex - 1)
+
+			if (correctableMessageIndex !== -1) {
+				root.prepareCorrectionByShortcut(correctableMessageIndex)
+			} else if (root.composition.replaceId) {
+				root.cancelCorrection()
+			}
+		}
+	}
+
 	/**
 	 * Forces the active focus on desktop devices.
 	 *
@@ -608,6 +633,25 @@ Controls.Pane {
 
 		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
 		prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
+	}
+
+	function prepareCorrectionByShortcut(correctableMessageIndex) {
+		chatPage.messageListView.currentIndex = correctableMessageIndex
+		const message = messageListView.currentItem
+		prepareCorrection(message.msgId, message.replyToJid, message.replyToGroupChatParticipantId, message.replyToName, message.replyId, message.replyQuote, message.messageBody, message.spoilerHint)
+	}
+
+	function setCurrentItemToMessageBeingCorrected() {
+		const replaceId = composition.replaceId
+
+		if (replaceId) {
+			root.chatPage.messageListView.currentIndex = root.chatPage.chatController.messageModel.searchMessageById(replaceId)
+		}
+	}
+
+	function cancelCorrection() {
+		composition.clear()
+		clear()
 	}
 
 	function prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
