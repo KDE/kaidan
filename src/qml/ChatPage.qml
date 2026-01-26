@@ -800,6 +800,6 @@ ChatPageBase {
 	}
 
 	function addFile(url) {
-		root.sendingPane.composition.fileSelectionModel.addFile(url)
+		sendingPane.composition.fileSelectionModel.addFile(url)
 	}
 }
