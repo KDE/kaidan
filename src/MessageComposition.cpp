@@ -421,9 +421,9 @@ void MessageComposition::saveDraft()
                                                           message.isSpoiler = isSpoiler;
                                                           message.spoilerHint = spoilerHint;
                                                       });
-            setIsDraft(true);
         } else {
             MessageDb::instance()->removeDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid());
+            setIsDraft(false);
         }
     } else if (savingNeeded) {
         Message message;
