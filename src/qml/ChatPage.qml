@@ -741,7 +741,6 @@ ChatPageBase {
 	Shortcut {
 		id: filePastingShortcut
 		sequence: "Ctrl+Shift+V"
-		context: Qt.WindowShortcut
 		onActivated: {
 			const url = MediaUtils.urlFromClipboard()
 
