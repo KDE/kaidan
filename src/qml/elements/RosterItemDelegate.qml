@@ -51,7 +51,7 @@ ClickableItemDelegate {
 		} else if (dragHandle.dragActive) {
 			colorOpacity = 0.2
 		} else if(highlighted) {
-			colorOpacity = 0.5
+			colorOpacity = 0.1
 		} else if (down || pressed) {
 			colorOpacity = 0.2
 		} else if (visualFocus) {
