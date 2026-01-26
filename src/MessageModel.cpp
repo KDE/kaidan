@@ -811,15 +811,16 @@ bool MessageModel::canCorrectMessage(int index) const
         return false;
     }
 
-    // The message must be an own one and not contain an error.
-    const auto &msg = m_messages.at(index);
-    if (!msg.isOwn || msg.deliveryState == Enums::DeliveryState::Error) {
+    const auto &message = m_messages.at(index);
+
+    if (!message.isOwn || message.groupChatInvitation || message.deliveryState == Enums::DeliveryState::Error
+        || RosterModel::instance()->item(message.accountJid, message.chatJid)->isDeletedGroupChat()) {
         return false;
     }
 
     // The message must not be too old.
     const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_CORRECTION_DAYS);
-    if (msg.timestamp < timeThreshold) {
+    if (message.timestamp < timeThreshold) {
         return false;
     }
 

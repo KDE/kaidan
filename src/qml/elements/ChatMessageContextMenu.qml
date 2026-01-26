@@ -151,7 +151,7 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Edit")
 			source: "document-edit-symbolic"
 			contextMenu: root
-			shown: !root.message.groupChatInvitationJid && root.message.chatController.messageModel.canCorrectMessage(root.message.modelIndex) && !root.message.chatController.rosterItem.isDeletedGroupChat
+			shown: root.message.chatController.messageModel.canCorrectMessage(root.message.modelIndex)
 			onClicked: root.message.sendingPane.prepareCorrection(root.message.msgId, root.message.replyToJid, root.message.replyToGroupChatParticipantId, root.message.replyToName, root.message.replyId, root.message.replyQuote, root.message.messageBody, root.message.spoilerHint)
 		}
 
