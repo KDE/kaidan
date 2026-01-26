@@ -313,7 +313,6 @@ void MessageComposition::clear()
     setReplyQuote({});
     setOriginalBody({});
     setSpoiler(false);
-    setIsDraft(false);
     setIsForwarding(false);
 
     m_fileSelectionModel->clear();
