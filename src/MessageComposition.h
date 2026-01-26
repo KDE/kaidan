@@ -10,8 +10,6 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
-// Kaidan
-#include "Encryption.h"
 
 struct File;
 
