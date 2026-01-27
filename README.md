@@ -6,7 +6,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Kaidan - Modern Chat App for Every Device
 
-[![Kaidan MUC](https://search.jabbercat.org/api/1.0/badge?address=kaidan@muc.kaidan.im)](https://i.kaidan.im)
+[![Support chat](https://search.jabbercat.org/api/1.0/badge?address=kaidan@muc.kaidan.im)](https://i.kaidan.im/#kaidan@muc.kaidan.im?join)
 [![REUSE status](https://api.reuse.software/badge/invent.kde.org/network/kaidan)](https://api.reuse.software/info/invent.kde.org/network/kaidan)
 [![Donations](https://img.shields.io/liberapay/patrons/kaidan.svg?logo=liberapay)](https://liberapay.com/kaidan)
 
