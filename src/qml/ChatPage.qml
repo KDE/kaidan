@@ -267,6 +267,7 @@ ChatPageBase {
 	MessageReactionEmojiPicker {
 		id: messageReactionEmojiPicker
 		messageModel: root.chatController.messageModel
+		onClosed: root.messageListView.resetCurrentIndex()
 	}
 
 	// View containing the messages
@@ -620,7 +621,7 @@ ChatPageBase {
 		Timer {
 			id: resetCurrentIndexTimer
 			interval: Kirigami.Units.veryLongDuration * 4
-			onTriggered: messageListView.currentIndex = -1
+			onTriggered: messageListView.resetCurrentIndex()
 		}
 
 		Connections {
@@ -685,6 +686,10 @@ ChatPageBase {
 		function highlightShortly(index) {
 			currentIndex = index
 			resetCurrentIndexTimer.restart()
+		}
+
+		function resetCurrentIndex() {
+			currentIndex = -1
 		}
 	}
 

@@ -124,7 +124,7 @@ Item {
 	 * Hides the search bar and resets the last search result.
 	 */
 	function close() {
-		messageListView.currentIndex = -1
+		messageListView.resetCurrentIndex()
 		active = false
 	}
 

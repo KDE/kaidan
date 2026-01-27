@@ -22,6 +22,7 @@ Kirigami.Dialog {
 	required property Item message
 	property var file: null
 	readonly property bool localFileAvailable: file && file.locallyAvailable
+	property bool currentIndexResetOnClosing: true
 
 	padding: Kirigami.Units.smallSpacing * 3
 	background: Kirigami.ShadowedRectangle {
@@ -34,7 +35,13 @@ Kirigami.Dialog {
 	footer: null
 	// Ensure that the whole content is always inside of the visible area.
 	onImplicitWidthChanged: position(x, y)
-	onClosed: destroy()
+	onClosed: {
+		if (currentIndexResetOnClosing) {
+			message.messageListView.resetCurrentIndex()
+		}
+
+		destroy()
+	}
 
 	Behavior on implicitWidth {
 		SmoothedAnimation {
@@ -94,8 +101,11 @@ Kirigami.Dialog {
 				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: {
-				root.message.reactionEmojiPicker.messageId = root.message.msgId
-				root.message.reactionEmojiPicker.open()
+				let reactionEmojiPicker = root.message.reactionEmojiPicker
+				reactionEmojiPicker.messageId = root.message.msgId
+				reactionEmojiPicker.open()
+
+				root.currentIndexResetOnClosing = false
 			}
 		}
 
@@ -152,7 +162,10 @@ Kirigami.Dialog {
 			source: "document-edit-symbolic"
 			contextMenu: root
 			shown: root.message.chatController.messageModel.canCorrectMessage(root.message.modelIndex)
-			onClicked: root.message.sendingPane.prepareCorrection(root.message.msgId, root.message.replyToJid, root.message.replyToGroupChatParticipantId, root.message.replyToName, root.message.replyId, root.message.replyQuote, root.message.messageBody, root.message.spoilerHint)
+			onClicked: {
+				root.message.sendingPane.prepareCorrection(root.message.msgId, root.message.replyToJid, root.message.replyToGroupChatParticipantId, root.message.replyToName, root.message.replyId, root.message.replyQuote, root.message.messageBody, root.message.spoilerHint)
+				root.currentIndexResetOnClosing = false
+			}
 		}
 
 		ChatMessageContextMenuButton {

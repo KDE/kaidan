@@ -43,6 +43,11 @@ Controls.Pane {
 				}
 			}
 		}
+		onReplaceIdChanged: {
+			if (!replaceId) {
+				root.chatPage.messageListView.resetCurrentIndex()
+			}
+		}
 		onPreparedForNewChat: {
 			if (isForwarding) {
 				messageArea.text = body

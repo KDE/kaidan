@@ -66,7 +66,6 @@ Controls.ItemDelegate {
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
-	property ChatMessageContextMenu contextMenu
 
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
@@ -126,7 +125,7 @@ Controls.ItemDelegate {
 					id: bubbleBackground
 					message: root
 					showTail: root.isGroupBegin
-					highlighted: root.messageListView.currentIndex === root.modelIndex || root.contextMenu
+					highlighted: root.messageListView.currentIndex === root.modelIndex
 
 					MouseArea {
 						anchors.fill: parent
@@ -550,8 +549,6 @@ Controls.ItemDelegate {
 
 			ChatMessageContextMenu {
 				message: root
-				Component.onCompleted: root.contextMenu = this
-				Component.onDestruction: root.contextMenu = null
 			}
 		}
 
@@ -585,6 +582,7 @@ Controls.ItemDelegate {
 
 	function showContextMenu(mouseArea, file) {
 		root.messageSearchBar.close()
+		root.messageListView.currentIndex = root.modelIndex
 		contextMenu.createObject().show(mouseArea, file)
 	}
 
