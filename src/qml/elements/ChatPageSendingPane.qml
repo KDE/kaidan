@@ -308,15 +308,6 @@ Controls.Pane {
 					}
 				}
 
-				Connections {
-					target: chatPage.messageReactionEmojiPicker
-
-					// Restore the active focus when messageReactionEmojiPicker is closed.
-					function onClosed() {
-						root.forceActiveFocus()
-					}
-				}
-
 				function mentionParticipant(mention) {
 					insert(cursorPosition, mention + Utils.groupChatUserMentionSeparator)
 				}

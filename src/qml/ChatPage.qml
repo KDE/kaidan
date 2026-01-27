@@ -267,7 +267,10 @@ ChatPageBase {
 	MessageReactionEmojiPicker {
 		id: messageReactionEmojiPicker
 		messageModel: root.chatController.messageModel
-		onClosed: root.messageListView.resetCurrentIndex()
+		onClosed: {
+			root.messageListView.resetCurrentIndex()
+			root.sendingPane.forceActiveFocus()
+		}
 	}
 
 	// View containing the messages
