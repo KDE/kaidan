@@ -413,6 +413,7 @@ Controls.ItemDelegate {
 									accentColor: bubble.backgroundColor
 									messageId: root.msgId
 									isOwnMessage: root.isOwn
+									messageModel: root.chatController.messageModel
 								}
 							}
 						}
