@@ -305,16 +305,6 @@ ChatPageBase {
 		// Connect to the database,
 		model: root.chatController.messageModel
 		visibleArea.onYPositionChanged: handleMessageRead()
-		onActiveFocusChanged: {
-			// This makes it possible on desktop devices to directly enter a message after opening
-			// the chat page.
-			// The workaround is needed because messageListView's focus is automatically forced
-			// after creation even when forcing sendingPane's focus within its
-			// Component.onCompleted.
-			if (activeFocus) {
-				root.sendingPane.forceActiveFocus()
-			}
-		}
 		delegate: ChatMessage {
 			messageSearchBar: root.searchBar
 			messageListView: root.messageListView
@@ -429,6 +419,16 @@ ChatPageBase {
 
 			Item {
 				height: Kirigami.Units.smallSpacing
+			}
+		}
+		onActiveFocusChanged: {
+			// This makes it possible on desktop devices to directly enter a message after opening
+			// the chat page.
+			// The workaround is needed because messageListView's focus is automatically forced
+			// after creation even when forcing sendingPane's focus within its
+			// Component.onCompleted.
+			if (activeFocus) {
+				root.sendingPane.forceActiveFocus()
 			}
 		}
 
