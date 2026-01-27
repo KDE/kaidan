@@ -37,15 +37,15 @@ Kirigami.ApplicationWindow {
 	}
 	readonly property real reducedBackgroundOpacity: 0.4
 	// radius for using rounded corners
-	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 1.5
+	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 2.5
 	readonly property int largeButtonWidth: Kirigami.Units.gridUnit * 25
 	readonly property int smallButtonWidth: Kirigami.Theme.defaultFont.pixelSize * 2.9
 
 	minimumHeight: 300
 	minimumWidth: 300
 	pageStack.globalToolBar {
-		showNavigationButtons: pageStack.wideMode || pageStack.currentIndex === 0 ? Kirigami.ApplicationHeaderStyle.NoNavigationButtons : Kirigami.ApplicationHeaderStyle.ShowBackButton
-		preferredHeight: Kirigami.Units.iconSizes.large + Kirigami.Units.smallSpacing * 3
+		style: Kirigami.ApplicationHeaderStyle.None
+		preferredHeight: Kirigami.Units.iconSizes.large + Kirigami.Units.smallSpacing * 4
 	}
 	globalDrawer: GlobalDrawer {}
 	onClosing: close => {

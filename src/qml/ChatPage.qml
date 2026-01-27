@@ -23,11 +23,10 @@ import im.kaidan.kaidan
 import "elements"
 import "details"
 
-ChatPageBase {
+SearchBarPage {
 	id: root
 
 	property ChatController chatController: ChatController {}
-	property alias searchBar: searchBar
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
 	property alias messageListView: messageListView
 	property ChatPageSendingPane sendingPane
@@ -39,13 +38,32 @@ ChatPageBase {
 		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
 	}
 
-	titleDelegate: RowLayout {
-		spacing: Kirigami.Units.mediumSpacing * 2
-		Layout.preferredWidth: root.width -  pageStack.globalToolBar.leftReservedSpace - (pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? 0 : Kirigami.Units.smallSpacing * 13)
-
+	background: ImageBackground {}
+	bottomPadding: Kirigami.Units.largeSpacing
+	searchField {
+		opacity: searchButton.checked ? 1 : 0
+		visible: searchField.opacity
+		autoAccept: false
+		focusSequence: "Ctrl+Shift+F"
+		listView: messageListView
+		onVisibleChanged: {
+			if (searchField.visible) {
+				searchField.forceActiveFocus()
+			} else {
+				searchField.clear()
+				messageListView.resetCurrentIndex()
+			}
+		}
+		onAccepted: searchFromCurrentIndex(true)
+		Keys.onUpPressed: searchFromCurrentIndex(true)
+		Keys.onDownPressed: searchFromCurrentIndex(false)
+		Keys.onEscapePressed: searchButton.clicked()
+	}
+	separatorVisible: true
+	toolbarItems: [
 		Controls.AbstractButton {
 			id: avatarActionButton
-			visible: !Kirigami.Settings.isMobile
+			visible: !root.searchField.visible
 			focusPolicy: Qt.NoFocus
 			hoverEnabled: true
 			contentItem: RowLayout {
@@ -77,7 +95,7 @@ ChatPageBase {
 					}
 				}
 			}
-			Layout.leftMargin: pageStack.globalToolBar.showNavigationButtons === Kirigami.ApplicationHeaderStyle.NoNavigationButtons ? - Kirigami.Units.largeSpacing : 0
+			Layout.topMargin: - Kirigami.Units.smallSpacing
 			Layout.fillWidth: true
 			onClicked: {
 				if (root.chatController.rosterItem.isProviderChat) {
@@ -90,12 +108,12 @@ ChatPageBase {
 					openOverlay(contactDetailsDialog)
 				}
 			}
-		}
+		},
 
 		ToolbarCallButton {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
 			source: "call-start-symbolic"
-			visible: root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length && (!MainController.activeCall || MainController.activeCall.audioOnly)
+			visible: !root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length && (!MainController.activeCall || MainController.activeCall.audioOnly)
 			onClicked: {
 				if (MainController.activeCall) {
 					openPage(callPage)
@@ -103,12 +121,12 @@ ChatPageBase {
 					root.chatController.account.callController.startAudioCall(root.chatController.jid)
 				}
 			}
-		}
+		},
 
 		ToolbarCallButton {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
 			source: "camera-video-symbolic"
-			visible: root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length && (!MainController.activeCall || !MainController.activeCall.audioOnly)
+			visible: !root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length && (!MainController.activeCall || !MainController.activeCall.audioOnly)
 			onClicked: {
 				if (MainController.activeCall) {
 					openPage(callPage)
@@ -116,39 +134,39 @@ ChatPageBase {
 					root.chatController.account.callController.startVideoCall(root.chatController.jid)
 				}
 			}
-		}
+		},
 
 		ToolbarButton {
-			Controls.ToolTip.text: searchBar.active ? qsTr("Quit search") : qsTr("Search")
-			source: "system-search-symbolic"
+			Controls.ToolTip.text: qsTr("Search upwards")
+			source: "go-up-symbolic"
+			opacity: root.searchField.opacity
+			visible: root.searchField.visible
 			onClicked: {
-				if (searchBar.active) {
-					searchBar.close()
-				} else {
-					searchBar.open()
-				}
+				root.searchFromCurrentIndex(true)
+				root.searchField.forceActiveFocus()
 			}
-		}
-	}
-	header: ChatPageSearchView {
-		id: searchBar
-		messageListView: root.messageListView
-	}
-	keyboardNavigationEnabled: true
-	actions: [
-		Kirigami.Action {
-			text: qsTr("Details…")
-			icon.name: "avatar-default-symbolic"
-			visible: Kirigami.Settings.isMobile
-			onTriggered: {
-				if (root.chatController.rosterItem.isProviderChat) {
-					openPage(providerChatDetailsPage)
-				} else if (root.chatController.account.settings.jid === root.chatController.jid) {
-					openPage(notesChatDetailsPage)
-				} else if (root.chatController.rosterItem.isGroupChat) {
-					openPage(groupChatDetailsPage)
-				} else {
-					openPage(contactDetailsPage)
+		},
+
+		ToolbarButton {
+			Controls.ToolTip.text: qsTr("Search downwards")
+			source: "go-down-symbolic"
+			opacity: root.searchField.opacity
+			visible: root.searchField.visible
+			onClicked: {
+				root.searchFromCurrentIndex(false)
+				root.searchField.forceActiveFocus()
+			}
+		},
+
+		ToolbarButton {
+			id: searchButton
+			Controls.ToolTip.text: root.searchField.visible ? qsTr("Quit search") : qsTr("Search")
+			source: "system-search-symbolic"
+			checkable: true
+			onCheckedChanged: {
+				if (!checked) {
+					root.messageListView.resetCurrentIndex()
+					root.sendingPane.forceActiveFocus()
 				}
 			}
 		}
@@ -310,7 +328,7 @@ ChatPageBase {
 		model: root.chatController.messageModel
 		visibleArea.onYPositionChanged: handleMessageRead()
 		delegate: ChatMessage {
-			messageSearchBar: root.searchBar
+			messageSearchButton: searchButton
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker
@@ -427,7 +445,7 @@ ChatPageBase {
 		}
 		onActiveFocusChanged: {
 			// This makes it possible on desktop devices to directly enter a message after opening
-			// the chat page.
+			// ChatPage.
 			// The workaround is needed because messageListView's focus is automatically forced
 			// after creation even when forcing sendingPane's focus within its
 			// Component.onCompleted.
@@ -659,7 +677,7 @@ ChatPageBase {
 			function onStateChanged(state) {
 				// Send a read marker once the application becomes active if a message has been received while the application was not active.
 				if (state === Qt.ApplicationActive) {
-					messageListView.handleMessageRead()
+					root.messageListView.handleMessageRead()
 				}
 			}
 		}
@@ -746,6 +764,13 @@ ChatPageBase {
 		}
 	}
 
+	// Shortcut to show search field.
+	Shortcut {
+		sequence: root.searchField.focusSequence
+		enabled: !searchButton.checked
+		onActivated: searchButton.clicked()
+	}
+
 	Shortcut {
 		id: filePastingShortcut
 		sequence: "Ctrl+Shift+V"
@@ -761,6 +786,18 @@ ChatPageBase {
 
 	MediaDevices {
 		id: mediaDevices
+	}
+
+	Connections {
+		target: root.messageListView.model
+
+		function onMessageSearchFinished(queryStringMessageIndex) {
+			if (queryStringMessageIndex !== -1) {
+				root.messageListView.currentIndex = queryStringMessageIndex
+			}
+
+			root.searchField.busy = false
+		}
 	}
 
 	Connections {
@@ -799,6 +836,65 @@ ChatPageBase {
 	function initialize(accountJid, chatJid) {
 		viewPositioned = false
 		chatController.initialize(AccountController.account(accountJid), chatJid)
+	}
+
+	/**
+	 * Searches for a message containing the entered text in the search field starting from the current index of the message list view.
+	 *
+	 * The searchField is automatically focused again on desktop devices if it lost focus (e.g., after clicking a button).
+	 *
+	 * @param searchUpwards true for searching upwards or false for searching downwards
+	 */
+	function searchFromCurrentIndex(searchUpwards) {
+		if (!Kirigami.Settings.isMobile && !searchField.activeFocus) {
+			searchField.forceActiveFocus()
+		}
+
+		search(searchUpwards, messageListView.currentIndex + (searchUpwards ? 1 : -1))
+	}
+
+	/**
+	 * Searches for a message containing the entered text in the search field.
+	 *
+	 * If a message is found for the entered text, that message is highlighted.
+	 *
+	 * @param searchUpwards true for searching upwards or false for searching downwards
+	 * @param startIndex index of the first message to search for the entered text
+	 */
+	function search(searchUpwards, startIndex) {
+		let newIndex = -1
+		const searchedString = searchField.text
+
+		if (searchedString) {
+			root.searchField.busy = true
+			let messageModel = messageListView.model
+
+			if (searchUpwards) {
+				if (startIndex === 0) {
+					messageListView.currentIndex = messageModel.searchForMessageFromNewToOld(searchedString)
+				} else {
+					newIndex = messageModel.searchForMessageFromNewToOld(searchedString, startIndex)
+
+					if (newIndex !== -1) {
+						messageListView.currentIndex = newIndex
+					}
+				}
+
+				if (messageListView.currentIndex !== -1) {
+					root.searchField.busy = false
+				}
+			} else {
+				newIndex = messageModel.searchForMessageFromOldToNew(searchedString, startIndex)
+
+				if (newIndex !== -1) {
+					messageListView.currentIndex = newIndex
+				}
+
+				root.searchField.busy = false
+			}
+		} else {
+			messageListView.currentIndex = newIndex
+		}
 	}
 
 	function addDroppedFiles(drop) {

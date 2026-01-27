@@ -4,6 +4,7 @@
 
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -16,151 +17,100 @@ import im.kaidan.kaidan
 Kirigami.ScrollablePage {
 	id: root
 
-	property ListView listView
-	property SimpleListViewSearchField searchField
-	property bool isSearchActionShown: true
+	property alias searchField: searchField
+	property alias toolbarItems: toolbarContent.data
+	property bool separatorVisible: !searchField.listView?.atYBeginning
 
 	background: Rectangle {
 		color: primaryBackgroundColor
 	}
 	bottomPadding: 0
-	actions: Kirigami.Action {
-		id: searchAction
-		text: qsTr("Search")
-		icon.name: "system-search-symbolic"
-		visible: isSearchActionShown
-		checkable: Kirigami.Settings.isMobile
-		displayComponent: Kirigami.Settings.isMobile ? null : desktopSearchBarComponent
-		onTriggered: {
-			if (Kirigami.Settings.isMobile) {
-				toggleSearchBar()
-			} else {
-				searchField.activeFocusForced()
-			}
-		}
-	}
+	header: Controls.Control {
+		leftPadding: Kirigami.Units.smallSpacing * 3
+		rightPadding: Kirigami.Units.smallSpacing * 3
+		implicitHeight: pageStack.globalToolBar.preferredHeight
+		background: ColumnLayout {
+			spacing: 0
 
-	Component {
-		id: desktopSearchBarComponent
-
-		SimpleListViewSearchField {
-			listView: root.listView
-			implicitWidth: {
-				let availableWidth = parent.width
-				const visibleChildren = parent.visibleChildren
-
-				// The width must only be calculated once all action items are visible.
-				if (visibleChildren.length < root.actions.length) {
-					return -1
-				}
-
-				for (let i in visibleChildren) {
-					let visibleChild = visibleChildren[i]
-
-					if (visibleChild !== this) {
-						availableWidth -= visibleChild.width + parent.spacing
-					}
-				}
-
-				return availableWidth
-			}
-
-			Connections {
-				target: searchFieldFocusTimer
-
-				function onTriggered() {
-					forceActiveFocus()
-				}
-			}
-
-			// timer to focus the search field because other declarative approaches do not work
-			Timer {
-				id: searchFieldFocusTimer
-				interval: 100
-			}
-
-			Component.onCompleted: {
-				root.searchField = this
-
-				// The following makes it possible on desktop devices to directly search after opening this page.
-				// It is not used on mobile devices because the soft keyboard would otherwise always pop up after opening this page.
-				if (!Kirigami.Settings.isMobile) {
-					searchFieldFocusTimer.start()
-				}
-			}
-		}
-	}
-
-	Component {
-		id: mobileSearchBarComponent
-
-		Rectangle {
-			property bool active: false
-
-			visible: height !== 0
-			width: parent ? parent.width : 0
-			height: active ? (contentArea.height + contentArea.spacing * 2) : 0
-			clip: true
-			color: secondaryBackgroundColor
-			onHeightChanged: {
-				if (height === 0) {
-					root.resetSearchBar()
-				}
-			}
-
-			Behavior on height {
-				SmoothedAnimation {
-					velocity: 550
-				}
-			}
-
-			ColumnLayout {
-				id: contentArea
-				width: parent.width - 30
-				anchors.centerIn: parent
-				spacing: 10
-
-				SimpleListViewSearchField {
-					listView: root.listView
-					Layout.fillWidth: true
-					Component.onCompleted: {
-						root.searchField = this
-					}
-				}
-			}
-
-			// colored separator
 			Rectangle {
-				height: 1
-				color: Kirigami.Theme.disabledTextColor
-				anchors.left: parent ? parent.left : undefined
-				anchors.right: parent ? parent.right : undefined
-				anchors.bottom: parent ? parent.bottom : undefined
+				color: primaryBackgroundColor
+				Layout.fillWidth: true
+				Layout.fillHeight: true
 			}
 
-			function open() {
-				searchField.forceActiveFocus()
-				active = true
-			}
+			HorizontalSeparator {
+				opacity: root.separatorVisible ? 0.5 : 0
+				visible: opacity
+				implicitHeight: 2
 
-			function close() {
-				active = false
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 			}
 		}
-	}
+		contentItem: RowLayout {
+			id: toolbarContent
+			spacing: Kirigami.Units.mediumSpacing * 2
 
-	function toggleSearchBar() {
-		if (header) {
-			searchField.clear()
-			header.close()
-		} else {
-			header = mobileSearchBarComponent.createObject()
-			header.open()
+			Loader {
+				sourceComponent: pageStack.items[0] === root ? drawerHandle : (pageStack.wideMode ? null : backButton)
+				visible: item
+				Layout.leftMargin: - 3
+				Layout.rightMargin: - 3
+
+				Component {
+					id: drawerHandle
+
+					ToolbarButton {
+						Controls.ToolTip.text: qsTr("Open menu")
+						source: "open-menu-symbolic"
+						onClicked: globalDrawer.open()
+					}
+				}
+
+				Component {
+					id: backButton
+
+					ToolbarButton {
+						Controls.ToolTip.text: qsTr("Go back")
+						source: "go-previous-symbolic"
+						onClicked: pageStack.goBack()
+					}
+				}
+			}
+
+			ListViewSearchField {
+				id: searchField
+
+				property bool busy: false
+
+				font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.1
+				Layout.fillWidth: true
+
+				Rectangle {
+					color: secondaryBackgroundColor
+					visible: searchField.busy
+					implicitWidth: Kirigami.Units.iconSizes.sizeForLabels
+					implicitHeight: Kirigami.Units.iconSizes.sizeForLabels
+					anchors {
+						left: parent.left
+						topMargin: Kirigami.Units.smallSpacing
+						bottomMargin: Kirigami.Units.smallSpacing
+						leftMargin: Kirigami.Units.smallSpacing * 2
+						verticalCenter: parent.verticalCenter
+						verticalCenterOffset: Math.round((parent.topPadding - parent.bottomPadding) / 2)
+					}
+
+					Controls.BusyIndicator {
+						running: parent.visible
+						anchors.fill: parent
+					}
+				}
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+			}
 		}
-	}
-
-	function resetSearchBar() {
-		header = null
-		searchAction.checked = false
 	}
 }

@@ -21,7 +21,7 @@ import im.kaidan.kaidan
 Controls.ItemDelegate {
 	id: root
 
-	property ChatPageSearchView messageSearchBar
+	property ToolbarButton messageSearchButton
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
 	property MessageReactionEmojiPicker reactionEmojiPicker
@@ -585,7 +585,7 @@ Controls.ItemDelegate {
 	}
 
 	function showContextMenu(mouseArea, file) {
-		root.messageSearchBar.close()
+		messageSearchButton.checked = false
 		root.messageListView.currentIndex = root.modelIndex
 		contextMenu.createObject().show(mouseArea, file)
 	}

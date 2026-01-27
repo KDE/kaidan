@@ -12,6 +12,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -23,22 +24,24 @@ SearchBarPage {
 
 	property ChatPage activeChatPage
 
-	listView: rosterListView
-	actions: [
-		Kirigami.Action {
-			text: qsTr("Filter")
-			icon.name: "filter-symbolic"
-			displayHint: Kirigami.DisplayHint.IconOnly
-			onTriggered: openView(rosterFilterDialog, rosterFilterPage)
+	searchField {
+		listView: rosterListView
+		onTextChanged: rosterListView.model.setFilterFixedString(searchField.text.toLowerCase())
+		Keys.onEscapePressed: rosterListView.resetCurrentIndex()
+	}
+	toolbarItems: [
+		ToolbarButton {
+			Controls.ToolTip.text: qsTr("Filter")
+			source: "filter-symbolic"
+			onClicked: openView(rosterFilterDialog, rosterFilterPage)
 		},
 
-		Kirigami.Action {
-			id: pinAction
-			text: qsTr("Pin & Move")
-			icon.name: "non-starred-symbolic"
-			displayHint: Kirigami.DisplayHint.IconOnly
+		ToolbarButton {
+			id: pinButton
+			Controls.ToolTip.text: qsTr("Pin & Move")
+			source: checked ? "starred-symbolic" : "non-starred-symbolic"
 			checkable: true
-			onToggled: root.searchField.forceActiveFocus()
+			onClicked: root.forceActiveFocus()
 		}
 	]
 
@@ -51,7 +54,7 @@ SearchBarPage {
 		delegate: RosterItemDelegate {
 			property bool active: root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
 
-			highlighted: pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
+			highlighted: rosterListView.currentIndex === model.index || pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			checked: !Kirigami.Settings.isMobile && active
 			width: rosterListView.width
 			listView: rosterListView
@@ -71,10 +74,12 @@ SearchBarPage {
 			lastMessageGroupChatSenderName: model.lastMessageGroupChatSenderName
 			unreadMessageCount: model.unreadMessageCount
 			markedMessageCount: model.markedMessageCount
-			pinModeActive: pinAction.checked
+			pinModeActive: pinButton.checked
 			pinned: model.pinned
 			effectiveNotificationRule: model.effectiveNotificationRule
 			onClicked: {
+				rosterListView.resetCurrentIndex()
+
 				// Open the chatPage.
 				if (active) {
 					if (!pageStack.wideMode) {
@@ -98,6 +103,16 @@ SearchBarPage {
 			YAnimator {
 				duration: Kirigami.Units.longDuration
 				easing.type: Easing.InOutQuad
+			}
+		}
+		onActiveFocusChanged: {
+			// This makes it possible on desktop devices to directly search for a chat after opening
+			// RosterPage.
+			// The workaround is needed because rosterListView's focus is automatically forced
+			// after creation even when forcing searchFields's focus within its
+			// Component.onCompleted.
+			if (!Kirigami.Settings.isMobile && activeFocus) {
+				root.forceActiveFocus()
 			}
 		}
 
@@ -124,12 +139,7 @@ SearchBarPage {
 			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
 				globalDrawer.close()
-
-				if (Kirigami.Settings.isMobile) {
-					root.toggleSearchBar()
-				} else {
-					root.searchField.clear()
-				}
+				root.searchField.clear()
 
 				if (!root.activeChatPage) {
 					closePagesExceptRosterPage()
@@ -197,6 +207,10 @@ SearchBarPage {
 				}
 			}
 		}
+
+		function resetCurrentIndex() {
+			currentIndex = -1
+		}
 	}
 
 	Component {
@@ -204,7 +218,7 @@ SearchBarPage {
 
 		Dialog {
 			title: qsTr("Filter")
-			onClosed: root.searchField.forceActiveFocus()
+			onClosed: root.forceActiveFocus()
 
 			RosterFilterArea {
 				rosterFilterModel: filterModel
@@ -220,7 +234,7 @@ SearchBarPage {
 			background: Rectangle {
 				color: Kirigami.Theme.alternateBackgroundColor
 			}
-			bottomPadding: 0
+			padding: 0
 
 			RosterFilterArea {
 				rosterFilterModel: filterModel
@@ -232,5 +246,11 @@ SearchBarPage {
 		id: chatPage
 
 		ChatPage {}
+	}
+
+	function forceActiveFocus() {
+		if (!Kirigami.Settings.isMobile) {
+			searchField.forceActiveFocus()
+		}
 	}
 }

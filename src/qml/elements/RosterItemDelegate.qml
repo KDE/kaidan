@@ -43,7 +43,7 @@ ClickableItemDelegate {
 
 
 	interactiveBackground.color: {
-		const textColor = highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
+		const color = highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
 		let colorOpacity = 0
 
 		if (!enabled) {
@@ -62,7 +62,7 @@ ClickableItemDelegate {
 			colorOpacity = 0.05
 		}
 
-		return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
+		return Qt.rgba(color.r, color.g, color.b, colorOpacity)
 	}
 
 	Loader {

@@ -297,17 +297,6 @@ Controls.Pane {
 					}
 				}
 
-				Connections {
-					target: chatPage.searchBar
-
-					// Restore the active focus when searchBar is closed.
-					function onActiveChanged() {
-						if (!root.chatPage.searchBar.active) {
-							root.forceActiveFocus()
-						}
-					}
-				}
-
 				function mentionParticipant(mention) {
 					insert(cursorPosition, mention + Utils.groupChatUserMentionSeparator)
 				}

@@ -10,7 +10,15 @@ import org.kde.kirigami as Kirigami
 
 import "elements"
 
-ChatPageBase {
+ImageBackgroundPage {
+	bottomPadding: Kirigami.Units.largeSpacing
+	onActiveFocusChanged: {
+		// Ensure that RosterPage is focused.
+		if (activeFocus) {
+			pageStack.leadingVisibleItem.forceActiveFocus()
+		}
+	}
+
 	RowLayout {
 		spacing: 0
 		anchors.fill: parent
