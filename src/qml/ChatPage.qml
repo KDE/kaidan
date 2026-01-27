@@ -302,8 +302,6 @@ ChatPageBase {
 			}
 		}
 		highlightMoveDuration: Kirigami.Units.longDuration
-		// Initially highlighted value
-		currentIndex: -1
 		// Connect to the database,
 		model: root.chatController.messageModel
 		visibleArea.onYPositionChanged: handleMessageRead()
