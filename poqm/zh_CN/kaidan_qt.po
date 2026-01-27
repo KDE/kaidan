@@ -15,81 +15,81 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
 "X-Crowdin-File-ID: 57154\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "已断开连接"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "已连接"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "用户名或密码无效。"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "无法连接到服务器。请检查您的互联网连接。"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "尝试安全连接时出错。"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "服务器不支持安全连接。"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "无法连接到服务器。请检查您的互联网连接或服务器名称。"
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "服务器离线或被防火墙屏蔽。"
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "无法刷新连接。"
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "不允许访问互联网。请检查系统的互联网访问配置。"
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "此服务器不支持注册。"
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "无法登录。请先确认您收到的电子邮件。"
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
@@ -134,6 +134,22 @@ msgstr "服务器"
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1 正在输入…"
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1 已暂停输入"
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
@@ -474,13 +490,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此消息已用 %1 加密，但无法解密"
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -1530,10 +1546,12 @@ msgid "Send typing notifications"
 msgstr "发送输入通知"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
+msgid "Indicate when you are typing"
+msgstr "指示您已阅读的消息"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1817,10 +1835,12 @@ msgid "Send typing notifications"
 msgstr "发送输入通知"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
+msgid "Indicate when you are typing"
+msgstr "指示您已阅读的消息"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -3533,24 +3553,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 已上线"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1 正在输入…"
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1 已暂停输入"
-
 #: src/RosterController.cpp:146
 #, qt-format
 msgctxt "RosterController|"
@@ -3602,7 +3604,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -3636,3 +3638,19 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 已上线"

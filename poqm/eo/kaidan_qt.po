@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -27,7 +27,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Konekti"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -35,7 +35,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -43,7 +43,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konekti"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -51,7 +51,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nevalida uzantnomo aŭ pasvorto."
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -60,7 +60,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ne povas konekti al la servilo. Bonvolu kontroli vian interretan konekton."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -68,7 +68,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Eraro dum provado sekure konektiĝi."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -76,7 +76,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "La servilo ne subtenas sekurajn konektojn."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -90,7 +90,7 @@ msgstr ""
 "Ne eblis konekti al la servilo. Bonvolu kontroli vian interretan konekton aŭ "
 "vian servilnomon."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -98,7 +98,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "La servilo estas eksterreta aŭ blokita de fajroŝirmilo."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -106,7 +106,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Aŭtentikiga protokolo ne subtenata de la servilo."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -114,7 +114,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "La konekto ne povis esti refreŝigita."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -128,7 +128,7 @@ msgstr ""
 "La interreta aliro ne estas permesita. Bonvolu kontroli la agordon de "
 "interreta aliro de via sistemo."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -136,12 +136,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ĉi tiu servilo ne subtenas registradon."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -191,6 +191,22 @@ msgstr "Serviloj"
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Aparatoj sur Serviloj"
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1 tajpas…"
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1 paŭzis tajpadon"
 
 #: src/ChatHintModel.cpp:249
 #, fuzzy
@@ -565,13 +581,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Mesaĝo ne povis esti sendita."
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Ĉi tiu mesaĝo estas ĉifrita per %1 sed ne povus esti deĉifrita"
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -1712,12 +1728,12 @@ msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
-"ĉesas tajpi"
+msgid "Indicate when you are typing"
+msgstr "Indiki kiujn mesaĝojn vi legis"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -2006,12 +2022,12 @@ msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
-"ĉesas tajpi"
+msgid "Indicate when you are typing"
+msgstr "Indiki kiujn mesaĝojn vi legis"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -3891,24 +3907,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 estas enreta"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1 tajpas…"
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1 paŭzis tajpadon"
-
 #: src/RosterController.cpp:146
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
@@ -3983,7 +3981,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notoj"
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Hieraŭ"
@@ -4017,6 +4015,26 @@ msgstr "Naskiĝtago"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
+#~ "ĉesas tajpi"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
+#~ "ĉesas tajpi"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 estas enreta"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"

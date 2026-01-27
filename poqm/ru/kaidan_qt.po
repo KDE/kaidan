@@ -15,7 +15,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -23,7 +23,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Подключиться"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -31,7 +31,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Подключение…"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -39,7 +39,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Подключиться"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -47,7 +47,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Неверное имя пользователя или пароль."
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -55,7 +55,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Не удалось подключиться к серверу. Проверьте подключение к сети."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -63,7 +63,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Ошибка при попытке установить защищённое соединение."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -71,7 +71,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Сервер не поддерживает защищённое соединение."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -85,7 +85,7 @@ msgstr ""
 "Не удалось подключиться к серверу. Проверьте подключение к сети и имя узла "
 "сервера."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -93,7 +93,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Этот сервер не работает или заблокирован сетевым экраном."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -101,7 +101,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Сервер не поддерживает этот протокол аутентификации."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -109,7 +109,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Не удалось обновить соединение."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -123,7 +123,7 @@ msgstr ""
 "Доступ в сеть закрыт. Проверьте системные параметры настройки доступа в "
 "Интернет."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -131,7 +131,7 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Этот сервер не поддерживает регистрацию."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not log in. Confirm the email message you received first."
@@ -141,7 +141,7 @@ msgstr ""
 "Не удалось войти. Сначала подтвердите получение сообщения по электронной "
 "почте."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -201,6 +201,22 @@ msgstr "Серверы"
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Устройства на серверах"
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1 набирает сообщение…"
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1 делает паузу"
 
 #: src/ChatHintModel.cpp:249
 #, fuzzy
@@ -575,13 +591,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Это сообщение зашифровано с помощью %1, но его не удалось расшифровать"
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -1725,12 +1741,12 @@ msgid "Send typing notifications"
 msgstr "Отправлять уведомления о наборе текста"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Показывать, когда у вас открыта эта беседа, выполняется и останавливается "
-"набор текста"
+msgid "Indicate when you are typing"
+msgstr "Показывать, какие сообщения вы прочли"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -2025,12 +2041,12 @@ msgid "Send typing notifications"
 msgstr "Отправлять уведомления о наборе текста"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Показывать, когда у вас открыта эта беседа, выполняется и останавливается "
-"набор текста"
+msgid "Indicate when you are typing"
+msgstr "Показывать, какие сообщения вы прочли"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -3931,24 +3947,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Неизвестный размер"
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 в сети"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1 набирает сообщение…"
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1 делает паузу"
-
 #: src/RosterController.cpp:146
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
@@ -4024,7 +4022,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Заметки"
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчера"
@@ -4058,6 +4056,26 @@ msgstr "Дата рождения"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Веб-сайт"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Показывать, когда у вас открыта эта беседа, выполняется и останавливается "
+#~ "набор текста"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Показывать, когда у вас открыта эта беседа, выполняется и останавливается "
+#~ "набор текста"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 в сети"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"

@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -24,7 +24,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -32,7 +32,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -40,44 +40,44 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr ""
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr ""
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr ""
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr ""
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr ""
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -85,24 +85,24 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Pripájam..."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr ""
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
@@ -149,6 +149,22 @@ msgstr ""
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1 píše..."
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1 píše..."
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
@@ -528,13 +544,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Pripájam..."
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -1684,8 +1700,7 @@ msgstr "Umiestnenie"
 
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
+msgid "Indicate when you are typing"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:162
@@ -1988,8 +2003,7 @@ msgstr "Umiestnenie"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
+msgid "Indicate when you are typing"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
@@ -3898,24 +3912,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 je prihlásený"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1 píše..."
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr ""
-
 #: src/RosterController.cpp:146
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
@@ -3972,7 +3968,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
@@ -4006,6 +4002,10 @@ msgstr "Narodeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 je prihlásený"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

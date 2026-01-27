@@ -13,42 +13,42 @@ msgstr ""
 "X-Generator: Lokalize 25.04.0\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Ei yhteyttä"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Yhdistetty"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Virheellinen käyttäjätunnus tai salasana."
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Virhe yritettäessä salattua yhteyttä."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Palvelin ei tue salattuja yhteyksiä."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -56,22 +56,22 @@ msgid ""
 msgstr ""
 "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys ja palvelimen nimi."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Palvelin ei tue todennuskäytäntöä."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Yhteyttä ei voitu virkistää."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -80,17 +80,17 @@ msgstr ""
 "Internetyhteyttä ei ole sallittu. Tarkista järjestelmän "
 "internetyhteysasetukset."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Palvelin ei tue rekisteröitymistä."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Ei voitu kirjautua. Vahvista ensin saamasi sähköpostiviesti."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Palvelimeen ei voitu yhdistää."
@@ -135,6 +135,22 @@ msgstr "Palvelimet"
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1 kirjoittaa…"
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1 keskeytti kirjoittamisen"
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
@@ -489,13 +505,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Viesti on salattu (%1), mutta salausta ei voi purkaa"
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -1579,12 +1595,12 @@ msgid "Send typing notifications"
 msgstr "Näytä ilmoitus kirjoittamisesta"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Osoita, että keskustelu on auki, joku kirjoittaa tai keskeyttää "
-"kirjoittamisen"
+msgid "Indicate when you are typing"
+msgstr "Osoita, mitkä viestit olet lukenut"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1882,12 +1898,12 @@ msgid "Send typing notifications"
 msgstr "Lähetä ilmoitus kirjoittamisesta"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
-"Osoita keskustelun ollessa auki, kun joku kirjoittaa tai keskeyttää "
-"kirjoittamisen"
+msgid "Indicate when you are typing"
+msgstr "Osoita, mitkä viestit olet lukenut"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -3632,24 +3648,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 on verkossa"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1 kirjoittaa…"
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1 keskeytti kirjoittamisen"
-
 #: src/RosterController.cpp:146
 #, qt-format
 msgctxt "RosterController|"
@@ -3703,7 +3701,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"
@@ -3737,6 +3735,26 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Osoita, että keskustelu on auki, joku kirjoittaa tai keskeyttää "
+#~ "kirjoittamisen"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid ""
+#~ "Indicate when you have this conversation open, are typing and stopped "
+#~ "typing"
+#~ msgstr ""
+#~ "Osoita keskustelun ollessa auki, kun joku kirjoittaa tai keskeyttää "
+#~ "kirjoittamisen"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 on verkossa"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"

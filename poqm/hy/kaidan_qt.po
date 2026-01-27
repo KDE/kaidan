@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:474
+#: src/Account.cpp:475
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -16,7 +16,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:477
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -24,7 +24,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:479
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -32,7 +32,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Account.cpp:489
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -40,7 +40,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Անվավեր օգտանուն կամ գաղտնաբառ։"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -49,7 +49,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Համոզվեք, որ ինտերնետ կապը միացված է։"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -57,7 +57,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Անվտանգ կապ հաստատելը ձախողվել է։"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -65,7 +65,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Սերվերը չի սպասարկում անվտանգ կապեր։"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -79,7 +79,7 @@ msgstr ""
 "Չհաջողվեց կապ հաստատել սերվերի հետ։ Ստուգեք Ձեր ինտերնետի կարգավորումները "
 "կամ Ձեր սերվերի անվանումը։"
 
-#: src/Account.cpp:499
+#: src/Account.cpp:500
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -87,7 +87,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Այս սերվերը անցանց է կամ կասեցված հրապատի կողմից։"
 
-#: src/Account.cpp:501
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -95,7 +95,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Նույնականացման մեթոդը չի սպասարկվում սերվերի կողմից։"
 
-#: src/Account.cpp:503
+#: src/Account.cpp:504
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -103,7 +103,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Չհաջողվեց թարմացնել կապը։"
 
-#: src/Account.cpp:505
+#: src/Account.cpp:506
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -116,7 +116,7 @@ msgid ""
 msgstr ""
 "Չհաջողվեց հաստատել ինտերնետային կապ։ Ստուգեք Ձեր ինտերնետի կարգավորումները։"
 
-#: src/Account.cpp:507
+#: src/Account.cpp:508
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -124,12 +124,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
 
-#: src/Account.cpp:509
+#: src/Account.cpp:510
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:511
+#: src/Account.cpp:512
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account from the server"
@@ -185,6 +185,22 @@ msgstr ""
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
+
+#: src/ChatController.cpp:176
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|"
+msgid "%1 is typing…"
+msgstr "%1-ը հավաքում է…"
+
+#: src/ChatController.cpp:178
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|"
+msgid "%1 paused typing"
+msgstr "%1-ը դադարեց հավաքել"
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
@@ -575,13 +591,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageController.cpp:624
+#: src/MessageController.cpp:620
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageController.cpp:1028
+#: src/MessageController.cpp:1024
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1922,8 +1938,7 @@ msgstr "Միացնել ծանուցումները"
 
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
+msgid "Indicate when you are typing"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:162
@@ -2286,8 +2301,7 @@ msgstr "Միացնել ծանուցումները"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
-msgid ""
-"Indicate when you have this conversation open, are typing and stopped typing"
+msgid "Indicate when you are typing"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
@@ -4497,24 +4511,6 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:238
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1-ը հասանելի է"
-
-#: src/QmlUtils.cpp:240
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr "%1-ը հավաքում է…"
-
-#: src/QmlUtils.cpp:242
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1-ը դադարեց հավաքել"
-
 #: src/RosterController.cpp:146
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
@@ -4580,7 +4576,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:755
+#: src/RosterModel.cpp:759
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
@@ -4614,6 +4610,10 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1-ը հասանելի է"
 
 #, fuzzy
 #~| msgctxt "LocalAccountRemoval|"
