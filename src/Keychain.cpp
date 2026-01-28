@@ -192,40 +192,54 @@ QFuture<QKeychain::Error> QKeychainFuture::migrateServiceToEncryptedKeychain(con
         }
     }
 
-    return QtFuture::whenAll(futures.begin(), futures.end()).then([settings = std::move(settings), keys = std::move(keys)](const QList<WriteFuture> &results) {
-        Q_ASSERT(keys.size() == results.size());
-        std::optional<QKeychain::Error> error;
+    return QtFuture::whenAll(futures.begin(), futures.end())
+        .then([settings = std::move(settings), keys = std::move(keys)](const QList<WriteFuture> &results) mutable {
+            Q_ASSERT(keys.size() == results.size());
+            std::optional<QKeychain::Error> error;
 
-        for (int i = 0; i < results.size(); ++i) {
-            const auto &future = results[i];
-
-            if (future.isCanceled()) {
-                if (!error) {
-                    error = QKeychain::CouldNotDeleteEntry;
-                }
-            } else {
-                if (const auto futureError = future.result(); futureError == QKeychain::NoError) {
-                    const auto &key = keys[i];
-                    settings->remove(key);
-                } else {
+            for (int i = 0; i < results.size(); ++i) {
+                if (const auto &future = results[i]; future.isCanceled()) {
                     if (!error) {
-                        error = futureError;
+                        error = QKeychain::CouldNotDeleteEntry;
+                    }
+                } else {
+                    if (const auto futureError = future.result(); futureError == QKeychain::NoError) {
+                        const auto &key = keys[i];
+
+                        settings->remove(key);
+                    } else {
+                        if (!error) {
+                            error = futureError;
+                        }
                     }
                 }
             }
-        }
 
-        settings->endGroup();
-        settings->sync();
+            settings->endGroup();
+            settings->sync();
 
-        if (settings->status() != QSettings::NoError) {
-            throw Error(QKeychain::Error::CouldNotDeleteEntry, QStringLiteral("Could not remove password from unencrypted keychain file"));
+            if (settings->status() != QSettings::NoError) {
+                throw Error(QKeychain::Error::CouldNotDeleteEntry, QStringLiteral("Could not remove password from unencrypted keychain file"));
 
-            if (!error) {
-                error = QKeychain::CouldNotDeleteEntry;
+                if (!error) {
+                    error = QKeychain::CouldNotDeleteEntry;
+                }
             }
-        }
 
-        return error.value_or(QKeychain::NoError);
-    });
+            if (!error && settings->childGroups().isEmpty()) {
+                const QString filePath = settings->fileName();
+
+                settings.reset();
+
+                if (QFile file(filePath); file.exists() && !file.remove()) {
+                    throw Error(QKeychain::Error::OtherError, file.errorString());
+
+                    if (!error) {
+                        error = QKeychain::OtherError;
+                    }
+                }
+            }
+
+            return error.value_or(QKeychain::NoError);
+        });
 }
