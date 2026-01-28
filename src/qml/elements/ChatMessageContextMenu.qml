@@ -60,7 +60,7 @@ Kirigami.Dialog {
 			source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
-			onClicked: message.chatController.messageModel.deleteFile(root.message.modelIndex, file)
+			onClicked: root.message.chatController.messageModel.deleteFile(root.message.modelIndex, file)
 		}
 
 		ChatMessageContextMenuButton {
