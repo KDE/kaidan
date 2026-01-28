@@ -151,8 +151,7 @@ msgstr "%1 píše..."
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
-msgid ""
-"Your account is not enabled - Messages are sent and received once enabled"
+msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
@@ -468,12 +467,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Oprava zprávy nebyla úspěšná"
 
-#: src/MessageComposition.cpp:512
+#: src/MessageComposition.cpp:511
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
-#: src/MessageComposition.cpp:556
+#: src/MessageComposition.cpp:555
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -536,12 +535,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reakce nelze odeslat: %1"
 
-#: src/MessageModel.cpp:1301
+#: src/MessageModel.cpp:1328
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Dnes"
 
-#: src/MessageModel.cpp:1304
+#: src/MessageModel.cpp:1331
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včera"
@@ -767,39 +766,39 @@ msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: src/qml/ChatPage.qml:505
+#: src/qml/ChatPage.qml:507
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:520
+#: src/qml/ChatPage.qml:522
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr ""
 
-#: src/qml/ChatPage.qml:572
+#: src/qml/ChatPage.qml:574
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
-
-#: src/qml/ChatPage.qml:777
-#, qt-format
-msgctxt "ChatPage|"
-msgid "Unblocked %1"
-msgstr ""
-
-#: src/qml/ChatPage.qml:777
-msgctxt "ChatPage|"
-msgid "Undo"
 msgstr ""
 
 #: src/qml/ChatPage.qml:784
 #, qt-format
 msgctxt "ChatPage|"
+msgid "Unblocked %1"
+msgstr ""
+
+#: src/qml/ChatPage.qml:784
+msgctxt "ChatPage|"
+msgid "Undo"
+msgstr ""
+
+#: src/qml/ChatPage.qml:791
+#, qt-format
+msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/ChatPage.qml:788
+#: src/qml/ChatPage.qml:795
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1061,113 +1060,113 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:591
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Odblokovat"
 
-#: src/qml/details/AccountDetailsContent.qml:646
+#: src/qml/details/AccountDetailsContent.qml:647
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Poznámky"
 
-#: src/qml/details/AccountDetailsContent.qml:652
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:653
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:654
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:667
+#: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:703
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Změna hesla"
 
-#: src/qml/details/AccountDetailsContent.qml:706
+#: src/qml/details/AccountDetailsContent.qml:707
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:715
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Stávající heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Zadejte své současné heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:717
+#: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nové heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:730
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:992
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:732
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Zadejte své nové heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:733
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:745
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Změnit heslo"
 
-#: src/qml/details/AccountDetailsContent.qml:784
+#: src/qml/details/AccountDetailsContent.qml:785
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Změna hesla selhala: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:790
+#: src/qml/details/AccountDetailsContent.qml:791
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:822
+#: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:826
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1176,131 +1175,131 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:840
+#: src/qml/details/AccountDetailsContent.qml:841
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:846
+#: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:847
+#: src/qml/details/AccountDetailsContent.qml:848
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:864
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Spojení"
 
-#: src/qml/details/AccountDetailsContent.qml:868
+#: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:897
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:940
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:951
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:955
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:962
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:979
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:979
+#: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:986
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1004
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migrace"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migrovat účet"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1308,45 +1307,45 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1033
+#: src/qml/details/AccountDetailsContent.qml:1034
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Odstranění"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1048
+#: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Odstraňuji účet…"
 
-#: src/qml/details/AccountDetailsContent.qml:1055
+#: src/qml/details/AccountDetailsContent.qml:1056
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Mažu účet…"
 
-#: src/qml/details/AccountDetailsContent.qml:1071
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2199,23 +2198,23 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:225
+#: src/qml/elements/ChatMessage.qml:224
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:507
+#: src/qml/elements/ChatMessage.qml:506
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nový"
 
-#: src/qml/elements/ChatMessage.qml:535
+#: src/qml/elements/ChatMessage.qml:534
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:52
+#: src/qml/elements/ChatMessageContextMenu.qml:59
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Remove label"
@@ -2223,52 +2222,52 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Odstranit popisek"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:60
+#: src/qml/elements/ChatMessageContextMenu.qml:67
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:73
+#: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:81
+#: src/qml/elements/ChatMessageContextMenu.qml:88
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Zareagovat"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:103
+#: src/qml/elements/ChatMessageContextMenu.qml:113
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:121
+#: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Citovat"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:129
+#: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:137
+#: src/qml/elements/ChatMessageContextMenu.qml:147
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:151
+#: src/qml/elements/ChatMessageContextMenu.qml:161
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Upravit"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:159
+#: src/qml/elements/ChatMessageContextMenu.qml:172
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:180
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Odstranit z tohoto zařízení"
@@ -2288,92 +2287,92 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:95
+#: src/qml/elements/ChatPageSendingPane.qml:100
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Zrušit odpověď"
 
-#: src/qml/elements/ChatPageSendingPane.qml:139
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:146
+#: src/qml/elements/ChatPageSendingPane.qml:151
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:178
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:183
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:220
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:220
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:217
+#: src/qml/elements/ChatPageSendingPane.qml:222
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Napsat <b>šifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:217
+#: src/qml/elements/ChatPageSendingPane.qml:222
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Napsat <b>nešifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:327
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:334
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:345
+#: src/qml/elements/ChatPageSendingPane.qml:341
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Sdílet soubory"
 
-#: src/qml/elements/ChatPageSendingPane.qml:355
+#: src/qml/elements/ChatPageSendingPane.qml:351
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:358
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:405
+#: src/qml/elements/ChatPageSendingPane.qml:401
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:405
+#: src/qml/elements/ChatPageSendingPane.qml:401
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:449
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:477
+#: src/qml/elements/ChatPageSendingPane.qml:473
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr ""
@@ -2943,17 +2942,17 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr ""
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr ""
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr ""
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"

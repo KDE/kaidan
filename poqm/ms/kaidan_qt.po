@@ -204,8 +204,7 @@ msgstr "%1 berhenti menaip"
 #| msgctxt "MessageHandler|"
 #| msgid "Could not correct message, as a result of not being connected."
 msgctxt "ChatHintModel|"
-msgid ""
-"Your account is not enabled - Messages are sent and received once enabled"
+msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr "Tidak dapat membetulkan mesej, kerana anda tidak sambung ke internet."
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
@@ -562,12 +561,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Pembetulan mesej tidak berjaya."
 
-#: src/MessageComposition.cpp:512
+#: src/MessageComposition.cpp:511
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:556
+#: src/MessageComposition.cpp:555
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -639,12 +638,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Mesej gagal dihantar."
 
-#: src/MessageModel.cpp:1301
+#: src/MessageModel.cpp:1328
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1304
+#: src/MessageModel.cpp:1331
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -898,12 +897,12 @@ msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:505
+#: src/qml/ChatPage.qml:507
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:520
+#: src/qml/ChatPage.qml:522
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -911,23 +910,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Sila pilih seseorang untuk mula menghantar mesej"
 
-#: src/qml/ChatPage.qml:572
+#: src/qml/ChatPage.qml:574
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:777
+#: src/qml/ChatPage.qml:784
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:777
+#: src/qml/ChatPage.qml:784
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:791
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -935,7 +934,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/qml/ChatPage.qml:788
+#: src/qml/ChatPage.qml:795
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -1256,7 +1255,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Salin alamat sembang"
 
-#: src/qml/details/AccountDetailsContent.qml:591
+#: src/qml/details/AccountDetailsContent.qml:592
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1264,22 +1263,22 @@ msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Salin alamat sembang"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:646
+#: src/qml/details/AccountDetailsContent.qml:647
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:652
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:653
+#: src/qml/details/AccountDetailsContent.qml:654
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add new contact"
@@ -1287,19 +1286,19 @@ msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Tambah kenalan baru"
 
-#: src/qml/details/AccountDetailsContent.qml:654
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:667
+#: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:703
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1307,7 +1306,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:706
+#: src/qml/details/AccountDetailsContent.qml:707
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -1321,7 +1320,7 @@ msgstr ""
 "Selepas anda menukar kata laluan, anda perlu log masuk semula di kesemua "
 "peranti anda yang lain."
 
-#: src/qml/details/AccountDetailsContent.qml:715
+#: src/qml/details/AccountDetailsContent.qml:716
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -1329,7 +1328,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Kata laluan semasa tidak sah."
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:717
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1337,7 +1336,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:717
+#: src/qml/details/AccountDetailsContent.qml:718
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1345,7 +1344,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:731
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1353,8 +1352,8 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Kata laluan baru:"
 
-#: src/qml/details/AccountDetailsContent.qml:730
-#: src/qml/details/AccountDetailsContent.qml:991
+#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:992
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1362,7 +1361,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:731
+#: src/qml/details/AccountDetailsContent.qml:732
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1370,12 +1369,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Kata laluan semasa:"
 
-#: src/qml/details/AccountDetailsContent.qml:733
+#: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:745
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -1383,7 +1382,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Tukar kata laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:784
+#: src/qml/details/AccountDetailsContent.qml:785
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Failed to change password: %1"
@@ -1391,7 +1390,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Gagal menukar kata laluan: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:790
+#: src/qml/details/AccountDetailsContent.qml:791
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -1399,7 +1398,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Kata laluan berjaya ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:822
+#: src/qml/details/AccountDetailsContent.qml:823
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Password"
@@ -1407,7 +1406,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Kata Laluan"
 
-#: src/qml/details/AccountDetailsContent.qml:826
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1416,7 +1415,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:833
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -1424,7 +1423,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Jangan tunjuk kata laluan sebagai teks"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:834
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1438,7 +1437,7 @@ msgstr ""
 "Benarkan penambahan peranti tambahan menggunakan kod QR log masuk tetapi "
 "jangan tunjukkan kata laluan."
 
-#: src/qml/details/AccountDetailsContent.qml:840
+#: src/qml/details/AccountDetailsContent.qml:841
 #, fuzzy
 #| msgctxt "DisablePasswordDisplay|"
 #| msgid "Remove password completely"
@@ -1446,7 +1445,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Buang kata laluan sepenuhnya"
 
-#: src/qml/details/AccountDetailsContent.qml:846
+#: src/qml/details/AccountDetailsContent.qml:847
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -1454,7 +1453,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Jangan dedahkan kata laluan dalam sebarang cara"
 
-#: src/qml/details/AccountDetailsContent.qml:847
+#: src/qml/details/AccountDetailsContent.qml:848
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1468,12 +1467,12 @@ msgstr ""
 "Jangan benarkan penambahan peranti tambahan menggunakan kod QR log masuk dan "
 "jangan tunjukkan kata laluan."
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:864
+#: src/qml/details/AccountDetailsContent.qml:865
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -1481,7 +1480,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Sambung"
 
-#: src/qml/details/AccountDetailsContent.qml:868
+#: src/qml/details/AccountDetailsContent.qml:869
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -1491,17 +1490,17 @@ msgid ""
 "values)"
 msgstr "Tetapkan nama hos dan port untuk disambung"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:897
+#: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:928
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -1509,7 +1508,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Tetapan sambungan tidak dapat ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:940
+#: src/qml/details/AccountDetailsContent.qml:941
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1517,7 +1516,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Tetapan sambungan ditukar"
 
-#: src/qml/details/AccountDetailsContent.qml:951
+#: src/qml/details/AccountDetailsContent.qml:952
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Switch device"
@@ -1525,7 +1524,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Tukar peranti"
 
-#: src/qml/details/AccountDetailsContent.qml:955
+#: src/qml/details/AccountDetailsContent.qml:956
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1547,7 +1546,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:961
+#: src/qml/details/AccountDetailsContent.qml:962
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1555,7 +1554,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Imbas kod QR"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1575,12 +1574,12 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:979
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:979
+#: src/qml/details/AccountDetailsContent.qml:980
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1600,7 +1599,7 @@ msgstr ""
 "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan membenarkan "
 "capaian tanpa had ke akaun anda!"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:986
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1608,7 +1607,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Alamat sembang:"
 
-#: src/qml/details/AccountDetailsContent.qml:1003
+#: src/qml/details/AccountDetailsContent.qml:1004
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1616,7 +1615,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Kapsyen"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:1009
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Transfer account"
@@ -1624,7 +1623,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Pindah akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1632,12 +1631,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Keselamatan akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1645,7 +1644,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1033
+#: src/qml/details/AccountDetailsContent.qml:1034
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1653,7 +1652,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Buang"
 
-#: src/qml/details/AccountDetailsContent.qml:1039
+#: src/qml/details/AccountDetailsContent.qml:1040
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -1661,14 +1660,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Buang daripada aplikasi ini"
 
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1048
+#: src/qml/details/AccountDetailsContent.qml:1049
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add new contact"
@@ -1676,7 +1675,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Tambah kenalan baru"
 
-#: src/qml/details/AccountDetailsContent.qml:1055
+#: src/qml/details/AccountDetailsContent.qml:1056
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Delete completely"
@@ -1684,7 +1683,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Padam keseluruhannya"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1057
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1699,7 +1698,7 @@ msgstr ""
 "dan juga daripada pelayan.\n"
 "Anda tidak akan mampu menggunakan akaun anda lagi!"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1707,7 +1706,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Padam akaun"
 
-#: src/qml/details/AccountDetailsContent.qml:1071
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -2833,23 +2832,23 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Tiada kamera tersedia."
 
-#: src/qml/elements/ChatMessage.qml:225
+#: src/qml/elements/ChatMessage.qml:224
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Beberan"
 
-#: src/qml/elements/ChatMessage.qml:507
+#: src/qml/elements/ChatMessage.qml:506
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:535
+#: src/qml/elements/ChatMessage.qml:534
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:52
+#: src/qml/elements/ChatMessageContextMenu.qml:59
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2857,7 +2856,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Buang"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:60
+#: src/qml/elements/ChatMessageContextMenu.qml:67
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2865,7 +2864,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "Buang"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:73
+#: src/qml/elements/ChatMessageContextMenu.qml:80
 #, fuzzy
 #| msgctxt "LoginSettingsPage|"
 #| msgid "Reset"
@@ -2873,7 +2872,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr "Tetap semula"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:81
+#: src/qml/elements/ChatMessageContextMenu.qml:88
 #, fuzzy
 #| msgctxt "ContextDrawer|"
 #| msgid "Actions"
@@ -2881,17 +2880,17 @@ msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Tindakan"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:103
+#: src/qml/elements/ChatMessageContextMenu.qml:113
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:121
+#: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:129
+#: src/qml/elements/ChatMessageContextMenu.qml:139
 #, fuzzy
 #| msgctxt "ForwardButton|"
 #| msgid "Navigate Forward"
@@ -2899,7 +2898,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "Ke Depan"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:137
+#: src/qml/elements/ChatMessageContextMenu.qml:147
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy download URL"
@@ -2907,17 +2906,17 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Salin URL muat turun"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:151
+#: src/qml/elements/ChatMessageContextMenu.qml:161
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:159
+#: src/qml/elements/ChatMessageContextMenu.qml:172
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:180
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -2949,7 +2948,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Cari bawah"
 
-#: src/qml/elements/ChatPageSendingPane.qml:95
+#: src/qml/elements/ChatPageSendingPane.qml:100
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2957,27 +2956,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Batal"
 
-#: src/qml/elements/ChatPageSendingPane.qml:139
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:146
+#: src/qml/elements/ChatPageSendingPane.qml:151
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:178
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:183
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:220
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2985,7 +2984,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Karang mesej"
 
-#: src/qml/elements/ChatPageSendingPane.qml:215
+#: src/qml/elements/ChatPageSendingPane.qml:220
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2993,7 +2992,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Karang mesej"
 
-#: src/qml/elements/ChatPageSendingPane.qml:217
+#: src/qml/elements/ChatPageSendingPane.qml:222
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -3001,7 +3000,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Karang mesej"
 
-#: src/qml/elements/ChatPageSendingPane.qml:217
+#: src/qml/elements/ChatPageSendingPane.qml:222
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -3009,7 +3008,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Karang mesej"
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:327
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -3017,7 +3016,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Ambil gambar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:334
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -3025,7 +3024,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Rakam video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:345
+#: src/qml/elements/ChatPageSendingPane.qml:341
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -3033,7 +3032,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Fail audio"
 
-#: src/qml/elements/ChatPageSendingPane.qml:355
+#: src/qml/elements/ChatPageSendingPane.qml:351
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -3041,12 +3040,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Hantar kedudukan"
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:358
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:405
+#: src/qml/elements/ChatPageSendingPane.qml:401
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -3054,12 +3053,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Sembunyi teks"
 
-#: src/qml/elements/ChatPageSendingPane.qml:405
+#: src/qml/elements/ChatPageSendingPane.qml:401
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:453
+#: src/qml/elements/ChatPageSendingPane.qml:449
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -3067,7 +3066,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Hantar mesej beberan"
 
-#: src/qml/elements/ChatPageSendingPane.qml:477
+#: src/qml/elements/ChatPageSendingPane.qml:473
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send"
@@ -3791,7 +3790,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Cari atas"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -3799,7 +3798,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Merakam…"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Retry"
@@ -3807,7 +3806,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Cuba Lagi"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
