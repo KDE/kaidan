@@ -293,7 +293,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         QList<DisplayedMessageReaction> displayedMessageReactions;
 
         const auto &reactionSenders = msg.reactionSenders;
-        for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
+        for (auto itr = reactionSenders.cbegin(); itr != reactionSenders.cend(); ++itr) {
             const auto ownReactionsIterated = itr.key() == m_accountSettings->jid();
 
             for (const auto &reaction : std::as_const(itr->reactions)) {
