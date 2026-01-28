@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-01-02 08:38+0100\n"
+"PO-Revision-Date: 2026-01-27 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca\n"
 "X-Qt-Contexts: true\n"
 
@@ -1536,7 +1536,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:155
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr "Envia notificacions d'escriptura"
+msgstr "Envia notificacions de tecleig"
 
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
@@ -1834,7 +1834,7 @@ msgstr "Privadesa"
 #: src/qml/details/GroupChatDetailsContent.qml:352
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
-msgstr "Envia notificacions d'escriptura"
+msgstr "Envia notificacions de tecleig"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
@@ -3593,13 +3593,13 @@ msgstr "%1 està en línia"
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr "%1 està escrivint…"
+msgstr "%1 està teclejant…"
 
 #: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr "%1 ha parat d'escriure…"
+msgstr "%1 ha parat de teclejar…"
 
 #: src/RosterController.cpp:166
 #, qt-format
