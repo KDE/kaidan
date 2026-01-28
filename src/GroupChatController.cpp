@@ -79,8 +79,7 @@ bool GroupChatController::groupChatParticipationSupported() const
 
 bool GroupChatController::groupChatCreationSupported() const
 {
-    const auto groupChatServices = m_mixController->groupChatServices();
-    return std::any_of(groupChatServices.cbegin(), groupChatServices.cend(), [](const GroupChatService &service) {
+    return std::ranges::any_of(m_mixController->groupChatServices(), [](const GroupChatService &service) {
         return service.groupChatCreationSupported;
     });
 }

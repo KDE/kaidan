@@ -89,7 +89,7 @@ void EncryptionWatcher::handleDevicesChanged(QList<QString> jids)
 void EncryptionWatcher::update()
 {
     m_encryptionController->devices(m_jids).then([this](QList<EncryptionController::Device> &&devices) {
-        const auto distrustedDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
+        const auto distrustedDevicesCount = std::ranges::count_if(devices, [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
         });
 
@@ -98,7 +98,7 @@ void EncryptionWatcher::update()
             Q_EMIT hasDistrustedDevicesChanged();
         }
 
-        const auto hasUsableDevices = std::any_of(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
+        const auto hasUsableDevices = std::ranges::any_of(devices, [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_USABLE.testFlag(device.trustLevel);
         });
 
@@ -107,7 +107,7 @@ void EncryptionWatcher::update()
             Q_EMIT hasUsableDevicesChanged();
         }
 
-        const auto authenticatableDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
+        const auto authenticatableDevicesCount = std::ranges::count_if(devices, [](const EncryptionController::Device &device) {
             return TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel);
         });
 

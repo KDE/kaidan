@@ -163,15 +163,15 @@ QStringList RosterModel::groups() const
 {
     QStringList groups;
 
-    std::for_each(m_items.cbegin(), m_items.cend(), [&groups](const RosterItem &item) {
-        std::for_each(item.groups.cbegin(), item.groups.cend(), [&](const QString &group) {
+    std::ranges::for_each(m_items, [&groups](const RosterItem &item) {
+        std::ranges::for_each(item.groups, [&](const QString &group) {
             if (!groups.contains(group)) {
                 groups.append(group);
             }
         });
     });
 
-    std::sort(groups.begin(), groups.end());
+    std::ranges::sort(groups);
 
     return groups;
 }
@@ -333,7 +333,7 @@ void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
 {
     beginResetModel();
     m_items = items;
-    std::sort(m_items.begin(), m_items.end());
+    std::ranges::sort(m_items);
     endResetModel();
 
     for (const auto &item : std::as_const(m_items)) {

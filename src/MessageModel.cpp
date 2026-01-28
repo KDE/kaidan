@@ -337,7 +337,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                         emojis.append(reaction.emoji);
                     }
 
-                    std::sort(emojis.begin(), emojis.end());
+                    std::ranges::sort(emojis);
 
                     detailedMessageReactions.append({itr.key(), {}, {}, emojis});
                 }
@@ -350,7 +350,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case OwnReactionsFailed: {
         const auto &ownReactions = msg.reactionSenders.value(m_accountSettings->jid()).reactions;
-        return std::any_of(ownReactions.cbegin(), ownReactions.cend(), [](const MessageReaction &reaction) {
+        return std::ranges::any_of(ownReactions, [](const MessageReaction &reaction) {
             switch (reaction.deliveryState) {
             case MessageReactionDeliveryState::ErrorOnAddition:
             case MessageReactionDeliveryState::ErrorOnRemovalAfterSent:
@@ -878,11 +878,11 @@ void MessageModel::removeMessage(const QString &messageId)
         return message.relevantId() == messageId;
     };
 
-    const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), hasCorrectId);
+    const auto itr = std::ranges::find_if(m_messages, hasCorrectId);
 
     // Update the roster item of the current chat.
     if (itr != m_messages.cend()) {
-        int readMessageIndex = std::distance(m_messages.cbegin(), itr);
+        int readMessageIndex = std::ranges::distance(m_messages.cbegin(), itr);
 
         const QString &lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
         const QString &lastReadOwnMessageId = m_chatController->rosterItem().lastReadOwnMessageId;

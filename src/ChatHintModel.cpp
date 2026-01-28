@@ -407,7 +407,7 @@ bool ChatHintModel::hasButton(int i, ChatHintButton::Type buttonType) const
 {
     const auto buttons = m_chatHints.at(i).buttons;
 
-    return std::any_of(buttons.cbegin(), buttons.cend(), [buttonType](const ChatHintButton &button) {
+    return std::ranges::any_of(buttons, [buttonType](const ChatHintButton &button) {
         return button.type == buttonType;
     });
 }

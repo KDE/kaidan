@@ -32,7 +32,7 @@ void VersionController::fetchVersions(const QString &bareJid, const QString &res
 
     if (resource.isEmpty()) {
         const auto resources = m_presenceCache->resources(bareJid);
-        std::for_each(resources.cbegin(), resources.cend(), fetchVersion);
+        std::ranges::for_each(resources, fetchVersion);
     } else {
         fetchVersion(resource);
     }

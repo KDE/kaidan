@@ -63,7 +63,7 @@ void AuthenticatableEncryptionKeyModel::setChatJid(const QString &chatJid)
 
 bool AuthenticatableEncryptionKeyModel::contains(const QString &keyId)
 {
-    return std::any_of(m_keys.cbegin(), m_keys.cend(), [keyId](const Key &key) {
+    return std::ranges::any_of(m_keys, [keyId](const Key &key) {
         return key.id == keyId;
     });
 }

@@ -215,7 +215,7 @@ QList<QString> RosterController::groups() const
         });
     });
 
-    std::sort(groups.begin(), groups.end());
+    std::ranges::sort(groups);
 
     return groups;
 }

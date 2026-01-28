@@ -74,7 +74,7 @@ QList<QByteArray> AtmController::keyIdsFromHex(const QList<QString> &keyIds)
         byteArrayKeyIds.append(QByteArray::fromHex(keyId.toUtf8()));
     };
 
-    std::for_each(keyIds.cbegin(), keyIds.cend(), addKeyIdFromHex);
+    std::ranges::for_each(keyIds, addKeyIdFromHex);
 
     return byteArrayKeyIds;
 }

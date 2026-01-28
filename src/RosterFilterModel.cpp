@@ -138,7 +138,7 @@ bool RosterFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourc
     }
 
     if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QList<QString>>();
-        !m_selectedGroups.isEmpty() && std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
+        !m_selectedGroups.isEmpty() && std::ranges::none_of(groups, [&](const QString &group) {
             return m_selectedGroups.contains(group);
         })) {
         return false;

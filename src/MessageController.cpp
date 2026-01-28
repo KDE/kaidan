@@ -758,10 +758,9 @@ bool MessageController::handleReaction(const QXmppMessage &message, const QStrin
 
                                                      // Add new reactions.
                                                      for (const auto &receivedEmoji : std::as_const(receivedEmojis)) {
-                                                         const auto reactionNew =
-                                                             std::none_of(reactions.cbegin(), reactions.cend(), [&](const MessageReaction &reaction) {
-                                                                 return reaction.emoji == receivedEmoji;
-                                                             });
+                                                         const auto reactionNew = std::ranges::none_of(reactions, [&](const MessageReaction &reaction) {
+                                                             return reaction.emoji == receivedEmoji;
+                                                         });
 
                                                          if (reactionNew) {
                                                              MessageReaction reaction;

@@ -587,7 +587,7 @@ void FileSelectionModel::removeFile(int index)
 
 void FileSelectionModel::deleteNewFiles()
 {
-    std::for_each(m_files.cbegin(), m_files.cend(), deleteNewFile);
+    std::ranges::for_each(m_files, deleteNewFile);
 }
 
 void FileSelectionModel::clear()
