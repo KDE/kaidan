@@ -66,6 +66,7 @@ Controls.ItemDelegate {
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
+	property ChatMessageContextMenu contextMenu
 
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
@@ -549,6 +550,8 @@ Controls.ItemDelegate {
 
 			ChatMessageContextMenu {
 				message: root
+				Component.onCompleted: root.contextMenu = this
+				Component.onDestruction: root.contextMenu = null
 			}
 		}
 
