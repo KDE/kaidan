@@ -124,7 +124,7 @@ private:
     void handleDraftMessageUpdated(const Message &message);
     void handleDraftMessageRemoved(const Message &newLastMessage);
 
-    QFuture<QList<int>> updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge = true);
+    QList<int> updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge = true);
 
     void updateOnMessageChange(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles);
     void updateOnDraftMessageChange(QList<RosterItem>::Iterator &itr);

@@ -466,33 +466,31 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
         return;
     }
 
-    updateLastMessage(itr, message).then([this, origin, itr](QList<int> &&changedRoles) mutable {
-        switch (origin) {
-        case MessageOrigin::Stream:
-        case MessageOrigin::UserInput:
-        case MessageOrigin::MamCatchUp:
-            MessageDb::instance()
-                ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
-                .then([this, itr, changedRoles](int unreadMessageCount) mutable {
-                    if (unreadMessageCount != itr->unreadMessageCount) {
-                        itr->unreadMessageCount = unreadMessageCount;
-                        changedRoles << int(UnreadMessageCountRole);
-                    }
+    switch (origin) {
+    case MessageOrigin::Stream:
+    case MessageOrigin::UserInput:
+    case MessageOrigin::MamCatchUp:
+        MessageDb::instance()
+            ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
+            .then([this, itr, changedRoles = updateLastMessage(itr, message)](int unreadMessageCount) mutable {
+                if (unreadMessageCount != itr->unreadMessageCount) {
+                    itr->unreadMessageCount = unreadMessageCount;
+                    changedRoles << int(UnreadMessageCountRole);
+                }
 
-                    if (!changedRoles.isEmpty()) {
-                        updateOnMessageChange(itr, changedRoles);
-                    }
-                });
-            break;
-        case MessageOrigin::MamBacklog:
-            break;
-        case MessageOrigin::MamInitial:
-            if (!changedRoles.isEmpty()) {
-                updateOnMessageChange(itr, changedRoles);
-            }
-            break;
+                if (!changedRoles.isEmpty()) {
+                    updateOnMessageChange(itr, changedRoles);
+                }
+            });
+        break;
+    case MessageOrigin::MamBacklog:
+        break;
+    case MessageOrigin::MamInitial:
+        if (const auto changedRoles = updateLastMessage(itr, message); !changedRoles.isEmpty()) {
+            updateOnMessageChange(itr, changedRoles);
         }
-    });
+        break;
+    }
 }
 
 void RosterModel::handleMessageUpdated(const Message &message)
@@ -506,8 +504,9 @@ void RosterModel::handleMessageUpdated(const Message &message)
         return;
     }
 
-    updateLastMessage(itr, message).then([this, itr](QList<int> &&changedRoles) mutable {
-        MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
+    MessageDb::instance()
+        ->markedMessageCount(itr->accountJid, itr->jid)
+        .then([this, itr, changedRoles = updateLastMessage(itr, message)](int markedMessageCount) mutable {
             if (markedMessageCount != itr->markedMessageCount) {
                 itr->markedMessageCount = markedMessageCount;
                 changedRoles << int(MarkedMessageCountRole);
@@ -517,7 +516,6 @@ void RosterModel::handleMessageUpdated(const Message &message)
                 updateOnMessageChange(itr, changedRoles);
             }
         });
-    });
 }
 
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
@@ -531,27 +529,25 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
         return;
     }
 
-    updateLastMessage(itr, newLastMessage, false).then([this, itr](QList<int> &&changedRoles) mutable {
-        MessageDb::instance()
-            ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
-            .then([this, itr, changedRoles](int unreadMessageCount) mutable {
-                if (unreadMessageCount != itr->unreadMessageCount) {
-                    itr->unreadMessageCount = unreadMessageCount;
-                    changedRoles << int(UnreadMessageCountRole);
+    MessageDb::instance()
+        ->latestContactMessageCount(itr->accountJid, itr->jid, itr->lastReadContactMessageId)
+        .then([this, itr, changedRoles = updateLastMessage(itr, newLastMessage, false)](int unreadMessageCount) mutable {
+            if (unreadMessageCount != itr->unreadMessageCount) {
+                itr->unreadMessageCount = unreadMessageCount;
+                changedRoles << int(UnreadMessageCountRole);
+            }
+
+            MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
+                if (markedMessageCount != itr->markedMessageCount) {
+                    itr->markedMessageCount = markedMessageCount;
+                    changedRoles << int(MarkedMessageCountRole);
                 }
 
-                MessageDb::instance()->markedMessageCount(itr->accountJid, itr->jid).then([this, itr, changedRoles](int markedMessageCount) mutable {
-                    if (markedMessageCount != itr->markedMessageCount) {
-                        itr->markedMessageCount = markedMessageCount;
-                        changedRoles << int(MarkedMessageCountRole);
-                    }
-
-                    if (!changedRoles.isEmpty()) {
-                        updateOnMessageChange(itr, changedRoles);
-                    }
-                });
+                if (!changedRoles.isEmpty()) {
+                    updateOnMessageChange(itr, changedRoles);
+                }
             });
-    });
+        });
 }
 
 void RosterModel::handleDraftMessageAdded(const Message &message)
@@ -607,17 +603,14 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
     updateOnDraftMessageChange(itr);
 }
 
-QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
+QList<int> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
 {
-    auto promise = std::make_shared<QPromise<QList<int>>>();
-    promise->start();
-
     // If desired, only set the new message as the current last message if it is newer than
     // the current one or at the same age.
     // That makes it possible to use the previous message as the new last message if the current
     // last message is empty.
     if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewerOrAtSameAge && itr->lastMessageDateTime > message.timestamp)) {
-        reportFinishedResult(*promise, {});
+        return {};
     }
 
     // The new message is only set as the current last message if they are different and there
@@ -641,12 +634,10 @@ QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &
             int(LastMessageDateTimeRole),
         };
 
-        reportFinishedResult(*promise, std::move(changedRoles));
-    } else {
-        reportFinishedResult(*promise, {});
+        return changedRoles;
     }
 
-    return promise->future();
+    return {};
 }
 
 void RosterModel::updateOnMessageChange(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles)
