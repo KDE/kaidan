@@ -36,7 +36,7 @@ public:
     bool ownReactionIncluded;
     MessageReactionDeliveryState::Enum deliveryState;
 
-    bool operator<(const DisplayedMessageReaction &other) const;
+    auto operator<=>(const DisplayedMessageReaction &other) const;
 };
 
 Q_DECLARE_METATYPE(DisplayedMessageReaction)

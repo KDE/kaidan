@@ -30,9 +30,9 @@
 #include "RosterDb.h"
 #include "RosterModel.h"
 
-bool DisplayedMessageReaction::operator<(const DisplayedMessageReaction &other) const
+auto DisplayedMessageReaction::operator<=>(const DisplayedMessageReaction &other) const
 {
-    return emoji < other.emoji;
+    return emoji <=> other.emoji;
 }
 
 bool DetailedMessageReaction::operator<(const DetailedMessageReaction &other) const
