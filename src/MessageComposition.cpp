@@ -48,6 +48,7 @@ void MessageComposition::setChatController(ChatController *chatController)
         connect(m_chatController, &ChatController::aboutToChangeChat, this, [this]() {
             if (m_chatController->account()) {
                 saveDraft();
+                setIsDraft(false);
                 clear();
             }
         });
@@ -417,7 +418,6 @@ void MessageComposition::saveDraft()
                                                       });
         } else {
             MessageDb::instance()->removeDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid());
-            setIsDraft(false);
         }
     } else if (savingNeeded) {
         Message message;
@@ -432,8 +432,6 @@ void MessageComposition::saveDraft()
         message.deliveryState = DeliveryState::Draft;
 
         MessageDb::instance()->addDraftMessage(message);
-
-        setIsDraft(true);
     }
 }
 
