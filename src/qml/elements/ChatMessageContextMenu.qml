@@ -37,7 +37,7 @@ Kirigami.Dialog {
 	onImplicitWidthChanged: position(x, y)
 	onClosed: {
 		if (currentIndexResetOnClosing) {
-			message.messageListView.resetCurrentIndex()
+			message.messageListView.restorePreviousCurrentIndex()
 		}
 
 		destroy()
@@ -198,11 +198,13 @@ Kirigami.Dialog {
 		}
 	}
 
-	function show(mouseArea, file) {
-		if (file === undefined) {
-			root.file = null
+	function show(mouseArea, selectedFile) {
+		message.messageListView.setCurrentIndex(root.message.modelIndex)
+
+		if (selectedFile === undefined) {
+			file = null
 		} else {
-			root.file = file
+			file = selectedFile
 		}
 
 		const absolutePosition = mouseArea.mapToGlobal(mouseArea.mouseX, mouseArea.mouseY)

@@ -297,10 +297,6 @@ void MessageController::sendPendingMessageWithUploadedFiles(Message message)
             });
     };
 
-    if (!message.replaceId.isEmpty()) {
-        message.timestamp = QDateTime::currentDateTimeUtc();
-    }
-
     const auto isGroupChatMessage = message.isGroupChatMessage();
 
     message.receiptRequested = !isGroupChatMessage;

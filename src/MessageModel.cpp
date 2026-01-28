@@ -1085,7 +1085,7 @@ void MessageModel::handleMessageUpdated(Message message)
     }
 
     for (int i = 0; i < m_messages.size(); i++) {
-        const auto oldMessage = m_messages.at(i);
+        const auto &oldMessage = m_messages.at(i);
         const auto oldId = oldMessage.id;
         const auto oldReplaceId = oldMessage.replaceId;
 
@@ -1093,20 +1093,9 @@ void MessageModel::handleMessageUpdated(Message message)
         // reflected group chat message or a subsequent message correction.
         if ((!oldId.isEmpty() && (oldId == message.id || oldId == message.replaceId || oldId == message.originId))
             || (!oldReplaceId.isEmpty() && oldReplaceId == message.replaceId)) {
-            const auto oldMessageTimestamp = m_messages.at(i).timestamp;
-
-            beginRemoveRows(QModelIndex(), i, i);
-            m_messages.removeAt(i);
-            endRemoveRows();
-
-            // Insert the message at its original position if the date is unchanged.
-            // Otherwise, move it to its new position.
-            if (!m_messages.isEmpty() && (message.timestamp == oldMessageTimestamp)) {
-                insertMessage(i, message);
-            } else {
-                addMessage(message);
-            }
-
+            m_messages.replace(i, message);
+            const auto modelIndex = index(i);
+            Q_EMIT dataChanged(modelIndex, modelIndex);
             break;
         }
     }

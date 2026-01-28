@@ -263,10 +263,6 @@ void MessageComposition::correct()
 
                 QMetaObject::invokeMethod(this, [this, message]() mutable {
                     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
-                        // the trick with the time is important for the servers
-                        // this way they can tell which version of the message is the latest
-                        message.timestamp = QDateTime::currentDateTimeUtc();
-
                         auto sendMessage = [this](Message &&message, const QList<QString> &encryptionJids = {}) {
                             m_messageController->send(message.toQXmpp(), message.encryption, encryptionJids)
                                 .then([accountJid = message.accountJid, chatJid = message.chatJid, messageId = message.id](QXmpp::SendResult &&result) {
@@ -295,8 +291,6 @@ void MessageComposition::correct()
                         }
                     }
                 });
-            } else if (message.replaceId.isEmpty()) {
-                message.timestamp = QDateTime::currentDateTimeUtc();
             }
         });
 

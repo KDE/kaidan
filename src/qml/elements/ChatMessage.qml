@@ -377,12 +377,24 @@ Controls.ItemDelegate {
 							}
 						}
 
+						Connections {
+							target: root
+
+							function onDisplayedReactionsChanged() {
+								// Reset displayedReactionsArea.model manually.
+								// Otherwise, it would not be updated if deliveryState of a reaction changes.
+								displayedReactionsArea.model = null
+								displayedReactionsArea.model = root.displayedReactions
+							}
+						}
+
 						MessageReactionAdditionButton {
 							id: messageReactionAdditionButton
 							accentColor: bubble.backgroundColor
 							messageId: root.msgId
 							isOwnMessage: root.isOwn
 							emojiPicker: root.reactionEmojiPicker
+							onClicked: root.messageListView.setCurrentIndex(root.modelIndex)
 						}
 
 						Loader {
@@ -586,7 +598,6 @@ Controls.ItemDelegate {
 
 	function showContextMenu(mouseArea, file) {
 		messageSearchButton.checked = false
-		root.messageListView.currentIndex = root.modelIndex
 		contextMenu.createObject().show(mouseArea, file)
 	}
 

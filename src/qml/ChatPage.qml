@@ -286,7 +286,7 @@ SearchBarPage {
 		id: messageReactionEmojiPicker
 		messageModel: root.chatController.messageModel
 		onClosed: {
-			root.messageListView.resetCurrentIndex()
+			root.messageListView.restorePreviousCurrentIndex()
 			root.sendingPane.forceActiveFocus()
 		}
 	}
@@ -294,6 +294,9 @@ SearchBarPage {
 	// View containing the messages
 	ListView {
 		id: messageListView
+
+		property int previousCurrentIndex: currentIndex
+
 		verticalLayoutDirection: ListView.BottomToTop
 		spacing: 0
 		footerPositioning: ListView.OverlayFooter
@@ -709,6 +712,15 @@ SearchBarPage {
 		function highlightShortly(index) {
 			currentIndex = index
 			resetCurrentIndexTimer.restart()
+		}
+
+		function setCurrentIndex(index) {
+			previousCurrentIndex = currentIndex
+			currentIndex = index
+		}
+
+		function restorePreviousCurrentIndex() {
+			currentIndex = previousCurrentIndex
 		}
 
 		function resetCurrentIndex() {
