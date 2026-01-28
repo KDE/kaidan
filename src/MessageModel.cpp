@@ -303,15 +303,15 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
                 if (ownReactionsIterated) {
                     if (reactionItr == displayedMessageReactions.end()) {
-                        displayedMessageReactions.append({reaction.emoji, 1, ownReactionsIterated, reaction.deliveryState});
+                        displayedMessageReactions.append({reaction.emoji, 1, true, reaction.deliveryState});
                     } else {
                         reactionItr->count++;
-                        reactionItr->ownReactionIncluded = ownReactionsIterated;
+                        reactionItr->ownReactionIncluded = true;
                         reactionItr->deliveryState = reaction.deliveryState;
                     }
                 } else {
                     if (reactionItr == displayedMessageReactions.end()) {
-                        displayedMessageReactions.append({reaction.emoji, 1, ownReactionsIterated, {}});
+                        displayedMessageReactions.append({reaction.emoji, 1, false, {}});
                     } else {
                         reactionItr->count++;
                     }
