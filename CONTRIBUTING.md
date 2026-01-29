@@ -242,6 +242,7 @@ Kaidan is [packaged for several operating systems](https://repology.org/project/
 
 The GitLab templates in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) automatically run jobs to check whether Kaidan can be built on the following operating systems:
 
+* [Android](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/android-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/android-qt610-ci/CI-Craft-Packages.shelf)
 * [FreeBSD](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/freebsd-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/freebsd150-qt610/ports-list)
 * [Linux with latest stable Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt610/build.sh)
 * [Linux with upcoming Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6-next.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt611/build.sh)
