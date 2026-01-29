@@ -242,10 +242,10 @@ Kaidan is [packaged for several operating systems](https://repology.org/project/
 
 The GitLab templates in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) automatically run jobs to check whether Kaidan can be built on the following operating systems:
 
-* [FreeBSD](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/freebsd-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/freebsd14-qt69/ports-list)
-* [Linux with latest stable Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt69/build.sh)
-* [Linux with upcoming Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6-next.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt610/build.sh)
-* [Windows](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/windows-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/windows-msvc2022-qt68/CI-Craft-Packages.shelf?ref_type=heads)
+* [FreeBSD](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/freebsd-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/freebsd150-qt610/ports-list)
+* [Linux with latest stable Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt610/build.sh)
+* [Linux with upcoming Qt version](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/linux-qt6-next.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/suse-qt611/build.sh)
+* [Windows](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/gitlab-templates/windows-qt6.yml): [Dependencies](https://invent.kde.org/sysadmin/ci-images/-/blob/master/windows-msvc2022-qt610/CI-Craft-Packages.shelf)
 
 Software on KDE Invent that runs one of the mentioned GitLab jobs for its own default branch is available as a dependency via the same job for Kaidan too.
 In all other cases, the software needs to be added as a dependency in the referenced files.
