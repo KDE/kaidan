@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-27 08:11+0200\n"
+"PO-Revision-Date: 2026-01-28 03:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -159,15 +159,11 @@ msgid "%1 paused typing"
 msgstr "%1 призупинив або призупинила введення повідомлення"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Ваш обліковий запис не увімкнено — Повідомлення можна буде надсилати і "
-"отримувати після вмикання"
+"Ваш обліковий запис не вимкнено – обмін повідомленнями можна бути виконати "
+"після встановлення з'єднання"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -478,17 +474,17 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Запрошення до групи %1"
 
-#: src/MessageComposition.cpp:276
+#: src/MessageComposition.cpp:273
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageComposition.cpp:511
+#: src/MessageComposition.cpp:503
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageComposition.cpp:555
+#: src/MessageComposition.cpp:547
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -504,14 +500,14 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
 
-#: src/MessageController.cpp:620
+#: src/MessageController.cpp:616
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageController.cpp:1024
+#: src/MessageController.cpp:1019
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -549,12 +545,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не вдалося надіслати реакції: %1"
 
-#: src/MessageModel.cpp:1328
+#: src/MessageModel.cpp:1317
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/MessageModel.cpp:1331
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -739,74 +735,85 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr "Виклик"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "Відкрити аудіовиклик"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr "Почати аудіовиклик"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr "Відкрити відеовиклик"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr "Почати відеовиклик"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:140
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
+msgctxt "ChatPage|"
+msgid "Search upwards"
+msgstr "Шукати вище"
+
+#: src/qml/ChatPage.qml:151
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
+msgctxt "ChatPage|"
+msgid "Search downwards"
+msgstr "Шукати нижче"
+
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Закрити вікно пошуку"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/ChatPage.qml:140
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "Подробиці…"
-
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Скасувати переспрямування"
 
-#: src/qml/ChatPage.qml:522
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Виберіть спілкування для переспрямування повідомлення"
 
-#: src/qml/ChatPage.qml:574
+#: src/qml/ChatPage.qml:595
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Скиньте файли, які буде надіслано"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Розблоковано %1"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:840
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Не вдалося заблокувати %1: %2"
 
-#: src/qml/ChatPage.qml:795
+#: src/qml/ChatPage.qml:844
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2292,17 +2299,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Немає доступних камер"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:225
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:506
+#: src/qml/elements/ChatMessage.qml:520
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Нове"
 
-#: src/qml/elements/ChatMessage.qml:534
+#: src/qml/elements/ChatMessage.qml:548
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2363,21 +2370,6 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Вилучити з цього пристрою"
 
-#: src/qml/elements/ChatPageSearchView.qml:48
-msgctxt "ChatPageSearchView|"
-msgid "Close search"
-msgstr "Закрити вікно пошуку"
-
-#: src/qml/elements/ChatPageSearchView.qml:81
-msgctxt "ChatPageSearchView|"
-msgid "Search up"
-msgstr "Шукати вище"
-
-#: src/qml/elements/ChatPageSearchView.qml:92
-msgctxt "ChatPageSearchView|"
-msgid "Search down"
-msgstr "Шукати нижче"
-
 #: src/qml/elements/ChatPageSendingPane.qml:100
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
@@ -2423,47 +2415,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Створити <b>нешифроване</b> повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:327
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Зробити знімок"
 
-#: src/qml/elements/ChatPageSendingPane.qml:334
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Записати відео"
 
-#: src/qml/elements/ChatPageSendingPane.qml:341
+#: src/qml/elements/ChatPageSendingPane.qml:330
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Оприлюднити файли"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Оприлюднити ваше місце перебування"
 
-#: src/qml/elements/ChatPageSendingPane.qml:358
+#: src/qml/elements/ChatPageSendingPane.qml:347
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Додати приховану частину зображення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Приховати"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Більше"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:438
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Надіслати голосове повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:473
+#: src/qml/elements/ChatPageSendingPane.qml:462
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Надіслати"
@@ -3192,10 +3184,18 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Пришпилити"
 
-#: src/qml/elements/SearchBarPage.qml:29
+#: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
-msgid "Search"
-msgstr "Пошук"
+msgid "Open menu"
+msgstr "Відкрити зображення…"
+
+#: src/qml/elements/SearchBarPage.qml:75
+msgctxt "SearchBarPage|"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3207,104 +3207,104 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Записати відео"
 
-#: src/qml/EmptyChatPage.qml:23
+#: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Для початку виберіть спілкування"
 
-#: src/qml/GlobalDrawer.qml:55
+#: src/qml/GlobalDrawer.qml:56
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Облікові записи"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Пароль"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Введіть ваш правильний пароль"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Підтвердьте пароль"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:176
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Дії"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Увімкніть ваш обліковий запис, щоб скористатися усіма можливими діями"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Увімкніть обліковий запис, щоб скористатися усіма можливими діями"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Додати контакт за QR-кодом"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Додати контакт за адресою у спілкування"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Створити групу"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Створити групу (немає підтримки)"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Долучитися до групи"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Долучитися до групи (немає підтримки)"
 
-#: src/qml/GlobalDrawer.qml:251
+#: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Шукати у загальнодоступних групах"
 
-#: src/qml/GlobalDrawer.qml:265
+#: src/qml/GlobalDrawer.qml:266
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Про програму"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Розблоковано %1"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/qml/GlobalDrawer.qml:468
+#: src/qml/GlobalDrawer.qml:469
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Не вдалося заблокувати %1: %2"
 
-#: src/qml/GlobalDrawer.qml:472
+#: src/qml/GlobalDrawer.qml:473
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
@@ -3600,13 +3600,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Крок 2. Вхід до зареєстрованого облікового запису"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
-#: src/qml/RosterPage.qml:219
+#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
+#: src/qml/RosterPage.qml:233
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Фільтрувати"
 
-#: src/qml/RosterPage.qml:37
+#: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Пришпилити і пересунути"
@@ -3702,7 +3702,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: src/RosterModel.cpp:759
+#: src/RosterModel.cpp:750
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -3736,6 +3736,18 @@ msgstr "День народження"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Details…"
+#~ msgstr "Подробиці…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Закрити вікно пошуку"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Пошук"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""

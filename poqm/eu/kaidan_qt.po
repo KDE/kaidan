@@ -485,17 +485,17 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "%1 talderako gonbidapena"
 
-#: src/MessageComposition.cpp:276
+#: src/MessageComposition.cpp:273
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Mezu-zuzenketa ez da behar bezala egin"
 
-#: src/MessageComposition.cpp:511
+#: src/MessageComposition.cpp:503
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
-#: src/MessageComposition.cpp:555
+#: src/MessageComposition.cpp:547
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -511,13 +511,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Mezua ezin izan da bidali."
 
-#: src/MessageController.cpp:620
+#: src/MessageController.cpp:616
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Mezu hau %1(e)rekin zifratuta dago, baina ezin izan da deszifratu"
 
-#: src/MessageController.cpp:1024
+#: src/MessageController.cpp:1019
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -555,12 +555,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Erreakzioak ezin izan dira bidali: %1"
 
-#: src/MessageModel.cpp:1328
+#: src/MessageModel.cpp:1317
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Gaur"
 
-#: src/MessageModel.cpp:1331
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Atzo"
@@ -745,74 +745,85 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr "Deia"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "Ireki audio-deia"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr "Hasi audio-deia"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr "Ireki bideo-deia"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr "Hasi bideo-deia"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:140
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
+msgctxt "ChatPage|"
+msgid "Search upwards"
+msgstr "Bilatu gorantz"
+
+#: src/qml/ChatPage.qml:151
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
+msgctxt "ChatPage|"
+msgid "Search downwards"
+msgstr "Bilatu beherantz"
+
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Utzi bilaketa"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/qml/ChatPage.qml:140
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "Xehetasunak..."
-
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Ezeztatu birbidaltzea"
 
-#: src/qml/ChatPage.qml:522
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Hautatu mezua birbidaltzeko berriketa bat"
 
-#: src/qml/ChatPage.qml:574
+#: src/qml/ChatPage.qml:595
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Jaregin bidali beharreko fitxategiak"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:840
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ezin izan da %1 blokeatu: %2"
 
-#: src/qml/ChatPage.qml:795
+#: src/qml/ChatPage.qml:844
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2289,17 +2300,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Ez dago kamerarik erabilgarri"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:225
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "«Spoiler»"
 
-#: src/qml/elements/ChatMessage.qml:506
+#: src/qml/elements/ChatMessage.qml:520
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Berria"
 
-#: src/qml/elements/ChatMessage.qml:534
+#: src/qml/elements/ChatMessage.qml:548
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2366,21 +2377,6 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Kendu gailu honetatik"
 
-#: src/qml/elements/ChatPageSearchView.qml:48
-msgctxt "ChatPageSearchView|"
-msgid "Close search"
-msgstr "Itxi bilaketa"
-
-#: src/qml/elements/ChatPageSearchView.qml:81
-msgctxt "ChatPageSearchView|"
-msgid "Search up"
-msgstr "Bilatu gorantz"
-
-#: src/qml/elements/ChatPageSearchView.qml:92
-msgctxt "ChatPageSearchView|"
-msgid "Search down"
-msgstr "Bilatu beherantz"
-
 #: src/qml/elements/ChatPageSendingPane.qml:100
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
@@ -2426,47 +2422,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Osatu <b>zifratu gabeko</b> mezua"
 
-#: src/qml/elements/ChatPageSendingPane.qml:327
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Atera argazki bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:334
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:341
+#: src/qml/elements/ChatPageSendingPane.qml:330
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Partekatu fitxategiak"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Partekatu zure kokapena"
 
-#: src/qml/elements/ChatPageSendingPane.qml:358
+#: src/qml/elements/ChatPageSendingPane.qml:347
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Gehitu mezuaren ezkutatuko zatia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Ezkutatu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Gehiago"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:438
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Bidali ahots-mezu bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:473
+#: src/qml/elements/ChatPageSendingPane.qml:462
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Bidali"
@@ -3200,10 +3196,18 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Iltzatu"
 
-#: src/qml/elements/SearchBarPage.qml:29
+#: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
-msgid "Search"
-msgstr "Bilatu"
+msgid "Open menu"
+msgstr "Ireki irudia..."
+
+#: src/qml/elements/SearchBarPage.qml:75
+msgctxt "SearchBarPage|"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3215,104 +3219,104 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
-#: src/qml/EmptyChatPage.qml:23
+#: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Hasteko, hauta berriketa bat"
 
-#: src/qml/GlobalDrawer.qml:55
+#: src/qml/GlobalDrawer.qml:56
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Pasahitza"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Sartu zure pasahitz zuzena"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Berretsi pasahitza"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:176
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Gaitu zure kontua erabilgarri dauden ekintza guztiak erabiltzeko"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Gaitu kontu bat erabilgarri dauden ekintza guztiak erabiltzeko"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Gehitu kontaktua QR kode bidez"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Gehitu kontaktua berriketa-helbidearen bidez"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Sortu taldea"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Sortu taldea (ez da onartzen)"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Elkartu taldera"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Elkartu taldera (ez da onartzen)"
 
-#: src/qml/GlobalDrawer.qml:251
+#: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Bilatu talde publikoak"
 
-#: src/qml/GlobalDrawer.qml:265
+#: src/qml/GlobalDrawer.qml:266
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/qml/GlobalDrawer.qml:468
+#: src/qml/GlobalDrawer.qml:469
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Ezin izan da %1 blokeatu: %2"
 
-#: src/qml/GlobalDrawer.qml:472
+#: src/qml/GlobalDrawer.qml:473
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
@@ -3606,13 +3610,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2. urratsa: Erregistratutako zure konturekin saioan sartu"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
-#: src/qml/RosterPage.qml:219
+#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
+#: src/qml/RosterPage.qml:233
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Iragazi"
 
-#: src/qml/RosterPage.qml:37
+#: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Iltzatu eta mugitu"
@@ -3705,7 +3709,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Oharrak"
 
-#: src/RosterModel.cpp:759
+#: src/RosterModel.cpp:750
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Atzo"
@@ -3739,6 +3743,18 @@ msgstr "Jaioteguna"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Details…"
+#~ msgstr "Xehetasunak..."
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Itxi bilaketa"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Bilatu"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-27 18:27+0100\n"
+"PO-Revision-Date: 2026-01-28 15:42+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -156,15 +156,11 @@ msgid "%1 paused typing"
 msgstr "%1 is gepauzeerd met typen"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Uw account is niet ingeschakeld - berichten worden verzonden en ontvangen "
-"nadat u ingeschakeld bent"
+"Uw account is uitgeschakeld - berichten worden uitgewisseld nadat u "
+"verbonden bent"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -476,17 +472,17 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Uitnodiging aan groep %1"
 
-#: src/MessageComposition.cpp:276
+#: src/MessageComposition.cpp:273
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Het corrigeren van het bericht is mislukt"
 
-#: src/MessageComposition.cpp:511
+#: src/MessageComposition.cpp:503
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
-#: src/MessageComposition.cpp:555
+#: src/MessageComposition.cpp:547
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -502,13 +498,13 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageController.cpp:620
+#: src/MessageController.cpp:616
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageController.cpp:1024
+#: src/MessageController.cpp:1019
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
@@ -546,12 +542,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reacties konden niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:1328
+#: src/MessageModel.cpp:1317
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/MessageModel.cpp:1331
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -736,74 +732,85 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr "Oproep"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "Audio-oproep openen"
 
-#: src/qml/ChatPage.qml:96
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr "Audio-oproep beginnen"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr "Video-oproep openen"
 
-#: src/qml/ChatPage.qml:109
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr "Video-oproep beginnen"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:140
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
+msgctxt "ChatPage|"
+msgid "Search upwards"
+msgstr "Omhoog zoeken"
+
+#: src/qml/ChatPage.qml:151
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
+msgctxt "ChatPage|"
+msgid "Search downwards"
+msgstr "Naar beneden zoeken"
+
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Zoeken afsluiten"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/ChatPage.qml:140
-msgctxt "ChatPage|"
-msgid "Details…"
-msgstr "Details…"
-
-#: src/qml/ChatPage.qml:507
+#: src/qml/ChatPage.qml:528
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Doorsturen annuleren"
 
-#: src/qml/ChatPage.qml:522
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Selecteer een chat om het bericht door te sturen"
 
-#: src/qml/ChatPage.qml:574
+#: src/qml/ChatPage.qml:595
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Te verzenden bestanden laten vallen"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
 
-#: src/qml/ChatPage.qml:784
+#: src/qml/ChatPage.qml:833
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/qml/ChatPage.qml:791
+#: src/qml/ChatPage.qml:840
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
-#: src/qml/ChatPage.qml:795
+#: src/qml/ChatPage.qml:844
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2280,17 +2287,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Geen camera beschikbaar"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:225
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:506
+#: src/qml/elements/ChatMessage.qml:520
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/qml/elements/ChatMessage.qml:534
+#: src/qml/elements/ChatMessage.qml:548
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2351,21 +2358,6 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Van dit apparaat verwijderen"
 
-#: src/qml/elements/ChatPageSearchView.qml:48
-msgctxt "ChatPageSearchView|"
-msgid "Close search"
-msgstr "Zoeken afsluiten"
-
-#: src/qml/elements/ChatPageSearchView.qml:81
-msgctxt "ChatPageSearchView|"
-msgid "Search up"
-msgstr "Omhoog zoeken"
-
-#: src/qml/elements/ChatPageSearchView.qml:92
-msgctxt "ChatPageSearchView|"
-msgid "Search down"
-msgstr "Naar beneden zoeken"
-
 #: src/qml/elements/ChatPageSendingPane.qml:100
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
@@ -2411,47 +2403,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>Niet-versleuteld</b> bericht opstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:327
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Een foto nemen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:334
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Een video opnemen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:341
+#: src/qml/elements/ChatPageSendingPane.qml:330
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Bestanden delen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Deel uw locatie"
 
-#: src/qml/elements/ChatPageSendingPane.qml:358
+#: src/qml/elements/ChatPageSendingPane.qml:347
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Verborgen deel van bericht toevoegen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Verbergen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:401
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Meer"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:438
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Een stembericht versturen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:473
+#: src/qml/elements/ChatPageSendingPane.qml:462
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Verzenden"
@@ -3181,10 +3173,18 @@ msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Pin"
 
-#: src/qml/elements/SearchBarPage.qml:29
+#: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
-msgid "Search"
-msgstr "Zoeken"
+msgid "Open menu"
+msgstr "Afbeelding openen…"
+
+#: src/qml/elements/SearchBarPage.qml:75
+msgctxt "SearchBarPage|"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3196,104 +3196,104 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Een video opnemen"
 
-#: src/qml/EmptyChatPage.qml:23
+#: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Selecteer een chat om mee te beginnen"
 
-#: src/qml/GlobalDrawer.qml:55
+#: src/qml/GlobalDrawer.qml:56
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Voer uw juiste wachtwoord in"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Wachtwoord bevestigen"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:176
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Acties"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Schakel uw account in om alle beschikbare acties te gebruiken"
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Een account inschakelen om alle beschikbare acties te gebruiken"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Contactpersoon toevoegen met QR-code"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Contactpersoon toevoegen met chat-adres"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Groep aanmaken"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Groep aanmaken (niet ondersteund)"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Aan groep meedoen"
 
-#: src/qml/GlobalDrawer.qml:224
+#: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Aan groep meedoen (niet ondersteund)"
 
-#: src/qml/GlobalDrawer.qml:251
+#: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Publieke groepen doorzoeken"
 
-#: src/qml/GlobalDrawer.qml:265
+#: src/qml/GlobalDrawer.qml:266
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Info over"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
 
-#: src/qml/GlobalDrawer.qml:461
+#: src/qml/GlobalDrawer.qml:462
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/qml/GlobalDrawer.qml:468
+#: src/qml/GlobalDrawer.qml:469
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
-#: src/qml/GlobalDrawer.qml:472
+#: src/qml/GlobalDrawer.qml:473
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
@@ -3588,13 +3588,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Stap 2: aanmelden met uw geregistreerde account"
 
-#: src/qml/RosterPage.qml:29 src/qml/RosterPage.qml:206
-#: src/qml/RosterPage.qml:219
+#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
+#: src/qml/RosterPage.qml:233
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
 
-#: src/qml/RosterPage.qml:37
+#: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Pin & verplaatsen"
@@ -3689,7 +3689,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notities"
 
-#: src/RosterModel.cpp:759
+#: src/RosterModel.cpp:750
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -3723,6 +3723,18 @@ msgstr "Verjaardag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Details…"
+#~ msgstr "Details…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Zoeken afsluiten"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Zoeken"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
