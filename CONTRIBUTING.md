@@ -95,8 +95,8 @@ There are some configuration options that cannot be set via the user interface a
 
 The environment variable `KAIDAN_PROFILE` can be set to run Kaidan with custom configuration and database files.
 It defines their filename suffixes after a separating `-` while their file extensions cannot be changed.
-In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
+In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 
 ## Logging
 
