@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-01 12:20+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2026-01-29 16:22+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/Account.cpp:493
 msgctxt "Connection|"
@@ -63,9 +63,6 @@ msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
 #: src/Account.cpp:520
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Authentication protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
@@ -141,11 +138,14 @@ msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
 #: src/ChatHintModel.cpp:256
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Your account is disabled - Messages are exchanged once connected"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your account is not enabled - Messages are sent and received once enabled"
 msgstr ""
-"Hesabınız etkin değil — İletiler, etkinleştirildiğinde gönderilir ve alınır"
+"Hesabınız devre dışı — İletiler, bağlı olduğunuzda gönderilir ve alınır"
 
 #: src/ChatHintModel.cpp:257 src/ChatHintModel.cpp:267
 #: src/ChatHintModel.cpp:311 src/ChatHintModel.cpp:332
@@ -244,12 +244,9 @@ msgid "Leaving group chat"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
 #: src/FileSharingController.cpp:315 src/FileSharingController.cpp:458
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Cancel reply"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Yanıtı iptal et"
+msgstr "İptal Edildi"
 
 #: src/FileSharingController.cpp:346
 #, qt-format
@@ -260,44 +257,34 @@ msgstr "Dosya indirilemedi: %1"
 #: src/FileSharingController.cpp:397
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Ortam paylaşma desteği durumu bilinmiyor"
 
 #: src/FileSharingController.cpp:402
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Özellik desteklenmiyor"
+msgstr "Ortam paylaşımı özelliği desteklenmiyor"
 
 #: src/FileSharingController.cpp:527
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "Dosya indirilemedi: %1"
+msgstr "Dosya karşıya yüklenemedi: %1"
 
 #: src/FileSharingController.cpp:659
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Aktarım iptal edildi"
 
 #: src/FileSharingController.cpp:665
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Karşıya yükleme başarısız: %1"
+msgstr "Aktarım başarısız: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Seçimi kaydet"
+msgstr "Seçim yok"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -486,12 +473,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
 
 #: src/MessageController.cpp:287
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "İleti gönderilemedi."
+msgstr "İleti gönderilemedi"
 
 #: src/MessageController.cpp:291
 msgctxt "MessageController|"
@@ -677,9 +661,6 @@ msgid "Offline"
 msgstr "Çevrimdışı"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Özel sağlayıcı"
@@ -688,17 +669,12 @@ msgstr "Özel sağlayıcı"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Sınırsız"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 gün"
@@ -1205,12 +1181,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Değişiklikleri Uygula"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Değişiklikler uygulanıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -2243,14 +2219,17 @@ msgid "Remove selected file"
 msgstr "Seçili Dosyayı Kaldır"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:60
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open file in folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "Seçili dosyanın klasörünü aç"
+msgstr "Dosyanın klasörünü aç"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:73
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Yeniden Gönder"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2298,11 +2277,17 @@ msgid "Close search"
 msgstr "Aramayı kapat"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr "Yukarı doğru ara"
+msgstr "Ara"
 
 #: src/qml/elements/ChatPageSearchView.qml:92
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search downwards"
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Aşağı doğru ara"
@@ -2408,12 +2393,9 @@ msgid "Add"
 msgstr "Ekle"
 
 #: src/qml/elements/ContactAdditionContent.qml:42
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "Kişiye güvenme kararı verildi — 2. adımla sürdürün"
+msgstr "Kişiye güvenme kararı verildi"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2471,9 +2453,6 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "2. Adım: Kişinizin, <b>sizin</b> kare kodunuzu taramasına izin verin"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
-#, fuzzy
-#| msgctxt "ContactInvitationHintDelegate|"
-#| msgid "Invite contacts to this group…"
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
 msgstr "Kişileri Bu Gruba Davet Et…"
@@ -2516,7 +2495,7 @@ msgstr "Kapı:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Düz kimlik doğrulama (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2524,6 +2503,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Sağlayıcınız LDAP kullanıyorsa gereklidir; bu, tek bir hesapla oturum "
+"açabileceğiniz kuruluşlarda sıklıkla karşılaşılan bir durumdur."
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2788,12 +2769,9 @@ msgid "Scan login QR code"
 msgstr "Oturum Açma Kare Kodunu Tara"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Bağlantı ayarlarını değiştir"
+msgstr "Bağlantı ayarlarını göster"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2866,63 +2844,53 @@ msgid "Retry updating reactions"
 msgstr "Tepkileri güncellemeyi yeniden dene"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Kaydolma başarısız:"
+msgstr "Kaidan ile kaydol"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Yalnızca doğrudan Kaidan ile hesap oluşturmayı destekleyen sağlayıcıları "
+"göster"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Sohbete açık"
+msgstr "Ücretsiz"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Yalnızca ücret almayan sağlayıcıları göster"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Parola"
+msgstr "Parolayı sıfırla"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Yalnızca parolanızı sıfırlamaya izin veren sağlayıcıları göster"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "Yeşil barınma"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
-msgstr ""
+msgstr "Yalnızca yenilenebilir enerjiyle çalışan sağlayıcıları göster"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Veri yolu çarpanı"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Konum"
@@ -2932,51 +2900,37 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Yalnızca verileri seçili ülkede depolayan ve işleyen sağlayıcıları göster"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Paylaşılan ortamın en büyük boyutu"
+msgstr "Paylaşılan ortamın boyutu"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Paylaşılan ortamın en büyük boyutu"
+msgstr "Paylaşılan ortamın toplam boyutu"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "İleti depolama süresi"
+msgstr "Ortam depolama süresi"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "İleti depolama süresi"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Uygun"
+msgstr "Uygunluk"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Organizasyon"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, qt-format
@@ -3396,9 +3350,6 @@ msgstr "Sağlayıcı Seç"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
 #: src/qml/registration/ProviderPage.qml:283
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "Süz"
@@ -3414,17 +3365,14 @@ msgid "Provider Address"
 msgstr "Sağlayıcı Adresi"
 
 #: src/qml/registration/ProviderPage.qml:128
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Bağlantı ayarlarını değiştir"
+msgstr "Bağlantı ayarlarını göster"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Veri depolama/işleme konumları"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3442,9 +3390,6 @@ msgid "Maximum size of shared media"
 msgstr "Paylaşılan ortamın en büyük boyutu"
 
 #: src/qml/registration/ProviderPage.qml:195
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "İleti depolama süresi"
@@ -3616,13 +3561,17 @@ msgid "%1 is online"
 msgstr "%1 çevrimiçi"
 
 #: src/QmlUtils.cpp:240
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 is typing…"
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 yazıyor…"
 
 #: src/QmlUtils.cpp:242
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 paused typing"
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
@@ -3716,25 +3665,81 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
 
+#~ msgctxt "NotificationController|"
+#~ msgid "Incoming call from %1"
+#~ msgstr "%1 kişisinden gelen arama"
+
+#~ msgctxt "NotificationController|"
+#~ msgid "Incoming video call from %1"
+#~ msgstr "%1 kişisinden gelen görüntülü arama"
+
+#~ msgctxt "NotificationController|"
+#~ msgid "Accept"
+#~ msgstr "Kabul Et"
+
+#~ msgctxt "NotificationController|"
+#~ msgid "Reject"
+#~ msgstr "Reddet"
+
+#~ msgctxt "CallPage|"
+#~ msgid "Call"
+#~ msgstr "Ara"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Open audio call"
+#~ msgstr "Sesli Aramayı Aç"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Start audio call"
+#~ msgstr "Sesli Arama Başlat"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Open video call"
+#~ msgstr "Görüntülü Aramayı Aç"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Start video call"
+#~ msgstr "Görüntülü Arama Başlat"
+
+#~| msgctxt "ChatPageSearchView|"
+#~| msgid "Search up"
+#~ msgctxt "ChatPage|"
+#~ msgid "Search upwards"
+#~ msgstr "Yukarı doğru ara"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Quit search"
+#~ msgstr "Aramadan çık"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Indicate when you are typing"
+#~ msgstr "İleti yazarken belirt"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Indicate when you are typing"
+#~ msgstr "İleti yazarken belirt"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove file"
+#~ msgstr "Dosyayı kaldır"
+
+#~| msgctxt "AvatarChangePage|"
+#~| msgid "Open image…"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Open menu"
+#~ msgstr "Menüyü aç"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Go back"
+#~ msgstr "Geri git"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Sunucu konumları"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Bağlantı ayarlarını değiştirmek için farklı değerler gir"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Avatarı büyüt"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Avatarı büyüt"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kişi halihazırda var"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Sohbet aç"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -3744,9 +3749,21 @@ msgstr "Web sitesi"
 #~ msgid "Connection settings"
 #~ msgstr "Bağlantı ayarları"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Sunucu konumları"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kişi halihazırda var"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Sohbet aç"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Avatarı büyüt"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Avatarı büyüt"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
