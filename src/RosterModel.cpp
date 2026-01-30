@@ -599,8 +599,16 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
     itr->lastMessageDateTime = newLastMessage.timestamp;
     itr->lastMessageDeliveryState = newLastMessage.deliveryState;
     itr->lastMessage = newLastMessage.previewText();
+    itr->lastMessageIsOwn = newLastMessage.isOwn;
 
-    updateOnDraftMessageChange(itr);
+    QList<int> changedRoles = {int(LastMessageDateTimeRole), int(LastMessageRole), int(LastMessageIsDraftRole), int(LastMessageIsOwnRole)};
+
+    if (itr->isGroupChat()) {
+        itr->lastMessageGroupChatSenderName = newLastMessage.groupChatSenderName;
+        changedRoles.append(int(LastMessageGroupChatSenderNameRole));
+    }
+
+    updateOnMessageChange(itr, changedRoles);
 }
 
 QList<int> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)

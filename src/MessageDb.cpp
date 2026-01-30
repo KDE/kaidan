@@ -628,7 +628,10 @@ Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &c
     auto messages = _fetchMessagesFromQuery(query);
 
     if (!messages.isEmpty()) {
-        return messages.first();
+        auto &message = messages.first();
+        _fetchGroupChatUser(message);
+
+        return message;
     }
 
     return {};
