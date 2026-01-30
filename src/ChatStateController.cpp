@@ -137,3 +137,5 @@ void ChatStateController::resetChatStateOnDisablingSetting()
         sendChatState(QXmppMessage::State::Inactive);
     }
 }
+
+#include "moc_ChatStateController.cpp"

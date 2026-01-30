@@ -109,3 +109,5 @@ void ChatStateCache::removeChatState(const QString &jid)
         Q_EMIT chatStateChanged(jid);
     }
 }
+
+#include "moc_ChatStateCache.cpp"
