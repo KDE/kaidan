@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-27 12:18+0300\n"
+"PO-Revision-Date: 2026-01-29 16:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -150,14 +150,10 @@ msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Hesabınız etkin değil — İletiler, etkinleştirildiğinde gönderilir ve alınır"
+"Hesabınız devre dışı — İletiler, bağlı olduğunuzda gönderilir ve alınır"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -749,17 +745,11 @@ msgid "Start video call"
 msgstr "Görüntülü Arama Başlat"
 
 #: src/qml/ChatPage.qml:140
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Yukarı doğru ara"
 
 #: src/qml/ChatPage.qml:151
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Aşağı doğru ara"
@@ -3151,17 +3141,14 @@ msgid "Pin"
 msgstr "Sabitle"
 
 #: src/qml/elements/SearchBarPage.qml:65
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Görsel aç…"
+msgstr "Menüyü aç"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Geri git"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"

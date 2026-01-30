@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 16:36+0100\n"
-"PO-Revision-Date: 2026-01-28 21:19+0100\n"
+"PO-Revision-Date: 2026-01-29 20:17+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -760,17 +760,11 @@ msgid "Start video call"
 msgstr "Iniciar videollamada"
 
 #: src/qml/ChatPage.qml:140
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Buscar hacia arriba"
 
 #: src/qml/ChatPage.qml:151
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Buscar hacia abajo"
@@ -3198,17 +3192,14 @@ msgid "Pin"
 msgstr "Fijar"
 
 #: src/qml/elements/SearchBarPage.qml:65
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Abrir imagen…"
+msgstr "Abrir menú"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Volver"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3746,15 +3737,3 @@ msgstr "Cumpleaños"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Details…"
-#~ msgstr "Detalles…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Cerrar la búsqueda"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Buscar"
