@@ -113,7 +113,17 @@ SearchBarPage {
 		ToolbarCallButton {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
 			source: "call-start-symbolic"
-			visible: !root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length && (!MainController.activeCall || MainController.activeCall.audioOnly)
+			visible: {
+				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length) {
+					if (MainController.activeCall) {
+						return MainController.activeCall.audioOnly
+					}
+
+					return !root.chatController.rosterItem.isGroupChat && !root.chatController.rosterItem.isNotesChat
+				}
+
+				return false
+			}
 			onClicked: {
 				if (MainController.activeCall) {
 					openPage(callPage)
@@ -126,7 +136,17 @@ SearchBarPage {
 		ToolbarCallButton {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
 			source: "camera-video-symbolic"
-			visible: !root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length && (!MainController.activeCall || !MainController.activeCall.audioOnly)
+			visible: {
+				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length) {
+					if (MainController.activeCall) {
+						return !MainController.activeCall.audioOnly
+					}
+
+					return !root.chatController.rosterItem.isGroupChat && !root.chatController.rosterItem.isNotesChat
+				}
+
+				return false
+			}
 			onClicked: {
 				if (MainController.activeCall) {
 					openPage(callPage)

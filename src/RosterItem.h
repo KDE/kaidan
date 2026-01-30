@@ -29,6 +29,7 @@ struct RosterItem {
     Q_PROPERTY(QString displayName READ displayName CONSTANT)
     Q_PROPERTY(bool sendingPresence READ isSendingPresence CONSTANT)
     Q_PROPERTY(bool receivingPresence READ isReceivingPresence CONSTANT)
+    Q_PROPERTY(bool isNotesChat READ isNotesChat CONSTANT)
     Q_PROPERTY(bool isProviderChat READ isProviderChat CONSTANT)
     Q_PROPERTY(bool isGroupChat READ isGroupChat CONSTANT)
     Q_PROPERTY(bool isPublicGroupChat READ isPublicGroupChat CONSTANT)
