@@ -180,7 +180,24 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Remove from this device")
 			source: "edit-delete-symbolic"
 			contextMenu: root
-			onClicked: root.message.chatController.messageModel.removeMessage(root.message.msgId)
+			onClicked: {
+				root.currentIndexResetOnClosing = false
+
+				if (root.message.messageListView.currentIndex === root.message.messageListView.previousCurrentIndex) {
+					// Ensure that no message is highlighted after removing the message if it was already highlighted before opening the context menu.
+					// That is needed because the current index would otherwise be set to the original index of the removed message.
+					root.message.messageListView.resetCurrentIndex()
+				} else {
+					// Ensure that the previous current item is highlighted again after root.message is removed from the model.
+					// That cannot be done on closing the context menu because if the message is removed from its ListView afterwards, the current index is set to the original index of the removed message.
+					root.message.messageListView.restorePreviousCurrentIndex()
+				}
+
+				root.message.sendingPane.cancelOngoingCorrection(root.message.msgId)
+				root.message.sendingPane.cancelOngoingReply(root.message.msgId)
+
+				root.message.chatController.messageModel.removeMessage(root.message.msgId)
+			}
 		}
 	}
 

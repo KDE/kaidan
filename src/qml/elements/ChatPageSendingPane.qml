@@ -99,14 +99,7 @@ Controls.Pane {
 				id: replyCancelingButton
 				Controls.ToolTip.text: qsTr("Cancel reply")
 				source: "window-close-symbolic"
-				onClicked: {
-					root.composition.replyToJid = ""
-					root.composition.replyToGroupChatParticipantId = ""
-					root.composition.replyToName = ""
-					root.composition.replyId = ""
-					root.composition.replyQuote = ""
-					root.forceActiveFocus()
-				}
+				onClicked: root.cancelReply()
 			}
 		}
 
@@ -630,19 +623,6 @@ Controls.Pane {
 		prepareCorrection(message.msgId, message.replyToJid, message.replyToGroupChatParticipantId, message.replyToName, message.replyId, message.replyQuote, message.messageBody, message.spoilerHint)
 	}
 
-	function setCurrentItemToMessageBeingCorrected() {
-		const replaceId = composition.replaceId
-
-		if (replaceId) {
-			root.chatPage.messageListView.currentIndex = root.chatPage.chatController.messageModel.searchMessageById(replaceId)
-		}
-	}
-
-	function cancelCorrection() {
-		composition.clear()
-		clear()
-	}
-
 	function prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
 		messageArea.text = body
 		spoilerHintArea.text = spoilerHint
@@ -652,12 +632,45 @@ Controls.Pane {
 		forceActiveFocus()
 	}
 
+	function setCurrentItemToMessageBeingCorrected() {
+		const replaceId = composition.replaceId
+
+		if (replaceId) {
+			root.chatPage.messageListView.currentIndex = root.chatPage.chatController.messageModel.searchMessageById(replaceId)
+		}
+	}
+
+	function cancelOngoingCorrection(messageId) {
+		if (root.composition.replaceId === messageId) {
+			cancelCorrection()
+		}
+	}
+
+	function cancelCorrection() {
+		composition.clear()
+		clear()
+	}
+
 	function prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote) {
 		composition.replyToJid = replyToJid
 		composition.replyToGroupChatParticipantId = replyToGroupChatParticipantId
 		composition.replyToName = replyToName
 		composition.replyId = replyId
 		composition.replyQuote = replyQuote
+	}
+
+	function cancelOngoingReply(messageId) {
+		if (root.composition.replyId === messageId) {
+			cancelReply()
+		}
+	}
+
+	function cancelReply() {
+		root.composition.replyToJid = ""
+		root.composition.replyToGroupChatParticipantId = ""
+		root.composition.replyToName = ""
+		root.composition.replyId = ""
+		root.composition.replyQuote = ""
 	}
 
 	/**
