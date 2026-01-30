@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop-application">
   <id>im.kaidan.kaidan</id>
-  <name>Kaidan</name>
   <name xml:lang="ar">كيدان</name>
+  <name>Kaidan</name>
   <name xml:lang="ca">Kaidan</name>
   <name xml:lang="ca-valencia">Kaidan</name>
   <name xml:lang="cs">Kaidan</name>
@@ -35,8 +35,8 @@
   <name xml:lang="uk">Kaidan</name>
   <name xml:lang="zh-CN">Kaidan</name>
   <name xml:lang="zh-TW">Kaidan</name>
-  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ar">تطبيق دردشة حديث لكل جهاز</summary>
+  <summary>Modern chat app for every device</summary>
   <summary xml:lang="ca">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="ca-valencia">Aplicació moderna de xat per a tots els dispositius</summary>
   <summary xml:lang="cs">Moderní klient pro rozhovory pro každé zařízení</summary>
@@ -146,8 +146,8 @@
   <translation type="qt">kaidan_qt</translation>
   <screenshots>
     <screenshot type="default">
-      <caption>Chat List and Chat in Landscape Mode</caption>
       <caption xml:lang="ar">قائمة الدردشة والدردشة في الوضع الأفقي</caption>
+      <caption>Chat List and Chat in Landscape Mode</caption>
       <caption xml:lang="ca">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="ca-valencia">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="es">Lista de conversaciones y conversación en modo apaisado</caption>
@@ -168,8 +168,8 @@
       <image type="source">https://www.kaidan.im/images/screenshots/screenshot-horizontal.png</image>
     </screenshot>
     <screenshot>
-      <caption>Chat in Portrait Mode</caption>
       <caption xml:lang="ar">الدردشة في الوضع الرأسي</caption>
+      <caption>Chat in Portrait Mode</caption>
       <caption xml:lang="ca">Xat en mode retrat</caption>
       <caption xml:lang="ca-valencia">Xat en mode retrat</caption>
       <caption xml:lang="es">Conversación en modo retrato</caption>
@@ -191,38 +191,76 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.15.0" date="2026-01-30T00:00:00Z">
+      <description>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>Add support for audio/video calls (XEP-0166: Jingle, XEP-0167: Jingle RTP Sessions, XEP-0176: Jingle ICE-UDP Transport Method, XEP-0215: External Service Discovery, XEP-0320: Use of DTLS-SRTP in Jingle Sessions, XEP-0353: Jingle Message Initiation) (@melvo)</li>
+          <li>Show busy indicator while saving captured image/video data (@melvo)</li>
+          <li>Notify on receiving reply to own group chat message if 'On mention' notification setting is enabled (@melvo)</li>
+          <li>Select file after opening in folder on Linux if supported (@melvo)</li>
+          <li>Improve media capturing look/behavior (including preview after capturing image until image is saved) (@melvo)</li>
+          <li>Restore focusing of last focused user interface elements (especially message input field) for various use cases (@melvo)</li>
+          <li>Keep message bubble highlighted on reacting/correcting (@melvo)</li>
+          <li>Allow to select message for correction via Ctrl+Up/Ctrl+Down (@melvo)</li>
+          <li>Integrate search field into main toolbar increasing space for messages and, on mobile devices, even for chats in chat list (@melvo)</li>
+          <li>Show message search field via Ctrl+Shift+F (@melvo)</li>
+          <li>Display toolbar buttons on mobile devices exactly as on desktop devices (@melvo)</li>
+          <li>Hide horizontal separator above top-most chat unless chat list is scrolled (@melvo)</li>
+          <li>Store passwords in unencrypted file if no password manager is available or corresponding command-line option provided (@fazevedo)</li>
+          <li>Migrate unencrypted passwords to password manager if available on start (@fazevedo)</li>
+        </ul>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Fix overlapping message bubble tail (@melvo)</li>
+          <li>Fix medium preview hovering if hidden drop area info is hovered (@melvo)</li>
+          <li>Fix updating OMEMO 2 keys for all use cases (@melvo)</li>
+          <li>Fix deadlock on logout during upload of multiple files (@melvo)</li>
+          <li>Fix creating additional database connection on wrong thread (@melvo)</li>
+          <li>Fix sending/resetting whether message is being composed for various corner cases (switching chat, logging out, disabling corresponding setting) (@melvo)</li>
+          <li>Fix updating last message on receiving initial message after setting up existing account in Kaidan for first time (@melvo)</li>
+          <li>Fix resetting draft message after canceling message correction (@melvo)</li>
+          <li>Fix resending failed message reaction (@melvo)</li>
+          <li>Fix selecting previously selected message after changing reactions (@melvo)</li>
+          <li>Fix restoring message highlighting and cancel ongoing correction/reply on removing corresponding message (@melvo)</li>
+          <li>Fix displaying last message sender in chat list after draft message removal (@melvo)</li>
+        </ul>
+        <p>Kaidan requires Kirigami Addons 1.8 now</p>
+        <p>Kaidan requires QXmpp 1.14 now</p>
+      </description>
+    </release>
     <release type="stable" version="0.14.0" date="2026-01-01T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Keep draft messages on top of pinned/unpinned chat list items (pehg)</li>
-          <li>Optimize thumbnail creation (fazevedo)</li>
-          <li>Display border around searched/referenced message instead of bar (melvo)</li>
-          <li>Display border around message if its context menu is shown (melvo)</li>
-          <li>Highlight message's avatar if hovered (melvo)</li>
-          <li>Display provider chat (used for welcome messages and service announcements) as such (melvo)</li>
-          <li>Always display same name and proper avatar initials for notes chats (melvo)</li>
-          <li>Allow to cancel downloads/uploads (fazevedo)</li>
-          <li>Allow to restart canceled uploads (fazevedo)</li>
-          <li>Allow to resend failed message via context menu (melvo)</li>
-          <li>Retrieve support addresses from server instead of provider list (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (melvo)</li>
-          <li>Allow adding contact by entering XMPP URI (including authentication of OMEMO 2 keys) (melvo)</li>
-          <li>Allow joining group chat by entering XMPP URI (melvo)</li>
-          <li>Add option for allowing SASL PLAIN (needed for servers using LDAP) to custom connection settings (melvo)</li>
-          <li>Add filtering options to choose provider for registration (melvo)</li>
-          <li>Cancel file transfers on disconnecting from server (fazevedo)</li>
-          <li>Add support for offline media sharing queue (fazevedo)</li>
-          <li>Restart downloads canceled on logout once logged in (melvo)</li>
-          <li>Remove all related data on message removal (such as reactions and media) (melvo)</li>
+          <li>Keep draft messages on top of pinned/unpinned chat list items (@pehg)</li>
+          <li>Optimize thumbnail creation (@fazevedo)</li>
+          <li>Display border around searched/referenced message instead of bar (@melvo)</li>
+          <li>Display border around message if its context menu is shown (@melvo)</li>
+          <li>Highlight message's avatar if hovered (@melvo)</li>
+          <li>Display provider chat (used for welcome messages and service announcements) as such (@melvo)</li>
+          <li>Always display same name and proper avatar initials for notes chats (@melvo)</li>
+          <li>Allow to cancel downloads/uploads (@fazevedo)</li>
+          <li>Allow to restart canceled uploads (@fazevedo)</li>
+          <li>Allow to resend failed message via context menu (@melvo)</li>
+          <li>Retrieve support addresses from server instead of provider list (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (@melvo)</li>
+          <li>Allow adding contact by entering XMPP URI (including authentication of OMEMO 2 keys) (@melvo)</li>
+          <li>Allow joining group chat by entering XMPP URI (@melvo)</li>
+          <li>Add option for allowing SASL PLAIN (needed for servers using LDAP) to custom connection settings (@melvo)</li>
+          <li>Add filtering options to choose provider for registration (@melvo)</li>
+          <li>Cancel file transfers on disconnecting from server (@fazevedo)</li>
+          <li>Add support for offline media sharing queue (@fazevedo)</li>
+          <li>Restart downloads canceled on logout once logged in (@melvo)</li>
+          <li>Remove all related data on message removal (such as reactions and media) (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix displaying message reaction details (melvo)</li>
-          <li>Fix adding unneeded separator on mention after new line (melvo)</li>
-          <li>Wrap hint for actions needing user to be connected to server (melvo)</li>
-          <li>Fix displaying icons on Windows (pehg)</li>
-          <li>Fix adding new line at cursor position (melvo)</li>
-          <li>Ensure that own encryption devices are not removed if notes chat is removed (melvo)</li>
+          <li>Fix displaying message reaction details (@melvo)</li>
+          <li>Fix adding unneeded separator on mention after new line (@melvo)</li>
+          <li>Wrap hint for actions needing user to be connected to server (@melvo)</li>
+          <li>Fix displaying icons on Windows (@pehg)</li>
+          <li>Fix adding new line at cursor position (@melvo)</li>
+          <li>Ensure that own encryption devices are not removed if notes chat is removed (@melvo)</li>
         </ul>
         <p>Kaidan requires KIconThemes (for Windows) now</p>
         <p>Kaidan requires Qt6GuiPrivate (for Qt 6.10 or above) now</p>
@@ -234,39 +272,39 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Add support for using multiple accounts simultaneously (melvo)</li>
-          <li>List accounts and show button to add new accounts (melvo)</li>
-          <li>Show dialog to select account for global action such as adding a contact (melvo)</li>
-          <li>Allow to enable/disable accounts instead of connecting/disconnecting them manually (melvo)</li>
-          <li>Update nicknames of own accounts once connected (melvo)</li>
-          <li>Show small account avatars next to regular avatars if multiple accounts are used (melvo)</li>
-          <li>Hide global drawer handle on chat if window is narrow (melvo)</li>
-          <li>Use PNG/.png instead of JPEG/.jpg for thumbnails to allow transparency (melvo)</li>
-          <li>Use AAC/.m4a instead of MP3/.mp3 for voice messages to improve compatibility (melvo)</li>
-          <li>Provide size of sent images to recipients allowing receiving client to scale thumbnails to size of original image (melvo)</li>
-          <li>Provide size of generated thumbnails to recipients (melvo)</li>
-          <li>Increase size of generated thumbnails (melvo)</li>
-          <li>Show circle instead of bar for upload/download progress (melvo)</li>
-          <li>Try all providers on connection error during automatic registration (melvo)</li>
-          <li>Add message forwarding (melvo)</li>
-          <li>Enable voice message recording via Flatpak (melvo)</li>
-          <li>Store account passwords encrypted if password manager is available (fazevedo)</li>
-          <li>Apply consistent criteria for all message corrections (melvo)</li>
-          <li>Add support to mark messages locally in order to reply to them later or to quickly find important messages (melvo)</li>
-          <li>Reuse SASL 2 user agent and FAST token on every restart for faster connection establishment (melvo)</li>
+          <li>Add support for using multiple accounts simultaneously (@melvo)</li>
+          <li>List accounts and show button to add new accounts (@melvo)</li>
+          <li>Show dialog to select account for global action such as adding a contact (@melvo)</li>
+          <li>Allow to enable/disable accounts instead of connecting/disconnecting them manually (@melvo)</li>
+          <li>Update nicknames of own accounts once connected (@melvo)</li>
+          <li>Show small account avatars next to regular avatars if multiple accounts are used (@melvo)</li>
+          <li>Hide global drawer handle on chat if window is narrow (@melvo)</li>
+          <li>Use PNG/.png instead of JPEG/.jpg for thumbnails to allow transparency (@melvo)</li>
+          <li>Use AAC/.m4a instead of MP3/.mp3 for voice messages to improve compatibility (@melvo)</li>
+          <li>Provide size of sent images to recipients allowing receiving client to scale thumbnails to size of original image (@melvo)</li>
+          <li>Provide size of generated thumbnails to recipients (@melvo)</li>
+          <li>Increase size of generated thumbnails (@melvo)</li>
+          <li>Show circle instead of bar for upload/download progress (@melvo)</li>
+          <li>Try all providers on connection error during automatic registration (@melvo)</li>
+          <li>Add message forwarding (@melvo)</li>
+          <li>Enable voice message recording via Flatpak (@melvo)</li>
+          <li>Store account passwords encrypted if password manager is available (@fazevedo)</li>
+          <li>Apply consistent criteria for all message corrections (@melvo)</li>
+          <li>Add support to mark messages locally in order to reply to them later or to quickly find important messages (@melvo)</li>
+          <li>Reuse SASL 2 user agent and FAST token on every restart for faster connection establishment (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix selecting media via long press in media overview (melvo)</li>
-          <li>Fix OMEMO initialization (melvo)</li>
-          <li>Fix displaying geo location map (melvo)</li>
-          <li>Fix showing hints on invalid input of various input fields (melvo)</li>
-          <li>Fix name/date of chat list item moving if counter for unread messages dis-/appears (melvo)</li>
-          <li>Fix counter for unread messages (melvo)</li>
-          <li>Fix handling removed message reactions (melvo)</li>
-          <li>Fix canceling personal data sharing via contact details (melvo)</li>
-          <li>Fix finding existing notifications for personal data sharing requests (melvo)</li>
-          <li>Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (melvo)</li>
+          <li>Fix selecting media via long press in media overview (@melvo)</li>
+          <li>Fix OMEMO initialization (@melvo)</li>
+          <li>Fix displaying geo location map (@melvo)</li>
+          <li>Fix showing hints on invalid input of various input fields (@melvo)</li>
+          <li>Fix name/date of chat list item moving if counter for unread messages dis-/appears (@melvo)</li>
+          <li>Fix counter for unread messages (@melvo)</li>
+          <li>Fix handling removed message reactions (@melvo)</li>
+          <li>Fix canceling personal data sharing via contact details (@melvo)</li>
+          <li>Fix finding existing notifications for personal data sharing requests (@melvo)</li>
+          <li>Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (@melvo)</li>
         </ul>
         <p>Kaidan requires QtKeychain 0.15 now</p>
         <p>Kaidan requires QXmpp 1.11 now</p>
@@ -276,8 +314,8 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix removing corrected message (melvo)</li>
-          <li>Fix showing message bubble tail only for first message of sender (melvo)</li>
+          <li>Fix removing corrected message (@melvo)</li>
+          <li>Fix showing message bubble tail only for first message of sender (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -285,17 +323,17 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Do not highlight unpinned chats when pinned chat is moved (melvo)</li>
-          <li>Fix deleting/sending voice messages (melvo)</li>
-          <li>Fix crash during login (melvo)</li>
-          <li>Fix opening chat again after going back to chat list on narrow window (melvo)</li>
-          <li>Increase tool bar height to fix avatar not being recognizable (melvo)</li>
-          <li>Fix width of search bar above chat list to take available space while showing all buttons (melvo)</li>
-          <li>Fix storing changed password (melvo)</li>
-          <li>Fix setting custom host/port for account registration (melvo)</li>
-          <li>Fix crash on chat removal (fazevedo)</li>
-          <li>Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (melvo)</li>
-          <li>Allow setting new password on error to fix not being able to log in after changing password via other device (melvo)</li>
+          <li>Do not highlight unpinned chats when pinned chat is moved (@melvo)</li>
+          <li>Fix deleting/sending voice messages (@melvo)</li>
+          <li>Fix crash during login (@melvo)</li>
+          <li>Fix opening chat again after going back to chat list on narrow window (@melvo)</li>
+          <li>Increase toolbar height to fix avatar not being recognizable (@melvo)</li>
+          <li>Fix width of search bar above chat list to take available space while showing all buttons (@melvo)</li>
+          <li>Fix storing changed password (@melvo)</li>
+          <li>Fix setting custom host/port for account registration (@melvo)</li>
+          <li>Fix crash on chat removal (@fazevedo)</li>
+          <li>Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (@melvo)</li>
+          <li>Allow setting new password on error to fix not being able to log in after changing password via other device (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -303,30 +341,30 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Use square selection to crop avatars (fazevedo)</li>
-          <li>Use background with rounded corners for chat list items (melvo)</li>
-          <li>Remove colored availability indicator from chat list item (melvo)</li>
-          <li>Display group chat participant picker above text cursor in large windows (melvo)</li>
-          <li>Do not allow to enter/send messages without visible characters (melvo)</li>
-          <li>Remove leading/trailing whitespace from exchanged messages (melvo)</li>
-          <li>Ignore received messages without displayable content if they cannot be otherwise processed (melvo)</li>
-          <li>Allow to show/hide buttons to pin/move chat list items (melvo)</li>
+          <li>Use square selection to crop avatars (@fazevedo)</li>
+          <li>Use background with rounded corners for chat list items (@melvo)</li>
+          <li>Remove colored availability indicator from chat list item (@melvo)</li>
+          <li>Display group chat participant picker above text cursor in large windows (@melvo)</li>
+          <li>Do not allow to enter/send messages without visible characters (@melvo)</li>
+          <li>Remove leading/trailing whitespace from exchanged messages (@melvo)</li>
+          <li>Ignore received messages without displayable content if they cannot be otherwise processed (@melvo)</li>
+          <li>Allow to show/hide buttons to pin/move chat list items (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix style for Flatpak (melvo)</li>
-          <li>Fix displaying video thumbnails and opening files for Flatpak (melvo)</li>
-          <li>Fix message reaction details not opening a second time (melvo)</li>
-          <li>Fix opening contact addition view on receiving XMPP URIs (melvo)</li>
-          <li>Fix format of text following emojis (melvo)</li>
-          <li>Fix eliding last message text for chat list item (melvo)</li>
-          <li>Fix unit tests (mlaurent, fazevedo, melvo)</li>
-          <li>Fix storing downloaded files with unique names (melvo)</li>
-          <li>Fix overlay to change/open avatars shown before hovered in account/contact details (melvo)</li>
-          <li>Fix verification of moved contacts (fazevedo)</li>
-          <li>Fix setting up end-to-end encryption (OMEMO 2) after account migration (melvo)</li>
+          <li>Fix style for Flatpak (@melvo)</li>
+          <li>Fix displaying video thumbnails and opening files for Flatpak (@melvo)</li>
+          <li>Fix message reaction details not opening a second time (@melvo)</li>
+          <li>Fix opening contact addition view on receiving XMPP URIs (@melvo)</li>
+          <li>Fix format of text following emojis (@melvo)</li>
+          <li>Fix eliding last message text for chat list item (@melvo)</li>
+          <li>Fix unit tests (@mlaurent, @fazevedo, @melvo)</li>
+          <li>Fix storing downloaded files with unique names (@melvo)</li>
+          <li>Fix overlay to change/open avatars shown before hovered in account/contact details (@melvo)</li>
+          <li>Fix verification of moved contacts (@fazevedo)</li>
+          <li>Fix setting up end-to-end encryption (OMEMO 2) after account migration (@melvo)</li>
         </ul>
-        <p>Kaidan requires KWindowSystem and KDSingleApplication now (mlaurent)</p>
+        <p>Kaidan requires KWindowSystem and KDSingleApplication now (@mlaurent)</p>
         <p>Kaidan requires KDE Frameworks 6.11 now</p>
         <p>Kaidan requires KQuickImageEditor 0.5 now</p>
         <p>Kaidan requires QXmpp 1.10.3 now</p>
@@ -336,35 +374,35 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Highlight public XMPP provider titles while card is expanded (melvo)</li>
-          <li>Round corners of cards and buttons (melvo)</li>
-          <li>Add fading in/out hover effect to map previews (melvo)</li>
-          <li>Collapse contact profiles by default if they have more than 3 entries (melvo)</li>
-          <li>Show colored check mark for delivered messages instead of none to avoid message bubble resizing (melvo)</li>
+          <li>Highlight public XMPP provider titles while card is expanded (@melvo)</li>
+          <li>Round corners of cards and buttons (@melvo)</li>
+          <li>Add fading in/out hover effect to map previews (@melvo)</li>
+          <li>Collapse contact profiles by default if they have more than 3 entries (@melvo)</li>
+          <li>Show colored check mark for delivered messages instead of none to avoid message bubble resizing (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix opening public MUC-based group chats via another XMPP client (melvo)</li>
-          <li>Fix playing voice messages and changing playing position (melvo)</li>
-          <li>Fix updating message reactions that could not be sent instead of adding them a second time (melvo)</li>
-          <li>Fix updating group chat users in user interface (melvo)</li>
-          <li>Fix displaying message reaction details (melvo)</li>
-          <li>Update filtering contacts by labels even if label list is not open anymore (melvo)</li>
-          <li>Fix scrolling media overview (melvo)</li>
-          <li>Fix updating draft messages (melvo)</li>
+          <li>Fix opening public MUC-based group chats via another XMPP client (@melvo)</li>
+          <li>Fix playing voice messages and changing playing position (@melvo)</li>
+          <li>Fix updating message reactions that could not be sent instead of adding them a second time (@melvo)</li>
+          <li>Fix updating group chat users in user interface (@melvo)</li>
+          <li>Fix displaying message reaction details (@melvo)</li>
+          <li>Update filtering contacts by labels even if label list is not open anymore (@melvo)</li>
+          <li>Fix scrolling media overview (@melvo)</li>
+          <li>Fix updating draft messages (@melvo)</li>
         </ul>
-        <p>Kaidan requires Qt 6.6 now (mlaurent, melvo, fazevedo, plata)</p>
+        <p>Kaidan requires Qt 6.6 now (@mlaurent, @melvo, @fazevedo, @plata)</p>
       </description>
     </release>
     <release type="stable" version="0.10.1" date="2024-12-14T00:00:00Z">
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix displaying files of each message in appropriate message bubble (melvo)</li>
-          <li>Fix sending fallback messages for clients not supporting XEP-0447: Stateless file sharing (melvo)</li>
-          <li>Fix margins within message bubbles (melvo)</li>
-          <li>Fix hiding hidden message part (melvo)</li>
-          <li>Fix displaying marker for new messages (melvo)</li>
+          <li>Fix displaying files of each message in appropriate message bubble (@melvo)</li>
+          <li>Fix sending fallback messages for clients not supporting XEP-0447: Stateless file sharing (@melvo)</li>
+          <li>Fix margins within message bubbles (@melvo)</li>
+          <li>Fix hiding hidden message part (@melvo)</li>
+          <li>Fix displaying marker for new messages (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -372,93 +410,93 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Add server address completion (fazevedo)</li>
-          <li>Allow to edit account's profile (jbb)</li>
-          <li>Store and display delivery states of message reactions (melvo)</li>
-          <li>Send pending message reactions after going online (melvo)</li>
-          <li>Enable user to resend a message reaction if it previously failed (melvo)</li>
-          <li>Open contact addition as page (mobile) or dialog (desktop) (melvo)</li>
-          <li>Add option to open chat if contact exists on adding contact (melvo)</li>
-          <li>Use consistent page with search bar for searching its content (melvo)</li>
-          <li>Add local message removal (taibsu)</li>
-          <li>Allow reacting to own messages (melvo)</li>
-          <li>Add login option to chat (melvo)</li>
-          <li>Display day of the week or "yesterday" for last messages (taibsu, melvo)</li>
-          <li>Add media overview (fazevedo, melvo)</li>
-          <li>Add contact list filtering by account and labels (i.e., roster groups) (incl. addition/removal) (melvo, tech-bash)</li>
-          <li>Add message date sections to chat (melvo)</li>
-          <li>Add support for automatic media downloads (fazevedo)</li>
-          <li>Add filtering contacts by availability (melvo)</li>
-          <li>Add item to contact list on first received direct message (melvo)</li>
-          <li>Add support for blocking chat addresses (lnj)</li>
-          <li>Improve notes chat (chat with oneself) usage (melvo)</li>
-          <li>Place avatar above chat address and name in account/contact details on narrow window (melvo)</li>
-          <li>Reload camera device for QR code scanning as soon as it is plugged in / enabled (melvo)</li>
-          <li>Provide slider for QR code scanning to adjust camera zoom (melvo)</li>
-          <li>Add contact to contact list on receiving presence subscription request (melvo)</li>
-          <li>Add encryption key authentication via entering key IDs (melvo)</li>
-          <li>Improve connecting to server and authentication (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: SRV records for XMPP over TLS) (lnj)</li>
-          <li>Support media sharing with more clients even for sharing multiple files at once (XEP-0447: Stateless file sharing v0.3) (lnj)</li>
-          <li>Display and check media upload size limit (fazevedo)</li>
-          <li>Redesign message input field to use rounded corners and resized/symbolic buttons (melvo)</li>
-          <li>Add support for moving account data to another account, informing contacts and restoring settings for moved contacts (XEP-0283: Moved) (fazevedo)</li>
-          <li>Add group chat support with invitations, user listing, participant mentioning and private/public group chat filtering (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (melvo)</li>
-          <li>Add button to cancel message correction (melvo)</li>
-          <li>Display marker for new messages (melvo)</li>
-          <li>Add enhanced account-wide and per contact notification settings depending on group chat mentions and presence (melvo)</li>
-          <li>Focus input fields appropriately (melvo)</li>
-          <li>Add support for replying to messages (XEP-0461: Message Replies) (melvo)</li>
-          <li>Indicate that Kaidan is busy during account deletion and group chat actions (melvo)</li>
-          <li>Hide account deletion button if In-Band Registration is not supported (melvo)</li>
-          <li>Embed login area in page for QR code scanning and page for web registration instead of opening start page (melvo)</li>
-          <li>Redesign onboarding user interface including new page for choosing provider to create account on (melvo)</li>
-          <li>Handle various corner cases that can occur during account creation (melvo)</li>
-          <li>Update to XMPP Providers v2 (melvo)</li>
-          <li>Hide voice message button if uploading is not supported (melvo)</li>
-          <li>Replace custom images for message delivery states with regular theme icons (melvo)</li>
-          <li>Free up message content space by hiding unneeded avatars and increasing maximum message bubble width (melvo)</li>
-          <li>Highlight draft message text to easily see what is not sent yet (melvo)</li>
-          <li>Store sent media in suitable directories with appropriate file extensions (melvo)</li>
-          <li>Allow sending media with less steps from recording to sending (melvo)</li>
-          <li>Add media to be sent in scrollable area above message input field (melvo)</li>
-          <li>Display original images (if available) as previews instead of their thumbnails (melvo)</li>
-          <li>Display high resolution thumbnails for locally stored videos as previews instead of their thumbnails (melvo)</li>
-          <li>Send smaller thumbnails (melvo)</li>
-          <li>Show camera status and reload camera once plugged in for taking pictures or recording videos (melvo)</li>
-          <li>Add zoom slider for taking pictures or recording videos (melvo)</li>
-          <li>Show overlay with description when files are dragged to be dropped on chats for being shared (melvo)</li>
-          <li>Show location previews on a map (melvo)</li>
-          <li>Open locations in user-defined way (system default, in-app, web) (melvo)</li>
-          <li>Delete media that is only captured for sending but not sent (melvo)</li>
-          <li>Add voice message recorder to message input field (melvo)</li>
-          <li>Add inline audio player (melvo)</li>
-          <li>Add context menu entry for opening directory of media files (melvo)</li>
-          <li>Show collapsible buttons to send media/locations inside of message input field (melvo)</li>
-          <li>Move button for adding hidden message part to new collapsible button area (melvo)</li>
+          <li>Add server address completion (@fazevedo)</li>
+          <li>Allow to edit account's profile (@jbbgameich)</li>
+          <li>Store and display delivery states of message reactions (@melvo)</li>
+          <li>Send pending message reactions after going online (@melvo)</li>
+          <li>Enable user to resend a message reaction if it previously failed (@melvo)</li>
+          <li>Open contact addition as page (mobile) or dialog (desktop) (@melvo)</li>
+          <li>Add option to open chat if contact exists on adding contact (@melvo)</li>
+          <li>Use consistent page with search bar for searching its content (@melvo)</li>
+          <li>Add local message removal (@taibsu)</li>
+          <li>Allow reacting to own messages (@melvo)</li>
+          <li>Add login option to chat (@melvo)</li>
+          <li>Display day of the week or "yesterday" for last messages (@taibsu, @melvo)</li>
+          <li>Add media overview (@fazevedo, @melvo)</li>
+          <li>Add contact list filtering by account and labels (i.e., roster groups) (incl. addition/removal) (@melvo, @tech-bash)</li>
+          <li>Add message date sections to chat (@melvo)</li>
+          <li>Add support for automatic media downloads (@fazevedo)</li>
+          <li>Add filtering contacts by availability (@melvo)</li>
+          <li>Add item to contact list on first received direct message (@melvo)</li>
+          <li>Add support for blocking chat addresses (@lnj)</li>
+          <li>Improve notes chat (chat with oneself) usage (@melvo)</li>
+          <li>Place avatar above chat address and name in account/contact details on narrow window (@melvo)</li>
+          <li>Reload camera device for QR code scanning as soon as it is plugged in / enabled (@melvo)</li>
+          <li>Provide slider for QR code scanning to adjust camera zoom (@melvo)</li>
+          <li>Add contact to contact list on receiving presence subscription request (@melvo)</li>
+          <li>Add encryption key authentication via entering key IDs (@melvo)</li>
+          <li>Improve connecting to server and authentication (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: SRV records for XMPP over TLS) (@lnj)</li>
+          <li>Support media sharing with more clients even for sharing multiple files at once (XEP-0447: Stateless file sharing v0.3) (@lnj)</li>
+          <li>Display and check media upload size limit (@fazevedo)</li>
+          <li>Redesign message input field to use rounded corners and resized/symbolic buttons (@melvo)</li>
+          <li>Add support for moving account data to another account, informing contacts and restoring settings for moved contacts (XEP-0283: Moved) (@fazevedo)</li>
+          <li>Add group chat support with invitations, user listing, participant mentioning and private/public group chat filtering (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
+          <li>Add button to cancel message correction (@melvo)</li>
+          <li>Display marker for new messages (@melvo)</li>
+          <li>Add enhanced account-wide and per contact notification settings depending on group chat mentions and presence (@melvo)</li>
+          <li>Focus input fields appropriately (@melvo)</li>
+          <li>Add support for replying to messages (XEP-0461: Message Replies) (@melvo)</li>
+          <li>Indicate that Kaidan is busy during account deletion and group chat actions (@melvo)</li>
+          <li>Hide account deletion button if In-Band Registration is not supported (@melvo)</li>
+          <li>Embed login area in page for QR code scanning and page for web registration instead of opening start page (@melvo)</li>
+          <li>Redesign onboarding user interface including new page for choosing provider to create account on (@melvo)</li>
+          <li>Handle various corner cases that can occur during account creation (@melvo)</li>
+          <li>Update to XMPP Providers v2 (@melvo)</li>
+          <li>Hide voice message button if uploading is not supported (@melvo)</li>
+          <li>Replace custom images for message delivery states with regular theme icons (@melvo)</li>
+          <li>Free up message content space by hiding unneeded avatars and increasing maximum message bubble width (@melvo)</li>
+          <li>Highlight draft message text to easily see what is not sent yet (@melvo)</li>
+          <li>Store sent media in suitable directories with appropriate file extensions (@melvo)</li>
+          <li>Allow sending media with less steps from recording to sending (@melvo)</li>
+          <li>Add media to be sent in scrollable area above message input field (@melvo)</li>
+          <li>Display original images (if available) as previews instead of their thumbnails (@melvo)</li>
+          <li>Display high resolution thumbnails for locally stored videos as previews instead of their thumbnails (@melvo)</li>
+          <li>Send smaller thumbnails (@melvo)</li>
+          <li>Show camera status and reload camera once plugged in for taking pictures or recording videos (@melvo)</li>
+          <li>Add zoom slider for taking pictures or recording videos (@melvo)</li>
+          <li>Show overlay with description when files are dragged to be dropped on chats for being shared (@melvo)</li>
+          <li>Show location previews on a map (@melvo)</li>
+          <li>Open locations in user-defined way (system default, in-app, web) (@melvo)</li>
+          <li>Delete media that is only captured for sending but not sent (@melvo)</li>
+          <li>Add voice message recorder to message input field (@melvo)</li>
+          <li>Add inline audio player (@melvo)</li>
+          <li>Add context menu entry for opening directory of media files (@melvo)</li>
+          <li>Show collapsible buttons to send media/locations inside of message input field (@melvo)</li>
+          <li>Move button for adding hidden message part to new collapsible button area (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix index out of range error in message search (taibsu)</li>
-          <li>Fix updating last message information in contact list (melvo)</li>
-          <li>Fix multiple corrections of the same message (melvo, taibsu)</li>
-          <li>Request delivery receipts for pending messages (melvo)</li>
-          <li>Fix sorting roster items (melvo)</li>
-          <li>Fix displaying spoiler messages (melvo)</li>
-          <li>Fix displaying errors and encryption warnings for messages (melvo)</li>
-          <li>Fix fetching messages from server's archive (melvo)</li>
-          <li>Fix various encryption problems (melvo)</li>
-          <li>Send delivery receipts for caught up messages (melvo)</li>
-          <li>Do not hide last message date if contact name is too long (melvo)</li>
-          <li>Fix displaying emojis (melvo)</li>
-          <li>Fix several OMEMO bugs (melvo)</li>
-          <li>Remove all locally stored data related to removed accounts (melvo)</li>
-          <li>Fix displaying media preview file names/sizes (melvo)</li>
-          <li>Fix disconnecting from server when application window is closed including timeout on connection problems (melvo)</li>
-          <li>Fix media/location sharing (melvo)</li>
-          <li>Fix handling emoji message reactions (melvo)</li>
-          <li>Fix moving pinned chats (fazevedo)</li>
-          <li>Fix drag and drop for files and pasting them (melvo)</li>
-          <li>Fix sending/displaying media in selected order (lnj, melvo)</li>
+          <li>Fix index out of range error in message search (@taibsu)</li>
+          <li>Fix updating last message information in contact list (@melvo)</li>
+          <li>Fix multiple corrections of the same message (@melvo, @taibsu)</li>
+          <li>Request delivery receipts for pending messages (@melvo)</li>
+          <li>Fix sorting roster items (@melvo)</li>
+          <li>Fix displaying spoiler messages (@melvo)</li>
+          <li>Fix displaying errors and encryption warnings for messages (@melvo)</li>
+          <li>Fix fetching messages from server's archive (@melvo)</li>
+          <li>Fix various encryption problems (@melvo)</li>
+          <li>Send delivery receipts for caught up messages (@melvo)</li>
+          <li>Do not hide last message date if contact name is too long (@melvo)</li>
+          <li>Fix displaying emojis (@melvo)</li>
+          <li>Fix several OMEMO bugs (@melvo)</li>
+          <li>Remove all locally stored data related to removed accounts (@melvo)</li>
+          <li>Fix displaying media preview file names/sizes (@melvo)</li>
+          <li>Fix disconnecting from server when application window is closed including timeout on connection problems (@melvo)</li>
+          <li>Fix media/location sharing (@melvo)</li>
+          <li>Fix handling emoji message reactions (@melvo)</li>
+          <li>Fix moving pinned chats (@fazevedo)</li>
+          <li>Fix drag and drop for files and pasting them (@melvo)</li>
+          <li>Fix sending/displaying media in selected order (@lnj, @melvo)</li>
         </ul>
         <p>Kaidan is REUSE-compliant now</p>
         <p>Kaidan requires Qt 5.15 and QXmpp 1.9 now</p>
@@ -468,12 +506,12 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix file extension for downloads when mime type is empty (lnj)</li>
-          <li>Fix file downloads without a source URL could be started (lnj)</li>
-          <li>Fix file messages are never marked as sent (lnj)</li>
-          <li>Fix message body of previous file selection was used (lnj)</li>
-          <li>Fix missing receipt request (for green checkmark) on media messages (lnj)</li>
-          <li>Fix outgoing encrypted media messages are displayed as unencrypted (lnj)</li>
+          <li>Fix file extension for downloads when mime type is empty (@lnj)</li>
+          <li>Fix file downloads without a source URL could be started (@lnj)</li>
+          <li>Fix file messages are never marked as sent (@lnj)</li>
+          <li>Fix message body of previous file selection was used (@lnj)</li>
+          <li>Fix missing receipt request (for green checkmark) on media messages (@lnj)</li>
+          <li>Fix outgoing encrypted media messages are displayed as unencrypted (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -482,22 +520,22 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>New message bubble design based on Tok's code (lnj)</li>
-          <li>Group messages from same author (lnj)</li>
-          <li>Introduce machine-readable DOAP file describing Kaidan's XMPP compliance (melvo)</li>
-          <li>New chat background picture (raghu)</li>
-          <li>OMEMO 2 support with easy trust management (melvo)</li>
-          <li>Read markers (melvo)</li>
-          <li>The chat page title can be clicked to open the user's profile now (mbb)</li>
-          <li>Support file sharing with multiple files per message, thumbnails and end-to-end encryption (lnj, jbb)</li>
-          <li>Restore window position on start (melvo)</li>
-          <li>Chat pinning (melvo, tech-bash)</li>
-          <li>Emoji message reactions (melvo)</li>
-          <li>The message search now also works with messages that are not displayed (taibsu)</li>
-          <li>Public group chat search (without group chat support yet) (fazevedo)</li>
-          <li>Account settings with ability to change avatar and profile information (taibsu)</li>
-          <li>Redesign of settings, redesign of user profiles as sheet instead of page (mbb)</li>
-          <li>Store message drafts locally (fazevedo)</li>
+          <li>New message bubble design based on Tok's code (@lnj)</li>
+          <li>Group messages from same author (@lnj)</li>
+          <li>Introduce machine-readable DOAP file describing Kaidan's XMPP compliance (@melvo)</li>
+          <li>New chat background picture (@raghu)</li>
+          <li>OMEMO 2 support with easy trust management (@melvo)</li>
+          <li>Read markers (@melvo)</li>
+          <li>The chat page title can be clicked to open the user's profile now (@mbruchert)</li>
+          <li>Support file sharing with multiple files per message, thumbnails and end-to-end encryption (@lnj, @jbbgameich)</li>
+          <li>Restore window position on start (@melvo)</li>
+          <li>Chat pinning (@melvo, @tech-bash)</li>
+          <li>Emoji message reactions (@melvo)</li>
+          <li>The message search now also works with messages that are not displayed (@taibsu)</li>
+          <li>Public group chat search (without group chat support yet) (@fazevedo)</li>
+          <li>Account settings with ability to change avatar and profile information (@taibsu)</li>
+          <li>Redesign of settings, redesign of user profiles as sheet instead of page (@mbruchert)</li>
+          <li>Store message drafts locally (@fazevedo)</li>
         </ul>
         <p>We switched from Weblate to the KDE translation system</p>
       </description>
@@ -506,12 +544,12 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Add typing notifications (XEP-0085: Chat State Notifications) (jbb)</li>
-          <li>Add message history syncing (XEP-0313: Message Archive Management) (lnj)</li>
-          <li>Window size is restored (melvo)</li>
-          <li>The server's website link is displayed if account creation is disabled (melvo)</li>
-          <li>Use breeze theme on macOS (jbb)</li>
-          <li>Improved user strings &amp; descriptions (melvo)</li>
+          <li>Add typing notifications (XEP-0085: Chat State Notifications) (@jbbgameich)</li>
+          <li>Add message history syncing (XEP-0313: Message Archive Management) (@lnj)</li>
+          <li>Window size is restored (@melvo)</li>
+          <li>The server's website link is displayed if account creation is disabled (@melvo)</li>
+          <li>Use breeze theme on macOS (@jbbgameich)</li>
+          <li>Improved user strings &amp; descriptions (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -519,23 +557,23 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Display client information (name, version, OS) of contacts (jbb, lnj)</li>
-          <li>Drag'n'drop for sending files (jbb)</li>
-          <li>Allow pasting images from the clipboard (Ctrl+Shift+V) into the chat (jbb)</li>
-          <li>Allow inserting newlines using Shift+Enter (jbb)</li>
-          <li>Add configuration of custom hostname/port (jbb, melvo)</li>
-          <li>Favourite emojis are shown by default now (melvo)</li>
-          <li>Search emojis after entering colon (melvo)</li>
-          <li>Display connection errors in the global drawer after login (melvo)</li>
-          <li>Improved design of media preview sheets (jbb)</li>
-          <li>Restructure message sending bar (melvo)</li>
+          <li>Display client information (name, version, OS) of contacts (@jbbgameich, @lnj)</li>
+          <li>Drag'n'drop for sending files (@jbbgameich)</li>
+          <li>Allow pasting images from the clipboard (Ctrl+Shift+V) into the chat (@jbbgameich)</li>
+          <li>Allow inserting newlines using Shift+Enter (@jbbgameich)</li>
+          <li>Add configuration of custom hostname/port (@jbbgameich, @melvo)</li>
+          <li>Favourite emojis are shown by default now (@melvo)</li>
+          <li>Search emojis after entering colon (@melvo)</li>
+          <li>Display connection errors in the global drawer after login (@melvo)</li>
+          <li>Improved design of media preview sheets (@jbbgameich)</li>
+          <li>Restructure message sending bar (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Do not interpret random URLs as files anymore (lnj)</li>
-          <li>Fix the style of buttons when using Material style (melvo)</li>
-          <li>Fix file dialog and media drawer opening in some cases (melvo)</li>
-          <li>Fix opening of the LoginPage when scanning QR code without password (melvo)</li>
+          <li>Do not interpret random URLs as files anymore (@lnj)</li>
+          <li>Fix the style of buttons when using Material style (@melvo)</li>
+          <li>Fix file dialog and media drawer opening in some cases (@melvo)</li>
+          <li>Fix opening of the LoginPage when scanning QR code without password (@melvo)</li>
         </ul>
         <p>Kaidan requires Qt 5.14 now</p>
       </description>
@@ -544,32 +582,32 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>When offline, messages are cached now to be sent later (yugubich)</li>
-          <li>It's allowed to also correct other messages than the last one now (yugubich)</li>
-          <li>Also pending (unsent) messages can be corrected now (yugubich)</li>
-          <li>Chats can be opened from the notifications now (melvo, jbb, cacahueto)</li>
-          <li>New option to permanently hide your password in Kaidan (melvo)</li>
-          <li>New buttons for easily copying your jid and password (jbb, fazevedo)</li>
-          <li>Moved account management pages into the settings (jbb)</li>
-          <li>The cursor is moved to the end of the text field when correcting a message now (melvo)</li>
-          <li>Scanning QR codes without a password works now and results in only the JID being set (melvo)</li>
-          <li>The roster is called contact list now (jbb)</li>
-          <li>The resource for the displayed presence is picked with fixed rules now (it was random before which resource is displayed) (lnj)</li>
-          <li>Handle notifications differently on GNOME to keep them in the notifications area (melvo)</li>
-          <li>Switched to the upstream HTTP File Upload implementation (lnj)</li>
-          <li>Code refactoring and partial rewrite of the following classes: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (lnj, jbb)</li>
+          <li>When offline, messages are cached now to be sent later (@yugubich)</li>
+          <li>It's allowed to also correct other messages than the last one now (@yugubich)</li>
+          <li>Also pending (unsent) messages can be corrected now (@yugubich)</li>
+          <li>Chats can be opened from the notifications now (@melvo, @jbbgameich, @cacahueto)</li>
+          <li>New option to permanently hide your password in Kaidan (@melvo)</li>
+          <li>New buttons for easily copying your jid and password (@jbbgameich, @fazevedo)</li>
+          <li>Moved account management pages into the settings (@jbbgameich)</li>
+          <li>The cursor is moved to the end of the text field when correcting a message now (@melvo)</li>
+          <li>Scanning QR codes without a password works now and results in only the JID being set (@melvo)</li>
+          <li>The roster is called contact list now (@jbbgameich)</li>
+          <li>The resource for the displayed presence is picked with fixed rules now (it was random before which resource is displayed) (@lnj)</li>
+          <li>Handle notifications differently on GNOME to keep them in the notifications area (@melvo)</li>
+          <li>Switched to the upstream HTTP File Upload implementation (@lnj)</li>
+          <li>Code refactoring and partial rewrite of the following classes: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Playback issues in media video preview (fazevedo)</li>
-          <li>Messages sent from other of your devices are displayed as they were sent by the chat partner (lnj)</li>
-          <li>Notifications are shown persistently on the screen (jbb)</li>
-          <li>Roster names are not updated in the database (melvo)</li>
-          <li>Roster items are not updated in the model correctly (melvo)</li>
-          <li>All sheets contain two headers: It uses the new built-in header property now (jbb)</li>
-          <li>Unreadable buttons with white text on with background in some styles (jbb)</li>
-          <li>Database version isn't saved correctly (melvo)</li>
-          <li>Errors when building with newer ZXing versions (vkrause)</li>
+          <li>Playback issues in media video preview (@fazevedo)</li>
+          <li>Messages sent from other of your devices are displayed as they were sent by the chat partner (@lnj)</li>
+          <li>Notifications are shown persistently on the screen (@jbbgameich)</li>
+          <li>Roster names are not updated in the database (@melvo)</li>
+          <li>Roster items are not updated in the model correctly (@melvo)</li>
+          <li>All sheets contain two headers: It uses the new built-in header property now (@jbbgameich)</li>
+          <li>Unreadable buttons with white text on with background in some styles (@jbbgameich)</li>
+          <li>Database version isn't saved correctly (@melvo)</li>
+          <li>Errors when building with newer ZXing versions (@vkrause)</li>
         </ul>
         <p>Kaidan requires a C++17-compliant compiler now</p>
       </description>
@@ -578,37 +616,37 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Add parsing of XMPP URIs (lnj, melvo)</li>
-          <li>Add QR code scanning and generation (lnj, jbb, melvo)</li>
-          <li>Add contact search (zatrox, lnj)</li>
-          <li>Add muting notifications for messages of contacts (zatrox)</li>
-          <li>Add renaming contacts (lnj, zatrox, melvo)</li>
-          <li>Show user profile information (lnj, jbb)</li>
-          <li>Add extended multimedia support (fazevedo)</li>
-          <li>Add message search (blue)</li>
-          <li>Redesign contact list, text avatar, counter for unread messages, chat page, chat message bubble (melvo)</li>
-          <li>Show notifications on Android (melvo, jbb, cacahueto)</li>
-          <li>Add option for enabling or disabling an account temporarily (melvo)</li>
-          <li>Refactor login screen with hints for invalid credentials and better usage of keyboard keys (melvo)</li>
-          <li>Add message quoting (jbb)</li>
-          <li>Truncate very long messages to avoid crashing Kaidan or using it to full capacity (jbb)</li>
-          <li>Add button with link for issue tracking to about page (melvo)</li>
-          <li>Improve messages for connection errors (melvo)</li>
-          <li>Add account deletion (melvo, mbb)</li>
-          <li>Redesign logo and global drawer banner (melvo, mbb)</li>
-          <li>Add onboarding with registration, normal login and QR code login (melvo, lnj, jbb, mbb)</li>
-          <li>Add OARS rating (nickrichards)</li>
-          <li>Add secondary roster sorting by contact name (lnj)</li>
-          <li>Add support for recording audio and video messages (fazevedo)</li>
-          <li>Add Kaidan to KDE's F-Droid repository (nicolasfella)</li>
-          <li>Improve build scripts for better cross-platform support (jbb, cacahueto, lnj, mauro)</li>
-          <li>Refactor code for better performance and stability (lnj, jbb, melvo)</li>
-          <li>Add documentation to achieve easier maintenance (melvo, lnj, jbb)</li>
+          <li>Add parsing of XMPP URIs (@lnj, @melvo)</li>
+          <li>Add QR code scanning and generation (@lnj, @jbbgameich, @melvo)</li>
+          <li>Add contact search (@zatrox, @lnj)</li>
+          <li>Add muting notifications for messages of contacts (@zatrox)</li>
+          <li>Add renaming contacts (@lnj, @zatrox, @melvo)</li>
+          <li>Show user profile information (@lnj, @jbbgameich)</li>
+          <li>Add extended multimedia support (@fazevedo)</li>
+          <li>Add message search (@yugubich)</li>
+          <li>Redesign contact list, text avatar, counter for unread messages, chat page, chat message bubble (@melvo)</li>
+          <li>Show notifications on Android (@melvo, @jbbgameich, @cacahueto)</li>
+          <li>Add option for enabling or disabling an account temporarily (@melvo)</li>
+          <li>Refactor login screen with hints for invalid credentials and better usage of keyboard keys (@melvo)</li>
+          <li>Add message quoting (@jbbgameich)</li>
+          <li>Truncate very long messages to avoid crashing Kaidan or using it to full capacity (@jbbgameich)</li>
+          <li>Add button with link for issue tracking to about page (@melvo)</li>
+          <li>Improve messages for connection errors (@melvo)</li>
+          <li>Add account deletion (@melvo, @mbruchert)</li>
+          <li>Redesign logo and global drawer banner (@melvo, @mbruchert)</li>
+          <li>Add onboarding with registration, normal login and QR code login (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
+          <li>Add OARS rating (@nickrichards)</li>
+          <li>Add secondary roster sorting by contact name (@lnj)</li>
+          <li>Add support for recording audio and video messages (@fazevedo)</li>
+          <li>Add Kaidan to KDE's F-Droid repository (@nicolasfella)</li>
+          <li>Improve build scripts for better cross-platform support (@jbbgameich, @cacahueto, @lnj, @mauro)</li>
+          <li>Refactor code for better performance and stability (@lnj, @jbbgameich, @melvo)</li>
+          <li>Add documentation to achieve easier maintenance (@melvo, @lnj, @jbbgameich)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix AppImage build (jbb)</li>
-          <li>Fix scrolling and item height problems in settings (jbb)</li>
+          <li>Fix AppImage build (@jbbgameich)</li>
+          <li>Fix scrolling and item height problems in settings (@jbbgameich)</li>
         </ul>
         <p>Require Qt 5.12 and QXmpp 1.2</p>
         <p>Drop Ubuntu Touch support due to outdated Qt</p>
@@ -618,19 +656,19 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>ChatMessage: Do not display media URLs (lnj)</li>
-          <li>ChatMessage: Add media URL copy action (lnj)</li>
+          <li>ChatMessage: Do not display media URLs (@lnj)</li>
+          <li>ChatMessage: Add media URL copy action (@lnj)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix roster not cleared when switching account (lnj)</li>
-          <li>ChatMessage: Fix copy to clipboard function (lnj)</li>
-          <li>Fix scroll indiciator not overlap message on the right edge (fazevedo)</li>
-          <li>Fix upload issues (fazevedo)</li>
-          <li>ChatPage: Clear message correction when sent (fazevedo)</li>
-          <li>Fix roster sorting (lnj)</li>
-          <li>Fix buttonTextColor deprecation warnings (sredman)</li>
-          <li>Fix build with QXmpp &gt;= 1.0.1 (lnj)</li>
+          <li>Fix roster not cleared when switching account (@lnj)</li>
+          <li>ChatMessage: Fix copy to clipboard function (@lnj)</li>
+          <li>Fix scroll indiciator not overlap message on the right edge (@fazevedo)</li>
+          <li>Fix upload issues (@fazevedo)</li>
+          <li>ChatPage: Clear message correction when sent (@fazevedo)</li>
+          <li>Fix roster sorting (@lnj)</li>
+          <li>Fix buttonTextColor deprecation warnings (@sredman)</li>
+          <li>Fix build with QXmpp &gt;= 1.0.1 (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -638,9 +676,9 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix SSL problems for AppImage (lnj)</li>
-          <li>Fix connection problems (lnj)</li>
-          <li>Keep QXmpp v0.8.3 compatibility (lnj)</li>
+          <li>Fix SSL problems for AppImage (@lnj)</li>
+          <li>Fix connection problems (@lnj)</li>
+          <li>Keep QXmpp v0.8.3 compatibility (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -648,78 +686,78 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Show proper notifications using KNotifications (lnj)</li>
-          <li>Add settings page for changing passwords (jbb, lnj)</li>
-          <li>Add XEP-0352: Client State Indication (gloox/QXmpp) (lnj)</li>
-          <li>Add media/file (including GIFs) sharing (lnj, jbb)</li>
-          <li>Full back-end rewrite to QXmpp (lnj)</li>
-          <li>Implement XEP-0363: HTTP File Upload and UploadManager for QXmpp (lnj)</li>
-          <li>Use XEP-0280: Message Carbons from QXmpp (lnj)</li>
-          <li>Use XEP-0352: Client State Indication from QXmpp (lnj)</li>
-          <li>Check incoming messages for media links (lnj)</li>
-          <li>Implement XEP-0308: Last Message Correction (lnj, jbb)</li>
-          <li>Make attachments downloadable (lnj)</li>
-          <li>Implement XEP-0382: Spoiler messages (xavi)</li>
-          <li>Kaidan is now offline usable (lnj)</li>
-          <li>Kaidan is able to open xmpp: URIs (lnj)</li>
-          <li>New logo (ilyabizyaev)</li>
-          <li>Show presence information of contacts (lnj, melvo)</li>
-          <li>Add EmojiPicker from Spectral with search and favorites functionality (jbb, fazevedo)</li>
-          <li>Highlight links in chat and make links clickable (lnj)</li>
-          <li>New about dialog instead of the about page (ilyabizyaev)</li>
-          <li>Add image preview in chat and before sending (lnj)</li>
-          <li>Send messages on Enter, new line on Ctrl-Enter (ilyabizyaev)</li>
-          <li>'Add contact' is now the main action on the contacts page (lnj)</li>
-          <li>Elide contact names and messages in roster (lnj)</li>
-          <li>Chat page redesign (ilyabizyaev)</li>
-          <li>Display passive notifications when trying to use online actions while offline (lnj)</li>
-          <li>Automatically reconnect on connection loss (lnj)</li>
-          <li>Contacts page: Display whether online in title (lnj)</li>
-          <li>Add different connection error messages (jbb)</li>
-          <li>Use QApplication when building with QWidgets (notmart)</li>
-          <li>Ask user to approve subscription requests (lnj)</li>
-          <li>Remove contact action: Make JIDs bold (lnj)</li>
-          <li>Add contact sheet: Ask for optional message to contact (lnj)</li>
-          <li>Add empty chat page with help notice to be displayed on start up (jbb)</li>
-          <li>Redesign log in page (sohnybohny)</li>
-          <li>Add Copy Invitaion URL action (jbb)</li>
-          <li>Add 'press and hold' functionality for messages context menu (jbb)</li>
-          <li>Add copy to clipboard function for messages (jbb)</li>
-          <li>Add mobile file chooser (jbb)</li>
-          <li>Highlight the currently opened chat on contacts page (lnj)</li>
-          <li>Remove predefined window sizes (lnj)</li>
-          <li>Use new Kirigami application header (nicofee)</li>
-          <li>Make images open externally when clicked (jbb)</li>
-          <li>Use QtQuickCompiler (jbb)</li>
-          <li>Display upload progress bar (lnj)</li>
-          <li>Add text+color avatars as fallback (lnj, jbb)</li>
-          <li>Remove diaspora log in option (lnj)</li>
-          <li>Support for Android (ilyabizyaev)</li>
-          <li>Support for Ubuntu Touch (jbb)</li>
-          <li>Support for MacOS (ilyabizyaev)</li>
-          <li>Support for Windows (ilyabizyaev)</li>
-          <li>Support for iOS (ilyabizyaev)</li>
-          <li>Add KDE Flatpak (jbb)</li>
-          <li>Switch Android builds to CMake with ECM (ilyabizyaev)</li>
-          <li>Improve Linux AppImage build script (ilyabizyaev)</li>
-          <li>Add additional image formats in AppImage (jbb)</li>
-          <li>Forget passwords on log out (lnj)</li>
-          <li>Append four random chars to resource (lnj)</li>
-          <li>Save passwords in base64 instead of clear text (lnj)</li>
-          <li>Generate the LICENSE file automatically with all git authors (lnj)</li>
-          <li>Store ubuntu touch builds as job artifacts (lnj)</li>
-          <li>Add GitLab CI integration (jbb)</li>
+          <li>Show proper notifications using KNotifications (@lnj)</li>
+          <li>Add settings page for changing passwords (@jbbgameich, @lnj)</li>
+          <li>Add XEP-0352: Client State Indication (gloox/QXmpp) (@lnj)</li>
+          <li>Add media/file (including GIFs) sharing (@lnj, @jbbgameich)</li>
+          <li>Full back-end rewrite to QXmpp (@lnj)</li>
+          <li>Implement XEP-0363: HTTP File Upload and UploadManager for QXmpp (@lnj)</li>
+          <li>Use XEP-0280: Message Carbons from QXmpp (@lnj)</li>
+          <li>Use XEP-0352: Client State Indication from QXmpp (@lnj)</li>
+          <li>Check incoming messages for media links (@lnj)</li>
+          <li>Implement XEP-0308: Last Message Correction (@lnj, @jbbgameich)</li>
+          <li>Make attachments downloadable (@lnj)</li>
+          <li>Implement XEP-0382: Spoiler messages (@xavi)</li>
+          <li>Kaidan is now offline usable (@lnj)</li>
+          <li>Kaidan is able to open xmpp: URIs (@lnj)</li>
+          <li>New logo (@ilyabizyaev)</li>
+          <li>Show presence information of contacts (@lnj, @melvo)</li>
+          <li>Add EmojiPicker from Spectral with search and favorites functionality (@jbbgameich, @fazevedo)</li>
+          <li>Highlight links in chat and make links clickable (@lnj)</li>
+          <li>New about dialog instead of the about page (@ilyabizyaev)</li>
+          <li>Add image preview in chat and before sending (@lnj)</li>
+          <li>Send messages on Enter, new line on Ctrl-Enter (@ilyabizyaev)</li>
+          <li>'Add contact' is now the main action on the contacts page (@lnj)</li>
+          <li>Elide contact names and messages in roster (@lnj)</li>
+          <li>Chat page redesign (@ilyabizyaev)</li>
+          <li>Display passive notifications when trying to use online actions while offline (@lnj)</li>
+          <li>Automatically reconnect on connection loss (@lnj)</li>
+          <li>Contacts page: Display whether online in title (@lnj)</li>
+          <li>Add different connection error messages (@jbbgameich)</li>
+          <li>Use QApplication when building with QWidgets (@mart)</li>
+          <li>Ask user to approve subscription requests (@lnj)</li>
+          <li>Remove contact action: Make JIDs bold (@lnj)</li>
+          <li>Add contact sheet: Ask for optional message to contact (@lnj)</li>
+          <li>Add empty chat page with help notice to be displayed on start up (@jbbgameich)</li>
+          <li>Redesign log in page (@sohnybohny)</li>
+          <li>Add Copy Invitaion URL action (@jbbgameich)</li>
+          <li>Add 'press and hold' functionality for messages context menu (@jbbgameich)</li>
+          <li>Add copy to clipboard function for messages (@jbbgameich)</li>
+          <li>Add mobile file chooser (@jbbgameich)</li>
+          <li>Highlight the currently opened chat on contacts page (@lnj)</li>
+          <li>Remove predefined window sizes (@lnj)</li>
+          <li>Use new Kirigami application header (@nicolasfella)</li>
+          <li>Make images open externally when clicked (@jbbgameich)</li>
+          <li>Use QtQuickCompiler (@jbbgameich)</li>
+          <li>Display upload progress bar (@lnj)</li>
+          <li>Add text+color avatars as fallback (@lnj, @jbbgameich)</li>
+          <li>Remove diaspora log in option (@lnj)</li>
+          <li>Support for Android (@ilyabizyaev)</li>
+          <li>Support for Ubuntu Touch (@jbbgameich)</li>
+          <li>Support for MacOS (@ilyabizyaev)</li>
+          <li>Support for Windows (@ilyabizyaev)</li>
+          <li>Support for iOS (@ilyabizyaev)</li>
+          <li>Add KDE Flatpak (@jbbgameich)</li>
+          <li>Switch Android builds to CMake with ECM (@ilyabizyaev)</li>
+          <li>Improve Linux AppImage build script (@ilyabizyaev)</li>
+          <li>Add additional image formats in AppImage (@jbbgameich)</li>
+          <li>Forget passwords on log out (@lnj)</li>
+          <li>Append four random chars to resource (@lnj)</li>
+          <li>Save passwords in base64 instead of clear text (@lnj)</li>
+          <li>Generate the LICENSE file automatically with all git authors (@lnj)</li>
+          <li>Store ubuntu touch builds as job artifacts (@lnj)</li>
+          <li>Add GitLab CI integration (@jbbgameich)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fix blocking of GUI thread while database interaction (lnj)</li>
-          <li>Fix TLS connection bug (lnj)</li>
-          <li>Don't send notifications when receiving own messages via. carbons (lnj)</li>
-          <li>Fix timezone bug of message timestamps (lnj)</li>
-          <li>Fix several message editing bugs (lnj)</li>
-          <li>Fix black icons (jbb)</li>
-          <li>Fix rich text labels in Plasma Mobile (lnj)</li>
-          <li>Small Plasma Mobile fixes (jbb)</li>
+          <li>Fix blocking of GUI thread while database interaction (@lnj)</li>
+          <li>Fix TLS connection bug (@lnj)</li>
+          <li>Don't send notifications when receiving own messages via. carbons (@lnj)</li>
+          <li>Fix timezone bug of message timestamps (@lnj)</li>
+          <li>Fix several message editing bugs (@lnj)</li>
+          <li>Fix black icons (@jbbgameich)</li>
+          <li>Fix rich text labels in Plasma Mobile (@lnj)</li>
+          <li>Small Plasma Mobile fixes (@jbbgameich)</li>
         </ul>
       </description>
     </release>
@@ -727,9 +765,9 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Added AppImage build script (#138) (@JBBgameich)</li>
-          <li>Use relative paths to find resource files (#143) (@LNJ2)</li>
-          <li>Source directory is only used for resource files in debug builds (#146) (@LNJ2)</li>
+          <li>Added AppImage build script (#138) (@jbbgameich)</li>
+          <li>Use relative paths to find resource files (#143) (@lnj)</li>
+          <li>Source directory is only used for resource files in debug builds (#146) (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -737,12 +775,12 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>Fixed database creation errors (#135, #132) (@LNJ2)</li>
-          <li>ChatPage: Fixed recipient's instead of author's avatar displayed (#131, #137) (@LNJ2)</li>
+          <li>Fixed database creation errors (#135, #132) (@lnj)</li>
+          <li>ChatPage: Fixed recipient's instead of author's avatar displayed (#131, #137) (@lnj)</li>
         </ul>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Added Travis-CI integration (#133, #134, #136) (@JBBgameich)</li>
+          <li>Added Travis-CI integration (#133, #134, #136) (@jbbgameich)</li>
           <li>Added Malay translations (#129) (@MuhdNurHidayat)</li>
         </ul>
       </description>
@@ -751,14 +789,14 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Added XEP-0280: Message Carbons (#117) (@LNJ2)</li>
-          <li>Added XEP-0054/XEP-0153: VCard-based avatars (#73, #105, #119) (@LNJ2)</li>
-          <li>Added file storage for simply caching all avatars (@LNJ2)</li>
-          <li>New roster design - showing round avatars and last message (#118) (@LNJ2)</li>
-          <li>New chat page design - showing time, delivery status and round avatars (#123) (@LNJ2)</li>
-          <li>Switched to XMPP client library "gloox" (#114) (@LNJ2)</li>
-          <li>Rewritten most of the back-end for gloox and partially also restructured it (#114) (@LNJ2)</li>
-          <li>(Re)written new LogHandler for gloox (Swiften had this already included) (#114) (@LNJ2)</li>
+          <li>Added XEP-0280: Message Carbons (#117) (@lnj)</li>
+          <li>Added XEP-0054/XEP-0153: VCard-based avatars (#73, #105, #119) (@lnj)</li>
+          <li>Added file storage for simply caching all avatars (@lnj)</li>
+          <li>New roster design - showing round avatars and last message (#118) (@lnj)</li>
+          <li>New chat page design - showing time, delivery status and round avatars (#123) (@lnj)</li>
+          <li>Switched to XMPP client library "gloox" (#114) (@lnj)</li>
+          <li>Rewritten most of the back-end for gloox and partially also restructured it (#114) (@lnj)</li>
+          <li>(Re)written new LogHandler for gloox (Swiften had this already included) (#114) (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -766,8 +804,8 @@
       <description>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>LoginPage: Remove material shadow (#113) (@JBBgameich)</li>
-          <li>Kaidan was crashing since v0.2.2 when inserting a new message to the DB (@LNJ2)</li>
+          <li>LoginPage: Remove material shadow (#113) (@jbbgameich)</li>
+          <li>Kaidan was crashing since v0.2.2 when inserting a new message to the DB (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -775,14 +813,14 @@
       <description>
         <p>This release fixes the following bug:</p>
         <ul>
-          <li>RosterPage: Clear TextFields after closing AddContactSheet (#106) (@JBBgameich)</li>
+          <li>RosterPage: Clear TextFields after closing AddContactSheet (#106) (@jbbgameich)</li>
         </ul>
         <p>This release adds the following features:</p>
         <ul>
-          <li>RosterController: Save lastMessage for each contact (#108) (@LNJ2)</li>
-          <li>Add database versioning and conversion (#110) (@LNJ2)</li>
-          <li>Database: Add new roster row `avatarHash` (#112) (@LNJ2)</li>
-          <li>CMake: Add feature summary (#109) (@LNJ2)</li>
+          <li>RosterController: Save lastMessage for each contact (#108) (@lnj)</li>
+          <li>Add database versioning and conversion (#110) (@lnj)</li>
+          <li>Database: Add new roster row `avatarHash` (#112) (@lnj)</li>
+          <li>CMake: Add feature summary (#109) (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -790,7 +828,7 @@
       <description>
         <p>This release fixes the following bug:</p>
         <ul>
-          <li>Roster page: Fixed style: Now has contour lines and a cool material effect (@LNJ2)</li>
+          <li>Roster page: Fixed style: Now has contour lines and a cool material effect (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -798,22 +836,22 @@
       <description>
         <p>This release adds the following features:</p>
         <ul>
-          <li>Add Roster Editing (#84, #86) (@LNJ2, @JBBgameich)</li>
-          <li>Roster refreshes now automatically (#83) (@LNJ2)</li>
-          <li>Contacts are now sorted (@LNJ2)</li>
-          <li>Add unread message counters (#92, #101) (@LNJ2)</li>
-          <li>Add LibNotify-Linux notifications (#90) (@LNJ2)</li>
-          <li>Add custom JID resources (#82) (@LNJ2)</li>
-          <li>Add XEP-0184: Message Delivery Receipts (@LNJ2)</li>
-          <li>Disable stream compression by default (for HipChat/other server compatibility) (@LNJ2)</li>
-          <li>GUI: Port to Kirigami 2 (#81) (@JBBgameich)</li>
-          <li>User Material/Green Theme per default (@LNJ2)</li>
-          <li>Login page: New design with diaspora* login option (#87) (@JBBgameich)</li>
-          <li>Chat page: Slightly improved design (@LNJ2)</li>
+          <li>Add Roster Editing (#84, #86) (@lnj, @jbbgameich)</li>
+          <li>Roster refreshes now automatically (#83) (@lnj)</li>
+          <li>Contacts are now sorted (@lnj)</li>
+          <li>Add unread message counters (#92, #101) (@lnj)</li>
+          <li>Add LibNotify-Linux notifications (#90) (@lnj)</li>
+          <li>Add custom JID resources (#82) (@lnj)</li>
+          <li>Add XEP-0184: Message Delivery Receipts (@lnj)</li>
+          <li>Disable stream compression by default (for HipChat/other server compatibility) (@lnj)</li>
+          <li>GUI: Port to Kirigami 2 (#81) (@jbbgameich)</li>
+          <li>User Material/Green Theme per default (@lnj)</li>
+          <li>Login page: New design with diaspora* login option (#87) (@jbbgameich)</li>
+          <li>Chat page: Slightly improved design (@lnj)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
-          <li>AboutPage: Fix possible closing of multiple pages (@LNJ2)</li>
+          <li>AboutPage: Fix possible closing of multiple pages (@lnj)</li>
         </ul>
       </description>
     </release>

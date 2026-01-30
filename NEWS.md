@@ -1,4 +1,42 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.15.0
+--------------
+Released: 2026-01-30
+
+Features:
+* Add support for audio/video calls (XEP-0166: Jingle, XEP-0167: Jingle RTP Sessions, XEP-0176: Jingle ICE-UDP Transport Method, XEP-0215: External Service Discovery, XEP-0320: Use of DTLS-SRTP in Jingle Sessions, XEP-0353: Jingle Message Initiation) (@melvo)
+* Show busy indicator while saving captured image/video data (@melvo)
+* Notify on receiving reply to own group chat message if 'On mention' notification setting is enabled (@melvo)
+* Select file after opening in folder on Linux if supported (@melvo)
+* Improve media capturing look/behavior (including preview after capturing image until image is saved) (@melvo)
+* Restore focusing of last focused user interface elements (especially message input field) for various use cases (@melvo)
+* Keep message bubble highlighted on reacting/correcting (@melvo)
+* Allow to select message for correction via Ctrl+Up/Ctrl+Down (@melvo)
+* Integrate search field into main toolbar increasing space for messages and, on mobile devices, even for chats in chat list (@melvo)
+* Show message search field via Ctrl+Shift+F (@melvo)
+* Display toolbar buttons on mobile devices exactly as on desktop devices (@melvo)
+* Hide horizontal separator above top-most chat unless chat list is scrolled (@melvo)
+* Store passwords in unencrypted file if no password manager is available or corresponding command-line option provided (@fazevedo)
+* Migrate unencrypted passwords to password manager if available on start (@fazevedo)
+
+Bugfixes:
+* Fix overlapping message bubble tail (@melvo)
+* Fix medium preview hovering if hidden drop area info is hovered (@melvo)
+* Fix updating OMEMO 2 keys for all use cases (@melvo)
+* Fix deadlock on logout during upload of multiple files (@melvo)
+* Fix creating additional database connection on wrong thread (@melvo)
+* Fix sending/resetting whether message is being composed for various corner cases (switching chat, logging out, disabling corresponding setting) (@melvo)
+* Fix updating last message on receiving initial message after setting up existing account in Kaidan for first time (@melvo)
+* Fix resetting draft message after canceling message correction (@melvo)
+* Fix resending failed message reaction (@melvo)
+* Fix selecting previously selected message after changing reactions (@melvo)
+* Fix restoring message highlighting and cancel ongoing correction/reply on removing corresponding message (@melvo)
+* Fix displaying last message sender in chat list after draft message removal (@melvo)
+
+Notes:
+* Kaidan requires Kirigami Addons 1.8 now
+* Kaidan requires QXmpp 1.14 now
+
 Version 0.14.0
 --------------
 Released: 2026-01-01
