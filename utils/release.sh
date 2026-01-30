@@ -324,11 +324,11 @@ update_release_branch() {
     # Reset the release commit while keeping all other commits created for the release.
     git reset HEAD~1
 
-    git restore "${doap_file}"
-    update_doap
-
     update_changelog_date
     update_appstream_metadata
+
+    git restore "${doap_file}"
+    update_doap
 
     push_release_branch
 }
