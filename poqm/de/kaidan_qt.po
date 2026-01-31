@@ -799,17 +799,17 @@ msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -817,7 +817,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Weiter oben suchen"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -825,7 +825,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Weiter unten suchen"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Close message search bar"
@@ -833,39 +833,39 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Suche schließen"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Suchen"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Weiterleiten abbrechen"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 #, fuzzy
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Bitte wählen Sie einen Chat aus, um zu beginnen"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Zu sendende Dateien ablegen"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: src/qml/ChatPage.qml:840
+#: src/qml/ChatPage.qml:860
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -873,7 +873,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Die Datei „%1“ kann nicht heruntergeladen werden"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:864
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -2657,27 +2657,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Abbrechen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>encrypted</b> message"
@@ -2685,7 +2685,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "<b>Verschlüsselte</b> Nachricht erstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>unencrypted</b> message"
@@ -2693,17 +2693,17 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "<b>Unverschlüsselte</b> Nachricht erstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>Verschlüsselte</b> Nachricht erstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>Unverschlüsselte</b> Nachricht erstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2711,7 +2711,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Bild aufnehmen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2719,12 +2719,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Video aufnehmen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Dateien teilen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2732,12 +2732,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Ihren Standort senden"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2745,18 +2745,18 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Text ausblenden"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Versteckte Nachricht senden"
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Senden"
@@ -4165,7 +4165,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notizen"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Gestern"
