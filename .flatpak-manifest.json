@@ -89,9 +89,10 @@
             "name": "qxmpp",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DBUILD_TESTING=OFF",
                 "-DBUILD_EXAMPLES=OFF",
                 "-DBUILD_OMEMO=ON",
-                "-DBUILD_TESTING=OFF"
+                "-DWITH_GSTREAMER=ON"
             ],
             "sources": [
                 {
