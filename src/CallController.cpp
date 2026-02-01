@@ -50,23 +50,25 @@ void CallController::handleCallProposed(const std::shared_ptr<QXmppJingleMessage
                                         const QString &id,
                                         const QList<QXmppJingleRtpDescription> &descriptions)
 {
-    auto *call = addCall(QXmppUtils::jidToBareJid(jmi->remoteJid()));
-    call->handleCallProposed(jmi, id, descriptions);
-    m_notificationController->sendCallNotification(call);
+    if (const auto chatJid = QXmppUtils::jidToBareJid(jmi->remoteJid()); chatJid != m_accountSettings->jid()) {
+        auto *call = addCall(chatJid);
+        call->handleCallProposed(jmi, id, descriptions);
+        m_notificationController->sendCallNotification(call);
+    }
 }
 
 void CallController::handleCallReceived(std::unique_ptr<QXmppCall> &call)
 {
-    const auto chatJid = QXmppUtils::jidToBareJid(call->jid());
-
-    if (auto *usedCall = findCall(chatJid)) {
-        if (!usedCall->handleCallReceived(call)) {
+    if (const auto chatJid = QXmppUtils::jidToBareJid(call->jid()); chatJid != m_accountSettings->jid()) {
+        if (auto *usedCall = findCall(chatJid)) {
+            if (!usedCall->handleCallReceived(call)) {
+                m_notificationController->sendCallNotification(usedCall);
+            }
+        } else {
+            usedCall = addCall(chatJid);
+            usedCall->handleCallReceived(call);
             m_notificationController->sendCallNotification(usedCall);
         }
-    } else {
-        usedCall = addCall(chatJid);
-        usedCall->handleCallReceived(call);
-        m_notificationController->sendCallNotification(usedCall);
     }
 }
 
