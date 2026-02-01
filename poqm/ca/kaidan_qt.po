@@ -4,15 +4,15 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 # or the same license as the source of its messages in English.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2019 Joan CiberSheep <cibersheep@gmail.com>
 # SPDX-FileCopyrightText: 2019 Txaume <txaumevw@gmail.com>
 # SPDX-FileCopyrightText: 2020 Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+# SPDX-FileCopyrightText: 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-01-29 11:34+0100\n"
+"PO-Revision-Date: 2026-01-27 09:20+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -154,23 +154,31 @@ msgid "Devices on Servers"
 msgstr "Dispositius en els servidors"
 
 #: src/ChatController.cpp:176
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 està teclejant…"
 
 #: src/ChatController.cpp:178
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
 msgctxt "ChatController|"
 msgid "%1 paused typing"
-msgstr "%1 ha parat de teclejar"
+msgstr "%1 ha parat de teclejar…"
 
 #: src/ChatHintModel.cpp:249
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"El compte està desactivat - Els missatges s'enviaran i es rebran un cop hi "
-"hagi connexió"
+"El compte no està No hi ha connexió: Els missatges s'enviaran i es rebran un "
+"cop hi hagi connexió"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -649,23 +657,23 @@ msgstr "Obre"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr "Trucada entrant de %1"
+msgstr ""
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr "Trucada entrant de vídeo de %1"
+msgstr ""
 
 #: src/NotificationController.cpp:223
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr "Accepta"
+msgstr ""
 
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "Rebutja"
+msgstr ""
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -739,81 +747,93 @@ msgstr "Quant al Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr "Truca"
+msgstr ""
 
 #: src/qml/ChatPage.qml:114
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Obre una trucada d'àudio"
+msgstr "Obre un xat d'assistència"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "Inicia una trucada d'àudio"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr "Obre una trucada de vídeo"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr "Inicia una trucada de vídeo"
+msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
-msgstr "Cerca cap amunt"
+msgstr "Cerca amunt"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
-msgstr "Cerca cap avall"
+msgstr "Cerca avall"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Surt de la cerca"
+msgstr "Tanca la cerca"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Cancel·la el reenviament"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccioneu un xat al qual reenviar el missatge"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Deixeu anar aquí els fitxers a enviar"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 desbloquejat"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desfés"
 
-#: src/qml/ChatPage.qml:840
+#: src/qml/ChatPage.qml:860
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "No s'ha pogut bloquejar %1: %2"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:864
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1607,9 +1627,12 @@ msgid "Send typing notifications"
 msgstr "Envia notificacions de tecleig"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indica si esteu teclejant"
+msgstr "Indica quins missatges heu llegit"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1904,9 +1927,12 @@ msgid "Send typing notifications"
 msgstr "Envia notificacions de tecleig"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indica si esteu teclejant"
+msgstr "Indica quins missatges heu llegit"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -2313,14 +2339,20 @@ msgid "%1 has read up to this point"
 msgstr "%1 ha llegit fins aquest punt"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Elimina el fitxer"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:67
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Obre un fitxer a la carpeta"
+msgstr "Obre la carpeta del fitxer seleccionat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
@@ -2372,87 +2404,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Cancel·la la resposta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Part visible del missatge"
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancel·la l'addició d'una part oculta del missatge"
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Afegeix un emoji"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Menciona un participant"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Redacta un missatge <b>encriptat</b> amb una part oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Redacta un missatge <b>sense encriptar</b> amb una part oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Redacta un missatge <b>encriptat</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Redacta un missatge <b>sense encriptar</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Pren una fotografia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Enregistra un vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Comparteix fitxers"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Compartiu la ubicació"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Afegeix una part oculta del missatge"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Més"
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Envia un missatge de veu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Envia"
@@ -3185,14 +3217,17 @@ msgid "Pin"
 msgstr "Fixa"
 
 #: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Obre el menú"
+msgstr "Obre una imatge…"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr "Retrocedeix"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3692,7 +3727,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ahir"
@@ -3731,14 +3766,6 @@ msgstr "Lloc web"
 #~ msgid "Details…"
 #~ msgstr "Detalls…"
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Tanca la cerca"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Cerca"
-
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
 #~ "Indicate when you have this conversation open, are typing and stopped "
@@ -3753,50 +3780,14 @@ msgstr "Lloc web"
 #~ msgstr ""
 #~ "Indica quan teniu aquesta conversa oberta, i esteu o pareu de teclejar"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 està en línia"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Elimina el fitxer seleccionat"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Ubicacions dels servidors"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
 
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Enter different connection settings to change them"
-#~ msgstr "Introduïu alguns paràmetres de connexió diferents per a canviar-los"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuració de la connexió"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuració de la connexió"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "El contacte ja existeix"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Obre un xat"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximitza l'avatar"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximitza l'avatar"
-
-#~ msgctxt "QrCodeGenerator|"
-#~ msgid "Generating the QR code failed: %1"
-#~ msgstr "Ha fallat en generar el codi QR: %1"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marca com a primer sense llegir"
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 està en línia"

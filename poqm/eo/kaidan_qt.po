@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2025-03-22 22:36+0100\n"
+"PO-Revision-Date: 2025-02-12 07:01+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -142,12 +142,9 @@ msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
 #: src/Account.cpp:512
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr "Ne eblis konekti al la servilo."
+msgstr ""
 
 #: src/AccountMigrationController.cpp:331
 msgctxt "AccountMigrationController|"
@@ -240,11 +237,11 @@ msgstr "Ŝargante…"
 
 #: src/ChatHintModel.cpp:259
 #, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Could not connect to the server."
+#| msgctxt "MessageReactionDisplayButton|"
+#| msgid "Could not be removed"
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Ne eblis konekti al la servilo."
+msgstr "Ne povus esti forigita"
 
 #: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
@@ -252,9 +249,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:262
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Konektante…"
@@ -270,14 +264,18 @@ msgstr ""
 "aliajn personajn informojn%2"
 
 #: src/ChatHintModel.cpp:280
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 is %2 now and would like to receive your personal data "
+#| "such as availability, devices and other personal information again%3"
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"Via kontakto %1 (%2) estas %3 (%4) nun kaj ŝatus ricevi viajn personajn "
-"datumojn kiel haveblecon, aparatojn kaj aliajn personajn informojn denove%5"
+"Via kontakto %1 estas %2 nun kaj ŝatus ricevi viajn personajn datumojn kiel "
+"haveblecon, aparatojn kaj aliajn personajn informojn denove%3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -333,7 +331,9 @@ msgid "Canceled"
 msgstr "Nuligi"
 
 #: src/FileSharingController.cpp:336
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
 msgstr "Ne eblis elŝuti dosieron: %1"
@@ -351,7 +351,7 @@ msgstr ""
 #: src/FileSharingController.cpp:509
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#| msgid "Couldn't download file: %1"
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
 msgstr "Ne eblis elŝuti dosieron: %1"
@@ -380,22 +380,22 @@ msgstr "Konservi elekton"
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
-msgstr "Ne kuniĝinta"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
-msgstr "Kuniĝinta"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
-msgstr "Forlasis"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr "Interdiktita"
+msgstr ""
 
 #: src/ImageProvider.cpp:132
 #, fuzzy, qt-format
@@ -844,17 +844,17 @@ msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -862,7 +862,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Serĉi supren"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search down"
@@ -870,7 +870,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Serĉi malsupren"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Close search"
@@ -878,17 +878,17 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Fermi serĉon"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -896,12 +896,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Elekti babileton por komenci"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -909,7 +909,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Malblokita %1"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -917,7 +917,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Malfari"
 
-#: src/qml/ChatPage.qml:840
+#: src/qml/ChatPage.qml:860
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -925,7 +925,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ne eblis bloki %1: %2"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:864
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -1436,12 +1436,9 @@ msgstr ""
 "ensaluti al ĝi."
 
 #: src/qml/details/AccountDetailsContent.qml:979
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Montri detalojn"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:980
 #, fuzzy
@@ -1913,7 +1910,7 @@ msgstr "Ŝanĝi nomon…"
 #: src/qml/details/GroupChatDetailsContent.qml:29
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
-msgstr "Inviti"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:67
 msgctxt "GroupChatDetailsContent|"
@@ -1928,7 +1925,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:140
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr "Partoprenantoj"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:144
 msgctxt "GroupChatDetailsContent|"
@@ -2014,7 +2011,7 @@ msgstr "Neniam"
 #: src/qml/details/GroupChatDetailsContent.qml:329
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr "Je mencio"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:333
 msgctxt "GroupChatDetailsContent|"
@@ -2439,7 +2436,7 @@ msgstr "Paŭzo"
 #: src/qml/elements/Audio.qml:39
 msgctxt "Audio|"
 msgid "Play"
-msgstr "Ludi"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
@@ -2454,7 +2451,7 @@ msgstr "Spoiler"
 #: src/qml/elements/ChatMessage.qml:520
 msgctxt "ChatMessage|"
 msgid "New"
-msgstr "Nova"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:548
 #, qt-format
@@ -2491,12 +2488,12 @@ msgstr "Reagi"
 #: src/qml/elements/ChatMessageContextMenu.qml:113
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr "Respondi"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr "Citi"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
@@ -2506,12 +2503,12 @@ msgstr ""
 #: src/qml/elements/ChatMessageContextMenu.qml:147
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr "Kopii"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:161
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr "Redakti"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:172
 msgctxt "ChatMessageContextMenu|"
@@ -2528,87 +2525,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Nuligi respondon"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Videbla mesaĝo parto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Nuligi aldonon de kaŝita mesaĝparto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr "Aldoni emoĝion"
+msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "Mencii partoprenanton"
+msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Verki <b>ĉifritan </b> mesaĝon kun kaŝita parto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Verki <b>neĉifritan</b> mesaĝon kun kaŝita parto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Verki <b>ĉifritan</b> mesaĝon"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Verki <b>neĉifritan</b> mesaĝon"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Prenu foton"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Registri videon"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Kunhavigi dosierojn"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Kunhavigu vian lokon"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Aldonu kaŝitan mesaĝan parton"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Kaŝi"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr "Pli"
+msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "Sendi voĉmesaĝon"
+msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Sendi"
@@ -2710,12 +2707,9 @@ msgid "Unverified contact devices"
 msgstr "Nekonfirmitaj kontaktaj aparatoj"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:19
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy"
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
-msgstr "Kopii"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
@@ -2777,7 +2771,7 @@ msgstr "Bonvolu enigi validan pasvorton"
 #: src/qml/elements/GeoLocationMap.qml:96
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr "© OpenStreetMap"
+msgstr ""
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
 msgctxt "GeoLocationMapPage|"
@@ -2797,12 +2791,12 @@ msgstr "Kunhavigi Lokon"
 #: src/qml/elements/GroupChatCreationContent.qml:19
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
-msgstr "Krei"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:27
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr "Kreante grupbabilon…"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:32
 msgctxt "GroupChatCreationContent|"
@@ -2812,27 +2806,27 @@ msgstr "Grupnomo (laŭvola)"
 #: src/qml/elements/GroupChatCreationContent.qml:33
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr "Ekzempla Grupo"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:41
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
-msgstr "Publika"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:54
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
-msgstr "Grupa ID"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:57
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr "ekzemplogrupo"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:59
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr "Enigu validan grupan ID"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:84
 msgctxt "GroupChatCreationContent|"
@@ -2870,12 +2864,12 @@ msgstr "Krei grupan babilejon"
 #: src/qml/elements/GroupChatJoiningContent.qml:18
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
-msgstr "Kuniĝi"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr "Kuniĝante al grupa babilo…"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:25
 msgctxt "GroupChatJoiningContent|"
@@ -2906,20 +2900,17 @@ msgstr "Al grupo %1 ne eblis aliĝi%2"
 #: src/qml/elements/GroupChatJoiningDialog.qml:16
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr "Kuniĝi al grupa babilo"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningPage.qml:14
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr "Kuniĝi al grupa babilo"
+msgstr ""
 
 #: src/qml/elements/GroupChatUserDelegate.qml:18
-#, fuzzy
-#| msgctxt "GroupChatUserModel|"
-#| msgid "Banned"
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
-msgstr "Interdiktita"
+msgstr ""
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -3045,12 +3036,12 @@ msgstr "Nefidinda"
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr "Aldoni reagon…"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr "Montri detalojn"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3405,7 +3396,7 @@ msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
 #, fuzzy
-#| msgctxt "RosterListItem|"
+#| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
@@ -3413,11 +3404,11 @@ msgstr "Malpingli"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
 #, fuzzy
-#| msgctxt "RosterListItem|"
+#| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
-msgstr "Pingli"
+msgstr "Pinglo"
 
 #: src/qml/elements/SearchBarPage.qml:65
 #, fuzzy
@@ -3520,12 +3511,9 @@ msgid "Join group"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:225
-#, fuzzy
-#| msgctxt "GroupChatJoiningDialog|"
-#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Kuniĝi al grupa babilo"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
@@ -3870,7 +3858,7 @@ msgstr "Filtri"
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "Pingli & Movi"
+msgstr ""
 
 #: src/qml/StartPage.qml:27
 msgctxt "StartPage|"
@@ -3921,18 +3909,18 @@ msgstr "%1 ne povis esti aldonita: %2"
 #: src/RosterController.cpp:153
 #, fuzzy
 #| msgctxt "RosterManager|"
-#| msgid "Could not add contact as a result of not being connected."
+#| msgid "Could not add contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
-msgstr "Ne eblis aldoni kontakton pro nekonekteco."
+msgstr "Ne eblis aldoni kontakton, pro ne esti konektita."
 
 #: src/RosterController.cpp:163
 #, fuzzy
 #| msgctxt "RosterManager|"
-#| msgid "Could not rename contact as a result of not being connected."
+#| msgid "Could not rename contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr "Ne eblis renomi kontakton pro nekonekteco."
+msgstr "Ne eblis renomi kontakton, pro ne esti konektita."
 
 #: src/RosterController.cpp:173
 #, fuzzy, qt-format
@@ -3966,10 +3954,10 @@ msgstr "Malsukcesis ĉesigi %1 por vidi viajn personajn datumojn"
 #: src/RosterController.cpp:291
 #, fuzzy
 #| msgctxt "RosterManager|"
-#| msgid "Could not remove contact as a result of not being connected."
+#| msgid "Could not remove contact, as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr "Ne eblis forigi kontakton pro nekonekteco."
+msgstr "Ne eblis forigi kontakton, pro ne esti konektita."
 
 #: src/RosterItem.cpp:31
 #, fuzzy
@@ -3984,7 +3972,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notoj"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Hieraŭ"
@@ -4023,14 +4011,6 @@ msgstr "Retejo"
 #~ msgid "Details…"
 #~ msgstr "Detaloj…"
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Fermi serĉon"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Serĉi"
-
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
 #~ "Indicate when you have this conversation open, are typing and stopped "
@@ -4047,37 +4027,21 @@ msgstr "Retejo"
 #~ "Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
 #~ "ĉesas tajpi"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 estas enreta"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Forigi elektitan dosieron"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Lokoj de serviloj"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Serĉi"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 estas enreta"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Enigi malsamajn konektajn agordojn por ŝanĝi ilin"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Konekto-agordoj"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Konekto-agordoj"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontakto jam ekzistas"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Malfermi babilejon"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4087,16 +4051,32 @@ msgstr "Retejo"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maksimumigi avataron"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontakto jam ekzistas"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Malfermi babilejon"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Konekto-agordoj"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Konekto-agordoj"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Lokoj de serviloj"
+
 #, fuzzy
 #~| msgctxt "AbstractQrCodeGenerator|"
 #~| msgid "Generating the QR code failed: %1"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generado de la QR-kodo malsukcesis: %1"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marki kiel unue nelegita"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4113,6 +4093,10 @@ msgstr "Retejo"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "La ligilo estos malfermita post kiam vi konektiĝos."
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marki kiel unue nelegita"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

@@ -15,41 +15,67 @@ msgstr ""
 "X-Generator: Lokalize 25.04.2\n"
 
 #: src/Account.cpp:475
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "Desconectouse"
+msgstr "Conectar"
 
 #: src/Account.cpp:477
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Conectando…"
 
 #: src/Account.cpp:479
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "Conectouse"
+msgstr "Conectar"
 
 #: src/Account.cpp:490
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "O nome de usuaria ou contrasinal son incorrectos."
 
 #: src/Account.cpp:492
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Non é posíbel conectar co servidor. Comprobe a conexión a Internet."
 
 #: src/Account.cpp:494
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Produciuse un erro ao intentar conectar de xeito seguro."
 
 #: src/Account.cpp:496
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor non permite conexións seguras."
 
 #: src/Account.cpp:498
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "Could not connect to the server. Please check your internet connection or "
+#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -59,24 +85,35 @@ msgstr ""
 "nome do servidor."
 
 #: src/Account.cpp:500
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desconectado ou bloqueado por unha devasa."
 
 #: src/Account.cpp:502
 #, fuzzy
-#| msgctxt "Connection|"
+#| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protocolo de autenticación non permitido polo servidor."
 
 #: src/Account.cpp:504
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Non foi posíbel actualizar a conexión."
 
 #: src/Account.cpp:506
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid ""
+#| "The internet access is not permitted. Please check your system's internet "
+#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -86,11 +123,17 @@ msgstr ""
 "Internet do sistema."
 
 #: src/Account.cpp:508
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "O servidor non permite o rexistro."
 
 #: src/Account.cpp:510
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not log in. Confirm the email message you received first."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
@@ -98,11 +141,17 @@ msgstr ""
 "correo electrónico."
 
 #: src/Account.cpp:512
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Could not connect to the server."
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Non hai conexión co servidor."
 
 #: src/AccountMigrationController.cpp:331
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: Could not load exported account data"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
@@ -110,15 +159,20 @@ msgstr ""
 "exportados."
 
 #: src/AccountMigrationController.cpp:348
+#, fuzzy
+#| msgctxt "AccountMigrationManager|"
+#| msgid "Account could not be migrated: You need to be connected"
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Non foi posíbel migrar a conta: necesita conexión."
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "A conta «%1» migrouse a «%2»."
+msgstr "Migración de conta"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -165,12 +219,11 @@ msgstr "%1 parou de escribir"
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
+#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"A súa conta non está activada. As mensaxes envíanse e recíbense unha vez "
-"activada."
+"Non ten conexión. As mensaxes enviaranse and recibiranse cando se conecte."
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -181,16 +234,19 @@ msgstr "Descartar"
 #: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr "Activar"
+msgstr ""
 
 #: src/ChatHintModel.cpp:252
+#, fuzzy
+#| msgctxt "NewMedia|"
+#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "Activando…"
+msgstr "Inicializando…"
 
 #: src/ChatHintModel.cpp:259
 #, fuzzy
-#| msgctxt "Connection|"
+#| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
@@ -202,9 +258,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:262
-#, fuzzy
-#| msgctxt "Connection|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Conectando…"
@@ -294,12 +347,9 @@ msgid "Media sharing support is unknown"
 msgstr ""
 
 #: src/FileSharingController.cpp:386
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "A funcionalidade non está dispoñíbel"
+msgstr ""
 
 #: src/FileSharingController.cpp:509
 #, fuzzy, qt-format
@@ -662,11 +712,17 @@ msgid "You aren't allowed to delete the group"
 msgstr "Non se lle permite eliminar o grupo."
 
 #: src/NotificationController.cpp:156
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Solicitudes para recibir os teus datos persoais"
 
 #: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir"
@@ -700,6 +756,9 @@ msgid "Reject"
 msgstr "Obxetos"
 
 #: src/NotificationController.cpp:339
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar como lido"
@@ -794,17 +853,17 @@ msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -812,7 +871,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Buscar cara arriba"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search down"
@@ -820,7 +879,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Buscar cara abaixo"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Close search"
@@ -828,17 +887,17 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Pechar a busca"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -846,36 +905,47 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccione unha charla para comezar"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Solte os ficheiros para enviar"
 
-#: src/qml/ChatPage.qml:833
-#, qt-format
+#: src/qml/ChatPage.qml:853
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Desbloqueouse %1"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desfacer"
 
-#: src/qml/ChatPage.qml:840
-#, qt-format
+#: src/qml/ChatPage.qml:860
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Non foi posíbel bloquear %1: %2"
 
-#: src/qml/ChatPage.qml:844
-#, qt-format
+#: src/qml/ChatPage.qml:864
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "Non foi posíbel desbloquear %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "DetailsContent|"
+#| msgid "You can share media up to %1."
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Pode compartir ata %1 de contido multimedia."
@@ -1395,7 +1465,7 @@ msgstr "Preparando a migración da conta…"
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr "Isto pode levar un tempo…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -2350,7 +2420,7 @@ msgstr "Dispositivos propios sen verificar"
 #: src/qml/elements/AccountSelectionDialog.qml:40
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr "A funcionalidade non está dispoñíbel"
+msgstr ""
 
 #: src/qml/elements/Audio.qml:39
 msgctxt "Audio|"
@@ -2452,87 +2522,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Cancelar a resposta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Parte visíbel da mensaxe"
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancelar engadir unha parte agochada da mensaxe"
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Engadir unha emoción"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Mencionar como participante"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Redactar unha mensaxe <b>cifrada</b> cunha parte agochada"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Redactar unha mensaxe <b>sen cifrar</b> cunha parte agochada"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Redactar mensaxe <b>cifrada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Redactar mensaxe <b>sen cifrar</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Facer unha foto"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Gravar un vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Compartir ficheiros"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Enviar a súa localización"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Engadir unha parte agochada da mensaxe"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Agochar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Máis"
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Enviar unha mensaxe de voz"
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Enviar"
@@ -2566,9 +2636,12 @@ msgid "Name (optional):"
 msgstr "Nome (opcional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:99
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr "Mensaxe (opcional, sen cifrar):"
+msgstr "Mensaxe (opcional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
@@ -2670,7 +2743,7 @@ msgstr ""
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr "Algunhas funcionalidades volveranse visíbeis cando active a conta."
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3129,23 +3202,33 @@ msgid "Organization"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Search public groups (%1)"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Buscar grupos públicos (%1)"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:73
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Downloading…"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Descargando…"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:98
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "Retry"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Reintentar"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:180
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatDialog|"
+#| msgid "The public groups could not be retrieved: %1"
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Non foi posíbel obter os grupos públicos: %1"
@@ -3213,87 +3296,137 @@ msgid "Media"
 msgstr "Multimedia"
 
 #: src/qml/elements/RosterFilterArea.qml:28
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Contactos dispoñíbeis"
 
 #: src/qml/elements/RosterFilterArea.qml:32
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Unavailable contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
 msgstr "Contactos non dispoñíbeis"
 
 #: src/qml/elements/RosterFilterArea.qml:36
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Private groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
 msgstr "Grupos privados"
 
 #: src/qml/elements/RosterFilterArea.qml:40
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Grupos públicos"
 
 #: src/qml/elements/RosterFilterArea.qml:52
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Filtrar por tipo"
 
 #: src/qml/elements/RosterFilterArea.qml:53
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only entries of specific types"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr "Amosar só as entradas de tipos concretos."
 
 #: src/qml/elements/RosterFilterArea.qml:114
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by accounts"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Filtrar por contas"
 
 #: src/qml/elements/RosterFilterArea.qml:115
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Amosar só as charlas das contas seleccionadas."
 
 #: src/qml/elements/RosterFilterArea.qml:176
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Filtrar por etiquetas"
 
 #: src/qml/elements/RosterFilterArea.qml:177
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Amosar só as charlas coas etiquetas seleccionadas."
 
 #: src/qml/elements/RosterItemDelegate.qml:132
+#, fuzzy
+#| msgctxt "GroupChatDetailsHeader|"
+#| msgid "Deleted"
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Eliminouse"
 
 #: src/qml/elements/RosterItemDelegate.qml:146
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "No messages yet"
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Aínda non hai mensaxes."
 
 #: src/qml/elements/RosterItemDelegate.qml:162
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Draft:"
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Borrador:"
 
 #: src/qml/elements/RosterItemDelegate.qml:165
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Me:"
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Eu:"
 
 #: src/qml/elements/RosterItemDelegate.qml:169
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterListItem|"
+#| msgid "%1:"
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Unpin"
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Desprender"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Pin"
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fixar"
@@ -3354,12 +3487,12 @@ msgstr "Accións"
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr "Active a súa conta para usar todas as accións dispoñíbeis."
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr "Active unha conta para usar todas as accións dispoñíbeis."
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
@@ -3377,9 +3510,12 @@ msgid "Create group"
 msgstr "Crear un grupo"
 
 #: src/qml/GlobalDrawer.qml:199
+#, fuzzy
+#| msgctxt "GroupChatCreationDialog|"
+#| msgid "Create group chat"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Crear un grupo (non se permite)"
+msgstr "Crear unha conversa de grupo"
 
 #: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
@@ -3387,9 +3523,12 @@ msgid "Join group"
 msgstr "Unirse ao grupo"
 
 #: src/qml/GlobalDrawer.qml:225
+#, fuzzy
+#| msgctxt "GroupChatJoiningDialog|"
+#| msgid "Join group chat"
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Unirse ao grupo (non se permite)"
+msgstr "Unirse á conversa de grupo"
 
 #: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
@@ -3402,24 +3541,33 @@ msgid "About"
 msgstr "Sobre"
 
 #: src/qml/GlobalDrawer.qml:462
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Desbloqueouse %1"
 
 #: src/qml/GlobalDrawer.qml:462
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Desfacer"
 
 #: src/qml/GlobalDrawer.qml:469
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not block %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Non foi posíbel bloquear %1: %2"
 
 #: src/qml/GlobalDrawer.qml:473
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
 msgstr "Non foi posíbel desbloquear %1: %2"
@@ -3481,7 +3629,7 @@ msgstr "Completar o rexistro!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:113
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
-msgstr "O rexistro automático fallou por problemas con todos os fornecedores."
+msgstr ""
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
@@ -3737,9 +3885,12 @@ msgid "Account Migration"
 msgstr "Migración de conta"
 
 #: src/qml/StartPage.qml:27
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr "Creación de conta"
+msgstr "Migración de conta"
 
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
@@ -3767,23 +3918,35 @@ msgid "Unknown size"
 msgstr "Tamaño descoñecido"
 
 #: src/RosterController.cpp:146
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
 msgstr "Non foi posíbel engadir %1: %2"
 
 #: src/RosterController.cpp:153
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not add contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Non foi posíbel engadir o contacto porque non hai conexión."
 
 #: src/RosterController.cpp:163
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not rename contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Non foi posíbel renomear o contacto porque non hai conexión."
 
 #: src/RosterController.cpp:173
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
 msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3793,18 +3956,25 @@ msgstr ""
 "problema de conexión: %2"
 
 #: src/RosterController.cpp:184
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Non foi posíbel permitir a %1 ver a súa información persoal."
 
 #: src/RosterController.cpp:195
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Stopping %1 to see your personal data failed"
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Non foi posíbel facer que %1 deixe de ver a súa información persoal."
 
 #: src/RosterController.cpp:291
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid "Could not remove contact as a result of not being connected."
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Non foi posíbel eliminar o contacto porque non hai conexión."
@@ -3822,7 +3992,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Onte"
@@ -3861,14 +4031,6 @@ msgstr "Sitio web"
 #~ msgid "Details…"
 #~ msgstr "Detalles..."
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Pechar a busca"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
 #~ "Indicate when you have this conversation open, are typing and stopped "
@@ -3885,37 +4047,21 @@ msgstr "Sitio web"
 #~ "Indicar cando ten a charla aberta, cando escribe e cando deixa de "
 #~ "escribir."
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 está en liña"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Retirar o ficheiro seleccionado"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Localización dos servidores"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 está en liña"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Escribe uns valores diferentes para a conexión para cambialos"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Axustes de conexión"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuración da conexión"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "O contacto xa existe"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Abrir unha charla"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3925,19 +4071,34 @@ msgstr "Sitio web"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximizar o avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "O contacto xa existe"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Abrir unha charla"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Axustes de conexión"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuración da conexión"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Localización dos servidores"
+
+#, fuzzy
+#~| msgctxt "AbstractQrCodeGenerator|"
+#~| msgid "Generating the QR code failed: %1"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Fallou a creación do código QR: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marcar como primeiro sen ler"
-
-#, fuzzy
-#~| msgctxt "AccountMigrationManager|"
-#~| msgid ""
-#~| "Account could not be migrated: Another migration is already in progress"
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Non foi posíbel migrar a conta: xa hai outra migración en progreso."
@@ -3961,6 +4122,10 @@ msgstr "Sitio web"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Pode levar un tempo."
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marcar como primeiro sen ler"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

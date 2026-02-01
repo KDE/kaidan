@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-06 11:05+0100\n"
+"PO-Revision-Date: 2026-01-06 10:55+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -63,13 +63,13 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
+"Ezin izan du zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
 #: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
+msgstr "Zerbitzaria lerroz kanpo dago edo suhesi batek oztopatzen du."
 
 #: src/Account.cpp:502
 msgctxt "Connection|"
@@ -99,18 +99,18 @@ msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
-"Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
+"Ezin izan du saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
 #: src/Account.cpp:512
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr "Ezin izan da zerbitzariarekin konektatu."
+msgstr "Ezin izan du zerbitzarira konektatu."
 
 #: src/AccountMigrationController.cpp:331
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
-"Ezin izan da kontua migratu: Esportatutako kontuaren datuak ezin izan ditu "
+"Kontua ezin izan da migratu: Ezin izan ditu esportatutako kontuaren datuak "
 "zamatu"
 
 #: src/AccountMigrationController.cpp:348
@@ -653,15 +653,18 @@ msgstr "Ireki"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr "%1(e)ren sarrerako deia"
+msgstr ""
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr "%1(e)ren sarrerako bideo-deia"
+msgstr ""
 
 #: src/NotificationController.cpp:223
+#, fuzzy
+#| msgctxt "SubRequestAcceptSheet|"
+#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Onartu"
@@ -669,7 +672,7 @@ msgstr "Onartu"
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "Errefusatu"
+msgstr ""
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -743,29 +746,32 @@ msgstr "Kaidan-i buruz"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr "Deia"
+msgstr ""
 
 #: src/qml/ChatPage.qml:114
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Ireki audio-deia"
+msgstr "Ireki laguntza-berriketa"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "Hasi audio-deia"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr "Ireki bideo-deia"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr "Hasi bideo-deia"
+msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -773,7 +779,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Bilatu gorantz"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search down"
@@ -781,49 +787,52 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Bilatu beherantz"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Utzi bilaketa"
+msgstr "Itxi bilaketa"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Bilatu"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Ezeztatu birbidaltzea"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Hautatu mezua birbidaltzeko berriketa bat"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Jaregin bidali beharreko fitxategiak"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/qml/ChatPage.qml:840
+#: src/qml/ChatPage.qml:860
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ezin izan da %1 blokeatu: %2"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:864
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2382,87 +2391,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Ezeztatu erantzuna"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Mezuaren zati ikusgaia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Ezeztatu mezuaren ezkutuko zatia gehitzea"
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Gehitu emoji bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Aipatu partaide bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Osatu <b>zifratutako</b> mezu bat zati ezkutuekin"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Osatu <b>zifratu gabeko</b> mezu bat zati ezkutuekin"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Osatu <b>zifratutako</b> mezua"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Osatu <b>zifratu gabeko</b> mezua"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Atera argazki bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Partekatu fitxategiak"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Partekatu zure kokapena"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Gehitu mezuaren ezkutatuko zatia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Ezkutatu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Gehiago"
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Bidali ahots-mezu bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Bidali"
@@ -3709,7 +3718,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Oharrak"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Atzo"
@@ -3748,14 +3757,6 @@ msgstr "Webgunea"
 #~ msgid "Details…"
 #~ msgstr "Xehetasunak..."
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Itxi bilaketa"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Bilatu"
-
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
 #~ "Indicate when you have this conversation open, are typing and stopped "
@@ -3772,37 +3773,21 @@ msgstr "Webgunea"
 #~ "Adierazi noiz duzun elkarrizketa hau irekita, tekleatzen ari zaren eta "
 #~ "tekleatzeari utzi diozun"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 lerroan dago"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Kendu hautatutako fitxategia"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Zerbitzarien kokalekuak"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Bilatu"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 lerroan dago"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Sartu beste konexioa ezarpen batzuk haiek aldatzeko"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Konexioaren ezarpenak"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Konexio-ezarpenak"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontaktua jada existitzen da"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Ireki berriketa"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3812,18 +3797,34 @@ msgstr "Webgunea"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximizatu abatarra"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontaktua jada existitzen da"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Ireki berriketa"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Konexioaren ezarpenak"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Konexio-ezarpenak"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Zerbitzarien kokalekuak"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR-kodea sortzea huts egin du: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markatu lehenengo ez irakurri gisa"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "Ezin izan da kontua migratu: beste migrazio bat abian da"
+#~ msgstr "Kontua ezin izan da migratu: Beste migrazioa bat egiten ari da"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -3844,6 +3845,10 @@ msgstr "Webgunea"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Horrek luze jo dezake"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markatu lehenengo ez irakurri gisa"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

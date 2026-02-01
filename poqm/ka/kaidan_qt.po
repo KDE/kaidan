@@ -26,7 +26,7 @@ msgstr "დაკავშირება…"
 #: src/Account.cpp:479
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "დაკავშირება"
+msgstr "დაკავშირებულია"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -141,22 +141,31 @@ msgid "Devices on Servers"
 msgstr "მოწყობილობები სერვერებზე"
 
 #: src/ChatController.cpp:176
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 is typing…"
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 კრეფს…"
 
 #: src/ChatController.cpp:178
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "QmlUtils|"
+#| msgid "%1 paused typing"
 msgctxt "ChatController|"
 msgid "%1 paused typing"
 msgstr "%1-მა შეწყვიტა კრეფა"
 
 #: src/ChatHintModel.cpp:249
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"თქვენი ანგარიში გამორთულია - შეტყობინებების მიმოცვლა მოხდება, როცა ჩართავთ"
+"თქვენი ანგარიში ჩართული არაა - შეტყობინებების გაიგზავნება და მიღება მოხდება, "
+"როცა ჩართავთ"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -182,7 +191,7 @@ msgstr "მიერთების პრობლემა"
 #: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr "შეცდომი&ს ჩვენება"
+msgstr "შეცდომის ჩვენება"
 
 #: src/ChatHintModel.cpp:262
 msgctxt "ChatHintModel|"
@@ -206,9 +215,9 @@ msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
 msgstr ""
-"თქვენი კონტაქტი %1 (%2) ახლა არის %3 (%4) და სურს მიიღოს თქვენი პირადი "
-"მონაცემები, როგორიცაა ხელმისაწვდომობა, მოწყობილობები და სხვა პირად "
-"ინფორმაცია კიდევ ერთხელ %5"
+"თქვენი კონტაქტი %1 (%2) არის% %3 (%4) ახლა და სურს თქვენი პერსონალური "
+"მონაცემების მიღება, როგორიცაა ხელმისაწვდომობა, მოწყობილობები და სხვა "
+"პერსონალური ინფორმაცია %5"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -334,7 +343,7 @@ msgstr "მინიატურის გენერაცია შეუძ�
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
+msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
 #: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
@@ -636,23 +645,26 @@ msgstr "გახსნა"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr "შემომავალი ზარი %1-დან"
+msgstr ""
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr "შემომავალი ვიდეოზარი %1-დან"
+msgstr ""
 
 #: src/NotificationController.cpp:223
+#, fuzzy
+#| msgctxt "SubRequestAcceptSheet|"
+#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr "მიღება"
+msgstr "დასტური"
 
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr "უარყოფა"
+msgstr ""
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -726,81 +738,93 @@ msgstr "Kaidan-ის შესახებ"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr "ზარი"
+msgstr ""
 
 #: src/qml/ChatPage.qml:114
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "აუდიოზარის გახსნა"
+msgstr "მხარდაჭერის ჩატის გახსნა"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "აუდიოზარის დაწყება"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr "ვიდეოზარის გახსნა"
+msgstr ""
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr "ვიდეოზარის დაწყება"
+msgstr ""
 
-#: src/qml/ChatPage.qml:140
+#: src/qml/ChatPage.qml:160
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "მაღლა ძებნა"
 
-#: src/qml/ChatPage.qml:151
+#: src/qml/ChatPage.qml:171
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "დაბლა ძებნა"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "ძებნიდან გასვლა"
+msgstr "ძებნის დახურვა"
 
-#: src/qml/ChatPage.qml:163
+#: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/ChatPage.qml:528
+#: src/qml/ChatPage.qml:548
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "გადაგზავნის გაუქმება"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:563
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "აირჩიეთ ჩატი შეტყობინების გადასაგზავნად"
 
-#: src/qml/ChatPage.qml:595
+#: src/qml/ChatPage.qml:615
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
-#: src/qml/ChatPage.qml:833
+#: src/qml/ChatPage.qml:853
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/qml/ChatPage.qml:840
+#: src/qml/ChatPage.qml:860
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:864
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1587,9 +1611,12 @@ msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
 
 #: src/qml/details/ContactDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "მითითება, როცა კრეფთ"
+msgstr "მითითება, რომელი შეტყობინებები წაიკითხეთ"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1882,9 +1909,12 @@ msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "მითითება, როცა კრეფთ"
+msgstr "მითითება, რომელი შეტყობინებები წაიკითხეთ"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -2288,14 +2318,20 @@ msgid "%1 has read up to this point"
 msgstr "%1-მა ამ წერტილამდე წაიკითხა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "ფაილის წაშლა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:67
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "ფაილის გახსნა საქაღალდეში"
+msgstr "მონიშნული ფაილის საქაღალდის გახსნა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
@@ -2347,87 +2383,87 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:144
+#: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "ხილული შეტყობინების ნაწილი"
 
-#: src/qml/elements/ChatPageSendingPane.qml:151
+#: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატების გაუქმება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:178
+#: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "ემოჯის დამატება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "მონაწილის ხსენება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:220
+#: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:222
+#: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "სურათის გადაღება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "ვიდეოს ჩაწერა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "ფაილების გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:340
+#: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "თქვენი მდებარეობის გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "დამალვა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "მეტი"
 
-#: src/qml/elements/ChatPageSendingPane.qml:438
+#: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "ხმოვანი შეტყობინების გაგზავნა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:462
+#: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "გაგზავნა"
@@ -2445,7 +2481,7 @@ msgstr "დამატება"
 #: src/qml/elements/ContactAdditionContent.qml:42
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "კონტაქტისთვის მიღებული ნდობის გადაწყვეტილებები"
+msgstr "კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2506,7 +2542,7 @@ msgstr ""
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "კონტაქტების მოწვევა ამ ჯგუფში…"
+msgstr "კონტაქტების მოწვევაა ამ ჯგუფში…"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2899,7 +2935,7 @@ msgstr "რეაქციების განახლების თავ�
 #: src/qml/elements/ProviderFilterArea.qml:18
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "რეგისტრაციის Kaidan-დან"
+msgstr "რეგისტრაცია Kaidan-დან"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
@@ -2944,7 +2980,7 @@ msgstr ""
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "ავტობუსის ფაქტორი"
+msgstr "სალტეს ფაქტორი"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
 msgctxt "ProviderFilterArea|"
@@ -3153,7 +3189,7 @@ msgstr "%1:"
 #: src/qml/elements/RosterItemDelegate.qml:284
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr "ჩამოხსნა"
+msgstr "მოხსნა"
 
 #: src/qml/elements/RosterItemDelegate.qml:284
 msgctxt "RosterItemDelegate|"
@@ -3161,14 +3197,17 @@ msgid "Pin"
 msgstr "მიმაგრება"
 
 #: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "მენიუს გახსნა"
+msgstr "გამოსახულების გახსნა…"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr "უკან გადასვლა"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3650,7 +3689,7 @@ msgstr "%1-სთვის თქვენი პირადი მონაც
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარა"
+msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარდა"
 
 #: src/RosterController.cpp:291
 msgctxt "RosterController|"
@@ -3660,14 +3699,14 @@ msgstr "კონტაქტის წაშლა შეუძლებელ�
 #: src/RosterItem.cpp:31
 msgctxt "QObject|"
 msgid "Provider"
-msgstr "სერვისის მომწოდებელი"
+msgstr "მომწოდებელი"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: src/RosterModel.cpp:750
+#: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -3706,14 +3745,6 @@ msgstr "ვებსაიტი"
 #~ msgid "Details…"
 #~ msgstr "დეტალები…"
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "ძებნის დახურვა"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "ძებნა"
-
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
 #~ "Indicate when you have this conversation open, are typing and stopped "
@@ -3726,37 +3757,21 @@ msgstr "ვებსაიტი"
 #~ "typing"
 #~ msgstr "მითითება, როცა საუბარი გახსნილი გაქვთ, კრეფთ ან შეწყვიტეთ კრეფა"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 ონლაინაა"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "მონიშნული ფაილის წაშლა"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "სერვერის მდებარეობები"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "ძებნა"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 ონლაინაა"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "მიერთების პარამეტრები შეიცვალა"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "შეერთების მორგება"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "კავშირის პარამეტრები"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "კონტაქტი უკვე არსებობს"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "ჩატის გახსნა"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3766,15 +3781,31 @@ msgstr "ვებსაიტი"
 #~ msgid "Maximize avatar"
 #~ msgstr "ავატარის გადიდება"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "კონტაქტი უკვე არსებობს"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "ჩატის გახსნა"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "შეერთების მორგება"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "კავშირის პარამეტრები"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "სერვერის მდებარეობები"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "ანგარიშის მიგრაცია შეუძლებელია: უკვე მიმდინარეობს სხვა მიგრაცია"
@@ -3798,6 +3829,10 @@ msgstr "ვებსაიტი"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "ამას, შეიძლება, დიდი დრო დასჭირდეს"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
