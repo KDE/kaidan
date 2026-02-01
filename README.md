@@ -58,7 +58,7 @@ The following dependencies are needed by Kaidan:
 * [Kirigami Addons][kirigami-addons] >= 1.8.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
 * [ICU (International Components for Unicode)][icu] >= 61
-* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.0
+* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.2
 * [QtKeychain][qtkeychain] >= 0.15
 * [GStreamer Good Plug-ins (gst-plugins-good)][gst-plugins-good] (containing [qml6glsink][qml6glsink]) >= 1.20
 
