@@ -136,29 +136,21 @@ msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 正在输入…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
 msgstr "%1 已暂停输入"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
-msgstr "您的账号未启用 - 启用后即可发送和接收消息"
+msgstr "您的账号已禁用 - 连接后即可收发消息"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -635,23 +627,23 @@ msgstr "打开"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "来自 %1 的来电"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "来自 %1 的视频通话来电"
 
 #: src/NotificationController.cpp:223
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "接受"
 
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "拒绝"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -725,54 +717,42 @@ msgstr "关于 Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "通话"
 
 #: src/qml/ChatPage.qml:114
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "打开支持聊天"
+msgstr "打开音频通话"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "开始音频通话"
 
 #: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "打开视频通话"
 
 #: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "开始视频通话"
 
 #: src/qml/ChatPage.qml:160
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "向上搜索"
 
 #: src/qml/ChatPage.qml:171
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "向下搜索"
 
 #: src/qml/ChatPage.qml:183
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "关闭搜索"
+msgstr "退出搜索"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
@@ -1566,12 +1546,9 @@ msgid "Send typing notifications"
 msgstr "发送输入通知"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "指示您已阅读的消息"
+msgstr "输入时显示输入状态"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1855,12 +1832,9 @@ msgid "Send typing notifications"
 msgstr "发送输入通知"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "指示您已阅读的消息"
+msgstr "输入时显示输入状态"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -2255,20 +2229,14 @@ msgid "%1 has read up to this point"
 msgstr "%1 已阅读至此"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "移除文件"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:67
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "打开所选文件的文件夹"
+msgstr "在文件夹中打开文件"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
@@ -3120,17 +3088,14 @@ msgid "Pin"
 msgstr "置顶"
 
 #: src/qml/elements/SearchBarPage.qml:65
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "打开图片…"
+msgstr "打开菜单"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3657,31 +3622,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Details…"
-#~ msgstr "详情…"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid ""
-#~ "Indicate when you have this conversation open, are typing and stopped "
-#~ "typing"
-#~ msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid ""
-#~ "Indicate when you have this conversation open, are typing and stopped "
-#~ "typing"
-#~ msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "移除所选文件"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 已上线"

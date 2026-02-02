@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 12:29+0100\n"
-"PO-Revision-Date: 2026-01-02 12:29+0100\n"
+"PO-Revision-Date: 2026-02-01 12:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: src/Account.cpp:475
 msgctxt "Connection|"
@@ -150,31 +150,23 @@ msgid "Devices on Servers"
 msgstr "Dispositivos en servidores"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 está escribiendo…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
 msgstr "%1 ha dejado de escribir"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Su cuenta no está activada: los mensajes se enviarán y recibirán en cuanto "
-"esté activada"
+"Su cuenta está desactivada: los mensajes se intercambiarán cuando tenga "
+"conexión"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -654,23 +646,23 @@ msgstr "Abrir"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Llamada entrante de %1"
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Videollamada entrante de %1"
 
 #: src/NotificationController.cpp:223
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: src/NotificationController.cpp:230
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Rechazar"
 
 #: src/NotificationController.cpp:339
 msgctxt "NotificationController|"
@@ -744,54 +736,42 @@ msgstr "Acerca de Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Llamar"
 
 #: src/qml/ChatPage.qml:114
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Abrir conversación de asistencia"
+msgstr "Abrir llamada de sonido"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Iniciar llamada de sonido"
 
 #: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Abrir videollamada"
 
 #: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Iniciar videollamada"
 
 #: src/qml/ChatPage.qml:160
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Buscar hacia arriba"
 
 #: src/qml/ChatPage.qml:171
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Buscar hacia abajo"
 
 #: src/qml/ChatPage.qml:183
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Cerrar la búsqueda"
+msgstr "Salir de la búsqueda"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
@@ -1630,12 +1610,9 @@ msgid "Send typing notifications"
 msgstr "Enviar notificaciones de escritura"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indicar los mensajes que usted ha leído"
+msgstr "Indicar cuándo está escribiendo"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1932,12 +1909,9 @@ msgid "Send typing notifications"
 msgstr "Enviar notificaciones de escritura"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indicar los mensajes que usted ha leído"
+msgstr "Indicar cuándo está escribiendo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -2348,20 +2322,14 @@ msgid "%1 has read up to this point"
 msgstr "%1 ha leído hasta este punto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Eliminar archivo"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:67
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Abrir la carpeta del archivo seleccionado"
+msgstr "Abrir archivo en carpeta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
@@ -3223,17 +3191,14 @@ msgid "Pin"
 msgstr "Fijar"
 
 #: src/qml/elements/SearchBarPage.qml:65
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Abrir imagen…"
+msgstr "Abrir menú"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Volver"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3771,35 +3736,3 @@ msgstr "Cumpleaños"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Details…"
-#~ msgstr "Detalles…"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid ""
-#~ "Indicate when you have this conversation open, are typing and stopped "
-#~ "typing"
-#~ msgstr ""
-#~ "Indicar si usted tiene abierta esta conversación, si está escribiendo o "
-#~ "si ha dejado de escribir"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid ""
-#~ "Indicate when you have this conversation open, are typing and stopped "
-#~ "typing"
-#~ msgstr ""
-#~ "Indicar si usted tiene abierta esta conversación, si está escribiendo o "
-#~ "si ha dejado de escribir"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Eliminar archivo seleccionado"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 está conectado"
