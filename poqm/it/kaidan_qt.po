@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-19 16:54+0100\n"
+"PO-Revision-Date: 2026-01-29 15:25+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -142,31 +142,23 @@ msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 sta scrivendo…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
 msgstr "%1 ha sospeso la digitazione"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Il tuo account non è abilitato - I messaggi sono inviati e ricevuti una "
-"volta abilitato"
+"Il tuo account è disabilitato - I messaggi vengono scambiati una volta "
+"connessi"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -759,20 +751,14 @@ msgid "Start video call"
 msgstr "Avvia la chiamata video"
 
 #: src/qml/ChatPage.qml:160
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
-msgstr "Cerca in su"
+msgstr "Cerca verso l'alto"
 
 #: src/qml/ChatPage.qml:171
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
-msgstr "Cerca in giù"
+msgstr "Cerca verso il basso"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
@@ -1612,12 +1598,9 @@ msgid "Send typing notifications"
 msgstr "Invia le notifiche di digitazione"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indica quali messaggi hai letto"
+msgstr "Indica quando stai scrivendo"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1910,12 +1893,9 @@ msgid "Send typing notifications"
 msgstr "Invia le notifiche di digitazione"
 
 #: src/qml/details/GroupChatDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indica quali messaggi hai letto"
+msgstr "Indica quando stai scrivendo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -3195,17 +3175,14 @@ msgid "Pin"
 msgstr "Appunta"
 
 #: src/qml/elements/SearchBarPage.qml:65
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Apri immagine…"
+msgstr "Apri il menu"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Indietro"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
