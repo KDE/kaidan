@@ -23,9 +23,8 @@ Kirigami.Page {
 		scaleFactor: avatar.width * 0.02
 		elide: Text.ElideMiddle
 		width: parent.width - Kirigami.Units.largeSpacing * 2
-		visible: MainController.activeCall && MainController.activeCall.audioOnly
+		visible: !contactCameraArea.visible
 		horizontalAlignment: Text.AlignHCenter
-
 		anchors {
 			horizontalCenter: parent.horizontalCenter
 			topMargin: Kirigami.Units.gridUnit
@@ -42,6 +41,7 @@ Kirigami.Page {
 			name: MainController.activeCall && AccountController.account(MainController.activeCall.accountJid).settings.displayName
 			asynchronous: false
 		}
+		visible: !contactCameraArea.visible
 		implicitWidth: Math.min(parent.width, parent.height) * 0.35
 		implicitHeight: implicitWidth
 		asynchronous: false
@@ -51,6 +51,7 @@ Kirigami.Page {
 	GstGLQt6VideoItem {
 		id: contactCameraArea
 		objectName: "callPageContactCameraArea"
+		visible: MainController.activeCall && MainController.activeCall.videoPlaybackActive
 		anchors.fill: parent
 	}
 
@@ -58,7 +59,7 @@ Kirigami.Page {
 		id: callStopButton
 		iconSource: "call-stop-symbolic"
 		iconColor: Kirigami.Theme.negativeTextColor
-		strongBackgroundOpacityChange: MainController.activeCall && MainController.activeCall.audioOnly
+		strongBackgroundOpacityChange: !contactCameraArea.visible
 		anchors {
 			horizontalCenter: parent.horizontalCenter
 			bottom: parent.bottom

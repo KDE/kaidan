@@ -23,6 +23,7 @@ class Call : public QObject
     Q_PROPERTY(QString accountJid READ accountJid CONSTANT)
     Q_PROPERTY(QString chatJid READ chatJid CONSTANT)
     Q_PROPERTY(bool audioOnly READ audioOnly NOTIFY audioOnlyChanged)
+    Q_PROPERTY(bool videoPlaybackActive MEMBER m_videoPlaybackActive NOTIFY videoPlaybackActiveChanged)
 
 public:
     Call(const QString &accountJid,
@@ -42,6 +43,8 @@ public:
 
     bool audioOnly() const;
     Q_SIGNAL void audioOnlyChanged();
+
+    Q_SIGNAL void videoPlaybackActiveChanged();
 
     void accept();
     void reject();
@@ -75,4 +78,5 @@ private:
     QXmppCall *m_call = nullptr;
 
     bool m_proposedCallAccepted = false;
+    bool m_videoPlaybackActive = false;
 };

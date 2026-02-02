@@ -276,7 +276,7 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
     Q_EMIT audioOnlyChanged();
     auto *pipeline = m_call->pipeline();
 
-    stream->setReceivePadCallback([pipeline](GstPad *receivePad) {
+    stream->setReceivePadCallback([this, pipeline](GstPad *receivePad) {
         QQuickWindow *rootObject = static_cast<QQuickWindow *>(QGuiApplication::topLevelWindows().first());
 
         auto *contactVideoItem = rootObject->findChild<QQuickItem *>("callPageContactCameraArea");
@@ -299,6 +299,9 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
 
         gst_element_sync_state_with_parent(output);
         rootObject->scheduleRenderJob(new VideoOutputRenderJob(pipeline), QQuickWindow::BeforeSynchronizingStage);
+
+        m_videoPlaybackActive = true;
+        videoPlaybackActiveChanged();
 
         qCDebug(KAIDAN_CORE_LOG) << "Video playback (receive pad) set up";
     });
