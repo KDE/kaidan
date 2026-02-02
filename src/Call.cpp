@@ -320,7 +320,7 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
 
         gst_element_sync_state_with_parent(input);
 
-        qCDebug(KAIDAN_CORE_LOG) << "Video source (send pad) set up";
+        qCDebug(KAIDAN_CORE_LOG) << "Video recorder (send pad) set up";
     });
 }
 
