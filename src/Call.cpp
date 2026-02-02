@@ -273,6 +273,7 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
 
     qCDebug(KAIDAN_CORE_LOG) << "Start video stream setup";
 
+    Q_EMIT audioOnlyChanged();
     auto *pipeline = m_call->pipeline();
 
     stream->setReceivePadCallback([pipeline](GstPad *receivePad) {
