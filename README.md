@@ -44,7 +44,11 @@ Downloadable builds are available on [Kaidan's download page][downloads].
 Instructions for using ready-made (nightly / stable) builds and for building
 Kaidan yourself can be found in our [Wiki][wiki].
 
-## Required Dependencies
+## Dependencies
+
+Kaidan requires some dependencies and makes use of some optional dependencies if they are available.
+
+### Required Dependencies
 
 The following dependencies are needed by Kaidan:
 
@@ -57,7 +61,7 @@ The following dependencies are needed by Kaidan:
 * [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.0
 * [QtKeychain][qtkeychain] >= 0.15
 
-## Optional Dependencies
+### Optional Dependencies
 
 The following dependencies can improve the user experience:
 
