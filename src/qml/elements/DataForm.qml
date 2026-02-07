@@ -20,14 +20,14 @@ ColumnLayout {
 
 	Kirigami.Heading {
 		visible: displayTitle
-		text: repeater.model.sourceModel ? repeater.model.sourceModel.title : ""
+		text: root.model && root.model.sourceModel ? root.model.sourceModel.title : ""
 		textFormat: Text.PlainText
 		wrapMode: Text.WordWrap
 	}
 
 	Controls.Label {
 		visible: displayInstructions
-		text: repeater.model.sourceModel ? repeater.model.sourceModel.instructions : ""
+		text: root.model && root.model.sourceModel ? root.model.sourceModel.instructions : ""
 		textFormat: Text.PlainText
 		wrapMode: Text.WordWrap
 	}
