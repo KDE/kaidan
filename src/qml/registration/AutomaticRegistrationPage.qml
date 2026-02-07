@@ -6,6 +6,7 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
 import "../elements"
@@ -75,6 +76,7 @@ RegistrationPage {
 			}
 
 			CustomDataFormArea {
+				id: customDataFormArea
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
 				visible: root.account.connection.error !== ClientController.EmailConfirmationRequired
@@ -83,6 +85,23 @@ RegistrationPage {
 					if (visible) {
 						forceActiveFocus()
 					}
+				}
+			}
+
+			FormCard.FormCard {
+				FormCard.FormButtonDelegate {
+					text: qsTr("Try another provider")
+					// Needed to position "leading" appropriately.
+					// It would otherwise have a too small right margin.
+					leadingPadding: Kirigami.Units.smallSpacing * 3
+					leading: Kirigami.Icon {
+						source: "view-refresh-symbolic"
+						implicitWidth: Kirigami.Units.iconSizes.small
+						implicitHeight: Kirigami.Units.iconSizes.small
+					}
+					visible: customDataFormArea.visible
+					Layout.fillWidth: true
+					onClicked: root.requestRegistrationFormFromAnotherProvider()
 				}
 			}
 
