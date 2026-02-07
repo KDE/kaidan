@@ -60,6 +60,7 @@ The following dependencies are needed by Kaidan:
 * [ICU (International Components for Unicode)][icu] >= 61
 * [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.0
 * [QtKeychain][qtkeychain] >= 0.15
+* [GStreamer Good Plug-ins (gst-plugins-good)][gst-plugins-good] (containing [qml6glsink][qml6glsink]) >= 1.20
 
 ### Optional Dependencies
 
@@ -84,6 +85,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [downloads]: https://www.kaidan.im/download/
 [ecm]: https://api.kde.org/ecm/manual/ecm.7.html
 [ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
+[gst-plugins-good]: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/tree/main/subprojects/gst-plugins-good
 [icu]: https://icu.unicode.org
 [kaidan-screenshot]: https://www.kaidan.im/images/screenshots/screenshot-horizontal.png
 [kaidan-website]: https://kaidan.im
@@ -102,6 +104,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [kwindowsystem]: https://api.kde.org/frameworks/kwindowsystem/html/index.html
 [overview]: https://xmpp.org/software/clients/kaidan/
 [prison]: https://api.kde.org/frameworks/prison/html/index.html
+[qml6glsink]: https://gstreamer.freedesktop.org/documentation/qml6/qml6glsink.html
 [qt]: https://www.qt.io/
 [qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
