@@ -134,10 +134,14 @@ void Call::accept()
 void Call::reject()
 {
     if (m_call) {
-        m_call->decline();
-    }
+        if (m_jmi) {
+            m_jmiFinishTask = [this]() {
+                m_jmi->reject(QXmppJingleReason{QXmppJingleReason::Decline, {}, {}});
+            };
+        }
 
-    if (m_jmi) {
+        m_call->decline();
+    } else if (m_jmi) {
         m_jmi->reject(QXmppJingleReason{QXmppJingleReason::Decline, {}, {}});
     }
 }
@@ -145,11 +149,13 @@ void Call::reject()
 void Call::hangUp()
 {
     if (m_call) {
-        m_call->hangUp();
-
         if (m_jmi) {
-            m_jmi->finish(QXmppJingleReason{QXmppJingleReason::Success, {}, {}});
+            m_jmiFinishTask = [this]() {
+                m_jmi->finish(QXmppJingleReason{QXmppJingleReason::Success, {}, {}});
+            };
         }
+
+        m_call->hangUp();
     } else if (m_jmi) {
         m_jmi->retract(QXmppJingleReason{QXmppJingleReason::Cancel, {}, {}});
     }
@@ -342,7 +348,13 @@ void Call::setCall(std::unique_ptr<QXmppCall> call)
     Q_EMIT audioOnlyChanged();
 
     connect(m_call, &QXmppCall::finished, this, [this]() {
-        if (!m_jmi) {
+        if (m_jmi) {
+            if (m_jmiFinishTask) {
+                m_jmiFinishTask();
+            } else {
+                m_jmi->finish(QXmppJingleReason{QXmppJingleReason::Success, {}, {}});
+            }
+        } else {
             terminate();
         }
     });

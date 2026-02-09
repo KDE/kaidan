@@ -76,6 +76,7 @@ private:
     std::shared_ptr<QXmppJingleMessageInitiation> m_jmi;
     QList<QXmppJingleRtpDescription> m_descriptions;
     QXmppCall *m_call = nullptr;
+    std::function<void()> m_jmiFinishTask;
 
     bool m_proposedCallAccepted = false;
     bool m_videoPlaybackActive = false;
