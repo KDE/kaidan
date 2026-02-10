@@ -30,9 +30,8 @@ Use the following prefixes for branch names:
 
 Current Maintainers:
 
-* Linus Jahn (@lnj)
-* Jonah Brüchert (@jbbgameich)
 * Melvin Keskin (@melvo)
+* Filipe Azevedo (@fazevedo)
 
 They are responsible for accepting MRs.
 Nevertheless, everybody is welcome to review MRs and give feedback on them.
