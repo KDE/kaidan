@@ -17,6 +17,7 @@ Kirigami.Page {
 	id: root
 	title: qsTr("Call")
 	padding: 0
+	Component.onDestruction: pageStack.currentItem.forceActiveFocus()
 
 	ScalableText {
 		text: rosterItemWatcher.item.displayName

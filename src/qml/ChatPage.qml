@@ -938,4 +938,8 @@ SearchBarPage {
 	function addFile(url) {
 		sendingPane.composition.fileSelectionModel.addFile(url)
 	}
+
+	function forceActiveFocus() {
+		sendingPane.forceActiveFocus()
+	}
 }
