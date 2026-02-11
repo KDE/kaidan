@@ -37,12 +37,6 @@ QString RosterItem::displayName() const
     }
 
     if (name.isEmpty()) {
-        // Return the JID if the roster item is created by a RosterItemWatcher while not being an
-        // actual item in the roster.
-        if (accountJid.isEmpty()) {
-            return jid;
-        }
-
         if (!groupChatName.isEmpty()) {
             return groupChatName;
         }

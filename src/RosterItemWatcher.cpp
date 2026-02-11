@@ -104,8 +104,8 @@ void RosterItemWatcher::notify(const std::optional<RosterItem> &item)
         m_item = *item;
     } else {
         m_item = {};
-        m_item.jid = m_jid;
     }
+
     Q_EMIT itemChanged();
 }
 
