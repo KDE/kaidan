@@ -47,6 +47,7 @@ SearchBarPage {
 
 	ListView {
 		id: rosterListView
+		currentIndex: -1
 		model: RosterFilterModel {
 			id: filterModel
 			sourceModel: RosterModel
