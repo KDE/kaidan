@@ -11,6 +11,9 @@ DetailsHeader {
 	id: root
 	jid: account.settings.jid
 	displayName: account.settings.displayName
+	changeDisplayName: (newDisplayName) => {
+		account.vCardController.changeNickname(newDisplayName)
+	}
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")
 		icon.name: "camera-photo-symbolic"
@@ -23,12 +26,7 @@ DetailsHeader {
 			openPage(avatarChangePage)
 		}
 	}
-
-	function changeDisplayName(newDisplayName) {
-		account.vCardController.changeNickname(newDisplayName)
-	}
-
-	function handleDisplayNameChanged() {
+	onDisplayNameUpdated: {
 		if (account.connection.state === Enums.StateConnected) {
 			account.vCardController.requestOwnVCard()
 		}

@@ -7,7 +7,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
-RosterItemDetailsHeader {
+SpecialRosterItemDetailsHeader {
 	id: root
 	avatar.isGroupChat: true
 	description: root.chatController.rosterItem.isPublicGroupChat ? qsTr("Public Group Chat") : qsTr("Private Group Chat")

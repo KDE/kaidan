@@ -20,9 +20,11 @@ FormInfoHeader {
 	property Account account
 	required property string jid
 	required property string displayName
-	property alias displayNameEditable: displayNameEditingButton.visible
+	property var changeDisplayName
 	property alias avatar: avatar
 	required property Kirigami.Action avatarAction
+
+	signal displayNameUpdated
 
 	AccountRelatedAvatar {
 		id: avatar
@@ -89,7 +91,7 @@ FormInfoHeader {
 				checkable: true
 				checked: !displayNameText.visible
 				flat: !hovered && !displayNameMouseArea.containsMouse
-				visible: root.account.settings.enabled
+				visible: root.account.settings.enabled && root.changeDisplayName
 				Controls.ToolTip.text: text
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
@@ -121,7 +123,7 @@ FormInfoHeader {
 				Layout.preferredHeight: displayNameTextField.height
 				Layout.fillWidth: true
 				// TODO: Get update of current vCard by using Entity Capabilities
-				onTextChanged: handleDisplayNameChanged()
+				onTextChanged: root.displayNameUpdated()
 
 				MouseArea {
 					id: displayNameMouseArea

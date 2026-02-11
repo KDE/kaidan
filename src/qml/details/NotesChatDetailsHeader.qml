@@ -2,9 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-RosterItemDetailsHeader {
-	id: root
+SpecialRosterItemDetailsHeader {
 	avatar.name: account.settings.displayName
-	displayNameEditable: false
+	changeDisplayName: null
 	description: qsTr("Messages in this chat are synchronized as notes across all your devices")
 }
