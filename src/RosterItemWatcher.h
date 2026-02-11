@@ -59,5 +59,4 @@ private:
     QString m_accountJid;
     QString m_jid;
     RosterItem m_item;
-    bool m_outdated = false;
 };
