@@ -64,7 +64,7 @@ void RosterItemWatcher::setAccountJid(const QString &accountJid)
     if (accountJid != m_accountJid) {
         unregister();
         m_accountJid = accountJid;
-        RosterItemNotifier::instance().registerItemWatcher(this);
+        registerIfComplete();
         Q_EMIT accountJidChanged();
         notify(RosterModel::instance()->item(m_accountJid, m_jid));
     }
@@ -80,7 +80,7 @@ void RosterItemWatcher::setJid(const QString &jid)
     if (jid != m_jid) {
         unregister();
         m_jid = jid;
-        RosterItemNotifier::instance().registerItemWatcher(this);
+        registerIfComplete();
         Q_EMIT jidChanged();
         notify(RosterModel::instance()->item(m_accountJid, m_jid));
     }
@@ -89,6 +89,13 @@ void RosterItemWatcher::setJid(const QString &jid)
 const RosterItem &RosterItemWatcher::item() const
 {
     return m_item;
+}
+
+void RosterItemWatcher::registerIfComplete()
+{
+    if (!m_accountJid.isEmpty() && !m_jid.isEmpty()) {
+        RosterItemNotifier::instance().registerItemWatcher(this);
+    }
 }
 
 void RosterItemWatcher::unregister()

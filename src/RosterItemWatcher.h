@@ -52,8 +52,9 @@ public:
 private:
     friend class RosterItemNotifier;
 
-    void notify(const std::optional<RosterItem> &item);
+    void registerIfComplete();
     void unregister();
+    void notify(const std::optional<RosterItem> &item);
 
     QString m_accountJid;
     QString m_jid;
