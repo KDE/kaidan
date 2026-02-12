@@ -27,7 +27,6 @@ SearchBarPage {
 	searchField {
 		listView: rosterListView
 		onTextChanged: rosterListView.model.setFilterFixedString(searchField.text.toLowerCase())
-		Keys.onEscapePressed: rosterListView.resetCurrentIndex()
 	}
 	toolbarItems: [
 		ToolbarButton {
@@ -79,7 +78,7 @@ SearchBarPage {
 			pinned: model.pinned
 			effectiveNotificationRule: model.effectiveNotificationRule
 			onClicked: {
-				rosterListView.resetCurrentIndex()
+				root.searchField.reset()
 
 				// Open the chatPage.
 				if (active) {
@@ -207,10 +206,6 @@ SearchBarPage {
 					filterModel.selectedAccountJids = previouslySelectedAccountJids
 				}
 			}
-		}
-
-		function resetCurrentIndex() {
-			currentIndex = -1
 		}
 	}
 

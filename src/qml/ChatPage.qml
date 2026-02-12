@@ -50,8 +50,8 @@ SearchBarPage {
 			if (searchField.visible) {
 				searchField.forceActiveFocus()
 			} else {
-				searchField.clear()
-				messageListView.resetCurrentIndex()
+				searchField.reset()
+				root.forceActiveFocus()
 			}
 		}
 		onAccepted: searchFromCurrentIndex(true)
@@ -183,12 +183,6 @@ SearchBarPage {
 			Controls.ToolTip.text: root.searchField.visible ? qsTr("Quit search") : qsTr("Search")
 			source: "system-search-symbolic"
 			checkable: true
-			onCheckedChanged: {
-				if (!checked) {
-					root.messageListView.resetCurrentIndex()
-					root.sendingPane.forceActiveFocus()
-				}
-			}
 		}
 	]
 

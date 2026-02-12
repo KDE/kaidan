@@ -38,7 +38,6 @@ Kirigami.SearchField {
 			}
 		}
 	}
-	Keys.onEscapePressed: clear()
 	Keys.onPressed: event => {
 		switch (event.key) {
 		case Qt.Key_Return:
@@ -50,5 +49,11 @@ Kirigami.SearchField {
 				listView.itemAtIndex(0).clicked()
 			}
 		}
+	}
+	Keys.onEscapePressed: reset()
+
+	function reset() {
+		listView.currentIndex = -1
+		clear()
 	}
 }
