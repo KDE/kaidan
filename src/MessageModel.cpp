@@ -412,7 +412,7 @@ void MessageModel::fetchMore(const QModelIndex &)
                 handleMessagesFetched(messages);
             });
         }
-    } else if (!m_fetchedAllFromMam) {
+    } else if (!m_fetchedAllFromMam && m_connection->state() == Enums::ConnectionState::StateConnected) {
         // Skip unneeded steps when 'canFetchMore()' has not been called before calling
         // 'fetchMore()'.
         if (!m_mamLoading) {
