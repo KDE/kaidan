@@ -102,7 +102,7 @@ Kirigami.ScrollablePage {
 					}
 
 					Controls.BusyIndicator {
-						running: parent.visible
+						running: true
 						anchors.fill: parent
 					}
 				}
