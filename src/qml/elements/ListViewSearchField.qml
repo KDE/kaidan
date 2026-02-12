@@ -44,9 +44,12 @@ Kirigami.SearchField {
 		case Qt.Key_Enter:
 			if (listView.currentItem) {
 				listView.currentItem.clicked()
-			} else if (listView.count) {
-				// Simulate clicking on the first item of the listView.
-				listView.itemAtIndex(0).clicked()
+			} else {
+				const firstItem = listView.itemAtIndex(0)
+
+				if (firstItem) {
+					firstItem.clicked()
+				}
 			}
 		}
 	}
