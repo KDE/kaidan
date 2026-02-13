@@ -470,6 +470,14 @@ SearchBarPage {
 				root.sendingPane.forceActiveFocus()
 			}
 		}
+		Keys.onDownPressed: {
+			if (currentIndex === 0) {
+				resetCurrentIndex()
+			} else {
+				decrementCurrentIndex()
+			}
+		}
+		Keys.onEscapePressed: resetCurrentIndex()
 
 		// button for jumping to the latest message
 		Controls.ItemDelegate {
