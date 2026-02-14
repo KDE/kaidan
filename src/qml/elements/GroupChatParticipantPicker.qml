@@ -49,6 +49,7 @@ Dialog {
 			checked: ListView.isCurrentItem
 			onClicked: mentionParticipant(name)
 		}
+		onCountChanged: currentIndex = 0
 
 		Component {
 			id: contactInvitationHint
@@ -66,7 +67,6 @@ Dialog {
 	function search(text) {
 		_searchedText = text
 		listView.model.setFilterFixedString(searchedText.toLowerCase())
-		listView.currentIndex = 0
 	}
 
 	function selectCurrentItem() {
