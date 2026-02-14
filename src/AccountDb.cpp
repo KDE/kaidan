@@ -320,12 +320,12 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, AccountSettings::AutomaticMediaDownloadsRule);
 
         QKeychainFuture::waitForFinished(
-            QKeychainFuture::readKey<QString>(account.jid)
+            QKeychainFuture::readKey(account.jid)
                 .onFailed([account](const QKeychainFuture::Error &error) {
                     qCWarning(KAIDAN_CORE_LOG, "Could not retrieve password for account %ls: %s", qUtf16Printable(account.jid), error.what());
                     return QString();
                 })
-                .then([&account](const QKeychainFuture::ReadResult<QString> &result) {
+                .then([&account](const QKeychainFuture::ReadResult &result) {
                     if (auto password = std::get_if<QString>(&result)) {
                         account.password = *password;
                     }

@@ -4,9 +4,13 @@
 
 #include "Keychain.h"
 
+// std
+#include <memory>
 // Qt
 #include <QAtomicInteger>
 #include <QDir>
+#include <QGuiApplication>
+#include <QSettings>
 #include <QStandardPaths>
 // Kaidan
 #include "MainController.h"
@@ -16,6 +20,11 @@ const auto FLATPAK_SERVICE_KEY_PART = QStringLiteral("Flatpak");
 
 const auto UNENCRYPTED_KEYCHAIN_FORMAT = QSettings::IniFormat;
 const auto UNENCRYPTED_KEYCHAIN_FILENAME = QStringLiteral("keychain.ini");
+
+template<typename ValueType>
+auto qFutureValueType(QFuture<ValueType>) -> ValueType;
+template<typename Future>
+using QFutureValueType = decltype(qFutureValueType(Future()));
 
 namespace QKeychainFuture
 {
@@ -43,6 +52,11 @@ QString unencryptedKeychainFilePath()
     const auto unencryptedKeychainFilePath = appDataDirectory.absoluteFilePath(UNENCRYPTED_KEYCHAIN_FILENAME);
 
     return unencryptedKeychainFilePath;
+}
+
+std::unique_ptr<QSettings> unencryptedSettings()
+{
+    return std::make_unique<QSettings>(unencryptedKeychainFilePath(), UNENCRYPTED_KEYCHAIN_FORMAT);
 }
 }
 
@@ -82,6 +96,120 @@ QByteArray QKeychainFuture::Error::message() const
 }
 
 // APIs
+
+QKeychainFuture::ReadFuture QKeychainFuture::readServiceKey(const QString &service, const QString &key)
+{
+    QPromise<QFutureValueType<ReadFuture>> promise;
+    auto future = promise.future();
+
+    if (QKeychainFuture::unencryptedFallback()) {
+        auto settings = QKeychainFuture::unencryptedSettings();
+
+        settings->beginGroup(service);
+        if (settings->contains(key)) {
+            promise.addResult(settings->value(key).toString());
+        } else {
+            promise.setException(Error(QKeychain::EntryNotFound, QStringLiteral("Could not find entry")));
+            promise.addResult(QKeychain::EntryNotFound);
+        }
+        settings->endGroup();
+
+        promise.finish();
+
+        return future;
+    }
+
+    QMetaObject::invokeMethod(qApp, [service, key, promise = std::move(promise)]() mutable {
+        auto job = new QKeychain::ReadPasswordJob(service);
+
+        job->setKey(key);
+
+        promise.start();
+
+        QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
+            if (job->error() != QKeychain::NoError) {
+                promise.setException(Error(job->error(), job->errorString()));
+                promise.addResult(job->error());
+            } else {
+                promise.addResult(job->textData());
+            }
+
+            promise.finish();
+        });
+
+        job->start();
+    });
+
+    return future;
+}
+
+QKeychainFuture::ReadFuture QKeychainFuture::readService(const QString &service)
+{
+    return readServiceKey(service, {});
+}
+
+QKeychainFuture::ReadFuture QKeychainFuture::readKey(const QString &key)
+{
+    return readServiceKey(QKeychainFuture::serviceKey(), key);
+}
+
+QKeychainFuture::WriteFuture QKeychainFuture::writeServiceKey(const QString &service, const QString &key, const QString &value)
+{
+    QPromise<QFutureValueType<WriteFuture>> promise;
+    auto future = promise.future();
+
+    if (QKeychainFuture::unencryptedFallback()) {
+        auto settings = QKeychainFuture::unencryptedSettings();
+
+        settings->beginGroup(service);
+        settings->setValue(key, value);
+        settings->endGroup();
+        settings->sync();
+
+        if (settings->status() == QSettings::NoError) {
+            promise.addResult(QKeychain::NoError);
+        } else {
+            promise.setException(Error(QKeychain::OtherError, QStringLiteral("Could not write entry")));
+            promise.addResult(QKeychain::OtherError);
+        }
+
+        promise.finish();
+
+        return future;
+    }
+
+    QMetaObject::invokeMethod(qApp, [service, key, value, promise = std::move(promise)]() mutable {
+        auto job = new QKeychain::WritePasswordJob(service);
+
+        job->setKey(key);
+        job->setTextData(value);
+
+        promise.start();
+
+        QObject::connect(job, &QKeychain::Job::finished, job, [job, promise = std::move(promise)]() mutable {
+            if (job->error() != QKeychain::NoError) {
+                promise.setException(Error(job->error(), job->errorString()));
+            }
+
+            promise.addResult(job->error());
+            promise.finish();
+        });
+
+        job->start();
+    });
+
+    return future;
+}
+
+QKeychainFuture::WriteFuture QKeychainFuture::writeService(const QString &service, const QString &value)
+{
+    return writeServiceKey(service, {}, value);
+}
+
+QKeychainFuture::WriteFuture QKeychainFuture::writeKey(const QString &key, const QString &value)
+{
+    return writeServiceKey(QKeychainFuture::serviceKey(), key, value);
+}
 
 QKeychainFuture::DeleteFuture QKeychainFuture::deleteServiceKey(const QString &service, const QString &key)
 {
@@ -165,11 +293,6 @@ QString QKeychainFuture::serviceKey()
     return serviceKeyParts.join(QLatin1Char(' '));
 }
 
-std::unique_ptr<QSettings> QKeychainFuture::unencryptedSettings()
-{
-    return std::make_unique<QSettings>(unencryptedKeychainFilePath(), UNENCRYPTED_KEYCHAIN_FORMAT);
-}
-
 QFuture<QKeychain::Error> QKeychainFuture::migrateServiceToEncryptedKeychain(const QString &service)
 {
     if (QKeychainFuture::unencryptedFallback()) {
@@ -185,11 +308,7 @@ QFuture<QKeychain::Error> QKeychainFuture::migrateServiceToEncryptedKeychain(con
     for (const auto &key : std::as_const(keys)) {
         const auto value = settings->value(key);
 
-        if (value.userType() == qMetaTypeId<QString>()) {
-            futures.append(writeServiceKey(service, key, value.toString()));
-        } else {
-            futures.append(writeServiceKey(service, key, value.toByteArray()));
-        }
+        futures.append(writeServiceKey(service, key, value.toString()));
     }
 
     return QtFuture::whenAll(futures.begin(), futures.end())

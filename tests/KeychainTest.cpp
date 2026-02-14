@@ -61,7 +61,7 @@ private Q_SLOTS:
             QVERIFY(QKeychainFuture::waitForFinished(writeString, 1000ms));
             QVERIFY(checkFutureResult(writeString, QKeychain::Error::NoError));
 
-            auto readString = QKeychainFuture::readKey<QString>(QStringLiteral("string")).onFailed([](const QKeychainFuture::Error &error) {
+            auto readString = QKeychainFuture::readKey(QStringLiteral("string")).onFailed([](const QKeychainFuture::Error &error) {
                 qDebug() << "Could not read string" << error.error() << error.message();
                 return error.error();
             });
@@ -77,31 +77,7 @@ private Q_SLOTS:
         }
 
         {
-            auto writeBinary =
-                QKeychainFuture::writeKey(QStringLiteral("binary"), QStringLiteral("binary").toLocal8Bit()).onFailed([](const QKeychainFuture::Error &error) {
-                    qDebug() << "Could not write binary" << error.error() << error.message();
-                    return error.error();
-                });
-            QVERIFY(QKeychainFuture::waitForFinished(writeBinary, 1000ms));
-            QVERIFY(checkFutureResult(writeBinary, QKeychain::Error::NoError));
-
-            auto readBinary = QKeychainFuture::readKey<QByteArray>(QStringLiteral("binary")).onFailed([](const QKeychainFuture::Error &error) {
-                qDebug() << "Could not read binary" << error.error() << error.message();
-                return error.error();
-            });
-            QVERIFY(QKeychainFuture::waitForFinished(readBinary, 1000ms));
-            QVERIFY(checkFutureResult(readBinary, QStringLiteral("binary").toLocal8Bit()));
-
-            auto deleteBinary = QKeychainFuture::deleteKey(QStringLiteral("binary")).onFailed([](const QKeychainFuture::Error &error) {
-                qDebug() << "Could not delete binary" << error.error() << error.message();
-                return error.error();
-            });
-            QVERIFY(QKeychainFuture::waitForFinished(deleteBinary, 1000ms));
-            QVERIFY(checkFutureResult(deleteBinary, QKeychain::Error::NoError));
-        }
-
-        {
-            auto readInvalid = QKeychainFuture::readKey<QString>(QStringLiteral("invalid")).onFailed([](const QKeychainFuture::Error &error) {
+            auto readInvalid = QKeychainFuture::readKey(QStringLiteral("invalid")).onFailed([](const QKeychainFuture::Error &error) {
                 qDebug() << "Read invalid string" << error.error() << error.message();
                 return error.error();
             });
