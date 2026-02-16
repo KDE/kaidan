@@ -521,7 +521,7 @@ Controls.ItemDelegate {
 				color: Kirigami.Theme.highlightColor
 				scaleFactor: 0.9
 				elide: Text.ElideMiddle
-				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 10
+				Layout.maximumWidth: messageArea.width - Kirigami.Units.largeSpacing * 10
 			}
 
 			Kirigami.Separator {
@@ -549,7 +549,7 @@ Controls.ItemDelegate {
 				color: Kirigami.Theme.disabledTextColor
 				scaleFactor: 0.9
 				elide: Text.ElideMiddle
-				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 10
+				Layout.maximumWidth: messageArea.width - Kirigami.Units.largeSpacing * 10
 			}
 
 			Kirigami.Separator {
