@@ -752,6 +752,7 @@
         <ul>
           <li>Fix blocking of GUI thread while database interaction (@lnj)</li>
           <li>Fix TLS connection bug (@lnj)</li>
+          <li xml:lang="he">תוקנה תקלה בחיבור TLS‏ (‎@lnj)</li>
           <li>Don't send notifications when receiving own messages via. carbons (@lnj)</li>
           <li>Fix timezone bug of message timestamps (@lnj)</li>
           <li>Fix several message editing bugs (@lnj)</li>
@@ -845,9 +846,11 @@
           <li>Add XEP-0184: Message Delivery Receipts (@lnj)</li>
           <li>Disable stream compression by default (for HipChat/other server compatibility) (@lnj)</li>
           <li>GUI: Port to Kirigami 2 (#81) (@jbbgameich)</li>
+          <li xml:lang="he">ממשק משתמש: הסבה ל־Kirigami 2‏ (#81) (‎@jbbgameich)</li>
           <li>User Material/Green Theme per default (@lnj)</li>
           <li>Login page: New design with diaspora* login option (#87) (@jbbgameich)</li>
           <li>Chat page: Slightly improved design (@lnj)</li>
+          <li xml:lang="he">עמוד שיחה: שיפור קל בעיצוב (‎@lnj)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <ul>
