@@ -74,6 +74,7 @@ private:
     void sendMessageNotification(const QString &chatJid, const QString &messageId, const QString &messageBody);
 
     QString determineChatName(const QString &chatJid) const;
+    QPixmap retrieveAvatar(const QString &chatJid);
     void showChat(const QString &chatJid);
 
     AccountSettings *const m_accountSettings;

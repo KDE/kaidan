@@ -7,6 +7,7 @@
 #pragma once
 
 // Qt
+#include <QHash>
 #include <QMap>
 #include <QObject>
 
@@ -48,6 +49,13 @@ public:
     void cleanUp(QString &oldHash);
 
     /**
+     * Returns an avatar which is cached the first time it is requested.
+     *
+     * @return the avatar or a null QPixmap if there is no avatar available for the JID
+     */
+    QPixmap avatar(const QString &jid);
+
+    /**
      * Returns the path to the avatar of the JID
      */
     QString getAvatarPathOfJid(const QString &jid) const;
@@ -80,6 +88,7 @@ private:
     void saveAvatarsFile();
 
     QMap<QString, QString> m_jidAvatarMap;
+    QHash<QString, QPixmap> m_avatarCache;
 
     static AvatarCache *s_instance;
 };

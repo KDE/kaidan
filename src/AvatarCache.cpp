@@ -10,6 +10,8 @@
 // Qt
 #include <QCryptographicHash>
 #include <QDir>
+#include <QHash>
+#include <QPixmap>
 #include <QStandardPaths>
 #include <QUrl>
 // Kaidan
@@ -146,6 +148,23 @@ void AvatarCache::cleanUp(QString &oldHash)
     QDir dir(path);
     if (dir.exists(oldHash))
         dir.remove(oldHash);
+
+    m_avatarCache.remove(oldHash);
+}
+
+QPixmap AvatarCache::avatar(const QString &jid)
+{
+    QString hash{getHashOfJid(jid)};
+
+    if (!hasAvatarHash(hash)) {
+        return {};
+    }
+
+    if (!m_avatarCache.contains(hash)) {
+        m_avatarCache.insert(hash, {getAvatarPath(hash)});
+    }
+
+    return m_avatarCache.value(hash);
 }
 
 QString AvatarCache::getAvatarPath(const QString &hash) const
@@ -188,8 +207,6 @@ void AvatarCache::saveAvatarsFile()
         out << m_jidAvatarMap[jid] << " " << jid << "\n";
 }
 
-#include "moc_AvatarCache.cpp"
-
 AvatarWatcher::AvatarWatcher(QObject *parent)
     : QObject(parent)
 {
@@ -214,3 +231,5 @@ QUrl AvatarWatcher::url()
 {
     return AvatarCache::instance()->getAvatarUrl(m_jid);
 }
+
+#include "moc_AvatarCache.cpp"

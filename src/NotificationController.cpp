@@ -16,6 +16,7 @@
 #endif
 // Kaidan
 #include "Account.h"
+#include "AvatarCache.h"
 #include "Call.h"
 #include "ChatController.h"
 #include "GroupChatUserDb.h"
@@ -154,6 +155,7 @@ void NotificationController::sendPresenceSubscriptionRequestNotification(const Q
     KNotification *notification = new KNotification(PRESENCE_SUBSCRIPTION_REQUEST_EVENT_ID.toString());
     notification->setTitle(determineChatName(chatJid));
     notification->setText(tr("Requests to receive your personal data"));
+    notification->setPixmap(retrieveAvatar(chatJid));
 
     PresenceSubscriptionRequestNotificationWrapper notificationWrapper{.chatJid = chatJid, .notification = notification};
     m_openPresenceSubscriptionRequestNotifications.append(notificationWrapper);
@@ -208,6 +210,8 @@ void NotificationController::sendCallNotification(Call *call)
     } else {
         notification->setTitle(tr("Incoming video call from %1").arg(determineChatName(chatJid)));
     }
+
+    notification->setPixmap(retrieveAvatar(chatJid));
 
 #ifdef DESKTOP_LINUX_ALIKE_OS
     if (IS_USING_GNOME) {
@@ -322,6 +326,7 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
     }
 
     notification->setTitle(determineChatName(chatJid));
+    notification->setPixmap(retrieveAvatar(chatJid));
 
 #ifdef DESKTOP_LINUX_ALIKE_OS
     if (IS_USING_GNOME) {
@@ -367,6 +372,11 @@ QString NotificationController::determineChatName(const QString &chatJid) const
 {
     auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), chatJid);
     return rosterItem ? rosterItem->displayName() : chatJid;
+}
+
+QPixmap NotificationController::retrieveAvatar(const QString &chatJid)
+{
+    return AvatarCache::instance()->avatar(chatJid);
 }
 
 void NotificationController::showChat(const QString &chatJid)
