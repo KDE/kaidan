@@ -55,7 +55,7 @@ static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem
     if (oldItem.name != newItem.name)
         rec.append(createSqlField(QStringLiteral("name"), newItem.name));
     if (oldItem.subscription != newItem.subscription)
-        rec.append(createSqlField(QStringLiteral("subscription"), newItem.subscription));
+        rec.append(createSqlField(QStringLiteral("subscription"), static_cast<int>(newItem.subscription)));
     if (oldItem.groupChatParticipantId != newItem.groupChatParticipantId)
         rec.append(createSqlField(QStringLiteral("groupChatParticipantId"), newItem.groupChatParticipantId));
     if (oldItem.groupChatName != newItem.groupChatName)
@@ -370,7 +370,7 @@ void RosterDb::_addItem(RosterItem item)
                {u"accountJid", item.accountJid},
                {u"jid", item.jid},
                {u"name", item.name},
-               {u"subscription", item.name},
+               {u"subscription", static_cast<int>(item.subscription)},
                {u"groupChatParticipantId", item.groupChatParticipantId},
                {u"groupChatName", item.groupChatName},
                {u"groupChatDescription", item.groupChatDescription},
