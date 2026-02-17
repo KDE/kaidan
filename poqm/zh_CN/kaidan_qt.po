@@ -613,39 +613,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "打开"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "来自 %1 的来电"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "来自 %1 的视频通话来电"
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "接受"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "拒绝"
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
@@ -759,39 +759,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "取消转发"
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1362,7 +1362,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "账号详情"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "更改您的个人资料照片"
@@ -1707,7 +1707,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀请链接已复制到剪贴板"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "更改名称…"
@@ -2042,7 +2042,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "备注详情"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
@@ -2077,7 +2077,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "提供者详情"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr "此聊天中的消息来自您的服务提供者"
@@ -2112,7 +2112,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "添加标签"
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "最大化头像"
@@ -3496,13 +3496,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "步骤 2：使用您的注册账号登录"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "筛选器"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "置顶和移动"

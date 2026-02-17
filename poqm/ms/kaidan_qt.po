@@ -736,29 +736,29 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Open"
-msgstr ""
-
-#: src/NotificationController.cpp:207
-#, qt-format
-msgctxt "NotificationController|"
-msgid "Incoming call from %1"
 msgstr ""
 
 #: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
+msgid "Incoming call from %1"
+msgstr ""
+
+#: src/NotificationController.cpp:211
+#, qt-format
+msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -766,7 +766,7 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Terima"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 #, fuzzy
 #| msgctxt "EmojiPicker|"
 #| msgid "Objects"
@@ -774,7 +774,7 @@ msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Objek"
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -908,12 +908,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -921,23 +921,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Sila pilih seseorang untuk mula menghantar mesej"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -945,7 +945,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -1739,7 +1739,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "Keselamatan akaun"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "View profile"
@@ -2191,7 +2191,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Pautan undangan telah disalin ke papan klip"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
@@ -2622,7 +2622,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -2669,7 +2669,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "Pelayan tersuai"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr ""
@@ -2713,7 +2713,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr ""
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -4492,13 +4492,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Log masuk akaun XMPP anda"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr ""

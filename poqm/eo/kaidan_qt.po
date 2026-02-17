@@ -708,7 +708,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -716,7 +716,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Petoj ricevi viajn personajn datumojn"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -724,29 +724,29 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Malfermi"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -883,12 +883,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -896,12 +896,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Elekti babileton por komenci"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -909,7 +909,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Malblokita %1"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -917,7 +917,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Malfari"
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -925,7 +925,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ne eblis bloki %1: %2"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -1549,7 +1549,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "Kontaj Detaloj"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Ŝanĝi vian profilbildon"
@@ -1905,7 +1905,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Invitligo kopiita al tondujo"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Ŝanĝi nomon…"
@@ -2250,7 +2250,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "Notaj Detaloj"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -2302,7 +2302,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "Grupaj Detaloj"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 #, fuzzy
 #| msgctxt "NotesChatDetailsHeader|"
 #| msgid ""
@@ -2346,7 +2346,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "Aldoni etikedon"
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maksimumigi avataron"
@@ -3866,13 +3866,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Paŝo 2: Ensaluti per via registrita konto"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtri"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Pingli & Movi"

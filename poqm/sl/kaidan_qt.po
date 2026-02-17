@@ -630,39 +630,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Nimate dovoljenja za brisanje skupine"
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Zahteve za prejem vaših osebnih podatkov"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Odpri"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "Dohodni klic od %1"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "Dohodni video klic od %1"
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Zavrni"
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
@@ -776,39 +776,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Iskanje"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Prekliči posredovanje"
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Izberite klepet za posredovanje sporočila"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Spustite datoteke za pošiljanje"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Deblokiran %1"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ni bilo mogoče blokirati %1: %2"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1401,7 +1401,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "Podrobnosti računa"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Spremeni sliko svojega profila"
@@ -1753,7 +1753,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Povezava povabila prekopirana na odložišče"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Spremeni ime…"
@@ -2094,7 +2094,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "Podrobnosti opombe"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -2131,7 +2131,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "Podrobnosti ponudnika"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr "Sporočila v tem klepetu so od vašega ponudnika storitev"
@@ -2166,7 +2166,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "Dodaj oznako"
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maksimiziraj avatarja"
@@ -3561,13 +3561,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Korak 2: Prijavite se z registriranim računom"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Pripni in premakni"

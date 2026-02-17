@@ -741,7 +741,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -749,7 +749,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -757,29 +757,29 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "開啟"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -922,12 +922,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start messaging"
@@ -935,12 +935,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -948,7 +948,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -956,7 +956,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -964,7 +964,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -1646,7 +1646,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "帳號預設"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "變更您的大頭貼影像"
@@ -2081,7 +2081,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀請連結已複製到剪貼簿"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "變更名稱…"
@@ -2563,7 +2563,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "詳細資訊…"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
 #| msgid ""
@@ -2620,7 +2620,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "詳細資訊…"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
 #| msgid ""
@@ -2677,7 +2677,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "新增標籤"
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
 #| msgid "Maximize avatar"
@@ -4476,13 +4476,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr ""

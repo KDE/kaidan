@@ -622,39 +622,39 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "ჯგუფის წაშლის უფლება არ გაქვთ"
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "გთხოვთ თქვენი პირადი მონაცემების მიღებას"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "შემომავალი ზარი %1-დან"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "შემომავალი ვიდეოზარი %1-დან"
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "მიღება"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "მონიშნე როგორც წაკითხული"
@@ -768,39 +768,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "გადაგზავნის გაუქმება"
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "აირჩიეთ ჩატი შეტყობინების გადასაგზავნად"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1395,7 +1395,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "ანგარშის დეტალები"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "პროფილის გამოსახულების შეცვლა"
@@ -1754,7 +1754,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "მოსაწვევი ბმული ბუფერში დაკოპირდა"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "სახელის გადარქმევა…"
@@ -2097,7 +2097,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "შენიშვნები დეტალები"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -2133,7 +2133,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "პროვაიდერის დეტალები"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr "ამ ჩატში არსებული შეტყობინებები თქვენმა პროვაიდერმა გამოგიგზავნათ"
@@ -2168,7 +2168,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "ჭდის დამატება"
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "ავატარის გადიდება"
@@ -3574,13 +3574,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "ნაბიჯი 2: შედით თქვენი რეგისტრირებული ანგარიშით"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "ფილტრი"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "მიმაგრება & გადატანა"

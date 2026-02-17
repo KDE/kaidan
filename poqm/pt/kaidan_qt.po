@@ -764,7 +764,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:156
+#: src/NotificationController.cpp:157
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Request status"
@@ -772,7 +772,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pedir o estado"
 
-#: src/NotificationController.cpp:170 src/NotificationController.cpp:335
+#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Open chat"
@@ -780,19 +780,19 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir uma conversa"
 
-#: src/NotificationController.cpp:207
+#: src/NotificationController.cpp:209
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:211
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:223
+#: src/NotificationController.cpp:227
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -800,12 +800,12 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Aceitar"
 
-#: src/NotificationController.cpp:230
+#: src/NotificationController.cpp:234
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:339
+#: src/NotificationController.cpp:344
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -948,12 +948,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/qml/ChatPage.qml:548
+#: src/qml/ChatPage.qml:542
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:563
+#: src/qml/ChatPage.qml:557
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -961,23 +961,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccione por favor uma conversa para iniciar as mensagens"
 
-#: src/qml/ChatPage.qml:615
+#: src/qml/ChatPage.qml:609
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:853
+#: src/qml/ChatPage.qml:847
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:860
+#: src/qml/ChatPage.qml:854
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -985,7 +985,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Não foi possível obter o ficheiro: %1"
 
-#: src/qml/ChatPage.qml:864
+#: src/qml/ChatPage.qml:858
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -1743,7 +1743,7 @@ msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "Contas"
 
-#: src/qml/details/AccountDetailsHeader.qml:15
+#: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Modificar a imagem do seu perfil"
@@ -2216,7 +2216,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "A ligação do convite foi copiada para a área de transferência"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:88
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Mudar o nome…"
@@ -2704,7 +2704,7 @@ msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
 msgstr "Detalhes…"
 
-#: src/qml/details/NotesChatDetailsHeader.qml:9
+#: src/qml/details/NotesChatDetailsHeader.qml:8
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -2757,7 +2757,7 @@ msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
 msgstr "Detalhes…"
 
-#: src/qml/details/ProviderChatDetailsHeader.qml:9
+#: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
 msgstr ""
@@ -2801,7 +2801,7 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr ""
 
-#: src/qml/details/RosterItemDetailsHeader.qml:24
+#: src/qml/details/RosterItemDetailsHeader.qml:21
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
 #| msgid "Maximize avatar"
@@ -4651,13 +4651,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Autenticar-se com a sua nova conta"
 
-#: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
-#: src/qml/RosterPage.qml:233
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
+#: src/qml/RosterPage.qml:229
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr ""
