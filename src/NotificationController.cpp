@@ -8,12 +8,11 @@
 
 #include "NotificationController.h"
 
+#ifdef HAVE_KNOTIFICATIONS
 // Qt
 #include <QGuiApplication>
 // KDE
-#ifdef HAVE_KNOTIFICATIONS
 #include <KNotification>
-#endif
 // Kaidan
 #include "Account.h"
 #include "AvatarCache.h"
@@ -60,7 +59,6 @@ NotificationController::NotificationController(AccountSettings *accountSettings,
     connect(m_messageController, &MessageController::contactMessageRead, this, &NotificationController::closeMessageNotification);
 }
 
-#ifdef HAVE_KNOTIFICATIONS
 void NotificationController::handleMessage(const Message &message, MessageOrigin origin)
 {
     // Send a notification in the following cases:
@@ -388,35 +386,34 @@ void NotificationController::showChat(const QString &chatJid)
     Q_EMIT MainController::instance()->raiseWindowRequested();
 }
 #else
-void Notifications::showMessageNotification(const Message &message, MessageOrigin origin)
+NotificationController::NotificationController(AccountSettings *accountSettings, MessageController *messageController, QObject *parent)
+    : QObject(parent)
+    , m_accountSettings(accountSettings)
+    , m_messageController(messageController)
 {
 }
 
-void Notifications::closeMessageNotification(const QString &, const QString &)
+void NotificationController::handleMessage(const Message &, MessageOrigin)
 {
 }
 
-void Notifications::sendPresenceSubscriptionRequestNotification(const QString &accountJid, const QString &chatJid)
+void NotificationController::closeMessageNotification(const QString &)
 {
 }
 
-void Notifications::closePresenceSubscriptionRequestNotification(const QString &accountJid, const QString &chatJid)
+void NotificationController::sendPresenceSubscriptionRequestNotification(const QString &)
 {
 }
 
-void NotificationController::setChatController(ChatController *chatController)
+void NotificationController::closePresenceSubscriptionRequestNotification(const QString &)
 {
 }
 
-void Notifications::sendMessageNotification(const QString &, const QString &, const QString &, const QString &)
+void NotificationController::sendCallNotification(Call *)
 {
 }
 
-QString NotificationController::determineChatName(const QString &chatJid) const
-{
-}
-
-void NotificationController::showChat(const QString &chatJid)
+void NotificationController::setChatController(ChatController *)
 {
 }
 #endif // HAVE_KNOTIFICATIONS
