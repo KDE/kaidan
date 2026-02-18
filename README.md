@@ -53,7 +53,7 @@ Kaidan requires some dependencies and makes use of some optional dependencies if
 The following dependencies are needed by Kaidan:
 
 * [Qt][qt-build-sources] >= 6.7.0 - Core | Concurrent | Qml | Quick | Svg | Sql | QuickControls2 | Xml | Multimedia | Positioning | Location | Qt6GuiPrivate (since Qt 6.10.0)
-* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIconThemes][kiconthemes] (for Windows) | [KWindowSystem][kwindowsystem] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
+* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIconThemes][kiconthemes] (for Windows) | [KWindowSystem][kwindowsystem] | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
 * [KDSingleApplication][kdsingleapplication]
 * [Kirigami Addons][kirigami-addons] >= 1.8.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
@@ -66,7 +66,7 @@ The following dependencies are needed by Kaidan:
 
 The following dependencies can improve the user experience:
 
-* [KDE Frameworks][kf] >= 6.11.0 - [KCrash][kcrash]
+* [KDE Frameworks][kf] >= 6.11.0 - [KCrash][kcrash] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
 * [FFmpeg Thumbnailer][ffmpegthumbs]
 
 ## Contributing
