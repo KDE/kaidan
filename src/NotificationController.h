@@ -15,11 +15,14 @@
 // Kaidan
 #include "Message.h"
 
+// KDE
+class KNotification;
+// Kaidan
 class AccountSettings;
 class Call;
 class ChatController;
 class MessageController;
-class KNotification;
+class RosterItem;
 
 class NotificationController : public QObject
 {
@@ -76,6 +79,9 @@ private:
     QString determineChatName(const QString &chatJid) const;
     QPixmap retrieveAvatar(const QString &chatJid);
     void showChat(const QString &chatJid);
+
+    void reply(const QString &message, const QString &messageId, const QString &body);
+    void markAsRead(const RosterItem &rosterItem, const QString &messageId);
 
     AccountSettings *const m_accountSettings;
     ChatController *m_chatController = nullptr;

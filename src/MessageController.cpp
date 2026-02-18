@@ -130,9 +130,9 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message, Encry
 
 void MessageController::sendMessageWithUndecidedEncryption(Message message)
 {
-    const auto accountJid = m_accountSettings->jid();
+    const auto accountJid = message.accountJid;
     const auto chatJid = message.chatJid;
-    const auto rosterItem = RosterModel::instance()->item(accountJid, message.chatJid);
+    const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
     const auto encryption = rosterItem->encryption;
 
     auto sendMessage = [this](Message message) mutable {

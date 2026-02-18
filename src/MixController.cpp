@@ -229,36 +229,34 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
     if (channelPublic) {
         sendInvitation();
     } else {
-        m_manager->requestChannelNodes(channelJid)
-            .then(this, [this, sendInvitation, message, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
-                if (const auto error = std::get_if<QXmppError>(&result)) {
-                    Q_EMIT MainController::instance()->passiveNotificationRequested(
-                        tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
-                } else {
-                    auto allowJid = [this, sendInvitation, message, channelJid, contactJid]() {
-                        m_manager->allowJid(channelJid, contactJid)
-                            .then(this, [sendInvitation, message, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
-                                if (const auto error = std::get_if<QXmppError>(&result)) {
-                                    Q_EMIT MainController::instance()->passiveNotificationRequested(
-                                        tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
-                                } else {
-                                    // Invitations are only sent to real users.
-                                    // Invitations are not sent to domains which are only used to restrict the channel's membership to JIDs of that domain.
-                                    if (!QXmppUtils::jidToUser(contactJid).isEmpty()) {
-                                        sendInvitation();
-                                    }
-                                }
-                            });
-                    };
+        m_manager->requestChannelNodes(channelJid).then(this, [this, sendInvitation, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
+            if (const auto error = std::get_if<QXmppError>(&result)) {
+                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                    tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
+            } else {
+                auto allowJid = [this, sendInvitation, channelJid, contactJid]() {
+                    m_manager->allowJid(channelJid, contactJid).then(this, [sendInvitation, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
+                        if (const auto error = std::get_if<QXmppError>(&result)) {
+                            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                                tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
+                        } else {
+                            // Invitations are only sent to real users.
+                            // Invitations are not sent to domains which are only used to restrict the channel's membership to JIDs of that domain.
+                            if (!QXmppUtils::jidToUser(contactJid).isEmpty()) {
+                                sendInvitation();
+                            }
+                        }
+                    });
+                };
 
-                    const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
-                    if (nodes.testFlag(QXmppMixConfigItem::Node::AllowedJids)) {
-                        allowJid();
-                    } else {
-                        sendInvitation();
-                    }
+                const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
+                if (nodes.testFlag(QXmppMixConfigItem::Node::AllowedJids)) {
+                    allowJid();
+                } else {
+                    sendInvitation();
                 }
-            });
+            }
+        });
     }
 }
 

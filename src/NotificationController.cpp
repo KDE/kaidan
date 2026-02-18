@@ -13,6 +13,7 @@
 #include <QGuiApplication>
 // KDE
 #include <KNotification>
+#include <KNotificationReplyAction>
 // Kaidan
 #include "Account.h"
 #include "AvatarCache.h"
@@ -22,6 +23,7 @@
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "QXmppUtils.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 
@@ -340,14 +342,17 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
     });
 
     connect(notification->addAction(tr("Mark as read")), &KNotificationAction::activated, this, [this, chatJid, messageId] {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [messageId](RosterItem &item) {
-            item.lastReadContactMessageId = messageId;
-        });
-
-        if (const auto item = RosterModel::instance()->item(m_accountSettings->jid(), chatJid); item && item->readMarkerSendingEnabled) {
-            m_messageController->sendReadMarker(chatJid, messageId);
-        }
+        markAsRead(*RosterModel::instance()->item(m_accountSettings->jid(), chatJid), messageId);
     });
+
+    auto replyAction = std::make_unique<KNotificationReplyAction>(tr("Reply"));
+    replyAction->setPlaceholderText(tr("Reply…"));
+
+    QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this, chatJid, messageId](const QString &text) {
+        reply(chatJid, messageId, text);
+    });
+
+    notification->setReplyAction(std::move(replyAction));
 
     connect(notification, &KNotification::closed, this, [=, this]() {
         auto notificationWrapperItr = std::ranges::find_if(m_openMessageNotifications, [chatJid](const MessageNotificationWrapper &notificationWrapper) {
@@ -385,6 +390,46 @@ void NotificationController::showChat(const QString &chatJid)
 
     Q_EMIT MainController::instance()->raiseWindowRequested();
 }
+
+void NotificationController::reply(const QString &chatJid, const QString &messageId, const QString &body)
+{
+    const auto accountJid = m_accountSettings->jid();
+    const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
+
+    markAsRead(*rosterItem, messageId);
+
+    Message message;
+
+    message.accountJid = accountJid;
+    message.chatJid = chatJid;
+    message.isOwn = true;
+
+    if (rosterItem->isGroupChat()) {
+        message.groupChatSenderId = rosterItem->groupChatParticipantId;
+    }
+
+    const auto originId = QXmppUtils::generateStanzaUuid();
+    message.id = originId;
+    message.originId = originId;
+    message.timestamp = QDateTime::currentDateTimeUtc();
+    message.setUnpreparedBody(body);
+    message.deliveryState = DeliveryState::Pending;
+    message.receiptRequested = true;
+
+    m_messageController->sendMessageWithUndecidedEncryption(std::move(message));
+}
+
+void NotificationController::markAsRead(const RosterItem &rosterItem, const QString &messageId)
+{
+    RosterDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [messageId](RosterItem &item) {
+        item.lastReadContactMessageId = messageId;
+    });
+
+    if (rosterItem.readMarkerSendingEnabled) {
+        m_messageController->sendReadMarker(rosterItem.jid, messageId);
+    }
+}
+
 #else
 NotificationController::NotificationController(AccountSettings *accountSettings, MessageController *messageController, QObject *parent)
     : QObject(parent)
