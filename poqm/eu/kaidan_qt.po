@@ -598,43 +598,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Ez duzu taldera sartzeko baimenik"
 
-#: src/MixController.cpp:236 src/MixController.cpp:243
+#: src/MixController.cpp:235 src/MixController.cpp:241
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Ezin izan da %1 %2(e)ra gonbidatu: %3"
 
-#: src/MixController.cpp:269
+#: src/MixController.cpp:267
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1(e)ren nodoak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:277
+#: src/MixController.cpp:275
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1(e)ren baimendutako erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:291
+#: src/MixController.cpp:289
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1(e)tik debekua duten erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:306
+#: src/MixController.cpp:304
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1(e)tik elkartu diren erabiltzaileak ezin izan dira berreskuratu: %2"
 
-#: src/MixController.cpp:321
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1(e)ri ezin izan zaio %2(e)rekiko debekua ipini: %3"
 
-#: src/MixController.cpp:365
+#: src/MixController.cpp:363
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Ez duzu taldea ezabatzeko baimenik"
@@ -675,6 +675,22 @@ msgstr "Errefusatu"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Markatu irakurritako gisa"
+
+#: src/NotificationController.cpp:348
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply"
+msgstr "Erantzun"
+
+#: src/NotificationController.cpp:349
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply…"
+msgstr "Erantzun"
 
 #: src/OmemoController.cpp:107
 msgctxt "OmemoController|"

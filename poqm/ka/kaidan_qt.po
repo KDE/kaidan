@@ -153,10 +153,15 @@ msgid "%1 paused typing"
 msgstr "%1-მა შეწყვიტა კრეფა"
 
 #: src/ChatHintModel.cpp:249
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"თქვენი ანგარიში გამორთულია - შეტყობინებების მიმოცვლა მოხდება, როცა ჩართავთ"
+"თქვენი ანგარიში ჩართული არაა - შეტყობინებების გაიგზავნება და მიღება მოხდება, "
+"როცა ჩართავთ"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -581,43 +586,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "ჯგუფთან მიერთების უფლება არ გაქვთ"
 
-#: src/MixController.cpp:236 src/MixController.cpp:243
+#: src/MixController.cpp:235 src/MixController.cpp:241
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1-ის მოწვევა %2-ზე შეუძლებელია: %3"
 
-#: src/MixController.cpp:269
+#: src/MixController.cpp:267
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1-ის კვანძების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:277
+#: src/MixController.cpp:275
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1-ის დაშვებული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:291
+#: src/MixController.cpp:289
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1-ის ბანდადებული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:306
+#: src/MixController.cpp:304
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1-ში შესული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:321
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1-ზე ბანის დადება %2-ში შეუძლებელია: %3"
 
-#: src/MixController.cpp:365
+#: src/MixController.cpp:363
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "ჯგუფის წაშლის უფლება არ გაქვთ"
@@ -658,6 +663,22 @@ msgstr "უარყოფა"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "მონიშნე როგორც წაკითხული"
+
+#: src/NotificationController.cpp:348
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply"
+msgstr "პასუხი"
+
+#: src/NotificationController.cpp:349
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply…"
+msgstr "პასუხი"
 
 #: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
@@ -749,11 +770,17 @@ msgid "Start video call"
 msgstr "ვიდეოზარის დაწყება"
 
 #: src/qml/ChatPage.qml:160
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "მაღლა ძებნა"
 
 #: src/qml/ChatPage.qml:171
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "დაბლა ძებნა"
@@ -3161,14 +3188,17 @@ msgid "Pin"
 msgstr "მიმაგრება"
 
 #: src/qml/elements/SearchBarPage.qml:65
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "მენიუს გახსნა"
+msgstr "გამოსახულების გახსნა…"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr "უკან გადასვლა"
+msgstr ""
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3340,7 +3370,7 @@ msgstr "დაასრულეთ რეგისტრაცია!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr "სხვა მომწოდებლის ცდა"
+msgstr ""
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"

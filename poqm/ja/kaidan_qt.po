@@ -624,7 +624,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:236 src/MixController.cpp:243
+#: src/MixController.cpp:235 src/MixController.cpp:241
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -632,7 +632,7 @@ msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "接続"
 
-#: src/MixController.cpp:269
+#: src/MixController.cpp:267
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -640,7 +640,7 @@ msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "接続"
 
-#: src/MixController.cpp:277
+#: src/MixController.cpp:275
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -648,7 +648,7 @@ msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "接続"
 
-#: src/MixController.cpp:291
+#: src/MixController.cpp:289
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -656,7 +656,7 @@ msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "接続"
 
-#: src/MixController.cpp:306
+#: src/MixController.cpp:304
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -664,7 +664,7 @@ msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "接続"
 
-#: src/MixController.cpp:321
+#: src/MixController.cpp:319
 #, fuzzy, qt-format
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -672,7 +672,7 @@ msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "接続"
 
-#: src/MixController.cpp:365
+#: src/MixController.cpp:363
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
@@ -712,6 +712,16 @@ msgstr ""
 #: src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Mark as read"
+msgstr ""
+
+#: src/NotificationController.cpp:348
+msgctxt "NotificationController|"
+msgid "Reply"
+msgstr ""
+
+#: src/NotificationController.cpp:349
+msgctxt "NotificationController|"
+msgid "Reply…"
 msgstr ""
 
 #: src/OmemoController.cpp:107

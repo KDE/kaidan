@@ -572,43 +572,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "不允许您加入此群聊"
 
-#: src/MixController.cpp:236 src/MixController.cpp:243
+#: src/MixController.cpp:235 src/MixController.cpp:241
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "无法邀请 %1 加入 %2：%3"
 
-#: src/MixController.cpp:269
+#: src/MixController.cpp:267
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的节点：%2"
 
-#: src/MixController.cpp:277
+#: src/MixController.cpp:275
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的允许用户：%2"
 
-#: src/MixController.cpp:291
+#: src/MixController.cpp:289
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已封禁用户：%2"
 
-#: src/MixController.cpp:306
+#: src/MixController.cpp:304
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已加入用户：%2"
 
-#: src/MixController.cpp:321
+#: src/MixController.cpp:319
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "无法从 %2 中封禁 %1：%3"
 
-#: src/MixController.cpp:365
+#: src/MixController.cpp:363
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
@@ -649,6 +649,22 @@ msgstr "拒绝"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
+
+#: src/NotificationController.cpp:348
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply"
+msgstr "回复"
+
+#: src/NotificationController.cpp:349
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
+msgctxt "NotificationController|"
+msgid "Reply…"
+msgstr "回复"
 
 #: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
