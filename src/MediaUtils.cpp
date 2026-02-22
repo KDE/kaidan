@@ -8,7 +8,6 @@
 #include "MediaUtils.h"
 
 // Qt
-#include <QBuffer>
 #include <QClipboard>
 #include <QDir>
 #include <QFileDialog>
@@ -26,12 +25,9 @@
 #include <KIO/OpenFileManagerWindowJob>
 #include <KIO/PreviewJob>
 // Kaidan
-#include "Globals.h"
 #include "ImageProvider.h"
 #include "KaidanCoreLog.h"
 #include "SystemUtils.h"
-
-const auto THUMBNAIL_FORMAT = "PNG";
 
 const auto IMAGE_FILE_EXTENSION = QStringLiteral("jpg");
 const auto AUDIO_FILE_EXTENSION = QStringLiteral("m4a");
@@ -582,72 +578,37 @@ bool MediaUtils::hasAlphaChannel(const QVariant &source)
     return false;
 }
 
-QByteArray MediaUtils::encodeImageThumbnail(const QPixmap &pixmap)
-{
-    QByteArray output;
-    QBuffer buffer(&output);
-    pixmap.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
-    return output;
-}
-
-QByteArray MediaUtils::encodeImageThumbnail(const QImage &image)
-{
-    QByteArray output;
-    QBuffer buffer(&output);
-    image.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
-    return output;
-}
-
-QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> MediaUtils::generateMetadata(std::unique_ptr<QIODevice> f)
+QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> MediaUtils::generateMetadata(std::unique_ptr<QIODevice> file)
 {
     using Result = QXmppFileSharingManager::MetadataGeneratorResult;
     using Thumnbnail = QXmppFileSharingManager::MetadataThumbnail;
-
-    thread_local static auto allPlugins = KIO::PreviewJob::availablePlugins();
-
     auto result = std::make_shared<Result>();
+    auto *filePtr = dynamic_cast<QFile *>(file.get());
 
-    auto *file = dynamic_cast<QFile *>(f.get());
-    if (!file) {
+    if (!filePtr) {
         // other io devices can't be handled
         return QtFuture::makeReadyValueFuture<std::shared_ptr<Result>>(std::move(result));
     }
 
-    auto promise = std::make_shared<QPromise<std::shared_ptr<Result>>>();
+    const auto fileName = filePtr->fileName();
 
-    // create job
-    auto *job =
-        new KIO::PreviewJob({KFileItem(QUrl::fromLocalFile(file->fileName()))}, QSize(THUMBNAIL_EDGE_PIXEL_COUNT, THUMBNAIL_EDGE_PIXEL_COUNT), &allPlugins);
-    job->setAutoDelete(true);
+    auto future = ImageProvider::generateMetaDataThumbnail(QUrl::fromLocalFile(fileName));
 
-    connect(job, &KIO::PreviewJob::gotPreview, job, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
-        QByteArray thumbnailData;
-        QBuffer thumbnailBuffer(&thumbnailData);
-
-        image.save(&thumbnailBuffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
-
-        if (const QImageReader reader(file->fileName()); reader.canRead()) {
+    return future.then([result, fileName, file = std::move(file)](std::optional<Thumnbnail> &&thumbnail) mutable {
+        if (const QImageReader reader(fileName); reader.canRead()) {
             if (const QSize size = reader.size(); !size.isEmpty()) {
                 result->dimensions = size;
             }
         }
 
-        result->dataDevice = std::move(f);
-        result->thumbnails.push_back(Thumnbnail{.width = uint32_t(image.size().width()),
-                                                .height = uint32_t(image.size().height()),
-                                                .data = thumbnailData,
-                                                .mimeType = mimeType(thumbnailData)});
+        if (thumbnail) {
+            result->thumbnails.push_back(*thumbnail);
+        }
 
-        promise->addResult(result);
-        promise->finish();
+        result->dataDevice = std::move(file);
+
+        return result;
     });
-
-    connect(job, &KIO::PreviewJob::failed, [promise, result]() mutable {
-        promise->addResult(result);
-        promise->finish();
-    });
-
-    return promise->future();
 }
 
 #include "moc_MediaUtils.cpp"

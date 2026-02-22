@@ -6,6 +6,8 @@
 
 // Qt
 #include <QQuickAsyncImageProvider>
+// QXmpp
+#include <QXmppFileSharingManager.h>
 
 template<typename T>
 class QFuture;
@@ -53,6 +55,7 @@ public:
 
     static QFuture<QImage> generateImageWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount);
     static QFuture<QByteArray> generateImageDataWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount);
+    static QFuture<std::optional<QXmppFileSharingManager::MetadataThumbnail>> generateMetaDataThumbnail(const QUrl &localFileUrl);
 
 private:
     static QUrl generatedLocalFileImageUrl(const QString &localFilePath);
@@ -71,7 +74,9 @@ private:
     static QFuture<QImage> generateBase64Image(const QByteArray &data);
     static QFuture<QImage> generateBitsOfBinaryImage(const QXmppBitsOfBinaryData &data, int edgePixelCount);
 
-private:
+    static QByteArray encodeImageThumbnail(QPixmap &&pixmap);
+    static QByteArray encodeImageThumbnail(QImage &&image);
+
     qreal m_screenDevicePixelRatio = 1.0;
 
     static ImageProvider *s_instance;

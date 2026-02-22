@@ -114,6 +114,8 @@ constexpr int MAX_MESSAGE_CORRECTION_COUNT = 10;
 // Defines that a message is suitable for correction only if it has not been sent earlier than n days ago.
 constexpr int MAX_MESSAGE_CORRECTION_DAYS = 2;
 
+// Format of generated file thumbnails.
+const auto THUMBNAIL_FORMAT = "PNG";
 // Quality of generated file thumbnails.
 constexpr auto THUMBNAIL_QUALITY = 85;
 // Width and height of generated file thumbnails.

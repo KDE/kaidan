@@ -5,6 +5,7 @@
 #include "ImageProvider.h"
 
 // Qt
+#include <QBuffer>
 #include <QClipboard>
 #include <QFuture>
 #include <QGuiApplication>
@@ -218,7 +219,23 @@ QFuture<QByteArray> ImageProvider::generateImageDataWithDevicePixelRatio(const Q
             return QByteArray();
         }
 
-        return MediaUtils::encodeImageThumbnail(std::move(image));
+        return encodeImageThumbnail(std::move(image));
+    });
+}
+
+QFuture<std::optional<QXmppFileSharingManager::MetadataThumbnail>> ImageProvider::generateMetaDataThumbnail(const QUrl &localFileUrl)
+{
+    using Thumnbnail = QXmppFileSharingManager::MetadataThumbnail;
+    auto future = generateImageWithDevicePixelRatio(localFileUrl, 1.0, THUMBNAIL_EDGE_PIXEL_COUNT);
+
+    return future.then([](QImage &&image) {
+        if (!image.isNull()) {
+            const auto size = image.size();
+            const auto data = encodeImageThumbnail(std::move(image));
+            return std::make_optional<Thumnbnail>(uint32_t(size.width()), uint32_t(size.height()), data, MediaUtils::mimeType(data));
+        }
+
+        return std::optional<Thumnbnail>();
     });
 }
 
@@ -379,6 +396,22 @@ QFuture<QImage> ImageProvider::generateBitsOfBinaryImage(const QXmppBitsOfBinary
     promise->addResult(std::move(image));
     promise->finish();
     return promise->future();
+}
+
+QByteArray ImageProvider::encodeImageThumbnail(QPixmap &&pixmap)
+{
+    QByteArray output;
+    QBuffer buffer(&output);
+    pixmap.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
+    return output;
+}
+
+QByteArray ImageProvider::encodeImageThumbnail(QImage &&image)
+{
+    QByteArray output;
+    QBuffer buffer(&output);
+    image.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
+    return output;
 }
 
 #include "moc_ImageProvider.cpp"

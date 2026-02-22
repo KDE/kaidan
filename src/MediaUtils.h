@@ -112,10 +112,7 @@ public:
 
     Q_INVOKABLE static bool hasAlphaChannel(const QVariant &source);
 
-    static QByteArray encodeImageThumbnail(const QPixmap &pixmap);
-    static QByteArray encodeImageThumbnail(const QImage &image);
-
-    static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice>);
+    static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice> file);
 
     static const QMimeDatabase &mimeDatabase()
     {
