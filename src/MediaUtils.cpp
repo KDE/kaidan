@@ -586,7 +586,7 @@ QByteArray MediaUtils::encodeImageThumbnail(const QPixmap &pixmap)
 {
     QByteArray output;
     QBuffer buffer(&output);
-    pixmap.save(&buffer, THUMBNAIL_FORMAT);
+    pixmap.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
     return output;
 }
 
@@ -594,7 +594,7 @@ QByteArray MediaUtils::encodeImageThumbnail(const QImage &image)
 {
     QByteArray output;
     QBuffer buffer(&output);
-    image.save(&buffer, THUMBNAIL_FORMAT);
+    image.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
     return output;
 }
 
