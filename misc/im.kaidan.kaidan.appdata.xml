@@ -147,7 +147,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Chat List and Chat in Landscape Mode</caption>
-      <caption xml:lang="ar">قائمة الدردشة والدردشة في الوضع الأفقي</caption>
+      <caption xml:lang="ar">قائمة الدردشة والدردشة في الوضع العرضي</caption>
       <caption xml:lang="ca">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="ca-valencia">Llista de xats i xat en mode apaïsat</caption>
       <caption xml:lang="es">Lista de conversaciones y conversación en modo apaisado</caption>
@@ -223,6 +223,7 @@
           <li xml:lang="ca">Mostra l'indicador d'ocupat en desar les dades d'imatge/vídeo capturades (@melvo)</li>
           <li xml:lang="ca-valencia">Mostra l'indicador d'ocupat en guardar les dades d'imatge/vídeo capturades (@melvo)</li>
           <li xml:lang="ka">დაემატა გადაღებული სურათის/ვიდეოს შენახვისას დაკავებულობის ინდიკატორის ჩვენება (@melvo)</li>
+          <li xml:lang="nl">Toon een bezig-indicator tijdens het opslaan van vastgelegde beeld-/videogegevens (@melvo)</li>
           <li xml:lang="pt-BR">Exibir indicador de ocupado enquanto salva os dados de imagem/vídeo capturados (@melvo)</li>
           <li xml:lang="ru">Отображение индикатора занятости при сохранении снятых изображений или видео;</li>
           <li xml:lang="sl">Prikaži indikator zasedenosti med shranjevanjem zajetih slikovnih/video podatkov (@melvo)</li>
@@ -233,6 +234,7 @@
           <li xml:lang="ca">Notifica en rebre resposta al missatge propi de xat del grup si la configuració de notificació «En menció» està activada (@melvo)</li>
           <li xml:lang="ca-valencia">Notifica en rebre resposta al missatge propi de xat del grup si la configuració de notificació «En menció» està activada (@melvo)</li>
           <li xml:lang="ka">დაემატა საკუთარ ჯგუფური ჩატის შეტყობინებაზე პასუხის მიღებისას შეტყობინების გაგზავნა, თუ 'ხსენებისას' შეტყობინების პარამეტრი ჩართულია (@melvo)</li>
+          <li xml:lang="nl">Ontvang een melding wanneer u een antwoord ontvangt op uw eigen groepschatbericht als de instelling 'Bij vermelding' is ingeschakeld (@melvo)</li>
           <li xml:lang="pt-BR">Notificar ao receber resposta à sua própria mensagem em grupo se a configuração de notificação 'Ao ser mencionado' estiver ativada (@melvo)</li>
           <li xml:lang="ru">Уведомление о получении ответа на собственное сообщение в групповом чате, если включена настройка уведомлений «При упоминании» (@melvo);</li>
           <li xml:lang="sl">Obvesti o prejemu odgovora na lastno sporočilo skupinskega klepeta, če je omogočena nastavitev obveščanja »Ob omembi« (@melvo)</li>
@@ -243,6 +245,7 @@
           <li xml:lang="ca">Selecciona el fitxer després d'obrir a la carpeta del Linux si s'admet (@melvo)</li>
           <li xml:lang="ca-valencia">Tria el fitxer després d'obrir a la carpeta de Linux si s'admet (@melvo)</li>
           <li xml:lang="ka">დაემატა Linux-ზე საქაღალდის გახსნის შემდეგ ფაილის არჩევა, თუ ეს მხარდაჭერილია (@melvo)</li>
+          <li xml:lang="nl">Selecteer het bestand na het openen in een map op Linux, indien ondersteund (@melvo)</li>
           <li xml:lang="pt-BR">Selecionar arquivo após abrir na pasta no Linux, se compatível (@melvo)</li>
           <li xml:lang="ru">Выбор файла после открытия в папке на Linux, если поддерживается (@melvo);</li>
           <li xml:lang="sl">Izberi datoteko po odprtju v mapi v Linuxu, če je podprto (@melvo)</li>
@@ -252,6 +255,7 @@
           <li xml:lang="ca">Millora l'aspecte/comportament de la captura multimèdia (incloent la vista prèvia després de capturar la imatge fins que es desa la imatge) (@melvo)</li>
           <li xml:lang="ca-valencia">Millora l'aspecte/comportament de la captura multimèdia (incloent la vista prèvia després de capturar la imatge fins que es guarda la imatge) (@melvo)</li>
           <li xml:lang="ka">გაუმჯობესდა მედიის გადაღების გარეგნობა/ქცევა (სურათის გადაღების შემდეგ მის შენახვამდე წინასწარი დათვალიერების ჩათვლით) (@melvo)</li>
+          <li xml:lang="nl">Verbeter het uiterlijk/gedrag van de media-opnamefunctie (inclusief voorvertoning na het maken van een afbeelding, totdat de afbeelding is opgeslagen) (@melvo)</li>
           <li xml:lang="pt-BR">Melhoria da aparência/comportamento da captura de mídia (incluindo a pré-visualização após a captura da imagem até que a imagem seja salva) (@melvo)</li>
           <li xml:lang="ru">Улучшение внешнего вида и поведения захвата медиафайлов (включая предварительный просмотр после захвата изображения до его сохранения) (@melvo);</li>
           <li xml:lang="sl">Izboljšaj videz/vedenje zajemanja medijev (vključno s predogledom po zajemanju slike, dokler slika ni shranjena) (@melvo)</li>
@@ -261,6 +265,7 @@
           <li xml:lang="ca">Restaura l'enfocament dels últims elements d'interfície d'usuari amb focus (especialment el camp d'entrada de missatges) per a diversos casos d'ús (@melvo)</li>
           <li xml:lang="ca-valencia">Restaura l'enfocament dels últims elements d'interfície d'usuari amb focus (especialment el camp d'entrada de missatges) per a diversos casos d'ús (@melvo)</li>
           <li xml:lang="ka">აღდგა ბოლოს ფოკუსირებული მომხმარებლის ინტერფეისის ელემენტების (განსაკუთრებით შეტყობინების შეყვანის ველის) ფოკუსირება სხვადასხვა გამოყენების შემთხვევისთვის (@melvo)</li>
+          <li xml:lang="nl">Herstel de focus van de laatst gefocuste gebruikersinterface-elementen (met name het bericht-invoerveld) voor verschillende gebruiksscenario's (@melvo)</li>
           <li xml:lang="pt-BR">Restaurar o foco nos últimos elementos da interface do usuário que estavam em foco (especialmente o campo de entrada de mensagens) para vários casos de uso (@melvo)</li>
           <li xml:lang="ru">Восстановление фокуса на последнем элементе интерфейса (особенно поле ввода сообщения) для различных сценариев использования (@melvo);</li>
           <li xml:lang="sl">Obnovi fokus zadnjih fokusiranih elementov uporabniškega vmesnika (zlasti polja za vnos sporočila) za različne primere uporabe (@melvo)</li>
@@ -270,6 +275,7 @@
           <li xml:lang="ca">Manté la bombolla del missatge ressaltada en reaccionar/corregir (@melvo)</li>
           <li xml:lang="ca-valencia">Manté la bambolla del missatge ressaltada en reaccionar/corregir (@melvo)</li>
           <li xml:lang="ka">დაემატა შეტყობინების ბუშტის გამოკვეთილად დატოვება რეაქციისას/ჩასწორებისას (@melvo)</li>
+          <li xml:lang="nl">Houd het berichtballonnetje geaccentueerd bij het reageren/corrigeren (@melvo)</li>
           <li xml:lang="pt-BR">Manter o balão de mensagem destacado ao reagir/corrigir (@melvo)</li>
           <li xml:lang="ru">Подсвечивать пузырёк сообщения при реакции или исправлении (@melvo);</li>
           <li xml:lang="sl">Ohrani mehurček sporočila označen ob odzivu/popravljanju (@melvo)</li>
@@ -279,6 +285,7 @@
           <li xml:lang="ca">Permet seleccionar un missatge per a corregir mitjançant Ctrl+Amunt/Ctrl+Avall (@melvo)</li>
           <li xml:lang="ca-valencia">Permet seleccionar un missatge per a corregir mitjançant «Ctrl+Amunt»/Ctrl+Avall (@melvo)</li>
           <li xml:lang="ka">დაემატა შესასწორებელი შეტყობინების Ctrl+Up/Ctrl+Down ღილაკებით მონიშვნის შესაძლებლობა (@melvo)</li>
+          <li xml:lang="nl">Sta toe om berichten te selecteren voor correctie via Ctrl+Omhoog/Ctrl+Omlaag (@melvo)</li>
           <li xml:lang="pt-BR">Permitir selecionar a mensagem para correção através de Ctrl+Seta para cima/Ctrl+Seta para baixo (@melvo)</li>
           <li xml:lang="ru">Выбор сообщения для исправления комбинациями клавиш Ctrl+↑/Ctrl+↓ (@melvo);</li>
           <li xml:lang="sl">Omogoči izbiro sporočila za popravek prek Ctrl+Gor/Ctrl+Dol (@melvo)</li>
@@ -288,6 +295,7 @@
           <li xml:lang="ca">Integra el camp de cerca a la barra d'eines principal augmentant l'espai per als missatges i, en els dispositius mòbils, fins i tot per als xats a la llista de xats (@melvo)</li>
           <li xml:lang="ca-valencia">Integra el camp de busca a la barra d'eines principal augmentant l'espai per als missatges i, en els dispositius mòbils, fins i tot per als xats a la llista de xats (@melvo)</li>
           <li xml:lang="ka">მოხდა ძებნის ველის მთავარ ხელსაწყოთა ზოლში ინტეგრირება, რაც ზრდის ადგილს შეტყობინებებისთვის, ხოლო მობილურ მოწყობილობებზე — ჩატებისთვისაც ჩატების სიაშიც კი (@melvo)</li>
+          <li xml:lang="nl">Integreer het zoekveld in de hoofdwerkbalk, zodat er meer ruimte is voor berichten en, op mobiele apparaten, zelfs voor chats in de chatlijst (@melvo).</li>
           <li xml:lang="pt-BR">Integrar o campo de pesquisa na barra de ferramentas principal aumentando o espaço para mensagens e, em dispositivos móveis, até mesmo para conversas na lista de bate-papo (@melvo)</li>
           <li xml:lang="ru">Интеграция поля поиска в главную панель инструментов для увеличения пространства под сообщения, а на мобильных устройствах — даже под чаты в списке чатов (@melvo);</li>
           <li xml:lang="sl">Integriraj iskalno polje v glavno orodno vrstico, kar poveča prostor za sporočila in na mobilnih napravah celo za klepete na seznamu klepetov (@melvo)</li>
@@ -307,6 +315,7 @@
           <li xml:lang="ca">Mostra els botons de la barra d'eines als dispositius mòbils exactament com als dispositius d'escriptori (@melvo)</li>
           <li xml:lang="ca-valencia">Mostra els botons de la barra d'eines als dispositius mòbils exactament com en els dispositius d'escriptori (@melvo)</li>
           <li xml:lang="ka">დაემატა ხელსაწყოთა ზოლის ღილაკების მობილურ მოწყობილობებზე ზუსტად ისევე ჩვენება, როგორც კომპიუტერებზე (@melvo)</li>
+          <li xml:lang="nl">Toon de knoppen van de werkbalk op mobiele apparaten precies zoals op bureaubladapparaten (@melvo)</li>
           <li xml:lang="pt-BR">Exibir botões da barra de ferramentas em dispositivos móveis exatamente como em dispositivos desktop (@melvo)</li>
           <li xml:lang="ru">Отображение кнопок на панели инструментов на мобильных устройствах в точности как на настольных;</li>
           <li xml:lang="sl">Prikazuj gumbe orodne vrstice na mobilnih napravah natanko tako kot na namiznih napravah (@melvo)</li>
@@ -316,6 +325,7 @@
           <li xml:lang="ca">Oculta el separador horitzontal per sobre el xat de la part superior llevat que es desplaci la llista de xats (@melvo)</li>
           <li xml:lang="ca-valencia">Oculta el separador horitzontal per damunt el xat de la part superior llevat que es desplace la llista de xats (@melvo)</li>
           <li xml:lang="ka">ჰორიზონტალური გამყოფის დამალვა ყველაზე ზემომყოფი ჩატიდან მანამდე, სანამ ჩატის გადახვევა არ მოხდება (@melvo)</li>
+          <li xml:lang="nl">Verberg de horizontale scheidingslijn boven de bovenste chat, tenzij de chatlijst is verschoven. (@melvo)</li>
           <li xml:lang="pt-BR">Ocultar o separador horizontal acima do chat superior, a menos que a lista de chats seja rolada (@melvo)</li>
           <li xml:lang="ru">Скрыть горизонтальный разделитель над верхним чатом, пока список чатов не прокручен;</li>
           <li xml:lang="sl">Skrij vodoravni ločilnik nad zgornjim klepetom, razen če se seznam klepetov pomika (@melvo)</li>
@@ -325,6 +335,7 @@
           <li xml:lang="ca">Emmagatzema les contrasenyes en un fitxer sense encriptar si no hi ha cap gestor de contrasenyes disponible o es proporciona l'opció corresponent de la línia d'ordres (@fazevedo)</li>
           <li xml:lang="ca-valencia">Emmagatzema les contrasenyes en un fitxer sense encriptar si no hi ha cap gestor de contrasenyes disponible o es proporciona l'opció corresponent de la línia d'ordres (@fazevedo)</li>
           <li xml:lang="ka">დაემატა პაროლების დაუშიფრავ ფაილში შენახვა, თუ პაროლების მმართველი ხელმიუწვდომელია, ან შესაბამისი ბრძანების სტრიქონის პარამეტრია მითითებული (@fazevedo)</li>
+          <li xml:lang="nl">Sla wachtwoorden op in een onversleuteld bestand als er geen wachtwoordbeheerder beschikbaar is of als de bijbehorende opdrachtregeloptie is opgegeven (@fazevedo).</li>
           <li xml:lang="pt-BR">Armazenar as senhas em um arquivo não criptografado se nenhum gerenciador de senhas estiver disponível ou se a opção de linha de comando correspondente não for fornecida (@fazevedo)</li>
           <li xml:lang="ru">Сохранение паролей в незашифрованном файле, если менеджер паролей недоступен или указана соответствующая опция командной строки (@fazevedo);</li>
           <li xml:lang="sl">Shrani gesla v nešifrirano datoteko, če upravitelj gesel ni na voljo ali če je na voljo ustrezna možnost ukazne vrstice (@fazevedo)</li>
@@ -334,6 +345,7 @@
           <li xml:lang="ca">Migra les contrasenyes sense encriptar al gestor de contrasenyes si està disponible a l'inici (@fazevedo)</li>
           <li xml:lang="ca-valencia">Migra les contrasenyes sense encriptar al gestor de contrasenyes si està disponible a l'inici (@fazevedo)</li>
           <li xml:lang="ka">მოხდა დაუშიფრავი პაროლების პაროლების მენეჯერში მიგრაცია, თუ ის ხელმისაწვდომია გაშვებისას (@fazevedo)</li>
+          <li xml:lang="nl">Migreer niet-versleutelde wachtwoorden naar de wachtwoordbeheerder indien deze beschikbaar is bij het opstarten. (@fazevedo)</li>
           <li xml:lang="pt-BR">Migração das senhas não criptografadas para um gerenciador de senhas, se disponível, na inicialização (@fazevedo)</li>
           <li xml:lang="ru">Перенос незашифрованных паролей в менеджер паролей при его наличии при запуске;</li>
           <li xml:lang="sl">Preseli nešifrirana gesla v upravitelja gesel, če je na voljo na začetku (@fazevedo)</li>
@@ -356,6 +368,7 @@
           <li xml:lang="ca">Corregeix la cua de les bombolles de missatges que se superposen (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix la cua de les bambolles de missatge que se superposen (@melvo)</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ბუშტის გადაფარვადი კუდის პრობლემა (@melvo)</li>
+          <li xml:lang="nl">Corrigeer de overlappende staart van de berichtballon (@melvo)</li>
           <li xml:lang="pt-BR">Correção da sobreposição na cauda do balão de mensagem (@melvo)</li>
           <li xml:lang="ru">Исправление наложения хвоста пузыря сообщения (@melvo);</li>
           <li xml:lang="sl">Popravi prekrivajoči se rep mehurčka sporočila (@melvo)</li>
@@ -365,6 +378,7 @@
           <li xml:lang="ca">Corregeix la vista prèvia del mitjà en passar per sobre si es passa per sobre de la informació de l'àrea oculta de deixar anar (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix la vista prèvia del mitjà en passar per damunt si es passa per damunt de la informació de l'àrea oculta de deixar anar (@melvo)</li>
           <li xml:lang="ka">გასწორდა მედიის წინასწარი დათვალიერებისას მაუსის გადატარების ეფექტი, თუ ხდება დამალულ ჩასაგდებ არეზე თაგუნას გადატარება (@melvo)</li>
+          <li xml:lang="nl">Repareer de voorvertoning van het medium als er met de muis over het verborgen informatieloslaatgebied wordt bewogen (@melvo)</li>
           <li xml:lang="pt-BR">Corrigido o problema de pré-visualização de tamanho médio ao passar o cursor sobre informações ocultas da área de destino (@melvo)</li>
           <li xml:lang="ru">Исправлено зависание среднего предпросмотра при наведении на скрытую область с информацией о перетаскивании (melvo).</li>
           <li xml:lang="sl">Popravi lebdenje srednjega predogleda, če se lebdi nad informacijami o skritem območju spusta (@melvo)</li>
@@ -374,6 +388,7 @@
           <li xml:lang="ca">Corregeix l'actualització de les claus OMEMO 2 per a tots els casos d'ús (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix l'actualització de les claus OMEMO 2 per a tots els casos d'ús (@melvo)</li>
           <li xml:lang="ka">გასწორდა OMEMO 2-ის გასაღებების განახლება ყველა შემთხვევისთვის (@melvo)</li>
+          <li xml:lang="nl">Het bijwerken van OMEMO 2-sleutels voor alle gevallen is nu correct (@melvo).</li>
           <li xml:lang="pt-BR">Corrigido o problema de atualização das chaves OMEMO 2 para todos os casos de uso (@melvo)</li>
           <li xml:lang="ru">Исправлено обновление ключей OMEMO 2 для всех случаев использования (@melvo);</li>
           <li xml:lang="sl">Popravi posodabljanje ključev OMEMO 2 za vse primere uporabe (@melvo)</li>
