@@ -60,7 +60,7 @@ msgstr "无法连接到服务器。请检查您的互联网连接或服务器名
 #: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "服务器离线或被防火墙屏蔽。"
+msgstr "服务器已离线或被防火墙屏蔽。"
 
 #: src/Account.cpp:502
 msgctxt "Connection|"
@@ -102,7 +102,7 @@ msgstr "无法迁移账号：无法加载导出的账号数据"
 #: src/AccountMigrationController.cpp:348
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr "无法迁移账号：您需要连接"
+msgstr "无法迁移账号：您需要已连接"
 
 #: src/AccountMigrationController.cpp:386
 #, qt-format
@@ -441,7 +441,7 @@ msgstr "无信息"
 #: src/Message.cpp:166
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr "dd MMM 于 hh:mm"
+msgstr "M月d日 hh:mm"
 
 #: src/Message.cpp:354
 msgctxt "Message|"
@@ -489,7 +489,7 @@ msgstr "无法发送消息。"
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "此消息已用 %1 加密，但无法解密"
+msgstr "此消息已使用 %1 加密，但无法解密"
 
 #: src/MessageController.cpp:1019
 #, qt-format
@@ -651,20 +651,14 @@ msgid "Mark as read"
 msgstr "标记为已读"
 
 #: src/NotificationController.cpp:348
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
-msgstr "回复"
+msgstr ""
 
 #: src/NotificationController.cpp:349
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "回复"
+msgstr ""
 
 #: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
@@ -830,7 +824,7 @@ msgstr "从不"
 #: src/qml/details/AccountDetailsContent.qml:281
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr "是否分享个人数据"
+msgstr "如果共享个人数据"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 #: src/qml/details/AccountDetailsContent.qml:285
@@ -2176,7 +2170,7 @@ msgstr "报告问题"
 #: src/qml/elements/AboutContent.qml:41
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr "向开发人员报告 Kaidan 的问题"
+msgstr "向开发者报告 Kaidan 的问题"
 
 #: src/qml/elements/AboutContent.qml:47
 msgctxt "AboutContent|"
@@ -2236,7 +2230,7 @@ msgstr "剧透"
 #: src/qml/elements/ChatMessage.qml:520
 msgctxt "ChatMessage|"
 msgid "New"
-msgstr "新的"
+msgstr "新消息"
 
 #: src/qml/elements/ChatMessage.qml:548
 #, qt-format
@@ -2576,7 +2570,7 @@ msgstr "正在创建群聊…"
 #: src/qml/elements/GroupChatCreationContent.qml:32
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr "群聊名（选填）"
+msgstr "群聊名称（选填）"
 
 #: src/qml/elements/GroupChatCreationContent.qml:33
 msgctxt "GroupChatCreationContent|"
@@ -3020,12 +3014,12 @@ msgstr "媒体"
 #: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
-msgstr "已在线的联系人"
+msgstr "在线联系人"
 
 #: src/qml/elements/RosterFilterArea.qml:32
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr "已离线的联系人"
+msgstr "离线联系人"
 
 #: src/qml/elements/RosterFilterArea.qml:36
 msgctxt "RosterFilterArea|"
@@ -3075,7 +3069,7 @@ msgstr "已删除"
 #: src/qml/elements/RosterItemDelegate.qml:146
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
-msgstr "还没有消息"
+msgstr "暂无消息"
 
 #: src/qml/elements/RosterItemDelegate.qml:162
 msgctxt "RosterItemDelegate|"
@@ -3341,12 +3335,12 @@ msgstr "提供者要求更强的密码。"
 #: src/qml/registration/ManualRegistrationPage.qml:190
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr "此用户名已被占用。"
+msgstr "用户名已被占用。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:194
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr "已生成新的随机用户名。"
+msgstr "新的随机用户名已生成。"
 
 #: src/qml/registration/ProviderPage.qml:22
 msgctxt "ProviderPage|"
