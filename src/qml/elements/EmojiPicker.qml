@@ -12,72 +12,39 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-Controls.Popup {
+Kirigami.Dialog {
 	id: root
-	width: Kirigami.Units.gridUnit * 20
-	height: Kirigami.Units.gridUnit * 15
 
-	property Controls.TextArea textArea
-	property string searchedText
+	readonly property alias searchedText: root._searchedText
+	property string _searchedText
+	property alias gridView: gridView
 
-	ColumnLayout {
-		anchors.fill: parent
+	signal emojiSelected(string emoji)
 
-		GridView {
-			id: emojiView
-			snapMode: GridView.SnapToRow
-
-			Layout.fillWidth: true
-			Layout.fillHeight: true
-
-			cellWidth: Kirigami.Units.gridUnit * 2.33
-			cellHeight: cellWidth
-
-			boundsBehavior: Flickable.DragOverBounds
-			clip: true
-
-			model: EmojiProxyModel {
-				sourceModel: EmojiModel {}
-				group: hasFavoriteEmojis ? Emoji.Group.Favorites : Emoji.Group.People
+	// Set a negative inset to fix the rounded corner of the dialog above the scroll bar.
+	topInset: - Kirigami.Units.cornerRadius
+	preferredWidth: largeButtonWidth
+	preferredHeight: Kirigami.Units.gridUnit * 21
+	maximumWidth: preferredWidth
+	maximumHeight: Math.min(preferredHeight, applicationWindow().height - Kirigami.Units.gridUnit * 6)
+	modal: false
+	header: null
+	footer: Controls.Control {
+		background: Kirigami.ShadowedRectangle {
+			color: primaryBackgroundColor
+			border {
+				color: tertiaryBackgroundColor
+				width: 1
 			}
-
-			delegate: Controls.ItemDelegate {
-				width: emojiView.cellWidth
-				height: emojiView.cellHeight
-				hoverEnabled: true
-				Controls.ToolTip.text: model.shortName
-				Controls.ToolTip.visible: hovered
-				Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-				contentItem: Text {
-					horizontalAlignment: Text.AlignHCenter
-					verticalAlignment: Text.AlignVCenter
-
-					font.pointSize: 20
-					text: model.unicode
-					font.family: "emoji"
-				}
-
-				onClicked: {
-					emojiView.model.addFavoriteEmoji(model.index)
-					textArea.remove(textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
-					textArea.insert(textArea.cursorPosition, model.unicode + " ")
-					close()
-				}
+			corners {
+				bottomLeftRadius: Kirigami.Units.cornerRadius
+				bottomRightRadius: Kirigami.Units.cornerRadius
 			}
-
-			Controls.ScrollBar.vertical: Controls.ScrollBar {}
 		}
-
-		Rectangle {
-			visible: emojiView.model.group !== Emoji.Group.Invalid
-			color: Kirigami.Theme.highlightColor
-			Layout.fillWidth: true
-			Layout.preferredHeight: 2
-		}
-
-		Row {
-			visible: emojiView.model.group !== Emoji.Group.Invalid
+		contentItem: RowLayout {
+			id: footerLayout
+			spacing: Kirigami.Units.smallSpacing
+			visible: gridView.model.group !== Emoji.Group.Invalid
 
 			Repeater {
 				model: ListModel {
@@ -91,63 +58,135 @@ Controls.Popup {
 					ListElement { label: "🔣"; group: Emoji.Group.Symbols }
 					ListElement { label: "🏁"; group: Emoji.Group.Flags }
 				}
-
 				delegate: Controls.ItemDelegate {
-					width: Kirigami.Units.gridUnit * 2.08
-					height: width
 					hoverEnabled: true
-					highlighted: emojiView.model.group === model.group
-
+					checkable: true
+					checked: gridView.model.group === model.group
+					background: InteractiveBackground {
+						radius: Kirigami.Units.cornerRadius
+					}
 					contentItem: Text {
-						horizontalAlignment: Text.AlignHCenter
-						verticalAlignment: Text.AlignVCenter
-
-						font.pointSize: 20
 						text: model.label
 						font.family: "emoji"
+						font.pointSize: Kirigami.Units.iconSizes.small
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
 					}
-
-					onClicked: emojiView.model.group = model.group
+					topInset: 0
+					bottomInset: 0
+					leftInset: 0
+					rightInset: 0
+					Layout.preferredWidth: implicitContentWidth * 2
+					Layout.preferredHeight: implicitContentHeight * 2
+					Layout.fillWidth: true
+					onClicked: {
+						gridView.currentIndex = 0
+						gridView.model.group = model.group
+					}
 				}
+			}
+		}
+		// The insets are set to "root.horizontalPadding" as a workaround in order to avoid that the footer overlaps the dialog.
+		leftInset: root.horizontalPadding
+		rightInset: root.horizontalPadding
+		topPadding: Kirigami.Units.smallSpacing
+		bottomPadding: Kirigami.Units.smallSpacing
+		leftPadding: Kirigami.Units.smallSpacing
+		rightPadding: Kirigami.Units.smallSpacing
+	}
+	onClosed: destroy()
+	Component.onCompleted: {
+		// Workaround since the first item would otherwise be as wide as gridView (for an unknown reason).
+		gridView.model.group = Emoji.Group.Nature
+
+		if (root.searchedText) {
+			gridView.model.group = Emoji.Group.Invalid
+		} else if (gridView.model.hasFavoriteEmojis) {
+			gridView.model.group = Emoji.Group.Favorites
+		} else {
+			gridView.model.group = Emoji.Group.People
+		}
+
+		gridView.currentIndex = 0
+	}
+
+	GridView {
+		id: gridView
+		cellWidth: Kirigami.Units.iconSizes.smallMedium * 2.15
+		cellHeight: Kirigami.Units.iconSizes.smallMedium * 2.15
+		leftMargin: Kirigami.Units.smallSpacing
+		rightMargin: Kirigami.Units.smallSpacing
+		bottomMargin: - Kirigami.Units.smallSpacing
+		implicitWidth: largeButtonWidth * 0.7
+		model: EmojiProxyModel {
+			sourceModel: EmojiModel {}
+		}
+		delegate: Controls.ItemDelegate {
+			id: emojiDelegate
+
+			property string emoji: model.unicode
+
+			hoverEnabled: true
+			checked: GridView.isCurrentItem
+			background: InteractiveBackground {
+				radius: Kirigami.Units.cornerRadius
+			}
+			contentItem: Text {
+				text: emojiDelegate.emoji
+				font.family: "emoji"
+				font.pointSize: Kirigami.Units.iconSizes.smallMedium
+			}
+			topInset: 0
+			bottomInset: 0
+			leftInset: 0
+			rightInset: 0
+			Controls.ToolTip.text: model.shortName
+			Controls.ToolTip.visible: hovered
+			Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+			onClicked: selectEmoji(model.index, emojiDelegate.emoji)
+		}
+	}
+
+	ColumnLayout {
+		visible: !gridView.count
+
+		Status {
+			icon {
+				source: "system-search-symbolic"
+				Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+				Layout.preferredHeight: Kirigami.Units.iconSizes.huge
+				Layout.maximumWidth: Kirigami.Units.iconSizes.huge
+			}
+			text {
+				text: qsTr("No emoji found")
+				type: Kirigami.Heading.Type.Secondary
+			}
+			opacity: 0.5
+			Layout.topMargin: {
+				root.height / 2 - height - implicitHeaderHeight / 2
 			}
 		}
 	}
 
-	onClosed: clearSearch()
+	function search(text) {
+		if (text) {
+			gridView.model.group = Emoji.Group.Invalid
+		} else {
+			gridView.model.group = gridView.model.hasFavoriteEmojis ? Emoji.Group.Favorites : Emoji.Group.People
+		}
 
-	function toggle() {
-		if (!visible || isSearchActive())
-			openWithFavorites()
-		else
-			close()
+		_searchedText = text
+		gridView.model.setFilterFixedString(searchedText.toLowerCase())
+		gridView.currentIndex = 0
 	}
 
-	function openWithFavorites() {
-		clearSearch()
-		open()
+	function selectCurrentItem() {
+		selectEmoji(gridView.currentIndex, gridView.currentItem.emoji)
 	}
 
-	function openForSearch(currentCharacter) {
-		searchedText += currentCharacter
-		emojiView.model.group = Emoji.Group.Invalid
-		open()
-	}
-
-	function search() {
-		emojiView.model.filter = searchedText.toLowerCase()
-	}
-
-	function isSearchActive() {
-		return emojiView.model.group === Emoji.Group.Invalid
-	}
-
-	function clearSearch() {
-		searchedText = ""
-		search()
-		setFavoritesAsDefaultIfAvailable()
-	}
-
-	function setFavoritesAsDefaultIfAvailable() {
-		emojiView.model.group = emojiView.model.hasFavoriteEmojis ? Emoji.Group.Favorites : Emoji.Group.People
+	function selectEmoji(index, emoji) {
+		gridView.model.addFavoriteEmoji(index)
+		emojiSelected(emoji)
+		close()
 	}
 }

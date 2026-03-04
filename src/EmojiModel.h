@@ -86,7 +86,6 @@ class EmojiProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY(Emoji::Group group READ group WRITE setGroup NOTIFY groupChanged)
-    Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
     Q_PROPERTY(bool hasFavoriteEmojis READ hasFavoriteEmojis NOTIFY hasFavoriteEmojisChanged)
 
 public:
@@ -95,16 +94,10 @@ public:
 
     Emoji::Group group() const;
     void setGroup(Emoji::Group group);
-
-    QString filter() const;
-    void setFilter(const QString &filter);
+    Q_SIGNAL void groupChanged();
 
     bool hasFavoriteEmojis() const;
-
     Q_INVOKABLE void addFavoriteEmoji(int proxyRow);
-
-    Q_SIGNAL void groupChanged();
-    Q_SIGNAL void filterChanged();
     Q_SIGNAL void hasFavoriteEmojisChanged();
 
 protected:
@@ -112,7 +105,7 @@ protected:
 
 private:
     Emoji::Group m_group = Emoji::Group::Invalid;
-    QSet<QString> m_favoriteEmojis;
+    QStringList m_favoriteEmojis;
 };
 
 Q_DECLARE_METATYPE(Emoji)

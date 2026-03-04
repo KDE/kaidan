@@ -28,31 +28,9 @@ Controls.ItemDelegate {
 		leftPadding: Kirigami.Units.smallSpacing * 3
 		rightPadding: Kirigami.Units.smallSpacing * 3
 		bottomPadding: Kirigami.Units.smallSpacing * 3
-		background: Rectangle {
+		background: InteractiveBackground {
 			id: interactiveBackground
-			radius: roundedCornersRadius
-			color: {
-				const color = Kirigami.Theme.textColor
-				let colorOpacity = 0
-
-				if (root.pressed) {
-					colorOpacity = 0.2
-				} else if (root.visualFocus) {
-					colorOpacity = 0.1
-				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
-					colorOpacity = 0.07
-				} else if (checked) {
-					colorOpacity = 0.05
-				}
-
-				return Qt.rgba(color.r, color.g, color.b, colorOpacity)
-			}
-
-			Behavior on color {
-				ColorAnimation {
-					duration: Kirigami.Units.shortDuration
-				}
-			}
+			interactionItem: root
 		}
 		contentItem: RowLayout {
 			id: content

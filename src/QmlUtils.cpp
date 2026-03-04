@@ -55,6 +55,16 @@ QChar QmlUtils::messageBubblePaddingCharacter()
     return MESSAGE_BUBBLE_PADDING_CHARACTER;
 }
 
+QChar QmlUtils::emojiPrefix()
+{
+    return EMOJI_PREFIX;
+}
+
+QChar QmlUtils::emojiSeparator()
+{
+    return EMOJI_SEPARATOR;
+}
+
 QChar QmlUtils::groupChatUserMentionPrefix()
 {
     return GROUP_CHAT_USER_MENTION_PREFIX;

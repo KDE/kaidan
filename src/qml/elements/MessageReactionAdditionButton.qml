@@ -16,18 +16,19 @@ import im.kaidan.kaidan
 MessageReactionButton {
 	id: root
 
-	property string messageId
+	property int messageIndex
 	property bool isOwnMessage
-	property MessageReactionEmojiPicker emojiPicker
+	property ListView messageListView
+	property var openEmojiPicker
 
 	text: qsTr("Add reaction…")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
 	contentItem: Kirigami.Icon {
 		source: "smiley-add"
 	}
-	onClicked: {
-		emojiPicker.messageId = root.messageId
-		emojiPicker.open()
-	}
 	Controls.ToolTip.text: text
+	onClicked: {
+		messageListView.setCurrentIndex(messageIndex)
+		openEmojiPicker()
+	}
 }

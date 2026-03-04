@@ -188,6 +188,27 @@ Kirigami.ApplicationWindow {
 		value: Screen.devicePixelRatio
 	}
 
+	function interactiveBackgroundColor(interactionItem) {
+		const color = Kirigami.Theme.textColor
+		let colorOpacity
+
+		if (!interactionItem.enabled) {
+			colorOpacity = 0
+		} else if (interactionItem.pressed) {
+			colorOpacity = 0.2
+		} else if (interactionItem.visualFocus) {
+			colorOpacity = 0.1
+		} else if (!Kirigami.Settings.tabletMode && interactionItem.hovered) {
+			colorOpacity = 0.07
+		} else if (interactionItem.checked) {
+			colorOpacity = 0.05
+		} else {
+			colorOpacity = 0
+		}
+
+		return Qt.rgba(color.r, color.g, color.b, colorOpacity)
+	}
+
 	/**
 	 * Returns a radius used for rectangles with rounded corners that is relative to the
 	 * rectangle's dimensions.

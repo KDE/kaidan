@@ -27,7 +27,6 @@ SearchBarPage {
 	id: root
 
 	property ChatController chatController: ChatController {}
-	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
 	property alias messageListView: messageListView
 	property ChatPageSendingPane sendingPane
 	property ChatInfo globalChatDate
@@ -296,15 +295,6 @@ SearchBarPage {
 		}
 	}
 
-	MessageReactionEmojiPicker {
-		id: messageReactionEmojiPicker
-		messageModel: root.chatController.messageModel
-		onClosed: {
-			root.messageListView.restorePreviousCurrentIndex()
-			root.sendingPane.forceActiveFocus()
-		}
-	}
-
 	// View containing the messages
 	ListView {
 		id: messageListView
@@ -348,7 +338,6 @@ SearchBarPage {
 			messageSearchButton: searchButton
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
-			reactionEmojiPicker: root.messageReactionEmojiPicker
 			chatController: root.chatController
 			modelIndex: index
 			msgId: model.id

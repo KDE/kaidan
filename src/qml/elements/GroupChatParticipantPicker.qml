@@ -21,6 +21,7 @@ Dialog {
 	readonly property alias searchedText: root._searchedText
 	property string _searchedText
 	property alias listView: listView
+	property bool mentionPrefixRemovedOnClose: true
 
 	topPadding: 0
 	leftPadding: 0
@@ -31,6 +32,20 @@ Dialog {
 	modal: false
 	header: null
 	onOpened: textArea.forceActiveFocus()
+	onClosed: {
+		if (mentionPrefixRemovedOnClose) {
+			const oldCursorPosition = textArea.cursorPosition
+			textArea.selectWord()
+			textArea.select(textArea.selectionStart - 1, textArea.selectionEnd)
+
+			if (textArea.selectedText === Utils.groupChatUserMentionPrefix) {
+				textArea.remove(textArea.selectionStart, textArea.selectionEnd)
+			} else {
+				textArea.deselect()
+				textArea.cursorPosition = oldCursorPosition
+			}
+		}
+	}
 
 	ListView {
 		id: listView
@@ -56,6 +71,7 @@ Dialog {
 
 			ContactInvitationHintDelegate {
 				onClicked: {
+					root.mentionPrefixRemovedOnClose = false
 					root.close()
 					root.textArea.remove(root.textArea.cursorPosition - root.searchedText.length, textArea.cursorPosition)
 					root.account.groupChatController.groupChatInviteeSelectionNeeded()

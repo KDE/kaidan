@@ -24,7 +24,6 @@ Controls.ItemDelegate {
 	property ToolbarButton messageSearchButton
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
-	property MessageReactionEmojiPicker reactionEmojiPicker
 	property ChatController chatController
 	property int modelIndex
 	property string msgId
@@ -391,10 +390,10 @@ Controls.ItemDelegate {
 						MessageReactionAdditionButton {
 							id: messageReactionAdditionButton
 							accentColor: bubble.backgroundColor
-							messageId: root.msgId
+							messageIndex: root.modelIndex
 							isOwnMessage: root.isOwn
-							emojiPicker: root.reactionEmojiPicker
-							onClicked: root.messageListView.setCurrentIndex(root.modelIndex)
+							messageListView: root.messageListView
+							openEmojiPicker: root.openReactionEmojiPicker
 						}
 
 						Loader {
@@ -578,6 +577,19 @@ Controls.ItemDelegate {
 	}
 	Kirigami.Theme.inherit: false
 
+	Component {
+		id: reactionEmojiPicker
+
+		MessageReactionEmojiPicker {
+			messageId: root.msgId
+			messageModel: root.chatController.messageModel
+			onClosed: {
+				root.messageListView.restorePreviousCurrentIndex()
+				root.sendingPane.forceActiveFocus()
+			}
+		}
+	}
+
 	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
 		if (modelIndex < 0 || delimitingIndex < 0 || modelIndex === delimitingIndex) {
 			return true
@@ -599,6 +611,10 @@ Controls.ItemDelegate {
 	function showContextMenu(mouseArea, file) {
 		messageSearchButton.checked = false
 		contextMenu.createObject().show(mouseArea, file)
+	}
+
+	function openReactionEmojiPicker() {
+		openOverlay(reactionEmojiPicker)
 	}
 
 	function openGeoLocationMap() {

@@ -101,10 +101,7 @@ Kirigami.Dialog {
 				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: {
-				let reactionEmojiPicker = root.message.reactionEmojiPicker
-				reactionEmojiPicker.messageId = root.message.msgId
-				reactionEmojiPicker.open()
-
+				root.message.openReactionEmojiPicker()
 				root.currentIndexResetOnClosing = false
 			}
 		}

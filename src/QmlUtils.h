@@ -13,6 +13,10 @@
 class QGeoCoordinate;
 
 const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
+
+constexpr auto EMOJI_PREFIX = u':';
+constexpr auto EMOJI_SEPARATOR = u' ';
+
 constexpr auto GROUP_CHAT_USER_MENTION_PREFIX = u'@';
 constexpr auto GROUP_CHAT_USER_MENTION_SEPARATOR = u' ';
 
@@ -23,6 +27,8 @@ class QmlUtils : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QChar messageBubblePaddingCharacter READ messageBubblePaddingCharacter CONSTANT)
+    Q_PROPERTY(QChar emojiPrefix READ emojiPrefix CONSTANT)
+    Q_PROPERTY(QChar emojiSeparator READ emojiSeparator CONSTANT)
     Q_PROPERTY(QChar groupChatUserMentionPrefix READ groupChatUserMentionPrefix CONSTANT)
     Q_PROPERTY(QChar groupChatUserMentionSeparator READ groupChatUserMentionSeparator CONSTANT)
     Q_PROPERTY(QString versionString READ versionString CONSTANT)
@@ -40,6 +46,10 @@ public:
     ~QmlUtils() override;
 
     static QChar messageBubblePaddingCharacter();
+
+    static QChar emojiPrefix();
+    static QChar emojiSeparator();
+
     static QChar groupChatUserMentionPrefix();
     static QChar groupChatUserMentionSeparator();
 

@@ -113,8 +113,9 @@ static void removeEmojiFormat(QTextCursor &cursor, int start, int end)
     auto format = cursor.charFormat();
 
     if (auto font = format.font(); font.family() == EMOJI_FONT_FAMILY) {
-        font.setFamilies(QGuiApplication::font().families());
-        font.setPointSize(QGuiApplication::font().pointSize());
+        const auto defaultFont = QGuiApplication::font();
+        font.setFamilies(defaultFont.families());
+        font.setPointSize(defaultFont.pointSize());
 
         format.setFont(font);
         cursor.setCharFormat(format);

@@ -31,24 +31,7 @@ Kirigami.ShadowedRectangle {
 		bottomLeftRadius: roundedBottomCorners ? Kirigami.Units.smallSpacing : 0
 		bottomRightRadius: roundedBottomCorners ? Kirigami.Units.smallSpacing : 0
 	}
-	color: {
-		let colorOpacity = 0
-
-		if (!button.enabled) {
-			colorOpacity = 0
-		} else if (button.pressed) {
-			colorOpacity = 0.2
-		} else if (button.visualFocus) {
-			colorOpacity = 0.1
-		} else if (!Kirigami.Settings.tabletMode && button.hovered) {
-			colorOpacity = 0.07
-		} else if (button.checked) {
-			colorOpacity = 0.05
-		}
-
-		const textColor = Kirigami.Theme.textColor
-		return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
-	}
+	color: interactiveBackgroundColor(button)
 
 	Behavior on color {
 		ColorAnimation {

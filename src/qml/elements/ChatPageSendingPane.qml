@@ -23,7 +23,9 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
-	property Dialog participantPicker
+	property EmojiPicker emojiPicker
+	property GroupChatParticipantPicker participantPicker
+	property var lastFixedCursorRectangle
 	property int lastMessageLength: 0
 	property real horizontalContentMargin: Kirigami.Units.smallSpacing
 	property MessageComposition composition: MessageComposition {
@@ -169,7 +171,27 @@ Controls.Pane {
 				fallback: "smiley-symbolic"
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				Controls.ToolTip.text: qsTr("Add an emoji")
-				onClicked: !emojiPicker.toggle()
+				onClicked: {
+					messageArea.selectWord()
+					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
+
+					const selectedWord = messageArea.selectedText
+					const emojiPrefix = Utils.emojiPrefix
+
+					if (selectedWord.startsWith(emojiPrefix)) {
+						messageArea.remove(messageArea.selectionStart, messageArea.selectionEnd)
+					} else {
+						messageArea.deselect()
+						const cursorPosition = messageArea.cursorPosition
+						const emojiSeparator = Utils.emojiSeparator
+
+						if (cursorPosition === 0 || selectedWord === emojiSeparator || selectedWord === "\n") {
+							messageArea.insert(cursorPosition, emojiPrefix)
+						} else {
+							messageArea.insert(cursorPosition, emojiSeparator + emojiPrefix)
+						}
+					}
+				}
 			}
 
 			// group chat participant mentioning button
@@ -238,8 +260,19 @@ Controls.Pane {
 						root.chatPage.chatController.chatStateController.resetChatState()
 					}
 				}
+				onActiveFocusChanged: {
+					if (activeFocus) {
+						handleShortcuts()
+					}
+				}
 				Keys.onDownPressed: event => {
-					if (participantPicker) {
+					if (emojiPicker) {
+						if (emojiPicker.gridView.currentIndex === emojiPicker.gridView.count - 1) {
+							emojiPicker.gridView.currentIndex = 0
+						} else {
+							emojiPicker.gridView.moveCurrentIndexDown()
+						}
+					} else if (participantPicker) {
 						if (participantPicker.listView.currentIndex === participantPicker.listView.count - 1) {
 							participantPicker.listView.currentIndex = 0
 						} else {
@@ -250,7 +283,13 @@ Controls.Pane {
 					}
 				}
 				Keys.onUpPressed: event => {
-					if (participantPicker) {
+					if (emojiPicker) {
+						if (emojiPicker.gridView.currentIndex === 0) {
+							emojiPicker.gridView.currentIndex = emojiPicker.gridView.count - 1
+						} else {
+							emojiPicker.gridView.moveCurrentIndexUp()
+						}
+					} else if (participantPicker) {
 						if (participantPicker.listView.currentIndex === 0) {
 							participantPicker.listView.currentIndex = participantPicker.listView.count - 1
 						} else {
@@ -261,14 +300,26 @@ Controls.Pane {
 					}
 				}
 				Keys.onLeftPressed: event => {
-					if (participantPicker) {
+					if (emojiPicker) {
+						if (emojiPicker.gridView.currentIndex === 0) {
+							emojiPicker.gridView.currentIndex = emojiPicker.gridView.count - 1
+						} else {
+							emojiPicker.gridView.moveCurrentIndexLeft()
+						}
+					} else if (participantPicker) {
 						event.accepted = true
 					} else {
 						event.accepted = false
 					}
 				}
 				Keys.onRightPressed: event => {
-					if (participantPicker) {
+					if (emojiPicker) {
+						if (emojiPicker.gridView.currentIndex === emojiPicker.gridView.count - 1) {
+							emojiPicker.gridView.currentIndex = 0
+						} else {
+							emojiPicker.gridView.moveCurrentIndexRight()
+						}
+					} else if (participantPicker) {
 						event.accepted = true
 					} else {
 						event.accepted = false
@@ -279,7 +330,9 @@ Controls.Pane {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
 							messageArea.insert(messageArea.cursorPosition, "\n")
 						} else {
-							if (participantPicker) {
+							if (emojiPicker) {
+								emojiPicker.selectCurrentItem()
+							} else if (participantPicker) {
 								participantPicker.selectCurrentItem()
 							} else {
 								sendButton.clicked()
@@ -505,39 +558,51 @@ Controls.Pane {
 				}
 			}
 
-			EmojiPicker {
-				id: emojiPicker
-				x: - root.padding
-				y: - height - root.padding
-				textArea: messageArea
+			Component {
+				id: emojiPickerComponent
+
+				EmojiPicker {
+					x: root.calculateCursorFollowingDialogX(preferredWidth)
+					y: root.calculateCursorFollowingDialogY(height)
+					onEmojiSelected: emoji => insertEmoji(emoji)
+					onOpened: messageArea.forceActiveFocus()
+					onClosed: {
+						const oldCursorPosition = messageArea.cursorPosition
+						messageArea.selectWord()
+						messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
+
+						if (messageArea.selectedText === Utils.emojiPrefix) {
+							messageArea.remove(messageArea.selectionStart, messageArea.selectionEnd)
+						} else {
+							messageArea.deselect()
+							messageArea.cursorPosition = oldCursorPosition
+						}
+					}
+					Component.onCompleted: {
+						root.lastFixedCursorRectangle = messageArea.cursorRectangle
+						root.emojiPicker = this
+					}
+
+					function insertEmoji(emoji) {
+						messageArea.remove(messageArea.cursorPosition - searchedText.length - Utils.emojiPrefix.length, messageArea.cursorPosition)
+						messageArea.insert(messageArea.cursorPosition, emoji + Utils.emojiSeparator)
+					}
+				}
 			}
 
 			Component {
 				id: participantPickerComponent
 
 				GroupChatParticipantPicker {
-					x: {
-						const cursorRectangle = messageArea.cursorRectangle
-
-						// A gap is needed since cursorRectangle.x is (for an unknown reason) not at the cursor's position.
-						const gap = Kirigami.Units.largeSpacing * 8
-
-						if (root.chatPage.width > cursorRectangle.x + gap + listView.implicitWidth) {
-							return mapToGlobal(cursorRectangle.x, cursorRectangle.y).x + gap
-						}
-
-						return pageStack.wideMode ? root.chatPage.x : 0
-					}
-					y: {
-						// Used to trigger a reevaluation of y if the window's height changes.
-						const windowHeight = applicationWindow().height
-
-						const cursorRectangle = messageArea.cursorRectangle
-						return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - contentHeight
-					}
+					x: root.calculateCursorFollowingDialogX(preferredWidth)
+					y: root.calculateCursorFollowingDialogY(height)
 					account: root.chatPage.chatController.account
 					chatJid: root.chatPage.chatController.jid
 					textArea: messageArea
+					Component.onCompleted: {
+						root.lastFixedCursorRectangle = messageArea.cursorRectangle
+						root.participantPicker = this
+					}
 				}
 			}
 
@@ -679,48 +744,42 @@ Controls.Pane {
 	function handleShortcuts() {
 		const currentCharacter = messageArea.getText(messageArea.cursorPosition - 1, messageArea.cursorPosition)
 
-		if (emojiPicker.isSearchActive()) {
-			if (emojiPicker.searchedText === "" || currentCharacter === "" || currentCharacter === " ") {
+		if (emojiPicker) {
+			if (currentCharacter === "" || currentCharacter === " " || currentCharacter === "\n") {
 				emojiPicker.close()
 				return
 			}
 
+			const searchedEmojiText = emojiPicker.searchedText
+
 			// Handle the deletion or addition of characters.
-			if (lastMessageLength >= messageArea.text.length) {
-				emojiPicker.searchedText = emojiPicker.searchedText.substr(0, emojiPicker.searchedText.length - 1)
-			} else {
-				emojiPicker.searchedText += currentCharacter
+			if (lastMessageLength > messageArea.text.length) {
+				emojiPicker.search(searchedEmojiText.substr(0, searchedEmojiText.length - 1))
+			} else if (lastMessageLength < messageArea.text.length) {
+				emojiPicker.search(searchedEmojiText + currentCharacter)
 			}
-
-			emojiPicker.search()
-		} else {
-			if (currentCharacter === ":") {
-				if (messageArea.cursorPosition !== 1) {
-					const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
-					if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
-						emojiPicker.openForSearch(currentCharacter)
-						emojiPicker.search()
-					}
-				} else {
-					emojiPicker.openForSearch(currentCharacter)
-					emojiPicker.search()
+		} else if (currentCharacter === Utils.emojiPrefix) {
+			if (messageArea.cursorPosition !== 1) {
+				const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
+				if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
+					openEmojiPicker()
 				}
+			} else {
+				openEmojiPicker()
 			}
-		}
-
-		if (participantPicker) {
-			const searchedText = participantPicker.searchedText
-
+		} else if (participantPicker) {
 			if (currentCharacter === "" || currentCharacter === " " || currentCharacter === "\n") {
 				participantPicker.close()
 				return
 			}
 
+			const searchedParticipantText = participantPicker.searchedText
+
 			// Handle the deletion or addition of characters.
-			if (lastMessageLength >= messageArea.text.length) {
-				participantPicker.search(searchedText.substr(0, searchedText.length - 1))
-			} else {
-				participantPicker.search(searchedText + currentCharacter)
+			if (lastMessageLength > messageArea.text.length) {
+				participantPicker.search(searchedParticipantText.substr(0, searchedParticipantText.length - 1))
+			} else if (lastMessageLength < messageArea.text.length) {
+				participantPicker.search(searchedParticipantText + currentCharacter)
 			}
 		} else if (root.chatPage.chatController.rosterItem.isGroupChat && currentCharacter === Utils.groupChatUserMentionPrefix) {
 			if (messageArea.cursorPosition !== 1) {
@@ -736,8 +795,34 @@ Controls.Pane {
 		lastMessageLength = messageArea.text.length
 	}
 
+	function openEmojiPicker() {
+		openOverlay(emojiPickerComponent)
+	}
+
 	function openParticipantPicker() {
-		participantPicker = openOverlay(participantPickerComponent)
+		openOverlay(participantPickerComponent)
+	}
+
+	function calculateCursorFollowingDialogX(dialogWidth) {
+		const cursorRectangle = lastFixedCursorRectangle
+		const cursorX = leftPadding + messageArea.x + cursorRectangle.x
+
+		if (chatPage.width > dialogWidth) {
+			const cutOffWidth = cursorX + dialogWidth - chatPage.width
+			const globalX = mapToGlobal(cursorX, cursorRectangle.y).x
+
+			return cutOffWidth > 0 ? globalX - cutOffWidth : globalX
+		}
+
+		return pageStack.wideMode ? chatPage.x : 0
+	}
+
+	function calculateCursorFollowingDialogY(dialogHeight) {
+		// Used to trigger a reevaluation of y if the window's height changes.
+		const windowHeight = applicationWindow().height
+		const cursorRectangle = messageArea.cursorRectangle
+
+		return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - dialogHeight
 	}
 
 	function clear() {
