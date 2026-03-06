@@ -256,6 +256,7 @@
           <li xml:lang="pt-BR">Melhoria da aparência/comportamento da captura de mídia (incluindo a pré-visualização após a captura da imagem até que a imagem seja salva) (@melvo)</li>
           <li xml:lang="ru">Улучшение внешнего вида и поведения захвата медиафайлов (включая предварительный просмотр после захвата изображения до его сохранения) (@melvo);</li>
           <li xml:lang="sl">Izboljšaj videz/vedenje zajemanja medijev (vključno s predogledom po zajemanju slike, dokler slika ni shranjena) (@melvo)</li>
+          <li xml:lang="uk">Удосконалено вигляд і поведінку при захопленні мультимедійних даних (зокрема попередній перегляд після захоплення зображення і до його збереження) (@melvo)</li>
           <li>Restore focusing of last focused user interface elements (especially message input field) for various use cases (@melvo)</li>
           <li xml:lang="ar">استعادة تركيز آخر عناصر واجهة المستخدم التي رُكّز عليها (خاصة حقل إدخال الرسائل) لحالات استخدام متنوعة (@melvo)</li>
           <li xml:lang="ca">Restaura l'enfocament dels últims elements d'interfície d'usuari amb focus (especialment el camp d'entrada de missatges) per a diversos casos d'ús (@melvo)</li>
@@ -265,6 +266,7 @@
           <li xml:lang="pt-BR">Restaurar o foco nos últimos elementos da interface do usuário que estavam em foco (especialmente o campo de entrada de mensagens) para vários casos de uso (@melvo)</li>
           <li xml:lang="ru">Восстановление фокуса на последнем элементе интерфейса (особенно поле ввода сообщения) для различных сценариев использования (@melvo);</li>
           <li xml:lang="sl">Obnovi fokus zadnjih fokusiranih elementov uporabniškega vmesnika (zlasti polja za vnos sporočila) za različne primere uporabe (@melvo)</li>
+          <li xml:lang="uk">Реалізовано відновлення фокусування останнього фокусованого елемента інтерфейсу користувача (особливо поля введення повідомлення) для різних випадків (@melvo)</li>
           <li>Keep message bubble highlighted on reacting/correcting (@melvo)</li>
           <li xml:lang="ar">إبقاء فقاعة الرسالة مبرزة عند التفاعل أو التصحيح (@melvo)</li>
           <li xml:lang="ca">Manté la bombolla del missatge ressaltada en reaccionar/corregir (@melvo)</li>
@@ -274,6 +276,7 @@
           <li xml:lang="pt-BR">Manter o balão de mensagem destacado ao reagir/corrigir (@melvo)</li>
           <li xml:lang="ru">Подсвечивать пузырёк сообщения при реакции или исправлении (@melvo);</li>
           <li xml:lang="sl">Ohrani mehurček sporočila označen ob odzivu/popravljanju (@melvo)</li>
+          <li xml:lang="uk">Реалізовано збереження підсвічування бульбашки повідомлення при реагуванні або коригуванні (@melvo)</li>
           <li>Allow to select message for correction via Ctrl+Up/Ctrl+Down (@melvo)</li>
           <li xml:lang="ar">السماح بتحديد رسالة للتصحيح عبر اختصارات Ctrl+Up/Ctrl+Down (@melvo)</li>
           <li xml:lang="ca">Permet seleccionar un missatge per a corregir mitjançant Ctrl+Amunt/Ctrl+Avall (@melvo)</li>
@@ -283,6 +286,7 @@
           <li xml:lang="pt-BR">Permitir selecionar a mensagem para correção através de Ctrl+Seta para cima/Ctrl+Seta para baixo (@melvo)</li>
           <li xml:lang="ru">Выбор сообщения для исправления комбинациями клавиш Ctrl+↑/Ctrl+↓ (@melvo);</li>
           <li xml:lang="sl">Omogoči izbiro sporočila za popravek prek Ctrl+Gor/Ctrl+Dol (@melvo)</li>
+          <li xml:lang="uk">Уможливлено позначення повідомлення для виправлення за допомогою Ctrl+стрілка вгору/Ctrl+стрілка вниз (@melvo)</li>
           <li>Integrate search field into main toolbar increasing space for messages and, on mobile devices, even for chats in chat list (@melvo)</li>
           <li xml:lang="ar">دمج حقل البحث في شريط الأدوات الرئيسي لزيادة مساحة الرسائل، وحتى للدردشات في قائمة الدردشة على الأجهزة المحمولة (@melvo)</li>
           <li xml:lang="ca">Integra el camp de cerca a la barra d'eines principal augmentant l'espai per als missatges i, en els dispositius mòbils, fins i tot per als xats a la llista de xats (@melvo)</li>
@@ -292,6 +296,7 @@
           <li xml:lang="pt-BR">Integrar o campo de pesquisa na barra de ferramentas principal aumentando o espaço para mensagens e, em dispositivos móveis, até mesmo para conversas na lista de bate-papo (@melvo)</li>
           <li xml:lang="ru">Интеграция поля поиска в главную панель инструментов для увеличения пространства под сообщения, а на мобильных устройствах — даже под чаты в списке чатов (@melvo);</li>
           <li xml:lang="sl">Integriraj iskalno polje v glavno orodno vrstico, kar poveča prostor za sporočila in na mobilnih napravah celo za klepete na seznamu klepetov (@melvo)</li>
+          <li xml:lang="uk">Поле пошуку інтегровано до головної панелі інструментів, що збільшило простір для повідомлень, а на мобільних пристроях навіть для спілкувань у списку спілкувань (@melvo)</li>
           <li>Show message search field via Ctrl+Shift+F (@melvo)</li>
           <li xml:lang="ar">إظهار حقل بحث الرسائل عبر اختصار Ctrl+Shift+F (@melvo)</li>
           <li xml:lang="ca">Mostra el camp de cerca de missatges mitjançant Ctrl+Maj+F (@melvo)</li>
@@ -301,6 +306,7 @@
           <li xml:lang="pt-BR">Exibir campo de busca de mensagens via Ctrl+Shift+F (@melvo)</li>
           <li xml:lang="ru">Отображение поля поиска сообщений по комбинации клавиш Ctrl+Shift+F (@melvo);</li>
           <li xml:lang="sl">Prikazuj iskalno polje sporočil s Ctrl+Shift+F (@melvo)</li>
+          <li xml:lang="uk">Показ поля пошуку повідомлення за Ctrl+Shift+F (@melvo)</li>
           <li>Display toolbar buttons on mobile devices exactly as on desktop devices (@melvo)</li>
           <li xml:lang="ar">عرض أزرار شريط الأدوات على الأجهزة المحمولة تماماً كما في أجهزة الحاسوب المكتبية (@melvo)</li>
           <li xml:lang="ca">Mostra els botons de la barra d'eines als dispositius mòbils exactament com als dispositius d'escriptori (@melvo)</li>
@@ -310,6 +316,7 @@
           <li xml:lang="pt-BR">Exibir botões da barra de ferramentas em dispositivos móveis exatamente como em dispositivos desktop (@melvo)</li>
           <li xml:lang="ru">Отображение кнопок на панели инструментов на мобильных устройствах в точности как на настольных;</li>
           <li xml:lang="sl">Prikazuj gumbe orodne vrstice na mobilnih napravah natanko tako kot na namiznih napravah (@melvo)</li>
+          <li xml:lang="uk">Реалізовано показ кнопок панелі інструментів на мобільних пристроях точно так, як на робочих станціях (@melvo)</li>
           <li>Hide horizontal separator above top-most chat unless chat list is scrolled (@melvo)</li>
           <li xml:lang="ar">إخفاء الفاصل الأفقي فوق أعلى دردشة ما لم تُمرر قائمة الدردشة (@melvo)</li>
           <li xml:lang="ca">Oculta el separador horitzontal per sobre el xat de la part superior llevat que es desplaci la llista de xats (@melvo)</li>
@@ -319,6 +326,7 @@
           <li xml:lang="pt-BR">Ocultar o separador horizontal acima do chat superior, a menos que a lista de chats seja rolada (@melvo)</li>
           <li xml:lang="ru">Скрыть горизонтальный разделитель над верхним чатом, пока список чатов не прокручен;</li>
           <li xml:lang="sl">Skrij vodoravni ločilnik nad zgornjim klepetom, razen če se seznam klepetov pomika (@melvo)</li>
+          <li xml:lang="uk">Реалізовано приховування горизонтального роздільника над найвищим пунктом спілкувань, якщо гортання у списку спілкувань непотрібне (@melvo)</li>
           <li>Store passwords in unencrypted file if no password manager is available or corresponding command-line option provided (@fazevedo)</li>
           <li xml:lang="ar">تخزين كلمات السر في ملف غير معمي إذا لم يتوفر مدير كلمات سر أو إذا وُفر خيار سطر الأوامر المقابل (@fazevedo)</li>
           <li xml:lang="ca">Emmagatzema les contrasenyes en un fitxer sense encriptar si no hi ha cap gestor de contrasenyes disponible o es proporciona l'opció corresponent de la línia d'ordres (@fazevedo)</li>
