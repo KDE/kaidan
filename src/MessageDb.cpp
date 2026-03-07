@@ -11,7 +11,6 @@
 // Qt
 #include <QBuffer>
 #include <QFile>
-#include <QMimeDatabase>
 #include <QSqlDriver>
 #include <QSqlField>
 #include <QSqlRecord>
@@ -26,6 +25,7 @@
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "KaidanCoreLog.h"
+#include "MediaUtils.h"
 #include "TrustDb.h"
 
 Q_DECLARE_METATYPE(QXmpp::Cipher)
@@ -410,7 +410,7 @@ QFuture<QList<MessageDb::DownloadableFile>> MessageDb::fetchAutomaticallyDownloa
             file.fileGroupId = query.value(FileGroupId).toLongLong();
             file.name = variantToOptional<QString>(query.value(Name));
             file.description = variantToOptional<QString>(query.value(Description));
-            file.mimeType = QMimeDatabase().mimeTypeForName(query.value(MimeType).toString());
+            file.mimeType = MediaUtils::mimeDatabase().mimeTypeForName(query.value(MimeType).toString());
             file.size = variantToOptional<long long>(query.value(Size));
             file.lastModified = parseDateTime(query, LastModified);
             file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
@@ -1627,7 +1627,7 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         file.fileGroupId = fileGroupId;
         file.name = variantToOptional<QString>(query.value(Name));
         file.description = variantToOptional<QString>(query.value(Description));
-        file.mimeType = QMimeDatabase().mimeTypeForName(query.value(MimeType).toString());
+        file.mimeType = MediaUtils::mimeDatabase().mimeTypeForName(query.value(MimeType).toString());
         file.size = variantToOptional<long long>(query.value(Size));
         file.lastModified = parseDateTime(query, LastModified);
         file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();

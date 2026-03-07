@@ -908,7 +908,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
             file.fileGroupId = fgid.value();
             file.name = fileShare.metadata().filename();
             file.description = fileShare.metadata().description().value_or(QString());
-            file.mimeType = fileShare.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream")));
+            file.mimeType = fileShare.metadata().mediaType().value_or(MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream")));
             file.size = fileShare.metadata().size();
             file.lastModified = fileShare.metadata().lastModified().value_or(QDateTime());
             file.disposition = fileShare.disposition();

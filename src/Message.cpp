@@ -80,7 +80,7 @@ QXmppFileShare File::toQXmpp() const
     const auto thumbnailImage = QImage::fromData(thumbnail);
 
     QXmppThumbnail thumb;
-    thumb.setMediaType(QMimeDatabase().mimeTypeForData(thumbnail));
+    thumb.setMediaType(MediaUtils::mimeDatabase().mimeTypeForData(thumbnail));
     thumb.setUri(QXmppBitsOfBinaryData::fromByteArray(thumbnail).cid().toCidUrl());
     thumb.setWidth(thumbnailImage.width());
     thumb.setHeight(thumbnailImage.height());
