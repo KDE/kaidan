@@ -145,6 +145,7 @@ Comment[uk]=Отримано нове повідомлення
 Comment[zh_CN]=收到新消息
 Comment[zh_TW]=收到新訊息
 Action=Sound|Popup
+Sound=message-new-instant
 
 [Event/new-subsequent-message]
 Name=New Subsequent Message
@@ -267,6 +268,7 @@ Comment[uk]=Контакт надіслав запит щодо отриманн
 Comment[zh_CN]=联系人请求接收个人数据
 Comment[zh_TW]=有聯絡人請求收取個人資料
 Action=Sound|Popup
+Sound=message-new-instant
 
 [Event/new-call]
 Name=New Call
@@ -308,3 +310,4 @@ Comment[tr]=Yeni gelen arama
 Comment[uk]=Новий вхідний виклик
 Comment[zh_CN]=新来电
 Action=Sound|Popup
+Sound=phone-incoming-call
