@@ -77,15 +77,14 @@ Rectangle {
 				RowLayout {
 					visible: root.buttons.length
 					Layout.alignment: Qt.AlignHCenter
-					Layout.maximumWidth: largeButtonWidth * root.buttons.length + spacing
 
 					Repeater {
-						id: buttonArea
 						model: root.buttons
 						delegate: Button {
 							text: modelData.text
 							focusPolicy: Qt.NoFocus
-							Layout.maximumWidth: parent.width / root.buttons.length
+							Layout.preferredWidth: largeButtonWidth
+							Layout.maximumWidth: largeButtonWidth
 							Layout.fillWidth: true
 							onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
 						}
