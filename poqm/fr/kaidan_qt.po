@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2026-02-12 21:19+0100\n"
+"PO-Revision-Date: 2026-03-08 13:00+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:475
@@ -671,20 +671,14 @@ msgid "Mark as read"
 msgstr "Marquer comme lu"
 
 #: src/NotificationController.cpp:348
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Répondre"
 
 #: src/NotificationController.cpp:349
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Répondre"
+msgstr "Répondre…"
 
 #: src/OmemoController.cpp:107
 msgctxt "OmemoController|"
@@ -2637,7 +2631,7 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:161
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "Aucune émoticône n'a été trouvée."
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
