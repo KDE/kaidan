@@ -68,7 +68,7 @@ bool DataFormModel::setData(const QModelIndex &index, const QVariant &value, int
     if (!index.isValid() || !hasIndex(index.row(), index.column(), index.parent()))
         return false;
 
-    auto fields = m_form.fields();
+    auto fields = m_form.constFields();
     auto &field = fields[index.row()];
 
     switch (role) {

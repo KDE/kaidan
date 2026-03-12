@@ -401,7 +401,7 @@ void RegistrationController::copyUserDefinedValuesToNewForm(const QXmppDataForm 
         //  * are visible to the user
         //  * do not have a media element (e.g., a CAPTCHA)
         if (field.isRequired() && field.type() != QXmppDataForm::Field::HiddenField && field.mediaSources().isEmpty()) {
-            auto newFormFields = newForm.fields();
+            auto newFormFields = newForm.constFields();
 
             for (auto &newFormField : newFormFields) {
                 if (newFormField.key() == field.key()) {
