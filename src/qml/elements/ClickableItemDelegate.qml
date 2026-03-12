@@ -24,10 +24,10 @@ Controls.ItemDelegate {
 		bottomInset: Kirigami.Units.smallSpacing
 		leftInset: Kirigami.Units.smallSpacing
 		rightInset: Kirigami.Units.smallSpacing
-		topPadding: root.first ? Kirigami.Units.smallSpacing * 3 : Kirigami.Units.smallSpacing * 2
-		leftPadding: Kirigami.Units.smallSpacing * 3
+		topPadding: root.first ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
+		leftPadding: Kirigami.Units.largeSpacing
 		rightPadding: Kirigami.Units.smallSpacing * 3
-		bottomPadding: Kirigami.Units.smallSpacing * 3
+		bottomPadding: Kirigami.Units.largeSpacing
 		background: InteractiveBackground {
 			id: interactiveBackground
 			interactionItem: root

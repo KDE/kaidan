@@ -63,33 +63,20 @@ ClickableItemDelegate {
 		return Qt.rgba(color.r, color.g, color.b, colorOpacity)
 	}
 
-	Loader {
-		sourceComponent: root.isNotesChat || root.isProviderChat ? avatar : accountRelatedAvatar
-
-		Component {
-			id: avatar
-
-			Avatar {
-				jid: root.jid
-				name: root.isNotesChat ? root.accountName : root.name
-				isProviderChat: root.isProviderChat
-			}
+	AccountRelatedAvatar {
+		chatAvatar {
+			jid: root.jid
+			name: root.name
+			isProviderChat: root.isProviderChat
+			isGroupChat: root.isGroupChat
+			asynchronous: false
 		}
-
-		Component {
-			id: accountRelatedAvatar
-
-			AccountRelatedAvatar {
-				jid: root.jid
-				name: root.name
-				isGroupChat: root.isGroupChat
-				accountAvatar {
-					jid: root.accountJid
-					name: root.accountName
-				}
-				accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
-			}
+		accountAvatar {
+			jid: root.accountJid
+			name: root.accountName
+			asynchronous: false
 		}
+		accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
 	}
 
 	ColumnLayout {

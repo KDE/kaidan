@@ -14,10 +14,6 @@ RosterItemDetailsHeader {
 
 	property alias description: description.text
 
-	account: chatController.account
-	jid: chatController.jid
-	displayName: chatController.rosterItem.displayName
-
 	Controls.Label {
 		id: description
 		color: Kirigami.Theme.neutralTextColor

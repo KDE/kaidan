@@ -67,10 +67,12 @@ SearchBarPage {
 			hoverEnabled: true
 			contentItem: RowLayout {
 				AccountRelatedAvatar {
-					jid: root.chatController.jid
-					name: root.chatController.account?.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
-					isProviderChat: root.chatController.rosterItem.isProviderChat
-					isGroupChat: root.chatController.rosterItem.isGroupChat
+					chatAvatar {
+						jid: root.chatController.jid
+						name: root.chatController.account?.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
+						isProviderChat: root.chatController.rosterItem.isProviderChat
+						isGroupChat: root.chatController.rosterItem.isGroupChat
+					}
 					accountAvatar {
 						jid: root.chatController.account?.settings.jid
 						name: root.chatController.account?.settings.displayName
@@ -94,8 +96,10 @@ SearchBarPage {
 					}
 				}
 			}
-			Layout.topMargin: - Kirigami.Units.smallSpacing
+			Layout.topMargin: - Kirigami.Units.mediumSpacing
+			Layout.leftMargin: - Kirigami.Units.mediumSpacing
 			Layout.fillWidth: true
+			Layout.fillHeight: true
 			onClicked: {
 				if (root.chatController.rosterItem.isProviderChat) {
 					openOverlay(providerChatDetailsDialog)

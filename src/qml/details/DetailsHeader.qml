@@ -28,23 +28,22 @@ FormInfoHeader {
 
 	AccountRelatedAvatar {
 		id: avatar
-		jid: root.jid
-		name: root.displayName
+		chatAvatar {
+			jid: root.jid
+			name: root.displayName
+			implicitWidth: Kirigami.Units.gridUnit * 8
+			implicitHeight: Kirigami.Units.gridUnit * 8
+		}
 		accountAvatar {
 			jid: root.account.settings.jid
 			name: root.account.settings.displayName
 		}
-		implicitWidth: Kirigami.Units.gridUnit * 8
-		implicitHeight: Kirigami.Units.gridUnit * 8
 		Layout.alignment: Qt.AlignHCenter
 
 		MouseArea {
 			id: avatarOverlay
 			hoverEnabled: true
-			anchors.top: avatar.top
-			anchors.bottom: avatar.accountAvatar.bottom
-			anchors.left: avatar.left
-			anchors.right: avatar.accountAvatar.right
+			anchors.fill: parent
 			visible: avatarAction.enabled
 			onClicked: root.avatarAction.triggered()
 
@@ -60,14 +59,14 @@ FormInfoHeader {
 			source: root.avatarAction.icon.name
 			opacity: {
 				if (avatarOverlay.containsMouse) {
-					return avatar.source.toString() ? 1 : 0.8
+					return root.avatar.chatAvatar.source.toString() ? 1 : 0.8
 				}
 
 				return 0
 			}
-			width: avatar.implicitWidth / 2
+			width: parent.implicitWidth / 2
 			height: width
-			anchors.centerIn: avatar
+			anchors.centerIn: parent
 
 			Behavior on opacity {
 				NumberAnimation {}

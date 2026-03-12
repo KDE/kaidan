@@ -35,17 +35,19 @@ Kirigami.Page {
 
 	AccountRelatedAvatar {
 		id: avatar
-		jid: MainController.activeCall && MainController.activeCall.chatJid
-		name: rosterItemWatcher.item.displayName
+		chatAvatar {
+			jid: MainController.activeCall && MainController.activeCall.chatJid
+			name: rosterItemWatcher.item.displayName
+			asynchronous: false
+			implicitWidth: Math.min(root.width, root.height) * 0.3
+			implicitHeight: chatAvatar.implicitWidth
+		}
 		accountAvatar {
 			jid: MainController.activeCall && MainController.activeCall.accountJid
 			name: MainController.activeCall && AccountController.account(MainController.activeCall.accountJid).settings.displayName
 			asynchronous: false
 		}
 		visible: !contactCameraArea.visible
-		implicitWidth: Math.min(parent.width, parent.height) * 0.35
-		implicitHeight: implicitWidth
-		asynchronous: false
 		anchors.centerIn: parent
 	}
 

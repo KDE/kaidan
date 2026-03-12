@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 SpecialRosterItemDetailsHeader {
-	avatar.isProviderChat: true
+	avatar.chatAvatar.isProviderChat: true
 	changeDisplayName: null
 	description: qsTr("Messages in this chat are from your service provider")
 }

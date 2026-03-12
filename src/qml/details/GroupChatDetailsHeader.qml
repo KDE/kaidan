@@ -9,7 +9,7 @@ import org.kde.kirigami as Kirigami
 
 SpecialRosterItemDetailsHeader {
 	id: root
-	avatar.isGroupChat: true
+	avatar.chatAvatar.isGroupChat: true
 	description: root.chatController.rosterItem.isPublicGroupChat ? qsTr("Public Group Chat") : qsTr("Private Group Chat")
 
 	Controls.Label {
