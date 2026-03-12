@@ -11,7 +11,6 @@
 // Qt
 #include <QDateTime>
 #include <QObject>
-#include <QUuid>
 // Kaidan
 #include "Message.h"
 
