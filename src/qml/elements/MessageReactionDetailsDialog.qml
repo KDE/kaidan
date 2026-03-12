@@ -52,24 +52,17 @@ Dialog {
 			}
 
 			// right: emojis
-			RowLayout {
+			Flow {
+				spacing: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
 
-				Item {
-					Layout.fillWidth: true
-				}
+				Repeater {
+					model: messageReactionDelegate.emojis
 
-				Flow {
-					spacing: Kirigami.Units.largeSpacing
-
-					Repeater {
-						model: messageReactionDelegate.emojis
-
-						Kirigami.Heading {
-							text: modelData
-							font.family: "emoji"
-							font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.75
-						}
+					Kirigami.Heading {
+						text: modelData
+						font.family: "emoji"
+						font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.75
 					}
 				}
 			}
