@@ -931,6 +931,6 @@ SearchBarPage {
 	}
 
 	function forceActiveFocus() {
-		sendingPane.forceActiveFocus()
+		sendingPane?.forceActiveFocus()
 	}
 }
