@@ -138,12 +138,12 @@ SearchBarPage {
 			 * @param chatJid JID of the chat for that the chat page is opened
 			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
+				popLayersAboveLowest()
 				globalDrawer.close()
 				root.searchField.clear()
 
 				if (!root.activeChatPage) {
 					closePagesExceptRosterPage()
-					popLayersAboveLowest()
 					root.activeChatPage = pageStack.push(chatPage)
 				}
 

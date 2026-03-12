@@ -384,10 +384,7 @@ QPixmap NotificationController::retrieveAvatar(const QString &chatJid)
 
 void NotificationController::showChat(const QString &chatJid)
 {
-    if (!m_chatController || m_chatController->jid() != chatJid) {
-        Q_EMIT MainController::instance()->openChatPageRequested(m_accountSettings->jid(), chatJid);
-    }
-
+    Q_EMIT MainController::instance()->openChatPageRequested(m_accountSettings->jid(), chatJid);
     Q_EMIT MainController::instance()->raiseWindowRequested();
 }
 
