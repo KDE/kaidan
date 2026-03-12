@@ -150,9 +150,9 @@ bool ImageProvider::removeImage(const QXmppBitsOfBinaryContentId &cid)
 {
     QMutexLocker locker(&m_cacheMutex);
 
-    auto itr = std::remove_if(m_cache.begin(), m_cache.end(), [&](const QXmppBitsOfBinaryData &item) {
-        return item.cid() == cid;
-    });
+    auto itr = std::ranges::remove_if(m_cache, [&](const QXmppBitsOfBinaryData &item) {
+                   return item.cid() == cid;
+               }).begin();
 
     if (itr == m_cache.end()) {
         return false;
