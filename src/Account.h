@@ -25,6 +25,7 @@ constexpr quint16 AUTO_DETECT_PORT = 0;
 class QGeoCoordinate;
 // Kaidan
 class AtmController;
+class AvatarCache;
 class BlockingController;
 class CallController;
 class ChatStateCache;
@@ -332,6 +333,7 @@ class Account : public QObject
     Q_PROPERTY(VCardController *vCardController READ vCardController CONSTANT)
     Q_PROPERTY(VersionController *versionController READ versionController CONSTANT)
 
+    Q_PROPERTY(AvatarCache *avatarCache READ avatarCache CONSTANT)
     Q_PROPERTY(PresenceCache *presenceCache READ presenceCache CONSTANT)
 
 public:
@@ -366,6 +368,7 @@ public:
     VCardController *vCardController() const;
     VersionController *versionController() const;
 
+    AvatarCache *avatarCache() const;
     ChatStateCache *chatStateCache() const;
     PresenceCache *presenceCache() const;
 
@@ -410,6 +413,7 @@ private:
     ClientController *const m_clientController;
     Connection *const m_connection;
 
+    AvatarCache *const m_avatarCache;
     PresenceCache *const m_presenceCache;
 
     AtmController *const m_atmController;

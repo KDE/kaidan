@@ -17,7 +17,7 @@
 #include <QXmppVCardManager.h>
 // Kaidan
 #include "Account.h"
-#include "AvatarCache.h"
+#include "AvatarImageCache.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
 
@@ -161,7 +161,7 @@ void VCardController::handleOwnVCardReceived()
 void VCardController::handlePresenceReceived(const QXmppPresence &presence)
 {
     if (presence.vCardUpdateType() == QXmppPresence::VCardUpdateValidPhoto) {
-        QString hash = AvatarCache::instance()->getHashOfJid(QXmppUtils::jidToBareJid(presence.from()));
+        QString hash = AvatarImageCache::instance()->getHashOfJid(QXmppUtils::jidToBareJid(presence.from()));
         QString newHash = QString::fromUtf8(presence.photoHash().toHex());
 
         // check if hash differs and we need to refetch the avatar
@@ -170,7 +170,7 @@ void VCardController::handlePresenceReceived(const QXmppPresence &presence)
         }
     } else if (presence.vCardUpdateType() == QXmppPresence::VCardUpdateNoPhoto) {
         QString bareJid = QXmppUtils::jidToBareJid(presence.from());
-        AvatarCache::instance()->clearAvatar(bareJid);
+        AvatarImageCache::instance()->clearAvatar(bareJid);
     }
     // ignore VCardUpdateNone (protocol unsupported) and VCardUpdateNotReady
 }
@@ -206,7 +206,7 @@ void VCardController::changeAvatarAfterReceivingCurrentVCard()
 void VCardController::addAvatar(const QXmppVCardIq &vCard)
 {
     if (const auto avatar = vCard.photo(); !avatar.isEmpty()) {
-        AvatarCache::instance()->addAvatar(QXmppUtils::jidToBareJid(vCard.from().isEmpty() ? m_accountSettings->jid() : vCard.from()), avatar);
+        AvatarImageCache::instance()->addAvatar(QXmppUtils::jidToBareJid(vCard.from().isEmpty() ? m_accountSettings->jid() : vCard.from()), avatar);
     }
 }
 

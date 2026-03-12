@@ -70,6 +70,7 @@
 #include "AuthenticatableEncryptionKeyModel.h"
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarCache.h"
+#include "AvatarImageCache.h"
 #include "Blocking.h"
 #include "CallController.h"
 #include "ChatController.h"
@@ -330,7 +331,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<AccountMigrationController *>();
     qRegisterMetaType<FileSharingController *>();
     qRegisterMetaType<EncryptionController *>();
-    qRegisterMetaType<AvatarCache *>();
     qRegisterMetaType<QmlUtils *>();
     qRegisterMetaType<QList<Message>>();
     qRegisterMetaType<QList<RosterItem>>();
@@ -555,7 +555,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<ChatController>(APPLICATION_ID, 1, 0, "ChatController");
     qmlRegisterType<VersionController>(APPLICATION_ID, 1, 0, "VersionController");
     qmlRegisterType<PresenceCache>(APPLICATION_ID, 1, 0, "PresenceCache");
-    qmlRegisterType<AvatarWatcher>(APPLICATION_ID, 1, 0, "AvatarWatcher");
+    qmlRegisterType<AvatarCache>(APPLICATION_ID, 1, 0, "AvatarCache");
+    qmlRegisterType<AvatarImageWatcher>(APPLICATION_ID, 1, 0, "AvatarImageWatcher");
     qmlRegisterType<ProviderFilterModel>(APPLICATION_ID, 1, 0, "ProviderFilterModel");
 
     // Q_OBJECT

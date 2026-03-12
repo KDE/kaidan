@@ -16,7 +16,7 @@ Components.Avatar {
 	property bool isProviderChat: false
 	property bool isGroupChat: false
 
-	source: avatarWatcher.url
+	source: avatarImageWatcher.url
 	iconSource: {
 		if (isProviderChat) {
 			return "user-home-symbolic"
@@ -31,8 +31,8 @@ Components.Avatar {
 	initialsMode: isProviderChat && !source.toString() ? Components.Avatar.InitialsMode.UseIcon : Components.Avatar.InitialsMode.UseInitials
 	color: Utils.userColor(jid, name)
 
-	AvatarWatcher {
-		id: avatarWatcher
+	AvatarImageWatcher {
+		id: avatarImageWatcher
 		jid: root.jid
 	}
 }

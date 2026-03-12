@@ -15,6 +15,7 @@
 // Kaidan
 #include "AccountDb.h"
 #include "AtmController.h"
+#include "AvatarCache.h"
 #include "Blocking.h"
 #include "CallController.h"
 #include "ChatStateCache.h"
@@ -552,6 +553,7 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     , m_settings(new AccountSettings(accountSettingsData, this))
     , m_clientController(new ClientController(m_settings))
     , m_connection(new Connection(m_clientController, this))
+    , m_avatarCache(new AvatarCache(m_settings, this))
     , m_presenceCache(new PresenceCache(this))
     , m_atmController(new AtmController(m_clientController->atmManager(), this))
     , m_blockingController(new BlockingController(m_settings, m_connection, m_clientController, this))
@@ -569,7 +571,7 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
                                                 this))
     , m_chatStateCache(new ChatStateCache(m_connection, m_messageController))
     , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientController->mixManager(), this))
-    , m_notificationController(new NotificationController(m_settings, m_messageController, this))
+    , m_notificationController(new NotificationController(m_settings, m_avatarCache, m_messageController, this))
     , m_callController(
           new CallController(m_settings, m_connection, m_notificationController, m_clientController->jmiManager(), m_clientController->callManager(), this))
     , m_vCardController(
@@ -656,6 +658,11 @@ VCardController *Account::vCardController() const
 VersionController *Account::versionController() const
 {
     return m_versionController;
+}
+
+AvatarCache *Account::avatarCache() const
+{
+    return m_avatarCache;
 }
 
 ChatStateCache *Account::chatStateCache() const

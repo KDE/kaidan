@@ -54,6 +54,8 @@ target_sources(libkaidancore PRIVATE
     AuthenticatedEncryptionKeyModel.h
     AvatarCache.cpp
     AvatarCache.h
+    AvatarImageCache.cpp
+    AvatarImageCache.h
     Blocking.cpp
     Blocking.h
     Call.cpp

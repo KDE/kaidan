@@ -17,7 +17,7 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
-#include "AvatarCache.h"
+#include "AvatarImageCache.h"
 #include "CallController.h"
 #include "Database.h"
 #include "Globals.h"
@@ -51,7 +51,7 @@ MainController::MainController(QObject *parent)
     new GroupChatUserDb(this);
 
     new AccountController(this);
-    new AvatarCache(this);
+    new AvatarImageCache(this);
     new RosterModel(this);
 }
 

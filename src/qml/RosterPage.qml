@@ -46,6 +46,8 @@ SearchBarPage {
 
 	ListView {
 		id: rosterListView
+		// Allow smooth scrolling and ensure that all avatars are instantiated to be cached (see RosterItemDelegate) needed to be displayed in notifications.
+		cacheBuffer: Kirigami.Units.gridUnit * 100 * count
 		currentIndex: -1
 		model: RosterFilterModel {
 			id: filterModel

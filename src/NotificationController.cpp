@@ -48,9 +48,13 @@ constexpr int MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT = 6;
 static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
 #endif
 
-NotificationController::NotificationController(AccountSettings *accountSettings, MessageController *messageController, QObject *parent)
+NotificationController::NotificationController(AccountSettings *accountSettings,
+                                               AvatarCache *avatarCache,
+                                               MessageController *messageController,
+                                               QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
+    , m_avatarCache(avatarCache)
     , m_messageController(messageController)
 {
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &NotificationController::handleMessage);
@@ -379,7 +383,7 @@ QString NotificationController::determineChatName(const QString &chatJid) const
 
 QPixmap NotificationController::retrieveAvatar(const QString &chatJid)
 {
-    return AvatarCache::instance()->avatar(chatJid);
+    return m_avatarCache->avatar(chatJid);
 }
 
 void NotificationController::showChat(const QString &chatJid)

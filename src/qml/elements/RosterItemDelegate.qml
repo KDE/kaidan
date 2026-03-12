@@ -70,13 +70,24 @@ ClickableItemDelegate {
 			isProviderChat: root.isProviderChat
 			isGroupChat: root.isGroupChat
 			asynchronous: false
+			onNameChanged: cacheAvatar()
+			onSourceChanged: cacheAvatar()
 		}
 		accountAvatar {
 			jid: root.accountJid
 			name: root.accountName
 			asynchronous: false
+			onNameChanged: cacheAvatar()
+			onSourceChanged: cacheAvatar()
 		}
 		accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
+		Component.onCompleted: cacheAvatar()
+
+		function cacheAvatar() {
+			if (width && height) {
+				AccountController.account(root.accountJid).avatarCache.addAvatar(root.jid, this)
+			}
+		}
 	}
 
 	ColumnLayout {

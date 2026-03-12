@@ -18,6 +18,7 @@
 class KNotification;
 // Kaidan
 class AccountSettings;
+class AvatarCache;
 class Call;
 class ChatController;
 class MessageController;
@@ -42,7 +43,7 @@ public:
         KNotification *notification = nullptr;
     };
 
-    NotificationController(AccountSettings *accountSettings, MessageController *messageController, QObject *parent = nullptr);
+    NotificationController(AccountSettings *accountSettings, AvatarCache *avatarCache, MessageController *messageController, QObject *parent = nullptr);
 
     /**
      * Shows a notification for a message if needed.
@@ -83,6 +84,7 @@ private:
     void markAsRead(const RosterItem &rosterItem, const QString &messageId);
 
     AccountSettings *const m_accountSettings;
+    AvatarCache *const m_avatarCache;
     ChatController *m_chatController = nullptr;
     MessageController *const m_messageController;
 
