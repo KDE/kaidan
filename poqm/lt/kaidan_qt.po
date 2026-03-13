@@ -61,7 +61,7 @@ msgstr ""
 #: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "Serveris yra atsijungęs nuo interneto arba užblokuotas užkardos."
 
 #: src/Account.cpp:502
 msgctxt "Connection|"
@@ -71,7 +71,7 @@ msgstr "Serveris nepalaiko tapatybės nustatymo protokolo."
 #: src/Account.cpp:504
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "Nepavyko atnaujinti ryšio."
 
 #: src/Account.cpp:506
 msgctxt "Connection|"
@@ -91,6 +91,8 @@ msgstr "Šis serveris nepalaiko registracijos."
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
+"Nepavyko prisijungti prie paskyros. Iš pradžių, turite atlikti patvirtinimą "
+"el. laiške, kurį gavote."
 
 #: src/Account.cpp:512
 msgctxt "Connection|"
@@ -101,94 +103,93 @@ msgstr "Nepavyko prisijungti prie serverio."
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
+"Nepavyko perkelti paskyros: Nepavyko įkelti eksportuotos paskyros duomenų"
 
 #: src/AccountMigrationController.cpp:348
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Nepavyko perkelti paskyros: Turite būti prisijungę prie interneto"
 
 #: src/AccountMigrationController.cpp:386
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr ""
+msgstr "Paskyra „%1“ perkelta į „%2“"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
-msgstr ""
+msgstr "Šis įrenginys"
 
 #: src/Blocking.cpp:357
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "Įrenginiai"
 
 #: src/Blocking.cpp:359
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr ""
+msgstr "Naudotojai"
 
 #: src/Blocking.cpp:361
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Serveriai"
 
 #: src/Blocking.cpp:363
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Įrenginiai serveriuose"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 rašo…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
-msgstr "%1 rašo…"
+msgstr "%1 nustojo rašyti"
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
+"Jūsų paskyra išjungta – Žinutėmis bus apsikeista, kai prisijungsite prie "
+"interneto"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "Atmesti"
 
 #: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "Įjungti"
 
 #: src/ChatHintModel.cpp:252
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr ""
+msgstr "Įjungiama…"
 
 #: src/ChatHintModel.cpp:259
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr ""
+msgstr "Nepavyko prisijungti"
 
 #: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "Rodyti klaidą"
 
 #: src/ChatHintModel.cpp:262
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Jungiamasi…"
 
 #: src/ChatHintModel.cpp:275
 #, qt-format
@@ -209,27 +210,27 @@ msgstr ""
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Leisti"
 
 #: src/ChatHintModel.cpp:289
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr ""
+msgstr "Leidžiama…"
 
 #: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
-msgstr ""
+msgstr "Šioje grupėje nėra naudotojų"
 
 #: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
-msgstr ""
+msgstr "Pakviesti adresatus"
 
 #: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
@@ -239,12 +240,12 @@ msgstr ""
 #: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr ""
+msgstr "Ši grupė yra ištrinta"
 
 #: src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Leave"
-msgstr ""
+msgstr "Išeiti"
 
 #: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
@@ -254,40 +255,40 @@ msgstr ""
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:440
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr ""
+msgstr "Atsisakyta"
 
 #: src/FileSharingController.cpp:336
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr ""
+msgstr "Nepavyko atsisiųsti failo: %1"
 
 #: src/FileSharingController.cpp:383
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Medijos bendrinimo palaikymas yra nežinomos būsenos"
 
 #: src/FileSharingController.cpp:386
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr ""
+msgstr "Medijos bendrinimas nepalaikomas"
 
 #: src/FileSharingController.cpp:509
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr ""
+msgstr "Nepavyko išsiųsti failo: %1"
 
 #: src/FileSharingController.cpp:624
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Perdavimo atsisakyta"
 
 #: src/FileSharingController.cpp:630
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr ""
+msgstr "Perdavimas patyrė nesėkmę: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -318,19 +319,19 @@ msgstr ""
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr ""
+msgstr "Nepavyko nukopijuoti netinkamo šaltinio į iškarpinę: %1"
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr ""
+msgstr "Nepavyko sukurti miniatiūros: %1 nėra"
 
 #: src/ImageProvider.cpp:353
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr ""
+msgstr "Nepavyko sukurti QR kodo: %1"
 
 #: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
@@ -410,33 +411,33 @@ msgstr ""
 #: src/MediaUtils.cpp:417
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "Visi failai"
 
 #: src/MediaUtils.cpp:419
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "Paveikslai"
 
 #: src/MediaUtils.cpp:421
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "Vaizdo įrašai"
 
 #: src/MediaUtils.cpp:423
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "Garso įrašo failai"
 
 #: src/MediaUtils.cpp:425
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "Dokumentai"
 
 #: src/MediaUtils.cpp:450
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:136
 msgctxt "QObject|"
@@ -1645,22 +1646,22 @@ msgstr ""
 #: src/qml/details/DetailsContent.qml:58
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Medija"
 
 #: src/qml/details/DetailsContent.qml:68
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
-msgstr ""
+msgstr "Automatiniai atsiuntimai"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr ""
+msgstr "Automatiškai atsisiųsti mediją"
 
 #: src/qml/details/DetailsContent.qml:109
 msgctxt "DetailsContent|"
 msgid "Profile"
-msgstr ""
+msgstr "Profilis"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
@@ -1675,32 +1676,32 @@ msgstr ""
 #: src/qml/details/DetailsContent.qml:167
 msgctxt "DetailsContent|"
 msgid "Show QR code"
-msgstr ""
+msgstr "Rodyti QR kodą"
 
 #: src/qml/details/DetailsContent.qml:181
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
-msgstr ""
+msgstr "Kopijuoti QR kodą"
 
 #: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr ""
+msgstr "QR kodas nukopijuotas į iškarpinę"
 
 #: src/qml/details/DetailsContent.qml:188
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "Kopijuoti pokalbio adresą"
 
 #: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
-msgstr ""
+msgstr "Kopijuoti pakvietimo nuorodą"
 
 #: src/qml/details/DetailsContent.qml:196
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "Pakvietimo nuoroda nukopijuota į iškarpinę"
 
 #: src/qml/details/DetailsHeader.qml:86
 msgctxt "DetailsHeader|"
@@ -2042,52 +2043,52 @@ msgstr ""
 #: src/qml/details/ProviderChatDetailsContent.qml:26
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Šalinimas"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
-msgstr ""
+msgstr "Šalinti"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr ""
+msgstr "Šalinti teikėjo pokalbį ir visą pokalbio istoriją"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr ""
+msgstr "Šalinamas pokalbis…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr ""
+msgstr "Išsamiau apie teikėją"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr ""
+msgstr "Šiame pokalbyje esančios žinutės yra nuo jūsų teikėjo"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr ""
+msgstr "Išsamiau apie teikėją"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
-msgstr ""
+msgstr "Pagal paskyros numatymą"
 
 #: src/qml/details/RosterItemDetailsContent.qml:29
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: src/qml/details/RosterItemDetailsContent.qml:33
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Visada"
 
 #: src/qml/details/RosterItemDetailsContent.qml:65
 msgctxt "RosterItemDetailsContent|"
@@ -2218,57 +2219,57 @@ msgstr ""
 #: src/qml/elements/ChatMessageContextMenu.qml:59
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
-msgstr ""
+msgstr "Šalinti failą"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:67
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr ""
+msgstr "Atverti failą aplanke"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Siųsti iš naujo"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:88
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr ""
+msgstr "Reaguoti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:113
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Atsakyti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Cituoti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "Persiųsti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:147
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopijuoti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:161
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Taisyti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:172
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "Žymėti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:180
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
-msgstr ""
+msgstr "Šalinti iš šio įrenginio"
 
 #: src/qml/elements/ChatPageSendingPane.qml:100
 msgctxt "ChatPageSendingPane|"
@@ -2298,72 +2299,72 @@ msgstr ""
 #: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr ""
+msgstr "Rašyti <b>šifruotą</b> žinutę su paslėpta dalimi"
 
 #: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr ""
+msgstr "Rašyti <b>nešifruotą</b> žinutę su paslėpta dalimi"
 
 #: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr ""
+msgstr "Rašyti <b>šifruotą</b> žinutę"
 
 #: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr ""
+msgstr "Rašyti <b>nešifruotą</b> žinutę"
 
 #: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
-msgstr ""
+msgstr "Fotografuoti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
-msgstr ""
+msgstr "Filmuoti vaizdo įrašą"
 
 #: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr ""
+msgstr "Bendrinti failus"
 
 #: src/qml/elements/ChatPageSendingPane.qml:333
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr ""
+msgstr "Bendrinti savo buvimo vietą"
 
 #: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Pridėti paslėptą žinutės dalį"
 
 #: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr ""
+msgstr "Slėpti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "Daugiau"
 
 #: src/qml/elements/ChatPageSendingPane.qml:431
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr ""
+msgstr "Siųsti balso žinutę"
 
 #: src/qml/elements/ChatPageSendingPane.qml:455
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
-msgstr ""
+msgstr "Siųsti"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
-msgstr ""
+msgstr "Patvirtinti"
 
 #: src/qml/elements/ContactAdditionContent.qml:30
 msgctxt "ContactAdditionContent|"
@@ -3044,17 +3045,17 @@ msgstr ""
 #: src/qml/elements/RosterItemDelegate.qml:146
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
-msgstr ""
+msgstr "Kol kas nėra žinučių"
 
 #: src/qml/elements/RosterItemDelegate.qml:162
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
-msgstr ""
+msgstr "Juodraštis:"
 
 #: src/qml/elements/RosterItemDelegate.qml:165
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
-msgstr ""
+msgstr "Aš:"
 
 #: src/qml/elements/RosterItemDelegate.qml:169
 #, qt-format
@@ -3075,12 +3076,12 @@ msgstr "Prisegti"
 #: src/qml/elements/SearchBarPage.qml:65
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr ""
+msgstr "Atverti meniu"
 
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Grįžti"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 msgctxt "UrlFormButtonDelegate|"
@@ -3567,12 +3568,12 @@ msgstr ""
 #: src/RosterItem.cpp:31
 msgctxt "QObject|"
 msgid "Provider"
-msgstr ""
+msgstr "Teikėjas"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Pastabos"
 
 #: src/RosterModel.cpp:758
 msgctxt "RosterModel|"
@@ -3582,32 +3583,32 @@ msgstr "Vakar"
 #: src/VCardModel.cpp:131
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "Vardas"
 
 #: src/VCardModel.cpp:132
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "Slapyvardis"
 
 #: src/VCardModel.cpp:133
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: src/VCardModel.cpp:134
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr ""
+msgstr "El. paštas"
 
 #: src/VCardModel.cpp:135
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "Gimimo diena"
 
 #: src/VCardModel.cpp:142
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr ""
+msgstr "Internetinė svetainė"
 
 #~ msgctxt "SearchBarPage|"
 #~ msgid "Search"
