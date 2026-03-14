@@ -80,7 +80,10 @@ ClickableItemDelegate {
 			onNameChanged: cacheAvatar()
 			onSourceChanged: cacheAvatar()
 		}
-		accountAvatarBorder.color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
+		accountAvatarBorder {
+			color: Qt.tint(primaryBackgroundColor, interactiveBackground.color)
+			onColorChanged: cacheAvatar()
+		}
 		Component.onCompleted: cacheAvatar()
 
 		function cacheAvatar() {
