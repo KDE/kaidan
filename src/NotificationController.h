@@ -46,13 +46,6 @@ public:
     NotificationController(AccountSettings *accountSettings, AvatarCache *avatarCache, MessageController *messageController, QObject *parent = nullptr);
 
     /**
-     * Shows a notification for a message if needed.
-     *
-     * @param message message for whom a notification may be shown
-     */
-    void handleMessage(const Message &message, MessageOrigin origin);
-
-    /**
      * Closes all chat message notifications of the same age or older than a timestamp.
      *
      * @param chatJid JID of the message's chat
@@ -67,6 +60,13 @@ public:
     void setChatController(ChatController *chatController);
 
 private:
+    /**
+     * Shows a notification for a message if needed.
+     *
+     * @param message message for whom a notification may be shown
+     */
+    void handleMessage(const Message &message, MessageOrigin origin);
+
     /**
      * Sends a system notification for a chat message.
      *

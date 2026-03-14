@@ -65,75 +65,6 @@ NotificationController::NotificationController(AccountSettings *accountSettings,
     connect(m_messageController, &MessageController::contactMessageRead, this, &NotificationController::closeMessageNotification);
 }
 
-void NotificationController::handleMessage(const Message &message, MessageOrigin origin)
-{
-    // Send a notification in the following cases:
-    // * The message was not sent by the user from another resource and received via Message Carbons.
-    // * Notifications are allowed according to the set rule.
-    // * The corresponding chat is not opened while the application window is active.
-
-    const auto accountJid = m_accountSettings->jid();
-
-    if (message.accountJid != accountJid) {
-        return;
-    }
-
-    switch (origin) {
-    case MessageOrigin::UserInput:
-    case MessageOrigin::MamInitial:
-    case MessageOrigin::MamBacklog:
-        // no notifications
-        return;
-    case MessageOrigin::Stream:
-    case MessageOrigin::MamCatchUp:
-        break;
-    }
-
-    if (message.isOwn) {
-        // Close a notification for messages to which the user replied via another own resource.
-        closeMessageNotification(message.chatJid);
-    } else {
-        const auto chatJid = message.chatJid;
-        const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
-
-        auto sendNotification = [this, accountJid, chatJid, message]() {
-            const auto chatActive = m_chatController && m_chatController->jid() == chatJid && QGuiApplication::applicationState() == Qt::ApplicationActive;
-            const auto previewText = message.previewText();
-            const auto notificationBody = message.isGroupChatMessage() ? message.groupChatSenderName + QStringLiteral(": ") + previewText : previewText;
-
-            if (!chatActive) {
-                sendMessageNotification(chatJid, message.id, notificationBody);
-            }
-        };
-
-        auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
-            if (const auto reply = message.reply; reply && reply->toGroupChatParticipantId.isEmpty()) {
-                sendNotification();
-                return;
-            }
-
-            GroupChatUserDb::instance()
-                ->user(accountJid, chatJid, rosterItem->groupChatParticipantId)
-                .then(this, [body = message.body(), sendNotification](const std::optional<GroupChatUser> user) {
-                    if (user && (body.contains(user->id) || body.contains(user->jid) || body.contains(user->name))) {
-                        sendNotification();
-                    }
-                });
-        };
-
-        switch (rosterItem->effectiveNotificationRule()) {
-        case RosterItem::EffectiveNotificationRule::Never:
-            break;
-        case RosterItem::EffectiveNotificationRule::Mentioned:
-            sendNotificationOnMention();
-            break;
-        case RosterItem::EffectiveNotificationRule::Always:
-            sendNotification();
-            break;
-        }
-    }
-}
-
 void NotificationController::closeMessageNotification(const QString &chatJid)
 {
     const auto notificationWrapperItr = std::ranges::find_if(m_openMessageNotifications, [chatJid](const MessageNotificationWrapper &notificationWrapper) {
@@ -246,6 +177,75 @@ void NotificationController::sendCallNotification(Call *call)
 void NotificationController::setChatController(ChatController *chatController)
 {
     m_chatController = chatController;
+}
+
+void NotificationController::handleMessage(const Message &message, MessageOrigin origin)
+{
+    // Send a notification in the following cases:
+    // * The message was not sent by the user from another resource and received via Message Carbons.
+    // * Notifications are allowed according to the set rule.
+    // * The corresponding chat is not opened while the application window is active.
+
+    const auto accountJid = m_accountSettings->jid();
+
+    if (message.accountJid != accountJid) {
+        return;
+    }
+
+    switch (origin) {
+    case MessageOrigin::UserInput:
+    case MessageOrigin::MamInitial:
+    case MessageOrigin::MamBacklog:
+        // no notifications
+        return;
+    case MessageOrigin::Stream:
+    case MessageOrigin::MamCatchUp:
+        break;
+    }
+
+    if (message.isOwn) {
+        // Close a notification for messages to which the user replied via another own resource.
+        closeMessageNotification(message.chatJid);
+    } else {
+        const auto chatJid = message.chatJid;
+        const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
+
+        auto sendNotification = [this, accountJid, chatJid, message]() {
+            const auto chatActive = m_chatController && m_chatController->jid() == chatJid && QGuiApplication::applicationState() == Qt::ApplicationActive;
+            const auto previewText = message.previewText();
+            const auto notificationBody = message.isGroupChatMessage() ? message.groupChatSenderName + QStringLiteral(": ") + previewText : previewText;
+
+            if (!chatActive) {
+                sendMessageNotification(chatJid, message.id, notificationBody);
+            }
+        };
+
+        auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
+            if (const auto reply = message.reply; reply && reply->toGroupChatParticipantId.isEmpty()) {
+                sendNotification();
+                return;
+            }
+
+            GroupChatUserDb::instance()
+                ->user(accountJid, chatJid, rosterItem->groupChatParticipantId)
+                .then(this, [body = message.body(), sendNotification](const std::optional<GroupChatUser> user) {
+                    if (user && (body.contains(user->id) || body.contains(user->jid) || body.contains(user->name))) {
+                        sendNotification();
+                    }
+                });
+        };
+
+        switch (rosterItem->effectiveNotificationRule()) {
+        case RosterItem::EffectiveNotificationRule::Never:
+            break;
+        case RosterItem::EffectiveNotificationRule::Mentioned:
+            sendNotificationOnMention();
+            break;
+        case RosterItem::EffectiveNotificationRule::Always:
+            sendNotification();
+            break;
+        }
+    }
 }
 
 void NotificationController::sendMessageNotification(const QString &chatJid, const QString &messageId, const QString &messageBody)
