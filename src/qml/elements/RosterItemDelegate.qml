@@ -243,7 +243,7 @@ ClickableItemDelegate {
 				id: mentionIcon
 				text: "@"
 				visible: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
-				scaleFactor: counter.height * 0.065
+				scaleFactor: counter.height * 0.06
 				Layout.topMargin: - 2
 			}
 
