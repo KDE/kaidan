@@ -758,6 +758,9 @@ void Database::convertDatabaseToV19()
     DATABASE_CONVERT_TO_VERSION(18)
     QSqlQuery query(currentDatabase());
 
+    execQuery(query, QStringLiteral("ALTER TABLE messages DROP COLUMN mediaUrl"));
+    execQuery(query, QStringLiteral("ALTER TABLE messages DROP COLUMN mediaLocation"));
+
     // file sharing
     execQuery(query,
               SQL_CREATE_TABLE("files",
@@ -776,39 +779,6 @@ void Database::convertDatabaseToV19()
                                SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL) SQL_ATTRIBUTE(cipher, SQL_INTEGER_NOT_NULL)
                                    SQL_ATTRIBUTE(key, SQL_BLOB_NOT_NULL) SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
                                        SQL_ATTRIBUTE(encrypted_data_id, SQL_INTEGER) "PRIMARY KEY(file_id)"));
-
-    // manually convert messages table
-    execQuery(query,
-              SQL_CREATE_TABLE("messages_tmp",
-                               SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_TEXT)
-                                   SQL_ATTRIBUTE(message, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-                                           SQL_ATTRIBUTE(isEdited, SQL_BOOL) SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
-                                               SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(file_group_id, SQL_INTEGER) "FOREIGN KEY(sender) REFERENCES Roster (jid),"
-                                                                                                 "FOREIGN KEY(recipient) REFERENCES Roster (jid)"));
-
-    execQuery(query,
-              QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
-                             "senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
-                             "replaceId, originId, stanzaId, file_group_id FROM messages"));
-
-    execQuery(query, QStringLiteral("DROP TABLE messages"));
-
-    execQuery(query,
-              SQL_CREATE_TABLE("messages",
-                               SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_TEXT)
-                                   SQL_ATTRIBUTE(message, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-                                           SQL_ATTRIBUTE(isEdited, SQL_BOOL) SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
-                                               SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(file_group_id, SQL_INTEGER) "FOREIGN KEY(sender) REFERENCES Roster (jid),"
-                                                                                                 "FOREIGN KEY(recipient) REFERENCES Roster (jid)"));
-
-    execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
-    execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
     d->version = 19;
 }
