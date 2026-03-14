@@ -29,7 +29,9 @@
 #include <QXmppMamManager.h>
 #include <QXmppMixManager.h>
 #include <QXmppMovedManager.h>
+#include <QXmppMucManagerV2.h>
 #include <QXmppOmemoManager.h>
+#include <QXmppPepBookmarkManager.h>
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppRegistrationManager.h>
@@ -69,6 +71,7 @@ ClientController::ClientController(AccountSettings *accountSettings, QObject *pa
     , m_accountMigrationManager(m_client->addNewExtension<QXmppAccountMigrationManager>())
     , m_atmManager(m_client->addNewExtension<QXmppAtmManager>(new TrustDb(m_accountSettings, this)))
     , m_blockingManager(m_client->addNewExtension<QXmppBlockingManager>())
+    , m_bookmarkManager(m_client->addNewExtension<QXmppPepBookmarkManager>())
     , m_callManager(m_client->addNewExtension<QXmppCallManager>())
     , m_discoveryManager(m_client->addNewExtension<QXmppDiscoveryManager>())
     , m_fileSharingManager([this]() {
@@ -86,6 +89,7 @@ ClientController::ClientController(AccountSettings *accountSettings, QObject *pa
     }())
     , m_mixManager(m_client->addNewExtension<QXmppMixManager>())
     , m_movedManager(m_client->addNewExtension<QXmppMovedManager>())
+    , m_mucManager(m_client->addNewExtension<QXmppMucManagerV2>())
     , m_omemoManager([this]() {
         auto *omemoManager = m_client->addNewExtension<QXmppOmemoManager>(new OmemoDb(m_accountSettings, this));
         m_client->setEncryptionExtension(omemoManager);

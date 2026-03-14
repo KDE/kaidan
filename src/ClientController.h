@@ -29,7 +29,9 @@ class QXmppMamManager;
 class QXmppMessageReceiptManager;
 class QXmppMixManager;
 class QXmppMovedManager;
+class QXmppMucManagerV2;
 class QXmppOmemoManager;
+class QXmppPepBookmarkManager;
 class QXmppRegistrationManager;
 class QXmppRosterManager;
 class QXmppVCardManager;
@@ -90,6 +92,11 @@ public:
         return m_blockingManager;
     }
 
+    QXmppPepBookmarkManager *bookmarkManager() const
+    {
+        return m_bookmarkManager;
+    }
+
     QXmppCallManager *callManager() const
     {
         return m_callManager;
@@ -128,6 +135,11 @@ public:
     QXmppMovedManager *movedManager() const
     {
         return m_movedManager;
+    }
+
+    QXmppMucManagerV2 *mucManager() const
+    {
+        return m_mucManager;
     }
 
     QXmppOmemoManager *omemoManager() const
@@ -252,6 +264,7 @@ private:
     QXmppAccountMigrationManager *const m_accountMigrationManager;
     QXmppAtmManager *const m_atmManager;
     QXmppBlockingManager *const m_blockingManager;
+    QXmppPepBookmarkManager *const m_bookmarkManager;
     QXmppCallManager *const m_callManager;
     QXmppDiscoveryManager *const m_discoveryManager;
     QXmppFileSharingManager *const m_fileSharingManager;
@@ -261,6 +274,7 @@ private:
     QXmppRosterManager *const m_rosterManager;
     QXmppMixManager *const m_mixManager;
     QXmppMovedManager *const m_movedManager;
+    QXmppMucManagerV2 *const m_mucManager;
     QXmppOmemoManager *const m_omemoManager;
     QXmppRegistrationManager *const m_registrationManager;
     QXmppHttpUploadManager *const m_uploadManager;

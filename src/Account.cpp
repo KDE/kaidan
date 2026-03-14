@@ -572,7 +572,12 @@ Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
                                                 m_clientController->messageReceiptManager(),
                                                 this))
     , m_chatStateCache(new ChatStateCache(m_connection, m_messageController))
-    , m_groupChatController(new GroupChatController(m_settings, m_messageController, m_clientController->mixManager(), this))
+    , m_groupChatController(new GroupChatController(m_settings,
+                                                    m_messageController,
+                                                    m_clientController->mixManager(),
+                                                    m_clientController->mucManager(),
+                                                    m_clientController->bookmarkManager(),
+                                                    this))
     , m_notificationController(new NotificationController(m_settings, m_avatarCache, m_rosterController, m_messageController, this))
     , m_callController(
           new CallController(m_settings, m_connection, m_notificationController, m_clientController->jmiManager(), m_clientController->callManager(), this))

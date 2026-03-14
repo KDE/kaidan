@@ -43,6 +43,14 @@ struct RosterItem {
 
 public:
     /**
+     * Location used to store the chat on the server.
+     */
+    enum class Origin {
+        Roster, ///< The chat is stored in the roster.
+        Bookmarks, ///< The chat is stored as a bookmark.
+    };
+
+    /**
      * Rule to inform the user about incoming messages.
      */
     enum class NotificationRule {
@@ -118,6 +126,9 @@ public:
 
     // JID of the contact.
     QString jid;
+
+    // Location where this chat is stored at.
+    Origin origin = Origin::Roster;
 
     // Name of the contact.
     QString name;

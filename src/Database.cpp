@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 59
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(59)
+#define DATABASE_LATEST_VERSION 60
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(60)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -378,22 +378,23 @@ void Database::createNewDatabase()
     // roster
     execQuery(query,
               SQL_CREATE_TABLE(
-                  DB_TABLE_ROSTER,
-                  SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
-                      SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(subscriptionStatus, SQL_TEXT) SQL_ATTRIBUTE(subscriptionApproved, SQL_BOOL)
-                          SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) SQL_ATTRIBUTE(groupChatName, SQL_TEXT) SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
-                              SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
-                                  SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
-                                      SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
-                                          SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
-                                              SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
-                                                  SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
+                  DB_TABLE_CHATS,
+                  SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(origin, SQL_INTEGER)
+                      SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(subscriptionStatus, SQL_TEXT)
+                          SQL_ATTRIBUTE(subscriptionApproved, SQL_BOOL) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+                              SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT) SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                  SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+                                      SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT)
+                                          SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL) SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+                                              SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+                                                  SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+                                                      SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_ROSTER_GROUPS,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
                                    SQL_ATTRIBUTE(name, SQL_TEXT_NOT_NULL) "PRIMARY KEY(accountJid, chatJid, name),"
-                                                                          "FOREIGN KEY(accountJid) REFERENCES " DB_TABLE_ROSTER " (accountJid),"
-                                                                          "FOREIGN KEY(chatJid) REFERENCES " DB_TABLE_ROSTER " (jid)"));
+                                                                          "FOREIGN KEY(accountJid) REFERENCES " DB_TABLE_CHATS " (accountJid),"
+                                                                          "FOREIGN KEY(chatJid) REFERENCES " DB_TABLE_CHATS " (jid)"));
 
     // messages
     execQuery(
@@ -422,7 +423,7 @@ void Database::createNewDatabase()
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(id, SQL_TEXT_NOT_NULL)
                                    SQL_ATTRIBUTE(jid, SQL_TEXT) SQL_ATTRIBUTE(name, SQL_TEXT)
                                        SQL_ATTRIBUTE(status, SQL_INTEGER) "PRIMARY KEY(accountJid, chatJid, id, jid),"
-                                                                          "FOREIGN KEY(accountJid, chatJid) REFERENCES " DB_TABLE_ROSTER " (accountJid, jid)"));
+                                                                          "FOREIGN KEY(accountJid, chatJid) REFERENCES " DB_TABLE_CHATS " (accountJid, jid)"));
 
     // file sharing
     execQuery(query,
@@ -2003,6 +2004,45 @@ void Database::convertDatabaseToV59()
     execQuery(query, QStringLiteral("ALTER TABLE roster_tmp RENAME TO roster"));
 
     d->version = 59;
+}
+
+void Database::convertDatabaseToV60()
+{
+    DATABASE_CONVERT_TO_VERSION(59)
+    QSqlQuery query(currentDatabase());
+
+    execQuery(query, QStringLiteral("ALTER TABLE roster RENAME TO chats"));
+
+    // Add the column "origin".
+    execQuery(query,
+              SQL_CREATE_TABLE(
+                  "chats_tmp",
+                  SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(origin, SQL_INTEGER)
+                      SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(subscriptionStatus, SQL_TEXT)
+                          SQL_ATTRIBUTE(subscriptionApproved, SQL_BOOL) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+                              SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT) SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                  SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+                                      SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT)
+                                          SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL) SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+                                              SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+                                                  SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+                                                      SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
+
+    execQuery(query, QStringLiteral(R"(
+			INSERT INTO chats_tmp
+			SELECT accountJid, jid, 0, name, subscription, subscriptionStatus, subscriptionApproved, groupChatParticipantId, groupChatName,
+			groupChatDescription, groupChatFlags, encryption, lastReadOwnMessageId,
+			lastReadContactMessageId, latestGroupChatMessageStanzaId,
+			latestGroupChatMessageStanzaTimestamp, readMarkerPending, pinningPosition,
+			chatStateSendingEnabled, readMarkerSendingEnabled, notificationRule,
+			automaticMediaDownloadsRule
+			FROM chats
+		)"));
+
+    execQuery(query, QStringLiteral("DROP TABLE chats"));
+    execQuery(query, QStringLiteral("ALTER TABLE chats_tmp RENAME TO chats"));
+
+    d->version = 60;
 }
 
 #include "moc_Database.cpp"

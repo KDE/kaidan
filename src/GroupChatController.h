@@ -6,16 +6,18 @@
 
 // Qt
 #include <QObject>
+
+// QXmpp
+class QXmppMixManager;
+class QXmppMucManagerV2;
+class QXmppPepBookmarkManager;
 // Kaidan
-#include "Encryption.h"
-
-struct GroupChatUser;
-struct RosterItem;
-
 class AccountSettings;
 class MessageController;
 class MixController;
-class QXmppMixManager;
+class MucController;
+struct GroupChatUser;
+struct RosterItem;
 
 struct GroupChatService {
     QString jid;
@@ -35,7 +37,12 @@ class GroupChatController : public QObject
     Q_PROPERTY(bool groupChatCreationSupported READ groupChatCreationSupported NOTIFY groupChatServicesChanged)
 
 public:
-    GroupChatController(AccountSettings *accountSettings, MessageController *messageController, QXmppMixManager *mixManager, QObject *parent = nullptr);
+    GroupChatController(AccountSettings *accountSettings,
+                        MessageController *messageController,
+                        QXmppMixManager *mixManager,
+                        QXmppMucManagerV2 *mucManager,
+                        QXmppPepBookmarkManager *bookmarkManager,
+                        QObject *parent = nullptr);
 
     bool busy();
     Q_SIGNAL void busyChanged();
@@ -95,6 +102,7 @@ private:
 
     AccountSettings *const m_accountSettings;
     MixController *const m_mixController;
+    MucController *const m_mucController;
 
     QString m_processedGroupChatJid;
     bool m_busy = false;

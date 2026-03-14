@@ -148,6 +148,8 @@ target_sources(libkaidancore PRIVATE
     MessageReactionModel.h
     MixController.cpp
     MixController.h
+    MucController.cpp
+    MucController.h
     NotificationController.cpp
     NotificationController.h
     OmemoController.cpp

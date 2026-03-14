@@ -55,6 +55,8 @@ static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem
         rec.append(createSqlField(QStringLiteral("jid"), newItem.jid));
     if (oldItem.name != newItem.name)
         rec.append(createSqlField(QStringLiteral("name"), newItem.name));
+    if (oldItem.origin != newItem.origin)
+        rec.append(createSqlField(QStringLiteral("origin"), static_cast<int>(newItem.origin)));
     if (oldItem.subscription != newItem.subscription)
         rec.append(createSqlField(QStringLiteral("subscription"), static_cast<int>(newItem.subscription)));
     if (oldItem.subscriptionStatus != newItem.subscriptionStatus)
@@ -140,6 +142,13 @@ QXmppTask<void> RosterDb::replaceItems(const QString &accountJid, const QString 
     });
 }
 
+QFuture<void> RosterDb::replaceBookmarks(const QString &accountJid, const QList<RosterItem> &items)
+{
+    return run([this, accountJid, items]() {
+        _replaceItems(accountJid, items, RosterItem::Origin::Bookmarks);
+    });
+}
+
 QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
     return run([this, accountJid, jid, updateItem]() {
@@ -155,6 +164,15 @@ QXmppTask<void> RosterDb::updateOrAddItem(const QString &accountJid, const QStri
     });
 }
 
+QFuture<void> RosterDb::addBookmarks(const QString &accountJid, const QList<RosterItem> &items)
+{
+    return run([this, accountJid, items]() {
+        for (const auto &item : items) {
+            _addItem(item);
+        }
+    });
+}
+
 QXmppTask<void> RosterDb::removeItem(const QString &accountJid, const QString &version, const QString &jid)
 {
     return runTask([this, accountJid, version, jid]() {
@@ -163,10 +181,26 @@ QXmppTask<void> RosterDb::removeItem(const QString &accountJid, const QString &v
     });
 }
 
+QFuture<void> RosterDb::removeBookmarks(const QString &accountJid, const QList<QString> &jids)
+{
+    return run([this, accountJid, jids]() {
+        for (const auto &jid : jids) {
+            _removeItem(accountJid, jid);
+        }
+    });
+}
+
 QFuture<void> RosterDb::removeItems(const QString &accountJid)
 {
     return run([this, accountJid]() {
         _removeItems(accountJid);
+    });
+}
+
+QFuture<void> RosterDb::removeBookmarks(const QString &accountJid)
+{
+    return run([this, accountJid]() {
+        _removeItems(accountJid, RosterItem::Origin::Bookmarks);
     });
 }
 
@@ -187,20 +221,20 @@ QList<RosterItem> RosterDb::_fetchItems()
 QList<RosterItem> RosterDb::fetchBasicItems()
 {
     auto query = createQuery();
-    execQuery(query, QStringLiteral("SELECT * FROM roster"));
+    execQuery(query, QStringLiteral("SELECT * FROM chats"));
     return parseItemsFromQuery(query);
 }
 
-QList<RosterItem> RosterDb::fetchWireItems(const QString &accountJid)
+QList<RosterItem> RosterDb::fetchWireItems(const QString &accountJid, RosterItem::Origin origin)
 {
     auto query = createQuery();
     execQuery(query,
               QStringLiteral(R"(
 				SELECT *
-				FROM roster
-				WHERE accountJid = :accountJid
+				FROM chats
+				WHERE accountJid = :accountJid AND origin = :origin
 			)"),
-              {{u":accountJid", accountJid}});
+              {{u":accountJid", accountJid}, {u":origin", static_cast<int>(origin)}});
 
     auto items = parseItemsFromQuery(query);
 
@@ -353,11 +387,12 @@ void RosterDb::_addItem(RosterItem item)
 {
     Q_EMIT itemAdded(item);
 
-    insert(QString::fromLatin1(DB_TABLE_ROSTER),
+    insert(QString::fromLatin1(DB_TABLE_CHATS),
            {
                {u"accountJid", item.accountJid},
                {u"jid", item.jid},
                {u"name", item.name},
+               {u"origin", static_cast<int>(item.origin)},
                {u"subscription", static_cast<int>(item.subscription)},
                {u"subscriptionStatus", item.subscriptionStatus},
                {u"subscriptionApproved", item.subscriptionApproved},
@@ -387,7 +422,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
     execQuery(query,
               QStringLiteral(R"(
 			SELECT *
-			FROM roster
+			FROM chats
 			WHERE accountJid = :accountJid AND jid = :jid
 			LIMIT 1
 		)"),
@@ -429,7 +464,7 @@ void RosterDb::_updateOrAddItem(const QString &accountJid, RosterItem item)
     execQuery(query,
               QStringLiteral(R"(
 				SELECT COUNT(*)
-				FROM roster
+				FROM chats
 				WHERE accountJid = :accountJid AND jid = :jid
 			)"),
               {
@@ -452,9 +487,9 @@ void RosterDb::_updateOrAddItem(const QString &accountJid, RosterItem item)
     }
 }
 
-void RosterDb::_replaceItems(const QString &accountJid, const QList<RosterItem> &items)
+void RosterDb::_replaceItems(const QString &accountJid, const QList<RosterItem> &items, RosterItem::Origin origin)
 {
-    auto oldItems = fetchWireItems(accountJid);
+    auto oldItems = fetchWireItems(accountJid, origin);
 
     transaction();
 
@@ -508,7 +543,7 @@ void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
     auto query = createQuery();
 
     execQuery(query,
-              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+              QStringLiteral("DELETE FROM " DB_TABLE_CHATS " "
                              "WHERE accountJid = :accountJid AND jid = :jid"),
               {{u":accountJid", accountJid}, {u":jid", jid}});
 
@@ -521,7 +556,7 @@ void RosterDb::_removeItems(const QString &accountJid)
     auto query = createQuery();
 
     execQuery(query,
-              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+              QStringLiteral("DELETE FROM " DB_TABLE_CHATS " "
                              "WHERE accountJid = :accountJid"),
               {{u":accountJid", accountJid}});
 
@@ -529,6 +564,26 @@ void RosterDb::_removeItems(const QString &accountJid)
     GroupChatUserDb::instance()->_removeUsers(accountJid);
 
     Q_EMIT itemsRemoved(accountJid);
+}
+
+void RosterDb::_removeItems(const QString &accountJid, RosterItem::Origin origin)
+{
+    auto query = createQuery();
+    transaction();
+
+    execQuery(query,
+              QStringLiteral(R"(
+				SELECT jid
+				FROM chats
+				WHERE accountJid = :accountJid AND origin = :origin
+			)"),
+              {{u":accountJid", accountJid}, {u":origin", static_cast<int>(origin)}});
+
+    while (query.next()) {
+        _removeItem(accountJid, query.value(0).toString());
+    }
+
+    commit();
 }
 
 QList<RosterItem> RosterDb::parseItemsFromQuery(QSqlQuery &query)
@@ -549,6 +604,7 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     int idxAccountJid = rec.indexOf(QStringLiteral("accountJid"));
     int idxJid = rec.indexOf(QStringLiteral("jid"));
     int idxName = rec.indexOf(QStringLiteral("name"));
+    int idxOrigin = rec.indexOf(QStringLiteral("origin"));
     int idxSubscription = rec.indexOf(QStringLiteral("subscription"));
     int idxSubscriptionStatus = rec.indexOf(QStringLiteral("subscriptionStatus"));
     int idxSubscriptionApproved = rec.indexOf(QStringLiteral("subscriptionApproved"));
@@ -573,6 +629,7 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     item.accountJid = query.value(idxAccountJid).toString();
     item.jid = query.value(idxJid).toString();
     item.name = query.value(idxName).toString();
+    item.origin = query.value(idxOrigin).value<RosterItem::Origin>();
     item.subscription = query.value(idxSubscription).value<QXmppRosterIq::Item::SubscriptionType>();
     item.subscriptionStatus = query.value(idxSubscriptionStatus).toString();
     item.subscriptionApproved = query.value(idxSubscriptionApproved).toBool();
@@ -604,7 +661,7 @@ void RosterDb::updateItemByRecord(const QString &accountJid, const QString &jid,
     QMap<QString, QVariant> keyValuePairs = {{QStringLiteral("accountJid"), accountJid}, {QStringLiteral("jid"), jid}};
 
     execQuery(query,
-              driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ROSTER), record, false) + simpleWhereStatement(&driver, keyValuePairs));
+              driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_CHATS), record, false) + simpleWhereStatement(&driver, keyValuePairs));
 }
 
 #include "moc_RosterDb.cpp"

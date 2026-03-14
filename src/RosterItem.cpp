@@ -78,7 +78,7 @@ bool RosterItem::isProviderChat() const
 
 bool RosterItem::isGroupChat() const
 {
-    return !groupChatParticipantId.isEmpty();
+    return origin == Origin::Bookmarks || !groupChatParticipantId.isEmpty();
 }
 
 bool RosterItem::isPublicGroupChat() const

@@ -11,13 +11,20 @@
 #include "GroupChatUserDb.h"
 #include "MainController.h"
 #include "MixController.h"
+#include "MucController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 
-GroupChatController::GroupChatController(AccountSettings *accountSettings, MessageController *messageController, QXmppMixManager *mixManager, QObject *parent)
+GroupChatController::GroupChatController(AccountSettings *accountSettings,
+                                         MessageController *messageController,
+                                         QXmppMixManager *mixManager,
+                                         QXmppMucManagerV2 *mucManager,
+                                         QXmppPepBookmarkManager *bookmarkManager,
+                                         QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
     , m_mixController(new MixController(accountSettings, this, messageController, mixManager, this))
+    , m_mucController(new MucController(accountSettings, this, messageController, mucManager, bookmarkManager, this))
 {
     connect(RosterDb::instance(), &RosterDb::itemAdded, this, &GroupChatController::requestGroupChatData);
     connect(RosterModel::instance(), &RosterModel::itemAdded, this, &GroupChatController::handleRosterItemAdded);
@@ -157,9 +164,11 @@ void GroupChatController::requestGroupChatData(const RosterItem &rosterItem)
     // Requesting the group chat's data is done here and not within the joining method of the group chat controller to cover both cases:
     //   1. This client joined the group chat (could be done during joining).
     //   2. Another own client joined the group chat (must be covered here).
-    if (rosterItem.accountJid == m_accountSettings->jid() && rosterItem.isGroupChat()) {
-        requestGroupChatAccessibility(rosterItem.jid);
-        requestGroupChatInformation(rosterItem.jid);
+    if (rosterItem.accountJid == m_accountSettings->jid() && rosterItem.isGroupChat() && rosterItem.origin == RosterItem::Origin::Roster) {
+        const auto &chatJid = rosterItem.jid;
+
+        requestGroupChatAccessibility(chatJid);
+        requestGroupChatInformation(chatJid);
     }
 }
 
