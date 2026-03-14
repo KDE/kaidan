@@ -64,8 +64,8 @@ RowLayout {
 
 			Avatar {
 				id: avatar
-				jid: root.senderId ? root.senderId : root.account?.settings.jid
-				name: root.senderName ? root.senderName : root.account?.settings.displayName
+				jid: root.senderId ? root.senderId : root.account.settings.jid
+				name: root.senderName ? root.senderName : root.account.settings.displayName
 			}
 
 			ColumnLayout {
@@ -74,7 +74,7 @@ RowLayout {
 					textFormat: Text.PlainText
 					font.weight: Font.Medium
 					font.italic: !root.senderName
-					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(root.account?.settings.jid, root.account?.settings.displayName)
+					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(root.account.settings.jid, root.account.settings.displayName)
 
 					TextMetrics {
 						id: senderNameTextMetrics

@@ -54,7 +54,7 @@ SearchBarPage {
 			sourceModel: RosterModel
 		}
 		delegate: RosterItemDelegate {
-			property bool active: root.activeChatPage && root.activeChatPage.chatController.account?.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
+			property bool active: root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
 
 			highlighted: rosterListView.currentIndex === model.index || pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			checked: !Kirigami.Settings.isMobile && active

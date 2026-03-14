@@ -69,13 +69,13 @@ SearchBarPage {
 				AccountRelatedAvatar {
 					chatAvatar {
 						jid: root.chatController.jid
-						name: root.chatController.account?.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
+						name: root.chatController.account.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
 						isProviderChat: root.chatController.rosterItem.isProviderChat
 						isGroupChat: root.chatController.rosterItem.isGroupChat
 					}
 					accountAvatar {
-						jid: root.chatController.account?.settings.jid
-						name: root.chatController.account?.settings.displayName
+						jid: root.chatController.account.settings.jid
+						name: root.chatController.account.settings.displayName
 					}
 					accountAvatarBorder.color: Kirigami.Theme.backgroundColor
 					opacity: avatarActionButton.hovered ? 0.7 : 1
@@ -117,7 +117,7 @@ SearchBarPage {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
 			source: "call-start-symbolic"
 			visible: {
-				if (!root.searchField.visible && root.chatController.account?.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length) {
+				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length) {
 					if (MainController.activeCall) {
 						return MainController.activeCall.audioOnly
 					}
@@ -140,7 +140,7 @@ SearchBarPage {
 			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
 			source: "camera-video-symbolic"
 			visible: {
-				if (!root.searchField.visible && root.chatController.account?.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length) {
+				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length) {
 					if (MainController.activeCall) {
 						return !MainController.activeCall.audioOnly
 					}
@@ -381,7 +381,7 @@ SearchBarPage {
 		}
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
-			visible: root.chatController.account?.settings.jid !== root.chatController.jid
+			visible: root.chatController.account.settings.jid !== root.chatController.jid
 			anchors.left: parent.left
 			anchors.right: parent.right
 			height: Kirigami.Units.largeSpacing * 3
