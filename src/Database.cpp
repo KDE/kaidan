@@ -530,7 +530,7 @@ void Database::convertDatabaseToV4()
                              "unreadMessages, lastMessage, lastOnline, activity, status, mood)"));
     execQuery(query,
               QStringLiteral("INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages,"
-                             "lastMessage, lastOnline, activity, status, mood FROM " DB_TABLE_ROSTER));
+                             "lastMessage, lastOnline, activity, status, mood FROM Roster"));
     execQuery(query, QStringLiteral("DROP TABLE Roster"));
     execQuery(query,
               QStringLiteral("CREATE TABLE Roster (jid " SQL_TEXT_NOT_NULL ", name " SQL_TEXT_NOT_NULL ","
@@ -1492,7 +1492,7 @@ void Database::convertDatabaseToV43()
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(id, SQL_TEXT_NOT_NULL)
                                    SQL_ATTRIBUTE(jid, SQL_TEXT) SQL_ATTRIBUTE(name, SQL_TEXT)
                                        SQL_ATTRIBUTE(status, SQL_INTEGER) "PRIMARY KEY(accountJid, chatJid, id, jid),"
-                                                                          "FOREIGN KEY(accountJid, chatJid) REFERENCES " DB_TABLE_ROSTER " (accountJid, jid)"));
+                                                                          "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
 
     d->version = 43;
 }
