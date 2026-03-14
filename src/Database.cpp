@@ -819,7 +819,12 @@ void Database::convertDatabaseToV23()
     DATABASE_CONVERT_TO_VERSION(22)
     QSqlQuery query(currentDatabase());
 
-    // Rename the table "Roster" to "roster".
+    // SQLite treats table names case-insensitive.
+    // Thus, a temporary table name is needed.
+    // Otherwise, it would complain that a table with the same name already exists.
+    execQuery(query, QStringLiteral("ALTER TABLE Roster RENAME TO roster_tmp"));
+    execQuery(query, QStringLiteral("ALTER TABLE roster_tmp RENAME TO roster"));
+
     // Remove the unused columns "lastExchanged" and "lastMessage".
     execQuery(query,
               SQL_CREATE_TABLE("roster_tmp",
@@ -831,9 +836,9 @@ void Database::convertDatabaseToV23()
     execQuery(query,
               QStringLiteral("INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
                              "lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition "
-                             " FROM Roster"));
+                             " FROM roster"));
 
-    execQuery(query, QStringLiteral("DROP TABLE Roster"));
+    execQuery(query, QStringLiteral("DROP TABLE roster"));
 
     execQuery(query,
               SQL_CREATE_TABLE("roster",
@@ -844,39 +849,6 @@ void Database::convertDatabaseToV23()
 
     execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
     execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
-
-    // Adapt the foreign keys of table "messages" to new table name "roster".
-    execQuery(query,
-              SQL_CREATE_TABLE("messages_tmp",
-                               SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_TEXT)
-                                   SQL_ATTRIBUTE(message, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-                                           SQL_ATTRIBUTE(isEdited, SQL_BOOL) SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
-                                               SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(file_group_id, SQL_INTEGER) "FOREIGN KEY(sender) REFERENCES roster (jid),"
-                                                                                                 "FOREIGN KEY(recipient) REFERENCES roster (jid)"));
-
-    execQuery(query,
-              QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
-                             "senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
-                             "replaceId, originId, stanzaId, file_group_id FROM messages"));
-
-    execQuery(query, QStringLiteral("DROP TABLE messages"));
-
-    execQuery(query,
-              SQL_CREATE_TABLE("messages",
-                               SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_TEXT)
-                                   SQL_ATTRIBUTE(message, SQL_TEXT) SQL_ATTRIBUTE(id, SQL_TEXT) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(senderKey, SQL_BLOB) SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-                                           SQL_ATTRIBUTE(isEdited, SQL_BOOL) SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
-                                               SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(replaceId, SQL_TEXT) SQL_ATTRIBUTE(originId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(file_group_id, SQL_INTEGER) "FOREIGN KEY(sender) REFERENCES roster (jid),"
-                                                                                                 "FOREIGN KEY(recipient) REFERENCES roster (jid)"));
-
-    execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
-    execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
     // Use camelCase for all tables.
 
