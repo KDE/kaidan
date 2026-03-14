@@ -717,7 +717,7 @@ void Database::convertDatabaseToV18()
     DATABASE_CONVERT_TO_VERSION(17)
     QSqlQuery query(currentDatabase());
 
-    // manually convert messages table
+    // Add the column "file_group_id".
     execQuery(query,
               SQL_CREATE_TABLE("messages_tmp",
                                SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_TEXT)
