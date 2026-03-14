@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:476
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -21,7 +21,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "連線"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:478
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -29,7 +29,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:480
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -37,7 +37,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "連線"
 
-#: src/Account.cpp:490
+#: src/Account.cpp:491
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -45,7 +45,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
-#: src/Account.cpp:492
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -53,7 +53,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
-#: src/Account.cpp:494
+#: src/Account.cpp:495
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -61,7 +61,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
-#: src/Account.cpp:496
+#: src/Account.cpp:497
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -69,7 +69,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
-#: src/Account.cpp:498
+#: src/Account.cpp:499
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "your server name."
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
-#: src/Account.cpp:500
+#: src/Account.cpp:501
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -89,7 +89,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
-#: src/Account.cpp:502
+#: src/Account.cpp:503
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -97,7 +97,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
-#: src/Account.cpp:504
+#: src/Account.cpp:505
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -105,7 +105,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
-#: src/Account.cpp:506
+#: src/Account.cpp:507
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -117,7 +117,7 @@ msgid ""
 "access configuration."
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
-#: src/Account.cpp:508
+#: src/Account.cpp:509
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -125,12 +125,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
 
-#: src/Account.cpp:510
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:512
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
@@ -741,7 +741,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:157
+#: src/NotificationController.cpp:161
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -749,7 +749,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
-#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
+#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -757,29 +757,29 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "開啟"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:213
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:211
+#: src/NotificationController.cpp:215
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:227
+#: src/NotificationController.cpp:231
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:234
+#: src/NotificationController.cpp:238
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:344
+#: src/NotificationController.cpp:348
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -787,12 +787,12 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "標記為已讀"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:352
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr ""
 
-#: src/NotificationController.cpp:349
+#: src/NotificationController.cpp:353
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr ""
@@ -880,7 +880,7 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Open support chat"
@@ -888,22 +888,22 @@ msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "開啟支援聊天"
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:159
+#: src/qml/ChatPage.qml:163
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -911,7 +911,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "往上搜尋"
 
-#: src/qml/ChatPage.qml:170
+#: src/qml/ChatPage.qml:174
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search down"
@@ -919,7 +919,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "往下搜尋"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Close message search bar"
@@ -927,17 +927,17 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "關閉訊息搜尋列"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:554
+#: src/qml/ChatPage.qml:558
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start messaging"
@@ -945,12 +945,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/ChatPage.qml:606
+#: src/qml/ChatPage.qml:610
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -958,7 +958,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -966,7 +966,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:851
+#: src/qml/ChatPage.qml:855
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -974,7 +974,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:859
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2091,7 +2091,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀請連結已複製到剪貼簿"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:87
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "變更名稱…"
@@ -3902,7 +3902,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "只顯示有所選標籤的聊天"
 
-#: src/qml/elements/RosterItemDelegate.qml:130
+#: src/qml/elements/RosterItemDelegate.qml:128
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -3910,7 +3910,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "刪除檔案"
 
-#: src/qml/elements/RosterItemDelegate.qml:144
+#: src/qml/elements/RosterItemDelegate.qml:142
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "No messages yet"
@@ -3918,7 +3918,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "還沒有訊息"
 
-#: src/qml/elements/RosterItemDelegate.qml:160
+#: src/qml/elements/RosterItemDelegate.qml:158
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -3926,7 +3926,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
-#: src/qml/elements/RosterItemDelegate.qml:163
+#: src/qml/elements/RosterItemDelegate.qml:161
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3934,7 +3934,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
-#: src/qml/elements/RosterItemDelegate.qml:167
+#: src/qml/elements/RosterItemDelegate.qml:165
 #, fuzzy, qt-format
 #| msgctxt "RosterListItem|"
 #| msgid "%1:"
@@ -3942,7 +3942,7 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
@@ -3950,7 +3950,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消釘選"
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"
@@ -4491,8 +4491,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
-#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "過濾"

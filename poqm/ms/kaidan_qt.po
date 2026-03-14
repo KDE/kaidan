@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:476
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -15,7 +15,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Sambung"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:478
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -23,7 +23,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:480
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -31,7 +31,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Sambung"
 
-#: src/Account.cpp:490
+#: src/Account.cpp:491
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -39,7 +39,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nama pengguna atau kata laluan tidak sah."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:493
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -47,7 +47,7 @@ msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Tidak dapat menghubungi pelayan. Sila periksa sambungan internet anda."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:495
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -55,7 +55,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Ralat ketika cuba untuk menyambung secara selamat."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:497
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -63,7 +63,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Pelayan tidak menyokong sambungan selamat."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:499
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -77,7 +77,7 @@ msgstr ""
 "Tidak boleh sambung ke pelayan. Sila periksa sambungan internet anda atau "
 "nama pelayan anda."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:501
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -85,7 +85,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Pelayan berada di luar talian atau disekat tembok api."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:503
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -93,7 +93,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokol pengesahan tidak disokong oleh pelayan."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:505
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -101,7 +101,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Sambungan tidak dapat disegarkan semula."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:507
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -115,7 +115,7 @@ msgstr ""
 "Capaian internet tidak dibenarkan. Sila periksa tatarajah capaian internet "
 "sistem anda."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:509
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -123,12 +123,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Pelayan ini tidak menyokong pendaftaran."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:512
+#: src/Account.cpp:513
 #, fuzzy
 msgctxt "Connection|"
 msgid "Could not connect to the server."
@@ -736,29 +736,29 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:157
+#: src/NotificationController.cpp:161
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
+#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr ""
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:213
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:211
+#: src/NotificationController.cpp:215
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:227
+#: src/NotificationController.cpp:231
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -766,7 +766,7 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Terima"
 
-#: src/NotificationController.cpp:234
+#: src/NotificationController.cpp:238
 #, fuzzy
 #| msgctxt "EmojiPicker|"
 #| msgid "Objects"
@@ -774,7 +774,7 @@ msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Objek"
 
-#: src/NotificationController.cpp:344
+#: src/NotificationController.cpp:348
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -782,12 +782,12 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Tanda sebagai telah dibaca"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:352
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr ""
 
-#: src/NotificationController.cpp:349
+#: src/NotificationController.cpp:353
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr ""
@@ -869,27 +869,27 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:159
+#: src/qml/ChatPage.qml:163
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -897,7 +897,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Cari atas"
 
-#: src/qml/ChatPage.qml:170
+#: src/qml/ChatPage.qml:174
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -905,7 +905,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Cari bawah"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Close message search bar"
@@ -913,17 +913,17 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Tutup bar gelintar mesej"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:554
+#: src/qml/ChatPage.qml:558
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -931,23 +931,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Sila pilih seseorang untuk mula menghantar mesej"
 
-#: src/qml/ChatPage.qml:606
+#: src/qml/ChatPage.qml:610
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:851
+#: src/qml/ChatPage.qml:855
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -955,7 +955,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Tidak dapat menyimpan fail: %1"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:859
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -2201,7 +2201,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Pautan undangan telah disalin ke papan klip"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:87
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
@@ -3965,7 +3965,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:130
+#: src/qml/elements/RosterItemDelegate.qml:128
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -3973,7 +3973,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Padam"
 
-#: src/qml/elements/RosterItemDelegate.qml:144
+#: src/qml/elements/RosterItemDelegate.qml:142
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy message"
@@ -3981,28 +3981,28 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Salin mesej"
 
-#: src/qml/elements/RosterItemDelegate.qml:160
+#: src/qml/elements/RosterItemDelegate.qml:158
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:163
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:167
+#: src/qml/elements/RosterItemDelegate.qml:165
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr ""
@@ -4507,8 +4507,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Log masuk akaun XMPP anda"
 
-#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""

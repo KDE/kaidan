@@ -14,42 +14,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:476
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Bağlantı kesildi"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:478
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/Account.cpp:479
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Bağlı"
 
-#: src/Account.cpp:490
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Geçersiz kullanıcı adı veya parola."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Sunucuya bağlanamadı. Lütfen internet bağlantınızı denetleyin."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:499
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -57,22 +57,22 @@ msgid ""
 msgstr ""
 "Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:501
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrim dışı veya bir güvenlik duvarı tarafından engelleniyor."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:503
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Bağlantı yenilenemedi."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,17 +81,17 @@ msgstr ""
 "İnternet erişimine izin verilmiyor. Lütfen isteminizin internet erişim "
 "yapılandırmasını denetleyin."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Oturum açılamadı. Öncelikle size gelen e-posta iletisini onaylayın."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Sunucuya bağlanılamadı."
@@ -618,49 +618,49 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Bu grubu silmenize izin yok"
 
-#: src/NotificationController.cpp:157
+#: src/NotificationController.cpp:161
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Kişisel verinizi alma isteği"
 
-#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
+#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Aç"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:213
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "%1 kişisinden gelen arama"
 
-#: src/NotificationController.cpp:211
+#: src/NotificationController.cpp:215
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "%1 kişisinden gelen görüntülü arama"
 
-#: src/NotificationController.cpp:227
+#: src/NotificationController.cpp:231
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/NotificationController.cpp:234
+#: src/NotificationController.cpp:238
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/NotificationController.cpp:344
+#: src/NotificationController.cpp:348
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Okundu Olarak İmle"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:352
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/NotificationController.cpp:349
+#: src/NotificationController.cpp:353
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr "Yanıtla…"
@@ -734,79 +734,79 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr "Ara"
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "Sesli Aramayı Aç"
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr "Sesli Arama Başlat"
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr "Görüntülü Aramayı Aç"
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr "Görüntülü Arama Başlat"
 
-#: src/qml/ChatPage.qml:159
+#: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Yukarı doğru ara"
 
-#: src/qml/ChatPage.qml:170
+#: src/qml/ChatPage.qml:174
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Aşağı doğru ara"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "Aramadan çık"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Ara"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "İletimi İptal Et"
 
-#: src/qml/ChatPage.qml:554
+#: src/qml/ChatPage.qml:558
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Bu iletiyi iletmek için bir sohbet seçin"
 
-#: src/qml/ChatPage.qml:606
+#: src/qml/ChatPage.qml:610
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Gönderilecek dosyaları bırakın"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/ChatPage.qml:851
+#: src/qml/ChatPage.qml:855
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:859
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1753,7 +1753,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Davet bağlantısı panoya kopyalandı"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:87
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Ad değiştir…"
@@ -3118,38 +3118,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Yalnızca seçili etiketlere iye olan sohbetleri göster"
 
-#: src/qml/elements/RosterItemDelegate.qml:130
+#: src/qml/elements/RosterItemDelegate.qml:128
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Silindi"
 
-#: src/qml/elements/RosterItemDelegate.qml:144
+#: src/qml/elements/RosterItemDelegate.qml:142
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Henüz bir ileti yok"
 
-#: src/qml/elements/RosterItemDelegate.qml:160
+#: src/qml/elements/RosterItemDelegate.qml:158
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Taslak:"
 
-#: src/qml/elements/RosterItemDelegate.qml:163
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Ben:"
 
-#: src/qml/elements/RosterItemDelegate.qml:167
+#: src/qml/elements/RosterItemDelegate.qml:165
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Sabitle"
@@ -3571,8 +3571,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2. adım: Yeni hesabınızla oturum açın"
 
-#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Süz"

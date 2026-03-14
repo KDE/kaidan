@@ -13,64 +13,64 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:475
+#: src/Account.cpp:476
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "연결 끊김"
 
-#: src/Account.cpp:477
+#: src/Account.cpp:478
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/Account.cpp:479
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "연결됨"
 
-#: src/Account.cpp:490
+#: src/Account.cpp:491
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
-#: src/Account.cpp:492
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
-#: src/Account.cpp:494
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
-#: src/Account.cpp:496
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
-#: src/Account.cpp:498
+#: src/Account.cpp:499
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
-#: src/Account.cpp:500
+#: src/Account.cpp:501
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
-#: src/Account.cpp:502
+#: src/Account.cpp:503
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
-#: src/Account.cpp:504
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "연결을 새로 고칠 수 없습니다."
 
-#: src/Account.cpp:506
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -78,17 +78,17 @@ msgid ""
 msgstr ""
 "인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
-#: src/Account.cpp:508
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "이 서버에서 등록을 지원하지 않습니다."
 
-#: src/Account.cpp:510
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "로그인할 수 없습니다. 먼저 받은 이메일 메시지를 확인하십시오."
 
-#: src/Account.cpp:512
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "서버에 연결할 수 없습니다."
@@ -636,29 +636,29 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "그룹 삭제가 허용되지 않음"
 
-#: src/NotificationController.cpp:157
+#: src/NotificationController.cpp:161
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "내 개인 데이터 수신을 요청함"
 
-#: src/NotificationController.cpp:172 src/NotificationController.cpp:340
+#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "열기"
 
-#: src/NotificationController.cpp:209
+#: src/NotificationController.cpp:213
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:211
+#: src/NotificationController.cpp:215
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:227
+#: src/NotificationController.cpp:231
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -666,17 +666,17 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "수락"
 
-#: src/NotificationController.cpp:234
+#: src/NotificationController.cpp:238
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:344
+#: src/NotificationController.cpp:348
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "읽은 상태로 표시"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:352
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -684,7 +684,7 @@ msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "답장"
 
-#: src/NotificationController.cpp:349
+#: src/NotificationController.cpp:353
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -769,7 +769,7 @@ msgctxt "CallPage|"
 msgid "Call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Open support chat"
@@ -777,22 +777,22 @@ msgctxt "ChatPage|"
 msgid "Open audio call"
 msgstr "지원 채팅 열기"
 
-#: src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
 msgstr ""
 
-#: src/qml/ChatPage.qml:159
+#: src/qml/ChatPage.qml:163
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -800,7 +800,7 @@ msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "위로 검색"
 
-#: src/qml/ChatPage.qml:170
+#: src/qml/ChatPage.qml:174
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search down"
@@ -808,7 +808,7 @@ msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "아래로 검색"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Close search"
@@ -816,44 +816,44 @@ msgctxt "ChatPage|"
 msgid "Quit search"
 msgstr "검색 닫기"
 
-#: src/qml/ChatPage.qml:182
+#: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:539
+#: src/qml/ChatPage.qml:543
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "전달 취소"
 
-#: src/qml/ChatPage.qml:554
+#: src/qml/ChatPage.qml:558
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "메시지를 전달하려는 채팅 선택"
 
-#: src/qml/ChatPage.qml:606
+#: src/qml/ChatPage.qml:610
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
-#: src/qml/ChatPage.qml:844
+#: src/qml/ChatPage.qml:848
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/qml/ChatPage.qml:851
+#: src/qml/ChatPage.qml:855
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:859
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -1783,7 +1783,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "클립보드에 초대 링크 복사됨"
 
-#: src/qml/details/DetailsHeader.qml:88
+#: src/qml/details/DetailsHeader.qml:87
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "이름 변경…"
@@ -3176,38 +3176,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "선택한 레이블이 있는 대화만 표시"
 
-#: src/qml/elements/RosterItemDelegate.qml:130
+#: src/qml/elements/RosterItemDelegate.qml:128
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: src/qml/elements/RosterItemDelegate.qml:144
+#: src/qml/elements/RosterItemDelegate.qml:142
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "아직 메시지 없음"
 
-#: src/qml/elements/RosterItemDelegate.qml:160
+#: src/qml/elements/RosterItemDelegate.qml:158
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "초안:"
 
-#: src/qml/elements/RosterItemDelegate.qml:163
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "나:"
 
-#: src/qml/elements/RosterItemDelegate.qml:167
+#: src/qml/elements/RosterItemDelegate.qml:165
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "고정 해제"
 
-#: src/qml/elements/RosterItemDelegate.qml:282
+#: src/qml/elements/RosterItemDelegate.qml:280
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "고정"
@@ -3636,8 +3636,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2단계: 등록한 계정으로 로그인"
 
-#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:33 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "필터"
