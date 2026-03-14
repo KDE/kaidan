@@ -356,6 +356,7 @@
           <li xml:lang="ru">Сохранение паролей в незашифрованном файле, если менеджер паролей недоступен или указана соответствующая опция командной строки (@fazevedo);</li>
           <li xml:lang="sl">Shrani gesla v nešifrirano datoteko, če upravitelj gesel ni na voljo ali če je na voljo ustrezna možnost ukazne vrstice (@fazevedo)</li>
           <li xml:lang="tr">Store passwords in unencrypted file if no password manager is available or corresponding command-line option provided (@fazevedo)</li>
+          <li xml:lang="uk">Реалізовано збереження паролів у незашифрованому файлі, якщо засіб керування паролями недоступний або надано відповідний параметр командного рядка (@fazevedo)</li>
           <li>Migrate unencrypted passwords to password manager if available on start (@fazevedo)</li>
           <li xml:lang="ar">نقل كلمات السر غير المعمية إلى مدير كلمات السر عند البدء إذا كان متاحاً (@fazevedo)</li>
           <li xml:lang="ca">Migra les contrasenyes sense encriptar al gestor de contrasenyes si està disponible a l'inici (@fazevedo)</li>
@@ -366,6 +367,7 @@
           <li xml:lang="ru">Перенос незашифрованных паролей в менеджер паролей при его наличии при запуске;</li>
           <li xml:lang="sl">Preseli nešifrirana gesla v upravitelja gesel, če je na voljo na začetku (@fazevedo)</li>
           <li xml:lang="tr">Migrate unencrypted passwords to password manager if available on start (@fazevedo)</li>
+          <li xml:lang="uk">Реалізовано перенесення незашифрованих паролів до засобу керування паролями, якщо програма доступна на момент запуску (@fazevedo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -392,6 +394,7 @@
           <li xml:lang="ru">Исправление наложения хвоста пузыря сообщения (@melvo);</li>
           <li xml:lang="sl">Popravi prekrivajoči se rep mehurčka sporočila (@melvo)</li>
           <li xml:lang="tr">Fix overlapping message bubble tail (@melvo)</li>
+          <li xml:lang="uk">Усунено перекриття кінчиків повідомлень-бульбашок (@melvo)</li>
           <li>Fix medium preview hovering if hidden drop area info is hovered (@melvo)</li>
           <li xml:lang="ar">إصلاح حومان معاينة الوسائط إذا حُوّم فوق معلومات منطقة الإفلات المخفية (@melvo)</li>
           <li xml:lang="ca">Corregeix la vista prèvia del mitjà en passar per sobre si es passa per sobre de la informació de l'àrea oculta de deixar anar (@melvo)</li>
