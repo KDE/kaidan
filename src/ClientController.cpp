@@ -56,40 +56,56 @@
 ClientController::ClientController(AccountSettings *accountSettings, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
-    , m_client(new QXmppClient(QXmppClient::NoExtensions, this))
+    , m_networkAccessManager(new QNetworkAccessManager(this))
+    , m_client([this]() {
+        auto *client = new QXmppClient(QXmppClient::NoExtensions, this);
+
+        client->addNewExtension<QXmppCarbonManagerV2>();
+        client->addNewExtension<QXmppEntityTimeManager>();
+        client->addNewExtension<QXmppPubSubManager>();
+
+        return client;
+    }())
+    , m_accountMigrationManager(m_client->addNewExtension<QXmppAccountMigrationManager>())
+    , m_atmManager(m_client->addNewExtension<QXmppAtmManager>(new TrustDb(m_accountSettings, this)))
+    , m_blockingManager(m_client->addNewExtension<QXmppBlockingManager>())
+    , m_callManager(m_client->addNewExtension<QXmppCallManager>())
+    , m_discoveryManager(m_client->addNewExtension<QXmppDiscoveryManager>())
+    , m_fileSharingManager([this]() {
+        auto *fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
+        fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
+        return fileSharingManager;
+    }())
+    , m_jmiManager(m_client->addNewExtension<QXmppJingleMessageInitiationManager>())
+    , m_mamManager(m_client->addNewExtension<QXmppMamManager>())
+    , m_messageReceiptManager(m_client->addNewExtension<QXmppMessageReceiptManager>())
+    , m_rosterManager([this]() {
+        auto *rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
+        rosterManager->setStorage(std::make_unique<RosterStorage>(m_accountSettings));
+        return rosterManager;
+    }())
+    , m_mixManager(m_client->addNewExtension<QXmppMixManager>())
+    , m_movedManager(m_client->addNewExtension<QXmppMovedManager>())
+    , m_omemoManager([this]() {
+        auto *omemoManager = m_client->addNewExtension<QXmppOmemoManager>(new OmemoDb(m_accountSettings, this));
+        m_client->setEncryptionExtension(omemoManager);
+        return omemoManager;
+    }())
+    , m_registrationManager(m_client->addNewExtension<QXmppRegistrationManager>())
+    , m_uploadManager(m_client->addNewExtension<QXmppHttpUploadManager>(m_networkAccessManager))
+    , m_vCardManager(m_client->addNewExtension<QXmppVCardManager>())
+    , m_versionManager(m_client->addNewExtension<QXmppVersionManager>())
+    , m_httpProvider([this]() {
+        auto httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(m_uploadManager, m_networkAccessManager);
+        m_fileSharingManager->registerProvider(httpProvider);
+        return httpProvider;
+    }())
+    , m_encryptedProvider([this]() {
+        auto encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
+        m_fileSharingManager->registerProvider(encryptedProvider);
+        return encryptedProvider;
+    }())
 {
-    auto *networkAccessManager = new QNetworkAccessManager(this);
-
-    m_accountMigrationManager = m_client->addNewExtension<QXmppAccountMigrationManager>();
-    m_blockingManager = m_client->addNewExtension<QXmppBlockingManager>();
-    m_callManager = m_client->addNewExtension<QXmppCallManager>();
-    m_jmiManager = m_client->addNewExtension<QXmppJingleMessageInitiationManager>();
-    m_client->addNewExtension<QXmppCarbonManagerV2>();
-    m_discoveryManager = m_client->addNewExtension<QXmppDiscoveryManager>();
-    m_client->addNewExtension<QXmppEntityTimeManager>();
-    m_uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(networkAccessManager);
-    m_mamManager = m_client->addNewExtension<QXmppMamManager>();
-    m_client->addNewExtension<QXmppPubSubManager>();
-    m_movedManager = m_client->addNewExtension<QXmppMovedManager>();
-    m_atmManager = m_client->addNewExtension<QXmppAtmManager>(new TrustDb(m_accountSettings, this));
-    m_omemoManager = m_client->addNewExtension<QXmppOmemoManager>(new OmemoDb(m_accountSettings, this));
-    m_client->setEncryptionExtension(m_omemoManager);
-    m_messageReceiptManager = m_client->addNewExtension<QXmppMessageReceiptManager>();
-    m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
-    m_rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
-    m_rosterManager->setStorage(std::make_unique<RosterStorage>(m_accountSettings));
-    m_vCardManager = m_client->addNewExtension<QXmppVCardManager>();
-    m_versionManager = m_client->addNewExtension<QXmppVersionManager>();
-    m_mixManager = m_client->addNewExtension<QXmppMixManager>();
-
-    // file sharing manager
-    m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
-    m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
-    m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(m_uploadManager, networkAccessManager);
-    m_encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
-    m_fileSharingManager->registerProvider(m_httpProvider);
-    m_fileSharingManager->registerProvider(m_encryptedProvider);
-
     connect(m_client, &QXmppClient::connected, this, &ClientController::onConnected);
     connect(m_client, &QXmppClient::disconnected, this, &ClientController::onDisconnected);
 

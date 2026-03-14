@@ -12,11 +12,9 @@
 // Kaidan
 #include "Enums.h"
 
-class AccountSettings;
-class AtmController;
-class EncryptionController;
-class MessageController;
-class PresenceCache;
+// Qt
+class QNetworkAccessManager;
+// QXmpp
 class QXmppAccountMigrationManager;
 class QXmppAtmManager;
 class QXmppBlockingManager;
@@ -36,6 +34,12 @@ class QXmppRegistrationManager;
 class QXmppRosterManager;
 class QXmppVCardManager;
 class QXmppVersionManager;
+// Kaidan
+class AccountSettings;
+class AtmController;
+class EncryptionController;
+class MessageController;
+class PresenceCache;
 class RegistrationController;
 
 class ClientController : public QObject
@@ -234,33 +238,37 @@ private:
     void onConnectionError(const QXmppError &error);
 
     AccountSettings *const m_accountSettings;
+
     AtmController *m_atmController;
     EncryptionController *m_encryptionController;
     MessageController *m_messageController;
     RegistrationController *m_registrationController;
     PresenceCache *m_presenceCache;
+
+    QNetworkAccessManager *const m_networkAccessManager;
+
     QXmppClient *const m_client;
 
-    QXmppAccountMigrationManager *m_accountMigrationManager;
-    QXmppAtmManager *m_atmManager;
-    QXmppBlockingManager *m_blockingManager;
-    QXmppCallManager *m_callManager;
-    QXmppDiscoveryManager *m_discoveryManager;
-    QXmppFileSharingManager *m_fileSharingManager;
-    QXmppJingleMessageInitiationManager *m_jmiManager;
-    QXmppMamManager *m_mamManager;
-    QXmppMessageReceiptManager *m_messageReceiptManager;
-    QXmppMixManager *m_mixManager;
-    QXmppMovedManager *m_movedManager;
-    QXmppOmemoManager *m_omemoManager;
-    QXmppRegistrationManager *m_registrationManager;
-    QXmppRosterManager *m_rosterManager;
-    QXmppHttpUploadManager *m_uploadManager;
-    QXmppVCardManager *m_vCardManager;
-    QXmppVersionManager *m_versionManager;
+    QXmppAccountMigrationManager *const m_accountMigrationManager;
+    QXmppAtmManager *const m_atmManager;
+    QXmppBlockingManager *const m_blockingManager;
+    QXmppCallManager *const m_callManager;
+    QXmppDiscoveryManager *const m_discoveryManager;
+    QXmppFileSharingManager *const m_fileSharingManager;
+    QXmppJingleMessageInitiationManager *const m_jmiManager;
+    QXmppMamManager *const m_mamManager;
+    QXmppMessageReceiptManager *const m_messageReceiptManager;
+    QXmppRosterManager *const m_rosterManager;
+    QXmppMixManager *const m_mixManager;
+    QXmppMovedManager *const m_movedManager;
+    QXmppOmemoManager *const m_omemoManager;
+    QXmppRegistrationManager *const m_registrationManager;
+    QXmppHttpUploadManager *const m_uploadManager;
+    QXmppVCardManager *const m_vCardManager;
+    QXmppVersionManager *const m_versionManager;
 
-    std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
     std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
+    std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
 
     bool m_isReconnecting = false;
     bool m_isDisconnecting = false;
