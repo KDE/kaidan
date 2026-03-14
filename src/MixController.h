@@ -12,15 +12,14 @@
 #include <QXmppMixManager.h>
 #include <QXmppMixParticipantItem.h>
 #include <QXmppStanza.h>
+
+// QXmpp
+class QXmppMixInfoItem;
 // Kaidan
-#include "Encryption.h"
-
-struct GroupChatService;
-
 class AccountSettings;
 class GroupChatController;
 class MessageController;
-class QXmppMixInfoItem;
+struct GroupChatService;
 
 /**
  * This class provides XEP-0369: Mediated Information eXchange (MIX) functionality.

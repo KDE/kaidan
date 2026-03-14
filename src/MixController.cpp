@@ -19,7 +19,6 @@
 #include "GroupChatUser.h"
 #include "MainController.h"
 #include "MessageController.h"
-#include "MessageDb.h"
 #include "QmlUtils.h"
 #include "RosterDb.h"
 
