@@ -59,7 +59,9 @@ NotificationController::NotificationController(AccountSettings *accountSettings,
 {
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &NotificationController::handleMessage);
     connect(MessageDb::instance(), &MessageDb::messageUpdated, this, [this](const Message &message) {
-        handleMessage(message, MessageOrigin::Stream);
+        if (message.files.isEmpty()) {
+            handleMessage(message, MessageOrigin::Stream);
+        }
     });
 
     connect(m_messageController, &MessageController::contactMessageRead, this, &NotificationController::closeMessageNotification);
