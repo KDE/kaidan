@@ -136,7 +136,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
@@ -144,7 +144,7 @@ msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 kirjoittaa…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
@@ -636,29 +636,29 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Sinulla ei ole oikeutta poistaa ryhmää"
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietoja"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -666,17 +666,17 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Merkitse luetuksi"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -684,7 +684,7 @@ msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Vastaa"
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -3180,38 +3180,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Poistettu"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ei vielä viestejä"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Luonnos:"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Minä:"
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Irrota"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Kiinnitä"

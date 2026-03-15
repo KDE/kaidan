@@ -192,7 +192,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Aparatoj sur Serviloj"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
@@ -200,7 +200,7 @@ msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 tajpas…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
@@ -708,7 +708,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Requests to receive your personal data"
@@ -716,7 +716,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Petoj ricevi viajn personajn datumojn"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -724,29 +724,29 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Malfermi"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr ""
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Mark as read"
@@ -754,7 +754,7 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marki kiel legita"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -762,7 +762,7 @@ msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Respondi"
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Reply"
@@ -3384,7 +3384,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Montri nur babilojn kun elektitaj etikedoj"
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 #, fuzzy
 #| msgctxt "GroupChatDetailsHeader|"
 #| msgid "Deleted"
@@ -3392,7 +3392,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Forigita"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "No messages yet"
@@ -3400,7 +3400,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ankoraŭ neniuj mesaĝoj"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -3408,7 +3408,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Malneto:"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3416,7 +3416,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Mi:"
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, fuzzy, qt-format
 #| msgctxt "RosterListItem|"
 #| msgid "%1:"
@@ -3424,7 +3424,7 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Unpin"
@@ -3432,7 +3432,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Malpingli"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Pin"

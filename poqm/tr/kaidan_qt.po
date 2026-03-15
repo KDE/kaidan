@@ -137,13 +137,13 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 yazıyor…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
@@ -618,49 +618,49 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Bu grubu silmenize izin yok"
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Kişisel verinizi alma isteği"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Aç"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "%1 kişisinden gelen arama"
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "%1 kişisinden gelen görüntülü arama"
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Reddet"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Okundu Olarak İmle"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr "Yanıtla…"
@@ -3118,38 +3118,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Yalnızca seçili etiketlere iye olan sohbetleri göster"
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Silindi"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Henüz bir ileti yok"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Taslak:"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Ben:"
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Sabitle"

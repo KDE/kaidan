@@ -195,7 +195,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
@@ -203,7 +203,7 @@ msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 está a escrever…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
@@ -764,7 +764,7 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Request status"
@@ -772,7 +772,7 @@ msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Pedir o estado"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Open chat"
@@ -780,19 +780,19 @@ msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Abrir uma conversa"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr ""
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 #, fuzzy
 #| msgctxt "SubRequestAcceptSheet|"
 #| msgid "Accept"
@@ -800,12 +800,12 @@ msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Aceitar"
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr ""
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
@@ -813,12 +813,12 @@ msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marcar como lida"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr ""
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr ""
@@ -4084,7 +4084,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -4092,7 +4092,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Apagar o ficheiro"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy message"
@@ -4100,7 +4100,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Copiar a mensagem"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -4108,18 +4108,18 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Rascunho:"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
@@ -4127,7 +4127,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Soltar"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"

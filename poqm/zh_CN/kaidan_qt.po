@@ -135,13 +135,13 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 正在输入…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
@@ -613,49 +613,49 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "打开"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "来自 %1 的来电"
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "来自 %1 的视频通话来电"
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "接受"
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "拒绝"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "标记为已读"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "回复"
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr "回复…"
@@ -3066,38 +3066,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "仅显示具有所选标签的聊天"
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "已删除"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "暂无消息"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消置顶"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "置顶"

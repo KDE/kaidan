@@ -154,13 +154,13 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositius en els servidors"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:182
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 està teclejant…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:184
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
@@ -636,49 +636,49 @@ msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "No teniu permís per a suprimir el grup"
 
-#: src/NotificationController.cpp:161
+#: src/NotificationController.cpp:94
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "Sol·licita rebre les vostres dades personals"
 
-#: src/NotificationController.cpp:176 src/NotificationController.cpp:344
+#: src/NotificationController.cpp:109 src/NotificationController.cpp:346
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "Obri"
 
-#: src/NotificationController.cpp:213
+#: src/NotificationController.cpp:146
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
 msgstr "Tocada entrant de %1"
 
-#: src/NotificationController.cpp:215
+#: src/NotificationController.cpp:148
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
 msgstr "Tocada entrant de vídeo de %1"
 
-#: src/NotificationController.cpp:231
+#: src/NotificationController.cpp:164
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/NotificationController.cpp:238
+#: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
 msgstr "Rebutja"
 
-#: src/NotificationController.cpp:348
+#: src/NotificationController.cpp:350
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "Marca com a llegit"
 
-#: src/NotificationController.cpp:352
+#: src/NotificationController.cpp:354
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Respon"
 
-#: src/NotificationController.cpp:353
+#: src/NotificationController.cpp:355
 msgctxt "NotificationController|"
 msgid "Reply…"
 msgstr "Respon…"
@@ -3165,38 +3165,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Mostra només els xats amb les etiquetes seleccionades"
 
-#: src/qml/elements/RosterItemDelegate.qml:128
+#: src/qml/elements/RosterItemDelegate.qml:131
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Suprimit"
 
-#: src/qml/elements/RosterItemDelegate.qml:142
+#: src/qml/elements/RosterItemDelegate.qml:145
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: src/qml/elements/RosterItemDelegate.qml:158
+#: src/qml/elements/RosterItemDelegate.qml:161
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Esborrany:"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:164
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Jo:"
 
-#: src/qml/elements/RosterItemDelegate.qml:165
+#: src/qml/elements/RosterItemDelegate.qml:168
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Deixa de fixar"
 
-#: src/qml/elements/RosterItemDelegate.qml:280
+#: src/qml/elements/RosterItemDelegate.qml:283
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Fixa"
