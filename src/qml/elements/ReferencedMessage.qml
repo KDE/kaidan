@@ -111,12 +111,4 @@ RowLayout {
 			onClicked: root.messageListView.highlightShortly(root.messageListView.model.searchMessageById(root.messageId))
 		}
 	}
-
-	Connections {
-		target: root.messageListView.model
-
-		function onMessageSearchByIdInDbFinished(foundMessageIndex) {
-			root.messageListView.highlightShortly(foundMessageIndex)
-		}
-	}
 }

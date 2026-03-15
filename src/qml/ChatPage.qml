@@ -824,6 +824,12 @@ SearchBarPage {
 
 			root.searchField.busy = false
 		}
+
+		function onMessageSearchByIdInDbFinished(foundMessageIndex) {
+			if (foundMessageIndex !== -1) {
+				root.messageListView.highlightShortly(foundMessageIndex)
+			}
+		}
 	}
 
 	Connections {
