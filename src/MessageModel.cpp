@@ -858,9 +858,9 @@ bool MessageModel::canCorrectMessage(int index) const
     return true;
 }
 
-void MessageModel::deleteFile(int index, const File &file)
+void MessageModel::deleteFile(const QString &messageId, const File &file)
 {
-    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), m_messages.at(index).id, [fileId = file.id](Message &message) {
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), messageId, [fileId = file.id](Message &message) {
         auto it = std::ranges::find_if(message.files, [fileId](const auto &file) {
             return file.id == fileId;
         });
