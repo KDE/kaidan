@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 import org.freedesktop.gstreamer.Qt6GLVideoItem
 
@@ -60,6 +61,7 @@ Kirigami.Page {
 
 	MediaButton {
 		id: callStopButton
+		Controls.ToolTip.text: qsTr("Quit call")
 		iconSource: "call-stop-symbolic"
 		iconSize: Kirigami.Units.iconSizes.medium
 		iconColor: Kirigami.Theme.negativeTextColor
