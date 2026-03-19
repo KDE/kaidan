@@ -55,8 +55,8 @@ Controls.AbstractButton {
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
 		Kirigami.Theme.inherit: false
 	}
-	horizontalPadding: icon.width * 0.5
-	verticalPadding: icon.height * 0.5
+	horizontalPadding: Math.round(icon.width * 0.5)
+	verticalPadding: Math.round(icon.height * 0.5)
 	topInset: 0
 	bottomInset: 0
 	leftInset: 0
