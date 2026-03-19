@@ -22,6 +22,7 @@ NewMediaDialog {
 	}
 	shutterRelease {
 		z: imagePreview.z + 1
+		Controls.ToolTip.text: qsTr("Take picture")
 		iconSource: "camera-photo-symbolic"
 		onClicked: {
 			root.savingCapturedData = true

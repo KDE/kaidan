@@ -28,6 +28,7 @@ NewMediaDialog {
 		}
 	}
 	shutterRelease {
+		Controls.ToolTip.text: captureSession.recorder.recorderState === MediaRecorder.RecordingState ? qsTr("Stop recording") : qsTr("Start recording")
 		iconSource: captureSession.recorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : "camera-video-symbolic"
 		onClicked: {
 			if (captureSession.recorder.recorderState === MediaRecorder.RecordingState) {
