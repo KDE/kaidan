@@ -8,9 +8,21 @@ import QtQuick
  * This is placed inside of an item to change the opacity of opacityItem when the item is hovered.
  */
 MouseArea {
+	id: root
+
 	property Item opacityItem
+	property real baseOpacity: 1
+	property real hoverOpacity: 0.5
+	property alias opacityBinding: opacityBinding
 
 	hoverEnabled: true
 	anchors.fill: parent
-	onContainsMouseChanged: opacityItem.opacity = containsMouse ? 0.5 : 1
+
+	Binding {
+		id: opacityBinding
+
+		target: opacityItem
+		property: 'opacity'
+		value: root.containsMouse ? root.hoverOpacity : root.baseOpacity
+	}
 }

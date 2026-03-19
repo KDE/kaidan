@@ -10,6 +10,5 @@ import QtQuick
 OpacityChangingMouseArea {
 	property bool selected: false
 
-	onContainsMouseChanged: opacityItem.opacity = selected || containsMouse ? 0.5 : 1
-	onSelectedChanged: opacityItem.opacity = selected || containsMouse ? 0.5 : 1
+	opacityBinding.value: selected || containsMouse ? hoverOpacity : baseOpacity
 }
