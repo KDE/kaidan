@@ -13,12 +13,10 @@ Controls.AbstractButton {
 
 	property color backgroundColor: secondaryBackgroundColor
 	property bool strongBackgroundOpacityChange: false
-	property var iconSource
-	property double iconSize: Kirigami.Units.iconSizes.small
-	property alias iconColor: icon.color
 	property bool _longPressed: false
 
 	hoverEnabled: true
+	icon.width: Kirigami.Units.iconSizes.small
 	background: Kirigami.ShadowedRectangle {
 		color: root.backgroundColor
 		opacity: {
@@ -49,16 +47,16 @@ Controls.AbstractButton {
 		}
 	}
 	contentItem: Kirigami.Icon {
-		id: icon
-		source: root.iconSource
+		source: root.icon.source
+		color: root.icon.color
 		isMask: true
-		implicitWidth: root.iconSize
-		implicitHeight: root.iconSize
+		implicitWidth: root.icon.width
+		implicitHeight: root.icon.height
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
 		Kirigami.Theme.inherit: false
 	}
-	horizontalPadding: iconSize * 0.5
-	verticalPadding: horizontalPadding
+	horizontalPadding: icon.width * 0.5
+	verticalPadding: icon.height * 0.5
 	topInset: 0
 	bottomInset: 0
 	leftInset: 0
@@ -82,4 +80,5 @@ Controls.AbstractButton {
 			clicked()
 		}
 	}
+	Component.onCompleted: icon.height = icon.width
 }

@@ -33,8 +33,7 @@ MediaButtonArea {
 			readonly property bool playing: player.playbackState === Multimedia.MediaPlayer.PlayingState
 
 			Controls.ToolTip.text: playing ? qsTr("Pause") : qsTr("Play")
-			iconSource: playing ? "media-playback-pause-symbolic" : "media-playback-start-symbolic"
-			iconSize: Kirigami.Units.iconSizes.small
+			icon.source: playing ? "media-playback-pause-symbolic" : "media-playback-start-symbolic"
 			strongBackgroundOpacityChange: true
 			onClicked: playing ? player.pause() : player.play()
 		}

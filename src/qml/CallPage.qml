@@ -62,9 +62,11 @@ Kirigami.Page {
 	MediaButton {
 		id: callStopButton
 		Controls.ToolTip.text: qsTr("Quit call")
-		iconSource: "call-stop-symbolic"
-		iconSize: Kirigami.Units.iconSizes.medium
-		iconColor: Kirigami.Theme.negativeTextColor
+		icon {
+			source: "call-stop-symbolic"
+			color: Kirigami.Theme.negativeTextColor
+			width: Kirigami.Units.iconSizes.medium
+		}
 		strongBackgroundOpacityChange: !contactCameraArea.visible
 		anchors {
 			horizontalCenter: parent.horizontalCenter

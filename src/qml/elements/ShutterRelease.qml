@@ -10,7 +10,7 @@ import im.kaidan.kaidan
 
 MediaButton {
 	id: root
-	iconSize: Kirigami.Units.iconSizes.medium
+	icon.width: Kirigami.Units.iconSizes.medium
 	contentItem: Loader {
 		sourceComponent: parent.enabled ? icon : busyIndicator
 
@@ -18,9 +18,9 @@ MediaButton {
 			id: icon
 
 			Kirigami.Icon {
-				source: root.iconSource
-				implicitWidth: root.iconSize
-				implicitHeight: root.iconSize
+				source: root.icon.source
+				implicitWidth: root.icon.width
+				implicitHeight: root.icon.height
 			}
 		}
 
@@ -28,8 +28,8 @@ MediaButton {
 			id: busyIndicator
 
 			Controls.BusyIndicator {
-				implicitWidth: root.iconSize
-				implicitHeight: root.iconSize
+				implicitWidth: root.icon.width
+				implicitHeight: root.icon.height
 			}
 		}
 	}

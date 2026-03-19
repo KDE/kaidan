@@ -23,7 +23,7 @@ NewMediaDialog {
 	shutterRelease {
 		z: imagePreview.z + 1
 		Controls.ToolTip.text: qsTr("Take picture")
-		iconSource: "camera-photo-symbolic"
+		icon.source: "camera-photo-symbolic"
 		onClicked: {
 			root.savingCapturedData = true
 			captureSession.imageCapture.captureToFile(MediaUtils.localFilePath(MediaUtils.newImageFileUrl()))
