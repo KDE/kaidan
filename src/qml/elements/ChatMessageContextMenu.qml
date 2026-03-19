@@ -235,11 +235,11 @@ Kirigami.Dialog {
 
 		if (rightEdgeX >= messageListViewRightEdgeX) {
 			const hiddenWidth = rightEdgeX - messageListViewRightEdgeX
-			x = xPosition - hiddenWidth
+			x = Math.round(xPosition - hiddenWidth)
 		} else {
-			x = xPosition
+			x = Math.round(xPosition)
 		}
 
-		y = yPosition
+		y = Math.round(yPosition)
 	}
 }
