@@ -442,7 +442,7 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:136
 msgctxt "QObject|"
 msgid "No information"
-msgstr ""
+msgstr "Nėra informacijos"
 
 #: src/Message.cpp:166
 msgctxt "QObject|"
@@ -468,7 +468,7 @@ msgstr ""
 #: src/MessageComposition.cpp:273
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
-msgstr ""
+msgstr "Žinutės taisymas buvo nesėkmingas"
 
 #: src/MessageComposition.cpp:503
 msgctxt "FileSelectionModel|"
@@ -479,7 +479,7 @@ msgstr "Nežinomas dydis"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "„%1“ negali būti išsiųstas, nes yra didesnis nei %2"
 
 #: src/MessageController.cpp:278
 msgctxt "MessageController|"
@@ -738,22 +738,22 @@ msgstr ""
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr ""
+msgstr "Atverti garso skambutį"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Pradėti garso skambutį"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Atverti vaizdo skambutį"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Pradėti vaizdo skambutį"
 
 #: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
@@ -2802,47 +2802,49 @@ msgstr "Rodyti išsamiau"
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
-msgstr ""
+msgstr "Bus pridėta, kai būsite prisijungę prie interneto"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:121
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be removed once you are connected"
-msgstr ""
+msgstr "Bus pašalinta, kai būsite prisijungę prie interneto"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:125
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be added"
-msgstr ""
+msgstr "Nepavyko pridėti"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:130
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be removed"
-msgstr ""
+msgstr "Nepavyko pašalinti"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:134
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
-msgstr ""
+msgstr "Išsiųsta"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:138
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
-msgstr ""
+msgstr "Pristatyta"
 
 #: src/qml/elements/MessageReactionRetryButton.qml:23
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
-msgstr ""
+msgstr "Bandyti iš naujo atnaujinti reakcijas"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr ""
+msgstr "Registracija per Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Rodyti tik tuos teikėjus, kurie leidžia susikurti paskyrą tiesiogiai per "
+"Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
 msgctxt "ProviderFilterArea|"
@@ -2950,7 +2952,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "Šiame QR kode nėra adresato"
 
 #: src/qml/elements/QrCodeScanningArea.qml:64
 msgctxt "QrCodeScanningArea|"
@@ -2965,12 +2967,12 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "Šis QR kodas nėra skirtas jūsų kitam įrenginiui"
 
 #: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "Šis QR kodas nėra skirtas jūsų adresatui"
 
 #: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
@@ -2985,7 +2987,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "Pridedamas adresatas…"
 
 #: src/qml/elements/ReferencedMessage.qml:81
 msgctxt "ReferencedMessage|"
@@ -3312,7 +3314,7 @@ msgstr ""
 #: src/qml/registration/ManualRegistrationPage.qml:76
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
-msgstr ""
+msgstr "Naudotojo vardas"
 
 #: src/qml/registration/ManualRegistrationPage.qml:80
 msgctxt "ManualRegistrationPage|"
