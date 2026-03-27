@@ -77,7 +77,12 @@ Controls.AbstractButton {
 		// That is needed because if "onPressAndHold" is used, the desired functionality does not work anymore.
 		if (!Kirigami.Settings.isMobile && _longPressed) {
 			_longPressed = false
-			clicked()
+
+			if (checkable) {
+				toggle()
+			} else {
+				clicked()
+			}
 		}
 	}
 	Component.onCompleted: icon.height = icon.width
