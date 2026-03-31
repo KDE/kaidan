@@ -58,7 +58,6 @@ public:
     Q_SIGNAL void accountChanged();
 
     QString jid();
-    void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
 
     const RosterItem &rosterItem() const;
