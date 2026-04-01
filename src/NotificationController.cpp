@@ -24,6 +24,7 @@
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "QXmppUtils.h"
+#include "RosterController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 
@@ -50,6 +51,7 @@ static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contain
 
 NotificationController::NotificationController(AccountSettings *accountSettings,
                                                AvatarCache *avatarCache,
+                                               RosterController *rosterController,
                                                MessageController *messageController,
                                                QObject *parent)
     : QObject(parent)
@@ -64,6 +66,7 @@ NotificationController::NotificationController(AccountSettings *accountSettings,
         }
     });
 
+    connect(rosterController, &RosterController::presenceSubscriptionRequestReceived, this, &NotificationController::handlePresenceSubscriptionRequestReceived);
     connect(m_messageController, &MessageController::contactMessageRead, this, &NotificationController::closeMessageNotification);
 }
 
@@ -76,53 +79,6 @@ void NotificationController::closeMessageNotification(const QString &chatJid)
     if (notificationWrapperItr != m_openMessageNotifications.cend()) {
         notificationWrapperItr->notification->close();
     }
-}
-
-void NotificationController::sendPresenceSubscriptionRequestNotification(const QString &chatJid)
-{
-    auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications, [&chatJid](const auto &notificationWrapper) {
-        return notificationWrapper.chatJid == chatJid;
-    });
-
-    // Only create a new notification if none exists.
-    if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
-        return;
-    }
-
-    KNotification *notification = new KNotification(PRESENCE_SUBSCRIPTION_REQUEST_EVENT_ID.toString());
-    notification->setTitle(determineChatName(chatJid));
-    notification->setText(tr("Requests to receive your personal data"));
-    notification->setPixmap(retrieveAvatar(chatJid));
-
-    PresenceSubscriptionRequestNotificationWrapper notificationWrapper{.chatJid = chatJid, .notification = notification};
-    m_openPresenceSubscriptionRequestNotifications.append(notificationWrapper);
-
-#ifdef DESKTOP_LINUX_ALIKE_OS
-    if (IS_USING_GNOME) {
-        notification->setFlags(KNotification::Persistent);
-    }
-#endif
-#ifdef Q_OS_ANDROID
-    notification->setIconName("kaidan-bw");
-#endif
-
-    connect(notification->addDefaultAction(tr("Open")), &KNotificationAction::activated, this, [this, chatJid, notification] {
-        showChat(chatJid);
-        notification->close();
-    });
-
-    connect(notification, &KNotification::closed, this, [=, this]() {
-        auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications,
-                                                           [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
-                                                               return notificationWrapper.chatJid == chatJid;
-                                                           });
-
-        if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
-            m_openPresenceSubscriptionRequestNotifications.erase(notificationWrapperItr);
-        }
-    });
-
-    notification->sendEvent();
 }
 
 void NotificationController::closePresenceSubscriptionRequestNotification(const QString &chatJid)
@@ -213,11 +169,10 @@ void NotificationController::handleMessage(const Message &message, MessageOrigin
         const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
 
         auto sendNotification = [this, accountJid, chatJid, message]() {
-            const auto chatActive = m_chatController && m_chatController->jid() == chatJid && QGuiApplication::applicationState() == Qt::ApplicationActive;
             const auto previewText = message.previewText();
             const auto notificationBody = message.isGroupChatMessage() ? message.groupChatSenderName + QStringLiteral(": ") + previewText : previewText;
 
-            if (!chatActive) {
+            if (!checkChatActive(chatJid)) {
                 sendMessageNotification(chatJid, message.id, notificationBody);
             }
         };
@@ -247,6 +202,16 @@ void NotificationController::handleMessage(const Message &message, MessageOrigin
             sendNotification();
             break;
         }
+    }
+}
+
+void NotificationController::handlePresenceSubscriptionRequestReceived(const QXmppPresence &request)
+{
+    const auto subscriberJid = request.from();
+    const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), subscriberJid);
+
+    if (rosterItem->effectiveNotificationRule() == RosterItem::EffectiveNotificationRule::Always && !checkChatActive(subscriberJid)) {
+        sendPresenceSubscriptionRequestNotification(subscriberJid);
     }
 }
 
@@ -375,6 +340,58 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
     });
 
     notification->sendEvent();
+}
+
+void NotificationController::sendPresenceSubscriptionRequestNotification(const QString &chatJid)
+{
+    auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications, [&chatJid](const auto &notificationWrapper) {
+        return notificationWrapper.chatJid == chatJid;
+    });
+
+    // Only create a new notification if none exists.
+    if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
+        return;
+    }
+
+    KNotification *notification = new KNotification(PRESENCE_SUBSCRIPTION_REQUEST_EVENT_ID.toString());
+    notification->setTitle(determineChatName(chatJid));
+    notification->setText(tr("Requests to receive your personal data"));
+    notification->setPixmap(retrieveAvatar(chatJid));
+
+    PresenceSubscriptionRequestNotificationWrapper notificationWrapper{.chatJid = chatJid, .notification = notification};
+    m_openPresenceSubscriptionRequestNotifications.append(notificationWrapper);
+
+#ifdef DESKTOP_LINUX_ALIKE_OS
+    if (IS_USING_GNOME) {
+        notification->setFlags(KNotification::Persistent);
+    }
+#endif
+#ifdef Q_OS_ANDROID
+    notification->setIconName("kaidan-bw");
+#endif
+
+    connect(notification->addDefaultAction(tr("Open")), &KNotificationAction::activated, this, [this, chatJid, notification] {
+        showChat(chatJid);
+        notification->close();
+    });
+
+    connect(notification, &KNotification::closed, this, [=, this]() {
+        auto notificationWrapperItr = std::ranges::find_if(m_openPresenceSubscriptionRequestNotifications,
+                                                           [chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
+                                                               return notificationWrapper.chatJid == chatJid;
+                                                           });
+
+        if (notificationWrapperItr != m_openPresenceSubscriptionRequestNotifications.end()) {
+            m_openPresenceSubscriptionRequestNotifications.erase(notificationWrapperItr);
+        }
+    });
+
+    notification->sendEvent();
+}
+
+bool NotificationController::checkChatActive(const QString &chatJid) const
+{
+    return m_chatController && m_chatController->jid() == chatJid && QGuiApplication::applicationState() == Qt::ApplicationActive;
 }
 
 QString NotificationController::determineChatName(const QString &chatJid) const

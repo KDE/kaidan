@@ -188,23 +188,8 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QXmppPresence &request)
 {
-    const auto subscriberJid = request.from();
-    const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), subscriberJid);
-
-    const auto notificationRule = rosterItem->notificationRule;
-    const bool userMuted = (notificationRule == RosterItem::NotificationRule::Account
-                            && m_accountSettings->contactNotificationRule() == AccountSettings::ContactNotificationRule::Never)
-        || notificationRule == RosterItem::NotificationRule::Never;
-
-    const bool requestForCurrentChat = request.from() == m_chatController->jid();
-    const bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
-
-    if (requestForCurrentChat) {
+    if (request.from() == m_chatController->jid()) {
         addAllowPresenceSubscriptionChatHint(request);
-    }
-
-    if (!userMuted && !chatActive) {
-        m_notificationController->sendPresenceSubscriptionRequestNotification(subscriberJid);
     }
 }
 

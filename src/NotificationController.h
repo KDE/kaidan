@@ -16,12 +16,15 @@
 
 // KDE
 class KNotification;
+// QXmpp
+class QXmppPresence;
 // Kaidan
 class AccountSettings;
 class AvatarCache;
 class Call;
 class ChatController;
 class MessageController;
+class RosterController;
 class RosterItem;
 
 class NotificationController : public QObject
@@ -43,7 +46,11 @@ public:
         KNotification *notification = nullptr;
     };
 
-    NotificationController(AccountSettings *accountSettings, AvatarCache *avatarCache, MessageController *messageController, QObject *parent = nullptr);
+    NotificationController(AccountSettings *accountSettings,
+                           AvatarCache *avatarCache,
+                           RosterController *rosterController,
+                           MessageController *messageController,
+                           QObject *parent = nullptr);
 
     /**
      * Closes all chat message notifications of the same age or older than a timestamp.
@@ -52,7 +59,6 @@ public:
      */
     void closeMessageNotification(const QString &chatJid);
 
-    void sendPresenceSubscriptionRequestNotification(const QString &chatJid);
     void closePresenceSubscriptionRequestNotification(const QString &chatJid);
 
     void sendCallNotification(Call *call);
@@ -67,6 +73,8 @@ private:
      */
     void handleMessage(const Message &message, MessageOrigin origin);
 
+    void handlePresenceSubscriptionRequestReceived(const QXmppPresence &request);
+
     /**
      * Sends a system notification for a chat message.
      *
@@ -76,6 +84,9 @@ private:
      */
     void sendMessageNotification(const QString &chatJid, const QString &messageId, const QString &messageBody);
 
+    void sendPresenceSubscriptionRequestNotification(const QString &chatJid);
+
+    bool checkChatActive(const QString &chatJid) const;
     QString determineChatName(const QString &chatJid) const;
     QPixmap retrieveAvatar(const QString &chatJid);
     void showChat(const QString &chatJid);
@@ -85,8 +96,9 @@ private:
 
     AccountSettings *const m_accountSettings;
     AvatarCache *const m_avatarCache;
-    ChatController *m_chatController = nullptr;
     MessageController *const m_messageController;
+
+    ChatController *m_chatController = nullptr;
 
     QList<MessageNotificationWrapper> m_openMessageNotifications;
     QList<PresenceSubscriptionRequestNotificationWrapper> m_openPresenceSubscriptionRequestNotifications;

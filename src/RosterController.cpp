@@ -38,15 +38,14 @@ RosterController::RosterController(AccountSettings *accountSettings,
 
     connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
         RosterItem item{m_accountSettings->jid(), m_manager->getRosterEntry(jid)};
+
         item.encryption = m_accountSettings->encryption();
         item.lastMessageDateTime = QDateTime::currentDateTimeUtc();
-        RosterDb::instance()->addItem(item);
 
-        if (m_pendingSubscriptionRequests.contains(jid)) {
-            const auto subscriptionRequest = m_pendingSubscriptionRequests.take(jid);
-            applyOldContactData(subscriptionRequest.oldJid(), jid);
-            addUnrespondedSubscriptionRequest(jid, subscriptionRequest);
-        }
+        // Add the item to the dabatase.
+        // Any further usage of the item is done once it is added to RosterModel (see connection for RosterModel::itemAdded()).
+        // That way, it is not needed to retrieve the item multiple times from the database.
+        RosterDb::instance()->addItem(item);
     });
 
     connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
@@ -77,9 +76,17 @@ RosterController::RosterController(AccountSettings *accountSettings,
     connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived, this, &RosterController::handleSubscriptionRequest);
 
     connect(RosterModel::instance(), &RosterModel::itemAdded, this, [this](const RosterItem &item) {
+        const auto jid = item.jid;
+
+        if (m_pendingSubscriptionRequests.contains(jid)) {
+            const auto subscriptionRequest = m_pendingSubscriptionRequests.take(jid);
+            applyOldContactData(subscriptionRequest.oldJid(), jid);
+            addUnrespondedSubscriptionRequest(jid, subscriptionRequest);
+        }
+
         // MessageController checks whether RosterModel contains a roster item in order to add a missing item to the roster.
         // Thus, it cannot be removed from m_automaticInitialAdditionJids directly after the item is added to the roster.
-        m_pendingAutomaticInitialAdditionJids.removeOne(item.jid);
+        m_pendingAutomaticInitialAdditionJids.removeOne(jid);
     });
 
     connect(RosterModel::instance(), &RosterModel::groupsChanged, this, &RosterController::groupsChanged);
