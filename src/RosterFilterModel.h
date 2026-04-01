@@ -9,6 +9,8 @@
 // Qt
 #include <QSortFilterProxyModel>
 
+// Kaidan
+class Account;
 class PresenceCache;
 
 class RosterFilterModel : public QSortFilterProxyModel
@@ -52,7 +54,8 @@ protected:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
-    void updateSelectedAccountJids();
+    void updateAccounts();
+    void updateSelectedAccountJids(QList<Account *> accounts);
     void updateSelectedGroups();
 
     Types m_displayedTypes;

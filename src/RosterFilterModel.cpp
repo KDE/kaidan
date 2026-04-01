@@ -17,7 +17,7 @@ RosterFilterModel::RosterFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     connect(this, &QSortFilterProxyModel::sourceModelChanged, this, [this]() {
-        connect(AccountController::instance(), &AccountController::accountsChanged, this, &RosterFilterModel::updateSelectedAccountJids);
+        connect(AccountController::instance(), &AccountController::accountsChanged, this, &RosterFilterModel::updateAccounts);
         connect(static_cast<RosterModel *>(sourceModel()), &RosterModel::groupsChanged, this, &RosterFilterModel::updateSelectedGroups);
     });
 }
@@ -148,9 +148,26 @@ bool RosterFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourc
         || sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegularExpression());
 }
 
-void RosterFilterModel::updateSelectedAccountJids()
+void RosterFilterModel::updateAccounts()
 {
-    const auto accountJids = transform(AccountController::instance()->accounts(), [](Account *account) {
+    const auto accounts = AccountController::instance()->accounts();
+
+    const auto keepAvailabilityFilteringUpToDate = [this](Account *account) {
+        connect(account->presenceCache(), &PresenceCache::presenceChanged, this, [this]() {
+            if (m_displayedTypes.testAnyFlags(Type::AvailableContact | Type::UnavailableContact)) {
+                invalidate();
+            }
+        });
+    };
+
+    std::ranges::for_each(accounts, keepAvailabilityFilteringUpToDate);
+
+    updateSelectedAccountJids(accounts);
+}
+
+void RosterFilterModel::updateSelectedAccountJids(QList<Account *> accounts)
+{
+    const auto accountJids = transform(accounts, [](Account *account) {
         return account->settings()->jid();
     });
 
