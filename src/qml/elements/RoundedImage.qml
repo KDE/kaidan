@@ -16,7 +16,6 @@ Image {
 	id: root
 
 	property real radius: relativeRoundedCornersRadius(width, height)
-	readonly property alias hasAlphaChannel: root._hasAlphaChannel
 	property bool _hasAlphaChannel: false
 	signal sourceCopiedToClipboard()
 
@@ -30,7 +29,7 @@ Image {
 	// The generated image should fit its item's size.
 	sourceSize.width: root.width
 	sourceSize.height: root.height
-	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
+	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
 	layer.effect: Kirigami.ShadowedTexture {
 		radius: root.radius
 	}
