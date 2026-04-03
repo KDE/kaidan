@@ -18,11 +18,11 @@ Item {
 	property color backgroundColor: Kirigami.Theme.backgroundColor
 	property color progressLineBackgroundColor: "transparent"
 	property color progressLineColor: Kirigami.Theme.activeTextColor
-	property int progressLineWidth: Kirigami.Units.smallSpacing
+	property int progressLineWidth: width * 0.07
 	property int penCapStyle: Qt.RoundCap
 
-	implicitWidth: 200
-	implicitHeight: 200
+	implicitWidth: Kirigami.Units.iconSizes.enormous
+	implicitHeight: Kirigami.Units.iconSizes.enormous
 
     QtObject {
 		id: internal
