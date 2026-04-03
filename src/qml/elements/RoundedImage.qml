@@ -31,6 +31,7 @@ Image {
 	sourceSize.height: height
 	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
 	layer.effect: Kirigami.ShadowedTexture {
+		color: Kirigami.Theme.backgroundColor
 		radius: root.radius
 	}
 
