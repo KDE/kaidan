@@ -14,7 +14,6 @@ MediumPreview {
 
 	property var file
 	property Item message
-	readonly property bool fileUploadNeeded: message.deliveryState === Enums.DeliveryState.Pending && file.transferOutgoing && file.transferState !== File.TransferState.Done
 
 	name: file.name
 	description: file.description
@@ -33,7 +32,7 @@ MediumPreview {
 						root.message.chatController.account.fileSharingController.cancelTransfer(root.message.chatController.jid, root.message.msgId, root.file)
 					} else if (!root.file.locallyAvailable) {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
-					} else if (root.fileUploadNeeded) {
+					} else if (transferProgressBar.fileUploadNeeded) {
 						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, message.encryption !== Encryption.NoEncryption)
 					} else if (root.file.locallyAvailable) {
 						root.open()
@@ -50,40 +49,15 @@ MediumPreview {
 		}
 	}
 	previewImage {
-		readonly property bool iconShown: root.file.transferState === File.TransferState.Transferring || !root.file.locallyAvailable || root.fileUploadNeeded
-
-		opacity: iconShown ? 1 : mainAreaBackground.opacity
+		opacity: transferProgressBar.opacity ? 1 : mainAreaBackground.opacity
 		source: ImageProvider.generatedFileImageUrl(file)
-		data: CircleProgressBar {
-			value: transferWatcher.progress
-			opacity: iconShown ? (opacityChangingMouseArea.containsMouse || opacityChangingMouseArea.selected ? 0.8 : 0.5) : 0
-			// Do not apply the opacity to child items.
-			layer.enabled: true
+		data: MediumTransferProgressBar {
+			id: transferProgressBar
+			file: root.file
+			deliveryState: root.message.deliveryState
+			opacity: shown ? (opacityChangingMouseArea.containsMouse || opacityChangingMouseArea.selected ? 0.8 : 0.5) : 0
 			anchors.fill: parent
 			anchors.margins: Kirigami.Units.smallSpacing
-
-			Behavior on opacity {
-				NumberAnimation {}
-			}
-
-			Kirigami.Icon {
-				source: {
-					if (root.file.transferState === File.TransferState.Pending || root.file.transferState === File.TransferState.Transferring) {
-						return "content-loading-symbolic"
-					}
-
-					if (root.fileUploadNeeded) {
-						return "view-refresh-symbolic"
-					}
-
-					if (!root.file.locallyAvailable) {
-						return "folder-download-symbolic"
-					}
-				}
-				color: root.file.transferState === File.TransferState.Transferring ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
-				isMask: true
-				anchors.centerIn: parent
-			}
 		}
 	}
 	detailsArea {
@@ -102,10 +76,5 @@ MediumPreview {
 				}
 			}
 		}
-	}
-
-	FileProgressWatcher {
-		id: transferWatcher
-		fileId: root.file.fileId
 	}
 }
