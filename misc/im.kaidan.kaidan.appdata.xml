@@ -409,6 +409,7 @@
           <li xml:lang="ru">Исправлено зависание среднего предпросмотра при наведении на скрытую область с информацией о перетаскивании (melvo).</li>
           <li xml:lang="sl">Popravi lebdenje srednjega predogleda, če se lebdi nad informacijami o skritem območju spusta (@melvo)</li>
           <li xml:lang="tr">Fix medium preview hovering if hidden drop area info is hovered (@melvo)</li>
+          <li xml:lang="uk">Виправлено появу панелі перегляду мультимедіа при наведенні вказівника на приховану область скидання (@melvo)</li>
           <li>Fix updating OMEMO 2 keys for all use cases (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديث مفاتيح OMEMO 2 لجميع حالات الاستخدام (@melvo)</li>
           <li xml:lang="ca">Corregeix l'actualització de les claus OMEMO 2 per a tots els casos d'ús (@melvo)</li>
@@ -444,6 +445,7 @@
           <li xml:lang="ru">Исправлено создание дополнительного подключения к базе данных в неверном потоке (Melvo);</li>
           <li xml:lang="sl">Popravi ustvarjanje dodatne povezave z bazo podatkov v napačni niti (@melvo)</li>
           <li xml:lang="tr">Fix creating additional database connection on wrong thread (@melvo)</li>
+          <li xml:lang="uk">Виправлено створення додаткового з'єднання з базою даних у помилковій гілці обробки (@melvo)</li>
           <li>Fix sending/resetting whether message is being composed for various corner cases (switching chat, logging out, disabling corresponding setting) (@melvo)</li>
           <li xml:lang="ar">إصلاح إرسال/إعادة ضبط حالة كتابة الرسالة لحالات متنوعة (تبديل الدردشة، الخروج، تعطيل الإعداد المقابل) (@melvo)</li>
           <li xml:lang="ca">Corregeix l'enviament/reinicialització si el missatge s'està redactant per a diversos casos extrems (canviar de xat, tancar la sessió, desactivar la configuració corresponent) (@melvo)</li>
@@ -474,6 +476,7 @@
           <li xml:lang="ru">Исправлен сброс черновика сообщения после отмены правки сообщения (@melvo);</li>
           <li xml:lang="sl">Popravljeno ponastavljanje osnutka sporočila po preklicu popravka sporočila (@melvo)</li>
           <li xml:lang="tr">Fix resetting draft message after canceling message correction (@melvo)</li>
+          <li xml:lang="uk">Виправлено скидання чернетки після скасування виправлення повідомлення (@melvo)</li>
           <li>Fix resending failed message reaction (@melvo)</li>
           <li xml:lang="ar">إصلاح إعادة إرسال تفاعل الرسالة الفاشل (@melvo)</li>
           <li xml:lang="ca">Corregeix el reenviament de la reacció de missatge que ha fallat (@melvo)</li>
@@ -485,6 +488,7 @@
           <li xml:lang="ru">Исправлено повторное отправление реакции на сообщение об ошибке (melvo);</li>
           <li xml:lang="sl">Popravljeno ponovno pošiljanje odziva na neuspešno sporočilo (@melvo)</li>
           <li xml:lang="tr">Fix resending failed message reaction (@melvo)</li>
+          <li xml:lang="uk">Виправлено повторне надсилання реакції на повідомлення, яку не вдалося надіслати (@melvo)</li>
           <li>Fix selecting previously selected message after changing reactions (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديد الرسالة المحددة سابقاً بعد تغيير التفاعلات (@melvo)</li>
           <li xml:lang="ca">Corregeix la selecció del missatge seleccionat prèviament després de canviar les reaccions (@melvo)</li>
@@ -495,6 +499,7 @@
           <li xml:lang="ru">Исправлен выбор ранее выбранного сообщения после изменения реакции (@melvo);</li>
           <li xml:lang="sl">Popravljeno izbiranje prej izbranega sporočila po spreminjanju odzivov (@melvo)</li>
           <li xml:lang="tr">Fix selecting previously selected message after changing reactions (@melvo)</li>
+          <li xml:lang="uk">Виправлено позначення раніше позначеного повідомлення після зміни реакцій (@melvo)</li>
           <li>Fix restoring message highlighting and cancel ongoing correction/reply on removing corresponding message (@melvo)</li>
           <li xml:lang="ar">إصلاح استعادة إبراز الرسالة وإلغاء التصحيح/الرد الجاري عند إزالة الرسالة المقابلة (@melvo)</li>
           <li xml:lang="ca">Corregeix la restauració del ressaltat del missatge i cancel·la la correcció/resposta en curs en eliminar el missatge corresponent (@melvo)</li>
