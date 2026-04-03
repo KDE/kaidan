@@ -27,8 +27,8 @@ Image {
 	// The image should not flicker when it is resized.
 	retainWhileLoading: true
 	// The generated image should fit its item's size.
-	sourceSize.width: root.width
-	sourceSize.height: root.height
+	sourceSize.width: width
+	sourceSize.height: height
 	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
 	layer.effect: Kirigami.ShadowedTexture {
 		radius: root.radius
@@ -56,8 +56,8 @@ Image {
 	}
 
 	function copyToClipboard() {
-		if (root.source.toString()) {
-			ImageProvider.copySourceToClipboard(root.source, root.sourceSize)
+		if (source.toString()) {
+			ImageProvider.copySourceToClipboard(source, sourceSize)
 		}
 	}
 }
