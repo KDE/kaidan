@@ -226,6 +226,11 @@ QFuture<QByteArray> ImageProvider::generateImageDataWithDevicePixelRatio(const Q
 QFuture<std::optional<QXmppFileSharingManager::MetadataThumbnail>> ImageProvider::generateMetaDataThumbnail(const QUrl &localFileUrl)
 {
     using Thumnbnail = QXmppFileSharingManager::MetadataThumbnail;
+
+    if (!isImageOrVideo(localFileUrl.toLocalFile())) {
+        return QtFuture::makeReadyValueFuture(std::optional<Thumnbnail>());
+    }
+
     auto future = generateImageWithDevicePixelRatio(localFileUrl, 1.0, THUMBNAIL_EDGE_PIXEL_COUNT);
 
     return future.then([](QImage &&image) {
@@ -305,11 +310,7 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
     const QString value = id.section(SEPARATOR, 1);
 
     if (key == LOCAL_FILE_PATH_SEGMENT) {
-        const auto mimeTypeName = MediaUtils::mimeTypeName(value);
-        const bool isImage = mimeTypeName.startsWith(QStringLiteral("image/"));
-        const bool isVideo = mimeTypeName.startsWith(QStringLiteral("video/"));
-
-        if (isImage || isVideo) {
+        if (isImageOrVideo(value)) {
             return generateLocalFileImage(value, std::max(requestedEdge, VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), devicePixelRatio, context).then(context, then);
         }
 
@@ -412,6 +413,14 @@ QByteArray ImageProvider::encodeImageThumbnail(QImage &&image)
     QBuffer buffer(&output);
     image.save(&buffer, THUMBNAIL_FORMAT, THUMBNAIL_QUALITY);
     return output;
+}
+
+bool ImageProvider::isImageOrVideo(const QString &filePath)
+{
+    const auto mimeTypeName = MediaUtils::mimeTypeName(filePath);
+    const bool isImage = mimeTypeName.startsWith(QStringLiteral("image/"));
+    const bool isVideo = mimeTypeName.startsWith(QStringLiteral("video/"));
+    return isImage || isVideo;
 }
 
 #include "moc_ImageProvider.cpp"

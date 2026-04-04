@@ -77,6 +77,8 @@ private:
     static QByteArray encodeImageThumbnail(QPixmap &&pixmap);
     static QByteArray encodeImageThumbnail(QImage &&image);
 
+    static bool isImageOrVideo(const QString &filePath);
+
     qreal m_screenDevicePixelRatio = 1.0;
 
     static ImageProvider *s_instance;
