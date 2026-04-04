@@ -12,7 +12,7 @@ Controls.AbstractButton {
 	id: root
 
 	property color backgroundColor: secondaryBackgroundColor
-	property bool strongBackgroundOpacityChange: false
+	property bool strongBackgroundOpacityChange: true
 	property bool _longPressed: false
 
 	hoverEnabled: true
