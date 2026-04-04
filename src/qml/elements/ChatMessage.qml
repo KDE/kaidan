@@ -181,7 +181,7 @@ Controls.ItemDelegate {
 							property real maximumWidth: root.maximumBubbleContentWidth
 							property color mainAreaBackgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 
-							sourceComponent: file.locallyAvailable && file.transferState === File.TransferState.Done && file.type === Enums.MessageType.MessageAudio && !file.description ? audio : mediumMessagePreview
+							sourceComponent: file.locallyAvailable && file.transferState === File.TransferState.Done && file.type === Enums.MessageType.MessageAudio && file.displayInline && !file.description ? audio : mediumMessagePreview
 
 							Component {
 								id: mediumMessagePreview

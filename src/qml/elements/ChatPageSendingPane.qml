@@ -622,7 +622,7 @@ Controls.Pane {
 								recordingCanceled = false
 								MediaUtils.deleteFile(actualLocation)
 							} else {
-								root.composition.fileSelectionModel.addFile(actualLocation)
+								root.composition.fileSelectionModel.addVoiceMessageFile(actualLocation)
 								root.composition.send()
 							}
 						}

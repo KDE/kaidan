@@ -527,6 +527,29 @@ void FileSelectionModel::selectFile()
     }
 }
 
+void FileSelectionModel::addVoiceMessageFile(const QUrl &localFileUrl)
+{
+    auto localPath = localFileUrl.toLocalFile();
+
+    Q_ASSERT(localFileUrl.isLocalFile());
+    const auto limit = m_accountSettings->httpUploadLimit();
+    const QFileInfo fileInfo(localPath);
+
+    if (fileInfo.size() > limit) {
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("Voice message cannot be sent because it is larger than %2").arg(fileInfo.fileName(), m_accountSettings->httpUploadLimitText()));
+        return;
+    }
+
+    File file;
+    file.localFilePath = localPath;
+    file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
+    file.size = fileInfo.size();
+    file.transferOutgoing = true;
+
+    insertFile(file);
+}
+
 void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 {
     auto localPath = localFileUrl.toLocalFile();
@@ -550,6 +573,7 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     }
 
     File file;
+    file.disposition = QXmppFileShare::Disposition::Attachment;
     file.localFilePath = localPath;
     file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
     file.size = fileInfo.size();
@@ -571,10 +595,7 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
         file.height = size.height();
     }
 
-    const int row = m_files.size();
-    beginInsertRows({}, row, row);
-    m_files.append(std::move(file));
-    endInsertRows();
+    insertFile(file);
 }
 
 void FileSelectionModel::removeFile(int index)
@@ -616,6 +637,14 @@ bool FileSelectionModel::setData(const QModelIndex &index, const QVariant &value
 const QList<File> &FileSelectionModel::files() const
 {
     return m_files;
+}
+
+void FileSelectionModel::insertFile(const File &file)
+{
+    const int row = m_files.size();
+    beginInsertRows({}, row, row);
+    m_files.append(std::move(file));
+    endInsertRows();
 }
 
 void FileSelectionModel::deleteNewFile(const File &file)

@@ -206,6 +206,7 @@ public:
     void setAccountSettings(AccountSettings *accountSettings);
 
     Q_INVOKABLE void selectFile();
+    Q_INVOKABLE void addVoiceMessageFile(const QUrl &localFileUrl);
     Q_INVOKABLE void addFile(const QUrl &localFileUrl, bool isNew = false);
     Q_INVOKABLE void removeFile(int index);
     Q_INVOKABLE void deleteNewFiles();
@@ -215,6 +216,8 @@ public:
     const QList<File> &files() const;
 
 private:
+    void insertFile(const File &file);
+
     // Deletes a file that the user created via Kaidan.
     static void deleteNewFile(const File &file);
 

@@ -97,7 +97,7 @@ public:
     uint32_t width;
     uint32_t height;
     QDateTime lastModified;
-    QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
+    QXmppFileShare::Disposition disposition = QXmppFileShare::Inline;
     QString localFilePath;
     QString externalId;
     QList<FileHash> hashes;
