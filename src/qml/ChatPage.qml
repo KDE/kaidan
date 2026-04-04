@@ -658,7 +658,7 @@ SearchBarPage {
 
 		Timer {
 			id: resetCurrentIndexTimer
-			interval: Kirigami.Units.veryLongDuration * 4
+			interval: Kirigami.Units.veryLongDuration * 6
 			onTriggered: messageListView.resetCurrentIndex()
 		}
 

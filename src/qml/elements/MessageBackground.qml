@@ -48,6 +48,13 @@ Item {
 			anchors.bottomMargin: mainBG.radius
 			anchors.leftMargin: root.message.isOwn ? -root.tailSize : 0
 			anchors.rightMargin: root.message.isOwn ? 0 : -root.tailSize
+
+			Behavior on color {
+				ColorAnimation {
+					duration: Kirigami.Units.longDuration
+					easing.type: Easing.InOutQuad
+				}
+			}
 		}
 	}
 
@@ -89,8 +96,15 @@ Item {
 		radius: roundedCornersRadius
 		color: root.color
 		border {
-			color: root.highlighted ? root._highlightColor : "transparent"
+			color: root.highlighted ? root._highlightColor : parent.color
 			width: 2
+
+			Behavior on color {
+				ColorAnimation {
+					duration: Kirigami.Units.longDuration
+					easing.type: Easing.InOutQuad
+				}
+			}
 		}
 		anchors.fill: parent
 		anchors.leftMargin: root.message.isOwn ? 0 : root.tailSize
