@@ -456,6 +456,7 @@
           <li xml:lang="ru">Исправлена отправка/сброс индикатора набора сообщения для различных граничных случаев (переключение чата, выход из учётной записи, отключение соответствующего параметра) (@melvo);</li>
           <li xml:lang="sl">Popravi pošiljanje/ponastavitev, ali se sporočilo sestavlja za različne vmesni primeri (preklop klepeta, odjava, onemogočanje ustrezne nastavitve) (@melvo)</li>
           <li xml:lang="tr">Fix sending/resetting whether message is being composed for various corner cases (switching chat, logging out, disabling corresponding setting) (@melvo)</li>
+          <li xml:lang="uk">Виправлено надсилання/скидання налаштувань створення повідомлення для різних критичних ситуацій (перемикання спілкування, вихід із системи, вимикання відповідного параметра). (@melvo)</li>
           <li>Fix updating last message on receiving initial message after setting up existing account in Kaidan for first time (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديث آخر رسالة عند تلقي الرسالة الأولية بعد إعداد حساب موجود في كيدان لأول مرة (@melvo)</li>
           <li xml:lang="ca">Corregeix l'actualització del darrer missatge en rebre el missatge inicial després de configurar el compte existent al Kaidan per primera vegada (@melvo)</li>
@@ -466,6 +467,7 @@
           <li xml:lang="ru">Исправлено обновление последнего сообщения при получении начального сообщения после настройки существующей учётной записи в Kaidan впервые (@melvo);</li>
           <li xml:lang="sl">Popravljeno posodabljanje zadnjega sporočila ob prejemu začetnega sporočila po prvi nastavitvi obstoječega računa v Kaidanu (@melvo)</li>
           <li xml:lang="tr">Fix updating last message on receiving initial message after setting up existing account in Kaidan for first time (@melvo)</li>
+          <li xml:lang="uk">Виправлено оновлення останнього повідомлення після отримання початкового повідомлення після першого налаштування наявного облікового запису у Kaidan (@melvo)</li>
           <li>Fix resetting draft message after canceling message correction (@melvo)</li>
           <li xml:lang="ar">إصلاح إعادة ضبط مسودة الرسالة بعد إلغاء تصحيح الرسالة (@melvo)</li>
           <li xml:lang="ca">Corregeix el restabliment de l'esborrany de missatge després de cancel·lar la correcció del missatge (@melvo)</li>
@@ -510,6 +512,7 @@
           <li xml:lang="ru">Исправлено восстановление подсветки сообщений и отменяется текущее исправление/ответ при удалении соответствующего сообщения (@melvo);</li>
           <li xml:lang="sl">Popravljeno obnavljanje označevanja sporočila in preklic tekočega popravka/odgovora ob odstranitvi ustreznega sporočila (@melvo)</li>
           <li xml:lang="tr">Fix restoring message highlighting and cancel ongoing correction/reply on removing corresponding message (@melvo)</li>
+          <li xml:lang="uk">Виправлено відновлення підсвічування повідомлень та скасування поточного виправлення/відповіді після вилучення відповідного повідомлення (@melvo)</li>
           <li>Fix displaying last message sender in chat list after draft message removal (@melvo)</li>
           <li xml:lang="ar">إصلاح عرض مرسل آخر رسالة في قائمة الدردشة بعد إزالة مسودة الرسالة (@melvo)</li>
           <li xml:lang="ca">Corregeix la visualització del remitent de l'últim missatge a la llista de xats després de l'eliminació d'esborranys de missatges (@melvo)</li>
@@ -520,6 +523,7 @@
           <li xml:lang="ru">Исправлено отображение отправителя последнего сообщения в списке чатов после удаления черновика;</li>
           <li xml:lang="sl">Popravljen prikaz zadnjega pošiljatelja sporočila na seznamu klepeta po odstranitvi osnutka sporočila (@melvo)</li>
           <li xml:lang="tr">Fix displaying last message sender in chat list after draft message removal (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ останнього відправника повідомлення у списку спілкування після вилучення чернетки повідомлення (@melvo)</li>
         </ul>
         <p>Kaidan requires Kirigami Addons 1.8 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن ملحقات Kirigami الإصدار 1.8</p>
@@ -532,6 +536,7 @@
         <p xml:lang="ru">Для работы Kaidan теперь требуется Kirigami Addons 1.8</p>
         <p xml:lang="sl">Kaidan zdaj zahteva dodatke Kirigami 1.8</p>
         <p xml:lang="tr">Kaidan requires Kirigami Addons 1.8 now</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує Kirigami Addons 1.8</p>
         <p>Kaidan requires QXmpp 1.14 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن مكتبة QXmpp الإصدار 1.14</p>
         <p xml:lang="ca">El Kaidan requereix ara el QXmpp 1.14</p>
@@ -543,6 +548,7 @@
         <p xml:lang="ru">Теперь для Kaidan требуется QXmpp 1.14</p>
         <p xml:lang="sl">Kaidan zdaj zahteva QXmpp 1.14</p>
         <p xml:lang="tr">Kaidan requires QXmpp 1.14 now</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує QXmpp 1.14</p>
       </description>
     </release>
     <release type="stable" version="0.14.0" date="2026-01-01T00:00:00Z">
@@ -572,6 +578,7 @@
           <li xml:lang="ru">Сохранение черновиков над закреплёнными и незакреплёнными элементами списка чатов (@pehg);</li>
           <li xml:lang="sl">Osnutki sporočil naj bodo na vrhu pripetih/odpetih elementov seznama klepeta (@pehg)</li>
           <li xml:lang="tr">Keep draft messages on top of pinned/unpinned chat list items (@pehg)</li>
+          <li xml:lang="uk">Реалізовано збереження чернетки повідомлень поверх закріплених/відкріплених елементів списку спілкування (@pehg)</li>
           <li>Optimize thumbnail creation (@fazevedo)</li>
           <li xml:lang="ar">تحسين إنشاء المصغرات (@fazevedo)</li>
           <li xml:lang="ca">Optimitza la creació de miniatures (@fazevedo)</li>
@@ -2295,6 +2302,7 @@
           <li xml:lang="ca">Redissenya el camp d'entrada del missatge per a utilitzar cantonades arrodonides i botons de redimensionament/símbol (@melvo)</li>
           <li xml:lang="ca-valencia">Redissenya el camp d'entrada del missatge per a utilitzar cantons arredonits i botons de redimensionament/símbol (@melvo)</li>
           <li xml:lang="ka">შეიცვალა შეტყობინების შესაყვანი ველის დიზაინი მომრგვალებული კუთხეებითა და ზომაშეცვლილი/სიმბოლური ღილაკების გამოყენებით (@melvo)</li>
+          <li xml:lang="nl">Herontwerp het berichtinvoerveld met afgeronde hoeken en aangepaste/ symbolische knoppen (@melvo)</li>
           <li xml:lang="pt-BR">Redesenho do campo de entrada de mensagens para usar cantos arredondados e botões redimensionados/simbólicos (@melvo)</li>
           <li xml:lang="ru">Изменение оформления поля ввода сообщений: скруглённые углы и кнопки с изменённым размером и символическими значками (@melvo);</li>
           <li xml:lang="sl">Preoblikovanje polja za vnos sporočil z zaobljenimi robovi in ​​gumbi za spremenjeno velikost/simbolnimi gumbi (@melvo)</li>
@@ -2304,6 +2312,7 @@
           <li xml:lang="ca">Afegeix la implementació per a moure les dades del compte a un altre compte, informant els contactes i restaurant la configuració dels contactes moguts (XEP-0283: Moved) (@fazevedo)</li>
           <li xml:lang="ca-valencia">Afig la implementació per a moure les dades del compte a un altre compte, informant els contactes i restaurant la configuració dels contactes moguts (XEP-0283: Moved) (@fazevedo)</li>
           <li xml:lang="ka">დაემატა ანგარიშის მონაცემების სხვა ანგარიშზე გადატანის მხარდაჭერა, კონტაქტების ინფორმირება და გადატანილი კონტაქტებისთვის პარამეტრების აღდგენა (XEP-0283: გადატანილია) (@fazevedo)</li>
+          <li xml:lang="nl">Voeg ondersteuning toe voor het verplaatsen van accountgegevens naar een ander account, het informeren van contactpersonen en het herstellen van instellingen voor verplaatste contactpersonen (XEP-0283: Verplaatst) (@fazevedo)</li>
           <li xml:lang="pt-BR">Adicionado suporte para mover dados de conta para outra conta, notificar os contatos e restaurar as configurações dos contatos movidos (XEP-0283: Movido) (@fazevedo)</li>
           <li xml:lang="ru">Добавлена поддержка перемещения данных учётной записи в другую учётную запись с уведомлением контактов и восстановлением параметров для перемещённых контактов (XEP-0283: Moved) (@fazevedo).</li>
           <li xml:lang="sl">Dodana podpora za premikanje podatkov računa v drug račun, obveščanje stikov in obnavljanje nastavitev za premaknjene stike (XEP-0283: Premaknjeno) (@fazevedo)</li>
@@ -2313,6 +2322,7 @@
           <li xml:lang="ca">Afegeix suport de xat de grup amb invitacions, llistat d'usuaris, menció de participants i filtratge de xat de grup privat/públic (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
           <li xml:lang="ca-valencia">Afig suport de xat de grup amb invitacions, llistat d'usuaris, menció de participants i filtratge de xat de grup privat/públic (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
           <li xml:lang="ka">დაემატა ჯგუფური ჩატის მხარდაჭერა მოწვევებით, მომხმარებელთა სიით, მონაწილეების მონიშვნითა და პირადი/საჯარო ჯგუფური ჩატების ფილტრაციით (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): მონაწილე სერვერის მოთხოვნები, XEP-0406: Mediated Information eXchange (MIX): MIX ადმინისტრირება, XEP-0407: Mediated</li>
+          <li xml:lang="nl">Voeg ondersteuning voor groepschats toe met uitnodigingen, gebruikerslijsten, deelnemersvermeldingen en filtering van privé-/openbare groepschats (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Diverse mogelijkheden) (@melvo)</li>
           <li xml:lang="pt-BR">Adicionado suporte para bate-papo em grupo com convites, lista de usuários, menção de participantes e filtragem de bate-papo em grupo privado/público (XEP-0369: Troca de Informações Mediada (MIX), XEP-0405: Troca de Informações Mediada (MIX): Requisitos do Servidor de Participantes, XEP-0406: Troca de Informações Mediada (MIX): Administração do MIX, XEP-0407: Troca de Informações Mediada (MIX): Recursos Diversos) (@melvo)</li>
           <li xml:lang="ru">Добавлена поддержка групповых чатов с приглашениями, списком пользователей, упоминанием участников и фильтрацией приватных и публичных групповых чатов (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo);</li>
           <li xml:lang="sl">Dodana podpora za skupinski klepet s povabili, seznamom uporabnikov, omembo udeležencev in filtriranjem zasebnih/javnih skupinskih klepetov (XEP-0369: Izmenjava posredovanih informacij (MIX), XEP-0405: Izmenjava posredovanih informacij (MIX): Zahteve za strežnik udeležencev, XEP-0406: Izmenjava posredovanih informacij (MIX): Administracija MIX, XEP-0407: Izmenjava posredovanih informacij (MIX): Razne zmogljivosti) (@melvo)</li>
@@ -2323,6 +2333,7 @@
           <li xml:lang="ca-valencia">Afig un botó per a cancel·lar la correcció de missatges (@melvo)</li>
           <li xml:lang="fr">Ajout d'un bouton pour l'annulation de la correction de message (@melvo)</li>
           <li xml:lang="ka">დაემატა შეტყობინების შესწორების გასაუქმებელი ღილაკი (@melvo)</li>
+          <li xml:lang="nl">Voeg een knop toe om berichtcorrecties te annuleren (@melvo)</li>
           <li xml:lang="pt-BR">Adicionado botão para cancelar a correção da mensagem (@melvo)</li>
           <li xml:lang="ru">Добавлена кнопка отмены исправления сообщений (@melvo).</li>
           <li xml:lang="sl">Dodani gumb za preklic popravka sporočila (@melvo)</li>
@@ -2333,6 +2344,7 @@
           <li xml:lang="ca-valencia">Mostra el marcador de missatges nous (@melvo)</li>
           <li xml:lang="fr">Affichage du marqueur pour les nouveaux messages (@melvo)</li>
           <li xml:lang="ka">დაემატა ახალი შეტყობინებების ინდიკატორის ჩვენება (@melvo)</li>
+          <li xml:lang="nl">Markeerindicator voor nieuwe berichten (@melvo)</li>
           <li xml:lang="pt-BR">Exibir marcador para novas mensagens (@melvo)</li>
           <li xml:lang="ru">Отображать маркер новых сообщений (@melvo);</li>
           <li xml:lang="sl">Prikaz označevalnika za nova sporočila (@melvo)</li>
@@ -2342,6 +2354,7 @@
           <li xml:lang="ca">Afegeix una configuració millorada de tot el compte i de les notificacions per contacte depenent de les mencions de xat de grup i la presència (@melvo)</li>
           <li xml:lang="ca-valencia">Afig una configuració millorada de tot el compte i de les notificacions per contacte depenent de les mencions de xat de grup i la presència (@melvo)</li>
           <li xml:lang="ka">დაემატა შეტყობინებების გაუმჯობესებული პარამეტრები მთლიანი ანგარიშისთვის და თითოეული კონტაქტისთვის, ჯგუფურ ჩატებში ხსენებისა და სტატუსის მიხედვით (@melvo)</li>
+          <li xml:lang="nl">Voeg uitgebreidere meldingsinstellingen toe voor het hele account en per contactpersoon, afhankelijk van vermeldingen in groepschats en aanwezigheid (@melvo)</li>
           <li xml:lang="pt-BR">Adicionadas configurações aprimoradas de notificação para toda a conta e por contato, dependendo de menções e presença no bate-papo em grupo (@melvo)</li>
           <li xml:lang="ru">Добавлены расширенные параметры уведомлений для всей учётной записи и для отдельных контактов в зависимости от упоминаний в групповых чатах и статуса (@melvo);</li>
           <li xml:lang="sl">Dodane izboljšane nastavitve obveščanja za celoten račun in posamezen stik, odvisno od o omembah in prisotnosti v skupinskih klepetih (@melvo)</li>
@@ -2352,6 +2365,7 @@
           <li xml:lang="ca-valencia">Enfoca adequadament els camps d'entrada (@melvo)</li>
           <li xml:lang="fr">Focus donné correctement aux champs de saisie (@melvo)</li>
           <li xml:lang="ka">შესაყვანი ველების შესაბამისი ფოკუსირება (@melvo)</li>
+          <li xml:lang="nl">Focus invoervelden op de juiste manier (@melvo)</li>
           <li xml:lang="pt-BR">Focalizar os campos de entrada adequadamente (@melvo)</li>
           <li xml:lang="ru">Настройка фокуса на полях ввода (@melvo);</li>
           <li xml:lang="sl">Ustrezno fokusiranje vnosnih polj (@melvo)</li>
@@ -2361,6 +2375,7 @@
           <li xml:lang="ca">Afegeix la implementació per a respondre als missatges (XEP-0461: Message Replies) (@melvo)</li>
           <li xml:lang="ca-valencia">Afig la implementació per a respondre als missatges (XEP-0461: Message Replies) (@melvo)</li>
           <li xml:lang="ka">დაემატა შეტყობინებებზე პასუხის გაცემის მხარდაჭერა (XEP-0461: პასუხები შეტყობინებებზე) (@melvo)</li>
+          <li xml:lang="nl">Ondersteuning toevoegen voor het beantwoorden van berichten (XEP-0461: Berichtreacties) (@melvo)</li>
           <li xml:lang="pt-BR">Adicionado suporte para responder a mensagens (XEP-0461: Respostas a mensagens) (@melvo)</li>
           <li xml:lang="ru">Добавлена поддержка ответов на сообщения (XEP-0461: Message Replies) (@melvo).</li>
           <li xml:lang="sl">Dodajanje podpore za odgovarjanje na sporočila (XEP-0461: Odgovori na sporočila) (@melvo)</li>
@@ -2370,6 +2385,7 @@
           <li xml:lang="ca">Indica que el Kaidan està ocupat durant la supressió del compte i les accions de xat de grup (@melvo)</li>
           <li xml:lang="ca-valencia">Indica que Kaidan està ocupat durant la supressió del compte i les accions de xat de grup (@melvo)</li>
           <li xml:lang="ka">მითითება, რომ Kaidan დაკავებულია ანგარიშის წაშლისა და ჯგუფური ჩატის ქმედებების დროს (@melvo)</li>
+          <li xml:lang="nl">Geef aan dat Kaidan bezig is tijdens het verwijderen van accounts en acties in groepschats. (@melvo)</li>
           <li xml:lang="pt-BR">Indicar que Kaidan está ocupado durante a exclusão de contas e ações em grupos de bate-papo (@melvo)</li>
           <li xml:lang="ru">Указывать на занятость Kaidan при удалении учётной записи и действиях в групповых чатах (@melvo);</li>
           <li xml:lang="sl">Označevanje, da je Kaidan zaseden med brisanjem računa in dejanji skupinskega klepeta (@melvo)</li>
@@ -2379,6 +2395,7 @@
           <li xml:lang="ca">Oculta el botó d'esborrar el compte si no s'admet el registre «In-Band» (@melvo)</li>
           <li xml:lang="ca-valencia">Oculta el botó d'esborrar el compte si no s'admet el registre «In-Band» (@melvo)</li>
           <li xml:lang="ka">ანგარიშის წაშლის ღილაკის დამალვა, თუ ზოლშიდა რეგისტრაცია მხარდაჭერილი არაა (@melvo)</li>
+          <li xml:lang="nl">Verberg de knop voor het verwijderen van accounts als in-band registratie niet wordt ondersteund. (@melvo)</li>
           <li xml:lang="pt-BR">Ocultar botão de exclusão de conta se o registro na banda não for compatível (@melvo)</li>
           <li xml:lang="ru">Скрывать кнопку удаления учётной записи, если регистрация в канале не поддерживается (@melvo).</li>
           <li xml:lang="sl">Skrivanje gumba za brisanje računa, če registracija znotraj pasu ni podprta (@melvo)</li>
@@ -2388,6 +2405,7 @@
           <li xml:lang="ca">Incrusta l'àrea d'inici de sessió a la pàgina d'escaneig de codi QR i la pàgina web de registre en lloc d'obrir la pàgina d'inici (@melvo)</li>
           <li xml:lang="ca-valencia">Incrusta l'àrea d'inici de sessió a la pàgina d'escaneig de codi QR i la pàgina web de registre en lloc d'obrir la pàgina d'inici (@melvo)</li>
           <li xml:lang="ka">სისტემაში შესვლის არეს ჩაშენება QR კოდის სკანირებისა და ვებ-რეგისტრაციის გვერდზე საწყისი გვერდის გახსნის ნაცვლად (@melvo)</li>
+          <li xml:lang="nl">Integreer het inloggedeelte in de pagina voor het scannen van QR-codes en de pagina voor webregistratie in plaats van de startpagina te openen (@melvo)</li>
           <li xml:lang="pt-BR">Incorporar a área de login na página para leitura do código QR e a página para cadastro na web em vez de abrir a página inicial (@melvo)</li>
           <li xml:lang="ru">Встраивание области входа на страницу для сканирования QR-кода и страницу для регистрации через веб-интерфейс вместо открытия стартовой страницы (@melvo).</li>
           <li xml:lang="sl">Vdelava območja za prijavo na stran za skeniranje QR kode in stran za spletno registracijo namesto odpiranja začetne strani (@melvo)</li>
@@ -2397,6 +2415,7 @@
           <li xml:lang="ca">Redisseny de la interfície d'usuari d'incorporació que inclou una pàgina nova per a triar el proveïdor on crear un compte (@melvo)</li>
           <li xml:lang="ca-valencia">Redisseny de la interfície d'usuari d'incorporació que inclou una pàgina nova per a triar el proveïdor on crear un compte (@melvo)</li>
           <li xml:lang="ka">სრულად შეიცვალა მომხმარებლის მომზადების ინტერფეისის დიზაინი, მათ შორის დაემატა ახალი გვერდი ანგარიშის შესაქმნელად პროვაიდერის ასარჩევად (@melvo)</li>
+          <li xml:lang="nl">Herontwerp van de onboarding-gebruikersinterface, inclusief een nieuwe pagina voor het kiezen van een provider om een ​​account aan te maken op (@melvo).</li>
           <li xml:lang="pt-BR">Redesenho da interface de integração do usuário, incluindo uma nova página para escolher o provedor para criar uma conta (@melvo)</li>
           <li xml:lang="ru">Изменён интерфейс первоначальной настройки, включая добавление страницы выбора поставщика услуг для создания учётной записи (@melvo).</li>
           <li xml:lang="sl">Preoblikovanje uporabniškega vmesnika za uvajanje, vključno z novo stranjo za izbiro ponudnika za ustvarjanje računa (@melvo)</li>
@@ -2406,6 +2425,7 @@
           <li xml:lang="ca">Gestiona diversos casos extrems que es poden produir durant la creació del compte (@melvo)</li>
           <li xml:lang="ca-valencia">Gestiona diversos casos extrems que es poden produir durant la creació del compte (@melvo)</li>
           <li xml:lang="ka">ანგარიშის შექმნისას შესაძლო სხვადასხვა რთული შემთხვევების დამუშავება (@melvo)</li>
+          <li xml:lang="nl">Behandel diverse uitzonderingen die zich kunnen voordoen tijdens het aanmaken van een account (@melvo)</li>
           <li xml:lang="pt-BR">Tratamento de vários casos extremos que podem ocorrer durante a criação de contas (@melvo)</li>
           <li xml:lang="ru">Обработаны различные частные случаи, которые могут возникать при создании учётной записи (@melvo);</li>
           <li xml:lang="sl">Obravnavanje različnih kritičnih primerov, ki se lahko pojavijo med ustvarjanjem računa (@melvo)</li>
@@ -2416,6 +2436,7 @@
           <li xml:lang="ca-valencia">Actualitza als proveïdors de XMPP v2 (@melvo)</li>
           <li xml:lang="fr">Mise à jour des fournisseurs de XMPP v2 (@melvo)</li>
           <li xml:lang="ka">განახლება XMPP Providers v2-მდე (@melvo)</li>
+          <li xml:lang="nl">Bijwerken naar XMPP-providers v2 (@melvo)</li>
           <li xml:lang="pt-BR">Atualização para provedores XMPP v2 (@melvo)</li>
           <li xml:lang="ru">Обновление списка серверов XMPP до версии 2 (@melvo);</li>
           <li xml:lang="sl">Posodobitev na ponudnike XMPP v2 (@melvo)</li>
@@ -2426,6 +2447,7 @@
           <li xml:lang="ca-valencia">Oculta el botó de missatge de veu si no s'admet la pujada (@melvo)</li>
           <li xml:lang="fr">Masquage du bouton de message vocal si l'envoi n'est pas pris en charge (@melvo)</li>
           <li xml:lang="ka">ხმოვანი შეტყობინების ღილაკის დამალვა, თუ ატვირთვის მხარდაჭერა არ არის (@melvo)</li>
+          <li xml:lang="nl">Verberg de knop voor spraakberichten als uploaden niet wordt ondersteund (@melvo)</li>
           <li xml:lang="pt-BR">Ocultar botão de mensagem de voz se o upload não for compatível (@melvo)</li>
           <li xml:lang="ru">Скрытие кнопки голосовых сообщений, если отправка не поддерживается (@melvo).</li>
           <li xml:lang="sl">Skrivanje gumba za glasovno sporočilo, če nalaganje ni podprto (@melvo)</li>
@@ -2435,6 +2457,7 @@
           <li xml:lang="ca">Reemplaça les imatges personalitzades dels estats de lliurament de missatges per icones de tema normals (@melvo)</li>
           <li xml:lang="ca-valencia">Reemplaça les imatges personalitzades dels estats de lliurament de missatges per icones de tema normals (@melvo)</li>
           <li xml:lang="ka">შეტყობინების მიწოდების სტატუსების მორგებული სურათების ჩანაცვლება თემის სტანდარტული ხატულებით (@melvo)</li>
+          <li xml:lang="nl">Vervang de aangepaste afbeeldingen voor de status van berichtbezorging door de standaard thema-pictogrammen. (@melvo)</li>
           <li xml:lang="pt-BR">Substituição das imagens personalizadas dos estados de entrega de mensagens pelos ícones padrão do tema (@melvo)</li>
           <li xml:lang="ru">Замена пользовательских изображений для состояний доставки сообщений на стандартные значки оформления (@melvo);</li>
           <li xml:lang="sl">Zamenjava slik po meri za stanja dostave sporočil z običajnimi ikonami teme (@melvo)</li>
@@ -2444,6 +2467,7 @@
           <li xml:lang="ca">Allibera l'espai de contingut del missatge amagant els avatars innecessaris i augmentant l'amplada màxima de la bombolla de missatge (@melvo)</li>
           <li xml:lang="ca-valencia">Allibera l'espai de contingut del missatge amagant els avatars innecessaris i augmentant l'amplària màxima de la bambolla de missatge (@melvo)</li>
           <li xml:lang="ka">შეტყობინების შემცველობის სივრცის გათავისუფლება ზედმეტი ავატარების დამალვითა და შეტყობინების ბუშტუკის მაქსიმალური სიგანის გაზრდით (@melvo)</li>
+          <li xml:lang="nl">Maak ruimte vrij in uw berichten door onnodige avatars te verbergen en de maximale breedte van de berichtballon te vergroten (@melvo)</li>
           <li xml:lang="pt-BR">Liberar espaço no conteúdo da mensagem ocultando avatares desnecessários e aumentando a largura máxima do balão de mensagem (@melvo)</li>
           <li xml:lang="ru">Освобождено место под содержимое сообщений скрытием ненужных аватарок и увеличением максимальной ширины пузыря сообщений (@melvo);</li>
           <li xml:lang="sl">Sprostitev prostora za vsebino sporočila s skrivanjem nepotrebnih avatarjev in povečanjem največje širine mehurčka sporočila (@melvo)</li>
@@ -2453,6 +2477,7 @@
           <li xml:lang="ca">Ressalta el text de l'esborrany del missatge per a veure fàcilment que encara no s'ha enviat (@melvo)</li>
           <li xml:lang="ca-valencia">Ressalta el text de l'esborrany del missatge per a veure amb facilitat que encara no s'ha enviat (@melvo)</li>
           <li xml:lang="ka">შეტყობინების მონახაზის ტექსტის გამოკვეთა მარტივად დასანახად, თუ რა არ არის ჯერ გაგზავნილი (@melvo)</li>
+          <li xml:lang="nl">Accentueer de concepttekst van een bericht om gemakkelijk te zien wat nog niet verzonden is (@melvo)</li>
           <li xml:lang="pt-BR">Destaque o texto da mensagem em rascunho para ver facilmente o que ainda não foi enviado (@melvo)</li>
           <li xml:lang="ru">Выделение текста черновика сообщения для лёгкого определения ещё неотправленного (@melvo);</li>
           <li xml:lang="sl">Označevanje besedila osnutka sporočila za lažji pregled vsebine, ki še ni poslana (@melvo)</li>
@@ -2462,6 +2487,7 @@
           <li xml:lang="ca">Emmagatzema els elements multimèdia enviats en els directoris adequats amb extensions de fitxer apropiades (@melvo)</li>
           <li xml:lang="ca-valencia">Emmagatzema els elements multimèdia enviats en els directoris adequats amb extensions de fitxer apropiades (@melvo)</li>
           <li xml:lang="ka">გაგზავნილი მედიის შენახვა შესაბამის საქაღალდეებში ფაილების სათანადო გაფართოებებით (@melvo)</li>
+          <li xml:lang="nl">Bewaar verzonden media in geschikte mappen met de juiste bestandsextensies. (@melvo)</li>
           <li xml:lang="pt-BR">Armazenar as mídias enviadas em diretórios adequados com as extensões de arquivo apropriadas (@melvo)</li>
           <li xml:lang="ru">Сохранение отправленных медиафайлов в подходящих каталогах с соответствующими расширениями (@melvo);</li>
           <li xml:lang="sl">Shranjevanje poslanih medijev v ustrezne imenike z ustreznimi končnicami datotek (@melvo)</li>
@@ -2471,6 +2497,7 @@
           <li xml:lang="ca">Permet l'enviament d'elements multimèdia amb menys passos des de l'enregistrament a l'enviament (@melvo)</li>
           <li xml:lang="ca-valencia">Permet l'enviament d'elements multimèdia amb menys passos des de la gravació a l'enviament (@melvo)</li>
           <li xml:lang="ka">მედიის გაგზავნის დაშვება ნაკლები ნაბიჯით ჩაწერიდან გაგზავნამდე (@melvo)</li>
+          <li xml:lang="nl">Maak het mogelijk om media met minder stappen te versturen, van opnemen tot verzenden (@melvo)</li>
           <li xml:lang="pt-BR">Permitir o envio de mídia com menos etapas, da gravação ao envio (@melvo)</li>
           <li xml:lang="ru">Упрощена отправка медиафайлов: от записи до отправки (@melvo);</li>
           <li xml:lang="sl">Omogočanje pošiljanja medijev z manj koraki od Snemanje za pošiljanje (@melvo)</li>
@@ -2480,6 +2507,7 @@
           <li xml:lang="ca">Afegeix elements multimèdia que s'enviaran a l'àrea desplaçable sobre el camp d'entrada del missatge (@melvo)</li>
           <li xml:lang="ca-valencia">Afig elements multimèdia que s'enviaran a l'àrea desplaçable sobre el camp d'entrada del missatge (@melvo)</li>
           <li xml:lang="ka">დაემატა გასაგზავნი მედიის განთავსება შეტყობინების შესაყვანი ველის ზემოთ, გადახვევად არეში (@melvo)</li>
+          <li xml:lang="nl">Voeg de media die u wilt versturen toe in het schuifbare gedeelte boven het berichtinvoerveld (@melvo)</li>
           <li xml:lang="pt-BR">Adicionar mídia para ser enviada na área rolável acima do campo de entrada de mensagem (@melvo)</li>
           <li xml:lang="ru">Добавление медиафайлов для отправки в прокручиваемую область над полем ввода сообщений (@melvo);</li>
           <li xml:lang="sl">Dodajte medije za pošiljanje v pomikalnem območju nad poljem za vnos sporočila (@melvo)</li>
@@ -2489,6 +2517,7 @@
           <li xml:lang="ca">Mostra les imatges originals (si estan disponibles) com a vistes prèvies en lloc de les seves miniatures (@melvo)</li>
           <li xml:lang="ca-valencia">Mostra les imatges originals (si estan disponibles) com a vistes prèvies en lloc de les seues miniatures (@melvo)</li>
           <li xml:lang="ka">ორიგინალი სურათების (თუ ხელმისაწვდომია) ჩვენება ესკიზებად მათი მინიატურების ნაცვლად (@melvo)</li>
+          <li xml:lang="nl">Toon de originele afbeeldingen (indien beschikbaar) als voorbeelden in plaats van hun miniaturen (@melvo)</li>
           <li xml:lang="pt-BR">Exibir as imagens originais (se disponíveis) como pré-visualizações em vez de suas miniaturas (@melvo)</li>
           <li xml:lang="ru">Показ исходных изображений (если доступны) в качестве предпросмотра вместо их миниатюр (@melvo);</li>
           <li xml:lang="sl">Prikažite izvirne slike (če so na voljo) kot predoglede namesto njihovih sličic (@melvo)</li>
@@ -2498,6 +2527,7 @@
           <li xml:lang="ca">Mostra miniatures d'alta resolució per als vídeos emmagatzemats localment com a vistes prèvies en lloc de les seves miniatures (@melvo)</li>
           <li xml:lang="ca-valencia">Mostra miniatures d'alta resolució per als vídeos emmagatzemats localment com a vistes prèvies en lloc de les seues miniatures (@melvo)</li>
           <li xml:lang="ka">ლოკალურად შენახული ვიდეოებისთვის მაღალი გარჩევადობის მინიატურების ჩვენება ესკიზებად მათი მინიატურების ნაცვლად (@melvo)</li>
+          <li xml:lang="nl">Toon miniaturen met hoge resolutie voor lokaal opgeslagen video's als voorbeelden in plaats van hun miniaturen (@melvo)</li>
           <li xml:lang="pt-BR">Exibir miniaturas de alta resolução para vídeos armazenados localmente como pré-visualizações em vez de suas miniaturas (@melvo)</li>
           <li xml:lang="ru">Показ эскизов высокого разрешения для локально хранящихся видео вместо стандартных миниатюр (@melvo);</li>
           <li xml:lang="sl">Prikažite sličice visoke ločljivosti za lokalno shranjene videoposnetke kot predoglede namesto njihovih sličic (@melvo)</li>
@@ -2508,6 +2538,7 @@
           <li xml:lang="ca-valencia">Envia miniatures més xicotetes (@melvo)</li>
           <li xml:lang="fr">Envoi de vignettes plus petites (@melvo)</li>
           <li xml:lang="ka">უფრო მცირე ზომის მინიატურების გაგზავნა (@melvo)</li>
+          <li xml:lang="nl">Stuur kleinere miniaturen (@melvo)</li>
           <li xml:lang="pt-BR">Enviar miniaturas menores (@melvo)</li>
           <li xml:lang="ru">Отправка уменьшенных эскизов (@melvo);</li>
           <li xml:lang="sl">Pošljite manjše sličice (@melvo)</li>
@@ -2517,6 +2548,7 @@
           <li xml:lang="ca">Mostra l'estat de la càmera i torna a carregar la càmera un cop connectada per a fer fotos o gravar vídeos (@melvo)</li>
           <li xml:lang="ca-valencia">Mostra l'estat de la càmera i torna a carregar la càmera una vegada connectada per a fer fotos o gravar vídeos (@melvo)</li>
           <li xml:lang="ka">კამერის სტატუსის ჩვენება და კამერის ხელახლა ჩატვირთვა მისი მიერთებისთანავე სურათების გადასაღებად ან ვიდეოების ჩასაწერად (@melvo)</li>
+          <li xml:lang="nl">Toon de camerastatus en laad de camera opnieuw zodra deze is aangesloten om foto's te maken of video's op te nemen (@melvo)</li>
           <li xml:lang="pt-BR">Mostrar o status da câmera e recarregar a câmera assim que ela for conectada para tirar fotos ou gravar vídeos (@melvo)</li>
           <li xml:lang="ru">Показ состояния камеры и её перезагрузка после подключения для съёмки фото или записи видео (@melvo);</li>
           <li xml:lang="sl">Prikažite stanje kamere in ponovno naložite kamero, ko je priključena za fotografiranje ali snemanje videoposnetkov (@melvo)</li>
