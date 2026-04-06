@@ -27,7 +27,6 @@ Controls.Pane {
 	property GroupChatParticipantPicker participantPicker
 	property var lastFixedCursorRectangle
 	property int lastMessageLength: 0
-	property real horizontalContentMargin: Kirigami.Units.smallSpacing
 	property MessageComposition composition: MessageComposition {
 		chatController: root.chatPage.chatController
 		body: messageArea.text
@@ -51,6 +50,10 @@ Controls.Pane {
 			}
 		}
 		onPreparedForNewChat: {
+			if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
+				voiceMessageRecorder.cancel()
+			}
+
 			if (isForwarding) {
 				messageArea.text = body
 
@@ -67,10 +70,10 @@ Controls.Pane {
 	bottomInset: Kirigami.Units.largeSpacing
 	leftInset: bottomInset
 	rightInset: bottomInset
-	topPadding: topInset + Kirigami.Units.mediumSpacing
-	bottomPadding: bottomInset + Kirigami.Units.mediumSpacing
-	leftPadding: leftInset + Kirigami.Units.mediumSpacing
-	rightPadding: rightInset + Kirigami.Units.mediumSpacing
+	topPadding: topInset + Kirigami.Units.smallSpacing
+	bottomPadding: bottomInset + Kirigami.Units.smallSpacing
+	leftPadding: leftInset + Kirigami.Units.smallSpacing
+	rightPadding: rightInset + Kirigami.Units.smallSpacing
 	background: Kirigami.ShadowedRectangle {
 		shadow.color: Qt.darker(color, 1.2)
 		shadow.size: 4
@@ -90,17 +93,18 @@ Controls.Pane {
 			messageId: root.composition.replyId
 			body: root.composition.replyQuote
 			messageListView: root.chatPage.messageListView
-			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.horizontalContentMargin - root.rightPadding
+			spacing: root.rightPadding - root.rightInset
+			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.rightPadding
 			maximumWidth: minimumWidth
 			backgroundRadius: root.background.radius
 			quoteBarVisible: false
 			visible: root.composition.replyId
 			Layout.bottomMargin: Kirigami.Units.largeSpacing
 
-			ClickableIcon {
+			IconButton {
 				id: replyCancelingButton
 				Controls.ToolTip.text: qsTr("Cancel reply")
-				source: "window-close-symbolic"
+				icon.source: "window-close-symbolic"
 				onClicked: root.cancelReply()
 			}
 		}
@@ -111,7 +115,8 @@ Controls.Pane {
 			delegate: MediumSendingPreview {
 				selectionModel: mediaList.model
 				modelData: model
-				minimumWidth: root.width - root.leftPadding - root.horizontalContentMargin - root.rightPadding - (ListView.view.Controls.ScrollBar.vertical.visible ? ListView.view.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing : 0)
+				spacing: root.rightPadding - root.rightInset
+				minimumWidth: root.width - root.leftPadding - root.rightPadding - (ListView.view.Controls.ScrollBar.vertical.visible ? ListView.view.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing : 0)
 				maximumWidth: minimumWidth
 				mainAreaBackground.radius: root.background.radius
 				previewImage.radius: root.background.radius
@@ -131,8 +136,6 @@ Controls.Pane {
 		RowLayout {
 			visible: root.composition.isSpoiler
 			spacing: 0
-			Layout.leftMargin: root.horizontalContentMargin
-			Layout.rightMargin: root.horizontalContentMargin
 
 			FormattedTextArea {
 				id: spoilerHintArea
@@ -142,9 +145,9 @@ Controls.Pane {
 				Layout.fillWidth: true
 			}
 
-			ClickableIcon {
+			IconButton {
 				Controls.ToolTip.text: qsTr("Cancel adding hidden message part")
-				source: "window-close-symbolic"
+				icon.source: "window-close-symbolic"
 				onClicked: {
 					root.composition.isSpoiler = false
 					spoilerHintArea.clear()
@@ -156,19 +159,16 @@ Controls.Pane {
 		Kirigami.Separator {
 			visible: root.composition.isSpoiler
 			Layout.fillWidth: true
-			Layout.margins: root.horizontalContentMargin
 		}
 
 		RowLayout {
-			spacing: Kirigami.Units.largeSpacing
-			Layout.leftMargin: root.horizontalContentMargin
-			Layout.rightMargin: root.horizontalContentMargin
+			spacing: 0
 
 			// emoji picker button
-			ClickableIcon {
+			IconButton {
 				id: emojiButton
-				source:  "emoji-people-symbolic"
-				fallback: "smiley-symbolic"
+				icon.source:  "emoji-people-symbolic"
+				iconFallback: "smiley-symbolic"
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				Controls.ToolTip.text: root.emojiPicker ? qsTr("Cancel") : qsTr("Add an emoji")
 				onClicked: {
@@ -195,11 +195,10 @@ Controls.Pane {
 			}
 
 			// group chat participant mentioning button
-			ClickableIcon {
-				source: "avatar-default-symbolic"
+			IconButton {
+				icon.source: "avatar-default-symbolic"
 				visible: root.chatPage.chatController.rosterItem.isGroupChat
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
-				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Mention a participant")
 				onClicked: {
 					messageArea.selectWord()
@@ -222,10 +221,6 @@ Controls.Pane {
 						}
 					}
 				}
-
-				Behavior on opacity {
-					NumberAnimation {}
-				}
 			}
 
 			FormattedTextArea {
@@ -233,13 +228,19 @@ Controls.Pane {
 				placeholderText: {
 					if (root.composition.isSpoiler) {
 						return root.chatPage.chatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
-					} else {
-						return root.chatPage.chatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 					}
+
+					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
+						return ""
+					}
+
+					return root.chatPage.chatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 				}
 				background: null
-				Layout.leftMargin: Style.isMaterial ? 6 : 0
-				Layout.rightMargin: Style.isMaterial ? 6 : 0
+				leftPadding: 0
+				rightPadding: 0
+				Layout.leftMargin: Style.isMaterial ? 6 : Kirigami.Units.smallSpacing
+				Layout.rightMargin: Style.isMaterial ? 6 : Kirigami.Units.smallSpacing
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
@@ -350,52 +351,52 @@ Controls.Pane {
 
 			RowLayout {
 				id: expansionArea
-				visible: false
-				opacity: visible ? 1 : 0
+				opacity: 0
+				visible: opacity
 				spacing: parent.spacing
 
 				Behavior on opacity {
 					NumberAnimation {}
 				}
 
-				ClickableIcon {
+				IconButton {
 					Controls.ToolTip.text: qsTr("Take a picture")
-					source: "camera-photo-symbolic"
+					icon.source: "camera-photo-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(imageCaptureDialog)
 				}
 
-				ClickableIcon {
+				IconButton {
 					Controls.ToolTip.text: qsTr("Record a video")
-					source: "camera-video-symbolic"
+					icon.source: "camera-video-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(videoRecordingDialog)
 				}
 
-				ClickableIcon {
+				IconButton {
 					Controls.ToolTip.text: qsTr("Share files")
-					source: "folder-symbolic"
+					icon.source: "folder-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: {
-						expansionArea.visible = false
+						expansionArea.close()
 						root.composition.fileSelectionModel.selectFile()
 					}
 				}
 
-				ClickableIcon {
+				IconButton {
 					Controls.ToolTip.text: qsTr("Share your location")
-					source: "mark-location-symbolic"
+					icon.source: "mark-location-symbolic"
 					visible: root.chatPage.chatController.account.connection.state === Enums.StateConnected
 					onClicked: expansionArea.openDialog(geoLocationSharingDialog)
 				}
 
-				ClickableIcon {
+				IconButton {
 					Controls.ToolTip.text: qsTr("Add hidden message part")
-					source: "eye-not-looking-symbolic"
-					fallback: "password-show-off"
+					icon.source: "eye-not-looking-symbolic"
+					iconFallback: "password-show-off"
 					visible: !root.composition.isSpoiler
 					onClicked: {
-						expansionArea.visible = false
+						expansionArea.close()
 						root.composition.isSpoiler = true
 						spoilerHintArea.forceActiveFocus()
 					}
@@ -425,22 +426,50 @@ Controls.Pane {
 					}
 				}
 
+				function toggle() {
+					opacity = opacity ? 0 : 1
+				}
+
+				function open() {
+					opacity = 1
+				}
+
+				function close() {
+					opacity = 0
+				}
+
 				function openDialog(dialog) {
-					visible = false
+					close()
 					openOverlay(dialog)
 				}
 			}
 
 			// Expansion button
-			ClickableIcon {
+			IconButton {
 				Controls.ToolTip.text: expansionArea.visible ? qsTr("Hide") :qsTr("More")
-				source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
-				visible: !root.composition.replaceId && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
-				opacity: visible ? 1 : 0
-				onClicked: expansionArea.visible = !expansionArea.visible
+				icon.source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
+				opacity: !root.composition.replaceId && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState ? 1 : 0
+				onClicked: expansionArea.toggle()
+			}
 
-				Behavior on opacity {
-					NumberAnimation {}
+			RowLayout {
+				spacing: parent.spacing
+				visible: voiceMessageButton.recordingWhileHolding
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				Kirigami.Theme.inherit: false
+				Layout.rightMargin: Kirigami.Units.smallSpacing
+
+				Text {
+					text: qsTr("Slide to cancel")
+					color: Kirigami.Theme.disabledTextColor
+				}
+
+				Kirigami.Icon {
+					source: "go-previous-symbolic"
+					color: Kirigami.Theme.disabledTextColor
+					isMask: true
+					implicitWidth: Kirigami.Units.iconSizes.small
+					implicitHeight: Kirigami.Units.iconSizes.small
 				}
 			}
 
@@ -450,6 +479,7 @@ Controls.Pane {
 				visible: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				duration: voiceMessageRecorder.duration
+				Layout.rightMargin: Kirigami.Units.smallSpacing
 
 				Behavior on opacity {
 					NumberAnimation {}
@@ -480,31 +510,58 @@ Controls.Pane {
 			}
 
 			// Voice message button
-			ClickableIcon {
-				Controls.ToolTip.text: qsTr("Send a voice message")
-				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId
-				opacity: visible ? 1 : 0
+			IconButton {
+				id: voiceMessageButton
+
+				// Whether a voice message is recorded after a long press.
+				// If true, the recorded voice message is sent once this button is released at its original position.
+				// The recording can be canceled if this button is released after sliding it to the left.
+				property bool recordingWhileHolding: false
+
+				Controls.ToolTip.text: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? qsTr("Send") : qsTr("Record a voice message")
+				icon.source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
+				opacity: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId ? 1 : 0
+				longPressBehaviorEnabled: false
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.stop()
 					} else {
-						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFileUrl()
-						voiceMessageRecorder.record()
-						expansionArea.visible = false
+						voiceMessageRecorder.startRecording()
+						expansionArea.close()
+					}
+				}
+				onPressAndHold: {
+					if (voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState) {
+						recordingWhileHolding = true
+						voiceMessageRecorder.startRecording()
+						expansionArea.close()
+					}
+				}
+				onReleased: {
+					if (recordingWhileHolding) {
+						voiceMessageRecorder.stop()
 					}
 				}
 
-				Behavior on opacity {
-					NumberAnimation {}
+				DragHandler {
+					id: voiceMessageButtonDragHandler
+					target: null
+					onActiveChanged: {
+						if (!active) {
+							if (cancelButton.visible) {
+								voiceMessageRecorder.cancel()
+							} else {
+								voiceMessageRecorder.stop()
+							}
+						}
+					}
 				}
 			}
 
-			ClickableIcon {
+			IconButton {
 				id: sendButton
-				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
-				opacity: visible ? 1 : 0
+				icon.source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
+				opacity: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId)) ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				onClicked: {
 					// Do not allow sending via keys if hidden.
@@ -533,28 +590,26 @@ Controls.Pane {
 					// on it) was focused before.
 					root.forceActiveFocus()
 				}
+			}
 
-				Behavior on opacity {
-					NumberAnimation {}
-				}
+			Item {
+				id: voiceMessageCancelButtonPlaceholder
+				implicitWidth: voiceMessageButtonDragHandler.centroid.scenePressPosition.x - voiceMessageButtonDragHandler.centroid.scenePosition.x
+				visible: voiceMessageButton.recordingWhileHolding && !cancelButton.visible
 			}
 
 			// Button to cancel message correction or voice message recording
-			ClickableIcon {
-				visible: root.composition.replaceId || voiceMessageRecorder.recorderState === MediaRecorder.RecordingState
-				opacity: visible ? 1 : 0
-				source: "window-close-symbolic"
+			IconButton {
+				id: cancelButton
+				Controls.ToolTip.text: qsTr("Cancel")
+				visible: root.composition.replaceId || (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState && (!voiceMessageButton.recordingWhileHolding || voiceMessageCancelButtonPlaceholder.implicitWidth >= width))
+				icon.source: "window-close-symbolic"
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
-						voiceMessageRecorder.recordingCanceled = true
-						voiceMessageRecorder.stop()
+						voiceMessageRecorder.cancel()
 					} else {
 						root.cancelCorrection()
 					}
-				}
-
-				Behavior on opacity {
-					NumberAnimation {}
 				}
 			}
 
@@ -612,20 +667,33 @@ Controls.Pane {
 				recorder: MediaRecorder {
 					id: voiceMessageRecorder
 
-					property bool recordingCanceled: false
+					property bool canceled: false
 
 					onRecorderStateChanged: {
 						if (recorderState === MediaRecorder.StoppedState) {
 							// Delete or send the recorded voice message once its data is completely
 							// processed.
-							if (recordingCanceled) {
-								recordingCanceled = false
+							if (canceled) {
+								canceled = false
 								MediaUtils.deleteFile(actualLocation)
 							} else {
 								root.composition.fileSelectionModel.addVoiceMessageFile(actualLocation)
 								root.composition.send()
 							}
+
+							voiceMessageButton.recordingWhileHolding = false
+							root.forceActiveFocus()
 						}
+					}
+
+					function startRecording() {
+						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFileUrl()
+						voiceMessageRecorder.record()
+					}
+
+					function cancel() {
+						canceled = true
+						stop()
 					}
 				}
 			}
@@ -828,6 +896,6 @@ Controls.Pane {
 	function clear() {
 		messageArea.clear()
 		spoilerHintArea.clear()
-		expansionArea.visible = false
+		expansionArea.close()
 	}
 }

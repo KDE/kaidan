@@ -14,6 +14,8 @@ Controls.AbstractButton {
 
 	property color backgroundColor: Kirigami.Theme.textColor
 	property bool flat: true
+	property alias iconFallback: contentIcon.fallback
+	property bool longPressBehaviorEnabled: true
 	property bool _longPressed: false
 
 	hoverEnabled: true
@@ -30,6 +32,7 @@ Controls.AbstractButton {
 		}
 	}
 	contentItem: Kirigami.Icon {
+		id: contentIcon
 		source: root.icon.source
 		color: root.icon.color
 		isMask: !Qt.colorEqual(color, "transparent")
@@ -49,16 +52,18 @@ Controls.AbstractButton {
 	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
 	onClicked: Controls.ToolTip.hide()
 	onPressAndHold: {
-		_longPressed = true
+		if (longPressBehaviorEnabled) {
+			_longPressed = true
 
-		if (Kirigami.Settings.isMobile) {
-			Controls.ToolTip.visible = true
+			if (Kirigami.Settings.isMobile) {
+				Controls.ToolTip.visible = true
+			}
 		}
 	}
 	onReleased: {
 		// Simulate clicking if the mouse cursor is still on the button while releasing after a long press.
 		// That is needed because if "onPressAndHold" is used, the desired functionality does not work anymore.
-		if (!Kirigami.Settings.isMobile && _longPressed) {
+		if (longPressBehaviorEnabled && !Kirigami.Settings.isMobile && _longPressed) {
 			_longPressed = false
 
 			if (checkable) {
