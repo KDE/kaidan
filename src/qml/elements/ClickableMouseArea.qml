@@ -13,6 +13,7 @@ import org.kde.kirigami as Kirigami
  * The parent of this item needs to have a "color" property and a "clicked" signal.
  */
 MouseArea {
+	property color baseColor
 	property bool remainTooltip: false
 
 	anchors.fill: parent
@@ -50,7 +51,7 @@ MouseArea {
 		}
 	}
 	onExited: {
-		parent.color = Kirigami.Theme.disabledTextColor
+		parent.color = baseColor
 	}
 	onClicked: {
 		parent.clicked()
@@ -61,4 +62,5 @@ MouseArea {
 			exited()
 		}
 	}
+	Component.onCompleted: baseColor = parent.color
 }
