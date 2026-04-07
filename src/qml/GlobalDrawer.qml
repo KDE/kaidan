@@ -43,7 +43,6 @@ Kirigami.GlobalDrawer {
 	}
 
 	handleVisible: false
-	enabled: pageStack.visibleItems.length && pageStack.visibleItems[0] instanceof RosterPage && (pageStack.wideMode || pageStack.trailingVisibleItem instanceof RosterPage)
 	topContent: [
 		ColumnLayout {
 			spacing: Kirigami.Units.largeSpacing
