@@ -335,7 +335,6 @@ SearchBarPage {
 			}
 		}
 		highlightMoveDuration: Kirigami.Units.longDuration
-		// Connect to the database,
 		model: root.chatController.messageModel
 		visibleArea.onYPositionChanged: handleMessageRead()
 		delegate: ChatMessage {
