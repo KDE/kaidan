@@ -8,7 +8,7 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-Controls.ItemDelegate {
+Controls.AbstractButton {
 	id: root
 
 	property color backgroundColor: secondaryBackgroundColor
@@ -16,7 +16,9 @@ Controls.ItemDelegate {
 	property var iconSource
 	property double iconSize: Kirigami.Units.iconSizes.small
 	property alias iconColor: icon.color
+	property bool _longPressed: false
 
+	hoverEnabled: true
 	background: Kirigami.ShadowedRectangle {
 		color: root.backgroundColor
 		opacity: {
@@ -61,4 +63,23 @@ Controls.ItemDelegate {
 	bottomInset: 0
 	leftInset: 0
 	rightInset: 0
+	Controls.ToolTip.visible: enabled && !pressed && hovered
+	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.veryLongDuration * 2
+	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
+	onClicked: Controls.ToolTip.hide()
+	onPressAndHold: {
+		_longPressed = true
+
+		if (Kirigami.Settings.isMobile) {
+			Controls.ToolTip.visible = true
+		}
+	}
+	onReleased: {
+		// Simulate clicking if the mouse cursor is still on the button while releasing after a long press.
+		// That is needed because if "onPressAndHold" is used, the desired functionality does not work anymore.
+		if (!Kirigami.Settings.isMobile && _longPressed) {
+			_longPressed = false
+			clicked()
+		}
+	}
 }
