@@ -170,7 +170,7 @@ Controls.Pane {
 				source:  "emoji-people-symbolic"
 				fallback: "smiley-symbolic"
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
-				Controls.ToolTip.text: qsTr("Add an emoji")
+				Controls.ToolTip.text: root.emojiPicker ? qsTr("Cancel") : qsTr("Add an emoji")
 				onClicked: {
 					messageArea.selectWord()
 					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
