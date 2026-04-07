@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Effects
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -15,7 +16,9 @@ import im.kaidan.kaidan
 Image {
 	id: root
 
-	property real radius: relativeRoundedCornersRadius(width, height)
+	property alias radius: roundedCornerMask.radius
+	property bool blurEnabled: false
+	property int blurMax: 64
 	property bool _hasAlphaChannel: false
 	signal sourceCopiedToClipboard()
 
@@ -29,10 +32,28 @@ Image {
 	// The generated image should fit its item's size.
 	sourceSize.width: width
 	sourceSize.height: height
-	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
-	layer.effect: Kirigami.ShadowedTexture {
-		color: Kirigami.Theme.backgroundColor
-		radius: root.radius
+	layer {
+		enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
+		effect: MultiEffect {
+			maskEnabled: true
+			maskSource: roundedCornerMask
+			maskThresholdMin: 0.5
+			maskSpreadAtMin: 1
+			blurEnabled: root.blurEnabled
+			blurMax: root.blurMax
+			blur: 1
+			autoPaddingEnabled: false
+		}
+	}
+
+	Rectangle {
+		id: roundedCornerMask
+		width: parent.width
+		height: parent.height
+		layer.enabled: true
+		visible: false
+		radius: relativeRoundedCornersRadius(width, height)
+		color: "black"
 	}
 
 	Connections {

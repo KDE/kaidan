@@ -18,20 +18,26 @@ ExtendedMessageContent {
 	property url localFileUrl
 	property int type
 	property alias previewImage: previewImage
+	property alias previewImageArea: previewImageArea
 	property alias detailsArea: detailsArea
 	property alias detailsTopArea: detailsTopArea
 	property real minimumDetailsWidth: minimumWidth - detailsWidthLimitBase
 	property real maximumDetailsWidth: maximumWidth - detailsWidthLimitBase
-	readonly property real detailsWidthLimitBase: mainArea.leftPadding + previewImage.width + previewImage.Layout.leftMargin + contentArea.spacing + mainArea.rightPadding
+	readonly property real detailsWidthLimitBase: mainArea.leftPadding + previewImageArea.Layout.leftMargin + previewImageArea.width + contentArea.spacing + mainArea.rightPadding
 
 	contentArea.data: [
-		RoundedImage {
-			id: previewImage
+		Item {
+			id: previewImageArea
 			Layout.preferredWidth: Kirigami.Units.iconSizes.huge
 			Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 			Layout.topMargin: Kirigami.Units.smallSpacing - mainArea.topPadding
 			Layout.bottomMargin: Layout.topMargin
 			Layout.leftMargin: Layout.topMargin
+
+			RoundedImage {
+				id: previewImage
+				anchors.fill: parent
+			}
 		},
 
 		ColumnLayout {

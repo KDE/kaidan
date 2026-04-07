@@ -51,6 +51,10 @@ MediumPreview {
 	previewImage {
 		opacity: transferProgressBar.opacity ? 1 : mainAreaBackground.opacity
 		source: ImageProvider.generatedFileImageUrl(file)
+		blurEnabled: !root.file.locallyAvailable && root.file.hasThumbnail
+		blurMax: 8
+	}
+	previewImageArea {
 		data: MediumTransferProgressBar {
 			id: transferProgressBar
 			file: root.file
