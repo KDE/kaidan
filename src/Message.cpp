@@ -157,7 +157,7 @@ QString File::formattedSize() const
         return QmlUtils::formattedDataSize(fileInfo.size());
     }
 
-    return QString();
+    return {};
 }
 
 QString File::formattedDateTime() const
@@ -166,7 +166,7 @@ QString File::formattedDateTime() const
         return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
     }
 
-    return QString();
+    return {};
 }
 
 QXmppMixInvitation GroupChatInvitation::toQXmpp() const
