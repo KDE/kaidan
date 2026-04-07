@@ -6,50 +6,33 @@ import QtQuick
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan
-
+/**
+ * Round icon-only button with a background changing its color on interaction and a tooltip.
+ */
 Controls.AbstractButton {
 	id: root
 
-	property color backgroundColor: secondaryBackgroundColor
-	property bool strongBackgroundOpacityChange: true
+	property color backgroundColor: Kirigami.Theme.textColor
+	property bool flat: true
 	property bool _longPressed: false
 
 	hoverEnabled: true
+	visible: opacity
 	icon.width: Kirigami.Units.iconSizes.small
 	background: Kirigami.ShadowedRectangle {
-		color: root.backgroundColor
-		opacity: {
-			let defaultOpacity = root.strongBackgroundOpacityChange ? 0 : 0.8
-
-			if (!parent.enabled) {
-				return defaultOpacity
-			}
-
-			if (parent.pressed) {
-				return 1
-			}
-
-			if (parent.hovered) {
-				return root.strongBackgroundOpacityChange ? 0.5 : 0.9
-			}
-
-			if (parent.checked) {
-				return 0.35
-			}
-
-			return defaultOpacity
-		}
+		color: interactiveBackgroundColor(parent, root.flat)
 		radius: height / 2
 
-		Behavior on opacity {
-			NumberAnimation {}
+		Behavior on color {
+			ColorAnimation {
+				duration: Kirigami.Units.shortDuration
+			}
 		}
 	}
 	contentItem: Kirigami.Icon {
 		source: root.icon.source
 		color: root.icon.color
-		isMask: true
+		isMask: !Qt.colorEqual(color, "transparent")
 		implicitWidth: root.icon.width
 		implicitHeight: root.icon.height
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -86,4 +69,8 @@ Controls.AbstractButton {
 		}
 	}
 	Component.onCompleted: icon.height = icon.width
+
+	Behavior on opacity {
+		NumberAnimation {}
+	}
 }

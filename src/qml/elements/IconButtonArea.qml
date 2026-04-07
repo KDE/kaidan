@@ -6,6 +6,9 @@ import QtQuick
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
+/**
+ * Area with a background for placing IconButton items.
+ */
 Controls.Control {
 	property alias mainBackground: mainBackground
 

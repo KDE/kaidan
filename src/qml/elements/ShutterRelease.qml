@@ -8,10 +8,10 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-MediaButton {
+IconButton {
 	id: root
 	icon.width: Kirigami.Units.iconSizes.medium
-	strongBackgroundOpacityChange: false
+	flat: false
 	contentItem: Loader {
 		sourceComponent: parent.enabled ? icon : busyIndicator
 

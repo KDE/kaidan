@@ -174,22 +174,22 @@ Kirigami.ApplicationWindow {
 		value: Screen.devicePixelRatio
 	}
 
-	function interactiveBackgroundColor(interactionItem) {
-		const color = Kirigami.Theme.textColor
+	function interactiveBackgroundColor(interactionItem, flat = true) {
+		const color = flat ? Kirigami.Theme.textColor : Kirigami.Theme.backgroundColor
 		let colorOpacity
 
 		if (!interactionItem.enabled) {
-			colorOpacity = 0
-		} else if (interactionItem.pressed) {
-			colorOpacity = 0.2
+			colorOpacity = flat ? 0 : 0.8
+		} else if (interactionItem.down || interactionItem.pressed) {
+			colorOpacity = flat ? 0.13 : 1
 		} else if (interactionItem.visualFocus) {
-			colorOpacity = 0.1
+			colorOpacity = flat ? 0.1 : 0.97
 		} else if (!Kirigami.Settings.tabletMode && interactionItem.hovered) {
-			colorOpacity = 0.07
+			colorOpacity = flat ? 0.07 : 0.95
 		} else if (interactionItem.checked) {
-			colorOpacity = 0.05
+			colorOpacity = flat ? 0.05 : 0.93
 		} else {
-			colorOpacity = 0
+			colorOpacity = flat ? 0 : 0.9
 		}
 
 		return Qt.rgba(color.r, color.g, color.b, colorOpacity)

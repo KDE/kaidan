@@ -45,11 +45,10 @@ MediumPreview {
 		onTextChanged: modelData.description = text
 	}
 
-	ClickableIcon {
+	IconButton {
 		id: mediumRemovalButton
 		Controls.ToolTip.text: qsTr("Remove file")
-		source: "window-close-symbolic"
-		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+		icon.source: "window-close-symbolic"
 		onClicked: root.selectionModel.removeFile(root.modelData.index)
 	}
 }

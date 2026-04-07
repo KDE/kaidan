@@ -59,7 +59,7 @@ Kirigami.Page {
 		anchors.fill: parent
 	}
 
-	MediaButton {
+	IconButton {
 		id: callStopButton
 		Controls.ToolTip.text: qsTr("Quit call")
 		icon {
@@ -67,7 +67,7 @@ Kirigami.Page {
 			color: Kirigami.Theme.negativeTextColor
 			width: Kirigami.Units.iconSizes.medium
 		}
-		strongBackgroundOpacityChange: !contactCameraArea.visible
+		flat: !contactCameraArea.visible
 		anchors {
 			horizontalCenter: parent.horizontalCenter
 			bottom: parent.bottom
