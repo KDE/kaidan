@@ -24,7 +24,7 @@ MediumPreview {
 		data: MediumMouseArea {
 			id: opacityChangingMouseArea
 			opacityItem: parent.background
-			selected: root.message.contextMenu && root.message.contextMenu.file === file
+			selected: root.message.contextMenu?.file === file
 			acceptedButtons: Qt.LeftButton | Qt.RightButton
 			onClicked: (event) => {
 				if (event.button === Qt.LeftButton) {

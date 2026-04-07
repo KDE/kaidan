@@ -10,6 +10,7 @@ import im.kaidan.kaidan
 
 MediaButton {
 	id: root
+	iconSize: Kirigami.Units.iconSizes.medium
 	contentItem: Loader {
 		sourceComponent: parent.enabled ? icon : busyIndicator
 

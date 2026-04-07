@@ -61,6 +61,7 @@ Kirigami.Page {
 	MediaButton {
 		id: callStopButton
 		iconSource: "call-stop-symbolic"
+		iconSize: Kirigami.Units.iconSizes.medium
 		iconColor: Kirigami.Theme.negativeTextColor
 		strongBackgroundOpacityChange: !contactCameraArea.visible
 		anchors {

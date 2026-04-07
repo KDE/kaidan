@@ -179,7 +179,7 @@ Controls.ItemDelegate {
 							property var file: modelData
 							property real minimumWidth: Math.max(parent.width, referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width, bubbleBackground.metaInfo.width)
 							property real maximumWidth: root.maximumBubbleContentWidth
-							property color mainAreaBackgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+							property color backgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 
 							sourceComponent: file.locallyAvailable && file.transferState === File.TransferState.Done && file.type === Enums.MessageType.MessageAudio && file.displayInline && !file.description ? audio : mediumMessagePreview
 
@@ -191,7 +191,7 @@ Controls.ItemDelegate {
 									message: root
 									minimumWidth: parent.minimumWidth
 									maximumWidth: parent.maximumWidth
-									mainAreaBackground.color: parent.mainAreaBackgroundColor
+									mainAreaBackground.color: parent.backgroundColor
 								}
 							}
 
@@ -203,7 +203,7 @@ Controls.ItemDelegate {
 									message: root
 									minimumWidth: parent.minimumWidth
 									maximumWidth: parent.maximumWidth
-									mainAreaBackground.color: parent.mainAreaBackgroundColor
+									mainBackground.color: parent.backgroundColor
 								}
 							}
 						}

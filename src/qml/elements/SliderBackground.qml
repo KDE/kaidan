@@ -15,6 +15,7 @@ Rectangle {
 	required property real visualPosition
 
 	color: Kirigami.Theme.activeBackgroundColor
+	opacity: 0.8
 	radius: height / 2
 	height: implicitHeight
 	implicitHeight: Kirigami.Units.smallSpacing
