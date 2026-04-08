@@ -25,6 +25,7 @@ Kirigami.GlobalDrawer {
 	property Component nextOverlayToOpen
 	property Component nextPageToOpen
 	property Item lastFocusedItem
+	property bool lastFocusedItemCached: false
 
 	property var accounts: AccountController.accounts
 
@@ -86,7 +87,7 @@ Kirigami.GlobalDrawer {
 						onClicked: {
 							root.selectedAccount = modelData
 							openView(accountDetailsDialog, accountDetailsPage)
-							root.close()
+							root.closeWithoutRestoringFocus()
 						}
 					}
 
@@ -157,10 +158,7 @@ Kirigami.GlobalDrawer {
 			}
 
 			FormAdditionButton {
-				onClicked: {
-					root.close()
-					openStartPage(true)
-				}
+				onClicked: openStartPage(true)
 			}
 		},
 
@@ -249,7 +247,7 @@ Kirigami.GlobalDrawer {
 				icon.name: "system-search-symbolic"
 				onClicked: {
 					openOverlay(publicGroupChatSearchDialog)
-					root.close()
+					root.closeWithoutRestoringFocus()
 				}
 
 				Shortcut {
@@ -299,9 +297,17 @@ Kirigami.GlobalDrawer {
 		}
 	}
 	onClosed: {
-		// Focus the item that was focused before opening.
-		if (lastFocusedItem) {
+		// Focus the item that was focused before opening if no other view is opened that needs to restore the focus later via restoreFocus().
+		if (lastFocusedItem && !lastFocusedItemCached) {
 			lastFocusedItem.forceActiveFocus()
+		}
+	}
+
+	Component {
+		id: startPage
+
+		StartPage {
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
@@ -310,6 +316,7 @@ Kirigami.GlobalDrawer {
 
 		AccountDetailsDialog {
 			account: root.selectedAccount
+			onClosed: root.restoreFocus()
 		}
 	}
 
@@ -318,6 +325,7 @@ Kirigami.GlobalDrawer {
 
 		AccountDetailsPage {
 			account: root.selectedAccount
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
@@ -346,7 +354,13 @@ Kirigami.GlobalDrawer {
 				root.selectedAccount = account
 			}
 			Component.onCompleted: root.accountSelectionDialog = this
-			Component.onDestruction: root.accountSelectionDialog = null
+			Component.onDestruction: {
+				root.accountSelectionDialog = null
+
+				if (!root.selectedAccount) {
+					root.restoreFocus()
+				}
+			}
 		}
 	}
 
@@ -355,6 +369,7 @@ Kirigami.GlobalDrawer {
 
 		ContactAdditionQrCodePage {
 			account: root.selectedAccount
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
@@ -363,6 +378,7 @@ Kirigami.GlobalDrawer {
 
 		ContactAdditionDialog {
 			account: root.selectedAccount
+			onClosed: root.restoreFocus()
 		}
 	}
 
@@ -371,6 +387,7 @@ Kirigami.GlobalDrawer {
 
 		ContactAdditionPage {
 			account: root.selectedAccount
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
@@ -379,6 +396,7 @@ Kirigami.GlobalDrawer {
 
 		GroupChatCreationDialog {
 			account: root.selectedAccount
+			onClosed: root.restoreFocus()
 		}
 	}
 
@@ -387,6 +405,7 @@ Kirigami.GlobalDrawer {
 
 		GroupChatCreationPage {
 			account: root.selectedAccount
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
@@ -395,6 +414,7 @@ Kirigami.GlobalDrawer {
 
 		GroupChatJoiningDialog {
 			account: root.selectedAccount
+			onClosed: root.restoreFocus()
 		}
 	}
 
@@ -403,13 +423,16 @@ Kirigami.GlobalDrawer {
 
 		GroupChatJoiningPage {
 			account: root.selectedAccount
+			Component.onDestruction: root.restoreFocus()
 		}
 	}
 
 	Component {
 		id: publicGroupChatSearchDialog
 
-		PublicGroupChatSearchDialog {}
+		PublicGroupChatSearchDialog {
+			onClosed: root.restoreFocus()
+		}
 	}
 
 	Component {
@@ -427,6 +450,10 @@ Kirigami.GlobalDrawer {
 	Connections {
 		target: MainController
 
+		function onOpenStartPageRequested() {
+			openStartPage(true)
+		}
+
 		function onOpenGlobalDrawerRequested() {
 			root.open()
 		}
@@ -440,7 +467,7 @@ Kirigami.GlobalDrawer {
 		target: AccountController
 
 		function onNoAccountAvailable() {
-			root.close()
+			openStartPage()
 		}
 	}
 
@@ -467,6 +494,18 @@ Kirigami.GlobalDrawer {
 		function onUnblockingFailed(jid, errorText) {
 			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
 		}
+	}
+
+	function openStartPage(accountAvailable = false) {
+		if (accountAvailable) {
+			openPage(startPage)
+		} else {
+			popLayersAboveLowest()
+			popAllPages()
+			pageStack.push(startPage)
+		}
+
+		root.closeWithoutRestoringFocus()
 	}
 
 	function openContactAdditionView() {
@@ -505,7 +544,20 @@ Kirigami.GlobalDrawer {
 			openOverlay(accountSelectionDialog)
 		}
 
+		closeWithoutRestoringFocus()
+	}
+
+	function closeWithoutRestoringFocus() {
+		lastFocusedItemCached = true
 		close()
+	}
+
+	function restoreFocus() {
+		lastFocusedItemCached = false
+
+		if (lastFocusedItem) {
+			lastFocusedItem.forceActiveFocus()
+		}
 	}
 
 	Connections {
@@ -517,7 +569,7 @@ Kirigami.GlobalDrawer {
 			// Update root.lastFocusedItem to become any focused item outside of GlobalDrawer.
 			// "!root.handle.visibleChildren.includes(focusedItem)" is used to filter out the drawer handle.
 			// "focusedItem !== root.lastFocusedItem" avoids setting root.lastFocusedItem twice for the same item.
-			if (!root.handle.visibleChildren.includes(focusedItem) && !root.drawerOpen && focusedItem !== root.lastFocusedItem) {
+			if (!root.handle.visibleChildren.includes(focusedItem) && !root.drawerOpen && focusedItem !== root.lastFocusedItem && !lastFocusedItemCached) {
 				root.lastFocusedItem = focusedItem
 			}
 		}

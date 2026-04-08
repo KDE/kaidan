@@ -29,7 +29,6 @@ Dialog {
 
 		publicGroupChatSearchController.requestAll()
 	}
-	onClosed: pageStack.currentItem.forceActiveFocus()
 
 	ListView {
 		id: groupChatListView

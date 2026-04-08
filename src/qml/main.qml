@@ -91,12 +91,6 @@ Kirigami.ApplicationWindow {
 	}
 
 	Component {
-		id: startPage
-
-		StartPage {}
-	}
-
-	Component {
 		id: rosterPage
 
 		RosterPage {}
@@ -143,10 +137,6 @@ Kirigami.ApplicationWindow {
 			}
 		}
 
-		function onOpenStartPageRequested() {
-			openStartPage(true)
-		}
-
 		function onActiveCallChanged() {
 			if (MainController.activeCall) {
 				openPage(callPage)
@@ -159,10 +149,6 @@ Kirigami.ApplicationWindow {
 
 		function onAccountAvailable() {
 			openChatView()
-		}
-
-		function onNoAccountAvailable() {
-			openStartPage()
 		}
 
 		function onAccountAdded(account) {
@@ -225,16 +211,6 @@ Kirigami.ApplicationWindow {
 	 */
 	function passiveNotification(text) {
 		showPassiveNotification(text, "long")
-	}
-
-	function openStartPage(accountAvailable = false) {
-		if (accountAvailable) {
-			openPage(startPage)
-		} else {
-			popLayersAboveLowest()
-			popAllPages()
-			pageStack.push(startPage)
-		}
 	}
 
 	/**
