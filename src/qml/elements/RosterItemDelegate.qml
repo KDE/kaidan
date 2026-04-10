@@ -43,21 +43,17 @@ ClickableItemDelegate {
 
 
 	interactiveBackground.color: {
-		const color = highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
-		let colorOpacity = 0
+		let color
+		let colorOpacity
 
 		if (dragHandle.dragActive) {
+			color = Kirigami.Theme.textColor
 			colorOpacity = 0.2
 		} else if(highlighted) {
+			color = Kirigami.Theme.highlightColor
 			colorOpacity = 0.1
-		} else if (down || pressed) {
-			colorOpacity = 0.2
-		} else if (visualFocus) {
-			colorOpacity = 0.1
-		} else if (!Kirigami.Settings.tabletMode && hovered) {
-			colorOpacity = 0.07
-		} else if (checked) {
-			colorOpacity = 0.05
+		} else {
+			return interactiveBackgroundColor(this)
 		}
 
 		return Qt.rgba(color.r, color.g, color.b, colorOpacity)
