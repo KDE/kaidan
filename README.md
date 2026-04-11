@@ -52,22 +52,22 @@ Kaidan requires some dependencies and makes use of some optional dependencies if
 
 The following dependencies are needed by Kaidan:
 
-* [Qt][qt-build-sources] >= 6.7.0 - Core | Concurrent | Qml | Quick | Svg | Sql | QuickControls2 | Xml | Multimedia | Positioning | Location | Qt6GuiPrivate (since Qt 6.10.0)
-* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIconThemes][kiconthemes] (for Windows) | [KWindowSystem][kwindowsystem] | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
-* [KDSingleApplication][kdsingleapplication]
-* [Kirigami Addons][kirigami-addons] >= 1.8.0
-* [KQuickImageEditor][kquickimageeditor] >= 0.5.0
-* [ICU (International Components for Unicode)][icu] >= 61
-* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.2
-* [QtKeychain][qtkeychain] >= 0.15
 * [GStreamer Good Plug-ins (gst-plugins-good)][gst-plugins-good] (containing [qml6glsink][qml6glsink]) >= 1.20
+* [ICU (International Components for Unicode)][icu] >= 61
+* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIO][kio] | [KIconThemes][kiconthemes] (for Windows) | [KWindowSystem][kwindowsystem] | [Kirigami][kirigami-repo] | [Prison][prison]
+* [KDSingleApplication][kdsingleapplication]
+* [KQuickImageEditor][kquickimageeditor] >= 0.5.0
+* [Kirigami Addons][kirigami-addons] >= 1.8.0
+* [Qt][qt-build-sources] >= 6.7.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate (since Qt 6.10.0) | Quick | QuickControls2 | Sql | Svg | Xml
+* [QtKeychain][qtkeychain] >= 0.15
+* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.2
 
 ### Optional Dependencies
 
 The following dependencies can improve the user experience:
 
-* [KDE Frameworks][kf] >= 6.11.0 - [KCrash][kcrash] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
 * [FFmpeg Thumbnailer][ffmpegthumbs]
+* [KDE Frameworks][kf] >= 6.11.0 - [KCrash][kcrash] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
 
 ## Contributing
 
@@ -107,9 +107,9 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [qml6glsink]: https://gstreamer.freedesktop.org/documentation/qml6/qml6glsink.html
 [qt]: https://www.qt.io/
 [qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
+[qtkeychain]: https://github.com/frankosterfeld/qtkeychain
 [qtquick]: https://wiki.qt.io/Qt_Quick
 [qxmpp]: https://invent.kde.org/libraries/qxmpp
-[qtkeychain]: https://github.com/frankosterfeld/qtkeychain
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
 [xmpp]: https://xmpp.org
