@@ -317,10 +317,10 @@ SPDX-License-Identifier: CC0-1.0
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0333.html'/>
-        <xmpp:status>partial</xmpp:status>
-        <xmpp:version>0.4.1</xmpp:version>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.0.0</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
-        <xmpp:note>Only used for read markers (i.e., for "displayed" messages); Read markers are always sent even if message is not marked as "markable" in order to synchronize read status between supporting clients</xmpp:note>
+        <xmpp:note>In direct chats, read markers are always sent even if message is not marked as "markable" in order to synchronize read status between other clients supporting it</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
