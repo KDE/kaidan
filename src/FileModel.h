@@ -7,12 +7,16 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFutureWatcher>
+// KDE
+#include <KItemModels/KDescendantsProxyModel>
 // Kaidan
 #include "Message.h"
 
-using Files = QList<File>;
+using Messages = QList<Message>;
 
-class FileModel : public QAbstractListModel
+class FileTreeModel;
+
+class FileModel : public KDescendantsProxyModel
 {
     Q_OBJECT
 
@@ -22,17 +26,14 @@ class FileModel : public QAbstractListModel
 
 public:
     enum class Role {
-        Id = Qt::UserRole,
+        Message = Qt::UserRole,
         File,
     };
     Q_ENUM(Role)
 
     explicit FileModel(QObject *parent = nullptr);
-    ~FileModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    void setSourceModel(QAbstractItemModel *) override;
 
     QString accountJid() const;
     void setAccountJid(const QString &jid);
@@ -42,19 +43,17 @@ public:
     void setChatJid(const QString &jid);
     Q_SIGNAL void chatJidChanged(const QString &jid);
 
-    Files files() const;
-    void setFiles(const Files &files);
+    Messages files() const;
+    void setFiles(const Messages &files);
+
+    Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
 
     Q_INVOKABLE void loadFiles();
-    Q_INVOKABLE void loadDownloadedFiles();
 
     Q_SIGNAL void rowCountChanged();
 
 private:
-    QString m_accountJid;
-    QString m_chatJid;
-    Files m_files;
-    QFutureWatcher<Files> m_watcher;
+    FileTreeModel *const m_sourceModel;
 };
 
 Q_DECLARE_METATYPE(FileModel::Role)

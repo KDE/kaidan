@@ -249,6 +249,7 @@ ecm_create_qm_loader(libkaidancore kaidan_qt)
 
 target_link_libraries(libkaidancore
     ICU::uc
+    KF6::ItemModels
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::Kirigami

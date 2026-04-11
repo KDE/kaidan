@@ -299,6 +299,30 @@ SearchBarPage {
 		}
 	}
 
+	Component {
+		id: mediaViewerDialog
+
+		MediaViewerDialog {
+			chatController: root.chatController
+			onHighlightMessageRequested: function(messageId) {
+				root.messageListView.highlightShortly(root.messageListView.model.searchMessageById(messageId))
+				close()
+			}
+		}
+	}
+
+	Component {
+		id: mediaViewerPage
+
+		MediaViewerPage {
+			chatController: root.chatController
+			onHighlightMessageRequested: function(messageId) {
+				root.messageListView.highlightShortly(root.messageListView.model.searchMessageById(messageId))
+				popPage()
+			}
+		}
+	}
+
 	// View containing the messages
 	ListView {
 		id: messageListView
@@ -377,6 +401,10 @@ SearchBarPage {
 			groupChatInvitationJid: model.groupChatInvitationJid
 			geoCoordinate: model.geoCoordinate
 			marked: model.marked
+
+			onOpenMediaViewerRequested: function(fileId) {
+				openView(mediaViewerDialog, mediaViewerPage, false, {fileId: fileId})
+			}
 		}
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {

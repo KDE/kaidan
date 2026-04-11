@@ -72,6 +72,7 @@ struct File {
     Q_PROPERTY(QString localFilePath MEMBER localFilePath)
     Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
     Q_PROPERTY(QString externalId MEMBER externalId)
+    Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
     Q_PROPERTY(Enums::MessageType type READ type CONSTANT)
     Q_PROPERTY(QString details READ details CONSTANT)
     Q_PROPERTY(bool isNew MEMBER isNew)
@@ -139,6 +140,7 @@ public:
     [[nodiscard]] QUrl downloadUrl() const;
     [[nodiscard]] bool locallyAvailable() const;
     [[nodiscard]] QUrl localFileUrl() const;
+    [[nodiscard]] bool hasThumbnail() const;
     [[nodiscard]] Enums::MessageType type() const;
     [[nodiscard]] QString fileId() const
     {
@@ -205,6 +207,12 @@ class Message
 {
     Q_GADGET
     Q_DECLARE_TR_FUNCTIONS(Message)
+
+    Q_PROPERTY(QString relevantId READ relevantId CONSTANT)
+    Q_PROPERTY(QString formattedTimestamp READ formattedTimestamp CONSTANT)
+    Q_PROPERTY(Encryption::Enum encryption MEMBER encryption CONSTANT)
+    Q_PROPERTY(DeliveryState deliveryState MEMBER deliveryState CONSTANT)
+    Q_PROPERTY(QString body MEMBER m_body CONSTANT)
 
 public:
     enum class TrustLevel {
@@ -292,6 +300,8 @@ public:
     QGeoCoordinate geoCoordinate() const;
 
     TrustLevel trustLevel() const;
+
+    [[nodiscard]] QString formattedTimestamp() const;
 
 private:
     void toQXmppBase(QXmppMessage &message) const;

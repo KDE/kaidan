@@ -237,26 +237,28 @@ Kirigami.ApplicationWindow {
 	 *
 	 * @param overlayComponent component containing the overlay to be opened
 	 * @param pageComponent component containing the page to be opened
+	 * @param openPageAsLayer whether to open the page as a new layer
+	 * @param properties properties to assign to the created view
 	 *
 	 * @return the opened overlay or page
 	 */
-	function openView(overlayComponent, pageComponent) {
+	function openView(overlayComponent, pageComponent, openPageAsLayer = true, properties) {
 		if (Kirigami.Settings.isMobile) {
-			return openPage(pageComponent)
+			return openPageAsLayer ? openPage(pageComponent, properties) : pageStack.push(pageComponent, properties)
 		} else {
-			return openOverlay(overlayComponent)
+			return openOverlay(overlayComponent, properties)
 		}
 	}
 
-	function openOverlay(overlayComponent) {
-		let overlay = overlayComponent.createObject(root)
+	function openOverlay(overlayComponent, properties) {
+		let overlay = overlayComponent.createObject(root, properties)
 		overlay.open()
 		return overlay
 	}
 
-	function openPage(pageComponent) {
+	function openPage(pageComponent, properties) {
 		popLayersAboveLowest()
-		return pushLayer(pageComponent)
+		return pushLayer(pageComponent, properties)
 	}
 
 	function showProperPageForNarrorWindow() {
@@ -269,8 +271,8 @@ Kirigami.ApplicationWindow {
 		}
 	}
 
-	function pushLayer(layer) {
-		return pageStack.layers.push(layer)
+	function pushLayer(layer, properties) {
+		return pageStack.layers.push(layer, properties)
 	}
 
 	function popLayer() {
@@ -293,6 +295,10 @@ Kirigami.ApplicationWindow {
 	function popLayersAboveLowest() {
 		while (pageStack.layers.depth > 1)
 			popLayer()
+	}
+
+	function popPage() {
+		pageStack.pop()
 	}
 
 	/**

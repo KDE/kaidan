@@ -100,7 +100,7 @@ private Q_SLOTS:
 
         // Set files.
 
-        model.setFiles({localImage1, localImage2, image4, localImage3, localText1, localText2, text4, localText3});
+        model.setFiles({createMessage({localImage1, localImage2, image4, localImage3, localText1, localText2, text4, localText3})});
 
         // Check emitted signals and counts.
 
@@ -110,7 +110,7 @@ private Q_SLOTS:
         QVERIFY(proxyAboutToBeReset.count() == 1 || proxyAboutToBeReset.wait());
         QVERIFY(proxyReset.count() == 1 || proxyReset.wait());
 
-        QCOMPARE(model.rowCount(), 8);
+        QCOMPARE(model.rowCount(), 9); // 1 message and 8 files
         // Not downloaded or manually deleted files are not counted.
         QCOMPARE(proxy.rowCount(), 6);
 
@@ -265,6 +265,22 @@ private:
         file.httpSources.append({file.id, QUrl(QStringLiteral("http://kaidan.im/texts/%1").arg(fileInfo.fileName()))});
 
         return file;
+    }
+
+    Message createMessage(QList<File> &&files) const
+    {
+        Message msg;
+
+        msg.id = QUuid::createUuid().toString();
+        msg.fileGroupId = 42;
+        msg.setPreparedBody(QStringLiteral("the body hell"));
+        msg.files = std::move(files);
+
+        for (auto &file : msg.files) {
+            file.fileGroupId = *msg.fileGroupId;
+        }
+
+        return msg;
     }
 
 private:

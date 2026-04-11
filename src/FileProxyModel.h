@@ -17,6 +17,8 @@ class FileProxyModel : public QSortFilterProxyModel
     Q_PROPERTY(FileProxyModel::Mode mode READ mode WRITE setMode NOTIFY modeChanged)
     Q_PROPERTY(int checkedCount READ checkedCount NOTIFY checkedCountChanged)
     Q_PROPERTY(int rowCount READ rowCount NOTIFY rowCountChanged)
+    Q_PROPERTY(bool locallyAvailableOnly READ locallyAvailableOnly WRITE setLocallyAvailableOnly NOTIFY locallyAvailableOnlyChanged)
+    Q_PROPERTY(bool attachmentAudioOnly READ attachmentAudioOnly WRITE setAttachmentAudioOnly NOTIFY attachmentAudioOnlyChanged)
 
 public:
     enum class Mode {
@@ -34,9 +36,19 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
+
     Mode mode() const;
     void setMode(Mode mode);
     Q_SIGNAL void modeChanged();
+
+    bool locallyAvailableOnly() const;
+    void setLocallyAvailableOnly(bool locallyAvailableOnly);
+    Q_SIGNAL void locallyAvailableOnlyChanged();
+
+    bool attachmentAudioOnly() const;
+    void setAttachmentAudioOnly(bool attachmentAudioOnly);
+    Q_SIGNAL void attachmentAudioOnlyChanged();
 
     int checkedCount() const;
     Q_SIGNAL void checkedCountChanged();
@@ -53,6 +65,7 @@ protected:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
+    bool isAudio(const File &file) const;
     bool filterAcceptsImage(const File &file) const;
     bool filterAcceptsVideo(const File &file) const;
     bool filterAcceptsOther(const File &file) const;
@@ -60,6 +73,8 @@ private:
 
 private:
     Mode m_mode = Mode::All;
+    bool m_locallyAvailableOnly = true;
+    bool m_attachmentAudioOnly = true;
     QSet<qint64> m_checkedIds;
 };
 

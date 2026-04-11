@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -24,6 +25,8 @@ ExtendedMessageContent {
 	property real minimumDetailsWidth: minimumWidth - detailsWidthLimitBase
 	property real maximumDetailsWidth: maximumWidth - detailsWidthLimitBase
 	readonly property real detailsWidthLimitBase: mainArea.leftPadding + previewImageArea.Layout.leftMargin + previewImageArea.width + contentArea.spacing + mainArea.rightPadding
+
+	signal openMediaViewerRequested()
 
 	contentArea.data: [
 		Item {
@@ -72,15 +75,4 @@ ExtendedMessageContent {
 			}
 		}
 	]
-
-	function open() {
-		switch(type) {
-		case Enums.MessageUnknown:
-		case Enums.MessageFile:
-			MediaUtils.openFileInFolder(localFileUrl)
-			break
-		default:
-			Qt.openUrlExternally(localFileUrl)
-		}
-	}
 }

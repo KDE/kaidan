@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -34,8 +35,8 @@ MediumPreview {
 						root.message.chatController.account.fileSharingController.downloadFile(root.message.chatController.jid, root.message.msgId, root.file)
 					} else if (transferProgressBar.fileUploadNeeded) {
 						root.message.chatController.account.fileSharingController.sendFile(root.message.chatController.jid, root.message.msgId, root.file, message.encryption !== Encryption.NoEncryption)
-					} else if (root.file.locallyAvailable) {
-						root.open()
+					} else {
+						root.openMediaViewerRequested()
 					}
 				} else if (event.button === Qt.RightButton) {
 					root.message.showContextMenu(this, root.file)

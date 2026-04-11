@@ -122,6 +122,11 @@ QUrl File::localFileUrl() const
     return QUrl();
 }
 
+bool File::hasThumbnail() const
+{
+    return !thumbnail.isEmpty();
+}
+
 MessageType File::type() const
 {
     return MediaUtils::messageType(mimeType);
@@ -163,7 +168,7 @@ QString File::formattedSize() const
 QString File::formattedDateTime() const
 {
     if (lastModified.isValid()) {
-        return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
+        return QLocale::system().toString(lastModified.toLocalTime(), QLocale::ShortFormat);
     }
 
     return {};
@@ -382,6 +387,15 @@ QString Message::previewText() const
 QGeoCoordinate Message::geoCoordinate() const
 {
     return QmlUtils::geoCoordinate(m_body);
+}
+
+QString Message::formattedTimestamp() const
+{
+    if (timestamp.isValid()) {
+        return QLocale::system().toString(timestamp.toLocalTime(), QLocale::ShortFormat);
+    }
+
+    return {};
 }
 
 Message::TrustLevel Message::trustLevel() const

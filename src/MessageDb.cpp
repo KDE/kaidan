@@ -328,37 +328,42 @@ QFuture<QList<Message>> MessageDb::fetchMessages(const QString &accountJid, cons
     });
 }
 
-QFuture<QList<File>> MessageDb::fetchFiles(const QString &accountJid)
+QFuture<QList<Message>> MessageDb::fetchFiles(const QString &accountJid)
 {
     return run([this, accountJid]() {
-        return _fetchFiles(accountJid);
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
+                                    ORDER BY timestamp ASC
+                                )"),
+                  {
+                      {u":accountJid", accountJid},
+                  });
+
+        return _fetchMessagesFromQuery(query);
     });
 }
 
-QFuture<QList<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
+QFuture<QList<Message>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
-        return _fetchFiles(accountJid, chatJid);
-    });
-}
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
+                                    ORDER BY timestamp ASC
+                                )"),
+                  {
+                      {u":accountJid", accountJid},
+                      {u":chatJid", chatJid},
+                  });
 
-QFuture<QList<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid)
-{
-    return run([this, accountJid]() {
-        auto files = _fetchFiles(accountJid);
-        _extractDownloadedFiles(files);
-
-        return files;
-    });
-}
-
-QFuture<QList<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, const QString &chatJid)
-{
-    return run([this, accountJid, chatJid]() {
-        auto files = _fetchFiles(accountJid, chatJid);
-        _extractDownloadedFiles(files);
-
-        return files;
+        return _fetchMessagesFromQuery(query);
     });
 }
 
@@ -1528,64 +1533,6 @@ void MessageDb::_removeEncryptedSources(const QList<qint64> &fileIds)
         bindValues(query, {{u":fileId", fileId}});
         execQuery(query);
     }
-}
-
-QList<File> MessageDb::_fetchFiles(const QString &accountJid)
-{
-    Q_ASSERT(!accountJid.isEmpty());
-
-    return _fetchFiles(QStringLiteral(R"(
-                                         SELECT fileGroupId
-                                         FROM chatMessages
-                                         WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
-                                     )"),
-                       {
-                           {u":accountJid", accountJid},
-                       });
-}
-
-QList<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid)
-{
-    Q_ASSERT(!accountJid.isEmpty() && !chatJid.isEmpty());
-
-    return _fetchFiles(QStringLiteral(R"(
-                                         SELECT fileGroupId
-                                         FROM chatMessages
-                                         WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
-                                     )"),
-                       {
-                           {u":accountJid", accountJid},
-                           {u":chatJid", chatJid},
-                       });
-}
-
-QList<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindValues &bindValues)
-{
-    enum {
-        FileGroupId,
-    };
-
-    auto query = createQuery();
-    execQuery(query, statement, bindValues);
-
-    QList<File> files;
-    reserve(files, query);
-
-    while (query.next()) {
-        files.append(_fetchFiles(query.value(FileGroupId).toLongLong()));
-    }
-
-    return files;
-}
-
-void MessageDb::_extractDownloadedFiles(QList<File> &files)
-{
-    files.erase(std::remove_if(files.begin(),
-                               files.end(),
-                               [](const File &file) {
-                                   return !QFile::exists(file.localFilePath);
-                               }),
-                files.end());
 }
 
 QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)

@@ -54,11 +54,11 @@ The following dependencies are needed by Kaidan:
 
 * [GStreamer Good Plug-ins (gst-plugins-good)][gst-plugins-good] (containing [qml6glsink][qml6glsink]) >= 1.20
 * [ICU (International Components for Unicode)][icu] >= 61
-* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIO][kio] | [KIconThemes][kiconthemes] (for Windows) | [KWindowSystem][kwindowsystem] | [Kirigami][kirigami-repo] | [Prison][prison]
+* [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KIO][kio] | [KIconThemes][kiconthemes] (for Windows) | [KItemModels][kitemmodels] | [KWindowSystem][kwindowsystem] | [Kirigami][kirigami-repo] | [Prison][prison]
 * [KDSingleApplication][kdsingleapplication]
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
 * [Kirigami Addons][kirigami-addons] >= 1.8.0
-* [Qt][qt-build-sources] >= 6.7.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate (since Qt 6.10.0) | Quick | QuickControls2 | Sql | Svg | Xml
+* [Qt][qt-build-sources] >= 6.9.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate (since Qt 6.10.0) | Quick | QuickControls2 | Sql | Svg | Xml
 * [QtKeychain][qtkeychain] >= 0.15
 * [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.2
 
@@ -99,6 +99,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [kirigami-addons]: https://invent.kde.org/libraries/kirigami-addons
 [kirigami-repo]: https://invent.kde.org/frameworks/kirigami
 [kirigami-website]: https://kde.org/products/kirigami/
+[kitemmodels]: https://api.kde.org/kitemmodels-index.html
 [knotifications]: https://api.kde.org/knotifications-index.html
 [kquickimageeditor]: https://invent.kde.org/libraries/kquickimageeditor
 [kwindowsystem]: https://api.kde.org/kwindowsystem-index.html

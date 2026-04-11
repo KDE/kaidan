@@ -88,7 +88,7 @@ public:
      *
      * @return the fetched files
      */
-    QFuture<QList<File>> fetchFiles(const QString &accountJid);
+    QFuture<QList<Message>> fetchFiles(const QString &accountJid);
 
     /**
      * Fetches shared media of a chat from the database.
@@ -98,26 +98,7 @@ public:
      *
      * @return the fetched files
      */
-    QFuture<QList<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
-
-    /**
-     * Fetches downloaded shared media of an account from the database.
-     *
-     * @param accountJid bare JID of the user's account
-     *
-     * @return the fetched files
-     */
-    QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid);
-
-    /**
-     * Fetches downloaded shared media of a chat from the database.
-     *
-     * @param accountJid bare JID of the user's account
-     * @param chatJid bare JID of the chat
-     *
-     * @return the fetched files
-     */
-    QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
+    QFuture<QList<Message>> fetchFiles(const QString &accountJid, const QString &chatJid);
 
     /**
      * Fetches automatically downloadable shared media of an account from the database.
@@ -333,10 +314,6 @@ private:
     void _removeHttpSources(const QList<qint64> &fileIds);
     void _removeEncryptedSources(const QList<qint64> &fileIds);
     QList<Message> _fetchMessagesFromQuery(QSqlQuery &query);
-    QList<File> _fetchFiles(const QString &accountJid);
-    QList<File> _fetchFiles(const QString &accountJid, const QString &chatJid);
-    QList<File> _fetchFiles(const QString &statement, const QueryBindValues &bindValues);
-    void _extractDownloadedFiles(QList<File> &files);
     QList<File> _fetchFiles(qint64 fileGroupId);
     QList<FileHash> _fetchFileHashes(qint64 dataId);
     QList<HttpSource> _fetchHttpSource(qint64 fileId);

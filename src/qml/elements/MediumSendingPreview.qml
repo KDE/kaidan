@@ -7,6 +7,8 @@ import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
+import im.kaidan.kaidan
+
 MediumPreview {
 	id: root
 
@@ -25,7 +27,16 @@ MediumPreview {
 		source: modelData.previewImageUrl
 		data: OpacityChangingMouseArea {
 			opacityItem: parent
-			onClicked: root.open()
+			onClicked: {
+				switch(type) {
+				case Enums.MessageUnknown:
+				case Enums.MessageFile:
+					MediaUtils.openFileInFolder(localFileUrl)
+					break
+				default:
+					Qt.openUrlExternally(localFileUrl)
+				}
+			}
 		}
 
 		Behavior on opacity {

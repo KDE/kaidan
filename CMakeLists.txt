@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 23)
-set(QT_MIN_VERSION "6.7.0")
+set(QT_MIN_VERSION "6.9.0")
 set(KF_MIN_VERSION "6.11.0")
 
 if(POLICY CMP0071)
@@ -57,7 +57,7 @@ if(Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0" AND NOT WIN32 AND NOT APPLE)
     find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 endif()
 
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO Kirigami Prison)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO Kirigami ItemModels Prison)
 if (WIN32)
     find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS IconThemes)
 endif()

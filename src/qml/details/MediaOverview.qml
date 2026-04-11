@@ -234,6 +234,7 @@ Controls.Control {
 		}
 		model: FileProxyModel {
 			id: fileProxyModel
+			locallyAvailableOnly: true
 			mode: {
 				switch (root.tabBarCurrentIndex) {
 				case 0:
@@ -255,7 +256,7 @@ Controls.Control {
 					console.warn("Not all files could be deleted:", errors)
 				}
 
-				root.loadDownloadedFiles()
+				root.loadFiles()
 			}
 		}
 		delegate: {
@@ -404,9 +405,5 @@ Controls.Control {
 
 	function loadFiles() {
 		fileModel.loadFiles()
-	}
-
-	function loadDownloadedFiles() {
-		fileModel.loadDownloadedFiles()
 	}
 }

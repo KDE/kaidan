@@ -80,7 +80,7 @@ FormInfoContent {
 			MediaOverview {
 				id: mediaOverview
 				Layout.fillWidth: true
-				Component.onCompleted: loadDownloadedFiles()
+				Component.onCompleted: loadFiles()
 			}
 		}
 

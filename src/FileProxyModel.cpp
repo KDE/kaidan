@@ -30,7 +30,7 @@ QVariant FileProxyModel::data(const QModelIndex &index, int role) const
 {
     if (hasIndex(index.row(), index.column(), index.parent())) {
         if (role == Qt::CheckStateRole) {
-            const auto id = index.data(static_cast<int>(FileModel::Role::Id)).value<qint64>();
+            const auto id = index.data(static_cast<int>(FileModel::Role::File)).value<File>().id;
             return m_checkedIds.contains(id) ? Qt::Checked : Qt::Unchecked;
         }
     }
@@ -42,7 +42,7 @@ bool FileProxyModel::setData(const QModelIndex &index, const QVariant &value, in
 {
     if (data(index, role) != value) {
         if (role == Qt::CheckStateRole) {
-            const auto id = index.data(static_cast<int>(FileModel::Role::Id)).value<qint64>();
+            const auto id = index.data(static_cast<int>(FileModel::Role::File)).value<File>().id;
 
             if (value.toBool()) {
                 m_checkedIds.insert(id);
@@ -52,6 +52,7 @@ bool FileProxyModel::setData(const QModelIndex &index, const QVariant &value, in
 
             Q_EMIT dataChanged(index, index, {role});
             Q_EMIT checkedCountChanged();
+
             return true;
         }
     }
@@ -69,6 +70,21 @@ QHash<int, QByteArray> FileProxyModel::roleNames() const
     return roles;
 }
 
+QModelIndex FileProxyModel::fileIndex(const QString &fileId) const
+{
+    QModelIndex index;
+
+    if (const auto *fileModel = static_cast<FileModel *>(sourceModel())) {
+        index = fileModel->fileIndex(fileId);
+
+        if (index.isValid()) {
+            index = mapFromSource(index);
+        }
+    }
+
+    return index;
+}
+
 FileProxyModel::Mode FileProxyModel::mode() const
 {
     return m_mode;
@@ -80,7 +96,44 @@ void FileProxyModel::setMode(Mode mode)
         m_mode = mode;
         m_checkedIds.clear();
         invalidateFilter();
+
         Q_EMIT modeChanged();
+        Q_EMIT rowCountChanged();
+        Q_EMIT checkedCountChanged();
+    }
+}
+
+bool FileProxyModel::locallyAvailableOnly() const
+{
+    return m_locallyAvailableOnly;
+}
+
+void FileProxyModel::setLocallyAvailableOnly(bool locallyAvailableOnly)
+{
+    if (m_locallyAvailableOnly != locallyAvailableOnly) {
+        m_locallyAvailableOnly = locallyAvailableOnly;
+        m_checkedIds.clear();
+        invalidateFilter();
+
+        Q_EMIT locallyAvailableOnlyChanged();
+        Q_EMIT rowCountChanged();
+        Q_EMIT checkedCountChanged();
+    }
+}
+
+bool FileProxyModel::attachmentAudioOnly() const
+{
+    return m_attachmentAudioOnly;
+}
+
+void FileProxyModel::setAttachmentAudioOnly(bool attachmentAudioOnly)
+{
+    if (m_attachmentAudioOnly != attachmentAudioOnly) {
+        m_attachmentAudioOnly = attachmentAudioOnly;
+        m_checkedIds.clear();
+        invalidateFilter();
+
+        Q_EMIT attachmentAudioOnlyChanged();
         Q_EMIT rowCountChanged();
         Q_EMIT checkedCountChanged();
     }
@@ -101,7 +154,7 @@ void FileProxyModel::checkAll()
 
     for (int i = 0; i < count; ++i) {
         const QModelIndex index = QSortFilterProxyModel::index(i, 0);
-        m_checkedIds.insert(index.data(static_cast<int>(FileModel::Role::Id)).toLongLong());
+        m_checkedIds.insert(index.data(static_cast<int>(FileModel::Role::File)).value<File>().id);
     }
 
     Q_EMIT layoutChanged();
@@ -160,12 +213,20 @@ void FileProxyModel::deleteChecked()
 bool FileProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     const QModelIndex sourceIndex = sourceModel()->index(sourceRow, 0, sourceParent);
-    const auto file = sourceIndex.data(static_cast<int>(FileModel::Role::File)).value<File>();
+    const auto fileVariant = sourceIndex.data(static_cast<int>(FileModel::Role::File));
 
-    if (QFile::exists(file.localFilePath)) {
+    // FileModel, which inherits KDescendantsProxyModel, flattens data but is not able to reject parents.
+    // Thus, only nodes being files are handled.
+    if (!fileVariant.isValid()) {
+        return false;
+    }
+
+    const auto file = fileVariant.value<File>();
+
+    if (!m_locallyAvailableOnly || QFile::exists(file.localFilePath)) {
         switch (m_mode) {
         case Mode::All:
-            return true;
+            return m_attachmentAudioOnly && isAudio(file) ? !file.displayInline() : true;
         case Mode::Images:
             return filterAcceptsImage(file);
         case Mode::Videos:
@@ -175,6 +236,15 @@ bool FileProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourcePa
         }
 
         Q_UNREACHABLE();
+    }
+
+    return false;
+}
+
+bool FileProxyModel::isAudio(const File &file) const
+{
+    if (file.mimeType.isValid()) {
+        return file.mimeType.name().startsWith(QStringLiteral("audio/"));
     }
 
     return false;
@@ -200,7 +270,15 @@ bool FileProxyModel::filterAcceptsVideo(const File &file) const
 
 bool FileProxyModel::filterAcceptsOther(const File &file) const
 {
-    return !filterAcceptsImage(file) && !filterAcceptsVideo(file);
+    if (filterAcceptsImage(file) || filterAcceptsVideo(file)) {
+        return false;
+    }
+
+    if (isAudio(file)) {
+        return !m_attachmentAudioOnly || !file.displayInline();
+    }
+
+    return true;
 }
 
 void FileProxyModel::_filesDeleted(const QStringList &files, const QStringList &errors)

@@ -67,6 +67,8 @@ Controls.ItemDelegate {
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8 + (markedMessageArea.visible ? 2 : 0))
 	property ChatMessageContextMenu contextMenu
 
+	signal openMediaViewerRequested(fileId: string)
+
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 	background: null
@@ -192,6 +194,7 @@ Controls.ItemDelegate {
 									minimumWidth: parent.minimumWidth
 									maximumWidth: parent.maximumWidth
 									mainAreaBackground.color: parent.backgroundColor
+									onOpenMediaViewerRequested: root.openMediaViewerRequested(file.fileId)
 								}
 							}
 
