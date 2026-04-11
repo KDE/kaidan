@@ -44,237 +44,233 @@ Kirigami.GlobalDrawer {
 
 	handleVisible: false
 	topContent: [
-		ColumnLayout {
-			spacing: Kirigami.Units.largeSpacing
+		FormCard.FormCard {
 			Layout.rightMargin: 1
 
-			FormCard.FormCard {
-				Layout.fillWidth: true
+			FormCard.FormHeader {
+				title: qsTr("Accounts")
+			}
 
-				FormCard.FormHeader {
-					title: qsTr("Accounts")
-				}
+			InlineListView {
+				model: root.accounts
+				delegate: ColumnLayout {
+					spacing: 0
+					width: ListView.view.width
 
-				InlineListView {
-					model: root.accounts
-					delegate: ColumnLayout {
-						spacing: 0
-						width: ListView.view.width
+					FormCard.FormTextDelegate {
+						id: accountArea
 
-						FormCard.FormTextDelegate {
-							id: accountArea
+						property bool disconnected: modelData.connection.state === Enums.StateDisconnected
+						property bool connected: modelData.connection.state === Enums.StateConnected
 
-							property bool disconnected: modelData.connection.state === Enums.StateDisconnected
-							property bool connected: modelData.connection.state === Enums.StateConnected
-
-							background: FormCard.FormDelegateBackground { control: accountArea }
-							leading: Avatar {
-								jid: modelData.settings.jid
-								name: modelData.settings.displayName
-							}
-							leadingPadding: 10
-							// The placeholder text is used while "modelData.settings.displayName"
-							// is not yet loaded to avoid a binding loop for the property
-							// "implicitHeight".
-							text: modelData.settings.displayName ? modelData.settings.displayName : " "
-							description: modelData.connection.stateText
-							descriptionItem {
-								color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
-								opacity: connected ? 1 : 0.5
-							}
-							trailing: Controls.Switch {
-								checkable: false
-								checked: modelData.settings.enabled
-								onClicked: checked ? modelData.disable() : modelData.enable()
-							}
-							onClicked: {
-								root.selectedAccount = modelData
-								openView(accountDetailsDialog, accountDetailsPage)
-								root.close()
-							}
+						background: FormCard.FormDelegateBackground { control: accountArea }
+						leading: Avatar {
+							jid: modelData.settings.jid
+							name: modelData.settings.displayName
 						}
-
-						Controls.Label {
-							id: errorMessage
-							visible: modelData.connection.error
-							text: modelData.connection.errorText
-							font.weight: Font.Medium
-							wrapMode: Text.WordWrap
-							padding: 10
-							Layout.margins: 10
-							Layout.fillWidth: true
-							background: RoundedRectangle {
-								color: Kirigami.Theme.negativeBackgroundColor
-							}
+						leadingPadding: 10
+						// The placeholder text is used while "modelData.settings.displayName"
+						// is not yet loaded to avoid a binding loop for the property
+						// "implicitHeight".
+						text: modelData.settings.displayName ? modelData.settings.displayName : " "
+						description: modelData.connection.stateText
+						descriptionItem {
+							color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
+							opacity: connected ? 1 : 0.5
 						}
+						trailing: Controls.Switch {
+							checkable: false
+							checked: modelData.settings.enabled
+							onClicked: checked ? modelData.disable() : modelData.enable()
+						}
+						onClicked: {
+							root.selectedAccount = modelData
+							openView(accountDetailsDialog, accountDetailsPage)
+							root.close()
+						}
+					}
 
-						FormCard.FormCard {
-							visible: modelData.connection.error === ClientController.AuthenticationFailed
-							Layout.fillWidth: true
+					Controls.Label {
+						id: errorMessage
+						visible: modelData.connection.error
+						text: modelData.connection.errorText
+						font.weight: Font.Medium
+						wrapMode: Text.WordWrap
+						padding: 10
+						Layout.margins: 10
+						Layout.fillWidth: true
+						background: RoundedRectangle {
+							color: Kirigami.Theme.negativeBackgroundColor
+						}
+					}
 
-							FormCardCustomContentArea {
-								contentItem: RowLayout {
-									PasswordField {
-										id: passwordField
-										labelText: qsTr("Password")
-										placeholderText: qsTr("Enter your correct password")
-										text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
-										valid: credentialsValidator.isPasswordValid(text) && text !== modelData.settings.password
-										enabled: !passwordBusyIndicator.visible
-										inputField.onAccepted: passwordConfirmationButton.clicked()
-									}
+					FormCard.FormCard {
+						visible: modelData.connection.error === ClientController.AuthenticationFailed
+						Layout.fillWidth: true
 
-									Button {
-										id: passwordConfirmationButton
-										Controls.ToolTip.text: qsTr("Confirm password")
-										icon.name: "emblem-ok-symbolic"
-										visible: !passwordBusyIndicator.visible
-										flat: !hovered
-										Layout.preferredWidth: Layout.preferredHeight
-										Layout.preferredHeight: passwordField.inputField.implicitHeight
-										Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
-										onClicked: {
-											if (passwordField.valid) {
-												modelData.settings.password = passwordField.text
-												passwordField.invalidHintMayBeShown = false
-												modelData.connection.logIn()
-											} else {
-												passwordField.invalidHintMayBeShown = true
-												passwordField.forceActiveFocus()
-											}
+						FormCardCustomContentArea {
+							contentItem: RowLayout {
+								PasswordField {
+									id: passwordField
+									labelText: qsTr("Password")
+									placeholderText: qsTr("Enter your correct password")
+									text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
+									valid: credentialsValidator.isPasswordValid(text) && text !== modelData.settings.password
+									enabled: !passwordBusyIndicator.visible
+									inputField.onAccepted: passwordConfirmationButton.clicked()
+								}
+
+								Button {
+									id: passwordConfirmationButton
+									Controls.ToolTip.text: qsTr("Confirm password")
+									icon.name: "emblem-ok-symbolic"
+									visible: !passwordBusyIndicator.visible
+									flat: !hovered
+									Layout.preferredWidth: Layout.preferredHeight
+									Layout.preferredHeight: passwordField.inputField.implicitHeight
+									Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
+									onClicked: {
+										if (passwordField.valid) {
+											modelData.settings.password = passwordField.text
+											passwordField.invalidHintMayBeShown = false
+											modelData.connection.logIn()
+										} else {
+											passwordField.invalidHintMayBeShown = true
+											passwordField.forceActiveFocus()
 										}
 									}
+								}
 
-									Controls.BusyIndicator {
-										id: passwordBusyIndicator
-										visible: modelData.connection.state !== Enums.StateDisconnected
-										Layout.preferredWidth: passwordConfirmationButton.Layout.preferredWidth
-										Layout.preferredHeight: Layout.preferredWidth
-										Layout.alignment: passwordConfirmationButton.Layout.alignment
-									}
+								Controls.BusyIndicator {
+									id: passwordBusyIndicator
+									visible: modelData.connection.state !== Enums.StateDisconnected
+									Layout.preferredWidth: passwordConfirmationButton.Layout.preferredWidth
+									Layout.preferredHeight: Layout.preferredWidth
+									Layout.alignment: passwordConfirmationButton.Layout.alignment
 								}
 							}
 						}
 					}
-					implicitHeight: contentHeight
-					Layout.fillWidth: true
 				}
-
-				FormAdditionButton {
-					onClicked: {
-						root.close()
-						openStartPage(true)
-					}
-				}
-			}
-
-			FormCard.FormCard {
+				implicitHeight: contentHeight
 				Layout.fillWidth: true
+			}
 
-				FormCard.FormHeader {
-					title: qsTr("Actions")
+			FormAdditionButton {
+				onClicked: {
+					root.close()
+					openStartPage(true)
 				}
+			}
+		},
 
-				FormCard.FormSectionText {
-					text: root.accounts.length === 1 ? qsTr("Enable your account to use all available actions") : qsTr("Enable an account to use all available actions")
-					visible: !root.enabledAccountCount
-				}
+		FormCard.FormCard {
+			Layout.topMargin: Kirigami.Units.largeSpacing
+			Layout.rightMargin: 1
 
-				FormCard.FormButtonDelegate {
-					text: qsTr("Add contact by QR code")
-					icon.name: "view-barcode-qr"
-					enabled: root.enabledAccountCount
-					onClicked: root.openPageFromGlobalDrawer(contactAdditionQrCodePage)
-				}
+			FormCard.FormHeader {
+				title: qsTr("Actions")
+			}
 
-				FormCard.FormButtonDelegate {
-					text: qsTr("Add contact by chat address")
-					icon.name: "contact-new-symbolic"
-					enabled: root.enabledAccountCount
-					onClicked: root.openContactAdditionView()
-				}
+			FormCard.FormSectionText {
+				text: root.accounts.length === 1 ? qsTr("Enable your account to use all available actions") : qsTr("Enable an account to use all available actions")
+				visible: !root.enabledAccountCount
+			}
 
-				FormCard.FormButtonDelegate {
-					text: enabled || !root.enabledAccountCount ? qsTr("Create group") : qsTr("Create group (unsupported)")
-					icon.name: "resource-group-new"
-					enabled: {
-						const accounts = root.accounts
-						let supportedAccountCount = 0
+			FormCard.FormButtonDelegate {
+				text: qsTr("Add contact by QR code")
+				icon.name: "view-barcode-qr"
+				enabled: root.enabledAccountCount
+				onClicked: root.openPageFromGlobalDrawer(contactAdditionQrCodePage)
+			}
 
-						for (let i in accounts) {
-							let account = accounts[i]
+			FormCard.FormButtonDelegate {
+				text: qsTr("Add contact by chat address")
+				icon.name: "contact-new-symbolic"
+				enabled: root.enabledAccountCount
+				onClicked: root.openContactAdditionView()
+			}
 
-							if (account.settings.enabled && account.groupChatController.groupChatCreationSupported) {
-								supportedAccountCount++
-							}
-						}
+			FormCard.FormButtonDelegate {
+				text: enabled || !root.enabledAccountCount ? qsTr("Create group") : qsTr("Create group (unsupported)")
+				icon.name: "resource-group-new"
+				enabled: {
+					const accounts = root.accounts
+					let supportedAccountCount = 0
 
-						return supportedAccountCount
-					}
-					onClicked: {
-						root.openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
+					for (let i in accounts) {
+						let account = accounts[i]
 
-						if (root.accountSelectionDialog) {
-							root.accountSelectionDialog.groupChatCreationSupported = true
-						}
-					}
-				}
-
-				FormCard.FormButtonDelegate {
-					text: enabled || !root.enabledAccountCount ? qsTr("Join group") : qsTr("Join group (unsupported)")
-					icon.name: "system-users-symbolic"
-					enabled: {
-						const accounts = root.accounts
-						let supportedAccountCount = 0
-
-						for (let i in accounts) {
-							let account = accounts[i]
-
-							if (account.settings.enabled && account.groupChatController.groupChatParticipationSupported) {
-								supportedAccountCount++
-							}
-						}
-
-						return supportedAccountCount
-					}
-					onClicked: {
-						root.openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
-
-						if (root.accountSelectionDialog) {
-							root.accountSelectionDialog.groupChatParticipationSupported = true
+						if (account.settings.enabled && account.groupChatController.groupChatCreationSupported) {
+							supportedAccountCount++
 						}
 					}
+
+					return supportedAccountCount
 				}
+				onClicked: {
+					root.openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
 
-				FormCard.FormButtonDelegate {
-					id: publicGroupChatSearchButton
-					text: qsTr("Search public groups")
-					icon.name: "system-search-symbolic"
-					onClicked: {
-						openOverlay(publicGroupChatSearchDialog)
-						root.close()
-					}
-
-					Shortcut {
-						sequence: "Ctrl+G"
-						onActivated: publicGroupChatSearchButton.clicked()
-					}
-				}
-
-				FormCard.FormButtonDelegate {
-					text: qsTr("About")
-					icon.name: "help-about-symbolic"
-					onClicked: {
-						openView(aboutDialog, aboutPage)
-						root.close()
+					if (root.accountSelectionDialog) {
+						root.accountSelectionDialog.groupChatCreationSupported = true
 					}
 				}
 			}
 
-			// placeholder to keep topContent at the top
-			Item {
-				Layout.fillHeight: true
+			FormCard.FormButtonDelegate {
+				text: enabled || !root.enabledAccountCount ? qsTr("Join group") : qsTr("Join group (unsupported)")
+				icon.name: "system-users-symbolic"
+				enabled: {
+					const accounts = root.accounts
+					let supportedAccountCount = 0
+
+					for (let i in accounts) {
+						let account = accounts[i]
+
+						if (account.settings.enabled && account.groupChatController.groupChatParticipationSupported) {
+							supportedAccountCount++
+						}
+					}
+
+					return supportedAccountCount
+				}
+				onClicked: {
+					root.openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
+
+					if (root.accountSelectionDialog) {
+						root.accountSelectionDialog.groupChatParticipationSupported = true
+					}
+				}
 			}
+
+			FormCard.FormButtonDelegate {
+				id: publicGroupChatSearchButton
+				text: qsTr("Search public groups")
+				icon.name: "system-search-symbolic"
+				onClicked: {
+					openOverlay(publicGroupChatSearchDialog)
+					root.close()
+				}
+
+				Shortcut {
+					sequence: "Ctrl+G"
+					onActivated: publicGroupChatSearchButton.clicked()
+				}
+			}
+
+			FormCard.FormButtonDelegate {
+				text: qsTr("About")
+				icon.name: "help-about-symbolic"
+				onClicked: {
+					openView(aboutDialog, aboutPage)
+					root.close()
+				}
+			}
+		},
+
+		// placeholder to keep topContent at the top
+		Item {
+			Layout.fillHeight: true
 		}
 	]
 	onSelectedAccountChanged: {
