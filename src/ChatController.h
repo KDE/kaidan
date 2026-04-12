@@ -113,7 +113,7 @@ private:
 
     void resetPreviousChat();
 
-    Account *m_account;
+    Account *m_account = nullptr;
     QString m_jid;
 
     ChatStateController *m_chatStateController = nullptr;

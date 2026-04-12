@@ -28,7 +28,6 @@
 
 ChatController::ChatController(QObject *parent)
     : QObject(parent)
-    , m_account(new Account(this))
     , m_accountEncryptionWatcher(new EncryptionWatcher(this))
     , m_chatEncryptionWatcher(new EncryptionWatcher(this))
 {
@@ -58,12 +57,7 @@ void ChatController::initialize(Account *account, const QString &jid)
     Q_EMIT aboutToChangeChat();
 
     if (m_account) {
-        if (m_jid.isEmpty()) {
-            // Delete default-constructed dummy account which is used to avoid having an undefined account property that cannot be accessed from QML.
-            m_account->deleteLater();
-        } else {
-            resetPreviousChat();
-        }
+        resetPreviousChat();
     }
 
     if (m_account != account) {

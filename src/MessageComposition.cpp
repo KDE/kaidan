@@ -45,45 +45,12 @@ void MessageComposition::setChatController(ChatController *chatController)
     if (m_chatController != chatController) {
         m_chatController = chatController;
 
-        connect(m_chatController, &ChatController::aboutToChangeChat, this, [this]() {
-            if (m_chatController->account()) {
-                saveDraft();
-                setIsDraft(false);
-                clear();
-            }
-        });
+        connect(m_chatController, &ChatController::aboutToChangeChat, this, &MessageComposition::finishCurrentChat);
+        connect(m_chatController, &ChatController::chatChanged, this, &MessageComposition::prepareForNewChat);
+        connect(m_chatController, &ChatController::accountChanged, this, &MessageComposition::updateAccount);
 
-        connect(m_chatController, &ChatController::chatChanged, this, [this]() {
-            loadDraft().then([this]() {
-                if (const auto messageBodyToForward = m_chatController->messageBodyToForward(); !messageBodyToForward.isEmpty()) {
-                    const auto forwardedMessage = [this, messageBodyToForward]() {
-                        const QString quotedBody = m_chatController->account()->settings()->displayName() + u":\n" + QmlUtils::quote(messageBodyToForward);
-
-                        if (m_body.isEmpty()) {
-                            return quotedBody;
-                        } else {
-                            return QString{m_body + u"\n" + quotedBody};
-                        }
-                    }();
-
-                    setBody(forwardedMessage);
-                    m_chatController->setMessageBodyToForward({});
-                    setIsForwarding(true);
-                }
-
-                Q_EMIT preparedForNewChat();
-            });
-        });
-
-        connect(m_chatController, &ChatController::accountChanged, this, [this]() {
-            auto *account = m_chatController->account();
-
-            m_connection = account->connection();
-            m_fileSharingController = account->fileSharingController();
-            m_messageController = account->messageController();
-
-            m_fileSelectionModel->setAccountSettings(account->settings());
-        });
+        prepareForNewChat();
+        updateAccount();
     }
 }
 
@@ -312,6 +279,49 @@ void MessageComposition::clear()
     setIsForwarding(false);
 
     m_fileSelectionModel->clear();
+}
+
+void MessageComposition::finishCurrentChat()
+{
+    if (m_chatController->account()) {
+        saveDraft();
+        setIsDraft(false);
+        clear();
+    }
+}
+
+void MessageComposition::prepareForNewChat()
+{
+    loadDraft().then([this]() {
+        if (const auto messageBodyToForward = m_chatController->messageBodyToForward(); !messageBodyToForward.isEmpty()) {
+            const auto forwardedMessage = [this, messageBodyToForward]() {
+                const QString quotedBody = m_chatController->account()->settings()->displayName() + u":\n" + QmlUtils::quote(messageBodyToForward);
+
+                if (m_body.isEmpty()) {
+                    return quotedBody;
+                } else {
+                    return QString{m_body + u"\n" + quotedBody};
+                }
+            }();
+
+            setBody(forwardedMessage);
+            m_chatController->setMessageBodyToForward({});
+            setIsForwarding(true);
+        }
+
+        Q_EMIT preparedForNewChat();
+    });
+}
+
+void MessageComposition::updateAccount()
+{
+    auto *account = m_chatController->account();
+
+    m_connection = account->connection();
+    m_fileSharingController = account->fileSharingController();
+    m_messageController = account->messageController();
+
+    m_fileSelectionModel->setAccountSettings(account->settings());
 }
 
 void MessageComposition::setReply(Message &message,

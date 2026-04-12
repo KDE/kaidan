@@ -54,7 +54,7 @@ SearchBarPage {
 			sourceModel: RosterModel
 		}
 		delegate: RosterItemDelegate {
-			property bool active: root.activeChatPage && root.activeChatPage.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
+			property bool active: root.activeChatPage?.chatController.account.settings.jid === accountJid && root.activeChatPage.chatController.jid === jid
 
 			highlighted: rosterListView.currentIndex === model.index || pinned && _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			checked: !Kirigami.Settings.isMobile && active
@@ -145,12 +145,13 @@ SearchBarPage {
 				root.searchField.clear()
 
 				if (!root.activeChatPage) {
-					closePagesExceptRosterPage()
-					root.activeChatPage = pushPage(chatPage)
-				}
+					let activeChatController = chatController.createObject(null)
+					activeChatController.initialize(AccountController.account(accountJid), chatJid)
 
-				if ((root.activeChatPage.chatController.account && root.activeChatPage.chatController.account.settings.jid !== accountJid) || chatJid !== root.activeChatPage.chatController.jid) {
-					root.activeChatPage.initialize(accountJid, chatJid)
+					closePagesExceptRosterPage()
+					root.activeChatPage = pushPage(chatPage, {chatController: activeChatController})
+				} else if (root.activeChatPage.chatController.account.settings.jid !== accountJid || root.activeChatPage.chatController.jid !== chatJid) {
+					root.activeChatPage.chatController.initialize(AccountController.account(accountJid), chatJid)
 				}
 
 				if (!pageStack.wideMode) {
@@ -161,8 +162,6 @@ SearchBarPage {
 			}
 
 			function onCloseChatPageRequested() {
-				root.activeChatPage = null
-
 				closePagesExceptRosterPage()
 				resetChatView()
 			}
@@ -238,6 +237,12 @@ SearchBarPage {
 				rosterFilterModel: filterModel
 			}
 		}
+	}
+
+	Component {
+		id: chatController
+
+		ChatController {}
 	}
 
 	Component {

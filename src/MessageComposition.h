@@ -152,6 +152,10 @@ public:
     Q_SIGNAL void preparedForNewChat();
 
 private:
+    void finishCurrentChat();
+    void prepareForNewChat();
+    void updateAccount();
+
     void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
     QFuture<void> loadDraft();
     void saveDraft();

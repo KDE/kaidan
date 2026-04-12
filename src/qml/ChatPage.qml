@@ -26,7 +26,7 @@ import "details"
 SearchBarPage {
 	id: root
 
-	property ChatController chatController: ChatController {}
+	property ChatController chatController
 	property alias messageListView: messageListView
 	property ChatPageSendingPane sendingPane
 	property ChatInfo globalChatDate
@@ -843,6 +843,14 @@ SearchBarPage {
 	}
 
 	Connections {
+		target: root.chatController
+
+		function onChatChanged() {
+			root.viewPositioned = false
+		}
+	}
+
+	Connections {
 		target: root.messageListView.model
 
 		function onMessageSearchFinished(queryStringMessageIndex) {
@@ -891,11 +899,6 @@ SearchBarPage {
 		function onUnblockingFailed(jid, errorText) {
 			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
 		}
-	}
-
-	function initialize(accountJid, chatJid) {
-		viewPositioned = false
-		chatController.initialize(AccountController.account(accountJid), chatJid)
 	}
 
 	/**
