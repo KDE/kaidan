@@ -502,7 +502,7 @@ Kirigami.GlobalDrawer {
 		} else {
 			popLayersAboveLowest()
 			popAllPages()
-			pageStack.push(startPage)
+			pushPage(startPage)
 		}
 
 		root.closeWithoutRestoringFocus()

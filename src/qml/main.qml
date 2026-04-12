@@ -219,13 +219,13 @@ Kirigami.ApplicationWindow {
 	function openChatView() {
 		popLayersAboveLowest()
 		popAllPages()
-		pageStack.push(rosterPage)
+		pushPage(rosterPage)
 		resetChatView()
 	}
 
 	function resetChatView() {
 		if (!Kirigami.Settings.isMobile) {
-			pageStack.push(emptyChatPage)
+			pushPage(emptyChatPage)
 		}
 
 		showProperPageForNarrorWindow()
@@ -244,7 +244,7 @@ Kirigami.ApplicationWindow {
 	 */
 	function openView(overlayComponent, pageComponent, openPageAsLayer = true, properties) {
 		if (Kirigami.Settings.isMobile) {
-			return openPageAsLayer ? openPage(pageComponent, properties) : pageStack.push(pageComponent, properties)
+			return openPageAsLayer ? openPage(pageComponent, properties) : pushPage(pageComponent, properties)
 		} else {
 			return openOverlay(overlayComponent, properties)
 		}
@@ -295,6 +295,10 @@ Kirigami.ApplicationWindow {
 	function popLayersAboveLowest() {
 		while (pageStack.layers.depth > 1)
 			popLayer()
+	}
+
+	function pushPage(pageComponent, properties) {
+		return pageStack.push(pageComponent, properties)
 	}
 
 	function popPage() {

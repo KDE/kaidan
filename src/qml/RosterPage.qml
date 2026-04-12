@@ -146,7 +146,7 @@ SearchBarPage {
 
 				if (!root.activeChatPage) {
 					closePagesExceptRosterPage()
-					root.activeChatPage = pageStack.push(chatPage)
+					root.activeChatPage = pushPage(chatPage)
 				}
 
 				if ((root.activeChatPage.chatController.account && root.activeChatPage.chatController.account.settings.jid !== accountJid) || chatJid !== root.activeChatPage.chatController.jid) {
