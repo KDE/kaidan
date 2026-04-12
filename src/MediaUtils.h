@@ -113,6 +113,7 @@ public:
     Q_INVOKABLE static bool hasAlphaChannel(const QVariant &source);
 
     static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice> file);
+    static QSize dimensions(const QString &localFilePath);
 
     static const QMimeDatabase &mimeDatabase()
     {

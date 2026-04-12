@@ -95,8 +95,8 @@ public:
     std::optional<QString> description;
     QMimeType mimeType;
     std::optional<qint64> size;
-    uint32_t width;
-    uint32_t height;
+    std::optional<uint32_t> width;
+    std::optional<uint32_t> height;
     QDateTime lastModified;
     QXmppFileShare::Disposition disposition = QXmppFileShare::Inline;
     QString localFilePath;

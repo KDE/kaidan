@@ -1270,6 +1270,8 @@ void MessageDb::_setFiles(const QList<File> &files)
                                                   description,
                                                   mimeType,
                                                   size,
+                                                  width,
+                                                  height,
                                                   lastModified,
                                                   disposition,
                                                   thumbnail,
@@ -1285,6 +1287,8 @@ void MessageDb::_setFiles(const QList<File> &files)
                                                   :description,
                                                   :mimeType,
                                                   :size,
+                                                  :width,
+                                                  :height,
                                                   :lastModified,
                                                   :disposition,
                                                   :thumbnail,
@@ -1306,6 +1310,8 @@ void MessageDb::_setFiles(const QList<File> &files)
                        {u":description", optionalToVariant(file.description)},
                        {u":mimeType", file.mimeType.name()},
                        {u":size", optionalToVariant(file.size)},
+                       {u":width", optionalToVariant(file.width)},
+                       {u":height", optionalToVariant(file.height)},
                        {u":lastModified", serialize(file.lastModified)},
                        {u":disposition", int(file.disposition)},
                        {u":thumbnail", file.thumbnail},
@@ -1543,6 +1549,8 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         Description,
         MimeType,
         Size,
+        Width,
+        Height,
         LastModified,
         Disposition,
         Thumbnail,
@@ -1555,7 +1563,7 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
     thread_local static auto query = [this]() {
         auto q = createQuery();
         prepareQuery(q,
-                     QStringLiteral("SELECT id, name, description, mimeType, size, lastModified, disposition, "
+                     QStringLiteral("SELECT id, name, description, mimeType, size, width, height, lastModified, disposition, "
                                     "thumbnail, localFilePath, externalId, transferOutgoing, transferState FROM files "
                                     "WHERE fileGroupId = :fileGroupId"));
         return q;
@@ -1576,6 +1584,8 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         file.description = variantToOptional<QString>(query.value(Description));
         file.mimeType = MediaUtils::mimeDatabase().mimeTypeForName(query.value(MimeType).toString());
         file.size = variantToOptional<long long>(query.value(Size));
+        file.width = variantToOptional<uint32_t>(query.value(Width));
+        file.height = variantToOptional<uint32_t>(query.value(Height));
         file.lastModified = parseDateTime(query, LastModified);
         file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
         file.localFilePath = query.value(LocalFilePath).toString();

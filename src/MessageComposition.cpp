@@ -565,8 +565,9 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     Q_ASSERT(localFileUrl.isLocalFile());
     const auto limit = m_accountSettings->httpUploadLimit();
     const QFileInfo fileInfo(localPath);
+    const auto size = fileInfo.size();
 
-    if (fileInfo.size() > limit) {
+    if (size > limit) {
         Q_EMIT MainController::instance()->passiveNotificationRequested(
             tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), m_accountSettings->httpUploadLimitText()));
         return;
@@ -576,24 +577,15 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     file.disposition = QXmppFileShare::Disposition::Attachment;
     file.localFilePath = localPath;
     file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
-    file.size = fileInfo.size();
+    file.size = size;
+
+    if (const auto dimensions = MediaUtils::dimensions(localPath); dimensions.isValid()) {
+        file.width = dimensions.width();
+        file.height = dimensions.height();
+    }
+
     file.isNew = isNew;
     file.transferOutgoing = true;
-
-    if (auto image = QImageReader(localPath); image.canRead()) {
-        const auto size = [&image]() {
-            QSize size = image.size();
-
-            if (!size.isValid()) {
-                size = image.read().size();
-            }
-
-            return size;
-        }();
-
-        file.width = size.width();
-        file.height = size.height();
-    }
 
     insertFile(file);
 }

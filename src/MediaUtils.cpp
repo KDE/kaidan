@@ -590,15 +590,13 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
         return QtFuture::makeReadyValueFuture<std::shared_ptr<Result>>(std::move(result));
     }
 
-    const auto fileName = filePtr->fileName();
+    const auto localPath = filePtr->fileName();
 
-    auto future = ImageProvider::generateMetaDataThumbnail(QUrl::fromLocalFile(fileName));
+    auto future = ImageProvider::generateMetaDataThumbnail(QUrl::fromLocalFile(localPath));
 
-    return future.then([result, fileName, file = std::move(file)](std::optional<Thumnbnail> &&thumbnail) mutable {
-        if (const QImageReader reader(fileName); reader.canRead()) {
-            if (const QSize size = reader.size(); !size.isEmpty()) {
-                result->dimensions = size;
-            }
+    return future.then([result, localPath, file = std::move(file)](std::optional<Thumnbnail> &&thumbnail) mutable {
+        if (const auto dimensions = MediaUtils::dimensions(localPath); dimensions.isValid()) {
+            result->dimensions = dimensions;
         }
 
         if (thumbnail) {
@@ -609,6 +607,21 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 
         return result;
     });
+}
+
+QSize MediaUtils::dimensions(const QString &localFilePath)
+{
+    if (auto image = QImageReader(localFilePath); image.canRead()) {
+        QSize dimensions = image.size();
+
+        if (!dimensions.isValid()) {
+            dimensions = image.read().size();
+        }
+
+        return dimensions;
+    }
+
+    return {};
 }
 
 #include "moc_MediaUtils.cpp"

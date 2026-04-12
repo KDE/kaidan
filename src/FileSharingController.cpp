@@ -177,8 +177,8 @@ void FileSharingController::sendPendingFiles(const QString &chatJid, const QStri
         }
 
         return QtFuture::makeReadyValueFuture<bool>(file.transferState == File::TransferState::Done);
-    })).then([this, chatJid, messageId](const QList<bool> &allFilesUploaded) {
-        if (all_true(allFilesUploaded)) {
+    })).then([this, chatJid, messageId](const QList<bool> &filesUploaded) {
+        if (all_true(filesUploaded)) {
             maybeSendPendingMessage(chatJid, messageId);
         }
     });
