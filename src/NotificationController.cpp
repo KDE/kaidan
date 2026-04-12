@@ -269,11 +269,14 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
             }
         }
 
+        const auto previousTimestamp = notificationWrapperItr->previousTimestamp;
+        const auto currentTimestamp = QDateTime::currentDateTimeUtc();
+
+        notificationWrapperItr->previousTimestamp = currentTimestamp;
+
         // Do not disturb the user when messages are received in quick succession by only playing a
         // notification sound for the first message.
-        const auto initalTimestamp = notificationWrapperItr->initalTimestamp.toSecsSinceEpoch() * 1s;
-        const auto currentTimestamp = QDateTime::currentSecsSinceEpoch() * 1s;
-        if (currentTimestamp - initalTimestamp > SUBSEQUENT_MESSAGE_INTERVAL) {
+        if (currentTimestamp - previousTimestamp > SUBSEQUENT_MESSAGE_INTERVAL) {
             notification = new KNotification(NEW_MESSAGE_EVENT_ID.toString());
         } else {
             notification = new KNotification(NEW_SUBSEQUENT_MESSAGE_EVENT_ID.toString());
@@ -289,7 +292,7 @@ void NotificationController::sendMessageNotification(const QString &chatJid, con
         notification->setText(messageBody);
 
         MessageNotificationWrapper notificationWrapper{.chatJid = chatJid,
-                                                       .initalTimestamp = QDateTime::currentDateTimeUtc(),
+                                                       .previousTimestamp = QDateTime::currentDateTimeUtc(),
                                                        .latestMessageId = messageId,
                                                        .messages = {messageBody},
                                                        .notification = notification};

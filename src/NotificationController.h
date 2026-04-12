@@ -34,7 +34,7 @@ class NotificationController : public QObject
 public:
     struct MessageNotificationWrapper {
         QString chatJid;
-        QDateTime initalTimestamp;
+        QDateTime previousTimestamp;
         QString latestMessageId;
         QList<QString> messages;
         bool isDeletionEnabled = true;
