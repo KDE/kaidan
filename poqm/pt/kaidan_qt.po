@@ -423,13 +423,13 @@ msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "O contacto foi copiado para a área de transferência"
 
-#: src/ImageProvider.cpp:340
+#: src/ImageProvider.cpp:341
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:370
+#: src/ImageProvider.cpp:371
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -543,7 +543,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:136
+#: src/Message.cpp:141
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "More information"
@@ -551,17 +551,12 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Mais informações"
 
-#: src/Message.cpp:166
-msgctxt "QObject|"
-msgid "dd MMM at hh:mm"
-msgstr ""
-
-#: src/Message.cpp:354
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:364
+#: src/Message.cpp:369
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -569,7 +564,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Local"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -583,12 +578,18 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível corrigir a mensagem"
 
-#: src/MessageComposition.cpp:503
+#: src/MessageComposition.cpp:504
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/MessageComposition.cpp:547
+#: src/MessageComposition.cpp:540
+#, qt-format
+msgctxt "FileSelectionModel|"
+msgid "Voice message cannot be sent because it is larger than %2"
+msgstr ""
+
+#: src/MessageComposition.cpp:571
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -901,9 +902,14 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Acerca do Kaidan"
 
-#: src/qml/CallPage.qml:18
+#: src/qml/CallPage.qml:19
 msgctxt "CallPage|"
 msgid "Call"
+msgstr ""
+
+#: src/qml/CallPage.qml:64
+msgctxt "CallPage|"
+msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
@@ -958,12 +964,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:570
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:558
+#: src/qml/ChatPage.qml:585
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Please select a chat to start messaging"
@@ -971,23 +977,23 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccione por favor uma conversa para iniciar as mensagens"
 
-#: src/qml/ChatPage.qml:610
+#: src/qml/ChatPage.qml:637
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:888
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -995,7 +1001,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Não foi possível obter o ficheiro: %1"
 
-#: src/qml/ChatPage.qml:859
+#: src/qml/ChatPage.qml:892
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -2635,7 +2641,7 @@ msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:254
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -2947,19 +2953,6 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr ""
 
-#: src/qml/elements/Audio.qml:39
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Paused %1"
-msgctxt "Audio|"
-msgid "Pause"
-msgstr "Em pausa %1"
-
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Play"
-msgstr ""
-
 #: src/qml/elements/CameraStatus.qml:28
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
@@ -2968,17 +2961,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Não existe nenhuma câmara disponível."
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:227
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:519
+#: src/qml/elements/ChatMessage.qml:522
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:547
+#: src/qml/elements/ChatMessage.qml:550
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -3065,6 +3058,14 @@ msgstr ""
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
+#, fuzzy
+#| msgctxt "NewMediaSheet|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -3577,6 +3578,14 @@ msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Tirar uma fotografia"
 
+#: src/qml/elements/ImageCaptureDialog.qml:25
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ImageCaptureDialog|"
+msgid "Take picture"
+msgstr "Tirar uma fotografia"
+
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
@@ -3681,7 +3690,117 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "A ligar…"
 
-#: src/qml/elements/MediumSendingPreview.qml:37
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "NewMedia|"
+#| msgid "Paused %1"
+msgctxt "MediaPlayerControl|"
+msgid "Pause"
+msgstr "Em pausa %1"
+
+#: src/qml/elements/MediaPlayerControl.qml:35
+msgctxt "MediaPlayerControl|"
+msgid "Play"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:88
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "MediaViewer|"
+msgid "Close media viewer"
+msgstr "Escolha um vídeo"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "MediaViewer|"
+msgid "Hide details"
+msgstr "Detalhes…"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "MediaViewer|"
+msgid "Show details"
+msgstr "Detalhes…"
+
+#: src/qml/elements/MediaViewer.qml:115
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Quote message"
+msgctxt "MediaViewer|"
+msgid "Go to message"
+msgstr "Citar a mensagem"
+
+#: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "MediaViewer|"
+msgid "Remove"
+msgstr "Remover"
+
+#: src/qml/elements/MediaViewer.qml:132
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "MediaViewer|"
+msgid "Open in folder"
+msgstr "Remover o ficheiro"
+
+#: src/qml/elements/MediaViewer.qml:139
+msgctxt "MediaViewer|"
+msgid "Open externally"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:181
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy message"
+msgctxt "MediaViewer|"
+msgid "Message"
+msgstr "Copiar a mensagem"
+
+#: src/qml/elements/MediaViewer.qml:188
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Encryption"
+msgctxt "MediaViewer|"
+msgid "Description"
+msgstr "Encriptação"
+
+#: src/qml/elements/MediaViewer.qml:206
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
+msgctxt "MediaViewer|"
+msgid "Name"
+msgstr "Nome"
+
+#: src/qml/elements/MediaViewer.qml:224
+msgctxt "MediaViewer|"
+msgid "Size"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:231
+msgctxt "MediaViewer|"
+msgid "Sent/Received"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:261
+msgctxt "MediaViewer|"
+msgid "Previous"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:268
+msgctxt "MediaViewer|"
+msgid "Next"
+msgstr ""
+
+#: src/qml/elements/MediumSendingPreview.qml:48
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -3689,7 +3808,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Description"
 msgstr "Encriptação"
 
-#: src/qml/elements/MediumSendingPreview.qml:50
+#: src/qml/elements/MediumSendingPreview.qml:61
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
@@ -3697,7 +3816,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Remover o ficheiro"
 
-#: src/qml/elements/MessageBackground.qml:115
+#: src/qml/elements/MessageBackground.qml:129
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Unencrypted"
@@ -3705,7 +3824,7 @@ msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Não-encriptada"
 
-#: src/qml/elements/MessageBackground.qml:120
+#: src/qml/elements/MessageBackground.qml:134
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Untrusted"
@@ -3891,7 +4010,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Procurar em grupos públicos (%1)"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Loading…"
@@ -3899,7 +4018,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "A carregar…"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Retry"
@@ -3907,7 +4026,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Repetir"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
 #, fuzzy, qt-format
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid ""
@@ -4084,7 +4203,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:131
+#: src/qml/elements/RosterItemDelegate.qml:127
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -4092,7 +4211,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Apagar o ficheiro"
 
-#: src/qml/elements/RosterItemDelegate.qml:145
+#: src/qml/elements/RosterItemDelegate.qml:141
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy message"
@@ -4100,7 +4219,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Copiar a mensagem"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:157
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -4108,18 +4227,18 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Rascunho:"
 
-#: src/qml/elements/RosterItemDelegate.qml:164
+#: src/qml/elements/RosterItemDelegate.qml:160
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:168
+#: src/qml/elements/RosterItemDelegate.qml:164
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
@@ -4127,7 +4246,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Soltar"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"
@@ -4164,6 +4283,16 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Gravar um vídeo"
 
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Stop recording"
+msgstr ""
+
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Start recording"
+msgstr ""
+
 #: src/qml/EmptyChatPage.qml:31
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
@@ -4172,12 +4301,12 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Seleccione por favor uma conversa para iniciar as mensagens"
 
-#: src/qml/GlobalDrawer.qml:56
+#: src/qml/GlobalDrawer.qml:52
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Contas"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:116
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -4185,7 +4314,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Senha"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:117
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter correct password"
@@ -4193,7 +4322,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Indique a senha correcta"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:126
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -4201,37 +4330,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Copiar a senha"
 
-#: src/qml/GlobalDrawer.qml:176
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Acções"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:185
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Adicionar um contacto com um código QR"
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Adicionar um contacto pelo endereço de conversação"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -4239,22 +4368,22 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Livre para conversação"
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:252
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Procurar nos grupos públicos"
 
-#: src/qml/GlobalDrawer.qml:266
+#: src/qml/GlobalDrawer.qml:260
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -4262,18 +4391,18 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Sobre"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:469
+#: src/qml/GlobalDrawer.qml:491
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -4281,7 +4410,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Não foi possível obter o ficheiro: %1"
 
-#: src/qml/GlobalDrawer.qml:473
+#: src/qml/GlobalDrawer.qml:495
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
@@ -5116,10 +5245,6 @@ msgstr "Página Web"
 #~ msgid "Recording… %1"
 #~ msgstr "A gravar… %1"
 
-#~ msgctxt "NewMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Share files"
 #~ msgstr "Partilhar ficheiros"
@@ -5493,20 +5618,12 @@ msgstr "Página Web"
 #~ msgstr "O fornecedor não suporta de momento o registo por esta aplicação."
 
 #~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy message"
-#~ msgstr "Copiar a mensagem"
-
-#~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Edit message"
 #~ msgstr "Editar a mensagem"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Copy download URL"
 #~ msgstr "Copiar o URL de transferência"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Quote message"
-#~ msgstr "Citar a mensagem"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Delete file"

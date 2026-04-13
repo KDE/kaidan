@@ -406,13 +406,13 @@ msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "聯絡人已複製到剪貼簿"
 
-#: src/ImageProvider.cpp:340
+#: src/ImageProvider.cpp:341
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:370
+#: src/ImageProvider.cpp:371
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -526,22 +526,17 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:136
+#: src/Message.cpp:141
 msgctxt "QObject|"
 msgid "No information"
 msgstr "沒有資訊"
 
-#: src/Message.cpp:166
-msgctxt "QObject|"
-msgid "dd MMM at hh:mm"
-msgstr "M月d日 hh:mm"
-
-#: src/Message.cpp:354
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "暴雷"
 
-#: src/Message.cpp:364
+#: src/Message.cpp:369
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -549,7 +544,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "位置"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -563,12 +558,20 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "訊息修正不成功"
 
-#: src/MessageComposition.cpp:503
+#: src/MessageComposition.cpp:504
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/MessageComposition.cpp:547
+#: src/MessageComposition.cpp:540
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt "FileSelectionModel|"
+msgid "Voice message cannot be sent because it is larger than %2"
+msgstr "「%1」無法傳送，因為它比 %2 還大"
+
+#: src/MessageComposition.cpp:571
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -875,9 +878,14 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "關於 Kaidan"
 
-#: src/qml/CallPage.qml:18
+#: src/qml/CallPage.qml:19
 msgctxt "CallPage|"
 msgid "Call"
+msgstr ""
+
+#: src/qml/CallPage.qml:64
+msgctxt "CallPage|"
+msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
@@ -932,12 +940,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "搜尋"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:570
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:558
+#: src/qml/ChatPage.qml:585
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start messaging"
@@ -945,12 +953,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/ChatPage.qml:610
+#: src/qml/ChatPage.qml:637
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -958,7 +966,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -966,7 +974,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:888
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -974,7 +982,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/ChatPage.qml:859
+#: src/qml/ChatPage.qml:892
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2493,7 +2501,7 @@ msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "已選取 %1/%2"
 
-#: src/qml/details/MediaOverview.qml:254
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -2820,19 +2828,6 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr ""
 
-#: src/qml/elements/Audio.qml:39
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Paused %1"
-msgctxt "Audio|"
-msgid "Pause"
-msgstr "已暫停 %1"
-
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Play"
-msgstr ""
-
 #: src/qml/elements/CameraStatus.qml:28
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
@@ -2841,17 +2836,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "無相機可用"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:227
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "暴雷"
 
-#: src/qml/elements/ChatMessage.qml:519
+#: src/qml/elements/ChatMessage.qml:522
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:547
+#: src/qml/elements/ChatMessage.qml:550
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2938,6 +2933,14 @@ msgstr "可見訊息部分"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消加入隱藏訊息部分"
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
+#, fuzzy
+#| msgctxt "NewMediaSheet|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel"
+msgstr "取消"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -3436,6 +3439,14 @@ msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "拍照"
 
+#: src/qml/elements/ImageCaptureDialog.qml:25
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ImageCaptureDialog|"
+msgid "Take picture"
+msgstr "拍照"
+
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
@@ -3519,7 +3530,117 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/qml/elements/MediumSendingPreview.qml:37
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "NewMedia|"
+#| msgid "Paused %1"
+msgctxt "MediaPlayerControl|"
+msgid "Pause"
+msgstr "已暫停 %1"
+
+#: src/qml/elements/MediaPlayerControl.qml:35
+msgctxt "MediaPlayerControl|"
+msgid "Play"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:88
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "MediaViewer|"
+msgid "Close media viewer"
+msgstr "選擇影片"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "MediaViewer|"
+msgid "Hide details"
+msgstr "詳細資訊…"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Details…"
+msgctxt "MediaViewer|"
+msgid "Show details"
+msgstr "詳細資訊…"
+
+#: src/qml/elements/MediaViewer.qml:115
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Quote message"
+msgctxt "MediaViewer|"
+msgid "Go to message"
+msgstr "引用訊息"
+
+#: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "MediaViewer|"
+msgid "Remove"
+msgstr "移除"
+
+#: src/qml/elements/MediaViewer.qml:132
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "MediaViewer|"
+msgid "Open in folder"
+msgstr "移除檔案"
+
+#: src/qml/elements/MediaViewer.qml:139
+msgctxt "MediaViewer|"
+msgid "Open externally"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:181
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy message"
+msgctxt "MediaViewer|"
+msgid "Message"
+msgstr "複製訊息"
+
+#: src/qml/elements/MediaViewer.qml:188
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Encryption"
+msgctxt "MediaViewer|"
+msgid "Description"
+msgstr "加密"
+
+#: src/qml/elements/MediaViewer.qml:206
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
+msgctxt "MediaViewer|"
+msgid "Name"
+msgstr "名稱"
+
+#: src/qml/elements/MediaViewer.qml:224
+msgctxt "MediaViewer|"
+msgid "Size"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:231
+msgctxt "MediaViewer|"
+msgid "Sent/Received"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:261
+msgctxt "MediaViewer|"
+msgid "Previous"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:268
+msgctxt "MediaViewer|"
+msgid "Next"
+msgstr ""
+
+#: src/qml/elements/MediumSendingPreview.qml:48
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -3527,7 +3648,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Description"
 msgstr "加密"
 
-#: src/qml/elements/MediumSendingPreview.qml:50
+#: src/qml/elements/MediumSendingPreview.qml:61
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
@@ -3535,12 +3656,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "移除檔案"
 
-#: src/qml/elements/MessageBackground.qml:115
+#: src/qml/elements/MessageBackground.qml:129
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "已解密"
 
-#: src/qml/elements/MessageBackground.qml:120
+#: src/qml/elements/MessageBackground.qml:134
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "不受信任的"
@@ -3723,7 +3844,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "搜尋公開群組 (%1)"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Downloading…"
@@ -3731,7 +3852,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "下載中…"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Retry"
@@ -3739,7 +3860,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "重試"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
 #, fuzzy, qt-format
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid ""
@@ -3902,7 +4023,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "只顯示有所選標籤的聊天"
 
-#: src/qml/elements/RosterItemDelegate.qml:131
+#: src/qml/elements/RosterItemDelegate.qml:127
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -3910,7 +4031,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "刪除檔案"
 
-#: src/qml/elements/RosterItemDelegate.qml:145
+#: src/qml/elements/RosterItemDelegate.qml:141
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "No messages yet"
@@ -3918,7 +4039,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "還沒有訊息"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:157
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -3926,7 +4047,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "草稿："
 
-#: src/qml/elements/RosterItemDelegate.qml:164
+#: src/qml/elements/RosterItemDelegate.qml:160
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3934,7 +4055,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "我："
 
-#: src/qml/elements/RosterItemDelegate.qml:168
+#: src/qml/elements/RosterItemDelegate.qml:164
 #, fuzzy, qt-format
 #| msgctxt "RosterListItem|"
 #| msgid "%1:"
@@ -3942,7 +4063,7 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1："
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Unpin"
@@ -3950,7 +4071,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "取消釘選"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItemContextMenu|"
 #| msgid "Pin"
@@ -3987,6 +4108,16 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "錄製影片"
 
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Stop recording"
+msgstr ""
+
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Start recording"
+msgstr ""
+
 #: src/qml/EmptyChatPage.qml:31
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
@@ -3995,12 +4126,12 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "選擇聊天室來開始傳訊息"
 
-#: src/qml/GlobalDrawer.qml:56
+#: src/qml/GlobalDrawer.qml:52
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "帳號"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:116
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password"
@@ -4008,7 +4139,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密碼"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:117
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter your current password"
@@ -4016,7 +4147,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "輸入您目前的密碼"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:126
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Copy password"
@@ -4024,37 +4155,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "複製密碼"
 
-#: src/qml/GlobalDrawer.qml:176
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "動作"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:185
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "用 QR code 新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "依聊天位址新增聯絡人"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -4062,22 +4193,22 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "能夠聊天"
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:252
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜尋公開群組"
 
-#: src/qml/GlobalDrawer.qml:266
+#: src/qml/GlobalDrawer.qml:260
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -4085,7 +4216,7 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -4093,7 +4224,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -4101,7 +4232,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/GlobalDrawer.qml:469
+#: src/qml/GlobalDrawer.qml:491
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -4109,7 +4240,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/GlobalDrawer.qml:473
+#: src/qml/GlobalDrawer.qml:495
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -4651,6 +4782,10 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "M月d日 hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "詳細資訊…"
@@ -4909,10 +5044,6 @@ msgstr "網站"
 #~ msgctxt "NewMedia|"
 #~ msgid "Recording… %1"
 #~ msgstr "錄製中… %1"
-
-#~ msgctxt "NewMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "取消"
 
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Share files"
@@ -5277,16 +5408,8 @@ msgstr "網站"
 #~ msgstr "取得封鎖清單時發生錯誤：%1"
 
 #~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy message"
-#~ msgstr "複製訊息"
-
-#~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Copy download URL"
 #~ msgstr "複製下載網址"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Quote message"
-#~ msgstr "引用訊息"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Delete file"

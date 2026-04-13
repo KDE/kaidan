@@ -405,13 +405,13 @@ msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Kontakto kopiita al tondujo"
 
-#: src/ImageProvider.cpp:340
+#: src/ImageProvider.cpp:341
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:370
+#: src/ImageProvider.cpp:371
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -525,27 +525,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:136
+#: src/Message.cpp:141
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Neniu informo"
 
-#: src/Message.cpp:166
-msgctxt "QObject|"
-msgid "dd MMM at hh:mm"
-msgstr "dd MMM je hh:mm"
-
-#: src/Message.cpp:354
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:364
+#: src/Message.cpp:369
 msgctxt "Message|"
 msgid "Location"
 msgstr "Loko"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -556,12 +551,20 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Mesaĝa korekto ne sukcesis"
 
-#: src/MessageComposition.cpp:503
+#: src/MessageComposition.cpp:504
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: src/MessageComposition.cpp:547
+#: src/MessageComposition.cpp:540
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt "FileSelectionModel|"
+msgid "Voice message cannot be sent because it is larger than %2"
+msgstr "'%1' ne povas sendiĝi ĉar ĝi estas pli granda ol %2"
+
+#: src/MessageComposition.cpp:571
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -842,9 +845,14 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Pri Kaidan"
 
-#: src/qml/CallPage.qml:18
+#: src/qml/CallPage.qml:19
 msgctxt "CallPage|"
 msgid "Call"
+msgstr ""
+
+#: src/qml/CallPage.qml:64
+msgctxt "CallPage|"
+msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
@@ -899,12 +907,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Serĉi"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:570
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:558
+#: src/qml/ChatPage.qml:585
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -912,12 +920,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Elekti babileton por komenci"
 
-#: src/qml/ChatPage.qml:610
+#: src/qml/ChatPage.qml:637
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -925,7 +933,7 @@ msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Malblokita %1"
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -933,7 +941,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Malfari"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:888
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -941,7 +949,7 @@ msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ne eblis bloki %1: %2"
 
-#: src/qml/ChatPage.qml:859
+#: src/qml/ChatPage.qml:892
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2212,7 +2220,7 @@ msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "%1/%2 elektita"
 
-#: src/qml/details/MediaOverview.qml:254
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -2447,32 +2455,22 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr ""
 
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Pause"
-msgstr "Paŭzo"
-
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Play"
-msgstr "Ludi"
-
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Neniu fotilo disponebla"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:227
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:519
+#: src/qml/elements/ChatMessage.qml:522
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nova"
 
-#: src/qml/elements/ChatMessage.qml:547
+#: src/qml/elements/ChatMessage.qml:550
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2553,6 +2551,14 @@ msgstr "Videbla mesaĝo parto"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Nuligi aldonon de kaŝita mesaĝparto"
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel"
+msgstr "Nuligi"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2962,6 +2968,14 @@ msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Preni foton"
 
+#: src/qml/elements/ImageCaptureDialog.qml:25
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ImageCaptureDialog|"
+msgid "Take picture"
+msgstr "Foti"
+
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
@@ -3043,22 +3057,132 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/qml/elements/MediumSendingPreview.qml:37
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Pause"
+msgctxt "MediaPlayerControl|"
+msgid "Pause"
+msgstr "Paŭzo"
+
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Play"
+msgctxt "MediaPlayerControl|"
+msgid "Play"
+msgstr "Ludi"
+
+#: src/qml/elements/MediaViewer.qml:88
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Choose a Provider"
+msgctxt "MediaViewer|"
+msgid "Close media viewer"
+msgstr "Elekti Provizanton"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "GroupChatDetailsDialog|"
+#| msgid "Group Details"
+msgctxt "MediaViewer|"
+msgid "Hide details"
+msgstr "Grupaj Detaloj"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "MediaViewer|"
+msgid "Show details"
+msgstr "Montri detalojn"
+
+#: src/qml/elements/MediaViewer.qml:115
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "No messages yet"
+msgctxt "MediaViewer|"
+msgid "Go to message"
+msgstr "Ankoraŭ neniuj mesaĝoj"
+
+#: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "MediaViewer|"
+msgid "Remove"
+msgstr "Forigi"
+
+#: src/qml/elements/MediaViewer.qml:132
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
+msgctxt "MediaViewer|"
+msgid "Open in folder"
+msgstr "Malfermu la dosierujon de elektita dosiero"
+
+#: src/qml/elements/MediaViewer.qml:139
+msgctxt "MediaViewer|"
+msgid "Open externally"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:181
+msgctxt "MediaViewer|"
+msgid "Message"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:188
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Description"
+msgctxt "MediaViewer|"
+msgid "Description"
+msgstr "Priskribo"
+
+#: src/qml/elements/MediaViewer.qml:206
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
+msgctxt "MediaViewer|"
+msgid "Name"
+msgstr "Nomo"
+
+#: src/qml/elements/MediaViewer.qml:224
+msgctxt "MediaViewer|"
+msgid "Size"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:231
+msgctxt "MediaViewer|"
+msgid "Sent/Received"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:261
+msgctxt "MediaViewer|"
+msgid "Previous"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:268
+msgctxt "MediaViewer|"
+msgid "Next"
+msgstr ""
+
+#: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
 msgid "Description"
 msgstr "Priskribo"
 
-#: src/qml/elements/MediumSendingPreview.qml:50
+#: src/qml/elements/MediumSendingPreview.qml:61
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Forigi dosieron"
 
-#: src/qml/elements/MessageBackground.qml:115
+#: src/qml/elements/MessageBackground.qml:129
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Malĉifrita"
 
-#: src/qml/elements/MessageBackground.qml:120
+#: src/qml/elements/MessageBackground.qml:134
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Nefidinda"
@@ -3220,7 +3344,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Serĉi publikajn grupojn (%1)"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatDialog|"
 #| msgid "Downloading…"
@@ -3228,7 +3352,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Elŝutante…"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatDialog|"
 #| msgid "Retry"
@@ -3236,7 +3360,7 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Reprovi"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
 #, fuzzy, qt-format
 #| msgctxt "SearchPublicGroupChatDialog|"
 #| msgid "The public groups could not be retrieved: %1"
@@ -3384,7 +3508,7 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Montri nur babilojn kun elektitaj etikedoj"
 
-#: src/qml/elements/RosterItemDelegate.qml:131
+#: src/qml/elements/RosterItemDelegate.qml:127
 #, fuzzy
 #| msgctxt "GroupChatDetailsHeader|"
 #| msgid "Deleted"
@@ -3392,7 +3516,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Forigita"
 
-#: src/qml/elements/RosterItemDelegate.qml:145
+#: src/qml/elements/RosterItemDelegate.qml:141
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "No messages yet"
@@ -3400,7 +3524,7 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ankoraŭ neniuj mesaĝoj"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:157
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Draft:"
@@ -3408,7 +3532,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Malneto:"
 
-#: src/qml/elements/RosterItemDelegate.qml:164
+#: src/qml/elements/RosterItemDelegate.qml:160
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Me:"
@@ -3416,7 +3540,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Mi:"
 
-#: src/qml/elements/RosterItemDelegate.qml:168
+#: src/qml/elements/RosterItemDelegate.qml:164
 #, fuzzy, qt-format
 #| msgctxt "RosterListItem|"
 #| msgid "%1:"
@@ -3424,7 +3548,7 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Unpin"
@@ -3432,7 +3556,7 @@ msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Malpingli"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 #, fuzzy
 #| msgctxt "RosterListItem|"
 #| msgid "Pin"
@@ -3463,17 +3587,27 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Registri videon"
 
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Stop recording"
+msgstr ""
+
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Start recording"
+msgstr ""
+
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Elekti babileton por komenci"
 
-#: src/qml/GlobalDrawer.qml:56
+#: src/qml/GlobalDrawer.qml:52
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontoj"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:116
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password"
@@ -3481,7 +3615,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Pasvorto"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:117
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter your current password"
@@ -3489,7 +3623,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Enigu vian nunan pasvorton"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:126
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Copy password"
@@ -3497,37 +3631,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Kopii pasvorton"
 
-#: src/qml/GlobalDrawer.qml:176
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Agoj"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:185
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Aldoni kontakton per QR-kodo"
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Aldoni kontakton per babila adreso"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 #, fuzzy
 #| msgctxt "GroupChatCreationDialog|"
 #| msgid "Create group chat"
@@ -3535,12 +3669,12 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Krei grupan babilejon"
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 #, fuzzy
 #| msgctxt "GroupChatJoiningDialog|"
 #| msgid "Join group chat"
@@ -3548,17 +3682,17 @@ msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Kuniĝi al grupa babilo"
 
-#: src/qml/GlobalDrawer.qml:252
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Serĉi publikajn grupojn"
 
-#: src/qml/GlobalDrawer.qml:266
+#: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Pri"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -3566,7 +3700,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Malblokita %1"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -3574,7 +3708,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Malfari"
 
-#: src/qml/GlobalDrawer.qml:469
+#: src/qml/GlobalDrawer.qml:491
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -3582,7 +3716,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Ne eblis bloki %1: %2"
 
-#: src/qml/GlobalDrawer.qml:473
+#: src/qml/GlobalDrawer.qml:495
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -4044,6 +4178,10 @@ msgstr "Naskiĝtago"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
+
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM je hh:mm"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"

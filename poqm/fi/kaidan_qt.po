@@ -335,13 +335,13 @@ msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Virheellistä lähdettä ei voitu kopioida leikepöydälle: %1"
 
-#: src/ImageProvider.cpp:340
+#: src/ImageProvider.cpp:341
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Pienoiskuvaa ei voi luoda: tiedostoa %1 ei ole olemassa"
 
-#: src/ImageProvider.cpp:370
+#: src/ImageProvider.cpp:371
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
@@ -453,27 +453,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:136
+#: src/Message.cpp:141
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Ei tietoa"
 
-#: src/Message.cpp:166
-msgctxt "QObject|"
-msgid "dd MMM at hh:mm"
-msgstr "pp KKK klo tt:mm"
-
-#: src/Message.cpp:354
+#: src/Message.cpp:359
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/Message.cpp:364
+#: src/Message.cpp:369
 msgctxt "Message|"
 msgid "Location"
 msgstr "Sijainti"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -484,12 +479,20 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Viestin korjaaminen ei onnistunut"
 
-#: src/MessageComposition.cpp:503
+#: src/MessageComposition.cpp:504
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/MessageComposition.cpp:547
+#: src/MessageComposition.cpp:540
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt "FileSelectionModel|"
+msgid "Voice message cannot be sent because it is larger than %2"
+msgstr "”%1”: ei voida lähettää, koska on yli %2"
+
+#: src/MessageComposition.cpp:571
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -756,9 +759,14 @@ msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Tietoa Kaidanista"
 
-#: src/qml/CallPage.qml:18
+#: src/qml/CallPage.qml:19
 msgctxt "CallPage|"
 msgid "Call"
+msgstr ""
+
+#: src/qml/CallPage.qml:64
+msgctxt "CallPage|"
+msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
@@ -813,39 +821,39 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:543
+#: src/qml/ChatPage.qml:570
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Peru edentäminen"
 
-#: src/qml/ChatPage.qml:558
+#: src/qml/ChatPage.qml:585
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Edennä viesti valitsemalla keskustelu"
 
-#: src/qml/ChatPage.qml:610
+#: src/qml/ChatPage.qml:637
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Pudota lähetettävät tiedostot"
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/ChatPage.qml:848
+#: src/qml/ChatPage.qml:881
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/ChatPage.qml:855
+#: src/qml/ChatPage.qml:888
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/ChatPage.qml:859
+#: src/qml/ChatPage.qml:892
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2092,7 +2100,7 @@ msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "%1/%2 valittu"
 
-#: src/qml/details/MediaOverview.qml:254
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -2303,32 +2311,22 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr "Ominaisuutta ei tueta"
 
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Pause"
-msgstr "Tauko"
-
-#: src/qml/elements/Audio.qml:39
-msgctxt "Audio|"
-msgid "Play"
-msgstr "Toista"
-
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Ei kameraa käytettävissä"
 
-#: src/qml/elements/ChatMessage.qml:224
+#: src/qml/elements/ChatMessage.qml:227
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:519
+#: src/qml/elements/ChatMessage.qml:522
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Uusi"
 
-#: src/qml/elements/ChatMessage.qml:547
+#: src/qml/elements/ChatMessage.qml:550
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2409,6 +2407,14 @@ msgstr "Viestin näkyvä osa"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Peru viestin piilo-osan lisääminen"
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
+#, fuzzy
+#| msgctxt "NewMediaSheet|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel"
+msgstr "Peru"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2813,6 +2819,14 @@ msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Ota kuva"
 
+#: src/qml/elements/ImageCaptureDialog.qml:25
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ImageCaptureDialog|"
+msgid "Take picture"
+msgstr "Ota kuva"
+
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
@@ -2890,22 +2904,135 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
-#: src/qml/elements/MediumSendingPreview.qml:37
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Pause"
+msgctxt "MediaPlayerControl|"
+msgid "Pause"
+msgstr "Tauko"
+
+#: src/qml/elements/MediaPlayerControl.qml:35
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Play"
+msgctxt "MediaPlayerControl|"
+msgid "Play"
+msgstr "Toista"
+
+#: src/qml/elements/MediaViewer.qml:88
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Choose a Provider"
+msgctxt "MediaViewer|"
+msgid "Close media viewer"
+msgstr "Valitse palveluntarjoaja"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "ProviderChatDetailsDialog|"
+#| msgid "Provider Details"
+msgctxt "MediaViewer|"
+msgid "Hide details"
+msgstr "Tarjoajan tiedot"
+
+#: src/qml/elements/MediaViewer.qml:109
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "MediaViewer|"
+msgid "Show details"
+msgstr "Näytä yksityiskohdat"
+
+#: src/qml/elements/MediaViewer.qml:115
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Quote message"
+msgctxt "MediaViewer|"
+msgid "Go to message"
+msgstr "Lainaa viestiä"
+
+#: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "MediaViewer|"
+msgid "Remove"
+msgstr "Poista"
+
+#: src/qml/elements/MediaViewer.qml:132
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open selected file's folder"
+msgctxt "MediaViewer|"
+msgid "Open in folder"
+msgstr "Avaa valitun tiedoston kansio"
+
+#: src/qml/elements/MediaViewer.qml:139
+msgctxt "MediaViewer|"
+msgid "Open externally"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:181
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy message"
+msgctxt "MediaViewer|"
+msgid "Message"
+msgstr "Kopioi viesti"
+
+#: src/qml/elements/MediaViewer.qml:188
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Description"
+msgctxt "MediaViewer|"
+msgid "Description"
+msgstr "Kuvaus"
+
+#: src/qml/elements/MediaViewer.qml:206
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
+msgctxt "MediaViewer|"
+msgid "Name"
+msgstr "Nimi"
+
+#: src/qml/elements/MediaViewer.qml:224
+msgctxt "MediaViewer|"
+msgid "Size"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:231
+msgctxt "MediaViewer|"
+msgid "Sent/Received"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:261
+msgctxt "MediaViewer|"
+msgid "Previous"
+msgstr ""
+
+#: src/qml/elements/MediaViewer.qml:268
+msgctxt "MediaViewer|"
+msgid "Next"
+msgstr ""
+
+#: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
 msgid "Description"
 msgstr "Kuvaus"
 
-#: src/qml/elements/MediumSendingPreview.qml:50
+#: src/qml/elements/MediumSendingPreview.qml:61
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
 
-#: src/qml/elements/MessageBackground.qml:115
+#: src/qml/elements/MessageBackground.qml:129
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/MessageBackground.qml:120
+#: src/qml/elements/MessageBackground.qml:134
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
@@ -3051,17 +3178,17 @@ msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
 msgstr "Etsi julkisia ryhmiä (%1)"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:73
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:72
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Downloading…"
 msgstr "Ladataan…"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:98
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:97
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Retry"
 msgstr "Yritä uudelleen"
 
-#: src/qml/elements/PublicGroupChatSearchDialog.qml:180
+#: src/qml/elements/PublicGroupChatSearchDialog.qml:179
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
@@ -3180,38 +3307,38 @@ msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
-#: src/qml/elements/RosterItemDelegate.qml:131
+#: src/qml/elements/RosterItemDelegate.qml:127
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Poistettu"
 
-#: src/qml/elements/RosterItemDelegate.qml:145
+#: src/qml/elements/RosterItemDelegate.qml:141
 msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Ei vielä viestejä"
 
-#: src/qml/elements/RosterItemDelegate.qml:161
+#: src/qml/elements/RosterItemDelegate.qml:157
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr "Luonnos:"
 
-#: src/qml/elements/RosterItemDelegate.qml:164
+#: src/qml/elements/RosterItemDelegate.qml:160
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr "Minä:"
 
-#: src/qml/elements/RosterItemDelegate.qml:168
+#: src/qml/elements/RosterItemDelegate.qml:164
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Irrota"
 
-#: src/qml/elements/RosterItemDelegate.qml:283
+#: src/qml/elements/RosterItemDelegate.qml:279
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Kiinnitä"
@@ -3239,104 +3366,117 @@ msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Nauhoita video"
 
+#: src/qml/elements/VideoRecordingDialog.qml:31
+#, fuzzy
+#| msgctxt "MultimediaSettings|"
+#| msgid "Audio Recording"
+msgctxt "VideoRecordingDialog|"
+msgid "Stop recording"
+msgstr "Ääninauhoitus"
+
+#: src/qml/elements/VideoRecordingDialog.qml:31
+msgctxt "VideoRecordingDialog|"
+msgid "Start recording"
+msgstr ""
+
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Aloita valitsemalla keskustelu"
 
-#: src/qml/GlobalDrawer.qml:56
+#: src/qml/GlobalDrawer.qml:52
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Tilit"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Salasana"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:117
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Anna oikea salasana"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:126
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Vahvista salasana"
 
-#: src/qml/GlobalDrawer.qml:176
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Toiminnot"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Käyttääksesi kaikkia toimintoja ota käyttöön tili"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Käyttääksesi kaikkia toimintoja ota käyttöön tili"
 
-#: src/qml/GlobalDrawer.qml:185
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lisää yhteystieto QR-koodilla"
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Lisää yhteystieto keskusteluosoitteella"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Luo ryhmä"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Luo ryhmä (ei tuettu)"
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Liity ryhmään"
 
-#: src/qml/GlobalDrawer.qml:225
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Liity ryhmään (ei tuettu)"
 
-#: src/qml/GlobalDrawer.qml:252
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Etsi julkisia ryhmiä"
 
-#: src/qml/GlobalDrawer.qml:266
+#: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Tietoa"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/GlobalDrawer.qml:462
+#: src/qml/GlobalDrawer.qml:484
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/GlobalDrawer.qml:469
+#: src/qml/GlobalDrawer.qml:491
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/GlobalDrawer.qml:473
+#: src/qml/GlobalDrawer.qml:495
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
@@ -3769,6 +3909,10 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "pp KKK klo tt:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Yksityiskohdat…"
@@ -4018,10 +4162,6 @@ msgstr "Sivusto"
 #~ msgctxt "NewMedia|"
 #~ msgid "Recording… %1"
 #~ msgstr "Nauhoitetaan… %1"
-
-#~ msgctxt "NewMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Peru"
 
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Share files"
@@ -4394,20 +4534,12 @@ msgstr "Sivusto"
 #~ msgstr "Virhe noudettaessa estoluetteloa: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy message"
-#~ msgstr "Kopioi viesti"
-
-#~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Edit message"
 #~ msgstr "Muokkaa viestiä"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Copy download URL"
 #~ msgstr "Kopioi latauksen verkko-osoite"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Quote message"
-#~ msgstr "Lainaa viestiä"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Delete file"
@@ -4953,10 +5085,6 @@ msgstr "Sivusto"
 #~ msgctxt "MultimediaSettings|"
 #~ msgid "Image Capture"
 #~ msgstr "Kuvakaappaus"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Audio Recording"
-#~ msgstr "Ääninauhoitus"
 
 #~ msgctxt "MultimediaSettings|"
 #~ msgid "Video Recording"
