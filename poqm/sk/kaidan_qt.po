@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2021-05-29 00:16+0000\n"
-"PO-Revision-Date: 2022-03-29 19:22+0200\n"
+"PO-Revision-Date: 2026-04-13 12:00+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -475,12 +475,10 @@ msgid "Unknown size"
 msgstr "Neznáma veľkosť"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "„%1“ nemožno odoslať, pretože je väčší ako %2"
+msgstr "Hlasovú správu nie je možné odoslať, pretože je väčšia ako %2"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -745,7 +743,7 @@ msgstr "Hovor"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Ukončiť hovor"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2350,12 +2348,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Zrušiť pridanie skrytej časti správy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "Zrušené"
+msgstr "Zrušiť"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2756,9 +2751,6 @@ msgid "Take a picture"
 msgstr "Odfotiť"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Odfotiť"
@@ -2841,89 +2833,61 @@ msgid "Connecting…"
 msgstr "Pripájam..."
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pozastaviť"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Prehrať"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Vybrať súbor"
+msgstr "Zatvoriť prehliadač médií"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Podrobnosti poskytovateľa"
+msgstr "Skryť podrobnosti"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Zobraziť podrobnosti"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Vybrať obrázok"
+msgstr "Prejsť na správu"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
-msgstr "Vybrať súbor"
+msgstr "Odstrániť"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Vybrať súbor"
+msgstr "Otvoriť v priečinku"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Otvoriť externe"
 
 #: src/qml/elements/MediaViewer.qml:181
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr ""
+msgstr "Správa"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Popis"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Názov"
@@ -2931,22 +2895,22 @@ msgstr "Názov"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Odoslané/Prijaté"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Predchádzajúce"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Nasledujúce"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3294,12 +3258,12 @@ msgstr "Nahrať video"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr ""
+msgstr "Zastaviť nahrávanie"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Spustiť nahrávanie"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"

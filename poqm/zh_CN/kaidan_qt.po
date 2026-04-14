@@ -465,12 +465,10 @@ msgid "Unknown size"
 msgstr "未知大小"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "无法发送“%1”，因为它大于 %2"
+msgstr ""
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -2307,12 +2305,9 @@ msgid "Cancel adding hidden message part"
 msgstr "取消添加隐藏的消息部分"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "已取消"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2713,12 +2708,9 @@ msgid "Take a picture"
 msgstr "拍摄照片"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
-msgstr "拍摄照片"
+msgstr ""
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2798,68 +2790,44 @@ msgid "Connecting…"
 msgstr "正在连接…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
-msgstr "暂停"
+msgstr ""
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
-msgstr "播放"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "选择提供者"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "提供者详情"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
-msgstr "显示详情"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "RosterItemDelegate|"
-#| msgid "No messages yet"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "暂无消息"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
-msgstr "移除"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "在文件夹中打开文件"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
@@ -2872,20 +2840,14 @@ msgid "Message"
 msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
-msgstr "描述"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
@@ -3776,7 +3738,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "M月d日 hh:mm"

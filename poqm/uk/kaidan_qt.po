@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-09 10:03+0200\n"
+"PO-Revision-Date: 2026-04-13 08:43+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -480,12 +480,11 @@ msgid "Unknown size"
 msgstr "Невідомий розмір"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "Неможливо надіслати «%1», оскільки його розмір перевищує %2"
+msgstr ""
+"Неможливо надіслати голосове повідомлення, оскільки його розмір перевищує %2"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -751,7 +750,7 @@ msgstr "Виклик"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Вийти з виклику"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2388,9 +2387,6 @@ msgid "Cancel adding hidden message part"
 msgstr "Скасувати додавання прихованої частини повідомлення"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Скасувати"
@@ -2798,9 +2794,6 @@ msgid "Take a picture"
 msgstr "Зробити знімок"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Зробити знімок"
@@ -2883,117 +2876,84 @@ msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Пауза"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Пуск"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Виберіть надавача послуг"
+msgstr "Закрити переглядач мультимедіа"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Параметри надавача"
+msgstr "Приховати подробиці"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Показати подробиці"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Quote message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Процитувати повідомлення"
+msgstr "Перейти до повідомлення"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Вилучити"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Відкрити теку файла"
+msgstr "Відкрити теку вмісту"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Відкрити у сторонній програмі"
 
 #: src/qml/elements/MediaViewer.qml:181
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Copy Message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Скопіювати повідомлення"
+msgstr "Повідомлення"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Опис"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
-msgstr "Ім'я"
+msgstr "Назва"
 
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Надіслано/Отримано"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Далі"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3341,17 +3301,14 @@ msgid "Record a video"
 msgstr "Записати відео"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio Recording"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "Запис звуку"
+msgstr "Зупинити запис"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Почати запис"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"

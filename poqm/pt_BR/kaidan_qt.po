@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-06 08:56-0300\n"
+"PO-Revision-Date: 2026-04-13 09:22-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Language: pt_BR\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -478,12 +478,10 @@ msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "'%1' não pode ser enviado porque é maior que %2"
+msgstr "Mensagem de voz não pôde ser enviada porque é maior que %2"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -750,7 +748,7 @@ msgstr "Chamar"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Sair da chamada"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2381,9 +2379,6 @@ msgid "Cancel adding hidden message part"
 msgstr "Cancelar a adição de parte da mensagem oculta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Cancelar"
@@ -2787,9 +2782,6 @@ msgid "Take a picture"
 msgstr "Tirar uma foto"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Tirar uma foto"
@@ -2873,94 +2865,61 @@ msgid "Connecting…"
 msgstr "Conectando…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pausar"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Reproduzir"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Selecione um servidor"
+msgstr "Fechar visualizador de mídia"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Detalhes do servidor"
+msgstr "Ocultar detalhes"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Mostrar detalhes"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Quote message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Citar mensagem"
+msgstr "Ir para a mensagem"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Remover"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Abrir arquivo na pasta"
+msgstr "Abrir na pasta"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Abrir externamente"
 
 #: src/qml/elements/MediaViewer.qml:181
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Copiar mensagem"
+msgstr "Mensagem"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Descrição"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Nome"
@@ -2968,22 +2927,22 @@ msgstr "Nome"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Enviada/Recebida"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Próxima"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3332,17 +3291,14 @@ msgid "Record a video"
 msgstr "Gravar um vídeo"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio Recording"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "Gravação de Áudio"
+msgstr "Parar gravação"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Começar gravação"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"

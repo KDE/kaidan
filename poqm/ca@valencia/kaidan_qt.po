@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-03-06 10:06+0100\n"
+"PO-Revision-Date: 2026-04-13 08:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -170,7 +170,7 @@ msgstr "%1 ha parat de teclejar"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"El compte està desactivat - Els missatges s'enviaran i es rebran una vegada "
+"El compte està desactivat – Els missatges s'enviaran i es rebran una vegada "
 "hi haja connexió"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
@@ -488,12 +488,10 @@ msgid "Unknown size"
 msgstr "Mida desconeguda"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "No s'ha pogut enviar «%1» perquè és més gran que %2"
+msgstr "El missatge de veu no s'ha pogut enviar perquè és més gran que %2"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -758,7 +756,7 @@ msgstr "Toca"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Para la tocada"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2390,12 +2388,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Cancel·la l'addició d'una part oculta del missatge"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "Cancel·lat"
+msgstr "Cancel·la"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2800,9 +2795,6 @@ msgid "Take a picture"
 msgstr "Pren una fotografia"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Pren una fotografia"
@@ -2887,91 +2879,61 @@ msgid "Connecting…"
 msgstr "S'està connectant…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pausa"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Reproduïx"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Trieu un proveïdor"
+msgstr "Tanca el visor multimèdia"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Detalls del proveïdor"
+msgstr "Oculta els detalls"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Mostra els detalls"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "RosterItemDelegate|"
-#| msgid "No messages yet"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Encara no hi ha cap missatge"
+msgstr "Ves fins al missatge"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Elimina"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Obri un fitxer en la carpeta"
+msgstr "Obri en la carpeta"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Obri externament"
 
 #: src/qml/elements/MediaViewer.qml:181
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr ""
+msgstr "Missatge"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Descripció"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Nom"
@@ -2979,22 +2941,22 @@ msgstr "Nom"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Mida"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Enviat/rebut"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Següent"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3178,7 +3140,7 @@ msgstr "No s'han pogut recuperar els grups públics: %1"
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr "S'ha afegit el contacte - Continueu amb el pas 2"
+msgstr "S'ha afegit el contacte – Continueu amb el pas 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
@@ -3189,14 +3151,14 @@ msgstr "Este codi QR no conté cap contacte"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
-"S'han pres les decisions de confiança per a un altre dispositiu propi - "
+"S'han pres les decisions de confiança per a un altre dispositiu propi – "
 "Continueu amb el pas 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:66
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
-"S'han pres les decisions de confiança per al contacte - Continueu amb el pas "
+"S'han pres les decisions de confiança per al contacte – Continueu amb el pas "
 "2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:73
@@ -3348,12 +3310,12 @@ msgstr "Grava un vídeo"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr ""
+msgstr "Para la gravació"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Inicia la gravació"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3882,7 +3844,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM a les hh:mm"

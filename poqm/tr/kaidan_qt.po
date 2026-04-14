@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-09 22:02+0300\n"
+"PO-Revision-Date: 2026-04-13 21:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -470,12 +470,10 @@ msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
+msgstr "Ses iletisi gönderilemiyor; çünkü %2 boyutundan büyük"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -740,7 +738,7 @@ msgstr "Ara"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Çağrıdan Çık"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2354,12 +2352,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Gizli ileti kısmı eklemeyi iptal et"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "İptal Edildi"
+msgstr "İptal"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2369,7 +2364,7 @@ msgstr "Emoji ekle"
 #: src/qml/elements/ChatPageSendingPane.qml:203
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "Bir Katılımcıdan Söz Et"
+msgstr "Bir katılımcıdan söz et"
 
 #: src/qml/elements/ChatPageSendingPane.qml:235
 msgctxt "ChatPageSendingPane|"
@@ -2758,15 +2753,12 @@ msgstr "Doğrulanmamış katılımcı aygıtları"
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
-msgstr "Resim çek"
+msgstr "Resim Çek"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
-msgstr "Resim çek"
+msgstr "Resim Çek"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2846,91 +2838,61 @@ msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Duraklat"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
-msgstr "Oynat"
+msgstr "Oynat/Çal"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Sağlayıcı Seç"
+msgstr "Ortam görüntüleyicisini kapat"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Sağlayıcı Ayrıntıları"
+msgstr "Ayrıntıları gizle"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Ayrıntıları göster"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "RosterItemDelegate|"
-#| msgid "No messages yet"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Henüz bir ileti yok"
+msgstr "İletiye git"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Kaldır"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Dosyanın klasörünü aç"
+msgstr "Klasörde aç"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Dış uygulamada aç"
 
 #: src/qml/elements/MediaViewer.qml:181
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr ""
+msgstr "İleti"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Açıklama"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Ad"
@@ -2938,22 +2900,22 @@ msgstr "Ad"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Büyüklük"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Gönderildi/Alındı"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Önceki"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Sonraki"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3301,12 +3263,12 @@ msgstr "Video kaydet"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr ""
+msgstr "Kaydı durdur"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Kaydı başlat"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
