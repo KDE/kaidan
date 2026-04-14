@@ -83,6 +83,7 @@ set_package_properties(Qt6Keychain PROPERTIES
     URL "https://github.com/frankosterfeld/qtkeychain"
 )
 
+find_package(PkgConfig REQUIRED)
 pkg_check_modules(GStreamer REQUIRED IMPORTED_TARGET gstreamer-1.0>=1.20)
 
 ecm_set_disabled_deprecation_versions(
