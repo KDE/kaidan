@@ -654,6 +654,7 @@
           <li xml:lang="ru">Всегда выводится одинаковое имя и инициалы аватара для чатов с заметками (@melvo);</li>
           <li xml:lang="sk">Vždy zobrazovať rovnaký názov a správne iniciály avatara pre poznámkové chaty (@melvo)</li>
           <li xml:lang="sl">Vedno prikaži isto ime in ustrezne začetnice avatarja za klepete z opombami (@melvo)</li>
+          <li xml:lang="uk">Реалізовано безумовний показ того самого імені і відповідних ініціалів аватара для нотаток у чатах (@melvo)</li>
           <li>Allow to cancel downloads/uploads (@fazevedo)</li>
           <li xml:lang="ar">السماح بإلغاء التنزيلات والرفوعات (@fazevedo)</li>
           <li xml:lang="ca">Permet cancel·lar baixades/pujades (@fazevedo)</li>
@@ -665,6 +666,7 @@
           <li xml:lang="ru">Разрешена отмена загрузок/выгрузок (@fazevedo);</li>
           <li xml:lang="sk">Umožnenie zrušenia sťahovaní/nahrávaní (@fazevedo)</li>
           <li xml:lang="sl">Dovoli preklic prenosov/nalaganj (@fazevedo)</li>
+          <li xml:lang="uk">Уможливлено скасування отримання або вивантаження даних (@fazevedo)</li>
           <li>Allow to restart canceled uploads (@fazevedo)</li>
           <li xml:lang="ar">السماح بإعادة تشغيل الرفوعات الملغاة (@fazevedo)</li>
           <li xml:lang="ca">Permet reiniciar les pujades cancel·lades (@fazevedo)</li>
@@ -676,6 +678,7 @@
           <li xml:lang="ru">Реализована возможность возобновления прерванных отправок (@fazevedo);</li>
           <li xml:lang="sk">Umožnenie reštartovania zrušených nahrávaní (@fazevedo)</li>
           <li xml:lang="sl">Dovoli ponovni zagon preklicanih nalaganj (@fazevedo)</li>
+          <li xml:lang="uk">Уможливлено перезапуск скасованих вивантажень (@fazevedo)</li>
           <li>Allow to resend failed message via context menu (@melvo)</li>
           <li xml:lang="ar">السماح بإعادة إرسال الرسالة الفاشلة عبر القائمة السياقية (@melvo)</li>
           <li xml:lang="ca">Permet reenviar un missatge que ha fallat a través del menú contextual (@melvo)</li>
@@ -687,6 +690,7 @@
           <li xml:lang="ru">Добавлена возможность повторной отправки неудавшихся сообщений через контекстное меню (@melvo).</li>
           <li xml:lang="sk">Umožnenie opätovného odoslania neúspešnej správy cez kontextovú ponuku (@melvo)</li>
           <li xml:lang="sl">Dovoli ponovno pošiljanje neuspelega sporočila prek kontekstnega menija (@melvo)</li>
+          <li xml:lang="uk">Уможливлено повторне надсилання повідомлень, які не вдалося надіслати, за допомогою контекстного меню (@melvo)</li>
           <li>Retrieve support addresses from server instead of provider list (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (@melvo)</li>
           <li xml:lang="ar">جلب عناوين الدعم من الخادوم بدلاً من قائمة المزودين (XEP-0157: Contact Addresses for XMPP Services، وXEP-0128: Service Discovery Extensions) (@melvo)</li>
           <li xml:lang="ca">Recupera les adreces de suport del servidor en lloc de la llista de proveïdors (XEP-0157: Adreces de contacte per als serveis XMPP, XEP-0128: Extensions de descobriment de serveis) (@melvo)</li>
@@ -697,6 +701,7 @@
           <li xml:lang="ru">Получение адресов поддержки с сервера вместо списка поставщиков (XEP-0157: контактные адреса для служб XMPP, XEP-0128: расширения обнаружения служб) (@melvo);</li>
           <li xml:lang="sk">Získavanie adries podpory zo servera namiesto zoznamu poskytovateľov (XEP-0157: Contact Addresses for XMPP Services, XEP-0128: Service Discovery Extensions) (@melvo)</li>
           <li xml:lang="sl">Pridobi naslove za podporo s strežnika namesto s seznama ponudnikov (XEP-0157: Kontaktni naslovi za storitve XMPP, XEP-0128: Razširitve odkrivanja storitev) (@melvo)</li>
+          <li xml:lang="uk">Отримання адрес підтримки із сервера замість списку надавачів послуг (XEP-0157: Контактні адреси для служб XMPP, XEP-0128: Розширення виявлення служб) (@melvo)</li>
           <li>Allow adding contact by entering XMPP URI (including authentication of OMEMO 2 keys) (@melvo)</li>
           <li xml:lang="ar">السماح بإضافة جهة اتصال عبر إدخال رابط XMPP URI (بما في ذلك استيثاق مفاتيح OMEMO 2) (@melvo)</li>
           <li xml:lang="ca">Permet afegir un contacte introduint un URI de XMPP (inclosa l'autenticació de les claus OMEMO 2) (@melvo)</li>
@@ -707,6 +712,7 @@
           <li xml:lang="ru">Разрешено добавление контактов путём ввода URI XMPP (включая аутентификацию ключей OMEMO 2) (@melvo);</li>
           <li xml:lang="sk">Umožnenie pridania kontaktu zadaním XMPP URI (vrátane overenia kľúčov OMEMO 2) (@melvo)</li>
           <li xml:lang="sl">Dovoli dodajanje stikov z vnosom URI-ja XMPP (vključno s preverjanjem pristnosti ključev OMEMO 2) (@melvo)</li>
+          <li xml:lang="uk">Уможливлено додавання запису контакту введенням адреси XMPP (включно з розпізнаванням 2 ключів OMEMO) (@melvo)</li>
           <li>Allow joining group chat by entering XMPP URI (@melvo)</li>
           <li xml:lang="ar">السماح بالانضمام إلى دردشة جماعية عبر إدخال رابط XMPP URI (@melvo)</li>
           <li xml:lang="ca">Permet unir-se al xat de grup introduint un URI de XMPP (@melvo)</li>
@@ -718,6 +724,7 @@
           <li xml:lang="ru">Разрешить присоединение к групповому чату вводом URI XMPP (@melvo);</li>
           <li xml:lang="sk">Umožnenie pripojenia sa do skupinového chatu zadaním XMPP URI (@melvo)</li>
           <li xml:lang="sl">Dovoli pridružitev skupinskemu klepetu z vnosom URI-ja XMPP (@melvo)</li>
+          <li xml:lang="uk">Уможливлено долучення до групового спілкування шляхом введення адреси XMPP (@melvo)</li>
           <li>Add option for allowing SASL PLAIN (needed for servers using LDAP) to custom connection settings (@melvo)</li>
           <li xml:lang="ar">إضافة خيار للسماح بـ SASL PLAIN (مطلوب للخواديم التي تستخدم LDAP) إلى إعدادات الاتصال المخصصة (@melvo)</li>
           <li xml:lang="ca">Afegeix una opció per permetre SASL PLAIN (cal per als servidors que utilitzen LDAP) a la configuració de connexió personalitzada (@melvo)</li>
@@ -728,6 +735,7 @@
           <li xml:lang="ru">Добавлена возможность разрешать SASL PLAIN (требуется для серверов, использующих LDAP) в пользовательских настройках подключения (@melvo);</li>
           <li xml:lang="sk">Pridanie možnosti povolenia SASL PLAIN (potrebné pre servery používajúce LDAP) do vlastných nastavení pripojenia (@melvo)</li>
           <li xml:lang="sl">Dodaj možnost za dovoljenje SASL PLAIN (potreben za strežnike, ki uporabljajo LDAP) za nastavitve povezave po meri (@melvo)</li>
+          <li xml:lang="uk">Додано пункт для уможливлення PLAIN SASL (потрібне для серверів з використанням LDAP) для нетипових параметрів з'єднання (@melvo)</li>
           <li>Add filtering options to choose provider for registration (@melvo)</li>
           <li xml:lang="ar">إضافة خيارات تصفية لاختيار مزود للتسجيل (@melvo)</li>
           <li xml:lang="ca">Afegeix opcions de filtratge per a triar un proveïdor per a registrar-se (@melvo)</li>
@@ -739,6 +747,7 @@
           <li xml:lang="ru">Добавлены параметры фильтрации для выбора поставщика при регистрации (@melvo).</li>
           <li xml:lang="sk">Pridanie možností filtrovania na výber poskytovateľa pre registráciu (@melvo)</li>
           <li xml:lang="sl">Dodaj možnosti filtriranja za izbiro ponudnika za registracijo (@melvo)</li>
+          <li xml:lang="uk">Додано пункти фільтрування для вибору постачальника послуг для реєстрації (@melvo)</li>
           <li>Cancel file transfers on disconnecting from server (@fazevedo)</li>
           <li xml:lang="ar">إلغاء نقل الملفات عند قطع الاتصال بالخادوم (@fazevedo)</li>
           <li xml:lang="ca">Cancel·la les transferències de fitxers en desconnectar-se del servidor (@fazevedo)</li>
@@ -750,6 +759,7 @@
           <li xml:lang="ru">Отмена передачи файлов при отключении от сервера (@fazevedo);</li>
           <li xml:lang="sk">Zrušenie prenosov súborov pri odpojení od servera (@fazevedo)</li>
           <li xml:lang="sl">Prekliči prenose datotek ob prekinitvi povezave s strežnikom (@fazevedo)</li>
+          <li xml:lang="uk">Реалізовано скасовування перенесень даних при від'єднанні від сервера (@fazevedo)</li>
           <li>Add support for offline media sharing queue (@fazevedo)</li>
           <li xml:lang="ar">إضافة دعم لرتل مشاركة الوسائط دون اتصال (@fazevedo)</li>
           <li xml:lang="ca">Afegeix la implementació per a la cua de compartició multimèdia fora de línia (@fazevedo)</li>
@@ -761,6 +771,7 @@
           <li xml:lang="ru">Добавлена поддержка очереди обмена файлами в автономном режиме (@fazevedo);</li>
           <li xml:lang="sk">Pridanie podpory pre rad zdieľania médií v režime offline (@fazevedo)</li>
           <li xml:lang="sl">Dodaj podporo za čakalno vrsto za deljenje medijev brez povezave (@fazevedo)</li>
+          <li xml:lang="uk">Додано підтримку черги оприлюднення автономних мультимедійних даних (@fazevedo)</li>
           <li>Restart downloads canceled on logout once logged in (@melvo)</li>
           <li xml:lang="ar">إعادة تشغيل التنزيلات الملغاة عند الخروج بمجرد الولوج ثانية (@melvo)</li>
           <li xml:lang="ca">Reinicia les baixades cancel·lades en tancar la sessió un cop iniciada la sessió (@melvo)</li>
@@ -772,6 +783,7 @@
           <li xml:lang="ru">Возобновление прерванных загрузок после входа в систему (@melvo).</li>
           <li xml:lang="sk">Reštartovanie sťahovaní zrušených pri odhlásení po opätovnom prihlásení (@melvo)</li>
           <li xml:lang="sl">Ponovni zagon prenosov, preklicanih ob odjavi po prijavi (@melvo)</li>
+          <li xml:lang="uk">Реалізовано перезапуску, скасованих при виході, одразу після повторного входу (@melvo)</li>
           <li>Remove all related data on message removal (such as reactions and media) (@melvo)</li>
           <li xml:lang="ar">إزالة جميع البيانات المرتبطة عند إزالة الرسالة (مثل التفاعلات والوسائط) (@melvo)</li>
           <li xml:lang="ca">Elimina totes les dades relacionades amb l'eliminació de missatges (com reaccions i elements multimèdia) (@melvo)</li>
@@ -782,6 +794,7 @@
           <li xml:lang="ru">Удаление всех связанных данных при удалении сообщения (например, реакции и медиафайлы) (@melvo);</li>
           <li xml:lang="sk">Odstránenie všetkých súvisiacich údajov pri odstránení správy (ako sú reakcie a médiá) (@melvo)</li>
           <li xml:lang="sl">Odstrani vse povezane podatke ob odstranitvi sporočila (kot so odzivi in ​​mediji) (@melvo)</li>
+          <li xml:lang="uk">Реалізовано вилучення усіх пов'язаних даних при вилученні повідомлення (зокрема реакцій та мультимедійних даних) (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -808,6 +821,7 @@
           <li xml:lang="ru">Исправлено отображение подробностей о реакциях на сообщения (@melvo);</li>
           <li xml:lang="sk">Oprava zobrazovania podrobností reakcií na správy (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz podrobnosti odziva na sporočilo (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ подробиць щодо реакцій на повідомлення (@melvo)</li>
           <li>Fix adding unneeded separator on mention after new line (@melvo)</li>
           <li xml:lang="ar">إصلاح إضافة فاصل غير ضروري عند الإشارة بعد سطر جديد (@melvo)</li>
           <li xml:lang="ca">Corregeix l'addició de separador no necessari en mencionar després de d'una línia nova (@melvo)</li>
@@ -819,6 +833,7 @@
           <li xml:lang="ru">Исправлено добавление лишнего разделителя при упоминании после новой строки (@melvo);</li>
           <li xml:lang="sk">Oprava pridávania nepotrebného oddeľovača pri zmienke po novom riadku (@melvo)</li>
           <li xml:lang="sl">Popravi dodajanje nepotrebnega ločila ob omembi po novi vrstici (@melvo)</li>
+          <li xml:lang="uk">Виправлено додавання непотрібного роздільника у згадці після розриву рядка (@melvo)</li>
           <li>Wrap hint for actions needing user to be connected to server (@melvo)</li>
           <li xml:lang="ar">لف التلميح للإجراءات التي تتطلب اتصال المستخدم بالخادوم (@melvo)</li>
           <li xml:lang="ca">Ajusta el consell de les accions que necessiten que l'usuari estigui connectat al servidor (@melvo)</li>
@@ -829,6 +844,7 @@
           <li xml:lang="ru">Подсказка для действий, требующих подключения пользователя к серверу (@melvo);</li>
           <li xml:lang="sk">Zabalenie nápovedy pre akcie vyžadujúce pripojenie používateľa k serveru (@melvo)</li>
           <li xml:lang="sl">Namig za prelom za dejanja, ki zahtevajo, da je uporabnik povezan s strežnikom (@melvo)</li>
+          <li xml:lang="uk">Реалізовано перенесення рядків у підказці щодо дій, які потрібні користувачеві для встановлення з'єднання з сервером (@melvo)</li>
           <li>Fix displaying icons on Windows (@pehg)</li>
           <li xml:lang="ar">إصلاح عرض الأيقونات على ويندوز (@pehg)</li>
           <li xml:lang="ca">Corregeix la visualització d'icones al Windows (@pehg)</li>
@@ -840,6 +856,7 @@
           <li xml:lang="ru">Исправлено отображение значков в Windows (@pehg);</li>
           <li xml:lang="sk">Oprava zobrazovania ikon v systéme Windows (@pehg)</li>
           <li xml:lang="sl">Popravi prikaz ikon v sistemu Windows (@pehg)</li>
+          <li xml:lang="uk">Виправлено показ піктограм у Windows (@pehg)</li>
           <li>Fix adding new line at cursor position (@melvo)</li>
           <li xml:lang="ar">إصلاح إضافة سطر جديد عند موضع المؤشر (@melvo)</li>
           <li xml:lang="ca">Corregeix l'addició d'una línia nova a la posició del cursor (@melvo)</li>
@@ -851,6 +868,7 @@
           <li xml:lang="ru">Исправлено добавление новой строки в позиции курсора (@melvo);</li>
           <li xml:lang="sk">Oprava pridávania nového riadka na pozícii kurzora (@melvo)</li>
           <li xml:lang="sl">Popravi dodajanje nove vrstice na položaj kazalca (@melvo)</li>
+          <li xml:lang="uk">Виправлено додавання символу розриву рядка у позиції курсора (@melvo)</li>
           <li>Ensure that own encryption devices are not removed if notes chat is removed (@melvo)</li>
           <li xml:lang="ar">التأكد من عدم إزالة أجهزة التعمية الخاصة إذا أُزيلت دردشة الملاحظات (@melvo)</li>
           <li xml:lang="ca">Assegura que no s'eliminen els dispositius d'encriptatge propis si s'elimina el xat de notes (@melvo)</li>
@@ -861,6 +879,7 @@
           <li xml:lang="ru">Гарантировано, что собственные устройства шифрования не удаляются при удалении чата заметок (@melvo);</li>
           <li xml:lang="sk">Zabezpečenie, že vlastné šifrovacie zariadenia nie sú odstránené, ak je poznámkový chat odstránený (@melvo)</li>
           <li xml:lang="sl">Zagotovi, da se lastne šifrirne naprave ne odstranijo, če je klepet z zapiski odstranjen (@melvo)</li>
+          <li xml:lang="uk">Забезпечено неможливість вилучення власних пристроїв шифрування, якщо вилучено спілкування з нотатками (@melvo)</li>
         </ul>
         <p>Kaidan requires KIconThemes (for Windows) now</p>
         <p xml:lang="ar">يتطلب كيدان الآن سمات الأيقونات KIconThemes (لويندوز)</p>
@@ -873,6 +892,7 @@
         <p xml:lang="ru">Для Windows теперь требуется KIconThemes</p>
         <p xml:lang="sk">Kaidan teraz vyžaduje KIconThemes (pre Windows)</p>
         <p xml:lang="sl">Kaidan zdaj zahteva KIconThemes (za Windows)</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує KIconThemes (у Windows)</p>
         <p>Kaidan requires Qt6GuiPrivate (for Qt 6.10 or above) now</p>
         <p xml:lang="ar">يتطلب كيدان الآن مكتبة Qt6GuiPrivate (لـ Qt 6.10 فما فوق)</p>
         <p xml:lang="ca">El Kaidan requereix ara el Qt6GuiPrivate (per a les Qt 6.10 o posterior)</p>
@@ -884,6 +904,7 @@
         <p xml:lang="ru">Теперь для работы Kaidan требуется Qt6GuiPrivate (для Qt 6.10 и выше).</p>
         <p xml:lang="sk">Kaidan teraz vyžaduje Qt6GuiPrivate (pre Qt 6.10 alebo vyššie)</p>
         <p xml:lang="sl">Kaidan zdaj zahteva Qt6GuiPrivate (za Qt 6.10 ali novejši)</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує Qt6GuiPrivate (для Qt 6.10 або новішої версії)</p>
         <p>Kaidan requires Qt 6.7 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن Qt 6.7</p>
         <p xml:lang="ca">El Kaidan requereix ara les Qt 6.7</p>
@@ -895,6 +916,7 @@
         <p xml:lang="ru">Теперь для Kaidan требуется Qt 6.7</p>
         <p xml:lang="sk">Kaidan teraz vyžaduje Qt 6.7</p>
         <p xml:lang="sl">Kaidan zdaj zahteva Qt 6.7</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує Qt 6.7</p>
         <p>Kaidan requires QXmpp 1.13 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن QXmpp 1.13</p>
         <p xml:lang="ca">El Kaidan requereix ara el QXmpp 1.13</p>
@@ -906,6 +928,7 @@
         <p xml:lang="ru">Теперь для работы Kaidan требуется QXmpp 1.13</p>
         <p xml:lang="sk">Kaidan teraz vyžaduje QXmpp 1.13</p>
         <p xml:lang="sl">Kaidan zdaj zahteva QXmpp 1.13</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує QXmpp 1.13</p>
       </description>
     </release>
     <release type="stable" version="0.13.0" date="2025-09-21T00:00:00Z">
@@ -936,6 +959,7 @@
           <li xml:lang="ru">Добавлена поддержка одновременного использования нескольких учётных записей (@melvo);</li>
           <li xml:lang="sk">Pridaná podpora používania viacerých účtov súčasne (@melvo)</li>
           <li xml:lang="sl">Dodaj podporo za hkratno uporabo več računov (@melvo)</li>
+          <li xml:lang="uk">Додано підтримку одночасного використання декількох облікових записів (@melvo)</li>
           <li>List accounts and show button to add new accounts (@melvo)</li>
           <li xml:lang="ar">سرد الحسابات وإظهار زر لإضافة حسابات جديدة (@melvo)</li>
           <li xml:lang="ca">Llista els comptes i mostra el botó per a afegir comptes nous (@melvo)</li>
@@ -947,6 +971,7 @@
           <li xml:lang="ru">Вывод списка учётных записей и кнопки для добавления новых (@melvo);</li>
           <li xml:lang="sk">Zobrazenie zoznamu účtov a tlačidla na pridanie nových účtov (@melvo)</li>
           <li xml:lang="sl">Seznam računov in prikaz gumba za dodajanje novih računov (@melvo)</li>
+          <li xml:lang="uk">Список облікових записів та показ кнопки для додавання нових облікових записів (@melvo)</li>
           <li>Show dialog to select account for global action such as adding a contact (@melvo)</li>
           <li xml:lang="ar">إظهار حوار لاختيار الحساب للإجراءات العامة مثل إضافة جهة اتصال (@melvo)</li>
           <li xml:lang="ca">Mostra el diàleg per a seleccionar un compte per a l'acció global, com ara afegir un contacte (@melvo)</li>
@@ -957,6 +982,7 @@
           <li xml:lang="ru">Вывод диалога для выбора учётной записи при выполнении глобальных действий, например, при добавлении контакта;</li>
           <li xml:lang="sk">Zobrazenie dialógu na výber účtu pre globálnu akciu, ako je pridanie kontaktu (@melvo)</li>
           <li xml:lang="sl">Prikaži pogovorno okno za izbiro računa za globalno dejanje, kot je dodajanje stika (@melvo)</li>
+          <li xml:lang="uk">Реалізовано показ вікна для вибору облікового запису для загальних дій, зокрема додавання контакту (@melvo)</li>
           <li>Allow to enable/disable accounts instead of connecting/disconnecting them manually (@melvo)</li>
           <li xml:lang="ar">السماح بتفعيل/تعطيل الحسابات بدلاً من وصلها/فصلها يدوياً (@melvo)</li>
           <li xml:lang="ca">Permet activar/desactivar comptes en lloc de connectar-los/desconnectar-los manualment (@melvo)</li>
@@ -967,6 +993,7 @@
           <li xml:lang="ru">Реализована возможность включения и отключения учётных записей вместо их ручного подключения и отключения (@melvo);</li>
           <li xml:lang="sk">Umožnenie povoliť/zakázať účty namiesto manuálneho pripájania/odpájania (@melvo)</li>
           <li xml:lang="sl">Dovoli omogočanje/onemogočanje računov namesto ročnega povezovanja/prekinjanja povezave (@melvo)</li>
+          <li xml:lang="uk">Уможливлено вмикання-вимикання облікових записів замість їхнього з'єднання-від'єднання вручну (@melvo)</li>
           <li>Update nicknames of own accounts once connected (@melvo)</li>
           <li xml:lang="ar">تحديث ألقاب الحسابات الخاصة بمجرد الاتصال (@melvo)</li>
           <li xml:lang="ca">Actualitza els sobrenoms dels comptes propis un cop connectats (@melvo)</li>
@@ -978,6 +1005,7 @@
           <li xml:lang="ru">Обновление псевдонимов собственных учётных записей после подключения (@melvo);</li>
           <li xml:lang="sk">Aktualizácia prezývok vlastných účtov po pripojení (@melvo)</li>
           <li xml:lang="sl">Posodobi vzdevke lastnih računov, ko so povezani (@melvo)</li>
+          <li xml:lang="uk">Реалізовано оновлення псевдонімів власних облікових записів при з'єднанні (@melvo)</li>
           <li>Show small account avatars next to regular avatars if multiple accounts are used (@melvo)</li>
           <li xml:lang="ar">إظهار صور رمزية صغيرة للحسابات بجانب الصور الرمزية العادية عند استخدام حسابات متعددة (@melvo)</li>
           <li xml:lang="ca">Mostra els avatars de comptes petits al costat dels avatars normals si s'utilitzen diversos comptes (@melvo)</li>
@@ -988,6 +1016,7 @@
           <li xml:lang="ru">При наличии нескольких учётных записей показывать маленькие значки профиля рядом с основными значками;</li>
           <li xml:lang="sk">Zobrazenie malých avatarov účtov vedľa bežných avatarov, ak sa používa viacero účtov (@melvo)</li>
           <li xml:lang="sl">Prikaži majhne avatarje računov poleg običajnih avatarjev, če se uporablja več računov (@melvo)</li>
+          <li xml:lang="uk">Реалізовано показ маленьких аватарів облікових записів поруч зі звичайними аватарами, якщо використовується кілька облікових записів (@melvo)</li>
           <li>Hide global drawer handle on chat if window is narrow (@melvo)</li>
           <li xml:lang="ar">إخفاء مقبض الدرج العالمي في الدردشة إذا كانت النافذة ضيقة (@melvo)</li>
           <li xml:lang="ca">Oculta la nansa del calaix global en el xat si la finestra és estreta (@melvo)</li>
@@ -999,6 +1028,7 @@
           <li xml:lang="ru">Скрывать ручку глобального ящика в окне чата, если окно узкое (@melvo);</li>
           <li xml:lang="sk">Skrytie úchytu globálneho panela v chate, ak je okno úzke (@melvo)</li>
           <li xml:lang="sl">Skrij ročaj globalnega predala v klepetu, če je okno ozko (@melvo)</li>
+          <li xml:lang="uk">Реалізовано приховування загального елемента керування висувною панеллю у спілкуванні, якщо вікно є вузьким (@melvo)</li>
           <li>Use PNG/.png instead of JPEG/.jpg for thumbnails to allow transparency (@melvo)</li>
           <li xml:lang="ar">استخدام PNG/.png بدلاً من JPEG/.jpg للمصغرات للسماح بالشفافية (@melvo)</li>
           <li xml:lang="ca">Usa PNG/.png en lloc de JPEG/.jpg per a les miniatures per a permetre la transparència (@melvo)</li>
@@ -1009,6 +1039,7 @@
           <li xml:lang="ru">Использование PNG/.png вместо JPEG/.jpg для миниатюр для поддержки прозрачности;</li>
           <li xml:lang="sk">Použitie PNG/.png namiesto JPEG/.jpg pre miniatúry na umožnenie priehľadnosti (@melvo)</li>
           <li xml:lang="sl">Za sličice uporabi PNG/.png namesto JPEG/.jpg, da omogočiš prosojnost (@melvo)</li>
+          <li xml:lang="uk">Реалізовано використання PNG/.png замість JPEG/.jpg для мініатюр для уможливлення прозорості (@melvo)</li>
           <li>Use AAC/.m4a instead of MP3/.mp3 for voice messages to improve compatibility (@melvo)</li>
           <li xml:lang="ar">استخدام AAC/.m4a بدلاً من MP3/.mp3 للرسائل الصوتية لتحسين التوافق (@melvo)</li>
           <li xml:lang="ca">Usa AAC/.m4a en lloc de MP3/.mp3 per als missatges de veu per a millorar la compatibilitat (@melvo)</li>
@@ -1019,6 +1050,7 @@
           <li xml:lang="ru">Использовать AAC/.m4a вместо MP3/.mp3 для голосовых сообщений для повышения совместимости  (@melvo);</li>
           <li xml:lang="sk">Použitie AAC/.m4a namiesto MP3/.mp3 pre hlasové správy na zlepšenie kompatibility (@melvo)</li>
           <li xml:lang="sl">Za glasovna sporočila uporabi AAC/.m4a namesto MP3/.mp3, da izboljšaš združljivost (@melvo)</li>
+          <li xml:lang="uk">Реалізовано використання AAC/.m4a замість MP3/.mp3 для голосових повідомлень для удосконалення сумісності (@melvo)</li>
           <li>Provide size of sent images to recipients allowing receiving client to scale thumbnails to size of original image (@melvo)</li>
           <li xml:lang="ar">توفير حجم الصور المرسلة للمستلمين بما يسمح للعميل المستلم بتغيير حجم المصغرات لتناسب حجم الصورة الأصلية (@melvo)</li>
           <li xml:lang="ca">Proporciona la mida de les imatges enviades als destinataris que permetin al client receptor escalar les miniatures a la mida de la imatge original (@melvo)</li>
@@ -1029,6 +1061,7 @@
           <li xml:lang="ru">Предоставление размера отправленных изображений получателям, что позволяет клиенту масштабировать миниатюры до размера исходного изображения (@melvo).</li>
           <li xml:lang="sk">Poskytnutie veľkosti odoslaných obrázkov príjemcom, čo umožňuje prijímajúcemu klientovi škálovať miniatúry na veľkosť pôvodného obrázka (@melvo)</li>
           <li xml:lang="sl">Prejemnikom posreduj velikost poslanih slik, kar prejemniku omogoča, da sličice prilagodi velikosti izvirne slike (@melvo)</li>
+          <li xml:lang="uk">Реалізовано надання розміру надісланих зображень одержувачам, що надає змогу клієнту-отримувачу масштабувати мініатюри до розміру оригінального зображення (@melvo)</li>
           <li>Provide size of generated thumbnails to recipients (@melvo)</li>
           <li xml:lang="ar">توفير حجم المصغرات المولدة للمستلمين (@melvo)</li>
           <li xml:lang="ca">Proporciona la mida de les miniatures generades als destinataris (@melvo)</li>
@@ -1040,6 +1073,7 @@
           <li xml:lang="ru">Передавать размер создаваемых миниатюр получателям (@melvo);</li>
           <li xml:lang="sk">Poskytnutie veľkosti vygenerovaných miniatúr príjemcom (@melvo)</li>
           <li xml:lang="sl">Prejemnikom posreduj velikost ustvarjenih sličic (@melvo)</li>
+          <li xml:lang="uk">Реалізовано надання розміру створених мініатюр отримувачам (@melvo)</li>
           <li>Increase size of generated thumbnails (@melvo)</li>
           <li xml:lang="ar">زيادة حجم المصغرات المولدة (@melvo)</li>
           <li xml:lang="ca">Augmenta la mida de les miniatures generades (@melvo)</li>
@@ -1051,6 +1085,7 @@
           <li xml:lang="ru">Увеличен размер создаваемых миниатюр (@melvo);</li>
           <li xml:lang="sk">Zväčšenie veľkosti vygenerovaných miniatúr (@melvo)</li>
           <li xml:lang="sl">Povečaj velikost ustvarjenih sličic (@melvo)</li>
+          <li xml:lang="uk">Збільшено розмір створених мініатюр (@melvo)</li>
           <li>Show circle instead of bar for upload/download progress (@melvo)</li>
           <li xml:lang="ar">إظهار دائرة بدلاً من شريط لتقدم الرفع/التنزيل (@melvo)</li>
           <li xml:lang="ca">Mostra un cercle en lloc d'una barra per al progrés de pujada/baixada (@melvo)</li>
@@ -1062,6 +1097,7 @@
           <li xml:lang="ru">Отображать вместо полосы круг для индикатора отправки и загрузки (@melvo);</li>
           <li xml:lang="sk">Zobrazenie kruhu namiesto lišty pre priebeh nahrávania/sťahovania (@melvo)</li>
           <li xml:lang="sl">Prikaži krog namesto vrstice za napredek nalaganja/prenosa (@melvo)</li>
+          <li xml:lang="uk">Реалізовано показ кола замість прямокутника для поступу вивантаження і отримання даних (@melvo)</li>
           <li>Try all providers on connection error during automatic registration (@melvo)</li>
           <li xml:lang="ar">تجربة جميع المزودين عند حدوث خطأ في الاتصال أثناء التسجيل الآلي (@melvo)</li>
           <li xml:lang="ca">Prova tots els proveïdors amb un error de connexió durant el registre automàtic (@melvo)</li>
@@ -1072,6 +1108,7 @@
           <li xml:lang="ru">Попытка использовать всех поставщиков при ошибке подключения во время автоматической регистрации (@melvo);</li>
           <li xml:lang="sk">Vyskúšanie všetkých poskytovateľov pri chybe pripojenia počas automatickej registrácie (@melvo)</li>
           <li xml:lang="sl">Preizkusi vse ponudnike ob napaki povezave med samodejno registracijo (@melvo)</li>
+          <li xml:lang="uk">Реалізовано спробу використання усіх надавачів послуг при помилці з'єднання під час автоматичної реєстрації (@melvo)</li>
           <li>Add message forwarding (@melvo)</li>
           <li xml:lang="ar">إضافة إعادة توجيه الرسائل (@melvo)</li>
           <li xml:lang="ca">Afegeix reenviament de missatges (@melvo)</li>
@@ -1083,6 +1120,7 @@
           <li xml:lang="ru">Добавлена пересылка сообщений (@melvo);</li>
           <li xml:lang="sk">Pridané preposielanie správ (@melvo)</li>
           <li xml:lang="sl">Dodaj posredovanje sporočil (@melvo)</li>
+          <li xml:lang="uk">Додано переспрямування повідомлень (@melvo)</li>
           <li>Enable voice message recording via Flatpak (@melvo)</li>
           <li xml:lang="ar">تفعيل تسجيل الرسائل الصوتية عبر Flatpak (@melvo)</li>
           <li xml:lang="ca">Habilita l'enregistrament de missatges de veu a través de Flatpak (@melvo)</li>
@@ -1094,6 +1132,7 @@
           <li xml:lang="ru">Добавлена запись голосовых сообщений через Flatpak (@melvo);</li>
           <li xml:lang="sk">Povolenie nahrávania hlasových správ cez Flatpak (@melvo)</li>
           <li xml:lang="sl">Omogoči snemanje glasovnih sporočil prek Flatpaka (@melvo)</li>
+          <li xml:lang="uk">Уможливлено запис голосових повідомлень за допомогою Flatpak (@melvo)</li>
           <li>Store account passwords encrypted if password manager is available (@fazevedo)</li>
           <li xml:lang="ar">تخزين كلمات سر الحسابات معمية إذا كان مدير كلمات السر متاحاً (@fazevedo)</li>
           <li xml:lang="ca">Emmagatzema les contrasenyes del compte encriptades si el gestor de contrasenyes està disponible (@fazevedo)</li>
@@ -1104,6 +1143,7 @@
           <li xml:lang="ru">Сохранение паролей учётных записей в зашифрованном виде при наличии менеджера паролей (@fazevedo);</li>
           <li xml:lang="sk">Ukladanie hesiel účtu v šifrovanej forme, ak je dostupný správca hesiel (@fazevedo)</li>
           <li xml:lang="sl">Shrani gesla za račune šifrirano, če je na voljo upravitelj gesel (@fazevedo)</li>
+          <li xml:lang="uk">Реалізовано зберігання паролів до облікових записів зашифрованими, якщо доступним є засіб керування паролями (@fazevedo)</li>
           <li>Apply consistent criteria for all message corrections (@melvo)</li>
           <li xml:lang="ar">تطبيق معايير متسقة لجميع تصحيحات الرسائل (@melvo)</li>
           <li xml:lang="ca">Aplica criteris coherents a totes les correccions de missatges (@melvo)</li>
@@ -1115,6 +1155,7 @@
           <li xml:lang="ru">Применение единых критериев для всех исправлений сообщений (@melvo);</li>
           <li xml:lang="sk">Použitie konzistentných kritérií pre všetky opravy správ (@melvo)</li>
           <li xml:lang="sl">Uporabi dosledna merila za vse popravke sporočil (@melvo)</li>
+          <li xml:lang="uk">Реалізовано застосування однакових критеріїв для усіх виправлень повідомлень (@melvo)</li>
           <li>Add support to mark messages locally in order to reply to them later or to quickly find important messages (@melvo)</li>
           <li xml:lang="ar">إضافة دعم لوسم الرسائل محلياً من أجل الرد عليها لاحقاً أو العثور على الرسائل الهامة بسرعة (@melvo)</li>
           <li xml:lang="ca">Afegeix suport per marcar missatges localment per respondre-hi més tard o per trobar ràpidament missatges importants (@melvo)</li>
@@ -1125,6 +1166,7 @@
           <li xml:lang="ru">Добавлена возможность помечать сообщения локально для ответа на них позже или быстрого поиска важных сообщений (@melvo);</li>
           <li xml:lang="sk">Pridanie podpory lokálneho označovania správ na neskoršie odpovedanie alebo rýchle nájdenie dôležitých správ (@melvo)</li>
           <li xml:lang="sl">Dodaj podporo za lokalno označevanje sporočil, da lahko nanje odgovoriš pozneje ali da hitro najdeš pomembna sporočila (@melvo)</li>
+          <li xml:lang="uk">Додано підтримку для позначення повідомлень локально з метою пізнішого надсилання на них відповіді або для швидкого пошуку важливих повідомлень (@melvo)</li>
           <li>Reuse SASL 2 user agent and FAST token on every restart for faster connection establishment (@melvo)</li>
           <li xml:lang="ar">إعادة استخدام وكيل مستخدم SASL 2 ووسم FAST في كل عملية إعادة تشغيل لإنشاء اتصال أسرع (@melvo)</li>
           <li xml:lang="ca">Reutilitza l'agent d'usuari SASL 2 i el testimoni FAST en cada reinici per a un establiment de connexió més ràpid (@melvo)</li>
@@ -1135,6 +1177,7 @@
           <li xml:lang="ru">Повторное использование агента пользователя SASL 2 и токена FAST при каждом перезапуске для ускорения установления соединения (@melvo);</li>
           <li xml:lang="sk">Opätovné použitie používateľského agenta SASL 2 a tokenu FAST pri každom reštarte na rýchlejšie nadviazanie spojenia (@melvo)</li>
           <li xml:lang="sl">Ponovno uporabi uporabniškega agenta SASL 2 in žetona FAST ob vsakem ponovnem zagonu za hitrejšo vzpostavitev povezave (@melvo)</li>
+          <li xml:lang="uk">Реалізовано повторне використання агента користувача SASL 2 та жетон FAST під час кожного перезапуску для швидшого встановлення з'єднання (@melvo)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -1161,6 +1204,7 @@
           <li xml:lang="ru">Исправлен выбор медиафайлов долгим нажатием в обзоре медиафайлов (@melvo);</li>
           <li xml:lang="sk">Oprava výberu médií dlhým stlačením v prehľade médií (@melvo)</li>
           <li xml:lang="sl">Popravi izbiro medija z dolgim ​​pritiskom v pregledu medijev (@melvo)</li>
+          <li xml:lang="uk">Виправлено вибір мультимедіа довгим натисканням на панелі огляду мультимедіа (@melvo)</li>
           <li>Fix OMEMO initialization (@melvo)</li>
           <li xml:lang="ar">إصلاح تهيئة OMEMO (@melvo)</li>
           <li xml:lang="ca">Corregeix la inicialització de l'OMEMO (@melvo)</li>
@@ -1172,6 +1216,7 @@
           <li xml:lang="ru">Исправлена инициализация OMEMO (@melvo);</li>
           <li xml:lang="sk">Oprava inicializácie OMEMO (@melvo)</li>
           <li xml:lang="sl">Popravi inicializacijo OMEMO (@melvo)</li>
+          <li xml:lang="uk">Виправлено ініціалізацію OMEMO (@melvo)</li>
           <li>Fix displaying geo location map (@melvo)</li>
           <li xml:lang="ar">إصلاح عرض خريطة الموقع الجغرافي (@melvo)</li>
           <li xml:lang="ca">Corregeix la visualització del mapa de geolocalització (@melvo)</li>
@@ -1183,6 +1228,7 @@
           <li xml:lang="ru">Исправлено отображение карты геолокации (@melvo);</li>
           <li xml:lang="sk">Oprava zobrazenia mapy geografickej polohy (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz zemljevida geografske lokacije (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ карти геопозиціювання (@melvo)</li>
           <li>Fix showing hints on invalid input of various input fields (@melvo)</li>
           <li xml:lang="ar">إصلاح إظهار التلميحات عند وجود مدخلات غير صالحة في حقول الإدخال المختلفة (@melvo)</li>
           <li xml:lang="ca">Corregeix la visualització de consells sobre l'entrada no vàlida de diversos camps d'entrada (@melvo)</li>
@@ -1194,6 +1240,7 @@
           <li xml:lang="ru">Исправлено отображение подсказок при неверном вводе в различных полях ввода (@melvo);</li>
           <li xml:lang="sk">Oprava zobrazovania upozornení pri neplatnom vstupe v rôznych vstupných poliach (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz namigov o neveljavnem vnosu različnih vhodnih polj (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ підказок для некоректних введених даних у різних полях для введення (@melvo)</li>
           <li>Fix name/date of chat list item moving if counter for unread messages dis-/appears (@melvo)</li>
           <li xml:lang="ar">إصلاح تحرك اسم/تاريخ عنصر قائمة الدردشة عند ظهور/اختفاء عداد الرسائل غير المقروءة (@melvo)</li>
           <li xml:lang="ca">Corregeix el nom/data de l'element de llista de xat que es mou si el comptador de missatges no llegits des/apareix (@melvo)</li>
@@ -1204,6 +1251,7 @@
           <li xml:lang="ru">Исправлено перемещение имени и даты элемента списка чатов при появлении или исчезновении счётчика непрочитанных сообщений (@melvo);</li>
           <li xml:lang="sk">Oprava posúvania názvu/dátumu položky zoznamu konverzácií pri zobrazení/zmiznutí počítadla neprečítaných správ (@melvo)</li>
           <li xml:lang="sl">Popravi premikanje imena/datuma elementa seznama klepeta, če števec neprebranih sporočil izgine/se prikaže (@melvo)</li>
+          <li xml:lang="uk">Виправлено пересування назви/дати пункту списку спілкування, якщо зникав лічильник непрочитаних повідомлень (@melvo)</li>
           <li>Fix counter for unread messages (@melvo)</li>
           <li xml:lang="ar">إصلاح عداد الرسائل غير المقروءة (@melvo)</li>
           <li xml:lang="ca">Corregeix el comptador de missatges sense llegir (@melvo)</li>
@@ -1215,6 +1263,7 @@
           <li xml:lang="ru">Исправление счётчика непрочитанных сообщений (@melvo);</li>
           <li xml:lang="sk">Oprava počítadla neprečítaných správ (@melvo)</li>
           <li xml:lang="sl">Popravi števec neprebranih sporočil (@melvo)</li>
+          <li xml:lang="uk">Виправлено лічильник непрочитаних повідомлень (@melvo)</li>
           <li>Fix handling removed message reactions (@melvo)</li>
           <li xml:lang="ar">إصلاح معالجة تفاعلات الرسائل المزالة (@melvo)</li>
           <li xml:lang="ca">Corregeix la gestió de les reaccions de missatges eliminats (@melvo)</li>
@@ -1226,6 +1275,7 @@
           <li xml:lang="ru">Исправлена обработка удалённых реакций на сообщения (от @melvo);</li>
           <li xml:lang="sk">Oprava spracovania odstránených reakcií na správy (@melvo)</li>
           <li xml:lang="sl">Popravi ravnanje z odstranjenimi reakcijami na sporočila (@melvo)</li>
+          <li xml:lang="uk">Виправлено обробку реакцій на вилучені повідомлення (@melvo)</li>
           <li>Fix canceling personal data sharing via contact details (@melvo)</li>
           <li xml:lang="ar">إصلاح إلغاء مشاركة البيانات الشخصية عبر تفاصيل جهة الاتصال (@melvo)</li>
           <li xml:lang="ca">Corregeix la cancel·lació de l'intercanvi de dades personals a través de les dades de contacte (@melvo)</li>
@@ -1237,6 +1287,7 @@
           <li xml:lang="ru">Исправлено прерывание передачи персональных данных через сведения о контакте (@melvo);</li>
           <li xml:lang="sk">Oprava zrušenia zdieľania osobných údajov cez kontaktné údaje (@melvo)</li>
           <li xml:lang="sl">Popravi preklic Deljenje osebnih podatkov prek kontaktnih podatkov (@melvo)</li>
+          <li xml:lang="uk">Виправлено скасовування оприлюднення особистих даних через параметри запису контакту (@melvo)</li>
           <li>Fix finding existing notifications for personal data sharing requests (@melvo)</li>
           <li xml:lang="ar">إصلاح العثور على التنبيهات الموجودة لطلبات مشاركة البيانات الشخصية (@melvo)</li>
           <li xml:lang="ca">Corregeix la cerca de notificacions existents de sol·licituds d'intercanvi de dades personals (@melvo)</li>
@@ -1247,6 +1298,7 @@
           <li xml:lang="ru">Исправлено определение существующих уведомлений для запросов на обмен персональными данными (@melvo);</li>
           <li xml:lang="sk">Oprava hľadania existujúcich upozornení pre žiadosti o zdieľanie osobných údajov (@melvo)</li>
           <li xml:lang="sl">Popravljeno iskanje obstoječih obvestil za zahteve za deljenje osebnih podatkov (@melvo)</li>
+          <li xml:lang="uk">Виправлено пошук наявних сповіщень для запитів щодо оприлюднення особистих даних (@melvo)</li>
           <li>Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (@melvo)</li>
           <li xml:lang="ar">إصلاح سلوك المؤشر في حقل إدخال الرسالة عبر السماح بحركات المؤشر العمودية أثناء إغلاق منتقي المشاركين ومنع حركات المؤشر الأفقية أثناء فتحه (@melvo)</li>
           <li xml:lang="ca">Corregeix el comportament del cursor al camp d'entrada del missatge permetent moviments verticals del cursor mentre el selector de participants està tancat i prohibint els moviments horitzontals del cursor mentre el selector de participants està obert (@melvo)</li>
@@ -1875,6 +1927,7 @@
           <li xml:lang="ru">Исправлено отображение подробностей о реакциях на сообщения (@melvo);</li>
           <li xml:lang="sk">Oprava zobrazovania podrobností reakcií na správy (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz podrobnosti odziva na sporočilo (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ подробиць щодо реакцій на повідомлення (@melvo)</li>
           <li>Update filtering contacts by labels even if label list is not open anymore (@melvo)</li>
           <li xml:lang="ar">تحديث تصفية جهات الاتصال حسب اللصائق حتى لو لم تكن قائمة اللصائق مفتوحة بعد الآن (@melvo)</li>
           <li xml:lang="ca">Actualitza els contactes filtrant per etiquetes encara que la llista d'etiquetes ja no estigui oberta (@melvo)</li>
