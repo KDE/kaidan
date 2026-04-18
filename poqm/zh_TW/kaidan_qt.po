@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: pan 93412\n"
-"PO-Revision-Date: 2024-07-17 01:56+0900\n"
+"PO-Revision-Date: 2026-04-17 20:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -11,70 +11,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: src/Account.cpp:476
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Disconnected"
-msgstr "連線"
+msgstr "已斷線"
 
 #: src/Account.cpp:478
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
 #: src/Account.cpp:480
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connect"
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "連線"
+msgstr "已連線"
 
 #: src/Account.cpp:491
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Invalid username or password."
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
 #: src/Account.cpp:493
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Cannot connect to the server. Please check your internet connection."
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
 #: src/Account.cpp:495
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Error while trying to connect securely."
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
 #: src/Account.cpp:497
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server doesn't support secure connections."
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
 #: src/Account.cpp:499
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "Could not connect to the server. Please check your internet connection or "
-#| "your server name."
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -82,35 +56,21 @@ msgid ""
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
 #: src/Account.cpp:501
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The server is offline or blocked by a firewall."
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
 #: src/Account.cpp:503
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Authentification protocol not supported by the server."
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
 #: src/Account.cpp:505
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "The connection could not be refreshed."
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
 #: src/Account.cpp:507
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid ""
-#| "The internet access is not permitted. Please check your system's internet "
-#| "access configuration."
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -118,9 +78,6 @@ msgid ""
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
 #: src/Account.cpp:509
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
@@ -146,17 +103,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
 #: src/AccountMigrationController.cpp:386
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
+#, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "帳號預設"
+msgstr "帳號「%1」已移轉到「%2」"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
-#, fuzzy
-#| msgctxt "OmemoModel|"
-#| msgid "This device"
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "這台裝置"
@@ -182,29 +134,21 @@ msgid "Devices on Servers"
 msgstr "伺服器上的裝置"
 
 #: src/ChatController.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
 msgstr "%1 正在輸入…"
 
 #: src/ChatController.cpp:184
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
 msgstr "%1 暫時停止輸入"
 
 #: src/ChatHintModel.cpp:249
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "You are not connected - Messages are sent and received once connected"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
-msgstr "您未連線 — 訊息將在連線後傳送或接收"
+msgstr "您的帳號已停用 — 訊息將在連線後交換"
 
 #: src/ChatHintModel.cpp:250 src/ChatHintModel.cpp:260
 #: src/ChatHintModel.cpp:304 src/ChatHintModel.cpp:325
@@ -218,20 +162,14 @@ msgid "Enable"
 msgstr ""
 
 #: src/ChatHintModel.cpp:252
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Initializing…"
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr "初始化中…"
+msgstr "正在啟用…"
 
 #: src/ChatHintModel.cpp:259
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be removed"
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "%1 無法移除"
+msgstr "無法連線"
 
 #: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
@@ -239,9 +177,6 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:262
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "連線中…"
@@ -753,9 +688,6 @@ msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
 #: src/NotificationController.cpp:109 src/NotificationController.cpp:346
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Open"
 msgctxt "NotificationController|"
 msgid "Open"
 msgstr "開啟"
@@ -783,9 +715,6 @@ msgid "Reject"
 msgstr ""
 
 #: src/NotificationController.cpp:350
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Mark as read"
 msgctxt "NotificationController|"
 msgid "Mark as read"
 msgstr "標記為已讀"
@@ -839,9 +768,6 @@ msgid "Offline"
 msgstr "離線"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "自訂提供者"
@@ -850,25 +776,17 @@ msgstr "自訂提供者"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "無限制"
 
 #: src/ProviderModel.cpp:132
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%1 days"
 msgstr "%1 天"
 
 #: src/qml/AboutDialog.qml:13
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "關於 Kaidan"
@@ -889,12 +807,9 @@ msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "開啟支援聊天"
+msgstr ""
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -912,28 +827,19 @@ msgid "Start video call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:163
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "往上搜尋"
 
 #: src/qml/ChatPage.qml:174
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "往下搜尋"
 
 #: src/qml/ChatPage.qml:186
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "關閉訊息搜尋列"
+msgstr "離開搜尋"
 
 #: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
@@ -3920,25 +3826,16 @@ msgid "Adding contact…"
 msgstr "正在新增聯絡人…"
 
 #: src/qml/elements/ReferencedMessage.qml:81
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "我："
+msgstr "我"
 
 #: src/qml/elements/ReferencedMessage.qml:97
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "位置"
 
 #: src/qml/elements/ReferencedMessage.qml:100
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "媒體"
@@ -3949,7 +3846,7 @@ msgstr "媒體"
 #| msgid "Show only available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
-msgstr "只顯示目前在線上的聯絡人"
+msgstr "可用的聯絡人"
 
 #: src/qml/elements/RosterFilterArea.qml:32
 #, fuzzy
@@ -3957,39 +3854,27 @@ msgstr "只顯示目前在線上的聯絡人"
 #| msgid "Show only available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr "只顯示目前在線上的聯絡人"
+msgstr "不可用的聯絡人"
 
 #: src/qml/elements/RosterFilterArea.qml:36
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
-msgstr "搜尋公開群組"
+msgstr "私人群組"
 
 #: src/qml/elements/RosterFilterArea.qml:40
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
-msgstr "搜尋公開群組"
+msgstr "公開群組"
 
 #: src/qml/elements/RosterFilterArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
-msgstr "依標籤過濾"
+msgstr "依類型過濾"
 
 #: src/qml/elements/RosterFilterArea.qml:53
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
-msgstr "只顯示所選帳號的聊天"
+msgstr "只顯示特定類型的項目"
 
 #: src/qml/elements/RosterFilterArea.qml:114
 #, fuzzy
