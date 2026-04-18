@@ -1402,6 +1402,7 @@
           <li xml:lang="sk">Oprava správania kurzora vo vstupnom poli správy povolením vertikálneho pohybu kurzora pri zatvorenom výbere účastníkov a zakázaním horizontálneho pohybu kurzora pri otvorenom výbere účastníkov (@melvo)</li>
           <li xml:lang="sl">Popravljeno vedenje kazalca v polju za vnos sporočila tako, da se omogoči navpično premikanje kazalca, ko je izbirnik udeležencev zaprt, in prepove vodoravno premikanje kazalca, ko je izbirnik udeležencev odprt (@melvo)</li>
           <li xml:lang="tr">Fix cursor behavior in message input field by allowing vertical cursor movements while participant picker is closed and prohibiting horizontal cursor movements while participant picker is open (@melvo)</li>
+          <li xml:lang="uk">Виправлено поведінку курсора в полі введення повідомлення, шляхом уможливлення вертикального пересування курсора, коли засіб вибору учасників закрито, та заборони горизонтального пересування курсора, коли засіб вибору учасників відкрито (@melvo)</li>
         </ul>
         <p>Kaidan requires QtKeychain 0.15 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن QtKeychain 0.15</p>
@@ -1415,6 +1416,7 @@
         <p xml:lang="sk">Kaidan teraz vyžaduje QtKeychain 0.15</p>
         <p xml:lang="sl">Kaidan zdaj zahteva QtKeychain 0.15</p>
         <p xml:lang="tr">Kaidan requires QtKeychain 0.15 now</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує QtKeychain 0.15</p>
         <p>Kaidan requires QXmpp 1.11 now</p>
         <p xml:lang="ar">يتطلب كيدان الآن QXmpp 1.11</p>
         <p xml:lang="ca">El Kaidan requereix ara el QXmpp 1.11</p>
@@ -1427,6 +1429,7 @@
         <p xml:lang="sk">Kaidan teraz vyžaduje QXmpp 1.11</p>
         <p xml:lang="sl">Kaidan zdaj zahteva QXmpp 1.11</p>
         <p xml:lang="tr">Kaidan requires QXmpp 1.11 now</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує QXmpp 1.11</p>
       </description>
     </release>
     <release type="stable" version="0.12.2" date="2025-03-30T00:00:00Z">
@@ -1458,6 +1461,7 @@
           <li xml:lang="sk">Oprava odstránenia opravenej správy (@melvo)</li>
           <li xml:lang="sl">Popravi odstranjevanje popravljenega sporočila (@melvo)</li>
           <li xml:lang="tr">Fix removing corrected message (@melvo)</li>
+          <li xml:lang="uk">Виправлено вилучення виправленого повідомлення (@melvo)</li>
           <li>Fix showing message bubble tail only for first message of sender (@melvo)</li>
           <li xml:lang="ar">إصلاح إظهار ذيل فقاعة الرسالة للرسالة الأولى من المرسل فقط (@melvo)</li>
           <li xml:lang="ca">Corregeix la visualització de la cua de la bombolla dels missatges només al primer missatge del remitent (@melvo)</li>
@@ -1469,6 +1473,7 @@
           <li xml:lang="sk">Oprava zobrazovania chvosta bubliny správy iba pri prvej správe odosielateľa (@melvo)</li>
           <li xml:lang="sl">Popravljeno prikazovanje repa mehurčka sporočila samo za prvo sporočilo pošiljatelja (@melvo)</li>
           <li xml:lang="tr">Fix showing message bubble tail only for first message of sender (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ бульбашки повідомлення лише для першого повідомлення відправника (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -1501,6 +1506,7 @@
           <li xml:lang="sk">Nezvýrazňovať nepripnuté konverzácie pri presune pripnutej konverzácie (@melvo)</li>
           <li xml:lang="sl">Ne označevanje odpetih klepetov, ko se pripet klepet premakne (@melvo)</li>
           <li xml:lang="tr">Do not highlight unpinned chats when pinned chat is moved (@melvo)</li>
+          <li xml:lang="uk">Усунено підсвічування відшпилених спілкувань при пересуванні пришпиленого спілкування (@melvo)</li>
           <li>Fix deleting/sending voice messages (@melvo)</li>
           <li xml:lang="ar">إصلاح حذف أو إرسال الرسائل الصوتية (@melvo)</li>
           <li xml:lang="ca">Corregeix la supressió/enviament de missatges de veu (@melvo)</li>
@@ -1513,6 +1519,7 @@
           <li xml:lang="sk">Oprava odstraňovania/odosielania hlasových správ (@melvo)</li>
           <li xml:lang="sl">Popravljeno brisanje/pošiljanje glasovnih sporočil (@melvo)</li>
           <li xml:lang="tr">Fix deleting/sending voice messages (@melvo)</li>
+          <li xml:lang="uk">Виправлено вилучення і надсилання голосових повідомлень (@melvo)</li>
           <li>Fix crash during login (@melvo)</li>
           <li xml:lang="ar">إصلاح الانهيار أثناء الولوج (@melvo)</li>
           <li xml:lang="ca">Corregeix una fallada durant l'inici de sessió (@melvo)</li>
@@ -1525,6 +1532,7 @@
           <li xml:lang="sk">Oprava pádu počas prihlásenia (@melvo)</li>
           <li xml:lang="sl">Popravljeno zrušitev med prijavo (@melvo)</li>
           <li xml:lang="tr">Fix crash during login (@melvo)</li>
+          <li xml:lang="uk">Усунено аварійне завершення роботи програми під час входу до системи (@melvo)</li>
           <li>Fix opening chat again after going back to chat list on narrow window (@melvo)</li>
           <li xml:lang="ar">إصلاح فتح الدردشة مرة أخرى بعد العودة لقائمة الدردشة في النافذة الضيقة (@melvo)</li>
           <li xml:lang="ca">Corregeix l'obertura de xat un altre cop després de tornar a la llista de xats en una finestra estreta (@melvo)</li>
@@ -1536,6 +1544,7 @@
           <li xml:lang="sk">Oprava opätovného otvorenia konverzácie po návrate na zoznam konverzácií v úzkom okne (@melvo)</li>
           <li xml:lang="sl">Popravljeno ponovno odpiranje klepeta po vrnitvi na seznam klepetov v ozkem oknu (@melvo)</li>
           <li xml:lang="tr">Fix opening chat again after going back to chat list on narrow window (@melvo)</li>
+          <li xml:lang="uk">Виправлено повторне відкриття спілкування після повернення до списку спілкувань у вузькому вікні (@melvo)</li>
           <li>Increase toolbar height to fix avatar not being recognizable (@melvo)</li>
           <li xml:lang="ar">زيادة ارتفاع شريط الأدوات لإصلاح عدم إمكانية تمييز الصورة الرمزية (@melvo)</li>
           <li xml:lang="ca">Augmenta l'alçada de la barra d'eines per a corregir que l'avatar no es pugui reconèixer (@melvo)</li>
@@ -1547,6 +1556,7 @@
           <li xml:lang="sk">Zvýšenie výšky panela nástrojov na opravu nerozpoznateľného avatara (@melvo)</li>
           <li xml:lang="sl">Povečaj višino orodne vrstice, da se odpravi neprepoznavnost avatarja (@melvo)</li>
           <li xml:lang="tr">Increase toolbar height to fix avatar not being recognizable (@melvo)</li>
+          <li xml:lang="uk">Збільшено висоту панелі інструментів, щоб виправити проблему з розпізнаванням аватара (@melvo)</li>
           <li>Fix width of search bar above chat list to take available space while showing all buttons (@melvo)</li>
           <li xml:lang="ar">إصلاح عرض شريط البحث فوق قائمة الدردشة ليشغل المساحة المتاحة مع إظهار جميع الأزرار (@melvo)</li>
           <li xml:lang="ca">Corregeix l'amplada de la barra de cerca a sobre de la llista de xats per a prendre espai disponible mentre es mostren tots els botons (@melvo)</li>
@@ -1558,6 +1568,7 @@
           <li xml:lang="sk">Oprava šírky vyhľadávacieho panela nad zoznamom konverzácií, aby zaberal dostupný priestor a zobrazoval všetky tlačidlá (@melvo)</li>
           <li xml:lang="sl">Popravi širino iskalne vrstice nad seznamom klepetov, da zasede razpoložljiv prostor, medtem ko prikazuje vse gumbe (@melvo)</li>
           <li xml:lang="tr">Fix width of search bar above chat list to take available space while showing all buttons (@melvo)</li>
+          <li xml:lang="uk">Виправлено ширину панелі пошуку над списком спілкувань так, щоб вона займала усе доступне місце, показуючи усі кнопки (@melvo)</li>
           <li>Fix storing changed password (@melvo)</li>
           <li xml:lang="ar">إصلاح تخزين كلمة السر المغيرة (@melvo)</li>
           <li xml:lang="ca">Corregeix l'emmagatzematge de la contrasenya canviada (@melvo)</li>
@@ -1570,6 +1581,7 @@
           <li xml:lang="sk">Oprava ukladania zmeneného hesla (@melvo)</li>
           <li xml:lang="sl">Popravi shranjevanje spremenjenega gesla (@melvo)</li>
           <li xml:lang="tr">Fix storing changed password (@melvo)</li>
+          <li xml:lang="uk">Виправлено збереження зміненого пароля (@melvo)</li>
           <li>Fix setting custom host/port for account registration (@melvo)</li>
           <li xml:lang="ar">إصلاح ضبط المضيف/المنفذ المخصص لتسجيل الحساب (@melvo)</li>
           <li xml:lang="ca">Corregeix l'establiment d'un servidor/port personalitzat per al registre del compte (@melvo)</li>
@@ -1582,6 +1594,7 @@
           <li xml:lang="sk">Oprava nastavenia vlastného hostiteľa/portu pre registráciu účtu (@melvo)</li>
           <li xml:lang="sl">Popravi nastavljanje gostitelja/vrat po meri za registracijo računa (@melvo)</li>
           <li xml:lang="tr">Fix setting custom host/port for account registration (@melvo)</li>
+          <li xml:lang="uk">Виправлено встановлення нетипового вузла і порту для реєстрації облікових записів (@melvo)</li>
           <li>Fix crash on chat removal (@fazevedo)</li>
           <li xml:lang="ar">إصلاح الانهيار عند إزالة الدردشة (@fazevedo)</li>
           <li xml:lang="ca">Corregeix una fallada en eliminar un xat (@fazevedo)</li>
@@ -1594,6 +1607,7 @@
           <li xml:lang="sk">Oprava pádu pri odstránení konverzácie (@fazevedo)</li>
           <li xml:lang="sl">Popravi sesutje pri odstranitvi klepeta (@fazevedo)</li>
           <li xml:lang="tr">Fix crash on chat removal (@fazevedo)</li>
+          <li xml:lang="uk">Виправлено аварійне завершення роботи при вилученні спілкування (@fazevedo)</li>
           <li>Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (@melvo)</li>
           <li xml:lang="ar">نقل خيارات تبديل الجهاز إلى تفاصيل الحساب لإصلاح عدم عرض بيانات الاعتماد الطويلة وظهور رمز الاستجابة السريعة للولوج مؤقتاً عند فتح الحوار (@melvo)</li>
           <li xml:lang="ca">Mou les opcions de canvi de dispositius als detalls del compte per a corregir les credencials llargues que no es mostren i el codi QR d'inici de sessió que es veu temporalment en el diàleg d'obertura (@melvo)</li>
@@ -1605,6 +1619,7 @@
           <li xml:lang="sk">Presunutie možností prepínania zariadení do podrobností účtu na opravu nezobrazenia dlhých prihlasovacích údajov a dočasnej viditeľnosti prihlasovacieho QR kódu pri otvorení dialógu (@melvo)</li>
           <li xml:lang="sl">Premakni možnosti preklapljanja med napravami v podrobnosti računa, da se odpravijo težave z dolgimi poverilnicami, ki se ne prikazujejo, in začasno vidno kodo QR za prijavo ob odpiranju pogovornega okna (@melvo)</li>
           <li xml:lang="tr">Move device switching options into account details to fix long credentials not being shown and login QR code being temporarily visible on opening dialog (@melvo)</li>
+          <li xml:lang="uk">Параметри перемикання пристроїв перенесено до даних облікового запису, щоб виправити помилку, через яку не було показано облікові дані з довгими назвами, а QR-код для входу тимчасово було показано під час відкриття діалогового вікна. (@melvo)</li>
           <li>Allow setting new password on error to fix not being able to log in after changing password via other device (@melvo)</li>
           <li xml:lang="ar">السماح بضبط كلمة سر جديدة عند حدوث خطأ لإصلاح عدم القدرة على الولوج بعد تغيير كلمة السر عبر جهاز آخر (@melvo)</li>
           <li xml:lang="ca">Permet establir una contrasenya nova en cas d'error per corregir que no es pugui iniciar la sessió després de canviar la contrasenya a través d'un altre dispositiu (@melvo)</li>
@@ -1616,6 +1631,7 @@
           <li xml:lang="sk">Umožnenie nastavenia nového hesla pri chybe na opravu nemožnosti prihlásenia po zmene hesla cez iné zariadenie (@melvo)</li>
           <li xml:lang="sl">Omogoči nastavitev novega gesla ob napaki, da se odpravi težava z možnostjo prijave po spremembi gesla prek druge naprave (@melvo)</li>
           <li xml:lang="tr">Allow setting new password on error to fix not being able to log in after changing password via other device (@melvo)</li>
+          <li xml:lang="uk">Уможливлено встановлення нового пароля після помилки, щоб виправити неможливість увійти після зміни пароля через інший пристрій (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -1649,6 +1665,7 @@
           <li xml:lang="sk">Použitie štvorcového výberu na orezanie avatarov (@fazevedo)</li>
           <li xml:lang="sl">Uporabi kvadratno izbiro za obrezovanje avatarjev (@fazevedo)</li>
           <li xml:lang="tr">Use square selection to crop avatars (@fazevedo)</li>
+          <li xml:lang="uk">Використано квадратне позначення при обрізанні аватарів (@fazevedo)</li>
           <li>Use background with rounded corners for chat list items (@melvo)</li>
           <li xml:lang="ar">استخدام خلفية بزوايا مدورة لعناصر قائمة الدردشة (@melvo)</li>
           <li xml:lang="ca">Usa un fons amb cantonades arrodonides per als elements de la llista de xat (@melvo)</li>
