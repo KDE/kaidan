@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-03-08 21:35+0200\n"
+"PO-Revision-Date: 2026-04-18 16:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -468,12 +468,10 @@ msgid "Unknown size"
 msgstr "גודל לא ידוע"
 
 #: src/MessageComposition.cpp:540
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "לא ניתן לשלוח את ‚%1’ כיוון שגודלו עולה על %2"
+msgstr "לא ניתן לשלוח את ההודעה הקולית כיוון שגודלה עולה על %2"
 
 #: src/MessageComposition.cpp:571
 #, qt-format
@@ -738,7 +736,7 @@ msgstr "התקשרות"
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "סיום השיחה"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -2322,9 +2320,6 @@ msgid "Cancel adding hidden message part"
 msgstr "ביטול הוספת חלק נסתר בהודעה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "ביטול"
@@ -2728,9 +2723,6 @@ msgid "Take a picture"
 msgstr "צילום תמונה"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "צילום תמונה"
@@ -2814,94 +2806,61 @@ msgid "Connecting…"
 msgstr "בהתחברות…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "השהיה"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "נגינה"
 
 #: src/qml/elements/MediaViewer.qml:88
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "נא לבחור ספק"
+msgstr "בחירת מציג מדיה"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "פרטי ספק"
+msgstr "הסתרת פרטים"
 
 #: src/qml/elements/MediaViewer.qml:109
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "הצגת פרטים"
 
 #: src/qml/elements/MediaViewer.qml:115
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "העתקת ההודעה"
+msgstr "מעבר להודעה"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "הסרה"
 
 #: src/qml/elements/MediaViewer.qml:132
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "פתיחת קובץ בתיקייה"
+msgstr "פתיחה בתיקייה"
 
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "פתיחה חיצונית"
 
 #: src/qml/elements/MediaViewer.qml:181
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "העתקת ההודעה"
+msgstr "הודעה"
 
 #: src/qml/elements/MediaViewer.qml:188
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "תיאור"
 
 #: src/qml/elements/MediaViewer.qml:206
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "שם"
@@ -2909,22 +2868,22 @@ msgstr "שם"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "גודל"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "נשלח/התקבל"
 
 #: src/qml/elements/MediaViewer.qml:261
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "הקודם"
 
 #: src/qml/elements/MediaViewer.qml:268
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "הבא"
 
 #: src/qml/elements/MediumSendingPreview.qml:48
 msgctxt "MediumSendingPreview|"
@@ -3266,17 +3225,14 @@ msgid "Record a video"
 msgstr "הקלטת סרטון"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio input"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "קלט שמע"
+msgstr "עצירת ההקלטה"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "התחלת הקלטה"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
