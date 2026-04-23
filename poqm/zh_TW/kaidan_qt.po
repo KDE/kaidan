@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pan 93412\n"
-"PO-Revision-Date: 2026-04-17 20:32+0900\n"
+"PO-Revision-Date: 2026-04-22 22:44+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -85,22 +85,22 @@ msgstr "這個伺服器不支援新註冊。"
 #: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
-msgstr ""
+msgstr "無法登入。請先確認您收到的電子郵件信件。"
 
 #: src/Account.cpp:513
 msgctxt "Connection|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "無法連線到伺服器。"
 
 #: src/AccountMigrationController.cpp:331
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "無法移轉帳號：無法載入匯出的帳號資料"
 
 #: src/AccountMigrationController.cpp:348
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "無法移轉帳號：沒有連線"
 
 #: src/AccountMigrationController.cpp:386
 #, qt-format
@@ -159,7 +159,7 @@ msgstr "忽略"
 #: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Enable"
-msgstr ""
+msgstr "啟用"
 
 #: src/ChatHintModel.cpp:252
 msgctxt "ChatHintModel|"
@@ -174,7 +174,7 @@ msgstr "無法連線"
 #: src/ChatHintModel.cpp:260
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr ""
+msgstr "顯示錯誤"
 
 #: src/ChatHintModel.cpp:262
 msgctxt "ChatHintModel|"
@@ -190,16 +190,14 @@ msgid ""
 msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
 #: src/ChatHintModel.cpp:280
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
-msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
+msgstr ""
+"您的聯絡人 %1 (%2) 已 %3 (%4) 而希望取得您的個人資訊，例如上線狀態、裝置以及"
+"其他個人資訊%5"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -219,15 +217,12 @@ msgstr "允許中…"
 #: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
-msgstr ""
+msgstr "這個群組沒有使用者"
 
 #: src/ChatHintModel.cpp:304
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Unverified contact devices"
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
-msgstr "未驗證的聯絡人的裝置"
+msgstr "邀請聯絡人"
 
 #: src/ChatHintModel.cpp:306
 #, fuzzy
@@ -235,20 +230,17 @@ msgstr "未驗證的聯絡人的裝置"
 #| msgid "Open registration web page"
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
-msgstr "開啟註冊網頁位址"
+msgstr "正在開啟邀請區域"
 
 #: src/ChatHintModel.cpp:324
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "無法新增 %1：%2"
+msgstr "此群組已被刪除"
 
 #: src/ChatHintModel.cpp:325
 msgctxt "ChatHintModel|"
 msgid "Leave"
-msgstr ""
+msgstr "離開"
 
 #: src/ChatHintModel.cpp:327
 #, fuzzy
@@ -259,12 +251,9 @@ msgid "Leaving group chat"
 msgstr "能夠聊天"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:440
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "取消"
+msgstr "已取消"
 
 #: src/FileSharingController.cpp:336
 #, fuzzy, qt-format
@@ -316,22 +305,22 @@ msgstr "儲存選擇"
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
-msgstr ""
+msgstr "未加入"
 
 #: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
-msgstr ""
+msgstr "已加入"
 
 #: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
-msgstr ""
+msgstr "已離開"
 
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr ""
+msgstr "已被封鎖"
 
 #: src/ImageProvider.cpp:133
 #, fuzzy, qt-format
@@ -472,9 +461,6 @@ msgid "Spoiler"
 msgstr "暴雷"
 
 #: src/Message.cpp:369
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
 msgstr "位置"
@@ -619,7 +605,7 @@ msgstr "無法解除封鎖 %1：%2"
 #: src/MixController.cpp:178
 msgctxt "MixController|"
 msgid "The group does not exist"
-msgstr ""
+msgstr "群組不存在"
 
 #: src/MixController.cpp:181
 msgctxt "MixController|"
@@ -680,9 +666,6 @@ msgid "You aren't allowed to delete the group"
 msgstr ""
 
 #: src/NotificationController.cpp:94
-#, fuzzy
-#| msgctxt "Notifications|"
-#| msgid "Requests to receive your personal data"
 msgctxt "NotificationController|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
@@ -707,12 +690,12 @@ msgstr ""
 #: src/NotificationController.cpp:164
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr ""
+msgstr "接受"
 
 #: src/NotificationController.cpp:171
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "拒絕"
 
 #: src/NotificationController.cpp:350
 msgctxt "NotificationController|"
@@ -722,17 +705,14 @@ msgstr "標記為已讀"
 #: src/NotificationController.cpp:354
 msgctxt "NotificationController|"
 msgid "Reply"
-msgstr ""
+msgstr "回覆"
 
 #: src/NotificationController.cpp:355
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr ""
+msgstr "回覆…"
 
 #: src/OmemoController.cpp:107
-#, fuzzy
-#| msgctxt "OmemoManager|"
-#| msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "無法設定 OMEMO 2 端對端加密"
@@ -804,27 +784,27 @@ msgstr ""
 #: src/qml/CallPage.qml:64
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "離開通話"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr ""
+msgstr "開啟音訊通話"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "開始音訊通話"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "開啟視訊通話"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "開始視訊通話"
 
 #: src/qml/ChatPage.qml:163
 msgctxt "ChatPage|"
@@ -849,57 +829,43 @@ msgstr "搜尋"
 #: src/qml/ChatPage.qml:570
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
-msgstr ""
+msgstr "取消轉傳"
 
 #: src/qml/ChatPage.qml:585
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
-msgstr "選擇聊天室來開始傳訊息"
+msgstr "選擇要轉傳訊息到哪個聊天室"
 
 #: src/qml/ChatPage.qml:637
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "拖放檔案來傳送"
 
 #: src/qml/ChatPage.qml:881
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
 #: src/qml/ChatPage.qml:881
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "復原"
 
 #: src/qml/ChatPage.qml:888
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
 #: src/qml/ChatPage.qml:892
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "DetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
 msgstr "您可以分享最大 %1 的媒體。"
@@ -965,28 +931,19 @@ msgstr "移除標籤"
 
 #: src/qml/details/AccountDetailsContent.qml:240
 #: src/qml/details/AccountDetailsContent.qml:245
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr "透過 QR code 分享這個聯絡人的聊天位址"
+msgstr "透過 QR code 分享這個帳號的聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:249
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Share this contact's chat address via text"
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
-msgstr "透過文字分享這個聯絡人的聊天位址"
+msgstr "透過文字分享這個帳號的聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:252
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Website address copied to clipboard"
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
-msgstr "網站位址已複製到剪貼簿"
+msgstr "帳號位址已複製到剪貼簿"
 
 #: src/qml/details/AccountDetailsContent.qml:256
 #, fuzzy
@@ -997,9 +954,6 @@ msgid "Share this account's chat address via a web page with usage help"
 msgstr "透過文字分享這個聯絡人的聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:269
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
@@ -1013,12 +967,9 @@ msgid "Incoming contact messages"
 msgstr "接收訊息"
 
 #: src/qml/details/AccountDetailsContent.qml:274
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr "收到訊息時顯示通知並播放聲音"
+msgstr "收到聯絡人訊息時顯示通知並播放聲音"
 
 #: src/qml/details/AccountDetailsContent.qml:296
 #, fuzzy
@@ -1029,12 +980,9 @@ msgid "Incoming group messages"
 msgstr "接收訊息"
 
 #: src/qml/details/AccountDetailsContent.qml:297
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr "收到訊息時顯示通知並播放聲音"
+msgstr "收到群組訊息時顯示通知並播放聲音"
 
 #: src/qml/details/AccountDetailsContent.qml:304
 #, fuzzy
@@ -1045,9 +993,6 @@ msgid "On mention"
 msgstr "連線"
 
 #: src/qml/details/AccountDetailsContent.qml:323
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
 msgstr "位置"
@@ -1063,12 +1008,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
-msgstr ""
+msgstr "位置地圖預覽"
 
 #: src/qml/details/AccountDetailsContent.qml:333
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr ""
+msgstr "顯示位置的預覽"
 
 #: src/qml/details/AccountDetailsContent.qml:341
 #, fuzzy
@@ -1087,20 +1032,14 @@ msgid "How to open locations"
 msgstr "傳送位置"
 
 #: src/qml/details/AccountDetailsContent.qml:345
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Reset to defaults"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "重設為預設值"
+msgstr "系統預設值"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "關於 Kaidan"
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:353
 msgctxt "AccountDetailsContent|"
@@ -1381,12 +1320,12 @@ msgstr "設定要連線到的主機名稱與連接埠（留空以使用預設值
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "套用變更"
 
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "正在套用變更…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
@@ -1422,12 +1361,9 @@ msgstr ""
 "的帳號！"
 
 #: src/qml/details/AccountDetailsContent.qml:962
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "掃描 QR code"
+msgstr "顯示登入 QR code"
 
 #: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy
@@ -1443,7 +1379,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:979
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr ""
+msgstr "顯示認證資訊"
 
 #: src/qml/details/AccountDetailsContent.qml:980
 #, fuzzy
@@ -1457,54 +1393,39 @@ msgstr ""
 "在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:1004
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "沒有資訊"
+msgstr "移轉"
 
 #: src/qml/details/AccountDetailsContent.qml:1009
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "依帳號過濾"
+msgstr "移轉帳號"
 
 #: src/qml/details/AccountDetailsContent.qml:1010
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "帳號預設"
+msgstr "正在準備帳號移轉…"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "這可能會花上一段時間"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
-msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
+msgstr ""
+"將帳號資料（不包含聊天紀錄）移轉到另一個帳號。您目前的帳號將從此應用程式中移"
+"除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
 #: src/qml/details/AccountDetailsContent.qml:1034
 msgctxt "AccountDetailsContent|"
@@ -1524,12 +1445,9 @@ msgid ""
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
 #: src/qml/details/AccountDetailsContent.qml:1049
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "正在新增聯絡人…"
+msgstr "正在移除帳號…"
 
 #: src/qml/details/AccountDetailsContent.qml:1056
 msgctxt "AccountDetailsContent|"
@@ -1543,12 +1461,9 @@ msgid ""
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
 #: src/qml/details/AccountDetailsContent.qml:1065
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "正在新增聯絡人…"
+msgstr "正在刪除帳號…"
 
 #: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
@@ -1563,12 +1478,9 @@ msgid ""
 msgstr "無法從伺服器上刪除您的帳號。因此它也未從此應用程式移除：%1"
 
 #: src/qml/details/AccountDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "帳號預設"
+msgstr "帳號詳細資訊"
 
 #: src/qml/details/AccountDetailsHeader.qml:18
 msgctxt "AccountDetailsHeader|"
@@ -1576,12 +1488,9 @@ msgid "Change your profile image"
 msgstr "變更您的大頭貼影像"
 
 #: src/qml/details/AccountDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "帳號預設"
+msgstr "帳號詳細資訊"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:35
 #: src/qml/details/AccountKeyAuthenticationButton.qml:40
@@ -1713,9 +1622,6 @@ msgid "Share this contact's chat address via a web page with usage help"
 msgstr "透過文字分享這個聯絡人的聊天位址"
 
 #: src/qml/details/ContactDetailsContent.qml:106
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
@@ -1729,17 +1635,11 @@ msgid "Incoming messages"
 msgstr "接收訊息"
 
 #: src/qml/details/ContactDetailsContent.qml:111
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "收到訊息時顯示通知並播放聲音"
 
 #: src/qml/details/ContactDetailsContent.qml:114
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "帳號預設"
@@ -1830,28 +1730,19 @@ msgid "Remove contact and complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
 #: src/qml/details/ContactDetailsContent.qml:209
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "正在新增聯絡人…"
+msgstr "正在移除聯絡人…"
 
 #: src/qml/details/ContactDetailsDialog.qml:12
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "聯絡人已存在"
+msgstr "聯絡人詳細資訊"
 
 #: src/qml/details/ContactDetailsPage.qml:10
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "聯絡人已存在"
+msgstr "聯絡人詳細資訊"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1930,9 +1821,6 @@ msgid "Media"
 msgstr "媒體"
 
 #: src/qml/details/DetailsContent.qml:68
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Automatic Downloads"
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr "自動下載"
@@ -1953,41 +1841,26 @@ msgid "Labels"
 msgstr "標籤"
 
 #: src/qml/details/DetailsContent.qml:162
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Sharing"
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "分享"
 
 #: src/qml/details/DetailsContent.qml:167
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show QR code"
 msgctxt "DetailsContent|"
 msgid "Show QR code"
-msgstr "顯示 QR 碼"
+msgstr "顯示 QR code"
 
 #: src/qml/details/DetailsContent.qml:181
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show QR code"
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
-msgstr "顯示 QR 碼"
+msgstr "複製 QR code"
 
 #: src/qml/details/DetailsContent.qml:183
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr "聯絡人已複製到剪貼簿"
+msgstr "QR code 已複製到剪貼簿"
 
 #: src/qml/details/DetailsContent.qml:188
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Copy chat address"
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "複製聊天位址"
@@ -1995,7 +1868,7 @@ msgstr "複製聊天位址"
 #: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
-msgstr ""
+msgstr "複製邀請連結"
 
 #: src/qml/details/DetailsContent.qml:196
 #, fuzzy
@@ -2013,22 +1886,22 @@ msgstr "變更名稱…"
 #: src/qml/details/GroupChatDetailsContent.qml:29
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
-msgstr ""
+msgstr "邀請"
 
 #: src/qml/details/GroupChatDetailsContent.qml:67
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
-msgstr ""
+msgstr "邀請選取的聯絡人"
 
 #: src/qml/details/GroupChatDetailsContent.qml:126
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
-msgstr ""
+msgstr "請選取至少一個聯絡人"
 
 #: src/qml/details/GroupChatDetailsContent.qml:140
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "參加者"
 
 #: src/qml/details/GroupChatDetailsContent.qml:144
 #, fuzzy
@@ -2053,27 +1926,16 @@ msgid "You must be connected to change the participants"
 msgstr "您必須已連線才能封鎖或解除封鎖聊天位址"
 
 #: src/qml/details/GroupChatDetailsContent.qml:215
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
 #: src/qml/details/GroupChatDetailsContent.qml:219
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "OMEMO 2"
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:220
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -2116,9 +1978,6 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr "透過文字分享這個聯絡人的聊天位址"
 
 #: src/qml/details/GroupChatDetailsContent.qml:313
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
@@ -2132,17 +1991,11 @@ msgid "Incoming messages"
 msgstr "接收訊息"
 
 #: src/qml/details/GroupChatDetailsContent.qml:318
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "收到訊息時顯示通知並播放聲音"
 
 #: src/qml/details/GroupChatDetailsContent.qml:321
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "帳號預設"
@@ -2169,17 +2022,11 @@ msgid "Always"
 msgstr "總是"
 
 #: src/qml/details/GroupChatDetailsContent.qml:348
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Privacy"
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "隱私"
 
 #: src/qml/details/GroupChatDetailsContent.qml:352
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Send typing notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "傳送輸入中通知"
@@ -2193,9 +2040,6 @@ msgid "Indicate when you are typing"
 msgstr "提供您已讀過哪些訊息的資訊"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Send read notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "傳送已讀通知"
@@ -2219,7 +2063,7 @@ msgstr "儲存選擇"
 #: src/qml/details/GroupChatDetailsContent.qml:379
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "離開"
 
 #: src/qml/details/GroupChatDetailsContent.qml:380
 #, fuzzy
@@ -2280,38 +2124,29 @@ msgid "The group %1 could not be deleted%2"
 msgstr "無法新增 %1：%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:12
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "詳細資訊…"
+msgstr "群組詳細資訊"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "公開群組聊天"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "私人群組聊天"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:16
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Delete file"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
-msgstr "刪除檔案"
+msgstr "已刪除"
 
 #: src/qml/details/GroupChatDetailsPage.qml:10
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "詳細資訊…"
+msgstr "群組詳細資訊"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -2418,9 +2253,6 @@ msgstr ""
 "%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:22
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
@@ -2513,9 +2345,6 @@ msgid "Removal"
 msgstr "移除"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "移除"
@@ -2586,17 +2415,11 @@ msgid "Always"
 msgstr "總是"
 
 #: src/qml/details/RosterItemDetailsContent.qml:65
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "New label"
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
 msgstr "新標籤"
 
 #: src/qml/details/RosterItemDetailsContent.qml:79
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Add label"
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "新增標籤"
@@ -2732,7 +2555,7 @@ msgstr "未驗證的自己的裝置"
 #: src/qml/elements/AccountSelectionDialog.qml:40
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "功能不支援"
 
 #: src/qml/elements/CameraStatus.qml:28
 #, fuzzy
@@ -2777,7 +2600,7 @@ msgstr "移除檔案"
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "重新傳送"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:88
 #, fuzzy
@@ -2790,32 +2613,32 @@ msgstr "反應"
 #: src/qml/elements/ChatMessageContextMenu.qml:110
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "回覆"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:128
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "引用"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:136
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr ""
+msgstr "轉傳"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:144
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:158
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:169
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr ""
+msgstr "標記"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:177
 msgctxt "ChatMessageContextMenu|"
@@ -2851,12 +2674,12 @@ msgstr "取消"
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "新增表情符號"
 
 #: src/qml/elements/ChatPageSendingPane.qml:203
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr ""
+msgstr "提及參與者"
 
 #: src/qml/elements/ChatPageSendingPane.qml:235
 msgctxt "ChatPageSendingPane|"
@@ -2926,7 +2749,7 @@ msgstr "隱藏文字"
 #: src/qml/elements/ChatPageSendingPane.qml:436
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: src/qml/elements/ChatPageSendingPane.qml:484
 #, fuzzy
@@ -3058,7 +2881,7 @@ msgstr "未驗證的聯絡人的裝置"
 #: src/qml/elements/CopyFormTextDelegate.qml:19
 msgctxt "CopyFormTextDelegate|"
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
@@ -3095,7 +2918,7 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:161
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "找不到表情符號"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3125,7 +2948,7 @@ msgstr "請輸入有效的密碼"
 #: src/qml/elements/GeoLocationMap.qml:96
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
 #, fuzzy
@@ -3311,7 +3134,7 @@ msgstr ""
 #: src/qml/elements/GroupChatUserDelegate.qml:18
 msgctxt "GroupChatUserDelegate|"
 msgid "Ban"
-msgstr ""
+msgstr "封鎖"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -3338,17 +3161,11 @@ msgid "Unverified participant devices"
 msgstr "未驗證的聯絡人的裝置"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "拍照"
 
 #: src/qml/elements/ImageCaptureDialog.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "拍照"
@@ -3416,12 +3233,9 @@ msgid "Log in"
 msgstr "登入"
 
 #: src/qml/elements/LoginArea.qml:38
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr "掃描 QR code"
+msgstr "掃描登入 QR code"
 
 #: src/qml/elements/LoginArea.qml:56
 #, fuzzy
@@ -3437,17 +3251,14 @@ msgid "Connecting…"
 msgstr "連線中…"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Paused %1"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
-msgstr "已暫停 %1"
+msgstr "暫停"
 
 #: src/qml/elements/MediaPlayerControl.qml:35
 msgctxt "MediaPlayerControl|"
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: src/qml/elements/MediaViewer.qml:88
 #, fuzzy
@@ -3500,7 +3311,7 @@ msgstr "移除檔案"
 #: src/qml/elements/MediaViewer.qml:139
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "在外部開啟"
 
 #: src/qml/elements/MediaViewer.qml:181
 #, fuzzy
@@ -3529,7 +3340,7 @@ msgstr "名稱"
 #: src/qml/elements/MediaViewer.qml:224
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: src/qml/elements/MediaViewer.qml:231
 msgctxt "MediaViewer|"
@@ -3580,7 +3391,7 @@ msgstr ""
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr ""
+msgstr "顯示詳情"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 #, fuzzy
@@ -3740,7 +3551,7 @@ msgstr "線上"
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "組織"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
 #, fuzzy, qt-format
@@ -3893,17 +3704,11 @@ msgid "Show only chats of selected accounts"
 msgstr "只顯示所選帳號的聊天"
 
 #: src/qml/elements/RosterFilterArea.qml:176
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "依標籤過濾"
 
 #: src/qml/elements/RosterFilterArea.qml:177
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats with selected labels"
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr "只顯示有所選標籤的聊天"
@@ -3975,7 +3780,7 @@ msgstr "開啟影像…"
 #: src/qml/elements/SearchBarPage.qml:75
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:28
 #, fuzzy
@@ -3996,12 +3801,12 @@ msgstr "錄製影片"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr ""
+msgstr "停止錄製"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "開始錄製"
 
 #: src/qml/EmptyChatPage.qml:31
 #, fuzzy
@@ -4068,7 +3873,7 @@ msgstr "依聊天位址新增聯絡人"
 #: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr ""
+msgstr "建立群組"
 
 #: src/qml/GlobalDrawer.qml:193
 #, fuzzy
@@ -4134,9 +3939,6 @@ msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
 #: src/qml/QrCodeOnboardingPage.qml:26
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "掃描 QR code"
@@ -4179,7 +3981,7 @@ msgstr "連線中…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "自動註冊"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:55
 #, fuzzy
@@ -4519,12 +4321,9 @@ msgid "Pin & Move"
 msgstr ""
 
 #: src/qml/StartPage.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "帳號預設"
+msgstr "帳號移轉"
 
 #: src/qml/StartPage.qml:27
 #, fuzzy
