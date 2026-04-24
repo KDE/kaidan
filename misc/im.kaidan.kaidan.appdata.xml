@@ -2112,6 +2112,7 @@
           <li xml:lang="sk">Oprava aktualizácie reakcií na správy, ktoré sa nepodarilo odoslať, namiesto ich opätovného pridania (@melvo)</li>
           <li xml:lang="sl">Popravljeno posodabljanje odzivov na sporočila, ki jih ni bilo mogoče poslati, namesto dodajanja drugič (@melvo)</li>
           <li xml:lang="tr">Fix updating message reactions that could not be sent instead of adding them a second time (@melvo)</li>
+          <li xml:lang="uk">Виправлено оновлення реакцій на повідомлення, які неможливо було надіслати, замість їх повторного додавання (@melvo)</li>
           <li>Fix updating group chat users in user interface (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديث مستخدمي الدردشة الجماعية في واجهة المستخدم (@melvo)</li>
           <li xml:lang="ca">Corregeix l'actualització d'usuaris de xat de grup a la interfície d'usuari (@melvo)</li>
@@ -2124,6 +2125,7 @@
           <li xml:lang="sk">Oprava aktualizácie používateľov skupinového rozhovoru v používateľskom rozhraní (@melvo)</li>
           <li xml:lang="sl">Popravljeno posodabljanje uporabnikov skupinskega klepeta v uporabniškem vmesniku (@melvo)</li>
           <li xml:lang="tr">Fix updating group chat users in user interface (@melvo)</li>
+          <li xml:lang="uk">Виправлено оновлення записів користувачів групового чату в інтерфейсі користувача (@melvo)</li>
           <li>Fix displaying message reaction details (@melvo)</li>
           <li xml:lang="ar">إصلاح عرض تفاصيل تفاعل الرسالة (@melvo)</li>
           <li xml:lang="ca">Corregeix la visualització dels detalls de reaccions dels missatges (@melvo)</li>
@@ -2148,6 +2150,7 @@
           <li xml:lang="sk">Aktualizácia filtrovania kontaktov podľa štítkov, aj keď zoznam štítkov už nie je otvorený (@melvo)</li>
           <li xml:lang="sl">Posodobljeno filtriranje stikov po oznakah, tudi če seznam oznak ni več odprt (@melvo)</li>
           <li xml:lang="tr">Update filtering contacts by labels even if label list is not open anymore (@melvo)</li>
+          <li xml:lang="uk">Оновлено фільтрування контактів за мітками, навіть якщо список міток вже закрито (@melvo)</li>
           <li>Fix scrolling media overview (@melvo)</li>
           <li xml:lang="ar">إصلاح تمرير نظرة الوسائط العامة (@melvo)</li>
           <li xml:lang="ca">Corregeix el desplaçament a la visió general d'elements multimèdia (@melvo)</li>
@@ -2160,6 +2163,7 @@
           <li xml:lang="sk">Oprava posúvania prehľadu médií (@melvo)</li>
           <li xml:lang="sl">Popravljen pregled pomikajočih se medijev (@melvo)</li>
           <li xml:lang="tr">Fix scrolling media overview (@melvo)</li>
+          <li xml:lang="uk">Виправлено гортання на панелі огляду мультимедіа (@melvo)</li>
           <li>Fix updating draft messages (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديث مسودات الرسائل (@melvo)</li>
           <li xml:lang="ca">Corregeix l'actualització dels esborranys de missatges (@melvo)</li>
@@ -2172,6 +2176,7 @@
           <li xml:lang="sk">Oprava aktualizácie konceptov správ (@melvo)</li>
           <li xml:lang="sl">Popravi posodabljanje osnutkov sporočil (@melvo)</li>
           <li xml:lang="tr">Fix updating draft messages (@melvo)</li>
+          <li xml:lang="uk">Виправлено оновлення чернеток повідомлень (@melvo)</li>
         </ul>
         <p>Kaidan requires Qt 6.6 now (@mlaurent, @melvo, @fazevedo, @plata)</p>
         <p xml:lang="ar">يتطلب كيدان الآن Qt 6.6 (@mlaurent, @melvo, @fazevedo, @plata)</p>
@@ -2185,6 +2190,7 @@
         <p xml:lang="sk">Kaidan teraz vyžaduje Qt 6.6 (@mlaurent, @melvo, @fazevedo, @plata)</p>
         <p xml:lang="sl">Kaidan zdaj zahteva Qt 6.6 (@mlaurent, @melvo, @fazevedo, @plata)</p>
         <p xml:lang="tr">Kaidan requires Qt 6.6 now (@mlaurent, @melvo, @fazevedo, @plata)</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує Qt 6.6 (@mlaurent, @melvo, @fazevedo, @plata)</p>
       </description>
     </release>
     <release type="stable" version="0.10.1" date="2024-12-14T00:00:00Z">
@@ -2215,6 +2221,7 @@
           <li xml:lang="sk">Oprava zobrazovania súborov každej správy v príslušnej bubline správy (@melvo)</li>
           <li xml:lang="sl">Popravljeno prikazovanje datotek vsakega sporočila v ustreznem mehurčku sporočila (@melvo)</li>
           <li xml:lang="tr">Fix displaying files of each message in appropriate message bubble (@melvo)</li>
+          <li xml:lang="uk">Виправлено показ файлів кожного повідомлення у відповідній бульбашці повідомлення (@melvo)</li>
           <li>Fix sending fallback messages for clients not supporting XEP-0447: Stateless file sharing (@melvo)</li>
           <li xml:lang="ar">إصلاح إرسال رسائل احتياطية للعملاء الذين لا يدعمون XEP-0447: Stateless file sharing (@melvo)</li>
           <li xml:lang="ca">Corregeix l'enviament de missatges alternatius per a clients que no admeten XEP-0447: compartició de fitxers sense estat (@melvo)</li>
@@ -2226,6 +2233,7 @@
           <li xml:lang="sk">Oprava odosielania záložných správ pre klientov nepodporujúcich XEP-0447: Stateless file sharing (@melvo)</li>
           <li xml:lang="sl">Popravljeno pošiljanje rezervnih sporočil za odjemalce, ki ne podpirajo XEP-0447: Deljenje datotek brez stanja (@melvo)</li>
           <li xml:lang="tr">Fix sending fallback messages for clients not supporting XEP-0447: Stateless file sharing (@melvo)</li>
+          <li xml:lang="uk">Виправлено надсилання резервних повідомлень для клієнтів, у яких не передбачено підтримки XEP-0447: обмін файлами без збереження стану (@melvo)</li>
           <li>Fix margins within message bubbles (@melvo)</li>
           <li xml:lang="ar">إصلاح الهوامش داخل فقاعات الرسائل (@melvo)</li>
           <li xml:lang="ca">Corregeix els marges dins de les bombolles de missatge (@melvo)</li>
@@ -2238,6 +2246,7 @@
           <li xml:lang="sk">Oprava okrajov v bublinách správ (@melvo)</li>
           <li xml:lang="sl">Popravljeni robovi znotraj mehurčkov sporočila (@melvo)</li>
           <li xml:lang="tr">Fix margins within message bubbles (@melvo)</li>
+          <li xml:lang="uk">Виправлено поля у бульбашках повідомлень (@melvo)</li>
           <li>Fix hiding hidden message part (@melvo)</li>
           <li xml:lang="ar">إصلاح إخفاء الجزء المخفي من الرسالة (@melvo)</li>
           <li xml:lang="ca">Corregeix la part oculta del missatge (@melvo)</li>
@@ -2250,6 +2259,7 @@
           <li xml:lang="sk">Oprava skrývania skrytej časti správy (@melvo)</li>
           <li xml:lang="sl">Popravljeno skrivanje skritega dela sporočila (@melvo)</li>
           <li xml:lang="tr">Fix hiding hidden message part (@melvo)</li>
+          <li xml:lang="uk">Виправлено приховування прихованої частини повідомлень (@melvo)</li>
           <li>Fix displaying marker for new messages (@melvo)</li>
           <li xml:lang="ar">إصلاح عرض العلامة للرسائل الجديدة (@melvo)</li>
           <li xml:lang="ca">Corregeix el marcador de visualització dels missatges nous (@melvo)</li>
@@ -2262,6 +2272,7 @@
           <li xml:lang="sk">Oprava zobrazovania značky pre nové správy (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz označevalnika za nova sporočila (@melvo)</li>
           <li xml:lang="tr">Fix displaying marker for new messages (@melvo)</li>
+          <li xml:lang="uk">Виправлено позначку показу для нових повідомлень (@melvo)</li>
         </ul>
       </description>
     </release>
@@ -2295,6 +2306,7 @@
           <li xml:lang="sk">Pridanie dokončovania adresy servera (@fazevedo)</li>
           <li xml:lang="sl">Dodaj dokončanje naslova strežnika (@fazevedo)</li>
           <li xml:lang="tr">Add server address completion (@fazevedo)</li>
+          <li xml:lang="uk">Додано доповнення адрес серверів (@fazevedo)</li>
           <li>Allow to edit account's profile (@jbbgameich)</li>
           <li xml:lang="ar">السماح بتحرير تشكيلة الحساب (@jbbgameich)</li>
           <li xml:lang="ca">Permet editar el perfil del compte (@jbbgameich)</li>
@@ -2307,6 +2319,7 @@
           <li xml:lang="sk">Umožnenie úpravy profilu účtu (@jbbgameich)</li>
           <li xml:lang="sl">Dovoli urejanje profila računa (@jbbgameich)</li>
           <li xml:lang="tr">Allow to edit account's profile (@jbbgameich)</li>
+          <li xml:lang="uk">Уможливлено редагування профілю облікового запису (@jbbgameich)</li>
           <li>Store and display delivery states of message reactions (@melvo)</li>
           <li xml:lang="ar">تخزين وعرض حالات تسليم تفاعلات الرسائل (@melvo)</li>
           <li xml:lang="ca">Emmagatzema i mostra els estats de lliurament de les reaccions de missatges (@melvo)</li>
@@ -2319,6 +2332,7 @@
           <li xml:lang="sk">Ukladanie a zobrazovanie stavov doručenia reakcií na správy (@melvo)</li>
           <li xml:lang="sl">Shrani in prikaže stanje dostave odzivov na sporočila (@melvo)</li>
           <li xml:lang="tr">Store and display delivery states of message reactions (@melvo)</li>
+          <li xml:lang="uk">Реалізовано збереження і показ станів доставлення реакцій на повідомлення (@melvo)</li>
           <li>Send pending message reactions after going online (@melvo)</li>
           <li xml:lang="ar">إرسال تفاعلات الرسائل المعلقة بعد الاتصال بالإنترنت (@melvo)</li>
           <li xml:lang="ca">Envia les reaccions pendents dels missatges després de connectar-se (@melvo)</li>
@@ -2331,6 +2345,7 @@
           <li xml:lang="sk">Odoslanie čakajúcich reakcií na správy po pripojení (@melvo)</li>
           <li xml:lang="sl">Pošlji odzive na čakajoča sporočila po vzpostavitvi povezave (@melvo)</li>
           <li xml:lang="tr">Send pending message reactions after going online (@melvo)</li>
+          <li xml:lang="uk">Реалізовано надсилання реакцій на повідомлення з черги після встановлення з'єднання з інтернетом (@melvo)</li>
           <li>Enable user to resend a message reaction if it previously failed (@melvo)</li>
           <li xml:lang="ar">تمكين المستخدم من إعادة إرسال تفاعل رسالة إذا فشل سابقاً (@melvo)</li>
           <li xml:lang="ca">Habilita l'usuari per a tornar a enviar una reacció de missatge si ha fallat prèviament (@melvo)</li>
