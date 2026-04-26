@@ -230,9 +230,10 @@ Controls.ItemDelegate {
 								Layout.fillWidth: true
 							}
 
-							ClickableIcon {
-								source: root.isShowingSpoiler ? "password-show-off" : "password-show-on"
-								Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+							IconButton {
+								Controls.ToolTip.text: root.isShowingSpoiler ? qsTr("Hide hidden message part") : qsTr("Show hidden message part")
+								icon.source: root.isShowingSpoiler ? "eye-not-looking-symbolic" : "eye-open-negative-filled-symbolic"
+								iconFallback: root.isShowingSpoiler ? "password-show-off" :  "password-show-on"
 								Layout.leftMargin: Kirigami.Units.largeSpacing
 								onClicked: root.isShowingSpoiler = !root.isShowingSpoiler
 							}
