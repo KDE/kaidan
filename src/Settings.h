@@ -64,12 +64,11 @@ public:
 
     void remove(const QStringList &keys);
 
-Q_SIGNALS:
-    void contactAdditionQrCodePageExplanationVisibleChanged();
-    void keyAuthenticationPageExplanationVisibleChanged();
-    void favoriteEmojisChanged();
-    void windowPositionChanged();
-    void windowSizeChanged();
+    Q_SIGNAL void contactAdditionQrCodePageExplanationVisibleChanged();
+    Q_SIGNAL void keyAuthenticationPageExplanationVisibleChanged();
+    Q_SIGNAL void favoriteEmojisChanged();
+    Q_SIGNAL void windowPositionChanged();
+    Q_SIGNAL void windowSizeChanged();
 
 private:
     template<typename T>

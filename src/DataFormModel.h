@@ -53,12 +53,10 @@ public:
 
     QXmppDataForm form() const;
     void setForm(const QXmppDataForm &form);
+    Q_SIGNAL void formChanged();
 
     QString title() const;
     QString instructions() const;
-
-Q_SIGNALS:
-    void formChanged();
 
 protected:
     QXmppDataForm m_form;

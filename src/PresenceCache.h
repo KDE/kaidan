@@ -84,12 +84,11 @@ public:
      */
     void clear();
 
-Q_SIGNALS:
     /**
      * Notifies about changed presences
      */
-    void presenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
-    void presencesCleared();
+    Q_SIGNAL void presenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
+    Q_SIGNAL void presencesCleared();
 
 private:
     constexpr qint8 availabilityPriority(QXmppPresence::AvailableStatusType type);

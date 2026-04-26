@@ -26,11 +26,10 @@ public:
      */
     Q_INVOKABLE void fetchVersions(const QString &bareJid, const QString &resource);
 
-Q_SIGNALS:
     /**
      * Emitted when a client version information was received
      */
-    void clientVersionReceived(const QXmppVersionIq &versionIq);
+    Q_SIGNAL void clientVersionReceived(const QXmppVersionIq &versionIq);
 
 private:
     PresenceCache *const m_presenceCache;
