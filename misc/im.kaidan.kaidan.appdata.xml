@@ -3111,7 +3111,7 @@
           <li xml:lang="ca-valencia">Corregix l'ordenació dels elements de la llista de contactes (@melvo)</li>
           <li xml:lang="fr">Correction du tri des éléments de la liste (@melvo)</li>
           <li xml:lang="ka">კონტაქტების სიის ელემენტების დალაგების გასწორება (@melvo)</li>
-          <li xml:lang="nl">Sorteerproblemen met roosteritems oplossen (@melvo)</li>
+          <li xml:lang="nl">Sorteerproblemen met ledenlijstitems oplossen (@melvo)</li>
           <li xml:lang="pt-BR">Correção da ordenação dos itens da lista (@melvo)</li>
           <li xml:lang="ru">Исправлена сортировка элементов списка контактов (@melvo);</li>
           <li xml:lang="sk">Oprava zoraďovania položiek zoznamu kontaktov (@melvo)</li>
@@ -3616,7 +3616,7 @@
           <li xml:lang="ca">Redisseny de la configuració, redisseny dels perfils d'usuari com a full en lloc de pàgina (@mbruchert)</li>
           <li xml:lang="ca-valencia">Redisseny de la configuració, redisseny dels perfils d'usuari com a full en lloc de pàgina (@mbruchert)</li>
           <li xml:lang="ka">შეიცვალა მორგებისა და მომხმარებლის პროფილების დიზაინი გვერდის ნაცვლად ფურცლის სახით (@mbruchert)</li>
-          <li xml:lang="nl">Herontwerp van instellingen, herontwerp van gebruikersprofielen als een spreadsheet in plaats van een pagina (@mbruchert)</li>
+          <li xml:lang="nl">Herontwerp van instellingen, herontwerp van gebruikersprofielen als een blad in plaats van een pagina (@mbruchert)</li>
           <li xml:lang="pt-BR">Redesenho das configurações, redesenho dos perfis de usuário como planilha em vez de página (@mbruchert)</li>
           <li xml:lang="ru">Реализован новый дизайн параметров; Профили пользователей теперь оформлены в виде вкладок вместо отдельных страниц (@mbruchert).</li>
           <li xml:lang="sk">Prepracovanie nastavení, prepracovanie profilov používateľov ako panela namiesto stránky (@mbruchert)</li>
@@ -3932,6 +3932,7 @@
           <li xml:lang="ca">Corregeix l'obertura del LoginPage en escanejar codis QR sense contrasenya (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix l'obertura del LoginPage en escanejar codis QR sense contrasenya (@melvo)</li>
           <li xml:lang="ka">გასწორდა შესვლის გვერდის გახსნა პაროლის გარეშე QR კოდის სკანირებისას (@melvo)</li>
+          <li xml:lang="nl">Het probleem is opgelost waarbij de inlogpagina niet opent bij het scannen van een QR-code zonder wachtwoord (@melvo)</li>
           <li xml:lang="pt-BR">Corrigido o problema que impedia a abertura da página de login ao escanear o código QR sem senha (@melvo)</li>
           <li xml:lang="ru">Исправлено открытие страницы входа при сканировании QR-кода без пароля (@melvo);</li>
           <li xml:lang="sk">Oprava otvárania prihlasovacieho panela pri skenovaní QR kódu bez hesla (@melvo)</li>
@@ -3945,6 +3946,7 @@
         <p xml:lang="fr">Kaidan nécessite maintenant Qt en version 5.14</p>
         <p xml:lang="he">Kaidan דורש את Qt 5.14 מעתה</p>
         <p xml:lang="ka">Kaidan ახლა Qt 5.14-ს ითხოვს</p>
+        <p xml:lang="nl">Kaidan vereist nu Qt 5.14</p>
         <p xml:lang="pt-BR">O Kaidan agora requer o Qt 5.14</p>
         <p xml:lang="ru">Kaidan теперь требует Qt 5.14</p>
         <p xml:lang="sk">Kaidan teraz vyžaduje Qt 5.14</p>
@@ -3976,6 +3978,7 @@
           <li xml:lang="ca-valencia">Quan està fora de línia, ara els missatges s'enviaran a la memòria cau més tard (@yugubich)</li>
           <li xml:lang="fr">En mode hors ligne, les messages sont maintenant mis en cache pour être envoyés plus tard (@yugubich)</li>
           <li xml:lang="ka">ხაზგარეშე ყოფნისას, შეტყობინებები ახლა უკვე იკეშება მოგვიანებით გასაგზავნად (@yugubich)</li>
+          <li xml:lang="nl">Wanneer u offline bent, worden berichten nu in de cache opgeslagen om later te worden verzonden (@yugubich)</li>
           <li xml:lang="pt-BR">Quando estiver offline, as mensagens são armazenadas em cache para serem enviadas posteriormente (@yugubich)</li>
           <li xml:lang="ru">Реализовано кэширование сообщений в автономном режиме для последующей отправки (@yugubich);</li>
           <li xml:lang="sk">Správy sú teraz ukladané do vyrovnávacej pamäte pre odoslanie neskôr v prípade odpojenia (@yugubich)</li>
@@ -3986,6 +3989,7 @@
           <li xml:lang="ca">Ara també es permet corregir altres missatges a part de l'últim (@yugubich)</li>
           <li xml:lang="ca-valencia">Ara també es permet corregir altres missatges a part de l'últim (@yugubich)</li>
           <li xml:lang="ka">ახლა უკვე ნებადართულია სხვა შეტყობინებების შესწორებაც და არა მხოლოდ ბოლოსი (@yugubich)</li>
+          <li xml:lang="nl">Het is nu ook toegestaan ​​om andere berichten dan het laatste te corrigeren (@yugubich)</li>
           <li xml:lang="pt-BR">Agora também é permitido corrigir outras mensagens além da última (@yugubich)</li>
           <li xml:lang="ru">Реализована возможность исправления сообщений, отличных от последнего (@yugubich).</li>
           <li xml:lang="sk">Teraz je povolené opravovať aj iné správy ako poslednú (@yugubich)</li>
@@ -3997,6 +4001,7 @@
           <li xml:lang="ca-valencia">Ara també es poden corregir els missatges pendents (no enviats) (@yugubich)</li>
           <li xml:lang="fr">Les messages en attente (Non envoyés) peuvent également être corrigés maintenant (@yugubich)</li>
           <li xml:lang="ka">ახლა უკვე შესაძლებელია მოლოდინში მყოფი (გაუგზავნელი) შეტყობინებების შესწორებაც (@yugubich)</li>
+          <li xml:lang="nl">Ook berichten die nog niet verzonden zijn, kunnen nu gecorrigeerd worden (@yugubich).</li>
           <li xml:lang="pt-BR">Mensagens pendentes (não enviadas) também podem ser corrigidas agora (@yugubich)</li>
           <li xml:lang="ru">Добавлена возможность редактирования ожидающих отправки сообщений (@yugubich).</li>
           <li xml:lang="sk">Teraz je možné opravovať aj čakajúce (neodoslané) správy (@yugubich)</li>
@@ -4007,6 +4012,7 @@
           <li xml:lang="ca">Els xats ara es poden obrir des de les notificacions (@melvo, @jbbgameich, @cacahueto)</li>
           <li xml:lang="ca-valencia">Els xats ara es poden obrir des de les notificacions (@melvo, @jbbgameich, @cacahueto)</li>
           <li xml:lang="ka">ახლა უკვე შესაძლებელია ჩატების გახსნა შეტყობინებებიდან (@melvo, @jbbgameich, @cacahueto)</li>
+          <li xml:lang="nl">U kunt chats nu openen vanuit de notificaties (@melvo, @jbbgameich, @cacahueto)</li>
           <li xml:lang="pt-BR">Agora é possível abrir bate-papos a partir das notificações (@melvo, @jbbgameich, @cacahueto)</li>
           <li xml:lang="ru">Чаты можно открывать из уведомлений (@melvo, @jbbgameich, @cacahueto).</li>
           <li xml:lang="sk">Chaty je teraz možné otvoriť z upozornení (@melvo, @jbbgameich, @cacahueto)</li>
@@ -4018,6 +4024,7 @@
           <li xml:lang="ca-valencia">Opció nova per a ocultar permanentment la contrasenya a Kaidan (@melvo)</li>
           <li xml:lang="fr">Nouvelle option pour masquer définitivement votre mot de passe dans Kaidan (@melvo)</li>
           <li xml:lang="ka">ახალი პარამეტრი Kaidan-ში თქვენი პაროლის სამუდამოდ დასამალად (@melvo)</li>
+          <li xml:lang="nl">Nieuwe optie om uw wachtwoord permanent te verbergen in Kaidan (@melvo)</li>
           <li xml:lang="pt-BR">Nova opção para ocultar permanentemente sua senha no Kaidan (@melvo)</li>
           <li xml:lang="ru">Добавлена возможность постоянно скрывать пароль в Kaidan (@melvo);</li>
           <li xml:lang="sk">Nová možnosť trvalo skryť heslo v Kaidan (@melvo)</li>
@@ -4028,6 +4035,7 @@
           <li xml:lang="ca">Botons nous per a copiar fàcilment el JID i la contrasenya (@jbbgameich, @fazevedo)</li>
           <li xml:lang="ca-valencia">Botons nous per a copiar amb facilitat el JID i la contrasenya (@jbbgameich, @fazevedo)</li>
           <li xml:lang="ka">ახალი ღილაკები თქვენი JID-ისა და პაროლის მარტივად კოპირებისთვის (@jbbgameich, @fazevedo)</li>
+          <li xml:lang="nl">Nieuwe knoppen om uw jid en wachtwoord eenvoudig te kopiëren (@jbbgameich, @fazevedo)</li>
           <li xml:lang="pt-BR">Novos botões para copiar facilmente seu jid e senha (@jbbgameich, @fazevedo)</li>
           <li xml:lang="ru">Добавлены кнопки для быстрого копирования вашего JID и пароля (@jbbgameich, @fazevedo).</li>
           <li xml:lang="sk">Nové tlačidlá na jednoduché kopírovanie JID a hesla (@jbbgameich, @fazevedo)</li>
@@ -4039,6 +4047,7 @@
           <li xml:lang="ca-valencia">S'han mogut les pàgines de gestió de comptes a la configuració (@jbbgameich)</li>
           <li xml:lang="fr">Déplacement des pages de gestion de compte déplacées dans la configuration (@jbbgameich)</li>
           <li xml:lang="ka">ანგარიშის მართვის გვერდები გადატანილია პარამეტრებში (@jbbgameich)</li>
+          <li xml:lang="nl">De pagina's voor accountbeheer zijn verplaatst naar de instellingen (@jbbgameich)</li>
           <li xml:lang="pt-BR">Páginas de gerenciamento de conta movida para as configurações (@jbbgameich)</li>
           <li xml:lang="ru">Перемещены страницы управления учётными записями в параметры (@jbbgameich).</li>
           <li xml:lang="sk">Presunutie stránok správy účtu do nastavení (@jbbgameich)</li>
@@ -4049,6 +4058,7 @@
           <li xml:lang="ca">El cursor ara es mou al final del camp de text en corregir un missatge (@melvo)</li>
           <li xml:lang="ca-valencia">El cursor ara es mou cap al final del camp de text en corregir un missatge (@melvo)</li>
           <li xml:lang="ka">შეტყობინების შესწორებისას კურსორი ახლა უკვე ტექსტის ველის ბოლოში გადადის (@melvo)</li>
+          <li xml:lang="nl">Bij het corrigeren van een bericht wordt de cursor nu naar het einde van het tekstveld verplaatst (@melvo)</li>
           <li xml:lang="pt-BR">Agora, ao corrigir uma mensagem, o cursor é movido para o final do campo de texto (@melvo)</li>
           <li xml:lang="ru">Курсор перемещается в конец поля ввода при исправлении сообщения (@melvo);</li>
           <li xml:lang="sk">Kurzor sa teraz presunie na koniec textového poľa pri oprave správy (@melvo)</li>
@@ -4059,6 +4069,7 @@
           <li xml:lang="ca">L'escaneig de codis QR sense contrasenya ara funciona i dona com a resultat que només s'estableixi el JID (@melvo)</li>
           <li xml:lang="ca-valencia">L'escaneig de codis QR sense contrasenya ara funciona i dona com a resultat que només s'establisca el JID (@melvo)</li>
           <li xml:lang="ka">QR კოდების სკანირება პაროლის გარეშე, ახლა, უკვე მუშაობს და, მხოლოდ, JID-ის დაყენებით სრულდება (@melvo)</li>
+          <li xml:lang="nl">Het scannen van QR-codes zonder wachtwoord werkt nu en resulteert alleen in het instellen van de JID (@melvo).</li>
           <li xml:lang="pt-BR">A leitura de códigos QR sem senha agora funciona e resulta na configuração apenas do JID (@melvo)</li>
           <li xml:lang="ru">Реализовано сканирование QR-кодов без пароля; при этом устанавливается только JID (@melvo);</li>
           <li xml:lang="sk">Skenovanie QR kódov bez hesla teraz funguje a nastaví iba JID (@melvo)</li>
@@ -4070,6 +4081,7 @@
           <li xml:lang="ca-valencia">La llista («roster») ara s'anomena llista de contactes (@jbbgameich)</li>
           <li xml:lang="fr">La liste est maintenant appelée liste de contacts (@jbbgameich)</li>
           <li xml:lang="ka">Roster-ს ახლა უკვე კონტაქტების სია ეწოდება (@jbbgameich)</li>
+          <li xml:lang="nl">De ledenlijst heet nu contactlijst (@jbbgameich)</li>
           <li xml:lang="pt-BR">A lista agora se chama lista de contatos (@jbbgameich)</li>
           <li xml:lang="ru">Список контактов теперь называется «список контактов» (@jbbgameich);</li>
           <li xml:lang="sk">Zoznam kontaktov sa teraz nazýva kontaktný zoznam (@jbbgameich)</li>
@@ -4080,6 +4092,7 @@
           <li xml:lang="ca">El recurs per a la presència mostrada ara es tria amb regles fixes (abans era aleatori el recurs que es mostrava) (@lnj)</li>
           <li xml:lang="ca-valencia">El recurs per a la presència mostrada ara es tria amb regles fixes (abans era aleatori el recurs que es mostrava) (@lnj)</li>
           <li xml:lang="ka">საჩვენებელი სტატუსისთვის რესურსის შერჩევა, ახლა, უკვე ფიქსირებული წესებით ხდება (მანამდე შემთხვევითობით ხდებოდა იმის განსაზღვრა, თუ რომელი რესურსი გამოჩნდებოდა) (@lnj)</li>
+          <li xml:lang="nl">De bron voor de weergegeven aanwezigheid wordt nu volgens vaste regels gekozen (voorheen werd willekeurig een bron werd weergegeven) (@lnj)</li>
           <li xml:lang="pt-BR">O recurso para a presença exibido agora é escolhido com regras fixas (antes era aleatório qual recurso era exibido) (@lnj)</li>
           <li xml:lang="ru">Выбор ресурса для отображаемого присутствия теперь выполняется по фиксированным правилам (ранее ресурс отображался случайным образом) (@lnj);</li>
           <li xml:lang="sk">Zdroj zobrazovanej prítomnosti sa teraz vyberá podľa pevných pravidiel (predtým bol výber náhodný) (@lnj)</li>
@@ -4090,6 +4103,7 @@
           <li xml:lang="ca">Gestiona les notificacions de manera diferent al GNOME per a mantenir-les a l'àrea de notificacions (@melvo)</li>
           <li xml:lang="ca-valencia">Gestiona les notificacions de manera diferent a GNOME per a mantindre-les a l'àrea de notificacions (@melvo)</li>
           <li xml:lang="ka">GNOME-ზე შეტყობინებების დამუშავება სხვაგვარად ხდება, რათა ისინი შეტყობინებების არეში დარჩეს (@melvo)</li>
+          <li xml:lang="nl">Behandel meldingen anders in GNOME om ze in het meldingengebied te houden (@melvo)</li>
           <li xml:lang="pt-BR">Gerencia as notificações de forma diferente no GNOME para mantê-las na área de notificações (@melvo)</li>
           <li xml:lang="ru">Обработка уведомлений в GNOME по-другому для удержания их в области уведомлений (@melvo);</li>
           <li xml:lang="sk">Rozdielne spracovanie upozornení v GNOME na ich udržanie v oblasti upozornení (@melvo)</li>
@@ -4101,6 +4115,7 @@
           <li xml:lang="ca-valencia">S'ha canviat a la implementació de pujada de fitxers HTTP de la branca principal (@lnj)</li>
           <li xml:lang="fr">Basculement vers l'implémentation de téléchargement de fichiers « HTTP » en amont (@lnj)</li>
           <li xml:lang="ka">გადავიდა ძირითადი პროექტის HTTP ფაილის ატვირთვის განხორციელებაზე (@lnj)</li>
+          <li xml:lang="nl">Overgeschakeld naar de upstream HTTP-bestandsuploadimplementatie (@lnj)</li>
           <li xml:lang="pt-BR">Alteração da implementação upstream de Upload de Arquivos HTTP (@lnj)</li>
           <li xml:lang="ru">Переход на реализацию отправки файлов по HTTP от разработчиков (@lnj).</li>
           <li xml:lang="sk">Prepnutie na implementáciu HTTP File Upload z upstream (@lnj)</li>
@@ -4111,6 +4126,7 @@
           <li xml:lang="ca">Reestructuració de codi i reescriptura parcial de les classes següents: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="ca-valencia">Reestructuració de codi i reescriptura parcial de les classes següents: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="ka">კოდის რეფაქტორინგი და შემდეგი კლასების ნაწილობრივი გადაწერა: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
+          <li xml:lang="nl">Code herziening en gedeeltelijke herschrijving van de volgende klassen: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="pt-BR">Refatoração de código e reescrita parcial das seguintes classes: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="ru">Рефакторинг и частичный переписывание кода следующих классов: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich).</li>
           <li xml:lang="sk">Refaktorovanie kódu a čiastočné prepísanie nasledujúcich tried: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
@@ -4138,6 +4154,7 @@
           <li xml:lang="ca-valencia">Problemes de reproducció a la previsualització de vídeo multimèdia (@fazevedo)</li>
           <li xml:lang="fr">Problèmes de lecture dans l'aperçu vidéo du média (@fazevedo)</li>
           <li xml:lang="ka">გასწორდა მედია ვიდეოს წინასწარი დათვალიერებისას დაკვრის პრობლემები (@fazevedo)</li>
+          <li xml:lang="nl">Afspeelproblemen in de videovoorbeeldweergave van media (@fazevedo)</li>
           <li xml:lang="pt-BR">Problemas de reprodução na pré-visualização de vídeo (@fazevedo)</li>
           <li xml:lang="ru">Проблемы с воспроизведением в предпросмотре видео (@fazevedo);</li>
           <li xml:lang="sk">Problémy s prehrávaním v náhľade mediálneho videa (@fazevedo)</li>
@@ -4148,6 +4165,7 @@
           <li xml:lang="ca">Els missatges enviats des d'altres dispositius vostres es mostren a mesura que el company de xat els envia (@lnj)</li>
           <li xml:lang="ca-valencia">Els missatges enviats des d'altres dispositius vostres es mostren a mesura que el company de xat els envia (@lnj)</li>
           <li xml:lang="ka">თქვენი სხვა მოწყობილობებიდან გაგზავნილი შეტყობინებები ჩანს, თითქოს ჩატის პარტნიორის მიერ იყო გაგზავნილი (@lnj)</li>
+          <li xml:lang="nl">Berichten die vanaf andere apparaten van u zijn verzonden, worden weergegeven zoals ze door de chatpartner zijn verzonden (@lnj)</li>
           <li xml:lang="pt-BR">As mensagens enviadas de outros dispositivos seus são exibidas da mesma forma que foram enviadas pelo parceiro de bate-papo (@lnj).</li>
           <li xml:lang="ru">Сообщения, отправленные с других ваших устройств, отображаются так, как если бы их отправил собеседник (@lnj).</li>
           <li xml:lang="sk">Správy odoslané z iných vašich zariadení sa zobrazujú, akoby boli odoslané partnerom v chate (@lnj)</li>
@@ -4159,6 +4177,7 @@
           <li xml:lang="ca-valencia">Les notificacions es mostren persistentment a la pantalla (@jbbgameich)</li>
           <li xml:lang="fr">Les notifications sont affichées en permanence à l'écran (@jbbgameich)</li>
           <li xml:lang="ka">შეტყობინებები ეკრანზე მუდმივად ჩანს (@jbbgameich)</li>
+          <li xml:lang="nl">Meldingen worden permanent op het scherm weergegeven (@jbbgameich)</li>
           <li xml:lang="pt-BR">As notificações são exibidas persistentemente na tela (@jbbgameich)</li>
           <li xml:lang="ru">Уведомления выводятся на экран постоянно (@jbbgameich).</li>
           <li xml:lang="sk">Upozornenia sa trvalo zobrazujú na obrazovke (@jbbgameich)</li>
@@ -4170,6 +4189,7 @@
           <li xml:lang="ca-valencia">Els noms dels contactes no s'actualitza a la base de dades (@melvo)</li>
           <li xml:lang="fr">Les noms de la liste ne sont pas mis à jour dans la base de données (@melvo)</li>
           <li xml:lang="ka">Roster-ის სახელები მონაცემთა ბაზაში არ ახლდებოდა (@melvo)</li>
+          <li xml:lang="nl">De ledenlijstnamen worden niet bijgewerkt in de database (@melvo)</li>
           <li xml:lang="pt-BR">Nomes listados não atualizados no banco de dados (@melvo)</li>
           <li xml:lang="ru">Имена в списке контактов не обновляются в базе данных (@melvo);</li>
           <li xml:lang="sk">Mená v zozname kontaktov sa neaktualizujú v databáze (@melvo)</li>
@@ -4181,6 +4201,7 @@
           <li xml:lang="ca-valencia">Els elements de la llista de contactes no s'actualitzen correctament en el model (@melvo)</li>
           <li xml:lang="fr">Les éléments de liste sont incorrectement mis à jour dans le modèle (@melvo)</li>
           <li xml:lang="ka">Roster-ის ობიექტები მოდელში სწორად არ ახლდებოდა (@melvo)</li>
+          <li xml:lang="nl">De ledenlijstitems worden niet correct bijgewerkt in het model (@melvo)</li>
           <li xml:lang="pt-BR">Os itens da lista não estão sendo atualizados corretamente no modelo (@melvo)</li>
           <li xml:lang="ru">Элементы списка контактов некорректно обновляются в модели (@melvo);</li>
           <li xml:lang="sk">Položky zoznamu kontaktov sa v modeli neaktualizujú správne (@melvo)</li>
@@ -4191,6 +4212,7 @@
           <li xml:lang="ca">Tots els fulls contenen dues capçaleres: ara utilitza la propietat nova de capçalera integrada (@jbbgameich)</li>
           <li xml:lang="ca-valencia">Tots els fulls contenen dues capçaleres: ara utilitza la propietat nova de capçalera integrada (@jbbgameich)</li>
           <li xml:lang="ka">ყველა ფურცელი ორ თავსართს შეიცავს: ახლა უკვე ჩაშენებულ თავსართის ახალ თვისებას იყენებს (@jbbgameich)</li>
+          <li xml:lang="nl">Alle bladen bevatten twee kopteksten: Er wordt nu gebruikgemaakt van de nieuwe ingebouwde kopteksteigenschap (@jbbgameich)</li>
           <li xml:lang="pt-BR">Todas as planilhas contêm dois cabeçalhos: Agora utiliza a nova propriedade de cabeçalho integrada (@jbbgameich)</li>
           <li xml:lang="ru">Во всех листах теперь используются два встроенных заголовка;</li>
           <li xml:lang="sk">Všetky panely obsahujú dve hlavičky: teraz používa novú vstavanú vlastnosť hlavičky (@jbbgameich)</li>
@@ -4201,6 +4223,7 @@
           <li xml:lang="ca">Botons il·legibles amb text blanc sobre fons blanc en alguns estils (@jbbgameich)</li>
           <li xml:lang="ca-valencia">Botons il·legibles amb text blanc sobre fons blanc en alguns estils (@jbbgameich)</li>
           <li xml:lang="ka">გასწორდა არაწაკითხვადი ღილაკები თეთრი ტექსტით თეთრ ფონზე ზოგიერთ სტილში (@jbbgameich)</li>
+          <li xml:lang="nl">Onleesbare knoppen met witte tekst op een achtergrond in sommige stijlen (@jbbgameich)</li>
           <li xml:lang="pt-BR">Botões ilegíveis com texto branco sobre fundo em alguns estilos (@jbbgameich)</li>
           <li xml:lang="ru">Невозможно прочитать кнопки с белым текстом на белом фоне в некоторых стилях оформления (@jbbgameich);</li>
           <li xml:lang="sk">Nečitateľné tlačidlá s bielym textom na pozadí v niektorých štýloch (@jbbgameich)</li>
@@ -4213,6 +4236,7 @@
           <li xml:lang="fr">La version de la base de données est incorrectement enregistrée (@melvo)</li>
           <li xml:lang="he">גרסת מסד הנתונים לא נשמרת כראוי (‎@melvo)</li>
           <li xml:lang="ka">მონაცემთა ბაზის ვერსიის შენახვა არასწორად ხდება (@melvo)</li>
+          <li xml:lang="nl">De databaseversie wordt niet correct opgeslagen (@melvo)</li>
           <li xml:lang="pt-BR">A versão do banco de dados não está sendo salva corretamente (@melvo)</li>
           <li xml:lang="ru">Исправлено некорректное сохранение версии базы данных (@melvo);</li>
           <li xml:lang="sk">Verzia databázy nie je uložená správne (@melvo)</li>
@@ -4225,6 +4249,7 @@
           <li xml:lang="fr">Erreurs lors de la compilation avec des versions plus récentes de ZXing (@vkrause)</li>
           <li xml:lang="he">שגיאות בבנייה עם גרסאות חדשות יותר של ZXing‏ (‎@vkrause)</li>
           <li xml:lang="ka">შეცდომები ZXing-ის ახალი ვერსიებით აგებისას (@vkrause)</li>
+          <li xml:lang="nl">Fouten bij het compileren met nieuwere ZXing-versies (@vkrause)</li>
           <li xml:lang="pt-BR">Erros ao compilar com versões mais recentes do ZXing (@vkrause)</li>
           <li xml:lang="ru">Ошибки при сборке с новыми версиями ZXing (@vkrause);</li>
           <li xml:lang="sk">Chyby pri zostavovaní s novšími verziami ZXing (@vkrause)</li>
