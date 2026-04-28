@@ -2598,6 +2598,7 @@
           <li xml:lang="sk">Pridanie kontaktu do zoznamu kontaktov pri prijatí žiadosti o odber prítomnosti (@melvo)</li>
           <li xml:lang="sl">Dodaj stik na seznam stikov ob prejemu zahteve za naročnino na prisotnost (@melvo)</li>
           <li xml:lang="tr">Add contact to contact list on receiving presence subscription request (@melvo)</li>
+          <li xml:lang="uk">Реалізовано додавання запису контакту до списку контактів при отриманні запиту щодо підпискаи на присутність (@melvo)</li>
           <li>Add encryption key authentication via entering key IDs (@melvo)</li>
           <li xml:lang="ar">إضافة استيثاق مفتاح التعمية عبر إدخال معرفات المفاتيح (@melvo)</li>
           <li xml:lang="ca">Afegeix l'autenticació de la clau d'encriptatge entrant identificadors de clau (@melvo)</li>
@@ -2610,6 +2611,7 @@
           <li xml:lang="sk">Pridanie overovania šifrovacích kľúčov zadaním ID kľúčov (@melvo)</li>
           <li xml:lang="sl">Doda preverjanje pristnosti s šifrirnim ključem z vnosom ID-jev ključev (@melvo)</li>
           <li xml:lang="tr">Add encryption key authentication via entering key IDs (@melvo)</li>
+          <li xml:lang="uk">Додано розпізнавання за ключем шифрування шляхом введення ідентифікаторів ключа (@melvo)</li>
           <li>Improve connecting to server and authentication (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: SRV records for XMPP over TLS) (@lnj)</li>
           <li xml:lang="ar">تحسين الاتصال بالخادوم والاستيثاق (XEP-0388: Extensible SASL Profile (SASL 2)، وXEP-0386: Bind 2، وXEP-0484: Fast Authentication Streamlining Tokens، وXEP-0368: SRV records for XMPP over TLS) (@lnj)</li>
           <li xml:lang="ca">Millora la connexió al servidor i l'autenticació (XEP-0388: perfil SASL ampliable (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: registres SRV per a XMPP sobre TLS) (@lnj)</li>
@@ -2621,6 +2623,7 @@
           <li xml:lang="sk">Vylepšenie pripájania k serveru a overenia totožnosti (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: SRV records for XMPP over TLS) (@lnj)</li>
           <li xml:lang="sl">Izboljša povezovanje s strežnikom in preverjanje pristnosti (XEP-0388: Razširljiv profil SASL (SASL 2), XEP-0386: Bind 2, XEP-0484: Žetoni za hitro preverjanje pristnosti, XEP-0368: Zapisi SRV za XMPP prek TLS) (@lnj)</li>
           <li xml:lang="tr">Improve connecting to server and authentication (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: Fast Authentication Streamlining Tokens, XEP-0368: SRV records for XMPP over TLS) (@lnj)</li>
+          <li xml:lang="uk">Удосконалено встановлення з'єднання з сервером та розпізнавання (XEP-0388: Extensible SASL Profile (SASL 2), XEP-0386: Bind 2, XEP-0484: жетони спрощення швидкого розпізнавання, XEP-0368: записи SRV для XMPP через TLS) (@lnj)</li>
           <li>Support media sharing with more clients even for sharing multiple files at once (XEP-0447: Stateless file sharing v0.3) (@lnj)</li>
           <li xml:lang="ar">دعم مشاركة الوسائط مع عملاء أكثر حتى عند مشاركة ملفات متعددة في وقت واحد (XEP-0447: Stateless file sharing v0.3) (@lnj)</li>
           <li xml:lang="ca">Permet compartir fitxers multimèdia amb més clients, fins i tot per a compartir diversos fitxers alhora (XEP-0447: compartició de fitxers sense estat v0.3) (@lnj)</li>
@@ -2632,6 +2635,7 @@
           <li xml:lang="sk">Podpora zdieľania médií s viacerými klientmi aj pri zdieľaní viacerých súborov naraz (XEP-0447: Stateless file sharing v0.3) (@lnj)</li>
           <li xml:lang="sl">Podpora deljenja medijev z več odjemalcev tudi za deljenje več datotek hkrati (XEP-0447: Deljenje datotek brez stanja v0.3) (@lnj)</li>
           <li xml:lang="tr">Support media sharing with more clients even for sharing multiple files at once (XEP-0447: Stateless file sharing v0.3) (@lnj)</li>
+          <li xml:lang="uk">Підтримка обміну мультимедійними файлами з більшою кількістю клієнтів, навіть для обміну кількома файлами одночасно (XEP-0447: обмін файлами без збереження стану v0.3) (@lnj)</li>
           <li>Display and check media upload size limit (@fazevedo)</li>
           <li xml:lang="ar">عرض والتحقق من حد حجم رفع الوسائط (@fazevedo)</li>
           <li xml:lang="ca">Mostra i comprova el límit de la mida de pujada d'elements multimèdia (@fazevedo)</li>
@@ -2644,6 +2648,7 @@
           <li xml:lang="sk">Zobrazenie a kontrola limitu veľkosti nahrávania médií (@fazevedo)</li>
           <li xml:lang="sl">Prikaz in preverjanje omejitve velikosti nalaganja medijev (@fazevedo)</li>
           <li xml:lang="tr">Display and check media upload size limit (@fazevedo)</li>
+          <li xml:lang="uk">Показ і перевірка обмеження розміру вивантаження мультимедійних даних (@fazevedo)</li>
           <li>Redesign message input field to use rounded corners and resized/symbolic buttons (@melvo)</li>
           <li xml:lang="ar">إعادة تصميم حقل إدخال الرسالة لاستخدام زوايا مدورة وأزرار رمزية مغيرة الحجم (@melvo)</li>
           <li xml:lang="ca">Redissenya el camp d'entrada del missatge per a utilitzar cantonades arrodonides i botons de redimensionament/símbol (@melvo)</li>
@@ -2655,6 +2660,7 @@
           <li xml:lang="sk">Prepracovanie vstupného poľa správy na použitie zaoblených rohov a zmenšených/symbolických tlačidiel (@melvo)</li>
           <li xml:lang="sl">Preoblikovanje polja za vnos sporočil z zaobljenimi robovi in ​​gumbi za spremenjeno velikost/simbolnimi gumbi (@melvo)</li>
           <li xml:lang="tr">Redesign message input field to use rounded corners and resized/symbolic buttons (@melvo)</li>
+          <li xml:lang="uk">Змінено формат поля введення повідомлення з метою використання заокруглених кутків та змінених/символічних кнопок (@melvo)</li>
           <li>Add support for moving account data to another account, informing contacts and restoring settings for moved contacts (XEP-0283: Moved) (@fazevedo)</li>
           <li xml:lang="ar">إضافة دعم لنقل بيانات الحساب إلى حساب آخر، وإخبار جهات الاتصال واستعادة الإعدادات لجهات الاتصال المنقولة (XEP-0283: Moved) (@fazevedo)</li>
           <li xml:lang="ca">Afegeix la implementació per a moure les dades del compte a un altre compte, informant els contactes i restaurant la configuració dels contactes moguts (XEP-0283: Moved) (@fazevedo)</li>
@@ -2666,6 +2672,7 @@
           <li xml:lang="sk">Pridanie podpory presúvania dát účtu do iného účtu, informovania kontaktov a obnovy nastavení pre presunuté kontakty (XEP-0283: Moved) (@fazevedo)</li>
           <li xml:lang="sl">Dodana podpora za premikanje podatkov računa v drug račun, obveščanje stikov in obnavljanje nastavitev za premaknjene stike (XEP-0283: Premaknjeno) (@fazevedo)</li>
           <li xml:lang="tr">Add support for moving account data to another account, informing contacts and restoring settings for moved contacts (XEP-0283: Moved) (@fazevedo)</li>
+          <li xml:lang="uk">Додано підтримку переміщення даних облікового запису до іншого облікового запису, інформування контактів та відновлення налаштувань для переміщених контактів (XEP-0283: Переміщено) (@fazevedo)</li>
           <li>Add group chat support with invitations, user listing, participant mentioning and private/public group chat filtering (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
           <li xml:lang="ar">إضافة دعم الدردشة الجماعية مع الدعوات، وسرد المستخدمين، والإشارة للمشاركين وتصفية الدردشات الجماعية الخاصة/العامة (XEP-0369: Mediated Information eXchange (MIX)، وXEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements، وXEP-0406: Mediated Information eXchange (MIX): MIX Administration، وXEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
           <li xml:lang="ca">Afegeix suport de xat de grup amb invitacions, llistat d'usuaris, menció de participants i filtratge de xat de grup privat/públic (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
@@ -2677,6 +2684,7 @@
           <li xml:lang="sk">Pridanie podpory skupinových chatov s pozývaniami, zoznamom používateľov, zmieňovaním účastníkov a filtrovaním súkromných/verejných skupinových chatov (XEP-0369: Mediated Information eXchange (MIX), ...) (@melvo)</li>
           <li xml:lang="sl">Dodana podpora za skupinski klepet s povabili, seznamom uporabnikov, omembo udeležencev in filtriranjem zasebnih/javnih skupinskih klepetov (XEP-0369: Izmenjava posredovanih informacij (MIX), XEP-0405: Izmenjava posredovanih informacij (MIX): Zahteve za strežnik udeležencev, XEP-0406: Izmenjava posredovanih informacij (MIX): Administracija MIX, XEP-0407: Izmenjava posredovanih informacij (MIX): Razne zmogljivosti) (@melvo)</li>
           <li xml:lang="tr">Add group chat support with invitations, user listing, participant mentioning and private/public group chat filtering (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Participant Server Requirements, XEP-0406: Mediated Information eXchange (MIX): MIX Administration, XEP-0407: Mediated Information eXchange (MIX): Miscellaneous Capabilities) (@melvo)</li>
+          <li xml:lang="uk">Додати підтримку групового спілкування із запрошеннями, списками користувачів, згадуваннями учасників та фільтрацією приватних/публічних групових спілкувань (XEP-0369: Mediated Information eXchange (MIX), XEP-0405: Mediated Information eXchange (MIX): Вимоги до сервера учасників, XEP-0406: Mediated Information eXchange (MIX): Адміністрування MIX, XEP-0407: Mediated Information eXchange (MIX): Різні можливості) (@melvo)</li>
           <li>Add button to cancel message correction (@melvo)</li>
           <li xml:lang="ar">إضافة زر لإلغاء تصحيح الرسالة (@melvo)</li>
           <li xml:lang="ca">Afegeix un botó per a cancel·lar la correcció de missatges (@melvo)</li>
@@ -2689,6 +2697,7 @@
           <li xml:lang="sk">Pridanie tlačidla na zrušenie opravy správy (@melvo)</li>
           <li xml:lang="sl">Dodani gumb za preklic popravka sporočila (@melvo)</li>
           <li xml:lang="tr">Add button to cancel message correction (@melvo)</li>
+          <li xml:lang="uk">Додано кнопку для скасування виправлення повідомлень (@melvo)</li>
           <li>Display marker for new messages (@melvo)</li>
           <li xml:lang="ar">عرض علامة للرسائل الجديدة (@melvo)</li>
           <li xml:lang="ca">Mostra el marcador de missatges nous (@melvo)</li>
@@ -2701,6 +2710,7 @@
           <li xml:lang="sk">Zobrazenie značky pre nové správy (@melvo)</li>
           <li xml:lang="sl">Prikaz označevalnika za nova sporočila (@melvo)</li>
           <li xml:lang="tr">Display marker for new messages (@melvo)</li>
+          <li xml:lang="uk">Реалізовано показ позначки для нових повідомлень (@melvo)</li>
           <li>Add enhanced account-wide and per contact notification settings depending on group chat mentions and presence (@melvo)</li>
           <li xml:lang="ar">إضافة إعدادات تنبيهات محسنة على مستوى الحساب ولكل جهة اتصال حسب الإشارات في الدردشة الجماعية والتواجد (@melvo)</li>
           <li xml:lang="ca">Afegeix una configuració millorada de tot el compte i de les notificacions per contacte depenent de les mencions de xat de grup i la presència (@melvo)</li>
@@ -2712,6 +2722,7 @@
           <li xml:lang="sk">Pridanie rozšírených nastavení upozornení pre celý účet a pre jednotlivé kontakty v závislosti od zmienok v skupinových chatoch a prítomnosti (@melvo)</li>
           <li xml:lang="sl">Dodane izboljšane nastavitve obveščanja za celoten račun in posamezen stik, odvisno od o omembah in prisotnosti v skupinskih klepetih (@melvo)</li>
           <li xml:lang="tr">Add enhanced account-wide and per contact notification settings depending on group chat mentions and presence (@melvo)</li>
+          <li xml:lang="uk">Додано розширені параметри сповіщень для усього облікового запису та окремих контактів, залежно від згадок і присутності у груповому спілкуванні (@melvo)</li>
           <li>Focus input fields appropriately (@melvo)</li>
           <li xml:lang="ar">تركيز حقول الإدخال بشكل مناسب (@melvo)</li>
           <li xml:lang="ca">Enfoca adequadament els camps d'entrada (@melvo)</li>
@@ -2724,6 +2735,7 @@
           <li xml:lang="sk">Vhodné zaostrovanie vstupných polí (@melvo)</li>
           <li xml:lang="sl">Ustrezno fokusiranje vnosnih polj (@melvo)</li>
           <li xml:lang="tr">Focus input fields appropriately (@melvo)</li>
+          <li xml:lang="uk">Реалізовано належне фокусування полів введення (@melvo)</li>
           <li>Add support for replying to messages (XEP-0461: Message Replies) (@melvo)</li>
           <li xml:lang="ar">إضافة دعم للرد على الرسائل (XEP-0461: Message Replies) (@melvo)</li>
           <li xml:lang="ca">Afegeix la implementació per a respondre als missatges (XEP-0461: Message Replies) (@melvo)</li>
@@ -2735,6 +2747,7 @@
           <li xml:lang="sk">Pridanie podpory odpovedania na správy (XEP-0461: Message Replies) (@melvo)</li>
           <li xml:lang="sl">Dodajanje podpore za odgovarjanje na sporočila (XEP-0461: Odgovori na sporočila) (@melvo)</li>
           <li xml:lang="tr">Add support for replying to messages (XEP-0461: Message Replies) (@melvo)</li>
+          <li xml:lang="uk">Додано підтримку відповідей на повідомлення (XEP-0461: відповіді на повідомлення) (@melvo)</li>
           <li>Indicate that Kaidan is busy during account deletion and group chat actions (@melvo)</li>
           <li xml:lang="ar">إظهار أن كيدان مشغول أثناء حذف الحساب وإجراءات الدردشة الجماعية (@melvo)</li>
           <li xml:lang="ca">Indica que el Kaidan està ocupat durant la supressió del compte i les accions de xat de grup (@melvo)</li>
@@ -2746,6 +2759,7 @@
           <li xml:lang="sk">Indikácia, že Kaidan je zaneprázdnený počas mazania účtu a akcií skupinového chatu (@melvo)</li>
           <li xml:lang="sl">Označevanje, da je Kaidan zaseden med brisanjem računa in dejanji skupinskega klepeta (@melvo)</li>
           <li xml:lang="tr">Indicate that Kaidan is busy during account deletion and group chat actions (@melvo)</li>
+          <li xml:lang="uk">Реалізовано індикацію того, що Kaidan зайнято, під час вилучення облікових записів та дій з груповим спілкуванням (@melvo)</li>
           <li>Hide account deletion button if In-Band Registration is not supported (@melvo)</li>
           <li xml:lang="ar">إخفاء زر حذف الحساب إذا كان التسجيل الداخلي غير مدعوم (@melvo)</li>
           <li xml:lang="ca">Oculta el botó d'esborrar el compte si no s'admet el registre «In-Band» (@melvo)</li>
@@ -2757,6 +2771,7 @@
           <li xml:lang="sk">Skrytie tlačidla na vymazanie účtu, ak nie je podporovaná registrácia In-Band (@melvo)</li>
           <li xml:lang="sl">Skrivanje gumba za brisanje računa, če registracija znotraj pasu ni podprta (@melvo)</li>
           <li xml:lang="tr">Hide account deletion button if In-Band Registration is not supported (@melvo)</li>
+          <li xml:lang="uk">Реалізовано приховування кнопки вилучення облікового запису, якщо підтримки реєстрації In-Band не передбачено (@melvo)</li>
           <li>Embed login area in page for QR code scanning and page for web registration instead of opening start page (@melvo)</li>
           <li xml:lang="ar">تضمين منطقة الولوج في صفحة مسح رمز الاستجابة السريعة وصفحة التسجيل عبر الويب بدلاً من فتح صفحة البدء (@melvo)</li>
           <li xml:lang="ca">Incrusta l'àrea d'inici de sessió a la pàgina d'escaneig de codi QR i la pàgina web de registre en lloc d'obrir la pàgina d'inici (@melvo)</li>
@@ -2768,6 +2783,7 @@
           <li xml:lang="sk">Vloženie prihlasovacieho priestoru do stránky na skenovanie QR kódu a stránky na webovú registráciu namiesto otvorenia úvodnej stránky (@melvo)</li>
           <li xml:lang="sl">Vdelava območja za prijavo na stran za skeniranje QR kode in stran za spletno registracijo namesto odpiranja začetne strani (@melvo)</li>
           <li xml:lang="tr">Embed login area in page for QR code scanning and page for web registration instead of opening start page (@melvo)</li>
+          <li xml:lang="uk">Область входу до системи вбудовано до сторінки для сканування QR-кодів та додано сторінку вебреєстрації замість початкової сторінки (@melvo)</li>
           <li>Redesign onboarding user interface including new page for choosing provider to create account on (@melvo)</li>
           <li xml:lang="ar">إعادة تصميم واجهة المستخدم للتهيئة بما في ذلك صفحة جديدة لاختيار المزود لإنشاء حساب عليه (@melvo)</li>
           <li xml:lang="ca">Redisseny de la interfície d'usuari d'incorporació que inclou una pàgina nova per a triar el proveïdor on crear un compte (@melvo)</li>
@@ -2779,6 +2795,7 @@
           <li xml:lang="sk">Prepracovanie používateľského rozhrania uvítania vrátane novej stránky na výber poskytovateľa na vytvorenie účtu (@melvo)</li>
           <li xml:lang="sl">Preoblikovanje uporabniškega vmesnika za uvajanje, vključno z novo stranjo za izbiro ponudnika za ustvarjanje računa (@melvo)</li>
           <li xml:lang="tr">Redesign onboarding user interface including new page for choosing provider to create account on (@melvo)</li>
+          <li xml:lang="uk">Перероблено інтерфейс користувача для реєстрації, включаючи нову сторінку для вибору постачальника послуг для створення облікового запису (@melvo)</li>
           <li>Handle various corner cases that can occur during account creation (@melvo)</li>
           <li xml:lang="ar">معالجة الحالات الحدية المختلفة التي قد تحدث أثناء إنشاء الحساب (@melvo)</li>
           <li xml:lang="ca">Gestiona diversos casos extrems que es poden produir durant la creació del compte (@melvo)</li>
@@ -2790,6 +2807,7 @@
           <li xml:lang="sk">Riešenie rôznych okrajových prípadov, ktoré môžu nastať počas vytvárania účtu (@melvo)</li>
           <li xml:lang="sl">Obravnavanje različnih kritičnih primerov, ki se lahko pojavijo med ustvarjanjem računa (@melvo)</li>
           <li xml:lang="tr">Handle various corner cases that can occur during account creation (@melvo)</li>
+          <li xml:lang="uk">Реалізовано обробку різноманітних часткових випадків, які можуть трапитися під час створення облікових записів (@melvo)</li>
           <li>Update to XMPP Providers v2 (@melvo)</li>
           <li xml:lang="ar">التحديث إلى مزودي XMPP الإصدار 2 (@melvo)</li>
           <li xml:lang="ca">Actualitza als proveïdors de XMPP v2 (@melvo)</li>
@@ -2802,6 +2820,7 @@
           <li xml:lang="sk">Aktualizácia na XMPP Providers v2 (@melvo)</li>
           <li xml:lang="sl">Posodobitev na ponudnike XMPP v2 (@melvo)</li>
           <li xml:lang="tr">Update to XMPP Providers v2 (@melvo)</li>
+          <li xml:lang="uk">Оновлення до XMPP Providers v2 (@melvo)</li>
           <li>Hide voice message button if uploading is not supported (@melvo)</li>
           <li xml:lang="ar">إخفاء زر الرسائل الصوتية إذا كان الرفع غير مدعوم (@melvo)</li>
           <li xml:lang="ca">Oculta el botó de missatge de veu si no s'admet la pujada (@melvo)</li>
@@ -2814,6 +2833,7 @@
           <li xml:lang="sk">Skrytie tlačidla hlasovej správy, ak nahrávanie nie je podporované (@melvo)</li>
           <li xml:lang="sl">Skrivanje gumba za glasovno sporočilo, če nalaganje ni podprto (@melvo)</li>
           <li xml:lang="tr">Hide voice message button if uploading is not supported (@melvo)</li>
+          <li xml:lang="uk">Реалізовано приховування кнопки голосового повідомлення, якщо підтримки вивантаження даних не передбачено (@melvo)</li>
           <li>Replace custom images for message delivery states with regular theme icons (@melvo)</li>
           <li xml:lang="ar">استبدال الصور المخصصة لحالات تسليم الرسائل بأيقونات السمة القياسية (@melvo)</li>
           <li xml:lang="ca">Reemplaça les imatges personalitzades dels estats de lliurament de missatges per icones de tema normals (@melvo)</li>
@@ -2825,6 +2845,7 @@
           <li xml:lang="sk">Nahradenie vlastných obrázkov pre stavy doručenia správ bežnými ikonami témy (@melvo)</li>
           <li xml:lang="sl">Zamenjava slik po meri za stanja dostave sporočil z običajnimi ikonami teme (@melvo)</li>
           <li xml:lang="tr">Replace custom images for message delivery states with regular theme icons (@melvo)</li>
+          <li xml:lang="uk">Нетипові зображення для станів доставлення повідомлення замінено на типові піктограми теми (@melvo)</li>
           <li>Free up message content space by hiding unneeded avatars and increasing maximum message bubble width (@melvo)</li>
           <li xml:lang="ar">إخلاء مساحة لمحتوى الرسائل عبر إخفاء الصور الشخصية غير الضرورية وزيادة الحد الأقصى لعرض فقاعة الرسالة (@melvo)</li>
           <li xml:lang="ca">Allibera l'espai de contingut del missatge amagant els avatars innecessaris i augmentant l'amplada màxima de la bombolla de missatge (@melvo)</li>
@@ -2836,6 +2857,7 @@
           <li xml:lang="sk">Uvoľnenie priestoru pre obsah správ skrytím nepotrebných avatarov a zvýšením maximálnej šírky bubliny správy (@melvo)</li>
           <li xml:lang="sl">Sprostitev prostora za vsebino sporočila s skrivanjem nepotrebnih avatarjev in povečanjem največje širine mehurčka sporočila (@melvo)</li>
           <li xml:lang="tr">Free up message content space by hiding unneeded avatars and increasing maximum message bubble width (@melvo)</li>
+          <li xml:lang="uk">Звільнено місце вмісту повідомлення шляхом приховування непотрібних аватарів та збільшення максимальної ширини бульки повідомлення (@melvo)</li>
           <li>Highlight draft message text to easily see what is not sent yet (@melvo)</li>
           <li xml:lang="ar">تمييز نص مسودة الرسالة ليسهل رؤية ما لم يُرسل بعد (@melvo)</li>
           <li xml:lang="ca">Ressalta el text de l'esborrany del missatge per a veure fàcilment que encara no s'ha enviat (@melvo)</li>
@@ -2847,6 +2869,7 @@
           <li xml:lang="sk">Zvýraznenie textu konceptu správy pre ľahkú identifikáciu neodeslaného obsahu (@melvo)</li>
           <li xml:lang="sl">Označevanje besedila osnutka sporočila za lažji pregled vsebine, ki še ni poslana (@melvo)</li>
           <li xml:lang="tr">Highlight draft message text to easily see what is not sent yet (@melvo)</li>
+          <li xml:lang="uk">Реалізовано підсвічування тексту чернетки повідомлення для спрощення перегляду того, що ще не надіслано (@melvo)</li>
           <li>Store sent media in suitable directories with appropriate file extensions (@melvo)</li>
           <li xml:lang="ar">تخزين الوسائط المرسلة في أدلة مناسبة مع امتدادات ملفات ملائمة (@melvo)</li>
           <li xml:lang="ca">Emmagatzema els elements multimèdia enviats en els directoris adequats amb extensions de fitxer apropiades (@melvo)</li>
@@ -2858,6 +2881,7 @@
           <li xml:lang="sk">Ukladanie odoslaných médií do vhodných adresárov s príslušnými príponami súborov (@melvo)</li>
           <li xml:lang="sl">Shranjevanje poslanih medijev v ustrezne imenike z ustreznimi končnicami datotek (@melvo)</li>
           <li xml:lang="tr">Store sent media in suitable directories with appropriate file extensions (@melvo)</li>
+          <li xml:lang="uk">Реалізовано зберігання надісланих мультимедійних даних у відповідних каталогах з відповідними суфіксами назв файлів (@melvo)</li>
           <li>Allow sending media with less steps from recording to sending (@melvo)</li>
           <li xml:lang="ar">السماح بإرسال الوسائط بخطوات أقل من التسجيل إلى الإرسال (@melvo)</li>
           <li xml:lang="ca">Permet l'enviament d'elements multimèdia amb menys passos des de l'enregistrament a l'enviament (@melvo)</li>
@@ -2869,6 +2893,7 @@
           <li xml:lang="sk">Umožnenie odosielania médií s menej krokmi od záznamu po odoslanie (@melvo)</li>
           <li xml:lang="sl">Omogočanje pošiljanja medijev z manj koraki od Snemanje za pošiljanje (@melvo)</li>
           <li xml:lang="tr">Allow sending media with less steps from recording to sending (@melvo)</li>
+          <li xml:lang="uk">Уможливлено надсилання мультимедійних даних за допомогою меншої кількості кроків від запису до надсилання (@melvo)</li>
           <li>Add media to be sent in scrollable area above message input field (@melvo)</li>
           <li xml:lang="ar">إضافة الوسائط المراد إرسالها في منطقة قابلة للتمرير فوق حقل إدخال الرسالة (@melvo)</li>
           <li xml:lang="ca">Afegeix elements multimèdia que s'enviaran a l'àrea desplaçable sobre el camp d'entrada del missatge (@melvo)</li>
