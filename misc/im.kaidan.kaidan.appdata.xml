@@ -3308,6 +3308,7 @@
           <li xml:lang="sk">Oprava odpájania od servera pri zatvorení okna aplikácie vrátane časového limitu pri problémoch s pripojením (@melvo)</li>
           <li xml:lang="sl">Popravi prekinitev povezave s strežnikom, ko je okno aplikacije zaprto, vključno s časovno omejitvijo pri težavah s povezavo (@melvo)</li>
           <li xml:lang="tr">Fix disconnecting from server when application window is closed including timeout on connection problems (@melvo)</li>
+          <li xml:lang="uk">Виправлено від'єднання від сервера після закриття вікна програми, зокрема для проблем із перевищенням часу очікування під час встановлення з'єднання (@melvo)</li>
           <li>Fix media/location sharing (@melvo)</li>
           <li xml:lang="ar">إصلاح مشاركة الوسائط/الموقع الجغرافي (@melvo)</li>
           <li xml:lang="ca">Corregeix la compartició d'elements multimèdia/ubicació (@melvo)</li>
@@ -3320,6 +3321,7 @@
           <li xml:lang="sk">Oprava zdieľania médií/polôh (@melvo)</li>
           <li xml:lang="sl">Popravi deljenje medijev/lokacije (@melvo)</li>
           <li xml:lang="tr">Fix media/location sharing (@melvo)</li>
+          <li xml:lang="uk">Виправлено оприлюднення мультимедійних даних та даних місць перебування (@melvo)</li>
           <li>Fix handling emoji message reactions (@melvo)</li>
           <li xml:lang="ar">إصلاح التعامل مع تفاعلات الرموز التعبيرية على الرسائل (@melvo)</li>
           <li xml:lang="ca">Corregeix la gestió dels emojis les reaccions de missatges (@melvo)</li>
@@ -3332,6 +3334,7 @@
           <li xml:lang="sk">Oprava spracovania reakcií na správy pomocou emoji (@melvo)</li>
           <li xml:lang="sl">Popravi ravnanje z odzivi na sporočila emojijev (@melvo)</li>
           <li xml:lang="tr">Fix handling emoji message reactions (@melvo)</li>
+          <li xml:lang="uk">Виправлено обробку реакцій-емоційок на повідомлення (@melvo)</li>
           <li>Fix moving pinned chats (@fazevedo)</li>
           <li xml:lang="ar">إصلاح تحريك الدردشات المثبتة (@fazevedo)</li>
           <li xml:lang="ca">Corregeix el moviment dels xats fixats (@fazevedo)</li>
@@ -3344,6 +3347,7 @@
           <li xml:lang="sk">Oprava presúvania pripnutých chatov (@fazevedo)</li>
           <li xml:lang="sl">Popravi premikanje pripetih klepetov (@fazevedo)</li>
           <li xml:lang="tr">Fix moving pinned chats (@fazevedo)</li>
+          <li xml:lang="uk">Виправлено пересування пришпилених спілкувань (@fazevedo)</li>
           <li>Fix drag and drop for files and pasting them (@melvo)</li>
           <li xml:lang="ar">إصلاح سحب وإفلات الملفات ولصقها (@melvo)</li>
           <li xml:lang="ca">Corregeix l'arrossegament i el deixar anar de fitxers i enganxar-los (@melvo)</li>
@@ -3356,6 +3360,7 @@
           <li xml:lang="sk">Oprava presunutia a vloženia súborov (@melvo)</li>
           <li xml:lang="sl">Popravi vlečenje in spuščanje datotek ter njihovo lepljenje (@melvo)</li>
           <li xml:lang="tr">Fix drag and drop for files and pasting them (@melvo)</li>
+          <li xml:lang="uk">Виправлено перетягування зі скиданням для файлів та вставлення файлів (@melvo)</li>
           <li>Fix sending/displaying media in selected order (@lnj, @melvo)</li>
           <li xml:lang="ar">إصلاح إرسال/عرض الوسائط بالترتيب المحدد (@lnj، @melvo)</li>
           <li xml:lang="ca">Corregeix l'enviament/visualització d'elements multimèdia en l'ordre seleccionat (@lnj, @melvo)</li>
@@ -3368,6 +3373,7 @@
           <li xml:lang="sk">Oprava odosielania/zobrazenia médií vo vybranom poradí (@lnj, @melvo)</li>
           <li xml:lang="sl">Popravi pošiljanje/prikazovanje medijev v izbranem vrstnem redu (@lnj, @melvo)</li>
           <li xml:lang="tr">Fix sending/displaying media in selected order (@lnj, @melvo)</li>
+          <li xml:lang="uk">Виправлено надсилання та показ мультимедійних даних у вибраному порядку (@lnj, @melvo)</li>
         </ul>
         <p>Kaidan is REUSE-compliant now</p>
         <p xml:lang="ar">كيدان متوافق مع معايير REUSE الآن</p>
@@ -3381,6 +3387,7 @@
         <p xml:lang="sk">Kaidan je teraz v súlade s REUSE</p>
         <p xml:lang="sl">Kaidan je zdaj skladen s PONOVNO UPORABO</p>
         <p xml:lang="tr">Kaidan is REUSE-compliant now</p>
+        <p xml:lang="uk">Нова версія Kaidan сумісна з REUSE</p>
         <p>Kaidan requires Qt 5.15 and QXmpp 1.9 now</p>
         <p xml:lang="ar">يتطلب كيدان الإصدار 5.15 من Qt والإصدار 1.9 من QXmpp الآن</p>
         <p xml:lang="ca">El Kaidan requereix ara les Qt 5.15 i el QXmpp 1.9</p>
@@ -3393,6 +3400,7 @@
         <p xml:lang="sk">Kaidan teraz vyžaduje Qt 5.15 a QXmpp 1.9</p>
         <p xml:lang="sl">Kaidan zdaj zahteva Qt 5.15 in QXmpp 1.9</p>
         <p xml:lang="tr">Kaidan requires Qt 5.15 and QXmpp 1.9 now</p>
+        <p xml:lang="uk">Нова версія Kaidan потребує Qt 5.15 і QXmpp 1.9</p>
       </description>
     </release>
     <release type="stable" version="0.9.2" date="2024-07-24T00:00:00Z">
@@ -3424,6 +3432,7 @@
           <li xml:lang="sk">Oprava prípony súboru pre stiahnutia, keď je typ MIME prázdny (@lnj)</li>
           <li xml:lang="sl">Popravi končnico datoteke za prenose, ko je tip MIME prazen (@lnj)</li>
           <li xml:lang="tr">Fix file extension for downloads when mime type is empty (@lnj)</li>
+          <li xml:lang="uk">Виправлено суфікси назв файлів для отриманих даних, якщо тип MIME є порожнім (@lnj)</li>
           <li>Fix file downloads without a source URL could be started (@lnj)</li>
           <li xml:lang="ar">إصلاح إمكانية بدء تنزيل الملفات بدون رابط مصدر (@lnj)</li>
           <li xml:lang="ca">Corregeix les baixades de fitxers que es pugui iniciar un URL d'origen (@lnj)</li>
@@ -3436,6 +3445,7 @@
           <li xml:lang="sk">Oprava možnosti spustenia sťahovaní súborov bez zdrojovej adresy URL (@lnj)</li>
           <li xml:lang="sl">Popravi prenos datotek brez izvornega URL-ja, ki se je lahko začel (@lnj)</li>
           <li xml:lang="tr">Fix file downloads without a source URL could be started (@lnj)</li>
+          <li xml:lang="uk">Виправлено можливість запуску отриманих файлів без адреси джерела (@lnj)</li>
           <li>Fix file messages are never marked as sent (@lnj)</li>
           <li xml:lang="ar">إصلاح عدم وسم رسائل الملفات كمرسلة أبداً (@lnj)</li>
           <li xml:lang="ca">Corregeix els missatges de fitxer que mai es marquen com enviats (@lnj)</li>
