@@ -17,7 +17,7 @@ CredentialsField {
 	id: root
 	labelText: qsTr("Chat address")
 	placeholderText: qsTr("user@example.org")
-	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | TextFieldCompleter.inputMethodHints
+	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | Field.inputMethodHints
 	invalidHintText: qsTr("The chat address must have the form <b>username@server</b>")
 	valid: credentialsValidator.isUserJidValid(text)
 	completionRole: "display"

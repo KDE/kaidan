@@ -43,13 +43,13 @@ ColumnLayout {
 	property bool valid: true
 
 	// underlying data source for the completion view
-	property alias completionModel: inputField.model
+	property alias completionModel: completer.model
 
 	// completion model role name to query
-	property alias completionRole: inputField.role
+	property alias completionRole: completer.role
 
 	// completed text
-	readonly property alias input: inputField.input
+	readonly property alias input: completer.input
 
 	// label for the input field
 	Controls.Label {
@@ -57,10 +57,16 @@ ColumnLayout {
 	}
 
 	// input field
-	TextFieldCompleter {
+	Kirigami.ActionTextField {
 		id: inputField
 		Layout.fillWidth: true
 		selectByMouse: true
+	}
+
+	TextCompleter {
+		id: completer
+
+		textControl: inputField
 	}
 
 	// hint for entering a valid input

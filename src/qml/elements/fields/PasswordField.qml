@@ -7,6 +7,7 @@ import QtQuick
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
+import ".."
 
 /**
  * This is a password field with a hint for empty passwords and an option for showing the password.
