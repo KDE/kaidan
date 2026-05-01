@@ -30,10 +30,6 @@ FormCard.FormCard {
 		title: qsTr("Log in")
 	}
 
-	Kirigami.Separator {
-		Layout.fillWidth: true
-	}
-
 	FormCard.FormButtonDelegate {
 		id: qrCodeButton
 		text: qsTr("Scan login QR code")
