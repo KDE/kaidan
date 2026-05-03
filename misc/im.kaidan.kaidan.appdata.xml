@@ -4215,6 +4215,7 @@
           <li xml:lang="sk">Zdroj zobrazovanej prítomnosti sa teraz vyberá podľa pevných pravidiel (predtým bol výber náhodný) (@lnj)</li>
           <li xml:lang="sl">Vir za prikazano prisotnost je zdaj izbran s fiksnimi pravili (pred tem je bil naključno prikazan, kateri vir) (@lnj)</li>
           <li xml:lang="tr">The resource for the displayed presence is picked with fixed rules now (it was random before which resource is displayed) (@lnj)</li>
+          <li xml:lang="uk">Ресурс для показу присутності у новій версії вибирається за допомогою фіксованих правил (раніше він був випадковим до показу ресурсу) (@lnj)</li>
           <li>Handle notifications differently on GNOME to keep them in the notifications area (@melvo)</li>
           <li xml:lang="ar">معالجة التنبيهات بشكل مختلف في جنوم لإبقائها في منطقة التنبيهات (@melvo)</li>
           <li xml:lang="ca">Gestiona les notificacions de manera diferent al GNOME per a mantenir-les a l'àrea de notificacions (@melvo)</li>
@@ -4226,6 +4227,7 @@
           <li xml:lang="sk">Rozdielne spracovanie upozornení v GNOME na ich udržanie v oblasti upozornení (@melvo)</li>
           <li xml:lang="sl">Obvestila v GNOME obravnavajte drugače, da jih ohranite v območju za obvestila (@melvo)</li>
           <li xml:lang="tr">Handle notifications differently on GNOME to keep them in the notifications area (@melvo)</li>
+          <li xml:lang="uk">Реалізовано окрему обробку сповіщень у GNOME, щоб зберегти їх у області сповіщень (@melvo)</li>
           <li>Switched to the upstream HTTP File Upload implementation (@lnj)</li>
           <li xml:lang="ar">الانتقال إلى تطبيق رفع ملفات HTTP الرسمي (@lnj)</li>
           <li xml:lang="ca">S'ha canviat a la implementació de pujada de fitxers HTTP de la branca principal (@lnj)</li>
@@ -4238,6 +4240,7 @@
           <li xml:lang="sk">Prepnutie na implementáciu HTTP File Upload z upstream (@lnj)</li>
           <li xml:lang="sl">Preklopljeno na implementacijo nalaganja datotek HTTP v zgornjem delu sistema (@lnj)</li>
           <li xml:lang="tr">Switched to the upstream HTTP File Upload implementation (@lnj)</li>
+          <li xml:lang="uk">Здійснено перехід на основну реалізацію вивантаження файлів HTTP (@lnj)</li>
           <li>Code refactoring and partial rewrite of the following classes: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="ar">إعادة هيكلة الشفرة وإعادة كتابة جزئية للأصناف التالية: Kaidan، وClientWorker، وRosterManager، وPresenceCache، وDownloadManager، وTransferCache، وQrCodeDecoder (@lnj، @jbbgameich)</li>
           <li xml:lang="ca">Reestructuració de codi i reescriptura parcial de les classes següents: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
@@ -4249,6 +4252,7 @@
           <li xml:lang="sk">Refaktorovanie kódu a čiastočné prepísanie nasledujúcich tried: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="sl">Predelava kode in delno prepisovanje naslednjih razredov: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
           <li xml:lang="tr">Code refactoring and partial rewrite of the following classes: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
+          <li xml:lang="uk">Переформатування коду і часткове переписування таких класів: Kaidan, ClientWorker, RosterManager, PresenceCache, DownloadManager, TransferCache, QrCodeDecoder (@lnj, @jbbgameich)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -4616,6 +4620,7 @@
           <li xml:lang="sk">Vylepšenie správ o chybách pripojenia (@melvo)</li>
           <li xml:lang="sl">Izboljšana sporočila za napake povezave (@melvo)</li>
           <li xml:lang="tr">Improve messages for connection errors (@melvo)</li>
+          <li xml:lang="uk">Удосконалено повідомлення щодо помилок з'єднання (@melvo)</li>
           <li>Add account deletion (@melvo, @mbruchert)</li>
           <li xml:lang="ar">إضافة حذف الحساب (@melvo، @mbruchert)</li>
           <li xml:lang="ca">Afegeix la supressió de comptes (@melvo, @mbruchert)</li>
@@ -4628,6 +4633,7 @@
           <li xml:lang="sk">Pridanie mazania účtu (@melvo, @mbruchert)</li>
           <li xml:lang="sl">Dodano brisanje računa (@melvo, @mbruchert)</li>
           <li xml:lang="tr">Add account deletion (@melvo, @mbruchert)</li>
+          <li xml:lang="uk">Додано вилучення облікових записів (@melvo, @mbruchert)</li>
           <li>Redesign logo and global drawer banner (@melvo, @mbruchert)</li>
           <li xml:lang="ar">إعادة تصميم الشعار ولافتة الدرج العالمي (@melvo، @mbruchert)</li>
           <li xml:lang="ca">Redissenya el logotip i la pancarta global del calaix (@melvo, @mbruchert)</li>
@@ -4640,6 +4646,7 @@
           <li xml:lang="sk">Prepracovanie loga a bannera globálneho panela (@melvo, @mbruchert)</li>
           <li xml:lang="sl">Preoblikovan logotip in napis na globalnem predalu (@melvo, @mbruchert)</li>
           <li xml:lang="tr">Redesign logo and global drawer banner (@melvo, @mbruchert)</li>
+          <li xml:lang="uk">Змінено дизайн логотипа та банер загальної висувної панелі (@melvo, @mbruchert)</li>
           <li>Add onboarding with registration, normal login and QR code login (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
           <li xml:lang="ar">إضافة تهيئة مع التسجيل، والولوج العادي والولوج عبر رمز الاستجابة السريعة (@melvo، @lnj، @jbbgameich، @mbruchert)</li>
           <li xml:lang="ca">Afegeix la incorporació amb registre, l'inici de sessió normal i l'inici de sessió amb un codi QR (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
@@ -4651,6 +4658,7 @@
           <li xml:lang="sk">Pridanie uvítania s registráciou, bežným prihlásením a prihlásením QR kódom (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
           <li xml:lang="sl">Dodano uvajanje z registracijo, običajno prijavo in prijavo s kodo QR (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
           <li xml:lang="tr">Add onboarding with registration, normal login and QR code login (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
+          <li xml:lang="uk">Додано вхід з реєстрацією, звичайний вхід і вхід за допомогою QR-коду (@melvo, @lnj, @jbbgameich, @mbruchert)</li>
           <li>Add OARS rating (@nickrichards)</li>
           <li xml:lang="ar">إضافة تقييم OARS (@nickrichards)</li>
           <li xml:lang="ca">Afegeix la qualificació OARS (@nickrichards)</li>
@@ -4664,18 +4672,20 @@
           <li xml:lang="sk">Pridanie hodnotenia OARS (@nickrichards)</li>
           <li xml:lang="sl">Dodana OARS ocena (@nickrichards)</li>
           <li xml:lang="tr">Add OARS rating (@nickrichards)</li>
+          <li xml:lang="uk">Додано оцінку OARS (@nickrichards)</li>
           <li>Add secondary roster sorting by contact name (@lnj)</li>
           <li xml:lang="ar">إضافة فرز ثانوي لقائمة المتصلين حسب اسم المتصل (@lnj)</li>
           <li xml:lang="ca">Afegeix l'ordenació secundària de la llista per nom de contacte (@lnj)</li>
           <li xml:lang="ca-valencia">Afig l'ordenació secundària de la llista per nom de contacte (@lnj)</li>
           <li xml:lang="fr">Ajout d'un tri secondaire de liste par nom de contact (@lnj)</li>
           <li xml:lang="ka">დაემატა Roster-ის მეორეული დალაგება კონტაქტის სახელის მიხედვით (@lnj)</li>
-          <li xml:lang="nl">Voeg een secundaire sorteeroptie toe voor de contactlijst op basis van de contactnaam (@lnj)</li>
+          <li xml:lang="nl">Voeg een secundaire sorteeroptie toe voor de ledenlijst op basis van de contactnaam (@lnj)</li>
           <li xml:lang="pt-BR">Adicionada classificação secundária da lista por nome de contato (@lnj)</li>
           <li xml:lang="ru">Добавлена вторичная сортировка списка контактов по имени (@lnj);</li>
           <li xml:lang="sk">Pridanie sekundárneho zoraďovania zoznamu podľa mena kontaktu (@lnj)</li>
           <li xml:lang="sl">Dodano razvrščanje sekundarnega seznama po imenu stika (@lnj)</li>
           <li xml:lang="tr">Add secondary roster sorting by contact name (@lnj)</li>
+          <li xml:lang="uk">Додано вторинне упорядкування списку за назвами контактів (@lnj)</li>
           <li>Add support for recording audio and video messages (@fazevedo)</li>
           <li xml:lang="ar">إضافة دعم لتسجيل الرسائل الصوتية والمرئية (@fazevedo)</li>
           <li xml:lang="ca">Afegeix la implementació per a l'enregistrament de missatges d'àudio i vídeo (@fazevedo)</li>
@@ -4719,6 +4729,7 @@
           <li xml:lang="ca-valencia">Reestructura el codi per a un rendiment i estabilitat millors (@lnj, @jbbgameich, @melvo)</li>
           <li xml:lang="he">שכתוב קוד לביצועים ויציבות טובים יותר (‎@lnj,‏ ‎@jbbgameich,‏ ‎@melvo)</li>
           <li xml:lang="ka">კოდის რეფაქტორინგი უკეთესი წარმადობისა და სტაბილურობისთვის (@lnj, @jbbgameich, @melvo)</li>
+          <li xml:lang="nl">Herstructureer de code voor betere prestaties en stabiliteit (@lnj, @jbbgameich, @melvo)</li>
           <li xml:lang="pt-BR">Refatoração do código para melhor desempenho e estabilidade (@lnj, @jbbgameich, @melvo)</li>
           <li xml:lang="ru">Рефакторинг кода для повышения производительности и стабильности (@lnj, @jbbgameich, @melvo);</li>
           <li xml:lang="sk">Refaktorovanie kódu pre lepší výkon a stabilitu (@lnj, @jbbgameich, @melvo)</li>
@@ -4730,6 +4741,7 @@
           <li xml:lang="ca-valencia">Afig documentació per a aconseguir un manteniment més fàcil (@melvo, @lnj, @jbbgameich)</li>
           <li xml:lang="he">נוסף תיעוד לשיפור התחזוקה (‎@melvo,‏ ‎@lnj,‏ ‎@jbbgameich)</li>
           <li xml:lang="ka">დაემატა დოკუმენტაცია უფრო მარტივი მხარდაჭერისთვის (maintenance) (@melvo, @lnj, @jbbgameich)</li>
+          <li xml:lang="nl">Voeg documentatie toe voor eenvoudiger onderhoud (@melvo, @lnj, @jbbgameich)</li>
           <li xml:lang="pt-BR">Adicionada documentação para facilitar a manutenção (@melvo, @lnj, @jbbgameich)</li>
           <li xml:lang="ru">Добавлена документация для упрощения сопровождения (@melvo, @lnj, @jbbgameich);</li>
           <li xml:lang="sk">Pridanie dokumentácie pre jednoduchšiu údržbu (@melvo, @lnj, @jbbgameich)</li>
@@ -4758,6 +4770,7 @@
           <li xml:lang="fr">Correction de la compilation pour AppImage (@jbbgameich)</li>
           <li xml:lang="he">תוקנה בניית ה־AppImage‏ (‎@jbbgameich)</li>
           <li xml:lang="ka">გასწორდა AppImage-ის აგება (@jbbgameich)</li>
+          <li xml:lang="nl">Opgelost: bouwen van AppImage (@jbbgameich)</li>
           <li xml:lang="pt-BR">Correção da compilação do AppImage (@jbbgameich)</li>
           <li xml:lang="ru">Исправлена сборка AppImage (@jbbgameich);</li>
           <li xml:lang="sk">Oprava zostavenia AppImage (@jbbgameich)</li>
@@ -4769,6 +4782,7 @@
           <li xml:lang="ca-valencia">Corregix els problemes de desplaçament i alçària de l'element a la configuració (@jbbgameich)</li>
           <li xml:lang="fr">Correction des problèmes de défilement et de hauteur des éléments dans la configuration (@jbbgameich)</li>
           <li xml:lang="ka">გასწორდა გადახვევისა და ელემენტების სიმაღლის პრობლემები პარამეტრებში (@jbbgameich)</li>
+          <li xml:lang="nl">Los problemen met schuiven en itemhoogte op in de instellingen (@jbbgameich)</li>
           <li xml:lang="pt-BR">Correção de problemas de rolagem e altura dos itens nas configurações (@jbbgameich)</li>
           <li xml:lang="ru">Исправлены проблемы с прокруткой и высотой элементов в настройках (@jbbgameich);</li>
           <li xml:lang="sk">Oprava problémov s posúvaním a výškou položiek v nastaveniach (@jbbgameich)</li>
@@ -4782,6 +4796,7 @@
         <p xml:lang="fr">Nécessite Qt 5.12 et QXmpp 1.2</p>
         <p xml:lang="he">דורש את Qt 5.12 ואת QXmpp 1.2</p>
         <p xml:lang="ka">ითხოვს Qt 5.12-ს და QXmpp 1.2-ს</p>
+        <p xml:lang="nl">Vereis Qt 5.12 en QXmpp 1.2</p>
         <p xml:lang="pt-BR">Requer Qt 5.12 e QXmpp 1.2</p>
         <p xml:lang="ru">Требуется Qt 5.12 и QXmpp 1.2</p>
         <p xml:lang="sk">Vyžaduje Qt 5.12 a QXmpp 1.2</p>
@@ -4795,6 +4810,7 @@
         <p xml:lang="fr">Abandon du support d'Ubuntu Touch en raison de l'obsolescence de Qt</p>
         <p xml:lang="he">הושמטה התמיכה ב־Ubuntu Touch עקב Qt לא עדכני</p>
         <p xml:lang="ka">მოძველებული Qt-ის გამო Ubuntu Touch-ის მხარდაჭერის შეწყვეტა</p>
+        <p xml:lang="nl">Ubuntu Touch-ondersteuning wordt stopgezet vanwege verouderde Qt-bestanden</p>
         <p xml:lang="pt-BR">O suporte ao Ubuntu Touch foi descontinuado devido ao Qt desatualizado</p>
         <p xml:lang="ru">Поддержка Ubuntu Touch удалена из‑за устаревшей версии Qt</p>
         <p xml:lang="sk">Ukončenie podpory Ubuntu Touch z dôvodu zastaraného Qt</p>
@@ -4827,6 +4843,7 @@
           <li xml:lang="fr">ChatMessage : aucun affichage des URL de média (@lnj)</li>
           <li xml:lang="he">הודעת צ׳אט: לא להציג כתובות של מדיה (‎@lnj)</li>
           <li xml:lang="ka">ChatMessage: მედია URL-ების ჩვენების გამორთვა (@lnj)</li>
+          <li xml:lang="nl">Chat-bericht: media-URL's niet weergeven (@lnj)</li>
           <li xml:lang="pt-BR">ChatMessage: Não exibir URLs de mídia (@lnj)</li>
           <li xml:lang="ru">ChatMessage: Не показывать URL-адреса мультимедиа (@lnj);</li>
           <li xml:lang="sk">ChatMessage: Nezobrazovať mediálne adresy URL (@lnj)</li>
@@ -4838,6 +4855,7 @@
           <li xml:lang="ca-valencia">ChatMessage: afig una acció de còpia d'URL d'element multimèdia (@lnj)</li>
           <li xml:lang="fr">ChatMessage : ajout de l’action de copie de l’URL du média (@lnj)</li>
           <li xml:lang="ka">ChatMessage: დაემატა მედია URL-ის კოპირების ქმედება (@lnj)</li>
+          <li xml:lang="nl">Chat-bericht: voeg actie voor het kopiëren van media-URL's toe (@lnj)</li>
           <li xml:lang="pt-BR">ChatMessage: Adicionada ação de copiar URL de mídia (@lnj)</li>
           <li xml:lang="ru">ChatMessage: добавлена возможность копирования URL-адреса медиафайла (@lnj);</li>
           <li xml:lang="sk">ChatMessage: Pridanie akcie kopírovania mediálnej adresy URL (@lnj)</li>
@@ -4865,6 +4883,7 @@
           <li xml:lang="ca-valencia">Corregix que no es neteja la llista de contactes en canviar de compte (@lnj)</li>
           <li xml:lang="fr">Correction de la liste ne s'effaçant pas lors d'un basculement de compte (@lnj)</li>
           <li xml:lang="ka">გასწორდა კონტაქტების სიის არგასუფთავება ანგარიშის გადართვისას (@lnj)</li>
+          <li xml:lang="nl">Het probleem is opgelost dat de ledenlijst niet werd gewist bij het wisselen van account (@lnj)</li>
           <li xml:lang="pt-BR">Corrigido o problema de lista não ser limpa ao trocar de conta (@lnj)</li>
           <li xml:lang="ru">Исправлено: список контактов не очищался при переключении учётной записи (@lnj);</li>
           <li xml:lang="sk">Oprava nevyčistenia zoznamu pri prepínaní účtu (@lnj)</li>
@@ -4876,6 +4895,7 @@
           <li xml:lang="ca-valencia">ChatMessage: corregix la còpia a la funció del porta-retalls (@lnj)</li>
           <li xml:lang="fr">ChatMessage : correction de la fonction de copie dans le presse-papier (@lnj)</li>
           <li xml:lang="ka">ChatMessage: გასწორდა ფუნქცია გაცვლის ბუფერში კოპირებისთვის (@lnj)</li>
+          <li xml:lang="nl">Chat-bericht: repareer de functie voor kopiëren naar het klembord (@lnj)</li>
           <li xml:lang="pt-BR">ChatMessage: Correção da função de copiar para a área de transferência (@lnj)</li>
           <li xml:lang="ru">ChatMessage: исправлена функция копирования в буфер обмена (@lnj);</li>
           <li xml:lang="sk">ChatMessage: Oprava funkcie kopírovania do schránky (@lnj)</li>
@@ -4886,6 +4906,7 @@
           <li xml:lang="ca">Corregeix l'indicador de desplaçament que no se superposi al missatge a la vora dreta (@fazevedo)</li>
           <li xml:lang="ca-valencia">Corregix l'indicador de desplaçament que no se superpose al missatge a la vora dreta (@fazevedo)</li>
           <li xml:lang="ka">გასწორდა გადაადგილების ინდიკატორის შეტყობინებაზე გადაფარვა მარჯვენა კიდეზე (@fazevedo)</li>
+          <li xml:lang="nl">Zorg ervoor dat de schuifindicator het bericht aan de rechterkant niet overlapt (@fazevedo)</li>
           <li xml:lang="pt-BR">Correção do indicador de rolagem para que a mensagem não se sobreponha à borda direita (@fazevedo)</li>
           <li xml:lang="ru">Исправлено наложение индикатора прокрутки на сообщения у правого края (@fazevedo);</li>
           <li xml:lang="sk">Oprava prekrývania indikátora posúvania správy na pravom okraji (@fazevedo)</li>
@@ -4898,6 +4919,7 @@
           <li xml:lang="fr">Correction des problèmes de téléchargement (@fazevedo)</li>
           <li xml:lang="he">תוקנו בעיות העלאה (‎@fazevedo)</li>
           <li xml:lang="ka">გასწორდა ატვირთვის პრობლემები (@fazevedo)</li>
+          <li xml:lang="nl">Problemen met uploaden oplossen (@fazevedo)</li>
           <li xml:lang="pt-BR">Correção de problemas de upload (@fazevedo)</li>
           <li xml:lang="ru">Исправлены проблемы с отправкой файлов (@fazevedo);</li>
           <li xml:lang="sk">Oprava problémov s nahrávaním (@fazevedo)</li>
@@ -4910,6 +4932,7 @@
           <li xml:lang="ca-valencia">ChatPage: neteja la correcció del missatge quan s'envia (@fazevedo)</li>
           <li xml:lang="fr">Page de forum : effacement de la correction de message lorsqu'il est envoyé (@fazevedo)</li>
           <li xml:lang="ka">ChatPage: შეტყობინების შესწორების გასუფთავება გაგზავნისას (@fazevedo)</li>
+          <li xml:lang="nl">Chat-pagina: berichtcorrectie wissen bij verzending (@fazevedo)</li>
           <li xml:lang="pt-BR">ChatPage: Limpar correção de mensagem ao enviar (@fazevedo)</li>
           <li xml:lang="ru">ChatPage: очистка исправлений сообщений при отправке (@fazevedo)</li>
           <li xml:lang="sk">ChatPage: Vymazanie opravy správy po odoslaní (@fazevedo)</li>
@@ -4921,6 +4944,7 @@
           <li xml:lang="ca-valencia">Corregix l'ordenació de la llista de contactes (@lnj)</li>
           <li xml:lang="fr">Corriger le tri de liste (@lnj)</li>
           <li xml:lang="ka">გასწორდა კონტაქტების სიის დალაგება (@lnj)</li>
+          <li xml:lang="nl">Sorteerproblemen in ledenlijsten oplossen (@lnj)</li>
           <li xml:lang="pt-BR">Correção da ordenação da lista (@lnj)</li>
           <li xml:lang="ru">Исправлена сортировка списка контактов (@lnj);</li>
           <li xml:lang="sk">Oprava zoraďovania zoznamu kontaktov (@lnj)</li>
@@ -4932,6 +4956,7 @@
           <li xml:lang="ca-valencia">Corregix els avisos d'obsolescència de «buttonTextColor» (@sredman)</li>
           <li xml:lang="fr">Correction des avertissements de dépréciation de « buttonTextColor » (@sredman)</li>
           <li xml:lang="ka">გასწორდა buttonTextColor-ის მოძველების შესახებ გაფრთხილებები (@sredman)</li>
+          <li xml:lang="nl">Los de waarschuwingen over het afschaffen van buttonTextColor op (@sredman)</li>
           <li xml:lang="pt-BR">Correção dos avisos de descontinuação de buttonTextColor (@sredman)</li>
           <li xml:lang="ru">Исправлены предупреждения об устаревании параметра buttonTextColor (@sredman);</li>
           <li xml:lang="sk">Oprava upozornení na zastaranie buttonTextColor (@sredman)</li>
@@ -4944,6 +4969,7 @@
           <li xml:lang="fr">Correction de la compilation avec QXmpp &gt;= 1.0.1 (@lnj)</li>
           <li xml:lang="he">תוקנה בנייה עם QXmpp &gt;= 1.0.1‏ (‎@lnj)</li>
           <li xml:lang="ka">გასწორდა აგება QXmpp &gt;= 1.0.1 ვერსიით (@lnj)</li>
+          <li xml:lang="nl">Bouwprobleem opgelost met QXmpp &gt;= 1.0.1 (@lnj)</li>
           <li xml:lang="pt-BR">Correção de compilação com QXmpp &gt;= 1.0.1 (@lnj)</li>
           <li xml:lang="ru">Исправлена сборка с QXmpp ≥ 1.0.1 (@lnj);</li>
           <li xml:lang="sk">Oprava zostavenia s QXmpp &gt;= 1.0.1 (@lnj)</li>
@@ -4976,6 +5002,7 @@
           <li xml:lang="fr">Correction des problèmes « SSL » pour AppImage (@lnj)</li>
           <li xml:lang="he">תוקנו בעיות SSL ב־AppImage‏ (‎@lnj)</li>
           <li xml:lang="ka">გასწორდა SSL-ის პრობლემები AppImage-ისთვის (@lnj)</li>
+          <li xml:lang="nl">Los SSL-problemen op voor AppImage (@lnj)</li>
           <li xml:lang="pt-BR">Correção de problemas de SSL para AppImage (@lnj)</li>
           <li xml:lang="ru">Исправлены проблемы с SSL для AppImage (@lnj);</li>
           <li xml:lang="sk">Oprava problémov SSL pre AppImage (@lnj)</li>
@@ -4988,6 +5015,7 @@
           <li xml:lang="fr">Correction des problèmes de connexion (@lnj)</li>
           <li xml:lang="he">תוקנו בעיות חיבור (‎@lnj)</li>
           <li xml:lang="ka">გასწორდა კავშირის პრობლემები (@lnj)</li>
+          <li xml:lang="nl">Verbindingsproblemen oplossen (@lnj)</li>
           <li xml:lang="pt-BR">Correção de problemas de conexão (@lnj)</li>
           <li xml:lang="ru">Исправление проблем с подключением (@lnj);</li>
           <li xml:lang="sk">Oprava problémov s pripojením (@lnj)</li>
@@ -4999,6 +5027,7 @@
           <li xml:lang="ca-valencia">Manté la compatibilitat amb el QXmpp v0.8.3 (@lnj)</li>
           <li xml:lang="fr">Maintien de la compatibilité avec QXmpp v0.8.3 (@lnj)</li>
           <li xml:lang="ka">QXmpp v0.8.3-თან თავსებადობის შენარჩუნება (@lnj)</li>
+          <li xml:lang="nl">Behoud de compatibiliteit met QXmpp v0.8.3 (@lnj)</li>
           <li xml:lang="pt-BR">Mantida compatibilidade com QXmpp v0.8.3 (@lnj)</li>
           <li xml:lang="ru">Сохранена совместимость с QXmpp v0.8.3 (@lnj);</li>
           <li xml:lang="sk">Zachovanie kompatibility s QXmpp v0.8.3 (@lnj)</li>
@@ -5031,6 +5060,7 @@
           <li xml:lang="ca-valencia">Mostra les notificacions adequades utilitzant KNotifications (@lnj)</li>
           <li xml:lang="fr">Affichage des notifications appropriées en utilisant KNotifications (@lnj)</li>
           <li xml:lang="ka">სათანადო შეტყობინებების ჩვენება KNotifications-ის გამოყენებით (@lnj)</li>
+          <li xml:lang="nl">Toon de juiste meldingen met KNotifications (@lnj)</li>
           <li xml:lang="pt-BR">Exibir notificações adequadas usando KNotifications (@lnj)</li>
           <li xml:lang="ru">Использование корректных уведомлений через KNotifications (@lnj);</li>
           <li xml:lang="sk">Zobrazenie správnych upozornení pomocou KNotifications (@lnj)</li>
@@ -5042,6 +5072,7 @@
           <li xml:lang="ca-valencia">Afig la pàgina de configuració per a canviar les contrasenyes (@jbbgameich, @lnj)</li>
           <li xml:lang="fr">Ajout d'une page de configuration pour la modification des mots de passe (@jbbgameich, @lnj)</li>
           <li xml:lang="ka">დაემატა პაროლების შესაცვლელი პარამეტრების გვერდი (@jbbgameich, @lnj)</li>
+          <li xml:lang="nl">Voeg een instellingenpagina toe voor het wijzigen van wachtwoorden (@jbbgameich, @lnj)</li>
           <li xml:lang="pt-BR">Adicionada página de configurações para alterar senhas (@jbbgameich, @lnj)</li>
           <li xml:lang="ru">Добавлена страница параметров для смены пароля (@jbbgameich, @lnj);</li>
           <li xml:lang="sk">Pridanie stránky nastavení na zmenu hesiel (@jbbgameich, @lnj)</li>
@@ -5053,6 +5084,7 @@
           <li xml:lang="ca-valencia">Afig XEP-0352: Indicació d'estat del client (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="fr">Ajout de XEP-0352 : indication d'état pour le client (gloox / QXmpp) (@lnj)</li>
           <li xml:lang="ka">დაემატა XEP-0352: Client State Indication (gloox/QXmpp) მხარდაჭერა (@lnj)</li>
+          <li xml:lang="nl">Voeg XEP-0352 toe: clientstatusindicatie (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="pt-BR">Adicionado XEP-0352: Indicação de estado do cliente (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="ru">Добавлена поддержка XEP-0352: Индикация состояния клиента (gloox/QXmpp) (@lnj).</li>
           <li xml:lang="sk">Pridanie XEP-0352: Client State Indication (gloox/QXmpp) (@lnj)</li>
@@ -5064,6 +5096,7 @@
           <li xml:lang="ca-valencia">Afig la compartició multimèdia/fitxer (inclosos els GIF) (@lnj, @jbbgameich)</li>
           <li xml:lang="fr">Ajout du partage de média / fichiers (Y compris des fichiers au format « GIF ») (@lnj, @jbbgameich)</li>
           <li xml:lang="ka">დაემატა მედიისა და ფაილების (მათ შორის GIF-ების) გაზიარების შესაძლებლობა (@lnj, @jbbgameich)</li>
+          <li xml:lang="nl">Voeg de optie toe om media/bestanden (inclusief GIF's) te delen (@lnj, @jbbgameich)</li>
           <li xml:lang="pt-BR">Adicionado compartilhamento de mídia/arquivo (incluindo GIFs) (@lnj, @jbbgameich)</li>
           <li xml:lang="ru">Добавлена возможность отправки медиафайлов (включая GIF) (@lnj, @jbbgameich);</li>
           <li xml:lang="sk">Pridanie zdieľania médií/súborov (vrátane GIF) (@lnj, @jbbgameich)</li>
@@ -5076,6 +5109,7 @@
           <li xml:lang="fr">Réécriture complète du moteur QXmpp (@lnj)</li>
           <li xml:lang="he">שכתוב מלא של מנגנון QXmpp‏ (‎@lnj)</li>
           <li xml:lang="ka">უკანაბოლოს სრული გადაწერა QXmpp-ზე (@lnj)</li>
+          <li xml:lang="nl">Volledige back-end herschrijving naar QXmpp (@lnj)</li>
           <li xml:lang="pt-BR">Reescrita completa do back-end para QXmpp (@lnj)</li>
           <li xml:lang="ru">Полная переработка модуля на QXmpp (@lnj).</li>
           <li xml:lang="sk">Úplné prepísanie backendu na QXmpp (@lnj)</li>
@@ -5086,6 +5120,7 @@
           <li xml:lang="ca">Implementa XEP-0363: HTTP File Upload and UploadManager for QXmpp (@lnj)</li>
           <li xml:lang="ca-valencia">Implementa XEP-0363: HTTP File Upload and UploadManager for QXmpp (@lnj)</li>
           <li xml:lang="ka">განხორციელდა XEP-0363: HTTP ფაილის ატვირთვა და UploadManager ფუნქცია QXmpp-ისთვის (@lnj)</li>
+          <li xml:lang="nl">Implementeer XEP-0363: HTTP-bestandsupload en UploadManager voor QXmpp (@lnj)</li>
           <li xml:lang="pt-BR">Implementado XEP-0363: Upload de arquivos HTTP e UploadManager para QXmpp (@lnj)</li>
           <li xml:lang="ru">Реализован XEP-0363: HTTP-загрузка файлов и UploadManager для QXmpp (@lnj);</li>
           <li xml:lang="sk">Implementácia XEP-0363: HTTP File Upload a UploadManager pre QXmpp (@lnj)</li>
