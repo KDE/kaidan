@@ -12,11 +12,11 @@ Controls.Label {
 	property int count: 0
 	property bool muted: false
 
-	text: count > 9999 ? "9999+" : count
 	color: Kirigami.Theme.backgroundColor
 	font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
 	font.weight: Font.DemiBold
-	visible: count
+	opacity: count ? 1 : 0
+	visible: opacity
 	leftPadding: font.pixelSize * 0.45
 	rightPadding: leftPadding
 	topPadding: leftPadding * 0.3
@@ -24,5 +24,16 @@ Controls.Label {
 	background: Rectangle {
 		radius: parent.height * 0.5
 		color: parent.muted ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.positiveTextColor
+	}
+	onCountChanged: {
+		// Instead of setting text declaratively, it is set here to prevent it from displaying "0"
+		// while fading out because of opacity slowly becoming 0.
+		if (count) {
+			text = count > 9999 ? "9999+" : count
+		}
+	}
+
+	Behavior on opacity {
+		NumberAnimation {}
 	}
 }

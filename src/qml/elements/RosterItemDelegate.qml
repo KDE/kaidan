@@ -228,9 +228,14 @@ ClickableItemDelegate {
 			Kirigami.Icon {
 				id: mutedIcon
 				source: "notifications-disabled-symbolic"
-				visible: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never
+				opacity: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Never ? 1 : 0
+				visible: opacity
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: counter.height
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 			}
 
 			// icon-like text for roster item that notifies only when user is mentioned in group
@@ -238,9 +243,14 @@ ClickableItemDelegate {
 			ScalableText {
 				id: mentionIcon
 				text: "@"
-				visible: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned
+				opacity: root.effectiveNotificationRule === RosterItem.EffectiveNotificationRule.Mentioned ? 1 : 0
+				visible: opacity
 				scaleFactor: counter.height * 0.06
 				Layout.topMargin: - 2
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 			}
 
 			// unread message counter
