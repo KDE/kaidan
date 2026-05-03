@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-04-13 08:53+0200\n"
+"PO-Revision-Date: 2026-05-02 08:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2308,20 +2308,14 @@ msgid "Spoiler"
 msgstr "Espòiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Afegeix una part oculta del missatge"
+msgstr "Oculta la part oculta del missatge"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Afegeix una part oculta del missatge"
+msgstr "Mostra la part oculta del missatge"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2478,7 +2472,7 @@ msgstr "Més"
 #: src/qml/elements/ChatPageSendingPane.qml:463
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Llisqueu per a cancel·lar"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
 #: src/qml/elements/ChatPageSendingPane.qml:565
@@ -2487,12 +2481,9 @@ msgid "Send"
 msgstr "Envia"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Envia un missatge de veu"
+msgstr "Enregistra un missatge de veu"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"

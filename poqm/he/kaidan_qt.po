@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-18 16:15+0300\n"
+"PO-Revision-Date: 2026-05-02 08:03+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -13,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -2239,20 +2239,14 @@ msgid "Spoiler"
 msgstr "קלקלן"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "הוספת חלק נסתר בהודעה"
+msgstr "הסתרת חלק נסתר בהודעה"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "הוספת חלק נסתר בהודעה"
+msgstr "הצגת חלק נסתר בהודעה"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2409,7 +2403,7 @@ msgstr "עוד"
 #: src/qml/elements/ChatPageSendingPane.qml:463
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "החלקה לביטול"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
 #: src/qml/elements/ChatPageSendingPane.qml:565
@@ -2418,12 +2412,9 @@ msgid "Send"
 msgstr "שליחה"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "שליחת הודעה קולית"
+msgstr "הקלטת הודעה קולית"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"

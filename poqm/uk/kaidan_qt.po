@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-13 08:43+0300\n"
+"PO-Revision-Date: 2026-05-02 19:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2306,20 +2306,14 @@ msgid "Spoiler"
 msgstr "Спойлер"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Додати приховану частину зображення"
+msgstr "Приховати приховану частину зображення"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Додати приховану частину зображення"
+msgstr "Показати приховану частину зображення"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2476,7 +2470,7 @@ msgstr "Більше"
 #: src/qml/elements/ChatPageSendingPane.qml:463
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Змахніть для скасування"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
 #: src/qml/elements/ChatPageSendingPane.qml:565
@@ -2485,12 +2479,9 @@ msgid "Send"
 msgstr "Надіслати"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Надіслати голосове повідомлення"
+msgstr "Записати голосове повідомлення"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"

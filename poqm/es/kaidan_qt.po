@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the kaidan package.
 # Automatically generated, 2022.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2022-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 16:36+0100\n"
-"PO-Revision-Date: 2026-04-14 01:48+0100\n"
+"PO-Revision-Date: 2026-05-02 17:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -2318,20 +2318,14 @@ msgid "Spoiler"
 msgstr "Espóiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Añadir parte de mensaje oculta"
+msgstr "Ocultar parte oculta del mensaje"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Añadir parte de mensaje oculta"
+msgstr "Mostrar parte oculta del mensaje"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2407,12 +2401,12 @@ msgstr "Cancelar respuesta"
 #: src/qml/elements/ChatPageSendingPane.qml:142
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr "Parte de mensaje visible"
+msgstr "Parte visible del mensaje"
 
 #: src/qml/elements/ChatPageSendingPane.qml:149
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr "Cancelar la adición de parte de mensaje oculta"
+msgstr "Cancelar la adición de la parte oculta del mensaje"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 #: src/qml/elements/ChatPageSendingPane.qml:604
@@ -2473,7 +2467,7 @@ msgstr "Compartir su ubicación"
 #: src/qml/elements/ChatPageSendingPane.qml:394
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr "Añadir parte de mensaje oculta"
+msgstr "Añadir parte oculta del mensaje"
 
 #: src/qml/elements/ChatPageSendingPane.qml:449
 msgctxt "ChatPageSendingPane|"
@@ -2488,7 +2482,7 @@ msgstr "Más"
 #: src/qml/elements/ChatPageSendingPane.qml:463
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Deslizar para cancelar"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
 #: src/qml/elements/ChatPageSendingPane.qml:565
@@ -2497,12 +2491,9 @@ msgid "Send"
 msgstr "Enviar"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Enviar un mensaje de voz"
+msgstr "Grabar un mensaje de voz"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"

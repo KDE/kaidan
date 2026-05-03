@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-13 23:40+0200\n"
+"PO-Revision-Date: 2026-05-02 14:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -2293,20 +2293,14 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Verborgen deel van bericht toevoegen"
+msgstr "Verborgen deel van bericht verbergen"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Verborgen deel van bericht toevoegen"
+msgstr "Verborgen deel van bericht tonen"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2463,7 +2457,7 @@ msgstr "Meer"
 #: src/qml/elements/ChatPageSendingPane.qml:463
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Schuif om te annuleren"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
 #: src/qml/elements/ChatPageSendingPane.qml:565
@@ -2472,12 +2466,9 @@ msgid "Send"
 msgstr "Verzenden"
 
 #: src/qml/elements/ChatPageSendingPane.qml:521
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Een stembericht versturen"
+msgstr "Een stembericht opnemen"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
