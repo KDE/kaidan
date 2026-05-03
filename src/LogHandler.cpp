@@ -26,11 +26,11 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
-    // Filter out stream management acknowledgments.
-    if ((type == QXmppLogger::ReceivedMessage || type == QXmppLogger::SentMessage)
-        && (text.startsWith(u"<a xmlns=\"urn:xmpp:sm:3\"") || text.startsWith(u"<a xmlns='urn:xmpp:sm:3'") || text.startsWith(u"<r xmlns=\"urn:xmpp:sm:3\"")
-            || text.startsWith(u"<r xmlns='urn:xmpp:sm:3'"))) {
-        return;
+    // Filter out stream management requests/acknowledgments.
+    if ((type == QXmppLogger::ReceivedMessage || type == QXmppLogger::SentMessage) && (text.startsWith(u"<r ") || text.startsWith(u"<a "))) {
+        if (QString{text}.replace(u'"', u'\'').contains(u"xmlns='urn:xmpp:sm:3'")) {
+            return;
+        }
     }
 
     switch (type) {
