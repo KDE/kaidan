@@ -800,9 +800,32 @@ SearchBarPage {
 			}
 		}
 		header: ChatPageSendingPane {
+			property real previousHeight
+
 			chatPage: root
 			width: root.width
 			height: root.chatController.rosterItem.isDeletedGroupChat ? 0 : undefined
+			// Workaround to prevent sendingPane from overlapping messages if its height increases
+			// while the height of the lower hidden content of messageListView is less than
+			// sendingPane's added height.
+			// If sendingPane's height increases while it already overlaps enough content of
+			// messageListView, the position of the visible area is correctly kept without any
+			// workaround.
+			onHeightChanged: {
+				const visibleArea = root.messageListView.visibleArea
+				const completeListViewHeight = root.messageListView.contentHeight - root.messageListView.bottomMargin
+
+				const visibleEndPosition = (visibleArea.yPosition + visibleArea.heightRatio) * completeListViewHeight
+				const visibleEndDistance = completeListViewHeight - visibleEndPosition
+
+				const heightDifference = height - previousHeight
+
+				if (heightDifference >= visibleEndDistance) {
+					root.messageListView.positionViewAtLatestMessage()
+				}
+
+				previousHeight = height
+			}
 			Component.onCompleted: root.sendingPane = this
 		}
 
