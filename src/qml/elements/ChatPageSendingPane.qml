@@ -746,7 +746,7 @@ Controls.Pane {
 		composition.originalBody = body
 		composition.isSpoiler = spoilerHint.length
 
-		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
+		prepareReplyData(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
 		prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
 	}
 
@@ -785,6 +785,11 @@ Controls.Pane {
 	}
 
 	function prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote) {
+		prepareReplyData(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
+		forceActiveFocus()
+	}
+
+	function prepareReplyData(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote) {
 		composition.replyToJid = replyToJid
 		composition.replyToGroupChatParticipantId = replyToGroupChatParticipantId
 		composition.replyToName = replyToName
@@ -804,6 +809,8 @@ Controls.Pane {
 		root.composition.replyToName = ""
 		root.composition.replyId = ""
 		root.composition.replyQuote = ""
+
+		forceActiveFocus()
 	}
 
 	/**
