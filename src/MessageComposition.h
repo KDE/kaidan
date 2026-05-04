@@ -11,8 +11,9 @@
 #include <QAbstractListModel>
 #include <QFuture>
 
-struct File;
-
+// Qt
+class QGeoCoordinate;
+// Kaidan
 class AccountSettings;
 class ChatController;
 class Connection;
@@ -20,6 +21,7 @@ class FileSelectionModel;
 class FileSharingController;
 class Message;
 class MessageController;
+struct File;
 
 class MessageComposition : public QObject
 {
@@ -127,7 +129,8 @@ public:
         return m_isForwarding;
     }
 
-    Q_INVOKABLE void send();
+    Q_INVOKABLE void send(const QString &customBody = {});
+    Q_INVOKABLE void sendGeoUri(const QGeoCoordinate &geoCoordinate);
     Q_INVOKABLE void correct();
 
     Q_INVOKABLE void clear();

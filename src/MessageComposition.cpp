@@ -150,7 +150,7 @@ void MessageComposition::setIsDraft(bool isDraft)
     }
 }
 
-void MessageComposition::send()
+void MessageComposition::send(const QString &customBody)
 {
     Q_ASSERT(!m_chatController->account()->settings()->jid().isNull());
     Q_ASSERT(!m_chatController->jid().isNull());
@@ -172,7 +172,13 @@ void MessageComposition::send()
     message.originId = originId;
     setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
     message.timestamp = QDateTime::currentDateTimeUtc();
-    message.setUnpreparedBody(m_body);
+
+    if (customBody.isEmpty()) {
+        message.setUnpreparedBody(m_body);
+    } else {
+        message.setPreparedBody(customBody);
+    }
+
     message.encryption = m_chatController->activeEncryption();
     message.deliveryState = DeliveryState::Pending;
     message.isSpoiler = m_isSpoiler;
@@ -197,6 +203,11 @@ void MessageComposition::send()
     m_messageController->sendPendingMessage(std::move(message));
 
     reset();
+}
+
+void MessageComposition::sendGeoUri(const QGeoCoordinate &geoCoordinate)
+{
+    send(QmlUtils::geoUri(geoCoordinate));
 }
 
 void MessageComposition::correct()

@@ -387,7 +387,7 @@ Controls.Pane {
 					Controls.ToolTip.text: qsTr("Share your location")
 					icon.source: "mark-location-symbolic"
 					visible: root.chatPage.chatController.account.connection.state === Enums.StateConnected
-					onClicked: expansionArea.openDialog(geoLocationSharingDialog)
+					onClicked: expansionArea.openNewPage(geoLocationSharingPage)
 				}
 
 				IconButton {
@@ -419,10 +419,13 @@ Controls.Pane {
 				}
 
 				Component {
-					id: geoLocationSharingDialog
+					id: geoLocationSharingPage
 
-					GeoLocationSharingDialog {
+					GeoLocationSharingPage {
 						messageComposition: root.composition
+						// Workaround because the position of messageListView's content changes on
+						// opening/closing this page (for an unknown reason).
+						Component.onDestruction: root.chatPage.messageListView.positionViewAtLatestMessage()
 					}
 				}
 
@@ -438,9 +441,14 @@ Controls.Pane {
 					opacity = 0
 				}
 
-				function openDialog(dialog) {
+				function openDialog(dialogComponent) {
 					close()
-					openOverlay(dialog)
+					openOverlay(dialogComponent)
+				}
+
+				function openNewPage(pageComponent) {
+					close()
+					openPage(pageComponent)
 				}
 			}
 

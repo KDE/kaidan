@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Controls as Controls
 import QtPositioning
 import QtLocation
 import org.kde.kirigami as Kirigami
@@ -13,14 +12,11 @@ import org.kde.kirigami as Kirigami
 import im.kaidan.kaidan
 
 Map {
-	id: root
-
-	property real zoomLevelFactor: 0.85
-	property alias currentPositionSource: currentPositionSource
 	property alias userPositionMarker: userPositionMarker
 
 	// The product is rounded for sharper tiles.
-	zoomLevel: Math.max(minimumZoomLevel, Math.round(maximumZoomLevel * zoomLevelFactor))
+	zoomLevel: Math.max(minimumZoomLevel, Math.round(maximumZoomLevel * 0.85))
+	minimumZoomLevel: 4
 	plugin: Plugin {
 		name: "osm"
 
@@ -37,45 +33,7 @@ Map {
 	copyrightsVisible: false
 	onErrorChanged: {
 		if (error !== Map.NoError) {
-			console.log("***", errorString)
-		}
-	}
-	Keys.onPressed: {
-		if (event.key === Qt.Key_Plus) {
-			zoomLevel++
-		} else if (event.key === Qt.Key_Minus) {
-			zoomLevel--
-		}
-	}
-
-	PositionSource {
-		id: currentPositionSource
-		onPositionChanged: {
-			if (!position.coordinate.isValid) {
-				console.log('***', 'Cannot locate this device')
-			}
-		}
-		onSourceErrorChanged: {
-			if (sourceError !== PositionSource.NoError) {
-				console.log("***", sourceError)
-				stop()
-			}
-		}
-	}
-
-	MapQuickItem {
-		id: currentPositionMarker
-		coordinate: currentPositionSource.position.coordinate
-		anchorPoint: Qt.point(sourceItem.width / 2, sourceItem.height / 2)
-		sourceItem: Rectangle {
-			color: Kirigami.Theme.neutralTextColor
-			radius: height / 2
-			border {
-				width: 2
-				color: Qt.lighter(color)
-			}
-			width: Kirigami.Units.iconSizes.medium
-			height: width
+			console.log(errorString)
 		}
 	}
 
@@ -85,7 +43,6 @@ Map {
 		anchorPoint: Qt.point(sourceItem.width / 2, sourceItem.height)
 		sourceItem: Kirigami.Icon {
 			source: MediaUtils.newMediaIconName(Enums.MessageType.MessageGeoLocation)
-			color: Kirigami.Theme.activeTextColor
 			smooth: true
 			width: Kirigami.Units.iconSizes.large
 			height: width
