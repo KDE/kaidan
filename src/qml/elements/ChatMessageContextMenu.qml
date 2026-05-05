@@ -24,7 +24,7 @@ Kirigami.Dialog {
 	readonly property bool localFileAvailable: file && file.locallyAvailable
 	property bool currentIndexResetOnClosing: true
 
-	padding: Kirigami.Units.smallSpacing * 3
+	padding: Kirigami.Units.smallSpacing
 	background: Kirigami.ShadowedRectangle {
 		color: primaryBackgroundColor
 		radius: height / 2
@@ -51,13 +51,12 @@ Kirigami.Dialog {
 
 	RowLayout {
 		id: contentArea
-		spacing: Kirigami.Units.largeSpacing * 2
 		// Fix no buttons being shown.
 		implicitHeight: 1
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Remove file")
-			source: "list-remove-symbolic"
+			icon.source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
 			onClicked: root.message.chatController.messageModel.deleteFile(root.message.msgId, file)
@@ -65,7 +64,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Open file in folder")
-			source: "folder-symbolic"
+			icon.source: "folder-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
 			onClicked: MediaUtils.openFileInFolder(root.file.localFileUrl)
@@ -78,7 +77,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Resend")
-			source: "view-refresh-symbolic"
+			icon.source: "view-refresh-symbolic"
 			contextMenu: root
 			shown: root.message.deliveryState === Enums.Error
 			onClicked: root.message.chatController.messageModel.resendMessage(root.message.modelIndex)
@@ -86,8 +85,8 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("React")
-			source:  "emoji-people-symbolic"
-			fallback: "smiley-add"
+			icon.source:  "emoji-people-symbolic"
+			iconFallback: "smiley-add"
 			contextMenu: root
 			shown: {
 				// Do not allow to send reactions if the message has not yet got a stanza ID from
@@ -108,7 +107,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Reply")
-			source: "mail-reply-sender-symbolic"
+			icon.source: "mail-reply-sender-symbolic"
 			contextMenu: root
 			shown: {
 				// Do not allow to reply if the message has not yet got a stanza ID from the
@@ -126,7 +125,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Quote")
-			source: "mail-reply-all-symbolic"
+			icon.source: "mail-reply-all-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareQuote(root.message.messageBody)
@@ -134,7 +133,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Forward")
-			source: "mail-forward-symbolic"
+			icon.source: "mail-forward-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody
 			onClicked: root.message.chatController.messageBodyToForward = root.message.messageBody
@@ -142,7 +141,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Copy")
-			source: "edit-copy-symbolic"
+			icon.source: "edit-copy-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody || root.message.spoilerHint
 			onClicked: {
@@ -156,7 +155,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Edit")
-			source: "document-edit-symbolic"
+			icon.source: "document-edit-symbolic"
 			contextMenu: root
 			shown: root.message.chatController.messageModel.canCorrectMessage(root.message.modelIndex)
 			onClicked: {
@@ -167,7 +166,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Mark")
-			source: "mail-mark-important-symbolic"
+			icon.source: "mail-mark-important-symbolic"
 			contextMenu: root
 			shown: !root.message.marked
 			onClicked: root.message.chatController.messageModel.setMessageMarked(root.message.modelIndex, true)
@@ -175,7 +174,7 @@ Kirigami.Dialog {
 
 		ChatMessageContextMenuButton {
 			Controls.ToolTip.text: qsTr("Remove from this device")
-			source: "edit-delete-symbolic"
+			icon.source: "edit-delete-symbolic"
 			contextMenu: root
 			onClicked: {
 				root.currentIndexResetOnClosing = false

@@ -10,7 +10,7 @@ import org.kde.kirigami as Kirigami
 /**
  * This is a button used within a ChatMessageContextMenu.
  */
-ClickableIcon {
+IconButton {
 	property Kirigami.Dialog contextMenu
 	property bool expanded: false
 	property bool shown: true
