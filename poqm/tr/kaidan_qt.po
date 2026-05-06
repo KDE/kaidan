@@ -459,23 +459,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "%1 grubuna davet"
 
-#: src/MessageComposition.cpp:240
+#: src/MessageComposition.cpp:251
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageComposition.cpp:514
+#: src/MessageComposition.cpp:525
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/MessageComposition.cpp:550
+#: src/MessageComposition.cpp:561
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "Ses iletisi gönderilemiyor; çünkü %2 boyutundan büyük"
 
-#: src/MessageComposition.cpp:582
+#: src/MessageComposition.cpp:593
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -795,24 +795,24 @@ msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Gönderilecek dosyaları bırakın"
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/ChatPage.qml:896
+#: src/qml/ChatPage.qml:919
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
-#: src/qml/ChatPage.qml:900
+#: src/qml/ChatPage.qml:923
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2291,57 +2291,57 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1, bu noktaya kadar okudu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:59
+#: src/qml/elements/ChatMessageContextMenu.qml:58
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Dosyayı kaldır"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:67
+#: src/qml/elements/ChatMessageContextMenu.qml:66
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "Dosyanın klasörünü aç"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:80
+#: src/qml/elements/ChatMessageContextMenu.qml:79
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr "Yeniden Gönder"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:88
+#: src/qml/elements/ChatMessageContextMenu.qml:87
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Tepki Ver"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:110
+#: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:128
+#: src/qml/elements/ChatMessageContextMenu.qml:127
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Alıntıla"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "İlet"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:158
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Düzenle"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:169
+#: src/qml/elements/ChatMessageContextMenu.qml:168
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "İmle"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:177
+#: src/qml/elements/ChatMessageContextMenu.qml:176
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Bu aygıttan kaldır"
@@ -2362,7 +2362,7 @@ msgid "Cancel adding hidden message part"
 msgstr "Gizli ileti kısmı eklemeyi iptal et"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#: src/qml/elements/ChatPageSendingPane.qml:604
+#: src/qml/elements/ChatPageSendingPane.qml:612
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "İptal"
@@ -2422,28 +2422,28 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Gizli ileti kısmı ekle"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Gizle"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Daha fazla"
 
-#: src/qml/elements/ChatPageSendingPane.qml:463
+#: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr "İptal etmek için kaydırın"
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
-#: src/qml/elements/ChatPageSendingPane.qml:565
+#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Gönder"
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
+#: src/qml/elements/ChatPageSendingPane.qml:529
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Ses iletisi kaydet"
@@ -2607,12 +2607,12 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Geçerli bir parola girin"
 
-#: src/qml/elements/GeoLocationMap.qml:96
+#: src/qml/elements/GeoLocationMap.qml:53
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr "© OpenStreetMap"
 
-#: src/qml/elements/GeoLocationMapPage.qml:12
+#: src/qml/elements/GeoLocationMapPage.qml:13
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
 msgstr "Konumu göster"
@@ -2622,9 +2622,12 @@ msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Konum"
 
-#: src/qml/elements/GeoLocationSharingDialog.qml:21
-msgctxt "GeoLocationSharingDialog|"
-msgid "Share Location"
+#: src/qml/elements/GeoLocationSharingPage.qml:20
+#, fuzzy
+#| msgctxt "GeoLocationSharingDialog|"
+#| msgid "Share Location"
+msgctxt "GeoLocationSharingPage|"
+msgid "Share location"
 msgstr "Konum Paylaş"
 
 #: src/qml/elements/GroupChatCreationContent.qml:19
@@ -3247,12 +3250,12 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "Sabitlemeyi Kaldır"
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "Sabitle"

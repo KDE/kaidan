@@ -463,23 +463,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "მოსაწვევი ჯგუფში %1"
 
-#: src/MessageComposition.cpp:240
+#: src/MessageComposition.cpp:251
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "შეტყობინების ჩასწორება წარუმატებელია"
 
-#: src/MessageComposition.cpp:514
+#: src/MessageComposition.cpp:525
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
-#: src/MessageComposition.cpp:550
+#: src/MessageComposition.cpp:561
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "ხმოვანი შეტყობინების გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
-#: src/MessageComposition.cpp:582
+#: src/MessageComposition.cpp:593
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -799,24 +799,24 @@ msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "დაბრუნება"
 
-#: src/qml/ChatPage.qml:896
+#: src/qml/ChatPage.qml:919
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
-#: src/qml/ChatPage.qml:900
+#: src/qml/ChatPage.qml:923
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2303,57 +2303,57 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1-მა ამ წერტილამდე წაიკითხა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:59
+#: src/qml/elements/ChatMessageContextMenu.qml:58
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "ფაილის წაშლა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:67
+#: src/qml/elements/ChatMessageContextMenu.qml:66
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "ფაილის გახსნა საქაღალდეში"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:80
+#: src/qml/elements/ChatMessageContextMenu.qml:79
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr "გადაგზავნა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:88
+#: src/qml/elements/ChatMessageContextMenu.qml:87
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "რეაქციები"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:110
+#: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "პასუხი"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:128
+#: src/qml/elements/ChatMessageContextMenu.qml:127
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "ციტირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "გადაგზავნა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "კოპირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:158
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:169
+#: src/qml/elements/ChatMessageContextMenu.qml:168
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "დანიშვნა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:177
+#: src/qml/elements/ChatMessageContextMenu.qml:176
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "ამ მოწყობილობიდან წაშლა"
@@ -2374,7 +2374,7 @@ msgid "Cancel adding hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატების გაუქმება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#: src/qml/elements/ChatPageSendingPane.qml:604
+#: src/qml/elements/ChatPageSendingPane.qml:612
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -2434,28 +2434,28 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "დამალვა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "მეტი"
 
-#: src/qml/elements/ChatPageSendingPane.qml:463
+#: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr "გასაუქმებლად გაუსვით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
-#: src/qml/elements/ChatPageSendingPane.qml:565
+#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "გაგზავნა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
+#: src/qml/elements/ChatPageSendingPane.qml:529
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "ხმოვანი შეტყობინების ჩაწერა"
@@ -2622,12 +2622,12 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "შეიყვანეთ სწორი პაროლი"
 
-#: src/qml/elements/GeoLocationMap.qml:96
+#: src/qml/elements/GeoLocationMap.qml:53
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr "© OpenStreetMap"
 
-#: src/qml/elements/GeoLocationMapPage.qml:12
+#: src/qml/elements/GeoLocationMapPage.qml:13
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
 msgstr "მდებარეობის ჩვენება"
@@ -2637,9 +2637,12 @@ msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "მდებარეობა"
 
-#: src/qml/elements/GeoLocationSharingDialog.qml:21
-msgctxt "GeoLocationSharingDialog|"
-msgid "Share Location"
+#: src/qml/elements/GeoLocationSharingPage.qml:20
+#, fuzzy
+#| msgctxt "GeoLocationSharingDialog|"
+#| msgid "Share Location"
+msgctxt "GeoLocationSharingPage|"
+msgid "Share location"
 msgstr "მდებარეობის გაზიარება"
 
 #: src/qml/elements/GroupChatCreationContent.qml:19
@@ -3268,12 +3271,12 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr "%1:"
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr "ჩამოხსნა"
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr "მიმაგრება"

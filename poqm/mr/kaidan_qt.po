@@ -444,23 +444,23 @@ msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:240
+#: src/MessageComposition.cpp:251
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageComposition.cpp:514
+#: src/MessageComposition.cpp:525
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:550
+#: src/MessageComposition.cpp:561
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageComposition.cpp:582
+#: src/MessageComposition.cpp:593
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -780,24 +780,24 @@ msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:889
+#: src/qml/ChatPage.qml:912
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:896
+#: src/qml/ChatPage.qml:919
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/ChatPage.qml:900
+#: src/qml/ChatPage.qml:923
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
@@ -2213,57 +2213,57 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:59
+#: src/qml/elements/ChatMessageContextMenu.qml:58
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:67
+#: src/qml/elements/ChatMessageContextMenu.qml:66
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:80
+#: src/qml/elements/ChatMessageContextMenu.qml:79
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:88
+#: src/qml/elements/ChatMessageContextMenu.qml:87
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:110
+#: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:128
+#: src/qml/elements/ChatMessageContextMenu.qml:127
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:136
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:144
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:158
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:169
+#: src/qml/elements/ChatMessageContextMenu.qml:168
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:177
+#: src/qml/elements/ChatMessageContextMenu.qml:176
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr ""
@@ -2284,7 +2284,7 @@ msgid "Cancel adding hidden message part"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
-#: src/qml/elements/ChatPageSendingPane.qml:604
+#: src/qml/elements/ChatPageSendingPane.qml:612
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr ""
@@ -2344,28 +2344,28 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:449
+#: src/qml/elements/ChatPageSendingPane.qml:457
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:463
+#: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
-#: src/qml/elements/ChatPageSendingPane.qml:565
+#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:521
+#: src/qml/elements/ChatPageSendingPane.qml:529
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr ""
@@ -2527,12 +2527,12 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/GeoLocationMap.qml:96
+#: src/qml/elements/GeoLocationMap.qml:53
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr ""
 
-#: src/qml/elements/GeoLocationMapPage.qml:12
+#: src/qml/elements/GeoLocationMapPage.qml:13
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
 msgstr ""
@@ -2542,9 +2542,9 @@ msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr ""
 
-#: src/qml/elements/GeoLocationSharingDialog.qml:21
-msgctxt "GeoLocationSharingDialog|"
-msgid "Share Location"
+#: src/qml/elements/GeoLocationSharingPage.qml:20
+msgctxt "GeoLocationSharingPage|"
+msgid "Share location"
 msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:19
@@ -3162,12 +3162,12 @@ msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:279
+#: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr ""
