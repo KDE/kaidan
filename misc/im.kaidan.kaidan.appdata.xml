@@ -4522,6 +4522,7 @@
           <li xml:lang="ru">ChatMessage: добавлена возможность копирования URL-адреса медиафайла (@lnj);</li>
           <li xml:lang="sk">ChatMessage: Pridanie akcie kopírovania mediálnej adresy URL (@lnj)</li>
           <li xml:lang="sl">ChatMessage: Dodano dejanje kopiranja URL-jev medijev (@lnj)</li>
+          <li xml:lang="uk">ChatMessage: додано дію з копіювання адреси мультимедіа (@lnj)</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -4548,6 +4549,7 @@
           <li xml:lang="ru">Исправлено: список контактов не очищался при переключении учётной записи (@lnj);</li>
           <li xml:lang="sk">Oprava nevyčistenia zoznamu pri prepínaní účtu (@lnj)</li>
           <li xml:lang="sl">Popravljen seznam, ki se ni počistil ob preklapljanju računa (@lnj)</li>
+          <li xml:lang="uk">Виправлено спорожнення списку при перемиканні облікового запису (@lnj)</li>
           <li>ChatMessage: Fix copy to clipboard function (@lnj)</li>
           <li xml:lang="ar">رسالة دردشة: إصلاح وظيفة النسخ إلى الحافظة (@lnj)</li>
           <li xml:lang="ca">ChatMessage: corregeix la còpia a la funció del porta-retalls (@lnj)</li>
@@ -4559,6 +4561,7 @@
           <li xml:lang="ru">ChatMessage: исправлена функция копирования в буфер обмена (@lnj);</li>
           <li xml:lang="sk">ChatMessage: Oprava funkcie kopírovania do schránky (@lnj)</li>
           <li xml:lang="sl">ChatMessage: Popravljena funkcija kopiranja v odložišče (@lnj)</li>
+          <li xml:lang="uk">ChatMessage: виправлено дію з копіювання до буфера обміну даними (@lnj)</li>
           <li>Fix scroll indiciator not overlap message on the right edge (@fazevedo)</li>
           <li xml:lang="ar">إصلاح عدم تداخل مؤشر التمرير مع الرسالة على الحافة اليمنى (@fazevedo)</li>
           <li xml:lang="ca">Corregeix l'indicador de desplaçament que no se superposi al missatge a la vora dreta (@fazevedo)</li>
@@ -4569,6 +4572,7 @@
           <li xml:lang="ru">Исправлено наложение индикатора прокрутки на сообщения у правого края (@fazevedo);</li>
           <li xml:lang="sk">Oprava prekrývania indikátora posúvania správy na pravom okraji (@fazevedo)</li>
           <li xml:lang="sl">Popravljen indikator pomikanja, ki se ni prekrival s sporočilom na desnem robu (@fazevedo)</li>
+          <li xml:lang="uk">Усунено перекриття індикатором гортання повідомлення на правому краю (@fazevedo)</li>
           <li>Fix upload issues (@fazevedo)</li>
           <li xml:lang="ar">إصلاح مشكلات الرفع (@fazevedo)</li>
           <li xml:lang="ca">Corregeix els problemes de pujada (@fazevedo)</li>
@@ -4593,6 +4597,7 @@
           <li xml:lang="ru">ChatPage: очистка исправлений сообщений при отправке (@fazevedo)</li>
           <li xml:lang="sk">ChatPage: Vymazanie opravy správy po odoslaní (@fazevedo)</li>
           <li xml:lang="sl">ChatPage: Popravi popravek sporočila ob pošiljanju (@fazevedo)</li>
+          <li xml:lang="uk">ChatPage: реалізовано зняття виправлення повідомлення при надсиланні (@fazevedo)</li>
           <li>Fix roster sorting (@lnj)</li>
           <li xml:lang="ar">إصلاح فرز قائمة المتصلين (@lnj)</li>
           <li xml:lang="ca">Corregeix l'ordenació de la llista de contactes (@lnj)</li>
@@ -4604,6 +4609,7 @@
           <li xml:lang="ru">Исправлена сортировка списка контактов (@lnj);</li>
           <li xml:lang="sk">Oprava zoraďovania zoznamu kontaktov (@lnj)</li>
           <li xml:lang="sl">Popravi razvrščanje seznama (@lnj)</li>
+          <li xml:lang="uk">Виправлено упорядкування списку (@lnj)</li>
           <li>Fix buttonTextColor deprecation warnings (@sredman)</li>
           <li xml:lang="ar">إصلاح تحذيرات إهمال buttonTextColor (@sredman)</li>
           <li xml:lang="ca">Corregeix els avisos d'obsolescència de «buttonTextColor» (@sredman)</li>
@@ -4615,6 +4621,7 @@
           <li xml:lang="ru">Исправлены предупреждения об устаревании параметра buttonTextColor (@sredman);</li>
           <li xml:lang="sk">Oprava upozornení na zastaranie buttonTextColor (@sredman)</li>
           <li xml:lang="sl">Popravi opozorila o zastaranju buttonTextColor (@sredman)</li>
+          <li xml:lang="uk">Виправлено причину попереджень про застарівання buttonTextColor (@sredman)</li>
           <li>Fix build with QXmpp &gt;= 1.0.1 (@lnj)</li>
           <li xml:lang="ar">إصلاح البناء مع الإصدار 1.0.1 من QXmpp أو أحدث (@lnj)</li>
           <li xml:lang="ca">Corregeix la construcció amb QXmpp &gt;= 1.0.1 (@lnj)</li>
@@ -4627,6 +4634,7 @@
           <li xml:lang="ru">Исправлена сборка с QXmpp ≥ 1.0.1 (@lnj);</li>
           <li xml:lang="sk">Oprava zostavenia s QXmpp &gt;= 1.0.1 (@lnj)</li>
           <li xml:lang="sl">Popravi gradnjo s QXmpp &gt;= 1.0.1 (@lnj)</li>
+          <li xml:lang="uk">Виправлено збирання з QXmpp &gt;= 1.0.1 (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -4658,6 +4666,7 @@
           <li xml:lang="ru">Исправлены проблемы с SSL для AppImage (@lnj);</li>
           <li xml:lang="sk">Oprava problémov SSL pre AppImage (@lnj)</li>
           <li xml:lang="sl">Popravi težave s SSL za AppImage (@lnj)</li>
+          <li xml:lang="uk">Виправлено проблеми SSL для AppImage (@lnj)</li>
           <li>Fix connection problems (@lnj)</li>
           <li xml:lang="ar">إصلاح مشكلات الاتصال (@lnj)</li>
           <li xml:lang="ca">Corregeix problemes de connexió (@lnj)</li>
@@ -4670,6 +4679,7 @@
           <li xml:lang="ru">Исправление проблем с подключением (@lnj);</li>
           <li xml:lang="sk">Oprava problémov s pripojením (@lnj)</li>
           <li xml:lang="sl">Popravi težave s povezavo (@lnj)</li>
+          <li xml:lang="uk">Виправлено проблеми зі з'єднанням (@lnj)</li>
           <li>Keep QXmpp v0.8.3 compatibility (@lnj)</li>
           <li xml:lang="ar">الحفاظ على التوافق مع QXmpp الإصدار 0.8.3 (@lnj)</li>
           <li xml:lang="ca">Manté la compatibilitat amb el QXmpp v0.8.3 (@lnj)</li>
@@ -4681,6 +4691,7 @@
           <li xml:lang="ru">Сохранена совместимость с QXmpp v0.8.3 (@lnj);</li>
           <li xml:lang="sk">Zachovanie kompatibility s QXmpp v0.8.3 (@lnj)</li>
           <li xml:lang="sl">Ohrani združljivost s QXmpp v0.8.3 (@lnj)</li>
+          <li xml:lang="uk">Збережено сумісність з QXmpp v0.8.3 (@lnj)</li>
         </ul>
       </description>
     </release>
@@ -4712,6 +4723,7 @@
           <li xml:lang="ru">Использование корректных уведомлений через KNotifications (@lnj);</li>
           <li xml:lang="sk">Zobrazenie správnych upozornení pomocou KNotifications (@lnj)</li>
           <li xml:lang="sl">Prikaže pravilna obvestila z uporabo KNotifications (@lnj)</li>
+          <li xml:lang="uk">Реалізовано показ належних сповіщень за допомогою KNotifications (@lnj)</li>
           <li>Add settings page for changing passwords (@jbbgameich, @lnj)</li>
           <li xml:lang="ar">إضافة صفحة إعدادات لتغيير كلمات المرور (@jbbgameich، @lnj)</li>
           <li xml:lang="ca">Afegeix la pàgina de configuració per a canviar les contrasenyes (@jbbgameich, @lnj)</li>
@@ -4723,6 +4735,7 @@
           <li xml:lang="ru">Добавлена страница параметров для смены пароля (@jbbgameich, @lnj);</li>
           <li xml:lang="sk">Pridanie stránky nastavení na zmenu hesiel (@jbbgameich, @lnj)</li>
           <li xml:lang="sl">Dodana stran z nastavitvami za spreminjanje gesel (@jbbgameich, @lnj)</li>
+          <li xml:lang="uk">Додано сторінку параметрів для зміни паролів (@jbbgameich, @lnj)</li>
           <li>Add XEP-0352: Client State Indication (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="ar">إضافة XEP-0352: بيان حالة العميل (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="ca">Afegeix XEP-0352: Indicació d'estat del client (gloox/QXmpp) (@lnj)</li>
@@ -4734,6 +4747,7 @@
           <li xml:lang="ru">Добавлена поддержка XEP-0352: Индикация состояния клиента (gloox/QXmpp) (@lnj).</li>
           <li xml:lang="sk">Pridanie XEP-0352: Client State Indication (gloox/QXmpp) (@lnj)</li>
           <li xml:lang="sl">Doda XEP-0352: Indikator stanja odjemalca (gloox/QXmpp) (@lnj)</li>
+          <li xml:lang="uk">Додано XEP-0352: позначення стану клієнта (gloox/QXmpp) (@lnj)</li>
           <li>Add media/file (including GIFs) sharing (@lnj, @jbbgameich)</li>
           <li xml:lang="ar">إضافة مشاركة الوسائط/الملفات (بما في ذلك صور GIF) (@lnj، @jbbgameich)</li>
           <li xml:lang="ca">Afegeix la compartició multimèdia/fitxer (inclosos els GIF) (@lnj, @jbbgameich)</li>
@@ -4745,6 +4759,7 @@
           <li xml:lang="ru">Добавлена возможность отправки медиафайлов (включая GIF) (@lnj, @jbbgameich);</li>
           <li xml:lang="sk">Pridanie zdieľania médií/súborov (vrátane GIF) (@lnj, @jbbgameich)</li>
           <li xml:lang="sl">Doda deljenje medijev/datotek (vključno z GIF-i) (@lnj, @jbbgameich)</li>
+          <li xml:lang="uk">Додано оприлюднення мультимедіа/файлів (зокрема GIF) (@lnj, @jbbgameich)</li>
           <li>Full back-end rewrite to QXmpp (@lnj)</li>
           <li xml:lang="ar">إعادة كتابة الواجهة الخلفية بالكامل باستخدام QXmpp (@lnj)</li>
           <li xml:lang="ca">Reescriptura completa del dorsal al QXmpp (@lnj)</li>
@@ -4757,6 +4772,7 @@
           <li xml:lang="ru">Полная переработка модуля на QXmpp (@lnj).</li>
           <li xml:lang="sk">Úplné prepísanie backendu na QXmpp (@lnj)</li>
           <li xml:lang="sl">Popolno prepisovanje v ozadju QXmpp (@lnj)</li>
+          <li xml:lang="uk">Повне переписування модуля обробки для QXmpp (@lnj)</li>
           <li>Implement XEP-0363: HTTP File Upload and UploadManager for QXmpp (@lnj)</li>
           <li xml:lang="ar">تطبيق XEP-0363: رفع ملفات HTTP وUploadManager لـ QXmpp (@lnj)</li>
           <li xml:lang="ca">Implementa XEP-0363: HTTP File Upload and UploadManager for QXmpp (@lnj)</li>
@@ -4767,6 +4783,7 @@
           <li xml:lang="ru">Реализован XEP-0363: HTTP-загрузка файлов и UploadManager для QXmpp (@lnj);</li>
           <li xml:lang="sk">Implementácia XEP-0363: HTTP File Upload a UploadManager pre QXmpp (@lnj)</li>
           <li xml:lang="sl">Implementiraj XEP-0363: Nalaganje datotek HTTP in upravljalnik nalaganja za QXmpp (@lnj)</li>
+          <li xml:lang="uk">Реалізовано XEP-0363: вивантаження файлів HTTP і UploadManager для QXmpp (@lnj)</li>
           <li>Use XEP-0280: Message Carbons from QXmpp (@lnj)</li>
           <li xml:lang="ar">استخدام XEP-0280: كربون الرسائل من QXmpp (@lnj)</li>
           <li xml:lang="ca">Usa XEP-0280: Message Carbons from QXmpp (@lnj)</li>
@@ -4777,6 +4794,7 @@
           <li xml:lang="ru">Использование XEP-0280: Message Carbons из QXmpp (@lnj);</li>
           <li xml:lang="sk">Použitie XEP-0280: Message Carbons z QXmpp (@lnj)</li>
           <li xml:lang="sl">Uporabi XEP-0280: Ogljik sporočil iz QXmpp (@lnj)</li>
+          <li xml:lang="uk">Використано XEP-0280: копії повідомлень з QXmpp (@lnj)</li>
           <li>Use XEP-0352: Client State Indication from QXmpp (@lnj)</li>
           <li xml:lang="ar">استخدام XEP-0352: بيان حالة العميل من QXmpp (@lnj)</li>
           <li xml:lang="ca">Usa XEP-0352: Indicació d'estat del client del QXmpp (@lnj)</li>
@@ -4787,6 +4805,7 @@
           <li xml:lang="ru">Использование XEP-0352: «Client State Indication» из QXmpp (@lnj);</li>
           <li xml:lang="sk">Použitie XEP-0352: Client State Indication z QXmpp (@lnj)</li>
           <li xml:lang="sl">Uporabi XEP-0352: Indikator stanja odjemalca iz QXmpp (@lnj)</li>
+          <li xml:lang="uk">Використано XEP-0352: позначення стану клієнта з QXmpp (@lnj)</li>
           <li>Check incoming messages for media links (@lnj)</li>
           <li xml:lang="ar">فحص الرسائل الواردة بحثاً عن روابط الوسائط (@lnj)</li>
           <li xml:lang="ca">Comprova els missatges entrants si tenen enllaços multimèdia (@lnj)</li>
@@ -4797,6 +4816,7 @@
           <li xml:lang="ru">Проверка входящих сообщения на наличие ссылок на медиафайлы (@lnj);</li>
           <li xml:lang="sk">Kontrola prichádzajúcich správ pre mediálne odkazy (@lnj)</li>
           <li xml:lang="sl">Preveri dohodna sporočila za povezave do medijev (@lnj)</li>
+          <li xml:lang="uk">Реалізовано перевірку вхідних повідомлень на посилання на мультимедійні дані (@lnj)</li>
           <li>Implement XEP-0308: Last Message Correction (@lnj, @jbbgameich)</li>
           <li xml:lang="ar">تطبيق XEP-0308: تصحيح آخر رسالة (@lnj، @jbbgameich)</li>
           <li xml:lang="ca">Implementa XEP-0308: Correcció de l'últim missatge (@lnj, @jbbgameich)</li>
@@ -4807,6 +4827,7 @@
           <li xml:lang="ru">Реализована XEP-0308: исправление последнего сообщения (@lnj, @jbbgameich).</li>
           <li xml:lang="sk">Implementácia XEP-0308: Last Message Correction (@lnj, @jbbgameich)</li>
           <li xml:lang="sl">Implementira XEP-0308: Popravek zadnjega sporočila (@lnj, @jbbgameich)</li>
+          <li xml:lang="uk">Реалізовано XEP-0308: виправлення останнього повідомлення (@lnj, @jbbgameich)</li>
           <li>Make attachments downloadable (@lnj)</li>
           <li xml:lang="ar">جعل المرفقات قابلة للتنزيل (@lnj)</li>
           <li xml:lang="ca">Fa que es puguin baixar els adjunts (@lnj)</li>
@@ -4817,6 +4838,7 @@
           <li xml:lang="ru">Реализована возможность скачивания вложений (@lnj);</li>
           <li xml:lang="sk">Umožnenie stiahnutia príloh (@lnj)</li>
           <li xml:lang="sl">Omogoči prenos prilog (@lnj)</li>
+          <li xml:lang="uk">Уможливлено отримання долучень (@lnj)</li>
           <li>Implement XEP-0382: Spoiler messages (@xavi)</li>
           <li xml:lang="ar">تطبيق XEP-0382: رسائل حرق الأحداث (@xavi)</li>
           <li xml:lang="ca">Implementa XEP-0382: missatges espòiler (@xavi)</li>
@@ -4828,6 +4850,7 @@
           <li xml:lang="ru">Реализован XEP-0382: сообщения-спойлеры (@xavi);</li>
           <li xml:lang="sk">Implementácia XEP-0382: Správy so spoilermi (@xavi)</li>
           <li xml:lang="sl">Implementira XEP-0382: Sporočila o razkritju vsebine (@xavi)</li>
+          <li xml:lang="uk">Реалізовано XEP-0382: повідомлення-спойлери (@xavi)</li>
           <li>Kaidan is now offline usable (@lnj)</li>
           <li xml:lang="ar">كيدان قابل للاستخدام بدون اتصال الآن (@lnj)</li>
           <li xml:lang="ca">El Kaidan ara es pot utilitzar fora de línia (@lnj)</li>
@@ -4838,6 +4861,7 @@
           <li xml:lang="ru">В Kaidan добавлена возможность работы в автономном режиме (@lnj);</li>
           <li xml:lang="sk">Kaidan je teraz použiteľný offline (@lnj)</li>
           <li xml:lang="sl">Kaidan je zdaj brez povezave in ga je mogoče uporabljati (@lnj)</li>
+          <li xml:lang="uk">Новою версією Kaidan можна користуватися в автономному режимі (@lnj)</li>
           <li>Kaidan is able to open xmpp: URIs (@lnj)</li>
           <li xml:lang="ar">كيدان قادر على فتح روابط xmpp: (@lnj)</li>
           <li xml:lang="ca">El Kaidan és capaç d'obrir URI xmpp: (@lnj)</li>
@@ -4849,6 +4873,7 @@
           <li xml:lang="ru">Kaidan поддерживает открытие URI xmpp: (@lnj);</li>
           <li xml:lang="sk">Kaidan teraz dokáže otvoriť xmpp: URI (@lnj)</li>
           <li xml:lang="sl">Kaidan lahko odpre xmpp: URI-je (@lnj)</li>
+          <li xml:lang="uk">Нова версія Kaidan може відкривати адреси xmpp: (@lnj)</li>
           <li>New logo (@ilyabizyaev)</li>
           <li xml:lang="ar">شعار جديد (@ilyabizyaev)</li>
           <li xml:lang="ca">Logotip nou (@ilyabizyaev)</li>
@@ -4860,6 +4885,7 @@
           <li xml:lang="ru">Новый логотип (@ilyabizyaev);</li>
           <li xml:lang="sk">Nové logo (@ilyabizyaev)</li>
           <li xml:lang="sl">Nov logotip (@ilyabizyaev)</li>
+          <li xml:lang="uk">Новий логотип (@ilyabizyaev)</li>
           <li>Show presence information of contacts (@lnj, @melvo)</li>
           <li xml:lang="ar">إظهار معلومات الحضور للمتصلين (@lnj، @melvo)</li>
           <li xml:lang="ca">Mostra la informació de presència dels contactes (@lnj, @melvo)</li>
@@ -4870,6 +4896,7 @@
           <li xml:lang="ru">Вывод информации о статусе контактов (@lnj, @melvo);</li>
           <li xml:lang="sk">Zobrazenie informácií o prítomnosti kontaktov (@lnj, @melvo)</li>
           <li xml:lang="sl">Prikaže informacije o prisotnosti stikov (@lnj, @melvo)</li>
+          <li xml:lang="uk">Реалізовано показ відомостей щодо присутності контактів (@lnj, @melvo)</li>
           <li>Add EmojiPicker from Spectral with search and favorites functionality (@jbbgameich, @fazevedo)</li>
           <li xml:lang="ar">إضافة EmojiPicker من Spectral مع وظائف البحث والمفضلة (@jbbgameich، @fazevedo)</li>
           <li xml:lang="ca">Afegeix EmojiPicker de Spectral amb la funcionalitat de cerca i favorits (@jbbgameich, @fazevedo)</li>
@@ -4901,6 +4928,7 @@
           <li xml:lang="ru">Новый диалог «О программе» вместо страницы «О программе» (@ilyabizyaev);</li>
           <li xml:lang="sk">Nový dialóg O aplikácii namiesto stránky o aplikácii (@ilyabizyaev)</li>
           <li xml:lang="sl">Novo pogovorno okno »O meni« namesto strani »O meni« (@ilyabizyaev)</li>
+          <li xml:lang="uk">Нове вікно даних про програму замість сторінки даних про програму (@ilyabizyaev)</li>
           <li>Add image preview in chat and before sending (@lnj)</li>
           <li xml:lang="ar">إضافة معاينة الصور في الدردشة وقبل الإرسال (@lnj)</li>
           <li xml:lang="ca">Afegeix una vista prèvia d'imatge al xat i abans d'enviar (@lnj)</li>
@@ -4912,6 +4940,7 @@
           <li xml:lang="ru">Добавлен предварительный просмотр изображений в чате и перед отправкой (@lnj);</li>
           <li xml:lang="sk">Pridanie náhľadu obrázka v chate a pred odoslaním (@lnj)</li>
           <li xml:lang="sl">Doda predogled slike v klepetu in pred pošiljanjem (@lnj)</li>
+          <li xml:lang="uk">Додано попередній перегляд зображення у спілкуванні і до надсилання (@lnj)</li>
           <li>Send messages on Enter, new line on Ctrl-Enter (@ilyabizyaev)</li>
           <li xml:lang="ar">إرسال الرسائل عند الضغط على Enter، وسطر جديد عند Ctrl-Enter (@ilyabizyaev)</li>
           <li xml:lang="ca">Envia missatges amb Retorn, línia nova a Ctrl-Retorn (@ilyabizyaev)</li>
@@ -4923,6 +4952,7 @@
           <li xml:lang="ru">Отправка сообщений клавишей «Enter», новая строка — комбинацией «Ctrl+Enter» (@ilyabizyaev);</li>
           <li xml:lang="sk">Odosielanie správ na Enter, nový riadok na Ctrl-Enter (@ilyabizyaev)</li>
           <li xml:lang="sl">Pošilja sporočila z Enterjem, nova vrstica s Ctrl-Enter (@ilyabizyaev)</li>
+          <li xml:lang="uk">Реалізовано надсилання повідомлення у відповідь на натискання Enter, розрив рядка — на Ctrl-Enter (@ilyabizyaev)</li>
           <li>'Add contact' is now the main action on the contacts page (@lnj)</li>
           <li xml:lang="ar">إجراء 'إضافة متصل' هو الإجراء الرئيسي في صفحة المتصلين الآن (@lnj)</li>
           <li xml:lang="ca">«Afegeix contacte» és ara l'acció principal a la pàgina de contactes (@lnj)</li>
@@ -4954,6 +4984,7 @@
           <li xml:lang="ru">Переработан дизайн страницы чата (@ilyabizyaev);</li>
           <li xml:lang="sk">Prepracovanie stránky chatu (@ilyabizyaev)</li>
           <li xml:lang="sl">Preoblikovana stran za klepet (@ilyabizyaev)</li>
+          <li xml:lang="uk">Зміна дизайну сторінки спілкування (@ilyabizyaev)</li>
           <li>Display passive notifications when trying to use online actions while offline (@lnj)</li>
           <li xml:lang="ar">عرض تنبيهات سلبية عند محاولة استخدام إجراءات تتطلب الاتصال أثناء عدم الاتصال (@lnj)</li>
           <li xml:lang="ca">Mostra les notificacions passives en intentar utilitzar accions en línia mentre està fora de línia (@lnj)</li>
@@ -4973,6 +5004,7 @@
           <li xml:lang="ru">Автоматическое переподключение при разрыве соединения (@lnj);</li>
           <li xml:lang="sk">Automatické opätovné pripojenie pri strate pripojenia (@lnj)</li>
           <li xml:lang="sl">Samodejno ponovno vzpostavi povezavo ob izgubi povezave (@lnj)</li>
+          <li xml:lang="uk">Реалізовано автоматичне відновлення з'єднання при його втраті (@lnj)</li>
           <li>Contacts page: Display whether online in title (@lnj)</li>
           <li xml:lang="ar">صفحة المتصلين: عرض حالة الاتصال في العنوان (@lnj)</li>
           <li xml:lang="ca">Pàgina de contactes: mostra si està connectat al títol (@lnj)</li>
