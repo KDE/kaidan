@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2022-2026 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-14 09:24+0200\n"
+"PO-Revision-Date: 2026-05-06 18:22+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:476
@@ -2295,20 +2295,14 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Aggiungi parte nascosta del messaggio"
+msgstr "Nascondi la parte del messaggio nascosto"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Aggiungi parte nascosta del messaggio"
+msgstr "Mostra la parte del messaggio nascosto"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2465,7 +2459,7 @@ msgstr "Altro"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Scorri per annullare"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:573
@@ -2474,12 +2468,9 @@ msgid "Send"
 msgstr "Invia"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Invia un messaggio vocale"
+msgstr "Registra un messaggio vocale"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2661,9 +2652,6 @@ msgid "Location"
 msgstr "Posizione"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
-#, fuzzy
-#| msgctxt "GeoLocationSharingDialog|"
-#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "Condividi la posizione"
