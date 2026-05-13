@@ -21,6 +21,8 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
     auto *logger = new QXmppLogger(client);
     client->setLogger(logger);
     logger->setLoggingType(QXmppLogger::SignalLogging);
+    logger->setPrettyXml(true);
+    logger->setColorMode(QXmppLogger::ColorMode::ColorOn);
     connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
 }
 
@@ -40,12 +42,12 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
     case QXmppLogger::ReceivedMessage:
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
                                            << Qt::endl
-                                           << makeXmlPretty(text);
+                                           << text;
         break;
     case QXmppLogger::SentMessage:
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
                                            << Qt::endl
-                                           << makeXmlPretty(text);
+                                           << text;
         break;
     case QXmppLogger::WarningMessage:
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [warn]" << text;
@@ -54,32 +56,6 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
         qCDebug(KAIDAN_XMPP_LOG).noquote() << m_accountSettings->jid() << "[client] [various]" << text;
         break;
     }
-}
-
-QString LogHandler::makeXmlPretty(QString xmlIn)
-{
-    QString xmlOut;
-
-    QXmlStreamReader reader(xmlIn);
-    QXmlStreamWriter writer(&xmlOut);
-    writer.setAutoFormatting(true);
-
-    while (!reader.atEnd()) {
-        reader.readNext();
-        if (!reader.isWhitespace() && !reader.hasError()) {
-            writer.writeCurrentToken(reader);
-        }
-    }
-
-    // remove xml header
-    xmlOut.replace(QStringLiteral("<?xml version=\"1.0\"?>"), QStringLiteral(""));
-
-    // remove first & last char (\n)
-    // first char is needed due to header replacement
-    xmlOut = xmlOut.right(xmlOut.size() - 1);
-    xmlOut = xmlOut.left(xmlOut.size() - 1);
-
-    return xmlOut;
 }
 
 #include "moc_LogHandler.cpp"

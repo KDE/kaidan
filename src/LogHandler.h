@@ -27,10 +27,5 @@ public:
     void handleLog(QXmppLogger::MessageType type, const QString &text);
 
 private:
-    /**
-     * Adds new lines to XML data and makes it more readable
-     */
-    static QString makeXmlPretty(QString inputXml);
-
     AccountSettings *const m_accountSettings;
 };
