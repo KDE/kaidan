@@ -89,16 +89,15 @@
             "name": "qxmpp",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DBUILD_DOCUMENTATION=OFF",
                 "-DBUILD_TESTING=OFF",
-                "-DBUILD_EXAMPLES=OFF",
-                "-DBUILD_OMEMO=ON",
-                "-DWITH_GSTREAMER=ON"
+                "-DBUILD_EXAMPLES=OFF"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.kde.org/unstable/qxmpp/qxmpp-1.14.3.tar.xz",
-                    "sha256": "ed18273ab1da93a10d5cbc9258fe86a5d891c5ef895a95b9202ada4d1c63eff0"
+                    "url": "https://download.kde.org/unstable/qxmpp/qxmpp-1.15.1.tar.xz",
+                    "sha256": "0747758a4f5b5ea4c60686c65b390766f1909d09e1a5a457c8e80ef272730c46"
                 }
             ],
             "cleanup": [
