@@ -25,7 +25,7 @@ class Call;
 class ChatController;
 class MessageController;
 class RosterController;
-class RosterItem;
+struct RosterItem;
 
 class NotificationController : public QObject
 {
