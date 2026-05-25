@@ -6,6 +6,7 @@
 
 import QtQuick
 import QtQuick.Controls as Controls
+import QtPositioning
 import QtLocation
 import org.kde.kirigami as Kirigami
 
