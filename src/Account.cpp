@@ -457,7 +457,7 @@ std::shared_ptr<QPromise<void>> Connection::addLogoutTask(std::function<void()> 
 void Connection::removeLogoutTask(std::shared_ptr<QPromise<void>> promise)
 {
     m_logoutTaskWrappers.erase(std::ranges::remove_if(m_logoutTaskWrappers,
-                                                      [promise](LogoutTaskWrapper &logoutTaskWrapper) {
+                                                      [promise](const LogoutTaskWrapper &logoutTaskWrapper) {
                                                           return logoutTaskWrapper.promise == promise;
                                                       })
                                    .begin(),
