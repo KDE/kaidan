@@ -104,7 +104,7 @@ Kirigami.Page {
 				onClicked: root.account.vCardController.changeAvatar()
 			}
 
-			CenteredAdaptiveHighlightedButton {
+			CenteredAdaptiveButton {
 				text: qsTr("Save selection")
 				visible: root.imagePath.toString()
 				onClicked: {

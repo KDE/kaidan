@@ -80,7 +80,7 @@ Rectangle {
 
 					Repeater {
 						model: root.buttons
-						delegate: Button {
+						delegate: TextButton {
 							text: modelData.text
 							focusPolicy: Qt.NoFocus
 							Layout.preferredWidth: largeButtonWidth

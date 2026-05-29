@@ -26,7 +26,6 @@ MediaPlayerControl {
 			NumberAnimation {}
 		}
 	}
-	playButton.backgroundColor: Kirigami.Theme.highlightedTextColor
 	player.source: root.file.localFileUrl
 	playPositionSlider {
 		Layout.minimumWidth: root.minimumWidth - root.leftPadding - parent.spacing * 2 - playButton.width - durationText.width - root.rightPadding

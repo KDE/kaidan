@@ -134,10 +134,10 @@ Kirigami.GlobalDrawer {
 									inputField.onAccepted: passwordConfirmationButton.clicked()
 								}
 
-								Button {
+								IconButton {
 									id: passwordConfirmationButton
-									Controls.ToolTip.text: qsTr("Confirm password")
-									icon.name: "emblem-ok-symbolic"
+									text: qsTr("Confirm password")
+									icon.source: "emblem-ok-symbolic"
 									visible: !passwordBusyIndicator.visible
 									flat: !hovered
 									Layout.preferredWidth: Layout.preferredHeight

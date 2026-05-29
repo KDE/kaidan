@@ -97,7 +97,7 @@ SearchBarPage {
 				}
 			}
 			Layout.topMargin: - Kirigami.Units.mediumSpacing
-			Layout.leftMargin: - Kirigami.Units.mediumSpacing
+			Layout.leftMargin: - Kirigami.Units.smallSpacing
 			Layout.fillWidth: true
 			Layout.fillHeight: true
 			onClicked: {
@@ -114,8 +114,8 @@ SearchBarPage {
 		},
 
 		ToolbarCallButton {
-			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
-			source: "call-start-symbolic"
+			text: MainController.activeCall ? qsTr("Open audio call") : qsTr("Start audio call")
+			icon.source: "call-start-symbolic"
 			visible: {
 				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.audioInputs.length) {
 					if (MainController.activeCall) {
@@ -137,8 +137,8 @@ SearchBarPage {
 		},
 
 		ToolbarCallButton {
-			Controls.ToolTip.text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
-			source: "camera-video-symbolic"
+			text: MainController.activeCall ? qsTr("Open video call") : qsTr("Start video call")
+			icon.source: "camera-video-symbolic"
 			visible: {
 				if (!root.searchField.visible && root.chatController.account.connection.state === Enums.StateConnected && mediaDevices.videoInputs.length) {
 					if (MainController.activeCall) {
@@ -159,9 +159,9 @@ SearchBarPage {
 			}
 		},
 
-		ToolbarButton {
-			Controls.ToolTip.text: qsTr("Search upwards")
-			source: "go-up-symbolic"
+		IconButton {
+			text: qsTr("Search upwards")
+			icon.source: "go-up-symbolic"
 			opacity: root.searchField.opacity
 			visible: root.searchField.visible
 			onClicked: {
@@ -170,9 +170,9 @@ SearchBarPage {
 			}
 		},
 
-		ToolbarButton {
-			Controls.ToolTip.text: qsTr("Search downwards")
-			source: "go-down-symbolic"
+		IconButton {
+			text: qsTr("Search downwards")
+			icon.source: "go-down-symbolic"
 			opacity: root.searchField.opacity
 			visible: root.searchField.visible
 			onClicked: {
@@ -181,10 +181,10 @@ SearchBarPage {
 			}
 		},
 
-		ToolbarButton {
+		IconButton {
 			id: searchButton
-			Controls.ToolTip.text: root.searchField.visible ? qsTr("Quit search") : qsTr("Search")
-			source: "system-search-symbolic"
+			text: root.searchField.visible ? qsTr("Quit search") : qsTr("Search")
+			icon.source: "system-search-symbolic"
 			checkable: true
 		}
 	]
@@ -502,6 +502,7 @@ SearchBarPage {
 		// button for jumping to the latest message
 		Controls.ItemDelegate {
 			icon.name: "go-down-symbolic"
+			icon.width: Kirigami.Units.iconSizes.small
 			background: Kirigami.ShadowedRectangle {
 				color: {
 					if (parent.pressed) {
@@ -525,10 +526,14 @@ SearchBarPage {
 					}
 				}
 			}
-			topPadding: Kirigami.Units.smallSpacing * 3
+			topPadding: Kirigami.Units.smallSpacing * 2
 			bottomPadding: topPadding
 			leftPadding: Kirigami.Units.largeSpacing * 3
 			rightPadding: leftPadding
+			topInset: 0
+			bottomInset: 0
+			leftInset: 0
+			rightInset: 0
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.bottom: parent.bottom
 			anchors.bottomMargin: parent.atYEnd ? - height - background.shadow.size - unreadMessageCounter.height : - background.shadow.size
@@ -566,10 +571,10 @@ SearchBarPage {
 					Layout.fillHeight: true
 				}
 
-				ClickableIcon {
-					Controls.ToolTip.text: qsTr("Cancel forwarding")
-					source: "window-close-symbolic"
-					height: Kirigami.Units.iconSizes.enormous
+				IconButton {
+					text: qsTr("Cancel forwarding")
+					icon.source: "window-close-symbolic"
+					icon.width: Kirigami.Units.iconSizes.enormous
 					Layout.alignment: Qt.AlignHCenter
 					onClicked: root.chatController.messageBodyToForward = ""
 				}

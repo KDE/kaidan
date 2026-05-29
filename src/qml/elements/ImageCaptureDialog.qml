@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Controls as Controls
 import QtMultimedia
 import org.kde.kirigami as Kirigami
 
@@ -22,7 +21,7 @@ NewMediaDialog {
 	}
 	shutterRelease {
 		z: imagePreview.z + 1
-		Controls.ToolTip.text: qsTr("Take picture")
+		text: qsTr("Take picture")
 		icon.source: "camera-photo-symbolic"
 		onClicked: {
 			root.savingCapturedData = true

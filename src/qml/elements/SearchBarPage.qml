@@ -50,20 +50,18 @@ Kirigami.ScrollablePage {
 		}
 		contentItem: RowLayout {
 			id: toolbarContent
-			spacing: Kirigami.Units.mediumSpacing * 2
 
 			Loader {
 				sourceComponent: pageStack.items[0] === root ? drawerHandle : (pageStack.wideMode ? null : backButton)
 				visible: item
-				Layout.leftMargin: - 3
-				Layout.rightMargin: - 3
+				Layout.leftMargin: - 6
 
 				Component {
 					id: drawerHandle
 
-					ToolbarButton {
-						Controls.ToolTip.text: qsTr("Open menu")
-						source: "open-menu-symbolic"
+					IconButton {
+						text: qsTr("Open menu")
+						icon.source: "open-menu-symbolic"
 						onClicked: globalDrawer.open()
 					}
 				}
@@ -71,9 +69,9 @@ Kirigami.ScrollablePage {
 				Component {
 					id: backButton
 
-					ToolbarButton {
-						Controls.ToolTip.text: qsTr("Go back")
-						source: "go-previous-symbolic"
+					IconButton {
+						text: qsTr("Go back")
+						icon.source: "go-previous-symbolic"
 						onClicked: pageStack.goBack()
 					}
 				}

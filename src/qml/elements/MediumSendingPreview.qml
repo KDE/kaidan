@@ -4,7 +4,6 @@
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -58,7 +57,7 @@ MediumPreview {
 
 	IconButton {
 		id: mediumRemovalButton
-		Controls.ToolTip.text: qsTr("Remove file")
+		text: qsTr("Remove file")
 		icon.source: "window-close-symbolic"
 		onClicked: root.selectionModel.removeFile(root.modelData.index)
 	}

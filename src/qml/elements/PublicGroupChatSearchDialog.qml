@@ -92,11 +92,11 @@ Dialog {
 									color: Kirigami.Theme.negativeBackgroundColor
 								}
 
-								ClickableIcon {
+								IconButton {
 									id: retryButton
-									Controls.ToolTip.text: qsTr("Retry")
-									source: "view-refresh-symbolic"
-									implicitHeight: Kirigami.Units.iconSizes.smallMedium
+									text: qsTr("Retry")
+									icon.source: "view-refresh-symbolic"
+									icon.width: Kirigami.Units.iconSizes.smallMedium
 									anchors.right: parent.right
 									anchors.rightMargin: Kirigami.Units.largeSpacing
 									anchors.verticalCenter: parent.verticalCenter

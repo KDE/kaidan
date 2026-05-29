@@ -76,14 +76,11 @@ ExplanationOptionsTogglePage {
 							}
 						}
 
-						Button {
+						IconButton {
 							id: encryptionKeyAuthenticationButton
-							Controls.ToolTip.text: qsTr("Verify device")
-							icon.name: "emblem-ok-symbolic"
+							text: qsTr("Verify device")
+							icon.source: "emblem-ok-symbolic"
 							visible: !encryptionKeyBusyIndicator.visible
-							flat: !hovered
-							Layout.preferredWidth: Layout.preferredHeight
-							Layout.preferredHeight: encryptionKeyField.implicitHeight
 							onClicked: {
 								// Remove empty spaces from the key ID and convert it to lower case.
 								const keyId = encryptionKeyField.text.replace(/\s/g, "").toLowerCase()
@@ -154,13 +151,10 @@ ExplanationOptionsTogglePage {
 						onClicked: encryptionKeyCopyButton.clicked()
 					}
 
-					Button {
+					IconButton {
 						id: encryptionKeyCopyButton
 						text: qsTr("Copy fingerprint")
-						icon.name: "edit-copy-symbolic"
-						display: Controls.AbstractButton.IconOnly
-						flat: !hovered && !encryptionKeyDelegate.hovered
-						Controls.ToolTip.text: text
+						icon.source: "edit-copy-symbolic"
 						onClicked: {
 							Utils.copyToClipboard(model.keyId)
 							passiveNotification(qsTr("Fingerprint copied to clipboard"))

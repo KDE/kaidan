@@ -279,18 +279,16 @@ ClickableItemDelegate {
 		listItem: root.contentItem
 		listView: root.listView
 		incrementalMoves: false
-		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredWidth: Kirigami.Units.iconSizes.small
+		Layout.preferredHeight: Kirigami.Units.iconSizes.small
 		onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
 		onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
 	}
 
-	ClickableIcon {
-		Controls.ToolTip.text: root.pinned ? qsTr("Unpin") : qsTr("Pin")
-		source: root.pinned ? "starred-symbolic" : "non-starred-symbolic"
+	IconButton {
+		text: root.pinned ? qsTr("Unpin") : qsTr("Pin")
+		icon.source: root.pinned ? "starred-symbolic" : "non-starred-symbolic"
 		visible: root.pinModeActive
-		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-		Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 		onClicked: {
 			if (root.pinned) {
 				RosterModel.unpinItem(root.accountJid, root.jid)

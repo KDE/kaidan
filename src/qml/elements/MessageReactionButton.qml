@@ -4,8 +4,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -21,7 +19,6 @@ Button {
 
 	height: Kirigami.Theme.defaultFont.pixelSize * 2.1
 	width: smallButtonWidth
-	hoverEnabled: true
 	background: RoundedRectangle {
 		color: {
 			if (root.hovered) {
@@ -34,5 +31,11 @@ Button {
 		Behavior on color {
 			ColorAnimation { duration: Kirigami.Units.shortDuration }
 		}
+	}
+	contentItem: Text {
+		text: root.text
+		font: root.font
+		horizontalAlignment: Text.AlignHCenter
+		verticalAlignment: Text.AlignVCenter
 	}
 }

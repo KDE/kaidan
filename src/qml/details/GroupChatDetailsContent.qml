@@ -62,13 +62,10 @@ RosterItemDetailsContent {
 								Component.onCompleted: root.inviteeSearchField = this
 							}
 
-							Button {
+							IconButton {
 								id: inviteeButton
-								Controls.ToolTip.text: qsTr("Invite selected contacts")
-								icon.name: "go-next-symbolic"
-								flat: !hovered
-								Layout.preferredWidth: Layout.preferredHeight
-								Layout.preferredHeight: inviteeSearchField.implicitHeight
+								text: qsTr("Invite selected contacts")
+								icon.source: "go-next-symbolic"
 								onClicked: {
 									visible = false
 									inviteeListView.inviteSelectedContacts()

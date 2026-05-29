@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -14,13 +13,11 @@ ContactDelegate {
 	property Account account
 	property string chatJid
 
-	Button {
+	IconButton {
 		text: qsTr("Ban")
-		icon.name: "edit-delete-symbolic"
+		icon.source: "edit-delete-symbolic"
 		visible: root.account.settings.enabled && root.account.connection.state === Enums.StateConnected
-		display: Controls.AbstractButton.IconOnly
 		flat: !root.hovered
-		Controls.ToolTip.text: text
 		Layout.rightMargin: Kirigami.Units.smallSpacing * 3
 		onClicked: root.account.groupChatController.banUser(root.account.settings.jid, root.chatJid, root.jid)
 	}

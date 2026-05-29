@@ -10,9 +10,11 @@ import org.kde.kirigami as Kirigami
  */
 Rectangle {
 	property Item interactionItem: parent
+	property bool flat: true
+	property bool inverted: false
 
 	radius: roundedCornersRadius
-	color: interactiveBackgroundColor(interactionItem)
+	color: interactiveBackgroundColor(interactionItem, flat, inverted)
 
 	Behavior on color {
 		ColorAnimation {

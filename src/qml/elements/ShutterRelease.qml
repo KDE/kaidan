@@ -10,8 +10,9 @@ import im.kaidan.kaidan
 
 IconButton {
 	id: root
-	icon.width: Kirigami.Units.iconSizes.medium
+	icon.width: Kirigami.Units.iconSizes.smallMedium
 	flat: false
+	inverted: true
 	contentItem: Loader {
 		sourceComponent: parent.enabled ? icon : busyIndicator
 

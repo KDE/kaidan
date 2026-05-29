@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Controls as Controls
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
@@ -14,10 +13,10 @@ import im.kaidan.kaidan
 FormCard.FormTextDelegate {
 	id: root
 	background: NonInteractiveFormDelegateBackground {}
-	trailing: Button {
+	trailing: IconButton {
 		id: copyButton
-		Controls.ToolTip.text: qsTr("Copy")
-		icon.name: "edit-copy-symbolic"
+		text: qsTr("Copy")
+		icon.source: "edit-copy-symbolic"
 		onClicked: Utils.copyToClipboard(root.description)
 	}
 }

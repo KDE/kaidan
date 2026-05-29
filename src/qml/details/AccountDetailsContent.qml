@@ -78,14 +78,11 @@ DetailsContent {
 						onAccepted: vCardConfirmationButton.clicked()
 					}
 
-					Button {
+					IconButton {
 						id: vCardConfirmationButton
-						Controls.ToolTip.text: qsTr("Set value")
-						icon.name: "emblem-ok-symbolic"
+						text: qsTr("Set value")
+						icon.source: "emblem-ok-symbolic"
 						visible: !vCardBusyIndicator.visible
-						flat: !hovered
-						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: vCardValueField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
 						onClicked: {
 							vCardBusyIndicator.visible = true
@@ -190,22 +187,19 @@ DetailsContent {
 					onAccepted: rosterGroupEditingButton.toggled()
 				}
 
-				Button {
+				IconButton {
 					id: rosterGroupEditingButton
 					text: qsTr("Change label…")
-					icon.name: "document-edit-symbolic"
-					display: Controls.AbstractButton.IconOnly
+					icon.source: "document-edit-symbolic"
 					checkable: true
 					checked: !rosterGroupText.visible
 					visible: root.account.settings.enabled
-					flat: !hovered
 					// Ensure that the button can be used within "rosterGroupDelegate"
 					// which acts as an overlay to toggle this button when clicked.
 					// Otherwise, this button would be toggled by "rosterGroupDelegate"
 					// and by this button's own visible area at the same time resulting
 					// in resetting the toggling on each click.
 					autoRepeat: true
-					Controls.ToolTip.text: text
 					onToggled: {
 						if (rosterGroupText.visible) {
 							rosterGroupTextField.visible = true
@@ -221,14 +215,12 @@ DetailsContent {
 					}
 				}
 
-				Button {
+				IconButton {
 					id: rosterGroupRemovalButton
 					text: qsTr("Remove label")
-					icon.name: "edit-delete-symbolic"
+					icon.source: "edit-delete-symbolic"
 					display: Controls.AbstractButton.IconOnly
-					flat: !rosterGroupDelegate.hovered
 					visible: root.account.settings.enabled
-					Controls.ToolTip.text: text
 					onClicked: {
 						rosterGroupTextField.visible = false
 						root.account.rosterController.removeGroup(modelData)
@@ -524,15 +516,12 @@ DetailsContent {
 									}
 								}
 
-								Button {
+								IconButton {
 									id: blockingButton
-									Controls.ToolTip.text: qsTr("Block chat address")
-									icon.name: "list-add-symbolic"
+									text: qsTr("Block chat address")
+									icon.source: "list-add-symbolic"
 									visible: !root.account.blockingController.busy
 									enabled: blockingTextField.text.length
-									flat: !hovered || !enabled
-									Layout.preferredWidth: Layout.preferredHeight
-									Layout.preferredHeight: blockingTextField.implicitHeight
 									Layout.rightMargin: Kirigami.Units.largeSpacing
 									onClicked: {
 										const jid = blockingTextField.text
@@ -587,16 +576,13 @@ DetailsContent {
 						onAccepted: blockingEditingButton.toggled()
 					}
 
-					Button {
+					IconButton {
 						id: blockingEditingButton
 						text: qsTr("Change chat address…")
-						icon.name: "document-edit-symbolic"
-						display: Controls.AbstractButton.IconOnly
+						icon.source: "document-edit-symbolic"
 						checkable: true
 						checked: !blockingText.visible
-						flat: !hovered
 						visible: root.account.settings.enabled
-						Controls.ToolTip.text: text
 						// Ensure that the button can be used within "blockingDelegate"
 						// which acts as an overlay to toggle this button when clicked.
 						// Otherwise, this button would be toggled by "blockingDelegate"
@@ -619,13 +605,10 @@ DetailsContent {
 						}
 					}
 
-					Button {
+					IconButton {
 						text: qsTr("Unblock")
-						icon.name: "edit-delete-symbolic"
-						display: Controls.AbstractButton.IconOnly
-						flat: !blockingDelegate.hovered
+						icon.source: "edit-delete-symbolic"
 						visible: root.account.settings.enabled
-						Controls.ToolTip.text: text
 						onClicked: root.account.blockingController.unblock(model.jid)
 					}
 				}
@@ -740,14 +723,11 @@ DetailsContent {
 						}
 					}
 
-					Button {
+					IconButton {
 						id: passwordChangeButton
-						Controls.ToolTip.text: qsTr("Change password")
+						text: qsTr("Change password")
 						icon.name: "emblem-ok-symbolic"
 						visible: !passwordBusyIndicator.visible
-						flat: !hovered
-						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: passwordField.inputField.implicitHeight
 						Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
 						onClicked: {
 							passwordField.invalidHintMayBeShown = true

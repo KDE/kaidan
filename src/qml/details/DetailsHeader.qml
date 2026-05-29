@@ -82,16 +82,14 @@ FormInfoHeader {
 			id: displayNameArea
 			spacing: 0
 
-			Button {
+			IconButton {
 				id: displayNameEditingButton
 				text: qsTr("Change name…")
-				icon.name: "document-edit-symbolic"
-				display: Controls.AbstractButton.IconOnly
+				icon.source: "document-edit-symbolic"
 				checkable: true
 				checked: !displayNameText.visible
 				flat: !hovered && !displayNameMouseArea.containsMouse
 				visible: root.account.settings.enabled && root.changeDisplayName
-				Controls.ToolTip.text: text
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
 				onClicked: {

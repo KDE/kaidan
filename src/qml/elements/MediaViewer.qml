@@ -85,7 +85,7 @@ Controls.Control {
 				spacing: Kirigami.Units.smallSpacing
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Close media viewer")
+					text: qsTr("Close media viewer")
 					icon.source: "go-previous-symbolic"
 					onClicked: popPage()
 				}
@@ -106,20 +106,20 @@ Controls.Control {
 
 				IconButton {
 					id: detailsButton
-					Controls.ToolTip.text: checked ? qsTr("Hide details") : qsTr("Show details")
+					text: checked ? qsTr("Hide details") : qsTr("Show details")
 					icon.source: "info-symbolic"
 					checkable: true
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Go to message")
+					text: qsTr("Go to message")
 					icon.source: "internet-mail-symbolic"
 					visible: mediaListView.currentItemLocallyAvailable
 					onClicked: root.highlightMessageRequested(mediaListView.currentItemModel.message.relevantId)
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Remove")
+					text: qsTr("Remove")
 					icon.source: "edit-delete-symbolic"
 					visible: mediaListView.currentItemModel?.file.locallyAvailable ?? false
 					onClicked: {
@@ -129,14 +129,14 @@ Controls.Control {
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Open in folder")
+					text: qsTr("Open in folder")
 					icon.source: "folder-symbolic"
 					visible: mediaListView.currentItemLocallyAvailable
 					onClicked: MediaUtils.openFileInFolder(mediaListView.currentItemModel.file.localFileUrl)
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Open externally")
+					text: qsTr("Open externally")
 					icon.source: "view-fullscreen-symbolic"
 					visible: mediaListView.currentItemLocallyAvailable
 					onClicked: {
@@ -258,14 +258,14 @@ Controls.Control {
 				spacing: Kirigami.Units.smallSpacing
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Previous")
+					text: qsTr("Previous")
 					icon.source: "go-previous-symbolic"
 					enabled: mediaListView.currentIndex > 0
 					onClicked: mediaListView.decrementCurrentIndex()
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Next")
+					text: qsTr("Next")
 					icon.source: "go-next-symbolic"
 					enabled: mediaListView.currentIndex < mediaListView.count - 1
 					onClicked: mediaListView.incrementCurrentIndex()

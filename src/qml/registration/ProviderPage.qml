@@ -124,15 +124,13 @@ RegistrationRequestPage {
 													choiceButton.clicked()
 												}
 											}
-											trailing: ClickableIcon {
-												Controls.ToolTip.text: qsTr("Show connection settings")
-												source: "preferences-system-symbolic"
-												implicitWidth: Kirigami.Units.iconSizes.small
-												implicitHeight: Kirigami.Units.iconSizes.small
+											trailing: IconButton {
+												id: customConnectionSettingsButton
+												text: qsTr("Show connection settings")
+												icon.source: "preferences-system-symbolic"
+												checkable: true
 												Layout.leftMargin: Kirigami.Units.mediumSpacing
-												onClicked: {
-													customConnectionSettings.visible = !customConnectionSettings.visible
-
+												onToggled: {
 													if (customConnectionSettings.visible) {
 														customConnectionSettings.forceActiveFocus()
 													} else {
@@ -146,7 +144,7 @@ RegistrationRequestPage {
 											id: customConnectionSettings
 											accountSettings: root.account.settings
 											confirmationButton: choiceButton
-											visible: false
+											visible: customConnectionSettingsButton.checked
 										}
 
 										Connections {

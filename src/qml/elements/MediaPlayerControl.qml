@@ -4,7 +4,6 @@
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import QtMultimedia as Multimedia
 import org.kde.kirigami as Kirigami
 
@@ -32,7 +31,7 @@ IconButtonArea {
 
 			readonly property bool playing: player.playbackState === Multimedia.MediaPlayer.PlayingState
 
-			Controls.ToolTip.text: playing ? qsTr("Pause") : qsTr("Play")
+			text: playing ? qsTr("Pause") : qsTr("Play")
 			icon.source: playing ? "media-playback-pause-symbolic" : "media-playback-start-symbolic"
 			onClicked: playing ? player.pause() : player.play()
 		}

@@ -8,7 +8,6 @@
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -55,7 +54,7 @@ Kirigami.Dialog {
 		implicitHeight: 1
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Remove file")
+			text: qsTr("Remove file")
 			icon.source: "list-remove-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
@@ -63,7 +62,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Open file in folder")
+			text: qsTr("Open file in folder")
 			icon.source: "folder-symbolic"
 			contextMenu: root
 			shown: root.localFileAvailable
@@ -76,7 +75,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Resend")
+			text: qsTr("Resend")
 			icon.source: "view-refresh-symbolic"
 			contextMenu: root
 			shown: root.message.deliveryState === Enums.Error
@@ -84,7 +83,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("React")
+			text: qsTr("React")
 			icon.source:  "emoji-people-symbolic"
 			iconFallback: "smiley-add"
 			contextMenu: root
@@ -106,7 +105,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Reply")
+			text: qsTr("Reply")
 			icon.source: "mail-reply-sender-symbolic"
 			contextMenu: root
 			shown: {
@@ -124,7 +123,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Quote")
+			text: qsTr("Quote")
 			icon.source: "mail-reply-all-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
@@ -132,7 +131,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Forward")
+			text: qsTr("Forward")
 			icon.source: "mail-forward-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody
@@ -140,7 +139,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Copy")
+			text: qsTr("Copy")
 			icon.source: "edit-copy-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody || root.message.spoilerHint
@@ -154,7 +153,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Edit")
+			text: qsTr("Edit")
 			icon.source: "document-edit-symbolic"
 			contextMenu: root
 			shown: root.message.chatController.messageModel.canCorrectMessage(root.message.modelIndex)
@@ -165,7 +164,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Mark")
+			text: qsTr("Mark")
 			icon.source: "mail-mark-important-symbolic"
 			contextMenu: root
 			shown: !root.message.marked
@@ -173,7 +172,7 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			Controls.ToolTip.text: qsTr("Remove from this device")
+			text: qsTr("Remove from this device")
 			icon.source: "edit-delete-symbolic"
 			contextMenu: root
 			onClicked: {

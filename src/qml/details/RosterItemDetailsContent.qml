@@ -74,15 +74,12 @@ DetailsContent {
 								}
 							}
 
-							Button {
+							IconButton {
 								id: rosterGroupAdditionButton
-								Controls.ToolTip.text: qsTr("Add label")
-								icon.name: "list-add-symbolic"
+								text: qsTr("Add label")
+								icon.source: "list-add-symbolic"
 								enabled: rosterGroupField.text.length
 								visible: !rosterGroupBusyIndicator.visible
-								flat: !hovered || !enabled
-								Layout.preferredWidth: Layout.preferredHeight
-								Layout.preferredHeight: rosterGroupField.implicitHeight
 								Layout.rightMargin: Kirigami.Units.largeSpacing
 								onClicked: {
 									let groups = root.chatController.rosterItem.groups

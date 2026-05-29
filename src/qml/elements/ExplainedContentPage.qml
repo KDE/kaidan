@@ -95,7 +95,7 @@ Kirigami.Page {
 			Layout.maximumWidth: largeButtonWidth
 			Layout.bottomMargin: secondaryButton.visible ? 0 : Kirigami.Units.largeSpacing
 
-			CenteredAdaptiveHighlightedButton {
+			CenteredAdaptiveButton {
 				id: primaryButton
 			}
 

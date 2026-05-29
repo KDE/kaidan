@@ -49,16 +49,10 @@ Map {
 		}
 	}
 
-	ClickableText {
+	TextButton {
 		text: qsTr("© OpenStreetMap")
-		horizontalAlignment: Text.AlignHCenter
-		scaleFactor: 0.9
+		font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
 		padding: Kirigami.Units.smallSpacing
-		background: Rectangle {
-			color: primaryBackgroundColor
-			opacity: 0.8
-			radius: roundedCornersRadius
-		}
 		anchors {
 			left: parent.left
 			bottom: parent.bottom

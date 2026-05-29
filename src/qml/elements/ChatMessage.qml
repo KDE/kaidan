@@ -21,7 +21,7 @@ import im.kaidan.kaidan
 Controls.ItemDelegate {
 	id: root
 
-	property ToolbarButton messageSearchButton
+	property Button messageSearchButton
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
 	property ChatController chatController
@@ -231,7 +231,7 @@ Controls.ItemDelegate {
 							}
 
 							IconButton {
-								Controls.ToolTip.text: root.isShowingSpoiler ? qsTr("Hide hidden message part") : qsTr("Show hidden message part")
+								text: root.isShowingSpoiler ? qsTr("Hide hidden message part") : qsTr("Show hidden message part")
 								icon.source: root.isShowingSpoiler ? "eye-not-looking-symbolic" : "eye-open-negative-filled-symbolic"
 								iconFallback: root.isShowingSpoiler ? "password-show-off" :  "password-show-on"
 								Layout.leftMargin: Kirigami.Units.largeSpacing

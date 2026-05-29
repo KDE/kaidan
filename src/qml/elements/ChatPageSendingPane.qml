@@ -103,7 +103,7 @@ Controls.Pane {
 
 			IconButton {
 				id: replyCancelingButton
-				Controls.ToolTip.text: qsTr("Cancel reply")
+				text: qsTr("Cancel reply")
 				icon.source: "window-close-symbolic"
 				onClicked: root.cancelReply()
 			}
@@ -146,7 +146,7 @@ Controls.Pane {
 			}
 
 			IconButton {
-				Controls.ToolTip.text: qsTr("Cancel adding hidden message part")
+				text: qsTr("Cancel adding hidden message part")
 				icon.source: "window-close-symbolic"
 				onClicked: {
 					root.composition.isSpoiler = false
@@ -167,10 +167,10 @@ Controls.Pane {
 			// emoji picker button
 			IconButton {
 				id: emojiButton
+				text: root.emojiPicker ? qsTr("Cancel") : qsTr("Add an emoji")
 				icon.source:  "emoji-people-symbolic"
 				iconFallback: "smiley-symbolic"
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
-				Controls.ToolTip.text: root.emojiPicker ? qsTr("Cancel") : qsTr("Add an emoji")
 				onClicked: {
 					messageArea.selectWord()
 					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
@@ -196,10 +196,10 @@ Controls.Pane {
 
 			// group chat participant mentioning button
 			IconButton {
+				text: qsTr("Mention a participant")
 				icon.source: "avatar-default-symbolic"
 				visible: root.chatPage.chatController.rosterItem.isGroupChat
 				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
-				Controls.ToolTip.text: qsTr("Mention a participant")
 				onClicked: {
 					messageArea.selectWord()
 					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
@@ -360,21 +360,21 @@ Controls.Pane {
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Take a picture")
+					text: qsTr("Take a picture")
 					icon.source: "camera-photo-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(imageCaptureDialog)
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Record a video")
+					text: qsTr("Record a video")
 					icon.source: "camera-video-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: expansionArea.openDialog(videoRecordingDialog)
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Share files")
+					text: qsTr("Share files")
 					icon.source: "folder-symbolic"
 					visible: root.chatPage.chatController.account.settings.httpUploadLimit
 					onClicked: {
@@ -384,14 +384,14 @@ Controls.Pane {
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Share your location")
+					text: qsTr("Share your location")
 					icon.source: "mark-location-symbolic"
 					visible: root.chatPage.chatController.account.connection.state === Enums.StateConnected
 					onClicked: expansionArea.openNewPage(geoLocationSharingPage)
 				}
 
 				IconButton {
-					Controls.ToolTip.text: qsTr("Add hidden message part")
+					text: qsTr("Add hidden message part")
 					icon.source: "eye-not-looking-symbolic"
 					iconFallback: "password-show-off"
 					visible: !root.composition.isSpoiler
@@ -454,7 +454,7 @@ Controls.Pane {
 
 			// Expansion button
 			IconButton {
-				Controls.ToolTip.text: expansionArea.visible ? qsTr("Hide") :qsTr("More")
+				text: expansionArea.visible ? qsTr("Hide") :qsTr("More")
 				icon.source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
 				opacity: !root.composition.replaceId && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState ? 1 : 0
 				onClicked: expansionArea.toggle()
@@ -526,7 +526,7 @@ Controls.Pane {
 				// The recording can be canceled if this button is released after sliding it to the left.
 				property bool recordingWhileHolding: false
 
-				Controls.ToolTip.text: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? qsTr("Send") : qsTr("Record a voice message")
+				text: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? qsTr("Send") : qsTr("Record a voice message")
 				icon.source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
 				opacity: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId ? 1 : 0
 				longPressBehaviorEnabled: false
@@ -568,9 +568,9 @@ Controls.Pane {
 
 			IconButton {
 				id: sendButton
+				text: qsTr("Send")
 				icon.source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
 				opacity: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId)) ? 1 : 0
-				Controls.ToolTip.text: qsTr("Send")
 				onClicked: {
 					// Do not allow sending via keys if hidden.
 					if (!visible) {
@@ -609,7 +609,7 @@ Controls.Pane {
 			// Button to cancel message correction or voice message recording
 			IconButton {
 				id: cancelButton
-				Controls.ToolTip.text: qsTr("Cancel")
+				text: qsTr("Cancel")
 				visible: root.composition.replaceId || (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState && (!voiceMessageButton.recordingWhileHolding || voiceMessageCancelButtonPlaceholder.implicitWidth >= width))
 				icon.source: "window-close-symbolic"
 				onClicked: {

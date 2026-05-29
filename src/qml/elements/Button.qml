@@ -10,41 +10,55 @@ import org.kde.kirigami as Kirigami
 import im.kaidan.kaidan
 
 /**
- * This is a button fitting mobile and desktop user interfaces.
+ * Base for round buttons with a background changing its color on interaction and a tooltip.
  */
-Controls.Button {
-	property bool remainTooltip: false
+Controls.AbstractButton {
+	id: root
 
-	flat: Style.isMaterial
+	property bool flat: true
+	property bool inverted: false
+	property bool longPressBehaviorEnabled: true
+	property bool _longPressed: false
+
 	hoverEnabled: true
+	visible: opacity
+	background: InteractiveBackground {
+		interactionItem: root
+		flat: root.flat
+		inverted: root.inverted
+		radius: height / 2
+	}
+	Controls.ToolTip.text: text
+	Controls.ToolTip.visible: enabled && !pressed && hovered
 	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.veryLongDuration * 2
 	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
-	onHoveredChanged: {
-		if (Controls.ToolTip.text && !Kirigami.Settings.isMobile) {
-			if (hovered) {
-				Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
-			} else {
-				Controls.ToolTip.hide()
-			}
-		}
-	}
-	onPressed: {
-		if (Controls.ToolTip.text && !Kirigami.Settings.isMobile) {
-			Controls.ToolTip.hide()
-		}
-	}
+	Kirigami.Theme.colorSet: Kirigami.Theme.Window
+	Kirigami.Theme.inherit: false
+	onClicked: Controls.ToolTip.hide()
 	onPressAndHold: {
-		if (Controls.ToolTip.text && Kirigami.Settings.isMobile) {
-			remainTooltip = true
-			Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
+		if (longPressBehaviorEnabled) {
+			_longPressed = true
+
+			if (Kirigami.Settings.isMobile) {
+				Controls.ToolTip.visible = true
+			}
 		}
 	}
 	onReleased: {
-		if (Controls.ToolTip.text && Kirigami.Settings.isMobile) {
-			if (remainTooltip) {
-				remainTooltip = false
-				Controls.ToolTip.show(Controls.ToolTip.text, Controls.ToolTip.timeout)
+		// Simulate clicking if the mouse cursor is still on the button while releasing after a long press.
+		// That is needed because if "onPressAndHold" is used, the desired functionality does not work anymore.
+		if (longPressBehaviorEnabled && !Kirigami.Settings.isMobile && _longPressed) {
+			_longPressed = false
+
+			if (checkable) {
+				toggle()
+			} else {
+				clicked()
 			}
 		}
+	}
+
+	Behavior on opacity {
+		NumberAnimation {}
 	}
 }

@@ -17,7 +17,7 @@ LoadingStackArea {
 		spacing: Kirigami.Units.largeSpacing
 	}
 
-	CenteredAdaptiveHighlightedButton {
+	CenteredAdaptiveButton {
 		id: confirmationButton
 	}
 }

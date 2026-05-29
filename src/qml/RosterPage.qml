@@ -12,7 +12,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -29,16 +28,16 @@ SearchBarPage {
 		onTextChanged: rosterListView.model.setFilterFixedString(searchField.text.toLowerCase())
 	}
 	toolbarItems: [
-		ToolbarButton {
-			Controls.ToolTip.text: qsTr("Filter")
-			source: "filter-symbolic"
+		IconButton {
+			text: qsTr("Filter")
+			icon.source: "filter-symbolic"
 			onClicked: openView(rosterFilterDialog, rosterFilterPage)
 		},
 
-		ToolbarButton {
+		IconButton {
 			id: pinButton
-			Controls.ToolTip.text: qsTr("Pin & Move")
-			source: checked ? "starred-symbolic" : "non-starred-symbolic"
+			text: qsTr("Pin & Move")
+			icon.source: checked ? "starred-symbolic" : "non-starred-symbolic"
 			checkable: true
 			onClicked: root.forceActiveFocus()
 		}

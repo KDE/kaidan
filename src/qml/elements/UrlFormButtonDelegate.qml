@@ -2,8 +2,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
-import QtQuick.Controls as Controls
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
@@ -23,10 +21,10 @@ FormCard.FormTextDelegate {
 	background: FormCard.FormDelegateBackground {
 		control: parent
 	}
-	trailing: Button {
+	trailing: IconButton {
 		id: copyButton
-		Controls.ToolTip.text: qsTr("Copy web address")
-		icon.name: "edit-copy-symbolic"
+		text: qsTr("Copy web address")
+		icon.source: "edit-copy-symbolic"
 		onClicked: Utils.copyToClipboard(root.url)
 	}
 	onClicked: Qt.openUrlExternally(url)
