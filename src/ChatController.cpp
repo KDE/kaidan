@@ -45,7 +45,7 @@ ChatController::ChatController(QObject *parent)
 ChatController::~ChatController()
 {
     m_notificationController->setChatController(nullptr);
-    resetPreviousChat();
+    m_chatStateController->resetPreviousChat();
 }
 
 void ChatController::initialize(Account *account, const QString &jid)
