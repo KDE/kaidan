@@ -24,7 +24,7 @@ Slider {
 	background: Rectangle {
 		color: primaryBackgroundColor
 		opacity: 0.9
-		radius: relativeRoundedCornersRadius(parent.width, parent.height) * 3
+		radius: height / 2
 		height: implicitHeight
 		implicitHeight: Kirigami.Units.largeSpacing * 4
 		anchors.verticalCenter: parent.verticalCenter
