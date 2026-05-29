@@ -145,7 +145,7 @@ SearchBarPage {
 				root.searchField.clear()
 
 				if (!root.activeChatPage) {
-					let activeChatController = chatController.createObject(null)
+					let activeChatController = chatController.createObject(root)
 					activeChatController.initialize(AccountController.account(accountJid), chatJid)
 
 					closePagesExceptRosterPage()

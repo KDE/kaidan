@@ -840,6 +840,7 @@ SearchBarPage {
 			}
 		}
 	}
+	Component.onDestruction: chatController.destroy()
 
 	// Shortcut to show search field.
 	Shortcut {
