@@ -89,7 +89,13 @@ Kirigami.Page {
 
 			CenteredAdaptiveButton {
 				text: qsTr("Open image…")
-				onClicked: root.imagePath = MediaUtils.openFile()
+				onClicked: {
+					const imagePath = MediaUtils.openFile()
+
+					if (imagePath.toString()) {
+						root.imagePath = imagePath
+					}
+				}
 			}
 
 			CenteredAdaptiveButton {
