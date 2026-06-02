@@ -13,13 +13,13 @@ import ".."
 /**
  * This is a JID field with a hint for invalid JIDs.
  */
-CredentialsField {
+Field {
 	id: root
-	labelText: qsTr("Chat address")
+	label: qsTr("Chat address")
 	placeholderText: qsTr("user@example.org")
+	invalidHintText: qsTr("Enter a valid chat address")
 	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | Field.inputMethodHints
-	invalidHintText: qsTr("The chat address must have the form <b>username@server</b>")
-	valid: credentialsValidator.isUserJidValid(text)
+	inputValidator.patterns: InputValidator.Pattern.Jid
 	completionRole: "display"
 	completionModel: HostCompletionProxyModel {
 		userInput: root.input

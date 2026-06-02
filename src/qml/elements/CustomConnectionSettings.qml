@@ -1,12 +1,14 @@
 // SPDX-FileCopyrightText: 2021 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2021 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
@@ -29,74 +31,53 @@ ColumnLayout {
 	spacing: 0
 	Component.onCompleted: resetChangesPending()
 
-	FormCard.AbstractFormDelegate {
-		background: null
-		contentItem: RowLayout {
-			Field {
-				id: hostField
-				labelText: qsTr("Hostname:")
-				placeholderText: "xmpp.example.org"
-				text: root.accountSettings.host
-				inputMethodHints: Qt.ImhUrlCharactersOnly
-				invalidHintText: qsTr("The hostname must not contain blank spaces")
-				invalidHintMayBeShown: true
-				valid: !text.match(/\s/)
-				inputField.onEditingFinished: root.accountSettings.host = text
-				// Focus the portField on confirmation.
-				Keys.onPressed: event => {
-					switch (event.key) {
-					case Qt.Key_Return:
-					case Qt.Key_Enter:
-						portField.forceActiveFocus()
-						event.accepted = true
-					}
+	RowLayout {
+		Field {
+			id: hostField
+			label: qsTr("Hostname")
+			placeholderText: "xmpp.example.org"
+			text: root.accountSettings.host
+			inputMethodHints: Qt.ImhUrlCharactersOnly
+			invalidHintText: qsTr("Enter a valid hostname or leave it empty")
+			inputValidator.patterns: InputValidator.Pattern.Hostname | InputValidator.Pattern.Empty
+			rightPadding: 0
+			onEditingFinished: root.accountSettings.host = text
+			onAccepted: portField.forceActiveFocus()
+		}
+
+		FormCard.FormSpinBoxDelegate {
+			id: portField
+			label: qsTr("Port")
+			from: root.accountSettings.autoDetectPort
+			to: 65535
+			value: root.accountSettings.port
+			textFromValue: function(value, locale) {
+				return value === root.accountSettings.autoDetectPort ? "" : value.toString()
+			}
+			validator: InputValidator {
+				patterns: InputValidator.Pattern.Port
+			}
+			leftPadding: 0
+			Layout.alignment: Qt.AlignTop
+			Layout.preferredWidth: Kirigami.Units.largeSpacing * 10
+			Layout.fillWidth: false
+			onValueChanged: root.accountSettings.port = value
+			// TODO: Remove the following lines once Kirigami Addons > v1.12.1 is required by Kaidan.
+			onActiveFocusChanged: {
+				if (activeFocus) {
+					portField.clicked()
 				}
 			}
+			// Simulate the pressing of the currently clickable confirmation button.
+			Keys.onPressed: event => {
+				switch (event.key) {
+					case Qt.Key_Return:
+					case Qt.Key_Enter:
+					// Trigger that the text inside portField is set as its value.
+					confirmationButton.forceActiveFocus()
 
-			ColumnLayout {
-				// Position this field on top even if hostField.invalidHintText is shown.
-				Layout.alignment: Qt.AlignCenter
-
-				Controls.Label {
-					text: qsTr("Port:")
-				}
-
-				Controls.SpinBox {
-					id: portField
-					editable: true
-					from: root.accountSettings.autoDetectPort
-					to: 65535
-					value: root.accountSettings.port
-					live: true
-					Layout.minimumWidth: 80
-					textFromValue: function(value, locale) {
-						// Return an empty string if no custom port is set.
-						if (value === root.accountSettings.autoDetectPort) {
-							return ""
-						}
-
-						// By returning the value without taking the locale into account, no digit grouping is applied.
-						// Example: For a port number of "one thousand" the text "1000" instead of "1,000" is returned.
-						return value
-					}
-					// Allow only an empty string (for no custom port) as input or input from 1 to 99999.
-					// Without defining an own validator, zeros at the beginning and dots between the digits and at the end would be valid.
-					validator: RegularExpressionValidator {
-						regularExpression: /\b(\s|[1-9])[0-9]{4}/
-					}
-					onValueChanged: root.accountSettings.port = value
-					// Simulate the pressing of the currently clickable confirmation button.
-					Keys.onPressed: event => {
-						switch (event.key) {
-						case Qt.Key_Return:
-						case Qt.Key_Enter:
-							// Trigger that the text inside portField is set as its value.
-							confirmationButton.forceActiveFocus()
-
-							confirmationButton.clicked()
-							event.accepted = true
-						}
-					}
+					confirmationButton.clicked()
+					event.accepted = true
 				}
 			}
 		}

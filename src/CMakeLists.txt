@@ -76,8 +76,6 @@ target_sources(libkaidancore PRIVATE
     ContactTrustMessageUriGenerator.h
     CredentialsGenerator.cpp
     CredentialsGenerator.h
-    CredentialsValidator.cpp
-    CredentialsValidator.h
     DatabaseComponent.cpp
     DatabaseComponent.h
     Database.cpp
@@ -125,6 +123,8 @@ target_sources(libkaidancore PRIVATE
     HostCompletionModel.h
     HostCompletionProxyModel.cpp
     HostCompletionProxyModel.h
+    InputValidator.cpp
+    InputValidator.h
     JsonUtils.h
     Keychain.cpp
     Keychain.h

@@ -19,12 +19,12 @@
 #include "Blocking.h"
 #include "CallController.h"
 #include "ChatStateCache.h"
-#include "CredentialsValidator.h"
 #include "DiscoveryController.h"
 #include "EncryptionController.h"
 #include "FileSharingController.h"
 #include "Globals.h"
 #include "GroupChatController.h"
+#include "InputValidator.h"
 #include "LogHandler.h"
 #include "MessageController.h"
 #include "NotificationController.h"
@@ -690,13 +690,13 @@ Account::LoginWithUriResult Account::logInWithUri(const QString &uriString)
         const auto jid = uri.jid();
         const auto query = uri.query();
 
-        if (query.type() != typeid(QXmpp::Uri::Login) || !CredentialsValidator::isUserJidValid(jid)) {
+        if (query.type() != typeid(QXmpp::Uri::Login) || !InputValidator::isValid(jid, InputValidator::Pattern::Jid)) {
             return LoginWithUriResult::InvalidLoginUri;
         }
 
         const auto password = std::any_cast<QXmpp::Uri::Login>(query).password;
 
-        if (!CredentialsValidator::isPasswordValid(password)) {
+        if (!InputValidator::isValid(password, InputValidator::Pattern::NotEmpty)) {
             return LoginWithUriResult::PasswordNeeded;
         }
 

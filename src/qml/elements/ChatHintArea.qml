@@ -18,7 +18,7 @@ Rectangle {
 
 	property ChatHintModel chatHintModel
 	property int index
-	property string text
+	property alias text: hintText.text
 	property var buttons
 	property alias loading: loadingStackArea.busy
 	property string loadingDescription
@@ -66,27 +66,30 @@ Rectangle {
 				loadingArea.description: root.loadingDescription
 
 				ColumnLayout {
-					visible: root.text
+					spacing: Kirigami.Units.largeSpacing * 2
 
-					CenteredAdaptiveText {
-						id: hintText
-						text: root.text
+					ColumnLayout {
+						visible: hintText.text
+
+						CenteredAdaptiveText {
+							id: hintText
+						}
 					}
-				}
 
-				RowLayout {
-					visible: root.buttons.length
-					Layout.alignment: Qt.AlignHCenter
+					RowLayout {
+						visible: root.buttons.length
+						Layout.alignment: Qt.AlignHCenter
 
-					Repeater {
-						model: root.buttons
-						delegate: TextButton {
-							text: modelData.text
-							focusPolicy: Qt.NoFocus
-							Layout.preferredWidth: largeButtonWidth
-							Layout.maximumWidth: largeButtonWidth
-							Layout.fillWidth: true
-							onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
+						Repeater {
+							model: root.buttons
+							delegate: TextButton {
+								text: modelData.text
+								focusPolicy: Qt.NoFocus
+								Layout.preferredWidth: largeButtonWidth
+								Layout.maximumWidth: largeButtonWidth
+								Layout.fillWidth: true
+								onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
+							}
 						}
 					}
 				}

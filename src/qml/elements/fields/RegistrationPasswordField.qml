@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,11 +17,7 @@ import im.kaidan.kaidan
 PasswordField {
 	readonly property string generatedPassword: credentialsGenerator.generatePassword()
 
-	placeholderText: {
-		if (inputField.echoMode === TextInput.Password) {
-			return "●".repeat(generatedPassword.length)
-		}
-
-		return generatedPassword
-	}
+	inputValidator.patterns: InputValidator.Pattern.NotEmpty | InputValidator.Pattern.Empty
+	showPasswordQuality: true
+	placeholderText: echoMode === TextInput.Password ? "●".repeat(generatedPassword.length) : generatedPassword
 }

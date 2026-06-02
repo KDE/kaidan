@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2024 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -17,29 +18,28 @@ ConfirmationArea {
 
 	confirmationButton.text: qsTr("Join")
 	confirmationButton.onClicked: confirm()
-	loadingArea.description: qsTr("Joining group chat…")
+	loadingArea.description: qsTr("Joining group…")
 	busy: account.groupChatController.busy
 
 	JidField {
 		id: groupChatJidField
-		labelText: qsTr("Address")
+		label: qsTr("Group address")
 		placeholderText: qsTr("group@groups.example.org")
+		invalidHintText: qsTr("Enter a valid group address")
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
-		invalidHintText: qsTr("The address must have the form <b>group@server</b>")
 		Layout.fillWidth: true
-		inputField.onTextEdited: {
-			const jidOfXmppUri = Utils.jid(inputField.text)
+		onTextEdited: {
+			const jidOfXmppUri = Utils.jid(text)
 
 			if (jidOfXmppUri) {
 				// If the user inserts an XMPP URI into jidField, set jidField.text to the URI's JID.
-				inputField.text = jidOfXmppUri
+				text = jidOfXmppUri
 			}
 		}
-		inputField.onAccepted: {
+		onAccepted: {
 			if (valid) {
 				nicknameField.forceActiveFocus()
 			} else {
-				invalidHintMayBeShown = true
 				forceActiveFocus()
 			}
 		}
@@ -47,11 +47,11 @@ ConfirmationArea {
 
 	Field {
 		id: nicknameField
-		labelText: qsTr("Nickname (optional):")
+		label: qsTr("Nickname (optional)")
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		Layout.fillWidth: true
-		inputField.onAccepted: confirm()
+		onAccepted: confirm()
 	}
 
 	Connections {

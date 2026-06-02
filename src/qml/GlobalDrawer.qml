@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2018 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Bhavy Airi <airiraghav@gmail.com>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -127,12 +128,12 @@ Kirigami.GlobalDrawer {
 							contentItem: RowLayout {
 								PasswordField {
 									id: passwordField
-									labelText: qsTr("Password")
+									label: qsTr("Password")
 									placeholderText: qsTr("Enter your correct password")
 									text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
-									valid: credentialsValidator.isPasswordValid(text) && text !== modelData.settings.password
+									valid: acceptableInput && text !== modelData.settings.password
 									enabled: !passwordBusyIndicator.visible
-									inputField.onAccepted: passwordConfirmationButton.clicked()
+									onAccepted: passwordConfirmationButton.clicked()
 								}
 
 								IconButton {
@@ -140,17 +141,13 @@ Kirigami.GlobalDrawer {
 									text: qsTr("Confirm password")
 									icon.source: "emblem-ok-symbolic"
 									visible: !passwordBusyIndicator.visible
-									flat: !hovered
-									Layout.preferredWidth: Layout.preferredHeight
-									Layout.preferredHeight: passwordField.inputField.implicitHeight
-									Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
+									Layout.alignment: Qt.AlignTop
+									Layout.topMargin: Kirigami.Units.largeSpacing * 4
 									onClicked: {
 										if (passwordField.valid) {
 											modelData.settings.password = passwordField.text
-											passwordField.invalidHintMayBeShown = false
 											modelData.connection.logIn()
 										} else {
-											passwordField.invalidHintMayBeShown = true
 											passwordField.forceActiveFocus()
 										}
 									}
@@ -159,8 +156,8 @@ Kirigami.GlobalDrawer {
 								Controls.BusyIndicator {
 									id: passwordBusyIndicator
 									visible: modelData.connection.state !== Enums.StateDisconnected
-									Layout.preferredWidth: passwordConfirmationButton.Layout.preferredWidth
-									Layout.preferredHeight: Layout.preferredWidth
+									implicitWidth: passwordConfirmationButton.width
+									implicitHeight: passwordConfirmationButton.height
 									Layout.alignment: passwordConfirmationButton.Layout.alignment
 								}
 							}

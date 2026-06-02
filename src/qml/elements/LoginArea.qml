@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2018 Allan Nordhøy <epost@anotheragency.no>
 // SPDX-FileCopyrightText: 2018 SohnyBohny <sohny.bean@streber24.de>
 // SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -44,51 +45,40 @@ FormCard.FormCard {
 		Layout.fillWidth: true
 	}
 
-	FormCardCustomContentArea {
-		contentItem: JidField {
-			id: jidField
-			text: root.account.settings.jid
-			inputField {
-				focus: true
-				rightActions: [
-					Kirigami.Action {
-						icon.name: "preferences-system-symbolic"
-						text: qsTr("Show connection settings")
-						onTriggered: {
-							customConnectionSettings.visible = !customConnectionSettings.visible
-
-							if (jidField.valid && customConnectionSettings.visible) {
-								customConnectionSettings.forceActiveFocus()
-							} else {
-								jidField.forceActiveFocus()
-							}
-						}
+	JidField {
+		id: jidField
+		text: root.account.settings.jid
+		background: NonInteractiveFormDelegateBackground {}
+		focus: true
+		trailing: [
+			IconButton {
+				id: customConnectionSettingsButton
+				text: qsTr("Show connection settings")
+				icon.source: "preferences-system-symbolic"
+				checkable: true
+				onToggled: {
+					if (jidField.valid && customConnectionSettings.visible) {
+						customConnectionSettings.forceActiveFocus()
+					} else {
+						jidField.forceActiveFocus()
 					}
-				]
-				onAccepted: {
-					invalidHintMayBeShown = true
-					confirm()
 				}
 			}
-		}
+		]
+		onAccepted: confirm()
 	}
 
 	CustomConnectionSettings {
 		id: customConnectionSettings
 		accountSettings: root.account.settings
 		confirmationButton: loginButton
-		visible: false
+		visible: customConnectionSettingsButton.checked
 	}
 
-	FormCardCustomContentArea {
-		contentItem: PasswordField {
-			id: passwordField
-			inputField.onAccepted: {
-				jidField.invalidHintMayBeShown = true
-				invalidHintMayBeShown = true
-				confirm()
-			}
-		}
+	PasswordField {
+		id: passwordField
+		background: NonInteractiveFormDelegateBackground {}
+		onAccepted: confirm()
 	}
 
 	Kirigami.Separator {
@@ -103,8 +93,6 @@ FormCard.FormCard {
 		background: HighlightedFormButtonBackground {}
 		// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
 		onClicked: {
-			jidField.invalidHintMayBeShown = true
-			passwordField.invalidHintMayBeShown = true
 			confirm()
 		}
 	}
@@ -122,7 +110,7 @@ FormCard.FormCard {
 				jidField.text = "@" + jidField.text
 			}
 
-			jidField.inputField.cursorPosition = 0
+			jidField.cursorPosition = 0
 			jidField.forceActiveFocus()
 		} else {
 			jidField.forceActiveFocus()
@@ -145,13 +133,8 @@ FormCard.FormCard {
 		}
 	}
 
-	function reset() {
-		jidField.invalidHintMayBeShown = false
-		passwordField.invalidHintMayBeShown = false
-	}
-
 	function clearFields() {
-		jidField.text = ""
-		passwordField.text = ""
+		jidField.clear()
+		passwordField.clear()
 	}
 }

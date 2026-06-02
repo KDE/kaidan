@@ -4,6 +4,7 @@
 
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 
 /**
  * This is used for a single action without an instantaneous result.
@@ -13,11 +14,19 @@ LoadingStackArea {
 	property alias confirmationButton: confirmationButton
 
 	ColumnLayout {
-		id: contentArea
-		spacing: Kirigami.Units.largeSpacing
-	}
+		spacing: Kirigami.Units.largeSpacing * 2
 
-	CenteredAdaptiveButton {
-		id: confirmationButton
+		ColumnLayout {
+			spacing: 0
+			id: contentArea
+		}
+
+		CenteredAdaptiveButton {
+			id: confirmationButton
+			Layout.topMargin: FormCard.FormCardUnits.verticalPadding
+			Layout.bottomMargin: FormCard.FormCardUnits.verticalPadding
+			Layout.leftMargin: FormCard.FormCardUnits.horizontalPadding
+			Layout.rightMargin: FormCard.FormCardUnits.horizontalPadding
+		}
 	}
 }

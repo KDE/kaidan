@@ -78,7 +78,6 @@
 #include "ChatStateController.h"
 #include "ContactTrustMessageUriGenerator.h"
 #include "CredentialsGenerator.h"
-#include "CredentialsValidator.h"
 #include "DataFormModel.h"
 #include "DiscoveryController.h"
 #include "EmojiModel.h"
@@ -101,6 +100,7 @@
 #include "HostCompletionModel.h"
 #include "HostCompletionProxyModel.h"
 #include "ImageProvider.h"
+#include "InputValidator.h"
 #include "KaidanLog.h"
 #include "Keychain.h"
 #include "MainController.h"
@@ -340,7 +340,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<std::function<void(Message &)>>();
     qRegisterMetaType<QXmppVCardIq>();
     qRegisterMetaType<QMimeType>();
-    qRegisterMetaType<CredentialsValidator *>();
+    qRegisterMetaType<InputValidator *>();
     qRegisterMetaType<QXmppVersionIq>();
     qRegisterMetaType<QXmppUri>();
     qRegisterMetaType<QMap<QString, QUrl>>();
@@ -382,6 +382,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<RosterItem::GroupChatFlag>();
     qRegisterMetaType<RosterModel::RosterItemRoles>();
     qRegisterMetaType<Message::TrustLevel>();
+    qRegisterMetaType<InputValidator::Pattern>();
+    qRegisterMetaType<InputValidator::Patterns>();
 
     // QXmpp
     qRegisterMetaType<QXmppResultSetReply>();
@@ -526,7 +528,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
     qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
     qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
-    qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
+    qmlRegisterType<InputValidator>(APPLICATION_ID, 1, 0, "InputValidator");
     qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
     qmlRegisterType<ProviderModel>(APPLICATION_ID, 1, 0, "ProviderModel");
     qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");

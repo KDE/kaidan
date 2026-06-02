@@ -9,9 +9,9 @@
 #include <QXmppAtmManager.h>
 #include <QXmppUri.h>
 // Kaidan
-#include "CredentialsValidator.h"
 #include "FutureUtils.h"
 #include "Globals.h"
+#include "InputValidator.h"
 
 AtmController::AtmController(QXmppAtmManager *manager, QObject *parent)
     : QObject(parent)
@@ -28,7 +28,7 @@ AtmController::TrustDecisionWithUriResult AtmController::makeTrustDecisionsWithU
         const auto jid = uri.jid();
         const auto query = uri.query();
 
-        if (query.type() != typeid(QXmpp::Uri::TrustMessage) || !CredentialsValidator::isUserJidValid(jid)) {
+        if (query.type() != typeid(QXmpp::Uri::TrustMessage) || !InputValidator::isValid(jid, InputValidator::Pattern::Jid)) {
             return TrustDecisionWithUriResult::InvalidUri;
         }
 

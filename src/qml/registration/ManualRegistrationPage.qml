@@ -65,21 +65,21 @@ RegistrationPage {
 			ColumnLayout {
 				Field {
 					id: displayNameField
-					labelText: qsTr("Display Name")
+					label: qsTr("Display name")
 					visible: !AccountController.migrating
 					inputMethodHints: Qt.ImhPreferUppercase
-					inputField.onAccepted: usernameField.forceActiveFocus()
+					onAccepted: usernameField.forceActiveFocus()
 				}
 
-				CredentialsField {
+				Field {
 					id: usernameField
-					labelText: qsTr("Username")
+					label: qsTr("Username")
 					text: displayNameField.text.replace(/ /g, ".").toLowerCase()
 					placeholderText: credentialsGenerator.generateUsername()
 					inputMethodHints: Qt.ImhPreferLowercase
 					invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
-					valid: !text || credentialsValidator.isUsernameValid(text)
-					inputField.onAccepted: passwordField.forceActiveFocus()
+					inputValidator.patterns: InputValidator.Pattern.Username | InputValidator.Pattern.Empty
+					onAccepted: passwordField.forceActiveFocus()
 
 					function regenerateUsername() {
 						placeholderText = credentialsGenerator.generateUsername()
@@ -88,8 +88,7 @@ RegistrationPage {
 
 				RegistrationPasswordField {
 					id: passwordField
-					valid: !text || credentialsValidator.isPasswordValid(text)
-					inputField.onAccepted: customDataFormArea.visible ? customDataFormArea.forceActiveFocus() : registerWithoutClickingRegistrationButton()
+					onAccepted: customDataFormArea.visible ? customDataFormArea.forceActiveFocus() : registerWithoutClickingRegistrationButton()
 				}
 			}
 		}

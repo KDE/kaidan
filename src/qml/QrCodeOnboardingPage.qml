@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -35,7 +36,6 @@ ExplanationTogglePage {
 		if (!scanner.acceptingResult) {
 			scanner.acceptingResult = true
 			loginArea.visible = false
-			loginArea.reset()
 		}
 	}
 	explanation: ColumnLayout {

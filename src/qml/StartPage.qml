@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2026 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -75,7 +76,6 @@ ImageBackgroundPage {
 					// As a workaround, currentItem is checked accordingly.
 					if (currentItem === root || currentItem instanceof RowLayout) {
 						loginArea.clearFields()
-						loginArea.reset()
 						loginArea.initialize()
 					}
 				}

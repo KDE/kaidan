@@ -696,14 +696,14 @@ DetailsContent {
 
 				PasswordField {
 					id: passwordVerificationField
-					labelText: qsTr("Current password")
+					label: qsTr("Current password")
 					placeholderText: qsTr("Enter your current password")
-					invalidHintText: qsTr("Enter correct password")
-					valid: text === root.account.settings.password
+					invalidHintText: placeholderText
+					valid: acceptableInput && text === root.account.settings.password
 					visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Visible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
-					inputField.onAccepted: passwordChangeArea.confirm()
+					onAccepted: passwordChangeArea.confirm()
 				}
 
 				RowLayout {
@@ -711,16 +711,14 @@ DetailsContent {
 
 					PasswordField {
 						id: passwordField
-						labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
+						label: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
 						placeholderText: qsTr("Enter your new password")
 						text: passwordVerificationField.visible ? "" : root.account.settings.password
-						invalidHintText: qsTr("Enter different password to change it")
-						valid: credentialsValidator.isPasswordValid(text) && text !== root.account.settings.password
+						invalidHintText: qsTr("Enter a different password to change it")
+						valid: acceptableInput && text !== root.account.settings.password
+						showPasswordQuality: true
 						enabled: !passwordBusyIndicator.visible
-						inputField.onAccepted: {
-							invalidHintMayBeShown = true
-							passwordChangeArea.confirm()
-						}
+						onAccepted: passwordChangeArea.confirm()
 					}
 
 					IconButton {
@@ -728,19 +726,18 @@ DetailsContent {
 						text: qsTr("Change password")
 						icon.name: "emblem-ok-symbolic"
 						visible: !passwordBusyIndicator.visible
-						Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
-						onClicked: {
-							passwordField.invalidHintMayBeShown = true
-							passwordChangeArea.confirm()
-						}
+						Layout.alignment: Qt.AlignTop
+						Layout.topMargin: Kirigami.Units.largeSpacing * 4
+						onClicked: passwordChangeArea.confirm()
 					}
 
 					Controls.BusyIndicator {
 						id: passwordBusyIndicator
 						visible: false
-						Layout.preferredWidth: passwordChangeButton.Layout.preferredWidth
-						Layout.preferredHeight: Layout.preferredWidth
+						implicitWidth: passwordChangeButton.width
+						implicitHeight: passwordChangeButton.height
 						Layout.alignment: passwordChangeButton.Layout.alignment
+						Layout.topMargin: passwordChangeButton.Layout.topMargin
 					}
 				}
 
@@ -774,8 +771,6 @@ DetailsContent {
 
 				function confirm() {
 					if (passwordVerificationField.visible) {
-						passwordVerificationField.invalidHintMayBeShown = true
-
 						if (!passwordVerificationField.valid) {
 							passwordVerificationField.forceActiveFocus()
 							return
@@ -784,8 +779,6 @@ DetailsContent {
 
 					if (passwordField.valid) {
 						passwordBusyIndicator.visible = true
-						passwordVerificationField.invalidHintMayBeShown = false
-						passwordField.invalidHintMayBeShown = false
 						root.account.registrationController.changePassword(passwordField.text)
 					} else {
 						passwordField.forceActiveFocus()

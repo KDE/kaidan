@@ -87,6 +87,12 @@ ecm_add_test(
     LINK_LIBRARIES Kaidan::Tests
 )
 
+ecm_add_test(
+    InputValidatorTest.cpp
+    TEST_NAME InputValidatorTest
+    LINK_LIBRARIES Kaidan::Tests
+)
+
 # Manual tests
 
 add_executable(PublicGroupChatSearch
