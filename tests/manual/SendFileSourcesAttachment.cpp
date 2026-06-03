@@ -12,7 +12,6 @@
 #include <QXmppTask.h>
 #include <QXmppUtils.h>
 
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
@@ -62,10 +61,3 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
-#else
-int main()
-{
-    qDebug() << "Requires Kaidan to be built with QXmpp >= 1.7";
-    return 1;
-}
-#endif
