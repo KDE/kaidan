@@ -16,63 +16,61 @@ GeoLocationMapPage {
 	id: root
 
 	property MessageComposition messageComposition
-	property var selectedGeoLocation
 
 	title: qsTr("Share location")
 	map {
 		onCenterChanged: {
 			if (!locationFollowingButton.checked) {
-				root.selectedGeoLocation = center
+				map.positionMarker.coordinate = map.center
 			}
 		}
+		positionMarker.coordinate: map.center
 		currentPositionSource.onPositionChanged: {
 			if (position.coordinate.isValid && locationFollowingButton.checked) {
-				root.selectedGeoLocation = position.coordinate
-				map.center = root.selectedGeoLocation
+				map.positionMarker.coordinate = position.coordinate
+				map.center = map.positionMarker.coordinate
 			}
 		}
 		data: [
-			Controls.RoundButton {
-				id: locationFollowingButton
-				enabled: parent.currentPositionSource.supportedPositioningMethods !== PositionSource.NoPositioningMethods
-				checked: true
-				icon.name: checked ? MediaUtils.newMediaIconName(Enums.MessageType.MessageGeoLocation) : 'find-location-symbolic'
+			IconButtonArea {
+				id: buttonArea
+
 				anchors {
 					left: map.zoomSlider.right
 					verticalCenter: map.zoomSlider.verticalCenter
 					leftMargin: Kirigami.Units.largeSpacing
 				}
-				onCheckedChanged: {
-					if (checked) {
-						root.selectedGeoLocation = parent.currentPositionSource.position.coordinate
-						parent.center = root.selectedGeoLocation
-					} else {
-						root.selectedGeoLocation = parent.center
+
+				IconButton {
+					id: locationFollowingButton
+					text: qsTr("Follow current location")
+					icon.source: checked ? MediaUtils.newMediaIconName(Enums.MessageType.MessageGeoLocation) : "find-location-symbolic"
+					checkable: true
+					checked: map.currentPositionSource.active
+					enabled: map.currentPositionSource.supportedPositioningMethods !== PositionSource.NoPositioningMethods
+					onCheckedChanged: {
+						if (checked) {
+							map.positionMarker.coordinate = map.currentPositionSource.position.coordinate
+							map.center = map.positionMarker.coordinate
+						} else {
+							map.positionMarker.coordinate = map.center
+						}
 					}
 				}
-			},
 
-			Controls.RoundButton {
-				icon.name: "mail-send-symbolic"
-				anchors {
-					left: locationFollowingButton.right
-					verticalCenter: locationFollowingButton.verticalCenter
-					leftMargin: Kirigami.Units.largeSpacing
+				IconButton {
+					text: qsTr("Send location")
+					icon.source: "mail-send-symbolic"
+					onClicked: sendLocation()
 				}
-				onClicked: {
-					root.messageComposition.sendGeoUri(parent.center)
-					popLayer()
-				}
-				Component.onCompleted: forceActiveFocus()
 			},
 
 			GeocodeModel {
 				plugin: map.plugin
 				autoUpdate: false
 				onCountChanged: {
-					if(count > 0 && root.selectedGeoLocation === undefined) {
+					if(count > 0) {
 						const coordinate = get(0).coordinate
-						root.selectedGeoLocation = coordinate
 						map.center = coordinate
 					}
 				}
@@ -82,5 +80,11 @@ GeoLocationMapPage {
 				}
 			}
 		]
+	}
+	Keys.onReturnPressed: sendLocation()
+
+	function sendLocation() {
+		root.messageComposition.sendGeoUri(map.center)
+		popLayer()
 	}
 }

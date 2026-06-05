@@ -12,7 +12,7 @@ import org.kde.kirigami as Kirigami
 import im.kaidan.kaidan
 
 Map {
-	property alias userPositionMarker: userPositionMarker
+	property alias positionMarker: positionMarker
 
 	// The product is rounded for sharper tiles.
 	zoomLevel: Math.max(minimumZoomLevel, Math.round(maximumZoomLevel * 0.85))
@@ -38,8 +38,7 @@ Map {
 	}
 
 	MapQuickItem {
-		id: userPositionMarker
-		coordinate: parent.center
+		id: positionMarker
 		anchorPoint: Qt.point(sourceItem.width / 2, sourceItem.height)
 		sourceItem: Kirigami.Icon {
 			source: MediaUtils.newMediaIconName(Enums.MessageType.MessageGeoLocation)

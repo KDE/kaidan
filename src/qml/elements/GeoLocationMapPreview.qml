@@ -10,6 +10,7 @@ GeoLocationMap {
 
 	property Item message
 
+	Component.onCompleted: positionMarker.coordinate = center
 	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
 	layer.effect: Kirigami.ShadowedTexture {
 		radius: roundedCornersRadius

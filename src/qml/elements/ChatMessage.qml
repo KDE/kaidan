@@ -576,6 +576,7 @@ Controls.ItemDelegate {
 
 			GeoLocationMapPage {
 				coordinate: root.geoCoordinate
+				Component.onCompleted: map.positionMarker.coordinate = map.center
 			}
 		}
 	}

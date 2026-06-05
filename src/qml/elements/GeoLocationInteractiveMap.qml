@@ -32,7 +32,7 @@ GeoLocationMap {
 		coordinate: currentPositionSource.position.coordinate
 		anchorPoint: Qt.point(sourceItem.width / 2, sourceItem.height / 2)
 		sourceItem: Rectangle {
-			color: Kirigami.Theme.neutralTextColor
+			color: Kirigami.Theme.activeTextColor
 			radius: height / 2
 			border {
 				width: 2
@@ -79,14 +79,9 @@ GeoLocationMap {
 
 	PositionSource {
 		id: currentPositionSource
-		onPositionChanged: {
-			if (!position.coordinate.isValid) {
-				console.log("Cannot locate this device")
-			}
-		}
 		onSourceErrorChanged: {
 			if (sourceError !== PositionSource.NoError) {
-				console.log(sourceError)
+				console.log("Could not locate this device: " + sourceError)
 			}
 		}
 	}
