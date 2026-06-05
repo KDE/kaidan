@@ -57,6 +57,7 @@ Kirigami.GlobalDrawer {
 	}
 
 	handle.visible: false
+	handleVisible: false
 	topContent: [
 		Card {
 			Layout.rightMargin: 1
