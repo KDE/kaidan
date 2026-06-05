@@ -81,73 +81,23 @@ Controls.Control {
 		IconButtonArea {
 			opacity: Kirigami.Settings.isMobile
 			visible: opacity
-			contentItem: RowLayout {
-				spacing: Kirigami.Units.smallSpacing
-
-				IconButton {
-					text: qsTr("Close media viewer")
-					icon.source: "go-previous-symbolic"
-					onClicked: popPage()
-				}
-			}
 			anchors {
 				top: parent.top
 				left: parent.left
 				topMargin: Kirigami.Units.largeSpacing
 				leftMargin: Kirigami.Units.largeSpacing
 			}
+
+			IconButton {
+				text: qsTr("Close media viewer")
+				icon.source: "go-previous-symbolic"
+				onClicked: popPage()
+			}
 		}
 
 		IconButtonArea {
 			id: toolbar
 			opacity: root.hovered || Kirigami.Settings.isMobile
-			contentItem: RowLayout {
-				spacing: Kirigami.Units.smallSpacing
-
-				IconButton {
-					id: detailsButton
-					text: checked ? qsTr("Hide details") : qsTr("Show details")
-					icon.source: "info-symbolic"
-					checkable: true
-				}
-
-				IconButton {
-					text: qsTr("Go to message")
-					icon.source: "internet-mail-symbolic"
-					visible: mediaListView.currentItemLocallyAvailable
-					onClicked: root.highlightMessageRequested(mediaListView.currentItemModel.message.relevantId)
-				}
-
-				IconButton {
-					text: qsTr("Remove")
-					icon.source: "edit-delete-symbolic"
-					visible: mediaListView.currentItemModel?.file.locallyAvailable ?? false
-					onClicked: {
-						const model = mediaListView.currentItemModel
-						root.chatController.messageModel.deleteFile(model.message.relevantId, model.file)
-					}
-				}
-
-				IconButton {
-					text: qsTr("Open in folder")
-					icon.source: "folder-symbolic"
-					visible: mediaListView.currentItemLocallyAvailable
-					onClicked: MediaUtils.openFileInFolder(mediaListView.currentItemModel.file.localFileUrl)
-				}
-
-				IconButton {
-					text: qsTr("Open externally")
-					icon.source: "view-fullscreen-symbolic"
-					visible: mediaListView.currentItemLocallyAvailable
-					onClicked: {
-						if (mediaPlayerControl.player.playing) {
-							mediaPlayerControl.player.pause()
-						}
-
-						Qt.openUrlExternally(mediaListView.currentItemModel.file.localFileUrl)
-					}
-				}
-			}
 			anchors {
 				top: parent.top
 				right: parent.right
@@ -158,6 +108,50 @@ Controls.Control {
 			Behavior on implicitWidth {
 				SmoothedAnimation {
 					duration: mediaListView.highlightMoveDuration
+				}
+			}
+
+			IconButton {
+				id: detailsButton
+				text: checked ? qsTr("Hide details") : qsTr("Show details")
+				icon.source: "info-symbolic"
+				checkable: true
+			}
+
+			IconButton {
+				text: qsTr("Go to message")
+				icon.source: "internet-mail-symbolic"
+				visible: mediaListView.currentItemLocallyAvailable
+				onClicked: root.highlightMessageRequested(mediaListView.currentItemModel.message.relevantId)
+			}
+
+			IconButton {
+				text: qsTr("Remove")
+				icon.source: "edit-delete-symbolic"
+				visible: mediaListView.currentItemModel?.file.locallyAvailable ?? false
+				onClicked: {
+					const model = mediaListView.currentItemModel
+					root.chatController.messageModel.deleteFile(model.message.relevantId, model.file)
+				}
+			}
+
+			IconButton {
+				text: qsTr("Open in folder")
+				icon.source: "folder-symbolic"
+				visible: mediaListView.currentItemLocallyAvailable
+				onClicked: MediaUtils.openFileInFolder(mediaListView.currentItemModel.file.localFileUrl)
+			}
+
+			IconButton {
+				text: qsTr("Open externally")
+				icon.source: "view-fullscreen-symbolic"
+				visible: mediaListView.currentItemLocallyAvailable
+				onClicked: {
+					if (mediaPlayerControl.player.playing) {
+						mediaPlayerControl.player.pause()
+					}
+
+					Qt.openUrlExternally(mediaListView.currentItemModel.file.localFileUrl)
 				}
 			}
 		}
@@ -254,28 +248,25 @@ Controls.Control {
 			id: navigationArea
 			opacity: !Kirigami.Settings.isMobile && root.hovered
 			visible: opacity
-			contentItem: RowLayout {
-				spacing: Kirigami.Units.smallSpacing
-
-				IconButton {
-					text: qsTr("Previous")
-					icon.source: "go-previous-symbolic"
-					enabled: mediaListView.currentIndex > 0
-					onClicked: mediaListView.decrementCurrentIndex()
-				}
-
-				IconButton {
-					text: qsTr("Next")
-					icon.source: "go-next-symbolic"
-					enabled: mediaListView.currentIndex < mediaListView.count - 1
-					onClicked: mediaListView.incrementCurrentIndex()
-				}
-			}
 			anchors {
 				left: parent.left
 				bottom: parent.bottom
 				leftMargin: Kirigami.Units.largeSpacing
 				bottomMargin: Kirigami.Units.largeSpacing
+			}
+
+			IconButton {
+				text: qsTr("Previous")
+				icon.source: "go-previous-symbolic"
+				enabled: mediaListView.currentIndex > 0
+				onClicked: mediaListView.decrementCurrentIndex()
+			}
+
+			IconButton {
+				text: qsTr("Next")
+				icon.source: "go-next-symbolic"
+				enabled: mediaListView.currentIndex < mediaListView.count - 1
+				onClicked: mediaListView.incrementCurrentIndex()
 			}
 		}
 

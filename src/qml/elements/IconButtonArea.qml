@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
@@ -10,6 +11,7 @@ import org.kde.kirigami as Kirigami
  * Area with a background for placing IconButton items.
  */
 Controls.Control {
+	default property alias __data: contentArea.data
 	property alias mainBackground: mainBackground
 
 	background: Rectangle {
@@ -17,6 +19,10 @@ Controls.Control {
 		color: primaryBackgroundColor
 		opacity: 0.9
 		radius: parent.height / 2
+	}
+	contentItem: RowLayout {
+		id: contentArea
+		spacing: Kirigami.Units.smallSpacing
 	}
 	clip: true
 	topPadding: Kirigami.Units.smallSpacing

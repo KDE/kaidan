@@ -25,48 +25,47 @@ IconButtonArea {
 		}
 	}
 
-	contentItem: RowLayout {
-		IconButton {
-			id: playButton
+	IconButton {
+		id: playButton
 
-			readonly property bool playing: player.playbackState === Multimedia.MediaPlayer.PlayingState
+		readonly property bool playing: player.playbackState === Multimedia.MediaPlayer.PlayingState
 
-			text: playing ? qsTr("Pause") : qsTr("Play")
-			icon.source: playing ? "media-playback-pause-symbolic" : "media-playback-start-symbolic"
-			onClicked: playing ? player.pause() : player.play()
-		}
+		text: playing ? qsTr("Pause") : qsTr("Play")
+		icon.source: playing ? "media-playback-pause-symbolic" : "media-playback-start-symbolic"
+		onClicked: playing ? player.pause() : player.play()
+	}
 
-		Slider {
-			id: playPositionSlider
-			to: player.duration
-			value: player.position
-			Layout.preferredWidth: Kirigami.Units.gridUnit * 15
-			Layout.fillWidth: true
-			onMoved: player.position = value
+	Slider {
+		id: playPositionSlider
+		to: player.duration
+		value: player.position
+		Layout.preferredWidth: Kirigami.Units.gridUnit * 15
+		Layout.fillWidth: true
+		onMoved: player.position = value
 
-			// Prevent moving the handle by right clicks.
-			// Instead, call rightClickAction.
-			MouseArea {
-				acceptedButtons: Qt.RightButton
-				anchors.fill: parent
-				onClicked: {
-					if (root.rightClickAction) {
-						root.rightClickAction(this)
-					}
+		// Prevent moving the handle by right clicks.
+		// Instead, call rightClickAction.
+		MouseArea {
+			acceptedButtons: Qt.RightButton
+			anchors.fill: parent
+			onClicked: {
+				if (root.rightClickAction) {
+					root.rightClickAction(this)
 				}
 			}
 		}
+	}
 
-		ScalableText {
-			id: durationText
-			text: MediaUtils.prettyDuration(player.position, player.duration) + "/" + MediaUtils.prettyDuration(player.duration)
-			scaleFactor: 0.9
-			color: Kirigami.Theme.disabledTextColor
-			rightPadding: Kirigami.Units.mediumSpacing
-			// A custom padding is used because "verticalAlignment: Text.AlignVCenter"
-			// does not work correctly if the text is scaled.
-			bottomPadding: font.pixelSize * 0.1
-			Layout.minimumWidth: contentWidth
-		}
+	ScalableText {
+		id: durationText
+		text: MediaUtils.prettyDuration(player.position, player.duration) + "/" + MediaUtils.prettyDuration(player.duration)
+		scaleFactor: 0.9
+		color: Kirigami.Theme.disabledTextColor
+		leftPadding: Kirigami.Units.mediumSpacing
+		rightPadding: Kirigami.Units.mediumSpacing
+		// A custom padding is used because "verticalAlignment: Text.AlignVCenter" does not work
+		// correctly if the text is scaled.
+		bottomPadding: font.pixelSize * 0.1
+		Layout.minimumWidth: contentWidth
 	}
 }

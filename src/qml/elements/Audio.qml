@@ -41,6 +41,7 @@ MediaPlayerControl {
 	MediumMouseArea {
 		// This mouse area must be below the other elements to not overlap their mouse areas.
 		z: -1
+		parent: root
 		opacityItem: root.mainBackground
 		selected: root.message.contextMenu?.file === file || root.playButton.hovered || root.playPositionSlider.hovered || durationTextHoverHandler.hovered
 		hoverEnabled: !(root.playButton.hovered || root.playPositionSlider.hovered || durationTextHoverHandler.hovered)
