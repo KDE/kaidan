@@ -2873,7 +2873,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Please enter a valid password"
 
-#: src/qml/elements/GeoLocationMap.qml:53
+#: src/qml/elements/GeoLocationMap.qml:52
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr ""
@@ -2894,13 +2894,29 @@ msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Location"
 
-#: src/qml/elements/GeoLocationSharingPage.qml:21
+#: src/qml/elements/GeoLocationSharingPage.qml:20
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Share location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "Share location"
+
+#: src/qml/elements/GeoLocationSharingPage.qml:46
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "GeoLocationSharingPage|"
+msgid "Follow current location"
+msgstr "Send location"
+
+#: src/qml/elements/GeoLocationSharingPage.qml:62
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "GeoLocationSharingPage|"
+msgid "Send location"
+msgstr "Send location"
 
 #: src/qml/elements/GroupChatCreationContent.qml:19
 msgctxt "GroupChatCreationContent|"
@@ -3144,7 +3160,7 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Connecting…"
 
-#: src/qml/elements/MediaPlayerControl.qml:34
+#: src/qml/elements/MediaPlayerControl.qml:33
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Paused"
@@ -3152,12 +3168,12 @@ msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Paused"
 
-#: src/qml/elements/MediaPlayerControl.qml:34
+#: src/qml/elements/MediaPlayerControl.qml:33
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:88
+#: src/qml/elements/MediaViewer.qml:92
 #, fuzzy
 #| msgctxt "ProviderPage|"
 #| msgid "Choose a Provider"
@@ -3165,7 +3181,7 @@ msgctxt "MediaViewer|"
 msgid "Close media viewer"
 msgstr "Choose a Provider"
 
-#: src/qml/elements/MediaViewer.qml:109
+#: src/qml/elements/MediaViewer.qml:116
 #, fuzzy
 #| msgctxt "GroupChatDetailsDialog|"
 #| msgid "Group Details"
@@ -3173,7 +3189,7 @@ msgctxt "MediaViewer|"
 msgid "Hide details"
 msgstr "Group Details"
 
-#: src/qml/elements/MediaViewer.qml:109
+#: src/qml/elements/MediaViewer.qml:116
 #, fuzzy
 #| msgctxt "MessageReactionDetailsButton|"
 #| msgid "Show details"
@@ -3181,7 +3197,7 @@ msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Show details"
 
-#: src/qml/elements/MediaViewer.qml:115
+#: src/qml/elements/MediaViewer.qml:122
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Quote message"
@@ -3189,7 +3205,7 @@ msgctxt "MediaViewer|"
 msgid "Go to message"
 msgstr "Quote message"
 
-#: src/qml/elements/MediaViewer.qml:122
+#: src/qml/elements/MediaViewer.qml:129
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -3197,7 +3213,7 @@ msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Remove"
 
-#: src/qml/elements/MediaViewer.qml:132
+#: src/qml/elements/MediaViewer.qml:139
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Remove selected file"
@@ -3205,12 +3221,12 @@ msgctxt "MediaViewer|"
 msgid "Open in folder"
 msgstr "Remove selected file"
 
-#: src/qml/elements/MediaViewer.qml:139
+#: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:181
+#: src/qml/elements/MediaViewer.qml:175
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy message"
@@ -3218,7 +3234,7 @@ msgctxt "MediaViewer|"
 msgid "Message"
 msgstr "Copy message"
 
-#: src/qml/elements/MediaViewer.qml:188
+#: src/qml/elements/MediaViewer.qml:182
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -3226,7 +3242,7 @@ msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Encryption"
 
-#: src/qml/elements/MediaViewer.qml:206
+#: src/qml/elements/MediaViewer.qml:200
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "Name"
@@ -3234,22 +3250,22 @@ msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Name"
 
-#: src/qml/elements/MediaViewer.qml:224
+#: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:231
+#: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:261
+#: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:268
+#: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
 msgstr ""
@@ -3713,12 +3729,12 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Select a chat to start"
 
-#: src/qml/GlobalDrawer.qml:65
+#: src/qml/GlobalDrawer.qml:66
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:130
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password"
@@ -3726,7 +3742,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Password"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:131
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter your current password"
@@ -3734,7 +3750,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Enter your current password"
 
-#: src/qml/GlobalDrawer.qml:139
+#: src/qml/GlobalDrawer.qml:140
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Copy password"
@@ -3742,37 +3758,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Copy password"
 
-#: src/qml/GlobalDrawer.qml:183
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Actions"
 
-#: src/qml/GlobalDrawer.qml:187
+#: src/qml/GlobalDrawer.qml:188
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:187
+#: src/qml/GlobalDrawer.qml:188
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Add contact by QR code"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:200
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Add contact by chat address"
 
-#: src/qml/GlobalDrawer.qml:206
+#: src/qml/GlobalDrawer.qml:207
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Create group"
 
-#: src/qml/GlobalDrawer.qml:206
+#: src/qml/GlobalDrawer.qml:207
 #, fuzzy
 #| msgctxt "GroupChatCreationDialog|"
 #| msgid "Create group chat"
@@ -3780,12 +3796,12 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Create group chat"
 
-#: src/qml/GlobalDrawer.qml:232
+#: src/qml/GlobalDrawer.qml:233
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Join group"
 
-#: src/qml/GlobalDrawer.qml:232
+#: src/qml/GlobalDrawer.qml:233
 #, fuzzy
 #| msgctxt "GroupChatJoiningDialog|"
 #| msgid "Join group chat"
@@ -3793,17 +3809,17 @@ msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Join group chat"
 
-#: src/qml/GlobalDrawer.qml:259
+#: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Search public groups"
 
-#: src/qml/GlobalDrawer.qml:273
+#: src/qml/GlobalDrawer.qml:274
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "About"
 
-#: src/qml/GlobalDrawer.qml:497
+#: src/qml/GlobalDrawer.qml:498
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -3811,7 +3827,7 @@ msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr "Unblocked %1"
 
-#: src/qml/GlobalDrawer.qml:497
+#: src/qml/GlobalDrawer.qml:498
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -3819,7 +3835,7 @@ msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Undo"
 
-#: src/qml/GlobalDrawer.qml:504
+#: src/qml/GlobalDrawer.qml:505
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -3827,7 +3843,7 @@ msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr "Could not block %1: %2"
 
-#: src/qml/GlobalDrawer.qml:508
+#: src/qml/GlobalDrawer.qml:509
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"

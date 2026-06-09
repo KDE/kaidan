@@ -2910,7 +2910,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/GeoLocationMap.qml:53
+#: src/qml/elements/GeoLocationMap.qml:52
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr ""
@@ -2931,12 +2931,28 @@ msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Σίγαση ειδοποιήσεων"
 
-#: src/qml/elements/GeoLocationSharingPage.qml:21
+#: src/qml/elements/GeoLocationSharingPage.qml:20
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
+msgstr "Σίγαση ειδοποιήσεων"
+
+#: src/qml/elements/GeoLocationSharingPage.qml:46
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "GeoLocationSharingPage|"
+msgid "Follow current location"
+msgstr "Σίγαση ειδοποιήσεων"
+
+#: src/qml/elements/GeoLocationSharingPage.qml:62
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "GeoLocationSharingPage|"
+msgid "Send location"
 msgstr "Σίγαση ειδοποιήσεων"
 
 #: src/qml/elements/GroupChatCreationContent.qml:19
@@ -3180,22 +3196,22 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr ""
 
-#: src/qml/elements/MediaPlayerControl.qml:34
+#: src/qml/elements/MediaPlayerControl.qml:33
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr ""
 
-#: src/qml/elements/MediaPlayerControl.qml:34
+#: src/qml/elements/MediaPlayerControl.qml:33
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:88
+#: src/qml/elements/MediaViewer.qml:92
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:109
+#: src/qml/elements/MediaViewer.qml:116
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -3203,12 +3219,12 @@ msgctxt "MediaViewer|"
 msgid "Hide details"
 msgstr "Διεύθυνση συνομιλίας:"
 
-#: src/qml/elements/MediaViewer.qml:109
+#: src/qml/elements/MediaViewer.qml:116
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:115
+#: src/qml/elements/MediaViewer.qml:122
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Quote message"
@@ -3216,7 +3232,7 @@ msgctxt "MediaViewer|"
 msgid "Go to message"
 msgstr "Παράθεση μηνύματος"
 
-#: src/qml/elements/MediaViewer.qml:122
+#: src/qml/elements/MediaViewer.qml:129
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -3224,7 +3240,7 @@ msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/elements/MediaViewer.qml:132
+#: src/qml/elements/MediaViewer.qml:139
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -3232,12 +3248,12 @@ msgctxt "MediaViewer|"
 msgid "Open in folder"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/elements/MediaViewer.qml:139
+#: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:181
+#: src/qml/elements/MediaViewer.qml:175
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Quote message"
@@ -3245,32 +3261,32 @@ msgctxt "MediaViewer|"
 msgid "Message"
 msgstr "Παράθεση μηνύματος"
 
-#: src/qml/elements/MediaViewer.qml:188
+#: src/qml/elements/MediaViewer.qml:182
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:206
+#: src/qml/elements/MediaViewer.qml:200
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:224
+#: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:231
+#: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:261
+#: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
 msgstr ""
 
-#: src/qml/elements/MediaViewer.qml:268
+#: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
 msgstr ""
@@ -3664,7 +3680,7 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:65
+#: src/qml/GlobalDrawer.qml:66
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -3672,7 +3688,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:130
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -3680,7 +3696,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:131
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -3688,7 +3704,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/GlobalDrawer.qml:139
+#: src/qml/GlobalDrawer.qml:140
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -3696,27 +3712,27 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Αντιγραφή κωδικού πρόσβασης"
 
-#: src/qml/GlobalDrawer.qml:183
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:187
+#: src/qml/GlobalDrawer.qml:188
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:187
+#: src/qml/GlobalDrawer.qml:188
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:192
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:200
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -3724,27 +3740,27 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
-#: src/qml/GlobalDrawer.qml:206
+#: src/qml/GlobalDrawer.qml:207
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:206
+#: src/qml/GlobalDrawer.qml:207
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:232
+#: src/qml/GlobalDrawer.qml:233
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:232
+#: src/qml/GlobalDrawer.qml:233
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:259
+#: src/qml/GlobalDrawer.qml:260
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search"
@@ -3752,29 +3768,29 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Αναζήτηση"
 
-#: src/qml/GlobalDrawer.qml:273
+#: src/qml/GlobalDrawer.qml:274
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:497
+#: src/qml/GlobalDrawer.qml:498
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:497
+#: src/qml/GlobalDrawer.qml:498
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:504
+#: src/qml/GlobalDrawer.qml:505
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:508
+#: src/qml/GlobalDrawer.qml:509
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
