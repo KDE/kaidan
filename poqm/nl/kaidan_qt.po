@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-05-06 16:54+0200\n"
+"PO-Revision-Date: 2026-06-09 18:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -2651,17 +2651,11 @@ msgid "Share location"
 msgstr "Locatie delen"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "Hoe locaties te openen"
+msgstr "Huidige locatie volgen"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Stuur locatie"
