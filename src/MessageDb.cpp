@@ -1313,7 +1313,7 @@ void MessageDb::_setFiles(const QList<File> &files)
                        {u":width", optionalToVariant(file.width)},
                        {u":height", optionalToVariant(file.height)},
                        {u":lastModified", serialize(file.lastModified)},
-                       {u":disposition", int(file.disposition)},
+                       {u":disposition", optionalToVariant(file.disposition)},
                        {u":thumbnail", file.thumbnail},
                        {u":localFilePath", file.localFilePath},
                        {u":externalId", file.externalId},
@@ -1587,7 +1587,7 @@ QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
         file.width = variantToOptional<uint32_t>(query.value(Width));
         file.height = variantToOptional<uint32_t>(query.value(Height));
         file.lastModified = parseDateTime(query, LastModified);
-        file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
+        file.disposition = variantToOptional<QXmppFileShare::Disposition>(query.value(Disposition));
         file.localFilePath = query.value(LocalFilePath).toString();
         file.externalId = query.value(ExternalId).toString();
         file.transferOutgoing = query.value(TransferOutgoing).toBool();

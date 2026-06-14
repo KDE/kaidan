@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 57
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(57)
+#define DATABASE_LATEST_VERSION 58
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(58)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -430,10 +430,9 @@ void Database::createNewDatabase()
                                SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
                                    SQL_ATTRIBUTE(description, SQL_TEXT) SQL_ATTRIBUTE(mimeType, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(size, SQL_INTEGER)
                                        SQL_ATTRIBUTE(width, SQL_INTEGER) SQL_ATTRIBUTE(height, SQL_INTEGER) SQL_ATTRIBUTE(lastModified, SQL_INTEGER_NOT_NULL)
-                                           SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(thumbnail, SQL_BLOB)
-                                               SQL_ATTRIBUTE(localFilePath, SQL_TEXT) SQL_ATTRIBUTE(externalId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(transferOutgoing, SQL_BOOL_NOT_NULL)
-                                                       SQL_ATTRIBUTE(transferState, SQL_INTEGER_NOT_NULL) "PRIMARY KEY(id)"));
+                                           SQL_ATTRIBUTE(disposition, SQL_INTEGER) SQL_ATTRIBUTE(thumbnail, SQL_BLOB) SQL_ATTRIBUTE(localFilePath, SQL_TEXT)
+                                               SQL_ATTRIBUTE(externalId, SQL_TEXT) SQL_ATTRIBUTE(transferOutgoing, SQL_BOOL_NOT_NULL)
+                                                   SQL_ATTRIBUTE(transferState, SQL_INTEGER_NOT_NULL) "PRIMARY KEY(id)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_FILE_HASHES,
                                SQL_ATTRIBUTE(dataId, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(hashType, SQL_INTEGER_NOT_NULL)
@@ -2022,6 +2021,33 @@ void Database::convertDatabaseToV57()
     execQuery(query, QStringLiteral("ALTER TABLE files_tmp RENAME TO files"));
 
     d->version = 57;
+}
+
+void Database::convertDatabaseToV58()
+{
+    DATABASE_CONVERT_TO_VERSION(57)
+    QSqlQuery query(currentDatabase());
+
+    // Allow NULL for column "disposition".
+    execQuery(query,
+              SQL_CREATE_TABLE("files_tmp",
+                               SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
+                                   SQL_ATTRIBUTE(description, SQL_TEXT) SQL_ATTRIBUTE(mimeType, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(size, SQL_INTEGER)
+                                       SQL_ATTRIBUTE(width, SQL_INTEGER) SQL_ATTRIBUTE(height, SQL_INTEGER) SQL_ATTRIBUTE(lastModified, SQL_INTEGER_NOT_NULL)
+                                           SQL_ATTRIBUTE(disposition, SQL_INTEGER) SQL_ATTRIBUTE(thumbnail, SQL_BLOB) SQL_ATTRIBUTE(localFilePath, SQL_TEXT)
+                                               SQL_ATTRIBUTE(externalId, SQL_TEXT) SQL_ATTRIBUTE(transferOutgoing, SQL_BOOL_NOT_NULL)
+                                                   SQL_ATTRIBUTE(transferState, SQL_INTEGER_NOT_NULL) "PRIMARY KEY(id)"));
+
+    execQuery(query, QStringLiteral(R"(
+			INSERT INTO files_tmp
+			SELECT *
+			FROM files
+		)"));
+
+    execQuery(query, QStringLiteral("DROP TABLE files"));
+    execQuery(query, QStringLiteral("ALTER TABLE files_tmp RENAME TO files"));
+
+    d->version = 58;
 }
 
 #include "moc_Database.cpp"

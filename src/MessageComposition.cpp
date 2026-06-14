@@ -566,6 +566,7 @@ void FileSelectionModel::addVoiceMessageFile(const QUrl &localFileUrl)
     file.localFilePath = localPath;
     file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
     file.size = fileInfo.size();
+    file.disposition = QXmppFileShare::Disposition::Inline;
     file.transferOutgoing = true;
 
     insertFile(file);
@@ -595,7 +596,6 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
     }
 
     File file;
-    file.disposition = QXmppFileShare::Disposition::Attachment;
     file.localFilePath = localPath;
     file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
     file.size = size;

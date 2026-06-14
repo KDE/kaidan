@@ -911,7 +911,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
             file.mimeType = fileShare.metadata().mediaType().value_or(MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream")));
             file.size = fileShare.metadata().size();
             file.lastModified = fileShare.metadata().lastModified().value_or(QDateTime());
-            file.disposition = fileShare.disposition();
+            file.disposition = fileShare.dispositionOpt();
             file.externalId = fileShare.id();
             file.hashes = transform(fileShare.metadata().hashes(), [&](const QXmppHash &hash) {
                 return FileHash{.dataId = fileId, .hashType = hash.algorithm(), .hashValue = hash.hash()};

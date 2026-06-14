@@ -98,7 +98,7 @@ public:
     std::optional<uint32_t> width;
     std::optional<uint32_t> height;
     QDateTime lastModified;
-    QXmppFileShare::Disposition disposition = QXmppFileShare::Inline;
+    std::optional<QXmppFileShare::Disposition> disposition;
     QString localFilePath;
     QString externalId;
     QList<FileHash> hashes;
@@ -135,7 +135,7 @@ public:
     }
     [[nodiscard]] bool displayInline() const
     {
-        return disposition == QXmppFileShare::Inline;
+        return disposition != QXmppFileShare::Disposition::Attachment;
     }
     [[nodiscard]] QUrl downloadUrl() const;
     [[nodiscard]] bool locallyAvailable() const;
