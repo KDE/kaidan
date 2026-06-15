@@ -197,7 +197,7 @@ Kirigami.Dialog {
 			}
 			opacity: 0.5
 			Layout.topMargin: {
-				root.height / 2 - height - implicitHeaderHeight / 2
+				root.height / 2 - height - implicitHeaderHeight / 2 + implicitFooterHeight / 2
 			}
 		}
 	}
