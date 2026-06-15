@@ -23,7 +23,6 @@ Controls.AbstractButton {
 	hoverEnabled: true
 	visible: opacity
 	background: InteractiveBackground {
-		interactionItem: root
 		flat: root.flat
 		inverted: root.inverted
 		radius: height / 2
