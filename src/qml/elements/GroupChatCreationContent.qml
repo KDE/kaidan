@@ -60,19 +60,12 @@ ConfirmationArea {
 		onAccepted: confirm()
 	}
 
-	Controls.Label {
-		text: "@"
-		visible: groupChatServiceJidComboBox.visible
-		Layout.leftMargin: FormCard.FormCardUnits.horizontalPadding
-		Layout.rightMargin: FormCard.FormCardUnits.horizontalPadding
-	}
-
 	FormCard.FormComboBoxDelegate {
 		id: groupChatServiceJidComboBox
 		text: qsTr("Service")
 		model: root.account.groupChatController.groupChatServiceJids()
 		currentIndex: 0
-		visible: publicGroupChatCheckBox.checked && count > 1
+		visible: count > 1
 	}
 
 	Field {
