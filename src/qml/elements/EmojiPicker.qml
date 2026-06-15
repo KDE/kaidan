@@ -135,20 +135,6 @@ Kirigami.Dialog {
 		rightPadding: Kirigami.Units.smallSpacing
 	}
 	onClosed: destroy()
-	Component.onCompleted: {
-		// Workaround since the first item would otherwise be as wide as gridView (for an unknown reason).
-		gridView.model.group = Emoji.Group.Nature
-
-		if (root.searchedText) {
-			gridView.model.group = Emoji.Group.Invalid
-		} else if (gridView.model.hasFavoriteEmojis) {
-			gridView.model.group = Emoji.Group.Favorites
-		} else {
-			gridView.model.group = Emoji.Group.People
-		}
-
-		gridView.currentIndex = 0
-	}
 
 	GridView {
 		id: gridView
@@ -157,6 +143,17 @@ Kirigami.Dialog {
 		leftMargin: Kirigami.Units.smallSpacing
 		model: EmojiProxyModel {
 			sourceModel: EmojiModel {}
+			group: {
+				if (root.searchedText) {
+					return Emoji.Group.Invalid
+				}
+
+				if (gridView.model.hasFavoriteEmojis) {
+					return Emoji.Group.Favorites
+				}
+
+				return Emoji.Group.People
+			}
 		}
 		delegate: Button {
 			id: emojiDelegate
