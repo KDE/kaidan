@@ -29,7 +29,7 @@ Controls.AbstractButton {
 	}
 	Controls.ToolTip.text: text
 	Controls.ToolTip.visible: enabled && !pressed && hovered
-	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.veryLongDuration * 2
+	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.toolTipDelay
 	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
 	Kirigami.Theme.inherit: false
