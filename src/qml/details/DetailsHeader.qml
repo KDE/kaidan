@@ -88,7 +88,6 @@ FormInfoHeader {
 				icon.source: "document-edit-symbolic"
 				checkable: true
 				checked: !displayNameText.visible
-				flat: !hovered && !displayNameMouseArea.containsMouse
 				visible: root.account.settings.enabled && root.changeDisplayName
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
