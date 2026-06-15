@@ -23,7 +23,7 @@ Kirigami.Dialog {
 
 	// Set a negative inset to fix the rounded corner of the dialog above the scroll bar.
 	topInset: - Kirigami.Units.cornerRadius
-	preferredWidth: largeButtonWidth
+	preferredWidth: gridView.leftMargin + gridView.cellWidth * 8 + contentItem.Controls.ScrollBar.vertical.width + 2
 	preferredHeight: Kirigami.Units.gridUnit * 21
 	maximumWidth: preferredWidth
 	maximumHeight: Math.min(preferredHeight, applicationWindow().height - Kirigami.Units.gridUnit * 6)
@@ -48,18 +48,62 @@ Kirigami.Dialog {
 
 			Repeater {
 				model: ListModel {
-					ListElement { label: "🔖"; group: Emoji.Group.Favorites }
-					ListElement { label: "🙂"; group: Emoji.Group.People }
-					ListElement { label: "🌲"; group: Emoji.Group.Nature }
-					ListElement { label: "🍛"; group: Emoji.Group.Food }
-					ListElement { label: "🚁"; group: Emoji.Group.Activity }
-					ListElement { label: "🚅"; group: Emoji.Group.Travel }
-					ListElement { label: "💡"; group: Emoji.Group.Objects }
-					ListElement { label: "🔣"; group: Emoji.Group.Symbols }
-					ListElement { label: "🏁"; group: Emoji.Group.Flags }
+					ListElement {
+						label: "🔖"
+						name: qsTr("Favorites")
+						group: Emoji.Group.Favorites
+					}
+
+					ListElement {
+						label: "🙂"
+						name: qsTr("People")
+						group: Emoji.Group.People
+					}
+
+					ListElement {
+						label: "🌲"
+						name: qsTr("Nature")
+						group: Emoji.Group.Nature
+					}
+
+					ListElement {
+						label: "🍛"
+						name: qsTr("Food")
+						group: Emoji.Group.Food
+					}
+
+					ListElement {
+						label: "🚁"
+						name: qsTr("Activity")
+						group: Emoji.Group.Activity
+					}
+
+					ListElement {
+						label: "🚅"
+						name: qsTr("Travel")
+						group: Emoji.Group.Travel
+					}
+
+					ListElement {
+						label: "💡"
+						name: qsTr("Objects")
+						group: Emoji.Group.Objects
+					}
+
+					ListElement {
+						label: "🔣"
+						name: qsTr("Symbols")
+						group: Emoji.Group.Symbols
+					}
+
+					ListElement {
+						label: "🏁"
+						name: qsTr("Flags")
+						group: Emoji.Group.Flags
+					}
 				}
-				delegate: Controls.ItemDelegate {
-					hoverEnabled: true
+				delegate: Button {
+					text: model.name
 					checkable: true
 					checked: gridView.model.group === model.group
 					background: InteractiveBackground {
@@ -72,14 +116,9 @@ Kirigami.Dialog {
 						horizontalAlignment: Text.AlignHCenter
 						verticalAlignment: Text.AlignVCenter
 					}
-					topInset: 0
-					bottomInset: 0
-					leftInset: 0
-					rightInset: 0
-					Layout.preferredWidth: implicitContentWidth * 2
-					Layout.preferredHeight: implicitContentHeight * 2
+					implicitHeight: Kirigami.Units.iconSizes.medium
 					Layout.fillWidth: true
-					onClicked: {
+					onToggled: {
 						gridView.currentIndex = 0
 						gridView.model.group = model.group
 					}
@@ -112,21 +151,19 @@ Kirigami.Dialog {
 
 	GridView {
 		id: gridView
-		cellWidth: Kirigami.Units.iconSizes.smallMedium * 2.15
-		cellHeight: Kirigami.Units.iconSizes.smallMedium * 2.15
+		cellWidth: Kirigami.Units.iconSizes.large + Kirigami.Units.smallSpacing
+		cellHeight: Kirigami.Units.iconSizes.large + Kirigami.Units.smallSpacing
 		leftMargin: Kirigami.Units.smallSpacing
-		rightMargin: Kirigami.Units.smallSpacing
-		bottomMargin: - Kirigami.Units.smallSpacing
-		implicitWidth: largeButtonWidth * 0.7
 		model: EmojiProxyModel {
 			sourceModel: EmojiModel {}
 		}
-		delegate: Controls.ItemDelegate {
+		delegate: Button {
 			id: emojiDelegate
 
 			property string emoji: model.unicode
 
-			hoverEnabled: true
+			text: model.shortName
+			checkable: true
 			checked: GridView.isCurrentItem
 			background: InteractiveBackground {
 				radius: Kirigami.Units.cornerRadius
@@ -135,14 +172,11 @@ Kirigami.Dialog {
 				text: emojiDelegate.emoji
 				font.family: "emoji"
 				font.pointSize: Kirigami.Units.iconSizes.smallMedium
+				horizontalAlignment: Text.AlignHCenter
+				verticalAlignment: Text.AlignVCenter
 			}
-			topInset: 0
-			bottomInset: 0
-			leftInset: 0
-			rightInset: 0
-			Controls.ToolTip.text: model.shortName
-			Controls.ToolTip.visible: hovered
-			Controls.ToolTip.delay: Kirigami.Units.toolTipDelay
+			implicitWidth: Kirigami.Units.iconSizes.large
+			implicitHeight: Kirigami.Units.iconSizes.large
 			onClicked: selectEmoji(model.index, emojiDelegate.emoji)
 		}
 	}
