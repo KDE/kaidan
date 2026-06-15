@@ -51,6 +51,7 @@ Controls.AbstractButton {
 
 			if (checkable) {
 				toggle()
+				toggled()
 			} else {
 				clicked()
 			}
