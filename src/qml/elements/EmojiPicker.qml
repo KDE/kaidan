@@ -106,6 +106,7 @@ Kirigami.Dialog {
 					text: model.name
 					checkable: true
 					checked: gridView.model.group === model.group
+					focusPolicy: Qt.NoFocus
 					background: InteractiveBackground {
 						radius: Kirigami.Units.cornerRadius
 					}
