@@ -90,7 +90,7 @@ DetailsContent {
 										rosterGroupBusyIndicator.visible = true
 
 										groups.push(rosterGroupField.text)
-										root.chatController.account.rosterController.updateGroups(root.chatController.jid, root.chatController.rosterItem.name, groups)
+										root.chatController.account.rosterController.updateGroups(root.chatController.jid, groups)
 
 										rosterGroupField.clear()
 									}
@@ -135,7 +135,7 @@ DetailsContent {
 					groups.splice(groups.indexOf(modelData), 1)
 				}
 
-				root.chatController.account.rosterController.updateGroups(root.chatController.jid, root.chatController.rosterItem.name, groups)
+				root.chatController.account.rosterController.updateGroups(root.chatController.jid, groups)
 			}
 
 			Connections {

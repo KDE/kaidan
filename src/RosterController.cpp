@@ -236,7 +236,7 @@ void RosterController::updateGroup(const QString &oldGroup, const QString &newGr
             groups.removeOne(oldGroup);
             groups.append(newGroup);
 
-            updateGroups(item.jid, item.name, groups);
+            updateGroups(item.jid, groups);
         }
     }
 }
@@ -249,17 +249,15 @@ void RosterController::removeGroup(const QString &group)
         if (auto groups = item.groups; groups.contains(group)) {
             groups.removeOne(group);
 
-            updateGroups(item.jid, item.name, groups);
+            updateGroups(item.jid, groups);
         }
     }
 }
 
-void RosterController::updateGroups(const QString &jid, const QString &name, const QList<QString> &groups)
+void RosterController::updateGroups(const QString &jid, const QList<QString> &groups)
 {
     m_isItemBeingChanged = true;
-
-    // TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
-    m_manager->addItem(jid, name, {groups.cbegin(), groups.cend()});
+    m_manager->updateRosterGroups(jid, {groups.cbegin(), groups.cend()});
 }
 
 void RosterController::setChatStateSendingEnabled(const QString &jid, bool chatStateSendingEnabled)
@@ -379,7 +377,7 @@ void RosterController::applyOldContactData(const QString &oldContactJid, const Q
             newItem.automaticMediaDownloadsRule = oldItem.automaticMediaDownloadsRule;
         });
 
-        updateGroups(newContactJid, oldItem->name, oldItem->groups);
+        updateGroups(newContactJid, oldItem->groups);
     }
 }
 

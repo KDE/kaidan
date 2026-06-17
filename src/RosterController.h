@@ -74,7 +74,7 @@ public:
 
     Q_INVOKABLE void updateGroup(const QString &oldGroup, const QString &newGroup);
     Q_INVOKABLE void removeGroup(const QString &group);
-    Q_INVOKABLE void updateGroups(const QString &jid, const QString &name, const QList<QString> &groups = {});
+    Q_INVOKABLE void updateGroups(const QString &jid, const QList<QString> &groups);
 
     Q_INVOKABLE void setChatStateSendingEnabled(const QString &jid, bool chatStateSendingEnabled);
     Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &jid, bool readMarkerSendingEnabled);
