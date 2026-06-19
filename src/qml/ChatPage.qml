@@ -43,7 +43,7 @@ SearchBarPage {
 		opacity: searchButton.checked ? 1 : 0
 		visible: searchField.opacity
 		autoAccept: false
-		focusSequence: "Ctrl+Shift+F"
+		focusSequences: ["Ctrl+Shift+F"]
 		listView: messageListView
 		onVisibleChanged: {
 			if (searchField.visible) {
@@ -56,7 +56,7 @@ SearchBarPage {
 		onAccepted: searchFromCurrentIndex(true)
 		Keys.onUpPressed: searchFromCurrentIndex(true)
 		Keys.onDownPressed: searchFromCurrentIndex(false)
-		Keys.onEscapePressed: searchButton.clicked()
+		Keys.onEscapePressed: searchButton.toggle()
 	}
 	separatorVisible: true
 	toolbarItems: [
@@ -849,9 +849,9 @@ SearchBarPage {
 
 	// Shortcut to show search field.
 	Shortcut {
-		sequence: root.searchField.focusSequence
+		sequences: root.searchField.focusSequences
 		enabled: !searchButton.checked
-		onActivated: searchButton.clicked()
+		onActivated: searchButton.toggle()
 	}
 
 	Shortcut {
