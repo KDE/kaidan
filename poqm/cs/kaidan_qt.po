@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-06-19 00:09+0200\n"
+"PO-Revision-Date: 2026-06-19 23:37+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -22,7 +22,7 @@ msgstr "Odpojeno"
 #: src/Account.cpp:477
 msgctxt "Connection|"
 msgid "Connecting…"
-msgstr "Připojování..."
+msgstr "Připojování…"
 
 #: src/Account.cpp:479
 msgctxt "Connection|"
@@ -145,7 +145,7 @@ msgstr "Zařízení na serverech"
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
-msgstr "%1 píše..."
+msgstr "%1 píše…"
 
 #: src/ChatController.cpp:178
 #, qt-format
@@ -822,7 +822,7 @@ msgstr "Nikdy"
 #: src/qml/details/AccountDetailsContent.qml:281
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "V případě sdílení osobních údajů"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 #: src/qml/details/AccountDetailsContent.qml:285
@@ -849,7 +849,7 @@ msgstr "Šifrování"
 #: src/qml/details/AccountDetailsContent.qml:136
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/AccountDetailsContent.qml:137
 msgctxt "AccountDetailsContent|"
@@ -857,6 +857,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Koncové šifrování pomocí OMEMO 2 zaručuje, že nikdo kromě vás a vašich "
+"partnerů v konverzaci nemůže číst ani upravovat data, která si vyměňujete."
 
 #: src/qml/details/AccountDetailsContent.qml:195
 msgctxt "AccountDetailsContent|"
@@ -872,22 +874,24 @@ msgstr "Odstranit popisek"
 #: src/qml/details/AccountDetailsContent.qml:245
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr ""
+msgstr "Sdílet adresu konverzace tohoto účtu pomocí QR kódu"
 
 #: src/qml/details/AccountDetailsContent.qml:249
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
-msgstr ""
+msgstr "Sdílet adresu konverzace tohoto účtu pomocí textu"
 
 #: src/qml/details/AccountDetailsContent.qml:252
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
-msgstr ""
+msgstr "Adresa účtu byla zkopírována do schránky"
 
 #: src/qml/details/AccountDetailsContent.qml:256
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
+"Sdílet adresu konverzace tohoto účtu prostřednictvím webové stránky s "
+"návodem k použití"
 
 #: src/qml/details/AccountDetailsContent.qml:269
 msgctxt "AccountDetailsContent|"
@@ -897,27 +901,27 @@ msgstr "Upozornění"
 #: src/qml/details/AccountDetailsContent.qml:273
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr ""
+msgstr "Příchozí zprávy od kontaktů"
 
 #: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr ""
+msgstr "Zobrazit upozornění a přehrát zvuk při přijetí zprávy od kontaktu"
 
 #: src/qml/details/AccountDetailsContent.qml:296
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr ""
+msgstr "Příchozí skupinové zprávy"
 
 #: src/qml/details/AccountDetailsContent.qml:297
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr ""
+msgstr "Zobrazit upozornění a přehrát zvuk při přijetí zprávy ze skupiny"
 
 #: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Při zmínce"
 
 #: src/qml/details/AccountDetailsContent.qml:323
 msgctxt "AccountDetailsContent|"
@@ -983,32 +987,32 @@ msgstr "Navštívit webovou stránku"
 #: src/qml/details/AccountDetailsContent.qml:383
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
-msgstr ""
+msgstr "Otevřít webové stránky svého poskytovatele ve webovém prohlížeči"
 
 #: src/qml/details/AccountDetailsContent.qml:389
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
-msgstr ""
+msgstr "Zkopírovat adresu webové stránky"
 
 #: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
-msgstr ""
+msgstr "Zkopírujte webovou adresu svého poskytovatele do schránky"
 
 #: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr ""
+msgstr "Adresa webové stránky byla zkopírována do schránky"
 
 #: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
-msgstr ""
+msgstr "Otevřít konverzaci s podporou"
 
 #: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
-msgstr "Začít rozhovor s kontaktem podpory vašeho poskytovatele"
+msgstr "Začít konverzaci s kontaktem podpory vašeho poskytovatele"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -1024,23 +1028,23 @@ msgstr "Podpora %1"
 #: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
-msgstr ""
+msgstr "Otevřít skupinu podpory"
 
 #: src/qml/details/AccountDetailsContent.qml:443
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
-msgstr ""
+msgstr "Připojte se k veřejné skupině podpory svého poskytovatele"
 
 #: src/qml/details/AccountDetailsContent.qml:459
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "Skupina podpory %1"
 
 #: src/qml/details/AccountDetailsContent.qml:474
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr ""
+msgstr "Zablokované adresy v konverzaci"
 
 #: src/qml/details/AccountDetailsContent.qml:478
 msgctxt "AccountDetailsContent|"
@@ -1048,11 +1052,15 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Zablokovat konkrétního uživatele (např. user@example.org) nebo všechny "
+"uživatele stejného serveru (např. example.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
+"Abyste mohli blokovat nebo odblokovat adresy v konverzaci, musíte být "
+"připojeni"
 
 #: src/qml/details/AccountDetailsContent.qml:514
 msgctxt "AccountDetailsContent|"
@@ -1062,12 +1070,12 @@ msgstr "uzivatel@priklad.cz"
 #: src/qml/details/AccountDetailsContent.qml:529
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr ""
+msgstr "Blokovat adresu v konverzaci"
 
 #: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr ""
+msgstr "Změnit adresu v konverzaci…"
 
 #: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
@@ -1082,17 +1090,18 @@ msgstr "Poznámky"
 #: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "Přidat konverzaci pro poznámky"
 
 #: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr ""
+msgstr "Přidávání poznámek konverzace…"
 
 #: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
+"Přidejte konverzaci pro synchronizaci poznámek na všech vašich zařízeních"
 
 #: src/qml/details/AccountDetailsContent.qml:668
 msgctxt "AccountDetailsContent|"
@@ -1100,6 +1109,8 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Konverzaci s poznámkami nebylo možné přidat do vašeho seznamu kontaktů, "
+"protože váš server tuto funkci nepodporuje"
 
 #: src/qml/details/AccountDetailsContent.qml:703
 msgctxt "AccountDetailsContent|"
@@ -1112,6 +1123,7 @@ msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
+"Změňte si heslo. Nové heslo musíte zadat na všech svých ostatních zařízeních!"
 
 #: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
@@ -1126,7 +1138,7 @@ msgstr "Zadejte své současné heslo"
 #: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
-msgstr ""
+msgstr "Zadejte správné heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
@@ -1147,7 +1159,7 @@ msgstr "Zadejte své nové heslo"
 #: src/qml/details/AccountDetailsContent.qml:734
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
-msgstr ""
+msgstr "Zadejte jiné heslo, chcete-li ho změnit"
 
 #: src/qml/details/AccountDetailsContent.qml:745
 msgctxt "AccountDetailsContent|"
@@ -1168,7 +1180,7 @@ msgstr "Heslo bylo úspěšně změněno"
 #: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr ""
+msgstr "Viditelnost hesla"
 
 #: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
@@ -1178,11 +1190,15 @@ msgid ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 msgstr ""
+"Nastavte toto zařízení tak, aby se vaše heslo nezobrazovalo při jeho změně "
+"nebo při přechodu na jiné zařízení. Pokud chcete později změnit heslo nebo "
+"používat svůj účet na jiném zařízení, <b>zvažte uložení hesla jinde. Tuto "
+"akci nelze vrátit zpět!</b>"
 
 #: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
-msgstr ""
+msgstr "Nezobrazovat heslo jako text"
 
 #: src/qml/details/AccountDetailsContent.qml:834
 msgctxt "AccountDetailsContent|"
@@ -1190,16 +1206,18 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
+"Umožnit přidávání dalších zařízení pomocí přihlašovacího QR kódu, ale nikdy "
+"nezobrazovat heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:841
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr ""
+msgstr "Odstranění hesla z textu…"
 
 #: src/qml/details/AccountDetailsContent.qml:847
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "Heslo v žádném případě nikomu nesdělujte"
 
 #: src/qml/details/AccountDetailsContent.qml:848
 msgctxt "AccountDetailsContent|"
@@ -1207,16 +1225,18 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
+"Neumožnit ani přidání dalších zařízení pomocí přihlašovacího QR kódu, ani "
+"nezobrazovat heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:855
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "Odstranění hesla z textu a QR kódu…"
 
 #: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
-msgstr "Spojení"
+msgstr "Připojení"
 
 #: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
@@ -1224,6 +1244,8 @@ msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
+"Nastavte název hostitele a port, ke kterému se chcete připojit (pro použití "
+"výchozích hodnot pole ponechte prázdná)"
 
 #: src/qml/details/AccountDetailsContent.qml:897
 msgctxt "AccountDetailsContent|"
@@ -1233,23 +1255,23 @@ msgstr "Provést změny"
 #: src/qml/details/AccountDetailsContent.qml:898
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Provádění změn…"
 
 #: src/qml/details/AccountDetailsContent.qml:928
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr ""
+msgstr "Nastavení připojení se nepodařilo změnit: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
-msgstr ""
+msgstr "Nastavení připojení bylo změněno"
 
 #: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr ""
+msgstr "Přepnout zařízení"
 
 #: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
@@ -1257,40 +1279,34 @@ msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
+"Údaje v této části nikdy nikomu neukazujte. Mohlo by to umožnit neomezený "
+"přístup k vašemu účtu!"
 
 #: src/qml/details/AccountDetailsContent.qml:962
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Show QR code"
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Zobrazit QR kód"
+msgstr "Zobrazit přihlašovací QR kód"
 
 #: src/qml/details/AccountDetailsContent.qml:963
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr ""
+msgstr "Naskenujte QR kód jiným zařízením a přihlaste se na něm"
 
 #: src/qml/details/AccountDetailsContent.qml:979
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
-msgstr "Zobrazit podrobnosti"
+msgstr "Zobrazit přihlašovací údaje"
 
 #: src/qml/details/AccountDetailsContent.qml:980
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
+"Zadejte přihlašovací údaje do jiného zařízení, abyste se na něm přihlásili"
 
 #: src/qml/details/AccountDetailsContent.qml:986
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Address"
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
-msgstr "Adresa"
+msgstr "Adresa konverzace"
 
 #: src/qml/details/AccountDetailsContent.qml:1004
 msgctxt "AccountDetailsContent|"
@@ -1305,12 +1321,12 @@ msgstr "Převést účet"
 #: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr ""
+msgstr "Probíhá příprava přesunu účtu…"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "To může chvíli trvat"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -1319,6 +1335,9 @@ msgid ""
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
+"Přeneste data účtu (kromě historie chatů) na jiný účet. Váš aktuální účet "
+"bude z této aplikace odstraněn. V případě potřeby si zálohujte přihlašovací "
+"údaje a historii konverzace!"
 
 #: src/qml/details/AccountDetailsContent.qml:1034
 msgctxt "AccountDetailsContent|"
@@ -1328,7 +1347,7 @@ msgstr "Odstranění"
 #: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
-msgstr ""
+msgstr "Odstranit z Kaidanu"
 
 #: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
@@ -1336,27 +1355,30 @@ msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
+"Odeberte účet z této aplikace. V případě potřeby si zálohujte přihlašovací "
+"údaje a historii konverzace!"
 
 #: src/qml/details/AccountDetailsContent.qml:1049
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Odstraňuji účet…"
+msgstr "Odstraňování účtu…"
 
 #: src/qml/details/AccountDetailsContent.qml:1056
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
-msgstr ""
+msgstr "Zcela smazat"
 
 #: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
+"Smažte účet u poskytovatele. Svůj účet již nebudete moci znovu používat!"
 
 #: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Mažu účet…"
+msgstr "Mazání účtu…"
 
 #: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
@@ -1365,6 +1387,8 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
+"Váš účet se nepodařilo smazat ze serveru. Z tohoto důvodu nebyl odstraněn "
+"ani z této aplikace: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:13
 msgctxt "AccountDetailsDialog|"
@@ -1374,7 +1398,7 @@ msgstr "Podrobnosti o účtu"
 #: src/qml/details/AccountDetailsHeader.qml:15
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
-msgstr ""
+msgstr "Změnit si profilovou fotku"
 
 #: src/qml/details/AccountDetailsPage.qml:12
 msgctxt "AccountDetailsPage|"
@@ -1385,57 +1409,63 @@ msgstr "Podrobnosti o účtu"
 #: src/qml/details/AccountKeyAuthenticationButton.qml:40
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr ""
+msgstr "Ověřte svá vlastní zařízení, abyste pro ně mohli nastavit šifrování"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:38
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
 msgstr ""
+"Ověřte vlastní neznámá zařízení, abyste pro ně mohli nastavit šifrování"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:42
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr ""
+msgstr "Ověřte svá vlastní zařízení, abyste zajistili maximální bezpečnost"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:44
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
 msgstr ""
+"Ověřte neznámá zařízení sami, nebo nechte tato zařízení ověřit jinými "
+"zařízeními"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:50
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
 msgstr ""
+"Nemáte žádné jiné důvěryhodné zařízení, pro které byste mohli nastavit "
+"šifrování"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:52
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr ""
+msgstr "Máte další zařízení, která nepoužívají OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:54
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr ""
+msgstr "Nemáte žádné další známé zařízení, které by používalo OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:56
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
 msgstr ""
+"Máte další zařízení, která je třeba ověřit, abyste mohli nastavit šifrování"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:58
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "Máte další zařízení, která nejsou ověřena"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:60
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "Všechna vaše ostatní známá zařízení jsou ověřena"
 
 #: src/qml/details/AvatarChangePage.qml:23
 msgctxt "AvatarChangePage|"
 msgid "Change profile image"
-msgstr ""
+msgstr "Změnit profilový obrázek"
 
 #: src/qml/details/AvatarChangePage.qml:91
 msgctxt "AvatarChangePage|"
@@ -1445,7 +1475,7 @@ msgstr "Otevřít obrázek…"
 #: src/qml/details/AvatarChangePage.qml:96
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
-msgstr ""
+msgstr "Odstranit aktuální profilový obrázek"
 
 #: src/qml/details/AvatarChangePage.qml:102
 msgctxt "AvatarChangePage|"
@@ -1460,7 +1490,7 @@ msgstr "Šifrování"
 #: src/qml/details/ContactDetailsContent.qml:56
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:57
 msgctxt "ContactDetailsContent|"
@@ -1468,27 +1498,31 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Koncové šifrování pomocí OMEMO 2 zaručuje, že nikdo kromě vás a vašich "
+"partnerů v konverzaci nemůže číst ani upravovat data, která si vyměňujete."
 
 #: src/qml/details/ContactDetailsContent.qml:77
 #: src/qml/details/ContactDetailsContent.qml:82
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr ""
+msgstr "Sdílet adresu konverzace tohoto kontaktu pomocí QR kódu"
 
 #: src/qml/details/ContactDetailsContent.qml:86
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
-msgstr ""
+msgstr "Sdílet adresu konverzace tohoto kontaktu pomocí textu"
 
 #: src/qml/details/ContactDetailsContent.qml:89
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
-msgstr ""
+msgstr "Kontakt byl zkopírován do schránky"
 
 #: src/qml/details/ContactDetailsContent.qml:93
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
+"Sdílet adresy konverzací tohoto kontaktu prostřednictvím webové stránky s "
+"návodem k použití"
 
 #: src/qml/details/ContactDetailsContent.qml:106
 msgctxt "ContactDetailsContent|"
@@ -1503,12 +1537,12 @@ msgstr "Příchozí zprávy"
 #: src/qml/details/ContactDetailsContent.qml:111
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
-msgstr ""
+msgstr "Zobrazit upozornění a přehrát zvuk při příchodu zprávy"
 
 #: src/qml/details/ContactDetailsContent.qml:114
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr ""
+msgstr "Výchozí nastavení účtu"
 
 #: src/qml/details/ContactDetailsContent.qml:118
 msgctxt "ContactDetailsContent|"
@@ -1528,7 +1562,7 @@ msgstr "Soukromí"
 #: src/qml/details/ContactDetailsContent.qml:141
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr ""
+msgstr "Požadovat osobní údaje"
 
 #: src/qml/details/ContactDetailsContent.qml:142
 msgctxt "ContactDetailsContent|"
@@ -1536,16 +1570,20 @@ msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
+"Požádejte svůj kontakt, aby vám sdělil informace o dostupnosti, zařízeních a "
+"dalších osobních údajích"
 
 #: src/qml/details/ContactDetailsContent.qml:148
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Zrušit sdílení osobních údajů"
 
 #: src/qml/details/ContactDetailsContent.qml:149
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
+"Přestaňte sdílet informace o své dostupnosti, zařízeních a dalších osobních "
+"údajích"
 
 #: src/qml/details/ContactDetailsContent.qml:155
 msgctxt "ContactDetailsContent|"
@@ -1555,7 +1593,7 @@ msgstr "Posílat upozornění o psaní"
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr ""
+msgstr "Indikujte, kdy píšete"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1565,7 +1603,7 @@ msgstr "Posílat upozornění o čtení"
 #: src/qml/details/ContactDetailsContent.qml:163
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "Indikujte, které zprávy jste si přečetli"
 
 #: src/qml/details/ContactDetailsContent.qml:169
 msgctxt "ContactDetailsContent|"
@@ -1575,7 +1613,7 @@ msgstr "Blokovat"
 #: src/qml/details/ContactDetailsContent.qml:170
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "Zablokovat veškerou komunikaci včetně stavů a oznámení"
 
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
@@ -1590,69 +1628,76 @@ msgstr "Odstranit"
 #: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr ""
+msgstr "Odstranit kontakt a celou historii chatu"
 
 #: src/qml/details/ContactDetailsContent.qml:209
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Odstraňuji kontakt…"
+msgstr "Odstraňování kontaktu…"
 
 #: src/qml/details/ContactDetailsDialog.qml:12
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr ""
+msgstr "Podrobnosti o kontaktu"
 
 #: src/qml/details/ContactDetailsPage.qml:10
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr ""
+msgstr "Podrobnosti o kontaktu"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr ""
+msgstr "Ověřte zařízení svých kontaktů, pro která chcete používat šifrování"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
 msgstr ""
+"Ověřte neznámá zařízení svých kontaktů, pro která chcete používat šifrování"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr ""
+msgstr "Ověřte zařízení svých kontaktů pro maximální bezpečnost"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
 msgstr ""
+"Ověřte neznámá zařízení svých kontaktů nebo nechte své kontakty ověřit toto "
+"zařízení"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
 msgstr ""
+"Váš kontakt nemá žádné důvěryhodné zařízení, u kterého by bylo možné "
+"šifrování"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr ""
+msgstr "Váš kontakt nemá žádné známé zařízení, které by používalo OMEMO 2"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
 msgstr ""
+"Váš kontakt má zařízení, která je třeba ověřit, abyste mohli používat "
+"šifrování"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "Váš kontakt má zařízení, která nejsou ověřena"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr ""
+msgstr "Všechna známá zařízení vašich kontaktů jsou ověřena"
 
 #: src/qml/details/DetailsContent.qml:58
 msgctxt "DetailsContent|"
@@ -1662,12 +1707,12 @@ msgstr "Média"
 #: src/qml/details/DetailsContent.qml:68
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
-msgstr ""
+msgstr "Automatické stahování"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr ""
+msgstr "Automatické stahování médií"
 
 #: src/qml/details/DetailsContent.qml:109
 msgctxt "DetailsContent|"
@@ -1692,27 +1737,27 @@ msgstr "Zobrazit QR kód"
 #: src/qml/details/DetailsContent.qml:181
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
-msgstr ""
+msgstr "Zkopírovat QR kód"
 
 #: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr ""
+msgstr "QR kód byl zkopírován do schránky"
 
 #: src/qml/details/DetailsContent.qml:188
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "Zkopírovat adresu konverzace"
 
 #: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
-msgstr ""
+msgstr "Zkopírovat odkaz na pozvánku"
 
 #: src/qml/details/DetailsContent.qml:196
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "Odkaz na pozvánku byl zkopírován do schránky"
 
 #: src/qml/details/DetailsHeader.qml:86
 msgctxt "DetailsHeader|"
@@ -1727,12 +1772,12 @@ msgstr "Pozvat"
 #: src/qml/details/GroupChatDetailsContent.qml:67
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
-msgstr ""
+msgstr "Pozvat vybrané kontakty"
 
 #: src/qml/details/GroupChatDetailsContent.qml:126
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
-msgstr ""
+msgstr "Vyberte alespoň jeden kontakt"
 
 #: src/qml/details/GroupChatDetailsContent.qml:140
 msgctxt "GroupChatDetailsContent|"
@@ -1745,11 +1790,13 @@ msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
+"Umožnit účast uživateli (např. user@example.org) nebo všem uživatelům "
+"stejného serveru (např. example.org)"
 
 #: src/qml/details/GroupChatDetailsContent.qml:167
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr ""
+msgstr "Chcete-li změnit účastníky, musíte být připojeni"
 
 #: src/qml/details/GroupChatDetailsContent.qml:215
 msgctxt "GroupChatDetailsContent|"
@@ -1759,7 +1806,7 @@ msgstr "Šifrování"
 #: src/qml/details/GroupChatDetailsContent.qml:219
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:220
 msgctxt "GroupChatDetailsContent|"
@@ -1767,27 +1814,31 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Koncové šifrování pomocí OMEMO 2 zaručuje, že nikdo kromě vás a vašich "
+"partnerů v konverzaci nemůže číst ani upravovat data, která si vyměňujete."
 
 #: src/qml/details/GroupChatDetailsContent.qml:289
 #: src/qml/details/GroupChatDetailsContent.qml:294
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr ""
+msgstr "Sdílejte adresu konverzace této skupiny pomocí QR kódu"
 
 #: src/qml/details/GroupChatDetailsContent.qml:298
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
-msgstr ""
+msgstr "Sdílejte adresu konverzace této skupiny pomocí textu"
 
 #: src/qml/details/GroupChatDetailsContent.qml:301
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
-msgstr ""
+msgstr "Adresa skupiny byla zkopírována do schránky"
 
 #: src/qml/details/GroupChatDetailsContent.qml:305
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
+"Sdílejte adresu konverzace této skupiny prostřednictvím webové stránky s "
+"návodem k použití"
 
 #: src/qml/details/GroupChatDetailsContent.qml:313
 msgctxt "GroupChatDetailsContent|"
@@ -1802,12 +1853,12 @@ msgstr "Příchozí zprávy"
 #: src/qml/details/GroupChatDetailsContent.qml:318
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
-msgstr ""
+msgstr "Zobrazit upozornění a přehrát zvuk při příchodu zprávy"
 
 #: src/qml/details/GroupChatDetailsContent.qml:321
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
-msgstr ""
+msgstr "Výchozí nastavení účtu"
 
 #: src/qml/details/GroupChatDetailsContent.qml:325
 msgctxt "GroupChatDetailsContent|"
@@ -1817,7 +1868,7 @@ msgstr "Nikdy"
 #: src/qml/details/GroupChatDetailsContent.qml:329
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Při zmínce"
 
 #: src/qml/details/GroupChatDetailsContent.qml:333
 msgctxt "GroupChatDetailsContent|"
@@ -1837,7 +1888,7 @@ msgstr "Posílat upozornění o psaní"
 #: src/qml/details/GroupChatDetailsContent.qml:353
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr ""
+msgstr "Indikujte, kdy píšete"
 
 #: src/qml/details/GroupChatDetailsContent.qml:359
 msgctxt "GroupChatDetailsContent|"
@@ -1847,12 +1898,12 @@ msgstr "Posílat upozornění o čtení"
 #: src/qml/details/GroupChatDetailsContent.qml:360
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "Indikujte, které zprávy jste si přečetli"
 
 #: src/qml/details/GroupChatDetailsContent.qml:373
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
-msgstr ""
+msgstr "Opuštění a smazání"
 
 #: src/qml/details/GroupChatDetailsContent.qml:379
 msgctxt "GroupChatDetailsContent|"
@@ -1862,18 +1913,18 @@ msgstr "Opustit"
 #: src/qml/details/GroupChatDetailsContent.qml:380
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr ""
+msgstr "Opustit skupinu a odstranit celou historii konverzace"
 
 #: src/qml/details/GroupChatDetailsContent.qml:389
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr ""
+msgstr "Opouštění skupinové konverzace…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:395
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr ""
+msgstr "Skupinu %1 nebylo možné opustit %2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:403
 msgctxt "GroupChatDetailsContent|"
@@ -1883,18 +1934,18 @@ msgstr "Smazat"
 #: src/qml/details/GroupChatDetailsContent.qml:404
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr ""
+msgstr "Smazat skupinu. Nikdo se už nebude moci ke skupině připojit!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:413
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr ""
+msgstr "Mazání skupinové konverzace…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:419
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr ""
+msgstr "Skupinu %1 nebylo možné smazat %2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:12
 msgctxt "GroupChatDetailsDialog|"
@@ -1904,12 +1955,12 @@ msgstr "Podrobnosti o skupině"
 #: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "Veřejná skupinová konverzace"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:13
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "Soukromá skupinová konverzace"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:16
 msgctxt "GroupChatDetailsHeader|"
@@ -1925,17 +1976,17 @@ msgstr "Podrobnosti o skupině"
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr ""
+msgstr "Ověřte zařízení účastníků, pro která chcete používat šifrování"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr ""
+msgstr "Ověřte neznámá zařízení účastníků, pro která chcete používat šifrování"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr ""
+msgstr "Ověřte zařízení účastníků, abyste zajistili maximální bezpečnost"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
 msgctxt "GroupChatUserKeyAuthenticationButton|"
@@ -1943,32 +1994,38 @@ msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
 msgstr ""
+"Ověřte neznámá zařízení účastníků nebo nechte účastníky, aby toto zařízení "
+"ověřili sami"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
 msgstr ""
+"Žádný účastník nemá důvěryhodné zařízení, u kterého by bylo možné použít "
+"šifrování"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr ""
+msgstr "U žádného z účastníků není známo, že by používal zařízení s OMEMO 2"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
 msgstr ""
+"Někteří účastníci mají zařízení, která je třeba ověřit, aby u nich bylo "
+"možné používat šifrování"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "Někteří účastníci mají zařízení, která nejsou ověřena"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "dVšechny závislosti jsou splněny"
+msgstr "Všechna známá zařízení účastníků jsou ověřena"
 
 #: src/qml/details/MediaOverview.qml:70
 msgctxt "MediaOverview|"
@@ -1998,6 +2055,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Ne všechny soubory se podařilo smazat:\n"
+"%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:22
 msgctxt "NotesChatDetailsContent|"
@@ -2007,7 +2066,7 @@ msgstr "Šifrování"
 #: src/qml/details/NotesChatDetailsContent.qml:26
 msgctxt "NotesChatDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/NotesChatDetailsContent.qml:27
 msgctxt "NotesChatDetailsContent|"
@@ -2015,6 +2074,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
 "read or modify the data that is synchronized across your devices."
 msgstr ""
+"Koncové šifrování pomocí OMEMO 2 zaručuje, že nikdo jiný než vy nemůže číst "
+"ani upravovat data synchronizovaná mezi vašimi zařízeními."
 
 #: src/qml/details/NotesChatDetailsContent.qml:50
 msgctxt "NotesChatDetailsContent|"
@@ -2029,27 +2090,29 @@ msgstr "Odstranit"
 #: src/qml/details/NotesChatDetailsContent.qml:56
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr ""
+msgstr "Odstranit poznámky z konverzace a celou historii chatu"
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr ""
+msgstr "Odstraňování poznámek konverzace…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:10
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr ""
+msgstr "Podrobnosti poznámek"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:9
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"Zprávy v této konverzaci se synchronizují jako poznámky na všech vašich "
+"zařízeních"
 
 #: src/qml/details/NotesChatDetailsPage.qml:9
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr ""
+msgstr "Podrobnosti poznámek"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:26
 msgctxt "ProviderChatDetailsContent|"
@@ -2064,41 +2127,32 @@ msgstr "Odstranit"
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr ""
+msgstr "Odstranit konverzaci poskytovatele a celou historii konverzace"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Removing contact…"
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Odstraňuji kontakt…"
+msgstr "Odstraňování konverzace poskytovatele…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Poskytovatel"
+msgstr "Podrobnosti o poskytovateli"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:9
 msgctxt "ProviderChatDetailsHeader|"
 msgid "Messages in this chat are from your service provider"
-msgstr ""
+msgstr "Zprávy v této konverzaci pocházejí od vašeho poskytovatele služeb"
 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Poskytovatel"
+msgstr "Podrobnosti o poskytovateli"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
-msgstr ""
+msgstr "Výchozí nastavení účtu"
 
 #: src/qml/details/RosterItemDetailsContent.qml:29
 msgctxt "RosterItemDetailsContent|"
@@ -2123,7 +2177,7 @@ msgstr "Přidat popisek"
 #: src/qml/details/RosterItemDetailsHeader.qml:24
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
-msgstr ""
+msgstr "Maximalizovat avatar"
 
 #: src/qml/details/UserDevicesArea.qml:27
 msgctxt "UserDevicesArea|"
@@ -2138,17 +2192,17 @@ msgstr "Navštívit webovou stránku"
 #: src/qml/elements/AboutContent.qml:20
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "Otevřít webové stránky Kaidanu ve webovém prohlížeči"
 
 #: src/qml/elements/AboutContent.qml:26
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Sledovat na Mastodonu"
 
 #: src/qml/elements/AboutContent.qml:27
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr ""
+msgstr "Otevřít stránku Kaidanu na Mastodonu ve webovém prohlížeči"
 
 #: src/qml/elements/AboutContent.qml:33
 msgctxt "AboutContent|"
@@ -2158,17 +2212,17 @@ msgstr "Přispět"
 #: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "Podpořte vývoj a infrastrukturu Kaidanu svým darem"
 
 #: src/qml/elements/AboutContent.qml:40
 msgctxt "AboutContent|"
 msgid "Report problems"
-msgstr ""
+msgstr "Hlášení problémů"
 
 #: src/qml/elements/AboutContent.qml:41
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr ""
+msgstr "Nahlásit problémy s Kaidanem vývojářům"
 
 #: src/qml/elements/AboutContent.qml:47
 msgctxt "AboutContent|"
@@ -2218,7 +2272,7 @@ msgstr "Přehrát"
 #: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr ""
+msgstr "Není dostupný fotoaparát"
 
 #: src/qml/elements/ChatMessage.qml:225
 msgctxt "ChatMessage|"
@@ -2511,7 +2565,7 @@ msgstr ""
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr ""
+msgstr "Adresa konverzace"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -2775,7 +2829,7 @@ msgstr "Nastavení připojení"
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
 msgid "Connecting…"
-msgstr "Připojování..."
+msgstr "Připojování…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
 msgctxt "MediumSendingPreview|"
@@ -3196,7 +3250,7 @@ msgstr "Přidat kontakt QR kódem"
 #: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Přidat kontakt podle adresy rozhovoru"
+msgstr "Přidat kontakt podle adresy konverzace"
 
 #: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
@@ -3232,12 +3286,10 @@ msgid "About"
 msgstr "O aplikaci"
 
 #: src/qml/GlobalDrawer.qml:462
-#, fuzzy, qt-format
-#| msgctxt "main|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
-msgstr "Odblokován %1"
+msgstr "Odblokován(a) %1"
 
 #: src/qml/GlobalDrawer.qml:462
 msgctxt "GlobalDrawer|"
@@ -3245,20 +3297,16 @@ msgid "Undo"
 msgstr "Zpět"
 
 #: src/qml/GlobalDrawer.qml:469
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr "Nelze zablokovat %1: %2"
 
 #: src/qml/GlobalDrawer.qml:473
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Couldn't download file: %1"
+#, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
-msgstr "Soubor nelze stáhnout: %1"
+msgstr "Nelze odblokovat %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
@@ -3591,12 +3639,10 @@ msgid "Unknown size"
 msgstr "Neznámá velikost"
 
 #: src/RosterController.cpp:146
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
-msgstr "%1 nelze přidat: %2"
+msgstr "%1 se nepodařilo přidat: %2"
 
 #: src/RosterController.cpp:153
 msgctxt "RosterController|"
