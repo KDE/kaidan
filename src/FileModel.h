@@ -8,7 +8,7 @@
 #include <QAbstractListModel>
 #include <QFutureWatcher>
 // KDE
-#include <KItemModels/KDescendantsProxyModel>
+#include <KDescendantsProxyModel>
 // Kaidan
 #include "Message.h"
 
