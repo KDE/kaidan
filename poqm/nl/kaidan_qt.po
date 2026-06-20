@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-06-09 18:31+0200\n"
+"PO-Revision-Date: 2026-06-19 10:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/Account.cpp:476
 msgctxt "Connection|"
@@ -320,7 +320,7 @@ msgstr "Links"
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr "Verbannen"
+msgstr "Geblokkeerd"
 
 #: src/ImageProvider.cpp:133
 #, qt-format
@@ -2600,7 +2600,55 @@ msgid "Some functionality will become visible once your account is enabled"
 msgstr ""
 "Enige functionaliteit zal zichtbaar worden nadat uw account is ingeschakeld"
 
-#: src/qml/elements/EmojiPicker.qml:161
+#: src/qml/elements/EmojiPicker.qml:53
+msgctxt "EmojiPicker|"
+msgid "Favorites"
+msgstr "Favorieten"
+
+#: src/qml/elements/EmojiPicker.qml:59
+msgctxt "EmojiPicker|"
+msgid "People"
+msgstr "Mensen"
+
+#: src/qml/elements/EmojiPicker.qml:65
+msgctxt "EmojiPicker|"
+msgid "Nature"
+msgstr "Natuur"
+
+#: src/qml/elements/EmojiPicker.qml:71
+msgctxt "EmojiPicker|"
+msgid "Food"
+msgstr "Eten"
+
+#: src/qml/elements/EmojiPicker.qml:77
+msgctxt "EmojiPicker|"
+msgid "Activity"
+msgstr "Activiteiten"
+
+#: src/qml/elements/EmojiPicker.qml:83
+msgctxt "EmojiPicker|"
+msgid "Travel"
+msgstr "Reizigen"
+
+#: src/qml/elements/EmojiPicker.qml:89
+#, fuzzy
+#| msgctxt "NotificationController|"
+#| msgid "Reject"
+msgctxt "EmojiPicker|"
+msgid "Objects"
+msgstr "Afwijzen"
+
+#: src/qml/elements/EmojiPicker.qml:95
+msgctxt "EmojiPicker|"
+msgid "Symbols"
+msgstr "Symbolen"
+
+#: src/qml/elements/EmojiPicker.qml:101
+msgctxt "EmojiPicker|"
+msgid "Flags"
+msgstr "Vlaggen"
+
+#: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
 msgstr "Geen emoji gevonden"
@@ -5139,38 +5187,6 @@ msgstr "Website"
 #~ msgctxt "ChatPage|"
 #~ msgid "All files"
 #~ msgstr "Alle bestanden"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Favorites"
-#~ msgstr "Favorieten"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "People"
-#~ msgstr "Mensen"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Nature"
-#~ msgstr "Natuur"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Food"
-#~ msgstr "Eten"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Activity"
-#~ msgstr "Activiteiten"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Travel"
-#~ msgstr "Reizigen"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Symbols"
-#~ msgstr "Symbolen"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Flags"
-#~ msgstr "Vlaggen"
 
 #~ msgctxt "EmojiPicker|"
 #~ msgid "Search"
