@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-06-19 23:37+0200\n"
+"PO-Revision-Date: 2026-06-20 23:24+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -187,7 +187,7 @@ msgstr "Zobrazit chybu"
 #: src/ChatHintModel.cpp:262
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr "Navazuji spojení…"
+msgstr "Připojování…"
 
 #: src/ChatHintModel.cpp:275
 #, qt-format
@@ -252,7 +252,7 @@ msgstr "Opustit"
 #: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Opustit skupinový chat"
+msgstr "Opustit skupinovou konverzaci"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:440
 msgctxt "FileSharingController|"
@@ -1628,7 +1628,7 @@ msgstr "Odstranit"
 #: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr "Odstranit kontakt a celou historii chatu"
+msgstr "Odstranit kontakt a celou historii konverzace"
 
 #: src/qml/details/ContactDetailsContent.qml:209
 msgctxt "ContactDetailsContent|"
@@ -2090,7 +2090,7 @@ msgstr "Odstranit"
 #: src/qml/details/NotesChatDetailsContent.qml:56
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
-msgstr "Odstranit poznámky z konverzace a celou historii chatu"
+msgstr "Odstranit poznámky z konverzace a celou historii konverzace"
 
 #: src/qml/details/NotesChatDetailsContent.qml:64
 msgctxt "NotesChatDetailsContent|"
@@ -2227,12 +2227,12 @@ msgstr "Nahlásit problémy s Kaidanem vývojářům"
 #: src/qml/elements/AboutContent.qml:47
 msgctxt "AboutContent|"
 msgid "View source code"
-msgstr ""
+msgstr "Zobrazit zdrojový kód"
 
 #: src/qml/elements/AboutContent.qml:48
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr ""
+msgstr "Prohlédněte si zdrojový kód Kaidanu online a přispějte k projektu"
 
 #: src/qml/elements/AboutHeader.qml:40
 msgctxt "AboutHeader|"
@@ -2242,22 +2242,23 @@ msgstr "Moderní chatovací aplikace pro všechna zařízení"
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr ""
+msgstr "Krok 1: Naskenujte <b>QR kód jiného zařízení</b>"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr ""
+"Krok 2: Naskenujte pomocí jiného zařízení <b>QR kód tohoto zařízení</b>"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr ""
+msgstr "Neověřená vlastní zařízení"
 
 #: src/qml/elements/AccountSelectionDialog.qml:40
 msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
-msgstr ""
+msgstr "Funkce není podporována"
 
 #: src/qml/elements/Audio.qml:39
 msgctxt "Audio|"
@@ -2288,7 +2289,7 @@ msgstr "Nový"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1 dočetl až sem"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
 msgctxt "ChatMessageContextMenu|"
@@ -2298,7 +2299,7 @@ msgstr "Odstranit soubor"
 #: src/qml/elements/ChatMessageContextMenu.qml:67
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr ""
+msgstr "Otevřít soubor ve složce"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:80
 msgctxt "ChatMessageContextMenu|"
@@ -2353,12 +2354,12 @@ msgstr "Zrušit odpověď"
 #: src/qml/elements/ChatPageSendingPane.qml:137
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Viditelná část zprávy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:144
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Zrušit přidání skryté části zprávy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:171
 msgctxt "ChatPageSendingPane|"
@@ -2368,17 +2369,17 @@ msgstr "Přidat emotikon"
 #: src/qml/elements/ChatPageSendingPane.qml:181
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr ""
+msgstr "Zmínit účastníka"
 
 #: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr ""
+msgstr "Napsat <b>šifrovanou </b> zprávu se skrytou částí"
 
 #: src/qml/elements/ChatPageSendingPane.qml:213
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr ""
+msgstr "Napsat <b>nešifrovanou</b> zprávu se skrytou částí"
 
 #: src/qml/elements/ChatPageSendingPane.qml:215
 msgctxt "ChatPageSendingPane|"
@@ -2413,7 +2414,7 @@ msgstr "Sdílet svou polohu"
 #: src/qml/elements/ChatPageSendingPane.qml:340
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Přidat skrytou část zprávy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:383
 msgctxt "ChatPageSendingPane|"
@@ -2448,7 +2449,7 @@ msgstr "Přidat"
 #: src/qml/elements/ContactAdditionContent.qml:42
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr ""
+msgstr "Důvěra v rozhodnutí ohledně kontaktu"
 
 #: src/qml/elements/ContactAdditionContent.qml:62
 msgctxt "ContactAdditionContent|"
@@ -2463,12 +2464,12 @@ msgstr "Jméno (volitelné):"
 #: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional, unencrypted):"
-msgstr ""
+msgstr "Zpráva (volitelná, nešifrovaná):"
 
 #: src/qml/elements/ContactAdditionContent.qml:106
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "Dobrý den, jmenuji se…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2488,42 +2489,42 @@ msgstr "Přidat kontakt"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "Naskenovat QR kódy"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Zobrazit vysvětlení"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:31
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "Krok 1: Naskenujte QR kód svého <b>kontaktu</b>"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:33
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "Krok 2: Nechte tento kontakt naskenovat <b>váš</b> QR kód"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:22
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr ""
+msgstr "Pozvat kontakty do této skupiny…"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "Krok 1: Naskenujte QR kód svého <b>kontaktu</b>"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "Krok 2: Nechte tento kontakt naskenovat <b>váš</b> QR kód"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "Neověřená zařízení kontaktu"
 
 #: src/qml/elements/CopyFormTextDelegate.qml:19
 msgctxt "CopyFormTextDelegate|"
@@ -2533,12 +2534,12 @@ msgstr "Kopírovat"
 #: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr "Název počítače:"
+msgstr "Název hostitele:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr ""
+msgstr "Název hostitele nesmí obsahovat mezery"
 
 #: src/qml/elements/CustomConnectionSettings.qml:61
 msgctxt "CustomConnectionSettings|"
@@ -2548,7 +2549,7 @@ msgstr "Port:"
 #: src/qml/elements/CustomConnectionSettings.qml:107
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Prosté ověření (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:108
 msgctxt "CustomConnectionSettings|"
@@ -2556,11 +2557,13 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Toto je nutné, pokud váš poskytovatel používá protokol LDAP, což bývá často "
+"v organizacích, kde se lze přihlásit pomocí jediného účtu"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr ""
+msgstr "Některé funkce se zobrazí, jakmile bude váš účet aktivován"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2575,7 +2578,7 @@ msgstr "uzivatel@priklad.cz"
 #: src/qml/elements/fields/JidField.qml:21
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr ""
+msgstr "Adresa konverzace musí mít tvar <b>uživatelské_jméno@server</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:20
 msgctxt "PasswordField|"
@@ -2585,7 +2588,7 @@ msgstr "Heslo"
 #: src/qml/elements/fields/PasswordField.qml:30
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "Zadejte prosím platné heslo"
 
 #: src/qml/elements/GeoLocationMap.qml:96
 msgctxt "GeoLocationMap|"
@@ -2615,22 +2618,22 @@ msgstr "Vytvořit"
 #: src/qml/elements/GroupChatCreationContent.qml:27
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr ""
+msgstr "Vytváření skupinové konverzace…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:32
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
-msgstr ""
+msgstr "Název skupiny (volitelné)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:33
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr ""
+msgstr "Příklad skupiny"
 
 #: src/qml/elements/GroupChatCreationContent.qml:41
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
-msgstr "Veřejný"
+msgstr "Veřejná"
 
 #: src/qml/elements/GroupChatCreationContent.qml:54
 msgctxt "GroupChatCreationContent|"
@@ -2640,45 +2643,45 @@ msgstr "ID skupiny"
 #: src/qml/elements/GroupChatCreationContent.qml:57
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr ""
+msgstr "example-group"
 
 #: src/qml/elements/GroupChatCreationContent.qml:59
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr ""
+msgstr "Zadejte platné ID skupiny"
 
 #: src/qml/elements/GroupChatCreationContent.qml:84
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr ""
+msgstr "Přezdívka (volitelné):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:101
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
-msgstr ""
+msgstr "Skupinu se nepodařilo vytvořit na %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:105
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
-msgstr ""
+msgstr "Skupinu %1 se nepodařilo vytvořit %2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:109
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
-msgstr ""
+msgstr "Skupinu %1 se nepodařilo připojit k %2"
 
 #: src/qml/elements/GroupChatCreationDialog.qml:15
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr ""
+msgstr "Vytvořit skupinovou konverzaci"
 
 #: src/qml/elements/GroupChatCreationPage.qml:13
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr ""
+msgstr "Vytvořit skupinovou konverzaci"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:18
 msgctxt "GroupChatJoiningContent|"
@@ -2688,7 +2691,7 @@ msgstr "Připojit"
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr ""
+msgstr "Připojování ke skupinové konverzaci…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:25
 msgctxt "GroupChatJoiningContent|"
@@ -2698,33 +2701,33 @@ msgstr "Adresa"
 #: src/qml/elements/GroupChatJoiningContent.qml:26
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
-msgstr ""
+msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
-msgstr ""
+msgstr "Adresa musí mít tvar <b>skupina@server</b>"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr ""
+msgstr "Přezdívka (volitelné):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
-msgstr ""
+msgstr "Skupinu %1 se nepodařilo připojit k %2"
 
 #: src/qml/elements/GroupChatJoiningDialog.qml:16
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Připojit se ke skupinové konverzaci"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:14
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Připojit se ke skupinové konverzaci"
 
 #: src/qml/elements/GroupChatUserDelegate.qml:18
 msgctxt "GroupChatUserDelegate|"
@@ -2734,17 +2737,17 @@ msgstr "Zablokovat"
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
-msgstr ""
+msgstr "Krok 1: Naskenujte <b>účastníkův</b> QR kód"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 2: Let the participant scan <b>your</b> QR code"
-msgstr ""
+msgstr "Krok 2: Nechte účastníka naskenovat <b>váš</b> QR kód"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr ""
+msgstr "Neověřená zařízení účastníků"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
@@ -2754,23 +2757,23 @@ msgstr "Vyfotit"
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr ""
+msgstr "Ověřit zařízení"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Zobrazit vysvětlení"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "Naskenovat QR kódy"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr ""
+msgstr "Ověřit ručně"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:81
 msgctxt "KeyAuthenticationPage|"
@@ -2780,18 +2783,18 @@ msgstr "Ověřit zařízení"
 #: src/qml/elements/KeyAuthenticationPage.qml:96
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr ""
+msgstr "Zařízení ověřeno"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:100
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
-msgstr ""
+msgstr "Otisk prstu musí obsahovat 64 znaků, včetně číslic a písmen od a do f"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:137
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "Ověřená vlastní zařízení"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:159
 msgctxt "KeyAuthenticationPage|"
@@ -2801,7 +2804,7 @@ msgstr "Zkopírovat otisk"
 #: src/qml/elements/KeyAuthenticationPage.qml:166
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr ""
+msgstr "Otisk byl zkopírován do schránky"
 
 #: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
@@ -2816,15 +2819,12 @@ msgstr "Přihlásit"
 #: src/qml/elements/LoginArea.qml:38
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr ""
+msgstr "Skenovat přihlašovací QR kód"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Nastavení připojení"
+msgstr "Zobrazit nastavení připojení"
 
 #: src/qml/elements/LoginArea.qml:101
 msgctxt "LoginArea|"
@@ -2854,7 +2854,7 @@ msgstr "Nedůvěryhodný"
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr ""
+msgstr "Přidat reakci…"
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
@@ -2894,61 +2894,55 @@ msgstr "Doručeno"
 #: src/qml/elements/MessageReactionRetryButton.qml:23
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
-msgstr ""
+msgstr "Opakovat aktualizaci reakcí"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Registrace selhala:"
+msgstr "Registrace přes Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Zobrazit pouze poskytovatele, u kterých lze vytvořit účet přímo přes Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Volný k rozhovoru"
+msgstr "Zdarma"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Zobrazit pouze bezplatné poskytovatele"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Heslo"
+msgstr "Obnovení hesla"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Zobrazit pouze poskytovatele, u kterých lze obnovit heslo"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "Ekologický hosting"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
 msgstr ""
+"Zobrazit pouze poskytovatele, jejichž služby jsou napájeny z obnovitelných "
+"zdrojů energie"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Bus faktor"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
 msgctxt "ProviderFilterArea|"
@@ -2960,26 +2954,28 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Zobrazit pouze poskytovatele, kteří ukládají a zpracovávají svá data ve "
+"vybrané zemi"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr ""
+msgstr "Velikost sdílených médií"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr ""
+msgstr "Celková velikost všech sdílených médií"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr ""
+msgstr "Doba uchovávání médií"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
-msgstr ""
+msgstr "Doba uchovávání zpráv"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
 msgctxt "ProviderFilterArea|"
@@ -3008,17 +3004,15 @@ msgid "Retry"
 msgstr "Zkusit znovu"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:180
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "Reakce nelze odeslat: %1"
+msgstr "Veřejné skupiny se nepodařilo načíst: %1"
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr ""
+msgstr "Kontakt byl přidán – pokračujte krokem 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
@@ -3029,36 +3023,37 @@ msgstr "QR kód neobsahuje žádné kontakty"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"Schválit rozhodnutí učiněná pro jiné vlastní zařízení – pokračujte krokem 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:66
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr ""
+msgstr "Schválení rozhodnutí o kontaktu – pokračujte krokem 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "Tento QR kód není určen pro vaše další zařízení"
 
 #: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "Tento QR kód není určen pro váš kontakt"
 
 #: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
-msgstr ""
+msgstr "Tento QR kód není určen k potvrzení důvěryhodnosti"
 
 #: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "Schvalování důvěryhodnosti…"
 
 #: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr "Přidávám kontakt…"
+msgstr "Přidávání kontaktu…"
 
 #: src/qml/elements/ReferencedMessage.qml:81
 msgctxt "ReferencedMessage|"
@@ -3076,33 +3071,21 @@ msgid "Media"
 msgstr "Média"
 
 #: src/qml/elements/RosterFilterArea.qml:28
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
 msgstr "Dostupné kontakty"
 
 #: src/qml/elements/RosterFilterArea.qml:32
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Available contacts"
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr "Dostupné kontakty"
+msgstr "Nedostupné kontakty"
 
 #: src/qml/elements/RosterFilterArea.qml:36
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Create group"
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
-msgstr "Vytvořit skupinu"
+msgstr "Soukromé skupiny"
 
 #: src/qml/elements/RosterFilterArea.qml:40
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Public groups"
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Veřejné skupiny"
@@ -3115,33 +3098,27 @@ msgstr "Filtrovat podle typu"
 #: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
-msgstr ""
+msgstr "Zobrazit pouze záznamy určitých typů"
 
 #: src/qml/elements/RosterFilterArea.qml:114
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
-msgstr "Filtrovat podle typu"
+msgstr "Filtrovat podle účtů"
 
 #: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "Zobrazit pouze konverzace vybraných účtů"
 
 #: src/qml/elements/RosterFilterArea.qml:176
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by type"
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
-msgstr "Filtrovat podle typu"
+msgstr "Filtrovat podle štítků"
 
 #: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "Zobrazit pouze konverzace s vybranými štítky"
 
 #: src/qml/elements/RosterItemDelegate.qml:132
 msgctxt "RosterItemDelegate|"
@@ -3202,7 +3179,7 @@ msgstr "Nahrát video"
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr ""
+msgstr "Vyberte si konverzaci, kterou chcete začít"
 
 #: src/qml/GlobalDrawer.qml:56
 msgctxt "GlobalDrawer|"
@@ -3215,12 +3192,9 @@ msgid "Password"
 msgstr "Heslo"
 
 #: src/qml/GlobalDrawer.qml:121
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
-msgstr "Zadejte své současné heslo"
+msgstr "Zadejte vaše správné heslo"
 
 #: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
@@ -3235,17 +3209,17 @@ msgstr "Činnosti"
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
-msgstr ""
+msgstr "Aktivujte svůj účet, abyste mohli využívat všechny dostupné akce"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
-msgstr ""
+msgstr "Povolit účtu využívání všech dostupných akcí"
 
 #: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr "Přidat kontakt QR kódem"
+msgstr "Přidat kontakt pomocí QR kódu"
 
 #: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
@@ -3258,22 +3232,19 @@ msgid "Create group"
 msgstr "Vytvořit skupinu"
 
 #: src/qml/GlobalDrawer.qml:199
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Create group"
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
-msgstr "Vytvořit skupinu"
+msgstr "Vytvořit skupinu (není podporováno)"
 
 #: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group"
-msgstr ""
+msgstr "Připojit se ke skupině"
 
 #: src/qml/GlobalDrawer.qml:225
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr ""
+msgstr "Připojit se ke skupině (není podporováno)"
 
 #: src/qml/GlobalDrawer.qml:252
 msgctxt "GlobalDrawer|"
@@ -3311,22 +3282,22 @@ msgstr "Nelze odblokovat %1: %2"
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "Skenovat kód QR"
+msgstr "Skenovat QR kód"
 
 #: src/qml/QrCodeOnboardingPage.qml:28
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "Skenovat kód QR"
+msgstr "Skenovat QR kód"
 
 #: src/qml/QrCodeOnboardingPage.qml:28
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "Zobrazit vysvětlení"
 
 #: src/qml/QrCodeOnboardingPage.qml:51
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr ""
+msgstr "Naskenujte QR kód pro přihlášení ze svého starého zařízení"
 
 #: src/qml/QrCodeOnboardingPage.qml:58
 msgctxt "QrCodeOnboardingPage|"
@@ -3334,66 +3305,69 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
+"QR kód si můžete zobrazit v podrobnostech účtu na svém starém zařízení "
+"pomocí možnosti Zobrazit přihlašovací QR kód"
 
 #: src/qml/QrCodeOnboardingPage.qml:100
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr ""
+msgstr "Tento QR kód není platným QR kódem pro přihlášení."
 
 #: src/qml/QrCodeOnboardingPage.qml:107
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr "Navazuji spojení…"
+msgstr "Připojování…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "Automatická registrace"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:54
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "Probíhá registrace…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:59
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "Registraci dokončena!"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:113
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
+"Automatická registrace se nezdařila kvůli problémům u všech poskytovatelů"
 
 #: src/qml/registration/CustomDataFormArea.qml:25
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr ""
+msgstr "Zadejte další informace"
 
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "Poskytovatel požádal o další informace"
 
 #: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "Možná nebude vše nezbytné"
 
 #: src/qml/registration/ManualRegistrationPage.qml:30
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr ""
+msgstr "Ruční registrace"
 
 #: src/qml/registration/ManualRegistrationPage.qml:42
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr ""
+msgstr "Vyplňte registrační formulář!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr ""
+msgstr "Zadejte požadované přihlašovací údaje"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
 msgctxt "ManualRegistrationPage|"
@@ -3409,26 +3383,28 @@ msgstr "Uživatelské jméno"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
+"Zadejte platné uživatelské jméno nebo pole nechte prázdné, aby se "
+"vygenerovalo náhodné jméno"
 
 #: src/qml/registration/ManualRegistrationPage.qml:141
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "Poskytovatel vyžaduje silnější heslo."
 
 #: src/qml/registration/ManualRegistrationPage.qml:190
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "Toto uživatelské jméno již existuje."
 
 #: src/qml/registration/ManualRegistrationPage.qml:194
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "Bylo vygenerováno nové náhodné uživatelské jméno."
 
 #: src/qml/registration/ProviderPage.qml:22
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr ""
+msgstr "Vyberte si poskytovatele"
 
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:270
@@ -3440,25 +3416,22 @@ msgstr "Filtr"
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "Vyberte si poskytovatele a zaregistrujte se!"
 
 #: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr ""
+msgstr "Adresa poskytovatele"
 
 #: src/qml/registration/ProviderPage.qml:128
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Nastavení připojení"
+msgstr "Zobrazit nastavení připojení"
 
 #: src/qml/registration/ProviderPage.qml:175
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Místa ukládání a zpracování dat"
 
 #: src/qml/registration/ProviderPage.qml:180
 msgctxt "ProviderPage|"
@@ -3468,27 +3441,27 @@ msgstr "Jazyky"
 #: src/qml/registration/ProviderPage.qml:185
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "K dispozici/v nabídce od"
 
 #: src/qml/registration/ProviderPage.qml:190
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr ""
+msgstr "Maximální velikost sdílených médií"
 
 #: src/qml/registration/ProviderPage.qml:195
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
-msgstr ""
+msgstr "Doba uchovávání zpráv"
 
 #: src/qml/registration/ProviderPage.qml:200
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "Přejít na stránku s podrobnostmi"
 
 #: src/qml/registration/ProviderPage.qml:201
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr ""
+msgstr "Otevřít webovou stránku s podrobnostmi o poskytovateli"
 
 #: src/qml/registration/ProviderPage.qml:215
 msgctxt "ProviderPage|"
@@ -3498,27 +3471,27 @@ msgstr "Vyberte"
 #: src/qml/registration/ProviderPage.qml:216
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "Probíhá registrace…"
 
 #: src/qml/registration/ProviderPage.qml:238
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "Je nutné zadat adresu poskytovatele"
 
 #: src/qml/registration/ProviderPage.qml:333
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
-msgstr ""
+msgstr "Poskytovatel nepodporuje registraci prostřednictvím této aplikace."
 
 #: src/qml/registration/ProviderPage.qml:336
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "Jste dočasně zablokováni: "
 
 #: src/qml/registration/RegistrationButton.qml:27
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr ""
+msgstr "Přihlaste se po potvrzení e-mailem"
 
 #: src/qml/registration/RegistrationButton.qml:27
 msgctxt "RegistrationButton|"
@@ -3533,17 +3506,17 @@ msgstr "Přihlašování…"
 #: src/qml/registration/RegistrationButton.qml:28
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr ""
+msgstr "Registrace…"
 
 #: src/qml/registration/RegistrationPage.qml:58
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "Zadaný kód CAPTCHA byl nesprávný"
 
 #: src/qml/registration/RegistrationPage.qml:67
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "Chybí požadované údaje: "
 
 #: src/qml/registration/RegistrationPage.qml:76
 msgctxt "RegistrationPage|"
@@ -3553,22 +3526,22 @@ msgstr "Registrace selhala:"
 #: src/qml/registration/WebRegistrationPage.qml:26
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr ""
+msgstr "Webová registrace"
 
 #: src/qml/registration/WebRegistrationPage.qml:30
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "Zaregistrujte se na webových stránkách poskytovatele!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr ""
+msgstr "Krok 1: Zaregistrujte si účet"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr ""
+msgstr "Vybraný poskytovatel podporuje pouze registraci přes internet"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
 msgctxt "WebRegistrationPage|"
@@ -3576,21 +3549,23 @@ msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
+"Po vytvoření účtu na webových stránkách poskytovatele se můžete přihlásit "
+"přes Kaidan"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr ""
+msgstr "Přejít na stránku registrace"
 
 #: src/qml/registration/WebRegistrationPage.qml:61
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr ""
+msgstr "Otevřete webovou stránku poskytovatele určenou k registraci"
 
 #: src/qml/registration/WebRegistrationPage.qml:71
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr ""
+msgstr "Krok 2: Přihlaste se pomocí svého registrovaného účtu"
 
 #: src/qml/RosterPage.qml:34 src/qml/RosterPage.qml:220
 #: src/qml/RosterPage.qml:233
@@ -3601,7 +3576,7 @@ msgstr "Filtr"
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Připnout a přesunout"
 
 #: src/qml/StartPage.qml:27
 msgctxt "StartPage|"
@@ -3616,7 +3591,7 @@ msgstr "Vytváření účtu"
 #: src/qml/StartPage.qml:50
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr ""
+msgstr "Užijte si bezplatnou komunikaci na jakémkoli zařízení!"
 
 #: src/qml/StartPage.qml:104
 msgctxt "StartPage|"
@@ -3626,12 +3601,12 @@ msgstr "Registrovat"
 #: src/qml/StartPage.qml:108
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr ""
+msgstr "Vytvořit účet automaticky"
 
 #: src/qml/StartPage.qml:113
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr ""
+msgstr "Vytvořit účet ručně"
 
 #: src/QmlUtils.cpp:223
 msgctxt "QmlUtils|"
@@ -3647,12 +3622,12 @@ msgstr "%1 se nepodařilo přidat: %2"
 #: src/RosterController.cpp:153
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
-msgstr ""
+msgstr "Kontakt se nepodařilo přidat, protože připojení není k dispozici."
 
 #: src/RosterController.cpp:163
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
-msgstr ""
+msgstr "Kontakt nebylo možné přejmenovat, protože připojení není k dispozici."
 
 #: src/RosterController.cpp:173
 #, qt-format
@@ -3661,23 +3636,24 @@ msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
+"Žádost o zobrazení osobních údajů %1 selhala kvůli problému s připojením: %2"
 
 #: src/RosterController.cpp:184
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr ""
+msgstr "Povolení uživateli %1 k zobrazování vašich osobních údajů se nezdařilo"
 
 #: src/RosterController.cpp:195
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr ""
+msgstr "Zastavení zobrazování vašich osobních údajů uživateli %1 se nezdařilo"
 
 #: src/RosterController.cpp:291
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
-msgstr ""
+msgstr "Kontakt se nepodařilo odstranit, protože připojení není k dispozici."
 
 #: src/RosterItem.cpp:31
 msgctxt "QObject|"
