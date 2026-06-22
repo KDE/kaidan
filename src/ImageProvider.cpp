@@ -288,9 +288,14 @@ QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePa
 
     if (QFile::exists(localFilePath)) {
         ImageProvider::generateImageWithDevicePixelRatio(QUrl::fromLocalFile(localFilePath), devicePixelRatio, edgePixelCount)
-            .then(context, [promise](QImage &&thumbnail) {
-                promise->addResult(std::move(thumbnail));
-                promise->finish();
+            .then(context, [context, promise, localFilePath, edgePixelCount, devicePixelRatio](QImage &&thumbnail) {
+                if (thumbnail.isNull()) {
+                    generateIconImage(MediaUtils::iconName(localFilePath), edgePixelCount, devicePixelRatio).then(context, [promise](QImage &&image) {
+                        reportFinishedResult(*promise, std::move(image));
+                    });
+                } else {
+                    reportFinishedResult(*promise, std::move(thumbnail));
+                }
             });
     } else {
         Q_EMIT MainController::instance()->passiveNotificationRequested(
