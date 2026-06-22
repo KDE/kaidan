@@ -295,8 +295,7 @@ QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePa
     } else {
         Q_EMIT MainController::instance()->passiveNotificationRequested(
             tr("Could not generate thumbnail: %1 does not exist", "%1 is a file path").arg(localFilePath));
-        promise->addResult({});
-        promise->finish();
+        reportFinishedResult(*promise, {});
     }
 
     return promise->future();
@@ -331,8 +330,7 @@ QFuture<QImage> ImageProvider::generateIconImage(const QString &iconName, int ed
 {
     auto promise = std::make_shared<QPromise<QImage>>();
     promise->start();
-    promise->addResult(QIcon::fromTheme(iconName).pixmap(effectiveSize(edgePixelCount), devicePixelRatio).toImage());
-    promise->finish();
+    reportFinishedResult(*promise, QIcon::fromTheme(iconName).pixmap(effectiveSize(edgePixelCount), devicePixelRatio).toImage());
     return promise->future();
 }
 
@@ -363,8 +361,7 @@ QFuture<QImage> ImageProvider::generateBase64Image(const QByteArray &data)
 {
     auto promise = std::make_shared<QPromise<QImage>>();
     promise->start();
-    promise->addResult(QImage::fromData(QByteArray::fromBase64(data)));
-    promise->finish();
+    reportFinishedResult(*promise, QImage::fromData(QByteArray::fromBase64(data)));
     return promise->future();
 }
 
@@ -376,8 +373,7 @@ QFuture<QImage> ImageProvider::generateBitsOfBinaryImage(const QXmppBitsOfBinary
     if (edgePixelCount != -1) {
         image = image.scaled(effectiveSize(edgePixelCount));
     }
-    promise->addResult(std::move(image));
-    promise->finish();
+    reportFinishedResult(*promise, std::move(image));
     return promise->future();
 }
 
