@@ -237,7 +237,7 @@ int ImageProvider::effectiveEdge(int edgePixelCount)
 
 QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &requestedSize, qreal devicePixelRatio, QObject *context)
 {
-    const int requestedEdge = std::max(requestedSize.width(), requestedSize.height());
+    const int requestedEdgePixelCount = std::max(requestedSize.width(), requestedSize.height());
     auto then = [id](QImage &&image) {
         auto url = QUrl(QStringLiteral("%1%2").arg(IMAGE_PROVIDER_PREFIX, id));
         QMetaObject::invokeMethod(ImageProvider::instance(),
@@ -256,7 +256,7 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
         });
 
         if (item != m_cache.cend()) {
-            return generateBitsOfBinaryImage(*item, requestedEdge).then(context, then);
+            return generateBitsOfBinaryImage(*item, requestedEdgePixelCount).then(context, then);
         }
     }
 
@@ -265,16 +265,17 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
 
     if (key == LOCAL_FILE_PATH_SEGMENT) {
         if (isImageOrVideo(value)) {
-            return generateLocalFileImage(value, std::max(requestedEdge, VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), devicePixelRatio, context).then(context, then);
+            return generateLocalFileImage(value, std::max(requestedEdgePixelCount, VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), devicePixelRatio, context)
+                .then(context, then);
         }
 
-        return generateIconImage(MediaUtils::iconName(value), requestedEdge, devicePixelRatio).then(context, then);
+        return generateIconImage(MediaUtils::iconName(value), requestedEdgePixelCount, devicePixelRatio).then(context, then);
     } else if (key == BASE64_PATH_SEGMENT) {
         return generateBase64Image(value.toLatin1()).then(context, then);
     } else if (key == ICON_PATH_SEGMENT) {
-        return generateIconImage(value, requestedEdge, devicePixelRatio).then(context, then);
+        return generateIconImage(value, requestedEdgePixelCount, devicePixelRatio).then(context, then);
     } else if (key == QR_CODE_PATH_SEGMENT) {
-        return generateQrCodeImage(value, requestedEdge, devicePixelRatio).then(context, then);
+        return generateQrCodeImage(value, requestedEdgePixelCount, devicePixelRatio).then(context, then);
     }
 
     return QtFuture::makeReadyValueFuture(QImage()).then(context, then);
