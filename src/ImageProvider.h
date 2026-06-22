@@ -40,9 +40,6 @@ public:
 
     Q_SIGNAL void imageAlphaChannelChanged(const QUrl &source, bool hasAlphaChannel);
 
-    QFuture<QImage> generateImage(const QUrl &localFileUrl, int edgePixelCount);
-    QFuture<QByteArray> generateImageData(const QUrl &localFileUrl, int edgePixelCount);
-
     Q_INVOKABLE void copySourceToClipboard(const QUrl &source, const QSize &size);
     Q_SIGNAL void sourceCopiedToClipboard(const QUrl &source, const QSize &size);
 
@@ -53,8 +50,6 @@ public:
     Q_INVOKABLE static QUrl generatedQrCodeImageUrl(const QString &text);
     static QUrl generatedBitsOfBinaryImageUrl(const QUrl &cidUrl);
 
-    static QFuture<QImage> generateImageWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount);
-    static QFuture<QByteArray> generateImageDataWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount);
     static QFuture<std::optional<QXmppFileSharingManager::MetadataThumbnail>> generateMetaDataThumbnail(const QUrl &localFileUrl);
 
 private:
@@ -69,6 +64,7 @@ private:
 
     static QFuture<QImage> generateImage(const QString &id, const QSize &requestedSize, qreal devicePixelRatio, QObject *context = nullptr);
     static QFuture<QImage> generateLocalFileImage(const QString &localFilePath, int edgePixelCount, qreal devicePixelRatio, QObject *context = nullptr);
+    static QFuture<QImage> generateImageWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount);
     static QFuture<QImage> generateIconImage(const QString &iconName, int edgePixelCount, qreal devicePixelRatio);
     static QFuture<QImage> generateQrCodeImage(const QString &text, int edgePixelCount, qreal devicePixelRatio);
     static QFuture<QImage> generateBase64Image(const QByteArray &data);

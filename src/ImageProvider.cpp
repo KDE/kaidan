@@ -104,16 +104,6 @@ void ImageProvider::setScreenDevicePixelRatio(qreal devicePixelRatio)
     }
 }
 
-QFuture<QImage> ImageProvider::generateImage(const QUrl &localFileUrl, int edgePixelCount)
-{
-    return generateImageWithDevicePixelRatio(localFileUrl, m_screenDevicePixelRatio, edgePixelCount);
-}
-
-QFuture<QByteArray> ImageProvider::generateImageData(const QUrl &localFileUrl, int edgePixelCount)
-{
-    return generateImageDataWithDevicePixelRatio(localFileUrl, m_screenDevicePixelRatio, edgePixelCount);
-}
-
 void ImageProvider::copySourceToClipboard(const QUrl &source, const QSize &size)
 {
     if (source.scheme().compare(IMAGE_SCHEME, Qt::CaseInsensitive) == 0 && source.host() == IMAGE_PROVIDER_NAME) {
@@ -185,43 +175,6 @@ QUrl ImageProvider::generatedQrCodeImageUrl(const QString &text)
 QUrl ImageProvider::generatedBitsOfBinaryImageUrl(const QUrl &cidUrl)
 {
     return QUrl(QStringLiteral("%1%2").arg(IMAGE_PROVIDER_PREFIX, cidUrl.toString()));
-}
-
-QFuture<QImage> ImageProvider::generateImageWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount)
-{
-    auto promise = std::make_shared<QPromise<QImage>>();
-
-    static auto allPlugins = KIO::PreviewJob::availablePlugins();
-
-    auto *job = new KIO::PreviewJob({KFileItem(localFileUrl)}, effectiveSize(edgePixelCount), &allPlugins);
-    job->setDevicePixelRatio(devicePixelRatio);
-    job->setAutoDelete(true);
-
-    QObject::connect(job, &KIO::PreviewJob::gotPreview, [promise](auto, const QPixmap &preview) {
-        reportFinishedResult(*promise, preview.toImage());
-    });
-
-    QObject::connect(job, &KIO::PreviewJob::failed, [promise](const KFileItem &item) {
-        qCDebug(KAIDAN_CORE_LOG) << "Could not generate thumbnail for" << item.url();
-        reportFinishedResult(*promise, {});
-    });
-
-    job->start();
-
-    return promise->future();
-}
-
-QFuture<QByteArray> ImageProvider::generateImageDataWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount)
-{
-    auto future = generateImageWithDevicePixelRatio(localFileUrl, devicePixelRatio, edgePixelCount);
-
-    return future.then([](QImage &&image) {
-        if (image.isNull()) {
-            return QByteArray();
-        }
-
-        return encodeImageThumbnail(std::move(image));
-    });
 }
 
 QFuture<std::optional<QXmppFileSharingManager::MetadataThumbnail>> ImageProvider::generateMetaDataThumbnail(const QUrl &localFileUrl)
@@ -344,6 +297,31 @@ QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePa
         promise->addResult({});
         promise->finish();
     }
+
+    return promise->future();
+}
+
+QFuture<QImage> ImageProvider::generateImageWithDevicePixelRatio(const QUrl &localFileUrl, qreal devicePixelRatio, int edgePixelCount)
+{
+    auto promise = std::make_shared<QPromise<QImage>>();
+
+    static auto allPlugins = KIO::PreviewJob::availablePlugins();
+
+    auto *job = new KIO::PreviewJob({KFileItem(localFileUrl)}, effectiveSize(edgePixelCount), &allPlugins);
+
+    job->setDevicePixelRatio(devicePixelRatio);
+    job->setAutoDelete(true);
+
+    QObject::connect(job, &KIO::PreviewJob::generated, [promise](auto, const QImage &preview) {
+        reportFinishedResult(*promise, preview);
+    });
+
+    QObject::connect(job, &KIO::PreviewJob::failed, [promise](const KFileItem &item) {
+        qCDebug(KAIDAN_CORE_LOG) << "Could not generate thumbnail for" << item.url();
+        reportFinishedResult(*promise, {});
+    });
+
+    job->start();
 
     return promise->future();
 }
