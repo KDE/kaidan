@@ -82,7 +82,7 @@ static QString iconName(const QList<QMimeType> &mimeTypes)
 {
     if (!mimeTypes.isEmpty()) {
         for (const QMimeType &type : mimeTypes) {
-            const QString name = type.iconName();
+            const QString name = type.genericIconName();
 
             if (!name.isEmpty()) {
                 return name;

@@ -127,7 +127,7 @@ public:
     }
     [[nodiscard]] QString mimeTypeIcon() const
     {
-        return mimeType.iconName();
+        return mimeType.genericIconName();
     }
     [[nodiscard]] qint64 _size() const
     {
