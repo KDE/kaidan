@@ -43,7 +43,6 @@ AccountSettings::AccountSettings(Data data, QObject *parent)
     : QObject(parent)
     , m_data(data)
 {
-    generateJidResource();
     generateUserAgentDeviceId();
 }
 
@@ -68,11 +67,6 @@ void AccountSettings::setJid(const QString &jid)
         m_data.jid = jid;
         Q_EMIT jidChanged();
     }
-}
-
-QString AccountSettings::jidResource() const
-{
-    return m_data.jidResource;
 }
 
 QString AccountSettings::password() const
@@ -388,11 +382,6 @@ QString AccountSettings::loginUriString() const
     uri.setQuery(std::move(loginQuery));
 
     return uri.toString();
-}
-
-void AccountSettings::generateJidResource()
-{
-    m_data.jidResource = QXmppUtils::generateStanzaHash(4);
 }
 
 void AccountSettings::generateUserAgentDeviceId()

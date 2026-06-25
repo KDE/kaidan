@@ -129,7 +129,6 @@ public:
         bool initialized = false;
         bool initialMessagesRetrieved = false;
         QString jid;
-        QString jidResource;
         QString password;
         QXmppCredentials credentials;
         QUuid userAgentDeviceId;
@@ -166,8 +165,6 @@ public:
     QString jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
-
-    QString jidResource() const;
 
     QString password() const;
     void setPassword(const QString &password);
@@ -259,7 +256,6 @@ public:
     QString loginUriString() const;
 
 private:
-    void generateJidResource();
     void generateUserAgentDeviceId();
 
     Data m_data;

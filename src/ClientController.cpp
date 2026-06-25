@@ -133,7 +133,6 @@ void ClientController::logIn()
 
     m_encryptionController->load().then([this] {
         QXmppConfiguration config;
-        config.setResource(m_accountSettings->jidResource());
         config.setCredentials(m_accountSettings->credentials());
         config.setPassword(m_accountSettings->password());
         config.setSasl2UserAgent(m_accountSettings->userAgent());
