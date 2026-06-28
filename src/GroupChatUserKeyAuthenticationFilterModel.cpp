@@ -70,7 +70,8 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 
     if (userJids.isEmpty()) {
         m_jids.clear();
-        invalidateFilter();
+        beginFilterChange();
+        endFilterChange();
         return;
     }
 
@@ -85,7 +86,8 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 
         if (m_jids != jids) {
             m_jids = jids;
-            invalidateFilter();
+            beginFilterChange();
+            endFilterChange();
         }
     });
 }

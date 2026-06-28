@@ -1520,7 +1520,8 @@ void EmojiProxyModel::setGroup(Emoji::Group group)
         m_group = group;
         Q_EMIT groupChanged();
 
-        invalidateFilter();
+        beginFilterChange();
+        endFilterChange();
     }
 }
 
@@ -1538,7 +1539,8 @@ void EmojiProxyModel::addFavoriteEmoji(int proxyRow)
         Q_EMIT hasFavoriteEmojisChanged();
 
         if (m_group == Emoji::Group::Favorites) {
-            invalidateFilter();
+            beginFilterChange();
+            endFilterChange();
         }
 
         Settings::instance()->setFavoriteEmojis(m_favoriteEmojis);

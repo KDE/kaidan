@@ -12,7 +12,10 @@ PublicGroupChatProxyModel::PublicGroupChatProxyModel(QObject *parent)
 {
     sort(0, Qt::AscendingOrder);
 
-    connect(this, &PublicGroupChatProxyModel::languageFilterChanged, this, &PublicGroupChatProxyModel::invalidateFilter);
+    connect(this, &PublicGroupChatProxyModel::languageFilterChanged, this, [this] {
+        beginFilterChange();
+        endFilterChange();
+    });
     connect(this, &PublicGroupChatProxyModel::rowsInserted, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::rowsRemoved, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::layoutChanged, this, &PublicGroupChatProxyModel::countChanged);
