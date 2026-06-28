@@ -178,6 +178,22 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
+			text: qsTr("Block and report")
+			icon.source: "mail-mark-junk-symbolic"
+			contextMenu: root
+			shown: !root.message.isOwn
+				&& !root.message.isGroupChatMessage
+				&& !root.message.groupChatInvitationJid
+				&& root.message.stanzaId
+				&& root.message.chatController.account.settings.blockingReportsSupported
+			onClicked: {
+				contextMenu.close()
+				root.message.openBlockingReportDialog()
+				root.currentIndexResetOnClosing = false
+			}
+		}
+
+		ChatMessageContextMenuButton {
 			text: qsTr("Remove from this device")
 			icon.source: "edit-delete-symbolic"
 			contextMenu: root

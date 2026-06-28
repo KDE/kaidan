@@ -161,18 +161,45 @@ RosterItemDetailsContent {
 			onToggled: root.chatController.account.rosterController.setReadMarkerSendingEnabled(root.chatController.jid, checked)
 		}
 
-		FormCard.FormSwitchDelegate {
-			text: qsTr("Block")
-			description: qsTr("Block all communication including status and notifications")
+		ConfirmationFormButtonArea {
+			id: blockingArea
 			visible: root.chatController.account.settings.enabled
-			enabled: !root.chatController.account.blockingController.busy && root.chatController.account.connection.state === Enums.StateConnected
-			checked: blockingWatcher.blocked
-			onToggled: {
-				if (checked) {
-					root.chatController.account.blockingController.block(root.chatController.jid)
-				} else {
-					root.chatController.account.blockingController.unblock(root.chatController.jid)
+			button {
+				text: {
+					if (blockingWatcher.blocked) {
+						return qsTr("Unblock")
+					}
+
+					return blockingReportContent.reportsSupported ? qsTr("Block and report") : qsTr("Block")
 				}
+				description: {
+					if (blockingWatcher.blocked) {
+						return qsTr("Unblock this contact")
+					}
+
+					return blockingReportContent.reportsSupported ? qsTr("Block and (optionally) report this contact") : qsTr("Block this contact")
+				}
+				icon.name: blockingWatcher.blocked ? "mail-mark-notjunk-symbolic" : "mail-mark-junk-symbolic"
+				checkable: !blockingWatcher.blocked && blockingReportContent.reportsSupported
+				enabled: !root.chatController.account.blockingController.busy && root.chatController.account.connection.state === Enums.StateConnected
+				onClicked: {
+					if (blockingWatcher.blocked) {
+						root.chatController.account.blockingController.unblock(root.chatController.jid)
+					} else if (!button.checkable) {
+						blockingReportContent.submit()
+					}
+				}
+			}
+			confirmationText: blockingReportContent.reportingEnabled ? qsTr("Block and report") : qsTr("Block")
+			confirmationButton.onClicked: {
+				blockingReportContent.submit()
+				blockingArea.button.checked = false
+			}
+
+			BlockingReportContent {
+				id: blockingReportContent
+				account: root.chatController.account
+				jid: root.chatController.jid
 			}
 
 			BlockingWatcher {

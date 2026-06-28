@@ -55,6 +55,7 @@ class AccountSettings : public QObject
     Q_PROPERTY(QString displayName READ displayName NOTIFY nameChanged)
     Q_PROPERTY(bool enabled READ enabled NOTIFY enabledChanged)
     Q_PROPERTY(bool inBandRegistrationFeaturesSupported READ inBandRegistrationFeaturesSupported NOTIFY inBandRegistrationFeaturesSupportedChanged)
+    Q_PROPERTY(bool blockingReportsSupported READ blockingReportsSupported NOTIFY blockingReportsSupportedChanged)
     Q_PROPERTY(qint64 httpUploadLimit READ httpUploadLimit NOTIFY httpUploadLimitChanged)
     Q_PROPERTY(QString httpUploadLimitText READ httpUploadLimitText NOTIFY httpUploadLimitChanged)
     Q_PROPERTY(QList<QString> chatSupportAddresses READ chatSupportAddresses NOTIFY chatSupportAddressesChanged)
@@ -142,6 +143,7 @@ public:
         QString latestMessageStanzaId;
         QDateTime latestMessageStanzaTimestamp;
         bool inBandRegistrationFeaturesSupported = false;
+        bool blockingReportsSupported = false;
         qint64 httpUploadLimit = 0;
         QList<QString> chatSupportAddresses;
         QList<QString> groupChatSupportAddresses;
@@ -206,6 +208,10 @@ public:
     bool inBandRegistrationFeaturesSupported() const;
     void setInBandRegistrationFeaturesSupported(bool inBandRegistrationFeaturesSupported);
     Q_SIGNAL void inBandRegistrationFeaturesSupportedChanged();
+
+    bool blockingReportsSupported() const;
+    void setBlockingReportsSupported(bool blockingReportsSupported);
+    Q_SIGNAL void blockingReportsSupportedChanged();
 
     qint64 httpUploadLimit() const;
     void setHttpUploadLimit(qint64 httpUploadLimit);

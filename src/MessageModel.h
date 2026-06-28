@@ -12,8 +12,12 @@
 
 // Qt
 #include <QAbstractListModel>
+// QXmpp
+#include <QXmppStanzaId.h>
 // Kaidan
 #include "Message.h"
+
+Q_DECLARE_METATYPE(QXmppStanzaId)
 
 class AccountSettings;
 class AtmController;
@@ -65,6 +69,7 @@ public:
         GroupChatSenderId,
         SenderName,
         Id,
+        StanzaId,
         IsLastReadOwnMessage,
         IsLatestOldMessage,
         IsEdited,

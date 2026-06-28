@@ -11,11 +11,15 @@ import org.kde.kirigamiaddons.formcard as FormCard
 /**
  * This area contains a button for an action and a button for confirming the action.
  *
- * It is intended to be used within the contentItem of a FormCard.FormCard.
+ * Additional form entries can be added as children.
+ * They are only shown while the action's button is checked (i.e., the content and the confirmation button are expanded).
+ *
+ * It is intended to be used within a FormCard.FormCard.
  */
 ColumnLayout {
 	id: root
 
+	default property alias __data: contentArea.data
 	property alias button: button
 	property alias confirmationButton: confirmationButton
 	property alias confirmationText: confirmationButton.idleText
@@ -39,6 +43,13 @@ ColumnLayout {
 				bottomRightRadius: root._bottomCornersRounded && !confirmationButton.visible ? Kirigami.Units.smallSpacing : 0
 			}
 		}
+	}
+
+	ColumnLayout {
+		id: contentArea
+		spacing: 0
+		visible: root.button.checked
+		Layout.fillWidth: true
 	}
 
 	BusyIndicatorFormButton {

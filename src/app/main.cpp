@@ -59,6 +59,7 @@
 #include <QXmppMixParticipantItem.h>
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
+#include <QXmppSpamReport.h>
 #include <QXmppUri.h>
 #include <QXmppVCardIq.h>
 #include <QXmppVersionIq.h>
@@ -318,6 +319,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     // register qMetaTypes
     qRegisterMetaType<Provider>();
+    qRegisterMetaType<QXmppStanzaId>();
+    qRegisterMetaType<QList<QXmppStanzaId>>();
     qRegisterMetaType<RosterItem>();
     qRegisterMetaType<RosterItemWatcher *>();
     qRegisterMetaType<RosterModel *>();
@@ -619,6 +622,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
                                      QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableMetaObject(Message::staticMetaObject, APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableMetaObject(QMimeType::staticMetaObject, APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
+    qmlRegisterUncreatableMetaObject(QXmppSpamReport::staticMetaObject,
+                                     APPLICATION_ID,
+                                     1,
+                                     0,
+                                     "SpamReport",
+                                     QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<ChatStateController>(APPLICATION_ID, 1, 0, "ChatStateController", QStringLiteral("Not creatable from QML"));
 
     // Q_NAMESPACE

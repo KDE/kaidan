@@ -27,6 +27,8 @@ Controls.ItemDelegate {
 	property ChatController chatController
 	property int modelIndex
 	property string msgId
+	// Stanza ID reference (QXmppStanzaId) or undefined if none is available.
+	property var stanzaId
 	property string senderJid
 	property string groupChatSenderId
 	property string senderName
@@ -595,6 +597,20 @@ Controls.ItemDelegate {
 		}
 	}
 
+	Component {
+		id: blockingReportDialog
+
+		BlockingReportDialog {
+			account: root.chatController.account
+			jid: root.senderJid
+			messageReferences: [root.stanzaId]
+			onClosed: {
+				root.messageListView.restorePreviousCurrentIndex()
+				root.sendingPane.forceActiveFocus()
+			}
+		}
+	}
+
 	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
 		if (modelIndex < 0 || delimitingIndex < 0 || modelIndex === delimitingIndex) {
 			return true
@@ -620,6 +636,10 @@ Controls.ItemDelegate {
 
 	function openReactionEmojiPicker() {
 		openOverlay(reactionEmojiPicker)
+	}
+
+	function openBlockingReportDialog() {
+		openOverlay(blockingReportDialog)
 	}
 
 	function openGeoLocationMap() {

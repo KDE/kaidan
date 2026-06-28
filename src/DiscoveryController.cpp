@@ -66,6 +66,8 @@ void DiscoveryController::updateData()
 
 void DiscoveryController::handleOwnServerInfo(QXmppDiscoInfo &&info)
 {
+    m_accountSettings->setBlockingReportsSupported(info.features().contains(XMLNS_BLOCKING_COMMAND_REPORTS));
+
     if (auto contactAddresses = info.dataForm<QXmppContactAddresses>()) {
         auto supportAddresses = contactAddresses->supportAddresses();
 

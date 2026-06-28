@@ -201,6 +201,19 @@ void AccountSettings::setInBandRegistrationFeaturesSupported(bool inBandRegistra
     }
 }
 
+bool AccountSettings::blockingReportsSupported() const
+{
+    return m_data.blockingReportsSupported;
+}
+
+void AccountSettings::setBlockingReportsSupported(bool blockingReportsSupported)
+{
+    if (m_data.blockingReportsSupported != blockingReportsSupported) {
+        m_data.blockingReportsSupported = blockingReportsSupported;
+        Q_EMIT blockingReportsSupportedChanged();
+    }
+}
+
 qint64 AccountSettings::httpUploadLimit() const
 {
     return m_data.httpUploadLimit;

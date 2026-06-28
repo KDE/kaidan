@@ -368,6 +368,7 @@ SearchBarPage {
 			chatController: root.chatController
 			modelIndex: index
 			msgId: model.id
+			stanzaId: model.stanzaId
 			senderJid: model.senderJid
 			groupChatSenderId: model.groupChatSenderId
 			senderName: model.senderName

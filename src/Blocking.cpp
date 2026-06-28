@@ -7,6 +7,7 @@
 // Qt
 #include <QSqlQuery>
 // QXmpp
+#include <QXmppSpamReport.h>
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
@@ -170,6 +171,34 @@ void BlockingController::block(const QString &jid)
             Q_EMIT blockingFailed(jid, error->description);
         } else {
             qCDebug(KAIDAN_CORE_LOG) << "Blocked" << jid;
+            Q_EMIT blocked(jid);
+        }
+
+        setRunning(m_runningActionCount - 1);
+    });
+}
+
+void BlockingController::blockAndReport(const QString &jid,
+                                        QXmppSpamReport::Reason reason,
+                                        const QString &description,
+                                        const QList<QXmppStanzaId> &messageReferences)
+{
+    qCDebug(KAIDAN_CORE_LOG) << "Blocking and reporting" << jid;
+
+    QXmppSpamReport report;
+    report.setReason(reason);
+    report.setText(description);
+    report.setForwardToOrigin(true);
+    report.setForwardToThirdParty(true);
+    report.setMessageReferences(messageReferences);
+
+    setRunning(m_runningActionCount + 1);
+
+    m_manager->reportAndBlock(jid, std::move(report)).then(this, [this, jid](auto result) {
+        if (auto *error = std::get_if<QXmppError>(&result)) {
+            Q_EMIT blockingFailed(jid, error->description);
+        } else {
+            qCDebug(KAIDAN_CORE_LOG) << "Blocked and reported" << jid;
             Q_EMIT blocked(jid);
         }
 

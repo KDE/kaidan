@@ -8,6 +8,8 @@
 #include <QAbstractListModel>
 // QXmpp
 #include <QXmppBlockingManager.h>
+#include <QXmppSpamReport.h>
+#include <QXmppStanzaId.h>
 // Kaidan
 #include "DatabaseComponent.h"
 
@@ -44,6 +46,8 @@ public:
     Q_SIGNAL void blocklistChanged();
 
     Q_INVOKABLE void block(const QString &jid);
+    Q_INVOKABLE void
+    blockAndReport(const QString &jid, QXmppSpamReport::Reason reason, const QString &text, const QList<QXmppStanzaId> &messageReferences = {});
     Q_SIGNAL void blocked(const QString &jid);
     Q_SIGNAL void blockingFailed(const QString &jid, const QString &errorText);
 
