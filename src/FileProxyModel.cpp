@@ -93,9 +93,10 @@ FileProxyModel::Mode FileProxyModel::mode() const
 void FileProxyModel::setMode(Mode mode)
 {
     if (m_mode != mode) {
+        beginFilterChange();
         m_mode = mode;
         m_checkedIds.clear();
-        invalidateFilter();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
         Q_EMIT modeChanged();
         Q_EMIT rowCountChanged();
@@ -111,9 +112,10 @@ bool FileProxyModel::locallyAvailableOnly() const
 void FileProxyModel::setLocallyAvailableOnly(bool locallyAvailableOnly)
 {
     if (m_locallyAvailableOnly != locallyAvailableOnly) {
+        beginFilterChange();
         m_locallyAvailableOnly = locallyAvailableOnly;
         m_checkedIds.clear();
-        invalidateFilter();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
         Q_EMIT locallyAvailableOnlyChanged();
         Q_EMIT rowCountChanged();
@@ -129,9 +131,10 @@ bool FileProxyModel::attachmentAudioOnly() const
 void FileProxyModel::setAttachmentAudioOnly(bool attachmentAudioOnly)
 {
     if (m_attachmentAudioOnly != attachmentAudioOnly) {
+        beginFilterChange();
         m_attachmentAudioOnly = attachmentAudioOnly;
         m_checkedIds.clear();
-        invalidateFilter();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
         Q_EMIT attachmentAudioOnlyChanged();
         Q_EMIT rowCountChanged();
@@ -283,8 +286,9 @@ bool FileProxyModel::filterAcceptsOther(const File &file) const
 
 void FileProxyModel::_filesDeleted(const QStringList &files, const QStringList &errors)
 {
+    beginFilterChange();
     m_checkedIds.clear();
-    invalidateFilter();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
     Q_EMIT rowCountChanged();
     Q_EMIT checkedCountChanged();

@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 23)
-set(QT_MIN_VERSION "6.9.0")
+set(QT_MIN_VERSION "6.10.0")
 set(KF_MIN_VERSION "6.11.0")
 
 if(POLICY CMP0071)
@@ -53,7 +53,7 @@ set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 # Find packages
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
 
-if(Qt6Gui_VERSION VERSION_GREATER_EQUAL "6.10.0" AND NOT WIN32 AND NOT APPLE)
+if(NOT WIN32 AND NOT APPLE)
     find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 endif()
 
