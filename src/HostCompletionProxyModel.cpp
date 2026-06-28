@@ -9,7 +9,10 @@ HostCompletionProxyModel::HostCompletionProxyModel(QObject *parent)
 {
     setSortCaseSensitivity(Qt::CaseInsensitive);
 
-    connect(this, &HostCompletionProxyModel::userInputChanged, this, &HostCompletionProxyModel::invalidateFilter);
+    connect(this, &HostCompletionProxyModel::userInputChanged, this, [this] {
+        beginFilterChange();
+        endFilterChange();
+    });
 }
 
 QVariant HostCompletionProxyModel::data(const QModelIndex &index, int role) const
