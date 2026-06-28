@@ -515,29 +515,25 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 
     const auto messageId = msg.id();
     const auto stanzaIds = msg.stanzaIds();
-    QString stanzaId;
 
     // Retrieve the appropriate stanza ID.
     //
-    // If the group chat message has multiple stanza IDs, the right stanza ID depending on its
-    // originator is used.
-    // That is needed if the own server archives group chat messages resulting in a second stanza
-    // ID added by the own server to the group chat message.
-    if (receivedFromGroupChat) {
-        const auto itr = std::ranges::find_if(stanzaIds, [senderJid](const QXmppStanzaId &stanzaId) {
-            return stanzaId.by == senderJid;
-        });
+    // Only the stanza ID added by the expected generating entity ("by" attribute) is used. That
+    // way, the stored stanza ID can later be referenced reliably (e.g., for catch-up via MAM or for
+    // spam/abuse reports). For group chat messages, the generating entity JID is the group chat
+    // JID. Otherwise, it is the own account JID (for archived 1:1 messages).
+    const auto generatingEntityJid = receivedFromGroupChat ? senderJid : accountJid;
+    const auto itr = std::ranges::find(stanzaIds, generatingEntityJid, &QXmppStanzaId::by);
 
-        if (itr == stanzaIds.cend()) {
-            // Use the message ID as a fallback for the stanza ID in case the group chat server does
-            // not provide a stanza ID.
-            // That is the case for ejabberd (at least until version 24.10).
-            stanzaId = messageId;
-        } else {
-            stanzaId = itr->id;
-        }
-    } else if (!stanzaIds.isEmpty()) {
-        stanzaId = msg.stanzaIds().first().id;
+    QString stanzaId;
+
+    if (itr != stanzaIds.cend()) {
+        stanzaId = itr->id;
+    } else if (receivedFromGroupChat) {
+        // Use the message ID as a fallback for the stanza ID in case the group chat server does not
+        // provide a stanza ID.
+        // That is the case for ejabberd (at least until version 24.10).
+        stanzaId = messageId;
     }
 
     const auto timestamp = msg.stamp().isValid() ? msg.stamp().toUTC() : QDateTime::currentDateTimeUtc();
