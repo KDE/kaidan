@@ -58,7 +58,7 @@ The following dependencies are needed by Kaidan:
 * [KDSingleApplication][kdsingleapplication]
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
 * [Kirigami Addons][kirigami-addons] >= 1.8.0
-* [Qt][qt-build-sources] >= 6.9.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate (since Qt 6.10.0) | Quick | QuickControls2 | Sql | Svg | Xml
+* [Qt][qt-build-sources] >= 6.10.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate | Quick | QuickControls2 | Sql | Svg | Xml
 * [QtKeychain][qtkeychain] >= 0.15
 * [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.14.2
 
