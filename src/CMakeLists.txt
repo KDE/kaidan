@@ -182,6 +182,8 @@ target_sources(libkaidancore PRIVATE
     RosterController.h
     RosterDb.cpp
     RosterDb.h
+    RosterStorage.cpp
+    RosterStorage.h
     ChatDb.cpp
     ChatDb.h
     RosterFilterModel.cpp
