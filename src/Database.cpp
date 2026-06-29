@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 58
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(58)
+#define DATABASE_LATEST_VERSION 59
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(59)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -379,7 +379,14 @@ void Database::createNewDatabase()
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_ROSTER,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
-                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) "PRIMARY KEY(accountJid, jid)"));
+                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
+                                       SQL_ATTRIBUTE(subscriptionStatus, SQL_TEXT) SQL_ATTRIBUTE(approved, SQL_BOOL)
+                                           SQL_ATTRIBUTE(isMixChannel, SQL_BOOL) "PRIMARY KEY(accountJid, jid)"));
+
+    // rosterVersions (per-account RFC 6121 §2.6 roster version store)
+    execQuery(
+        query,
+        SQL_CREATE_TABLE(DB_TABLE_ROSTER_VERSIONS, SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(version, SQL_TEXT) "PRIMARY KEY(accountJid)"));
 
     // chats (chat-list / conversation data, not part of the XMPP roster)
     execQuery(query,
@@ -2070,6 +2077,24 @@ void Database::convertDatabaseToV58()
     execQuery(query, QStringLiteral("ALTER TABLE roster_tmp RENAME TO roster"));
 
     d->version = 58;
+}
+
+void Database::convertDatabaseToV59()
+{
+    DATABASE_CONVERT_TO_VERSION(58)
+    QSqlQuery query(currentDatabase());
+
+    // Add the wire-level roster fields needed by the SQL QXmppRosterStorage backend.
+    execQuery(query, QStringLiteral("ALTER TABLE " DB_TABLE_ROSTER " ADD COLUMN subscriptionStatus " SQL_TEXT));
+    execQuery(query, QStringLiteral("ALTER TABLE " DB_TABLE_ROSTER " ADD COLUMN approved " SQL_BOOL));
+    execQuery(query, QStringLiteral("ALTER TABLE " DB_TABLE_ROSTER " ADD COLUMN isMixChannel " SQL_BOOL));
+
+    // Per-account roster version store (RFC 6121 §2.6 roster versioning).
+    execQuery(
+        query,
+        SQL_CREATE_TABLE(DB_TABLE_ROSTER_VERSIONS, SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(version, SQL_TEXT) "PRIMARY KEY(accountJid)"));
+
+    d->version = 59;
 }
 
 #include "moc_Database.cpp"

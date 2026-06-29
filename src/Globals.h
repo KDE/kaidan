@@ -38,6 +38,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_INFO "dbinfo"
 #define DB_TABLE_ACCOUNTS "accounts"
 #define DB_TABLE_ROSTER "roster"
+#define DB_TABLE_ROSTER_VERSIONS "rosterVersions"
 #define DB_TABLE_CHATS "chats"
 #define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_TABLE_MESSAGES "messages"

@@ -128,6 +128,9 @@ void ChatDbTest::schemaSplit()
         QStringLiteral("name"),
         QStringLiteral("subscription"),
         QStringLiteral("groupChatParticipantId"),
+        QStringLiteral("subscriptionStatus"),
+        QStringLiteral("approved"),
+        QStringLiteral("isMixChannel"),
     };
     expectedRoster.sort();
     QCOMPARE(fieldNames(DB_TABLE_ROSTER), expectedRoster);

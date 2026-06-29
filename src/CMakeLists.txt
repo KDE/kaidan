@@ -180,6 +180,8 @@ target_sources(libkaidancore PRIVATE
     RegistrationDataFormModel.h
     RosterController.cpp
     RosterController.h
+    RosterDb.cpp
+    RosterDb.h
     ChatDb.cpp
     ChatDb.h
     RosterFilterModel.cpp

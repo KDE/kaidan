@@ -24,6 +24,7 @@
 #include "Globals.h"
 #include "GroupChatUserDb.h"
 #include "MessageDb.h"
+#include "RosterDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
 
@@ -48,6 +49,7 @@ MainController::MainController(QObject *parent)
     new AccountDb(this);
     new MessageDb(this);
     new ChatDb(this);
+    new RosterDb(this);
     new GroupChatUserDb(this);
 
     new AccountController(this);

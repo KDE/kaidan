@@ -145,6 +145,7 @@ private:
     void convertDatabaseToV56();
     void convertDatabaseToV57();
     void convertDatabaseToV58();
+    void convertDatabaseToV59();
 
     std::unique_ptr<DatabasePrivate> d;
 
@@ -153,6 +154,7 @@ private:
     friend class DatabaseComponent;
     friend class DatabaseTest;
     friend class ChatDbTest;
+    friend class RosterDbTest;
     // TODO: Remove TrustDb as friend class once MessageDb is no singleton anymore
     friend class TrustDb;
 };
