@@ -901,31 +901,6 @@ SearchBarPage {
 		}
 	}
 
-	// Needs to be outside of the DetailsDialog to not be destroyed with it.
-	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
-	Connections {
-		target: root.chatController.account ? root.chatController.account.blockingController : null
-
-		function onUnblocked(jid) {
-			// Show a passive notification when a JID that is not in the roster is unblocked and
-			// provide an option to undo that.
-			// JIDs in the roster can be blocked again via their details.
-			if (!RosterModel.hasItem(root.chatController.account.settings.jid, jid)) {
-				showPassiveNotification(qsTr("Unblocked %1", "%1 is a JID").arg(jid), "long", qsTr("Undo"), () => {
-					root.chatController.account.blockingController.block(jid)
-				})
-			}
-		}
-
-		function onBlockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not block %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
-		}
-
-		function onUnblockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not unblock %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
-		}
-	}
-
 	/**
 	 * Searches for a message containing the entered text in the search field starting from the current index of the message list view.
 	 *

@@ -469,31 +469,6 @@ Kirigami.GlobalDrawer {
 		}
 	}
 
-	// Needs to be outside of the DetailsDialog to not be destroyed with it.
-	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
-	Connections {
-		target: root.selectedAccount ? root.selectedAccount.blockingController : null
-
-		function onUnblocked(jid) {
-			// Show a passive notification when a JID that is not in the roster is unblocked and
-			// provide an option to undo that.
-			// JIDs in the roster can be blocked again via their details.
-			if (!RosterModel.hasItem(root.selectedAccount.settings.jid, jid)) {
-				showPassiveNotification(qsTr("Unblocked %1", "%1 is a JID").arg(jid), "long", qsTr("Undo"), () => {
-					root.selectedAccount.blockingController.block(jid)
-				})
-			}
-		}
-
-		function onBlockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not block %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
-		}
-
-		function onUnblockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not unblock %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
-		}
-	}
-
 	function openStartPage(accountAvailable = false) {
 		if (accountAvailable) {
 			openPage(startPage)

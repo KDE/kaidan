@@ -13,6 +13,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQml.Models
 import QtQuick.Controls.Material as Material
 import org.kde.kirigami as Kirigami
 
@@ -157,6 +158,40 @@ Kirigami.ApplicationWindow {
 
 		function onAllAccountsLoggedOutToQuit() {
 			root.close()
+		}
+	}
+
+	// Handle blocking-related passive notifications globally, exactly once per account.
+	// This must not live inside a page or dialog: it has to react to (un)blocking regardless of
+	// where it is triggered from (e.g., contact details or account details) without showing the
+	// notification multiple times, and the undo action must survive the destruction of the dialog
+	// from which (un)blocking was triggered.
+	Instantiator {
+		model: AccountController.accounts
+
+		delegate: Connections {
+			required property var modelData
+
+			target: modelData.blockingController
+
+			function onUnblocked(jid) {
+				// Show a passive notification when a JID that is not in the roster is unblocked and
+				// provide an option to undo that.
+				// JIDs in the roster can be blocked again via their details.
+				if (!RosterModel.hasItem(modelData.settings.jid, jid)) {
+					showPassiveNotification(qsTr("Unblocked %1", "%1 is a JID").arg(jid), "long", qsTr("Undo"), () => {
+						modelData.blockingController.block(jid)
+					})
+				}
+			}
+
+			function onBlockingFailed(jid, errorText) {
+				showPassiveNotification(qsTr("Could not block %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
+			}
+
+			function onUnblockingFailed(jid, errorText) {
+				showPassiveNotification(qsTr("Could not unblock %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
+			}
 		}
 	}
 
