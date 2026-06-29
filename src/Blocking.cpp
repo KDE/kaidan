@@ -283,14 +283,26 @@ void BlockingController::onJidsBlocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->addBlockedJids(m_accountSettings->jid(), jids);
+    // Only handle JIDs that are not already blocked.
+    // Otherwise, the same JID would be added (and displayed) multiple times if the server sends a
+    // block push for a JID that is already in the blocklist (e.g., when it is blocked again).
+    auto newJids = filter(QList<QString>{jids}, [this](const QString &jid) {
+        return !m_blocklist->jids.contains(jid);
+    });
+    makeUnique(newJids);
 
-    m_blocklist->jids.append(jids);
+    if (newJids.isEmpty()) {
+        return;
+    }
+
+    m_db->addBlockedJids(m_accountSettings->jid(), newJids);
+
+    m_blocklist->jids.append(newJids);
     makeUnique(m_blocklist->jids);
 
     // handler
     for (auto *model : m_registeredModels) {
-        model->handleBlocked(jids);
+        model->handleBlocked(newJids);
     }
     Q_EMIT blocklistChanged();
 }
