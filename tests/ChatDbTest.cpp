@@ -11,13 +11,14 @@
 #include "Database.h"
 #include "Globals.h"
 #include "MainController.h"
+#include "RosterDb.h"
 #include "RosterItem.h"
 #include "Test.h"
 #include "TestUtils.h"
 
-// Tests that ChatDb correctly splits a RosterItem across the two backing tables: the pure XMPP
-// roster data ("roster") and the chat-list / conversation data ("chats"), while still exposing the
-// fused RosterItem facade.
+// Tests that ChatDb owns the chat-list / conversation data ("chats") while the pure XMPP roster data
+// ("roster") is owned by RosterDb, and that ChatDb still exposes the fused RosterItem facade by
+// joining both tables.
 class ChatDbTest : public Test
 {
     Q_OBJECT
@@ -27,14 +28,15 @@ private:
     Q_SLOT void cleanup();
 
     Q_SLOT void schemaSplit();
-    Q_SLOT void addAndFetch();
-    Q_SLOT void fieldsLandInCorrectTable();
-    Q_SLOT void updateRoutesToCorrectTable();
-    Q_SLOT void replaceItems();
-    Q_SLOT void removeClearsBothTables();
+    Q_SLOT void fusedRead();
+    Q_SLOT void chatFieldsLandInChatsTable();
+    Q_SLOT void updateWritesOnlyChats();
+    Q_SLOT void replaceItemsReconcilesChats();
+    Q_SLOT void removeClearsChatRow();
     Q_SLOT void chatWithoutRosterEntryIsListed();
 
     RosterItem contact(const QString &jid) const;
+    void seedRoster(const QString &jid, const QString &name, QXmppRosterIq::Item::SubscriptionType subscription, const QSet<QString> &groups = {});
     std::optional<RosterItem> fetch(const QString &jid) const;
     int rawCount(const char *table, const QString &jid) const;
     QVariant rawValue(const char *table, const QString &column, const QString &jid) const;
@@ -46,7 +48,7 @@ private:
 void ChatDbTest::initTestCase()
 {
     Test::initTestCase();
-    // Sets up the Database, MessageDb, ChatDb, GroupChatUserDb and RosterModel singletons.
+    // Sets up the Database, MessageDb, ChatDb, RosterDb, GroupChatUserDb and RosterModel singletons.
     m_mainController = std::make_unique<MainController>();
 }
 
@@ -54,6 +56,7 @@ void ChatDbTest::cleanup()
 {
     // Keep the tests independent of each other.
     wait(ChatDb::instance()->removeItems(m_accountJid));
+    wait(this, RosterDb::instance()->clear(m_accountJid));
 }
 
 RosterItem ChatDbTest::contact(const QString &jid) const
@@ -62,6 +65,16 @@ RosterItem ChatDbTest::contact(const QString &jid) const
     item.accountJid = m_accountJid;
     item.jid = jid;
     return item;
+}
+
+void ChatDbTest::seedRoster(const QString &jid, const QString &name, QXmppRosterIq::Item::SubscriptionType subscription, const QSet<QString> &groups)
+{
+    QXmppRosterIq::Item item;
+    item.setBareJid(jid);
+    item.setName(name);
+    item.setSubscriptionType(subscription);
+    item.setGroups(groups);
+    wait(this, RosterDb::instance()->upsertItem(m_accountJid, QStringLiteral("v1"), item));
 }
 
 std::optional<RosterItem> ChatDbTest::fetch(const QString &jid) const
@@ -147,124 +160,108 @@ void ChatDbTest::schemaSplit()
     QVERIFY(!chatsFields.contains(QStringLiteral("groupChatParticipantId")));
 }
 
-// A full round-trip through the facade preserves fields from both tables.
-void ChatDbTest::addAndFetch()
+// The fused RosterItem facade combines the roster data (owned by RosterDb) with the chat-list data
+// (owned by ChatDb) via the LEFT JOIN.
+void ChatDbTest::fusedRead()
 {
+    // chat-list data written by ChatDb
     auto item = contact(QStringLiteral("bob@example.com"));
-    item.name = QStringLiteral("Bob");
-    item.subscription = QXmppRosterIq::Item::Both;
-    item.groups = {QStringLiteral("Friends"), QStringLiteral("Work")};
     item.encryption = Encryption::Omemo2;
     item.notificationRule = RosterItem::NotificationRule::Always;
     item.pinningPosition = 3;
-
     wait(ChatDb::instance()->addItem(item));
+
+    // roster data written by RosterDb (the SQL QXmppRosterStorage backend)
+    seedRoster(item.jid, QStringLiteral("Bob"), QXmppRosterIq::Item::Both, {QStringLiteral("Friends"), QStringLiteral("Work")});
 
     const auto fetched = fetch(item.jid);
     QVERIFY(fetched.has_value());
+    // roster fields come from RosterDb's roster row
     QCOMPARE(fetched->name, QStringLiteral("Bob"));
     QCOMPARE(fetched->subscription, QXmppRosterIq::Item::Both);
     auto groups = fetched->groups;
     groups.sort();
     QCOMPARE(groups, QList<QString>({QStringLiteral("Friends"), QStringLiteral("Work")}));
+    // chat-list fields come from ChatDb's chats row
     QCOMPARE(fetched->encryption, Encryption::Omemo2);
     QCOMPARE(fetched->notificationRule, RosterItem::NotificationRule::Always);
     QCOMPARE(fetched->pinningPosition, 3);
 }
 
-// Each field is physically stored in the table it belongs to.
-void ChatDbTest::fieldsLandInCorrectTable()
+// ChatDb writes only the chats row; roster fields passed in the RosterItem are ignored (RosterDb owns
+// the roster table).
+void ChatDbTest::chatFieldsLandInChatsTable()
 {
     auto item = contact(QStringLiteral("bob@example.com"));
-    item.name = QStringLiteral("Bob");
-    item.subscription = QXmppRosterIq::Item::To;
+    item.name = QStringLiteral("Bob"); // roster field -> ignored by ChatDb
+    item.subscription = QXmppRosterIq::Item::To; // roster field -> ignored by ChatDb
     item.encryption = Encryption::Omemo2;
     item.notificationRule = RosterItem::NotificationRule::Never;
-
     wait(ChatDb::instance()->addItem(item));
 
-    QCOMPARE(rawCount(DB_TABLE_ROSTER, item.jid), 1);
     QCOMPARE(rawCount(DB_TABLE_CHATS, item.jid), 1);
+    QCOMPARE(rawCount(DB_TABLE_ROSTER, item.jid), 0);
 
-    // pure roster data
-    QCOMPARE(rawValue(DB_TABLE_ROSTER, QStringLiteral("name"), item.jid).toString(), QStringLiteral("Bob"));
-    QCOMPARE(rawValue(DB_TABLE_ROSTER, QStringLiteral("subscription"), item.jid).toInt(), static_cast<int>(QXmppRosterIq::Item::To));
-    // chat-list data
     QCOMPARE(rawValue(DB_TABLE_CHATS, QStringLiteral("encryption"), item.jid).toInt(), static_cast<int>(Encryption::Omemo2));
     QCOMPARE(rawValue(DB_TABLE_CHATS, QStringLiteral("notificationRule"), item.jid).toInt(), static_cast<int>(RosterItem::NotificationRule::Never));
 }
 
-// Updating fields routes the changes to the correct table.
-void ChatDbTest::updateRoutesToCorrectTable()
+// Updating chat-list fields routes the changes to the chats table; ChatDb never writes roster data.
+void ChatDbTest::updateWritesOnlyChats()
 {
     auto item = contact(QStringLiteral("bob@example.com"));
-    item.name = QStringLiteral("Bob");
-    item.subscription = QXmppRosterIq::Item::None;
     item.encryption = Encryption::NoEncryption;
     wait(ChatDb::instance()->addItem(item));
 
     wait(ChatDb::instance()->updateItem(m_accountJid, item.jid, [](RosterItem &i) {
-        i.name = QStringLiteral("Bobby"); // roster table
-        i.subscription = QXmppRosterIq::Item::Both; // roster table
         i.encryption = Encryption::Omemo2; // chats table
         i.pinningPosition = 7; // chats table
     }));
 
     const auto fetched = fetch(item.jid);
     QVERIFY(fetched.has_value());
-    QCOMPARE(fetched->name, QStringLiteral("Bobby"));
-    QCOMPARE(fetched->subscription, QXmppRosterIq::Item::Both);
     QCOMPARE(fetched->encryption, Encryption::Omemo2);
     QCOMPARE(fetched->pinningPosition, 7);
 
-    QCOMPARE(rawValue(DB_TABLE_ROSTER, QStringLiteral("name"), item.jid).toString(), QStringLiteral("Bobby"));
     QCOMPARE(rawValue(DB_TABLE_CHATS, QStringLiteral("pinningPosition"), item.jid).toInt(), 7);
+    QCOMPARE(rawCount(DB_TABLE_ROSTER, item.jid), 0);
 }
 
-// replaceItems() reconciles the roster, keeping/adding/removing entries (and their chat rows).
-void ChatDbTest::replaceItems()
+// replaceItems() reconciles the chats rows against the new roster: keeping, adding and removing.
+void ChatDbTest::replaceItemsReconcilesChats()
 {
     auto bob = contact(QStringLiteral("bob@example.com"));
-    bob.name = QStringLiteral("Bob");
     auto carol = contact(QStringLiteral("carol@example.com"));
-    carol.name = QStringLiteral("Carol");
     wait(ChatDb::instance()->addItem(bob));
     wait(ChatDb::instance()->addItem(carol));
 
-    // Keep bob (renamed), drop carol, add dave.
-    auto bobRenamed = bob;
-    bobRenamed.name = QStringLiteral("Bobby");
+    // Keep bob, drop carol, add dave.
     auto dave = contact(QStringLiteral("dave@example.net"));
-    dave.name = QStringLiteral("Dave");
-    wait(ChatDb::instance()->replaceItems(m_accountJid, {bobRenamed, dave}));
+    wait(ChatDb::instance()->replaceItems(m_accountJid, {bob, dave}));
 
     QVERIFY(fetch(bob.jid).has_value());
-    QCOMPARE(fetch(bob.jid)->name, QStringLiteral("Bobby"));
     QVERIFY(fetch(dave.jid).has_value());
     QVERIFY(!fetch(carol.jid).has_value());
 
-    // The removed contact is gone from both tables.
-    QCOMPARE(rawCount(DB_TABLE_ROSTER, carol.jid), 0);
+    QCOMPARE(rawCount(DB_TABLE_CHATS, bob.jid), 1);
+    QCOMPARE(rawCount(DB_TABLE_CHATS, dave.jid), 1);
     QCOMPARE(rawCount(DB_TABLE_CHATS, carol.jid), 0);
 }
 
-void ChatDbTest::removeClearsBothTables()
+void ChatDbTest::removeClearsChatRow()
 {
     auto item = contact(QStringLiteral("bob@example.com"));
-    item.name = QStringLiteral("Bob");
     wait(ChatDb::instance()->addItem(item));
-    QCOMPARE(rawCount(DB_TABLE_ROSTER, item.jid), 1);
     QCOMPARE(rawCount(DB_TABLE_CHATS, item.jid), 1);
 
     wait(ChatDb::instance()->removeItem(m_accountJid, item.jid));
 
     QVERIFY(!fetch(item.jid).has_value());
-    QCOMPARE(rawCount(DB_TABLE_ROSTER, item.jid), 0);
     QCOMPARE(rawCount(DB_TABLE_CHATS, item.jid), 0);
 }
 
-// Future MUC group chats are chats without a roster entry: a chats row with no matching roster row
-// must still be listed (the read joins chats LEFT JOIN roster).
+// A chats row with no matching roster row (e.g. a future MUC group chat bookmark) must still be
+// listed (the read joins chats LEFT JOIN roster).
 void ChatDbTest::chatWithoutRosterEntryIsListed()
 {
     const auto jid = QStringLiteral("room@conference.example.org");

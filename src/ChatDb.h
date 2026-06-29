@@ -42,10 +42,6 @@ private:
     QList<RosterItem> fetchBasicItems();
 
     void fetchGroups(RosterItem &item);
-    void addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups);
-    void updateGroups(const RosterItem &oldItem, const RosterItem &newItem);
-    void removeGroups(const QString &accountJid);
-    void removeGroups(const QString &accountJid, const QString &jid);
 
     void fetchLastMessage(RosterItem &item);
     void fetchLastMessage(RosterItem &item, const QList<RosterItem> &allItems);

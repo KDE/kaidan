@@ -22,6 +22,7 @@
 #include "ImageProvider.h"
 #include "MessageDb.h"
 #include "RegistrationDataFormModel.h"
+#include "RosterDb.h"
 #include "VCardController.h"
 
 using namespace std::chrono_literals;
@@ -447,6 +448,7 @@ void RegistrationController::removeLocalAccountData()
 {
     MessageDb::instance()->removeMessages(m_accountSettings->jid());
     ChatDb::instance()->removeItems(m_accountSettings->jid());
+    RosterDb::instance()->clear(m_accountSettings->jid());
     AccountDb::instance()->removeAccount(m_accountSettings->jid());
 }
 

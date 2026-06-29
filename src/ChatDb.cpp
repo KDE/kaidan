@@ -45,28 +45,13 @@ ChatDb *ChatDb::instance()
     return s_instance;
 }
 
-// The roster item's data is split across two tables: the pure XMPP roster data ("roster") and the
-// chat-list / conversation data ("chats"). Each update produces one record per table.
-struct RosterUpdateRecords {
-    QSqlRecord roster;
-    QSqlRecord chats;
-};
-
-static RosterUpdateRecords createUpdateRecord(const RosterItem &oldItem, const RosterItem &newItem)
+// The pure XMPP roster data ("roster" / "rosterGroups") is owned and written by RosterDb (the SQL
+// QXmppRosterStorage backend). ChatDb only writes the chat-list / conversation data ("chats") and
+// reads the roster data back via a LEFT JOIN to expose the fused RosterItem facade.
+static QSqlRecord createChatsUpdateRecord(const RosterItem &oldItem, const RosterItem &newItem)
 {
-    RosterUpdateRecords records;
-    auto &rosterRec = records.roster;
-    auto &chatsRec = records.chats;
+    QSqlRecord chatsRec;
 
-    // pure XMPP roster data
-    if (oldItem.name != newItem.name)
-        rosterRec.append(createSqlField(QStringLiteral("name"), newItem.name));
-    if (oldItem.subscription != newItem.subscription)
-        rosterRec.append(createSqlField(QStringLiteral("subscription"), static_cast<int>(newItem.subscription)));
-    if (oldItem.groupChatParticipantId != newItem.groupChatParticipantId)
-        rosterRec.append(createSqlField(QStringLiteral("groupChatParticipantId"), newItem.groupChatParticipantId));
-
-    // chat-list / conversation data
     if (oldItem.groupChatName != newItem.groupChatName)
         chatsRec.append(createSqlField(QStringLiteral("groupChatName"), newItem.groupChatName));
     if (oldItem.groupChatDescription != newItem.groupChatDescription)
@@ -97,7 +82,7 @@ static RosterUpdateRecords createUpdateRecord(const RosterItem &oldItem, const R
     if (oldItem.automaticMediaDownloadsRule != newItem.automaticMediaDownloadsRule)
         chatsRec.append(createSqlField(QStringLiteral("automaticMediaDownloadsRule"), static_cast<int>(newItem.automaticMediaDownloadsRule)));
 
-    return records;
+    return chatsRec;
 }
 
 QFuture<QList<RosterItem>> ChatDb::fetchItems()
@@ -125,12 +110,17 @@ QFuture<void> ChatDb::updateItem(const QString &accountJid, const QString &jid, 
 QFuture<void> ChatDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
 {
     return run([this, accountJid, items]() {
-        // load current items (only XMPP roster entries, joined to their chat data)
+        // Load the current chats (the chat list is the primary set), joined to their roster data.
+        // The roster table itself is owned by RosterDb; here we reconcile the chats rows against the
+        // new server roster. Every chat currently corresponds to a roster item (contact or MIX
+        // channel).
+        // TODO: Once MUC group chats are stored as bookmarks (chats rows without a roster row), skip
+        // those here so they are not removed.
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
 				SELECT *
-				FROM )" DB_TABLE_ROSTER R"( LEFT JOIN )" DB_TABLE_CHATS R"( USING (accountJid, jid)
+				FROM )" DB_TABLE_CHATS R"( LEFT JOIN )" DB_TABLE_ROSTER R"( USING (accountJid, jid)
 				WHERE accountJid = :accountJid
 			)"),
                   {{u":accountJid", accountJid}});
@@ -202,12 +192,6 @@ QFuture<void> ChatDb::removeItems(const QString &accountJid)
                                  "WHERE accountJid = :accountJid"),
                   {{u":accountJid", accountJid}});
 
-        execQuery(query,
-                  QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-                                 "WHERE accountJid = :accountJid"),
-                  {{u":accountJid", accountJid}});
-
-        removeGroups(accountJid);
         GroupChatUserDb::instance()->_removeUsers(accountJid);
 
         itemsRemoved(accountJid);
@@ -263,71 +247,6 @@ void ChatDb::fetchGroups(RosterItem &item)
     }
 }
 
-void ChatDb::addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups)
-{
-    auto query = createQuery();
-
-    for (const auto &group : groups) {
-        execQuery(query,
-                  QStringLiteral("INSERT OR IGNORE INTO " DB_TABLE_ROSTER_GROUPS "(accountJid, chatJid, name) VALUES(:accountJid, :chatJid, :name)"),
-                  {{u":accountJid", accountJid}, {u":chatJid", jid}, {u":name", group}});
-    }
-}
-
-void ChatDb::updateGroups(const RosterItem &oldItem, const RosterItem &newItem)
-{
-    const auto &oldGroups = oldItem.groups;
-
-    if (const auto &newGroups = newItem.groups; oldGroups != newGroups) {
-        auto query = createQuery();
-
-        // Remove old groups.
-        for (auto itr = oldGroups.begin(); itr != oldGroups.end(); ++itr) {
-            const auto group = *itr;
-
-            if (!newGroups.contains(group)) {
-                execQuery(query,
-                          QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-                                         "WHERE accountJid = :accountJid AND chatJid = :chatJid AND name = :name"),
-                          {{u":accountJid", oldItem.accountJid}, {u":chatJid", oldItem.jid}, {u":name", group}});
-            }
-        }
-
-        // Add new groups.
-        for (auto itr = newGroups.begin(); itr != newGroups.end(); ++itr) {
-            const auto group = *itr;
-
-            if (!oldGroups.contains(group)) {
-                execQuery(query,
-                          QStringLiteral("INSERT or IGNORE INTO " DB_TABLE_ROSTER_GROUPS " "
-                                         "(accountJid, chatJid, name) "
-                                         "VALUES (:accountJid, :chatJid, :name)"),
-                          {{u":accountJid", oldItem.accountJid}, {u":chatJid", oldItem.jid}, {u":name", group}});
-            }
-        }
-    }
-}
-
-void ChatDb::removeGroups(const QString &accountJid)
-{
-    auto query = createQuery();
-
-    execQuery(query,
-              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-                             "WHERE accountJid = :accountJid"),
-              {{u":accountJid", accountJid}});
-}
-
-void ChatDb::removeGroups(const QString &accountJid, const QString &jid)
-{
-    auto query = createQuery();
-
-    execQuery(query,
-              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-                             "WHERE accountJid = :accountJid AND chatJid = :chatJid"),
-              {{u":accountJid", accountJid}, {u":chatJid", jid}});
-}
-
 void ChatDb::fetchLastMessage(RosterItem &item)
 {
     fetchLastMessage(item, fetchBasicItems());
@@ -381,15 +300,6 @@ void ChatDb::_addItem(RosterItem item)
     fetchMarkedMessageCount(item);
     Q_EMIT itemAdded(item);
 
-    insert(QString::fromLatin1(DB_TABLE_ROSTER),
-           {
-               {u"accountJid", item.accountJid},
-               {u"jid", item.jid},
-               {u"name", item.name},
-               {u"subscription", static_cast<int>(item.subscription)},
-               {u"groupChatParticipantId", item.groupChatParticipantId},
-           });
-
     insert(QString::fromLatin1(DB_TABLE_CHATS),
            {
                {u"accountJid", item.accountJid},
@@ -409,8 +319,6 @@ void ChatDb::_addItem(RosterItem item)
                {u"notificationRule", static_cast<int>(item.notificationRule)},
                {u"automaticMediaDownloadsRule", static_cast<int>(item.automaticMediaDownloadsRule)},
            });
-
-    addGroups(item.accountJid, item.jid, item.groups);
 }
 
 void ChatDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
@@ -445,15 +353,10 @@ void ChatDb::_updateItem(const QString &accountJid, const QString &jid, const st
             fetchMarkedMessageCount(newItem);
             itemUpdated(newItem);
 
-            updateGroups(oldItem, newItem);
-
-            // Create SQL records containing only the differences and update each affected table.
-            auto records = createUpdateRecord(oldItem, newItem);
-            if (!records.roster.isEmpty()) {
-                updateItemByRecord(QString::fromLatin1(DB_TABLE_ROSTER), accountJid, jid, records.roster);
-            }
-            if (!records.chats.isEmpty()) {
-                updateItemByRecord(QString::fromLatin1(DB_TABLE_CHATS), accountJid, jid, records.chats);
+            // Persist only the chat-list differences; the roster data is owned by RosterDb.
+            auto chatsRecord = createChatsUpdateRecord(oldItem, newItem);
+            if (!chatsRecord.isEmpty()) {
+                updateItemByRecord(QString::fromLatin1(DB_TABLE_CHATS), accountJid, jid, chatsRecord);
             }
         }
     }
@@ -470,12 +373,6 @@ void ChatDb::_removeItem(const QString &accountJid, const QString &jid)
                              "WHERE accountJid = :accountJid AND jid = :jid"),
               {{u":accountJid", accountJid}, {u":jid", jid}});
 
-    execQuery(query,
-              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-                             "WHERE accountJid = :accountJid AND jid = :jid"),
-              {{u":accountJid", accountJid}, {u":jid", jid}});
-
-    removeGroups(accountJid, jid);
     GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 }
 
