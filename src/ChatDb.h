@@ -28,6 +28,9 @@ public:
     QFuture<void> updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
     Q_SIGNAL void itemUpdated(const RosterItem &item);
 
+    // Re-reads the fused item and re-emits itemUpdated (e.g. after RosterDb changed its roster data).
+    QFuture<void> refreshItem(const QString &accountJid, const QString &jid);
+
     QFuture<void> replaceItems(const QString &accountJid, const QList<RosterItem> &items);
     Q_SIGNAL void itemsReplaced(const QString &accountJid);
 
@@ -51,6 +54,7 @@ private:
 
     void _addItem(RosterItem item);
     void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
+    void _refreshItem(const QString &accountJid, const QString &jid);
     void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
     void _removeItem(const QString &accountJid, const QString &jid);
 

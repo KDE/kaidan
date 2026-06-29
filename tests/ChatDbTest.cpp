@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 // Qt
+#include <QSignalSpy>
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QTest>
@@ -29,6 +30,7 @@ private:
 
     Q_SLOT void schemaSplit();
     Q_SLOT void fusedRead();
+    Q_SLOT void refreshEmitsFusedItem();
     Q_SLOT void chatFieldsLandInChatsTable();
     Q_SLOT void updateWritesOnlyChats();
     Q_SLOT void replaceItemsReconcilesChats();
@@ -186,6 +188,26 @@ void ChatDbTest::fusedRead()
     QCOMPARE(fetched->encryption, Encryption::Omemo2);
     QCOMPARE(fetched->notificationRule, RosterItem::NotificationRule::Always);
     QCOMPARE(fetched->pinningPosition, 3);
+}
+
+// refreshItem re-reads the fused item (roster data owned by RosterDb + chat-list data owned by
+// ChatDb) and re-emits itemUpdated, so the model can refresh after a roster-only change.
+void ChatDbTest::refreshEmitsFusedItem()
+{
+    auto item = contact(QStringLiteral("bob@example.com"));
+    item.encryption = Encryption::Omemo2;
+    wait(ChatDb::instance()->addItem(item));
+    seedRoster(item.jid, QStringLiteral("Bob"), QXmppRosterIq::Item::Both, {QStringLiteral("Friends")});
+
+    QSignalSpy spy(ChatDb::instance(), &ChatDb::itemUpdated);
+    wait(ChatDb::instance()->refreshItem(m_accountJid, item.jid));
+
+    QCOMPARE(spy.count(), 1);
+    const auto emitted = qvariant_cast<RosterItem>(spy.constFirst().at(0));
+    QCOMPARE(emitted.jid, item.jid);
+    QCOMPARE(emitted.name, QStringLiteral("Bob")); // from the roster table (RosterDb)
+    QCOMPARE(emitted.subscription, QXmppRosterIq::Item::Both); // from the roster table
+    QCOMPARE(emitted.encryption, Encryption::Omemo2); // from the chats table
 }
 
 // ChatDb writes only the chats row; roster fields passed in the RosterItem are ignored (RosterDb owns

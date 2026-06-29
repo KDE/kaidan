@@ -107,6 +107,13 @@ QFuture<void> ChatDb::updateItem(const QString &accountJid, const QString &jid, 
     });
 }
 
+QFuture<void> ChatDb::refreshItem(const QString &accountJid, const QString &jid)
+{
+    return run([this, accountJid, jid]() {
+        _refreshItem(accountJid, jid);
+    });
+}
+
 QFuture<void> ChatDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
 {
     return run([this, accountJid, items]() {
@@ -146,16 +153,9 @@ QFuture<void> ChatDb::replaceItems(const QString &accountJid, const QList<Roster
             // By calling remove(), we also find out whether the JID is already
             // existing or not.
             if (newJids.removeOne(jid)) {
-                auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
-                    return rosterItem.jid == jid;
-                });
-
-                // item is also included in newJids -> update
-                _updateItem(accountJid, jid, [newItem = *itr](RosterItem &oldItem) {
-                    oldItem.name = newItem.name;
-                    oldItem.subscription = newItem.subscription;
-                    oldItem.groups = newItem.groups;
-                });
+                // item is also included in newJids -> refresh the fused view (the roster data itself
+                // is owned and was already updated by RosterDb)
+                _refreshItem(accountJid, jid);
             } else {
                 // item is not included in newJids -> delete
                 _removeItem(accountJid, jid);
@@ -359,6 +359,33 @@ void ChatDb::_updateItem(const QString &accountJid, const QString &jid, const st
                 updateItemByRecord(QString::fromLatin1(DB_TABLE_CHATS), accountJid, jid, chatsRecord);
             }
         }
+    }
+}
+
+void ChatDb::_refreshItem(const QString &accountJid, const QString &jid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+			SELECT *
+			FROM )" DB_TABLE_CHATS R"( LEFT JOIN )" DB_TABLE_ROSTER R"( USING (accountJid, jid)
+			WHERE accountJid = :accountJid AND jid = :jid
+			LIMIT 1
+		)"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":jid", jid},
+              });
+
+    if (query.first()) {
+        auto item = parseItemFromQuery(query);
+
+        fetchGroups(item);
+        fetchLastMessage(item);
+        fetchUnreadMessageCount(item);
+        fetchMarkedMessageCount(item);
+
+        Q_EMIT itemUpdated(item);
     }
 }
 

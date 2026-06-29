@@ -21,6 +21,7 @@
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "MessageDb.h"
+#include "RosterDb.h"
 #include "RosterModel.h"
 
 RosterController::RosterController(AccountSettings *accountSettings,
@@ -34,36 +35,58 @@ RosterController::RosterController(AccountSettings *accountSettings,
     , m_encryptionController(encryptionController)
     , m_manager(manager)
 {
+    // The roster (and its RFC 6121 version) is persisted by RosterDb (the QXmppRosterStorage
+    // backend), which is the single source of truth for roster data. React to its changes to drive
+    // the chat-list rows and refresh RosterModel; the subscription handling stays on the manager.
     connect(m_manager, &QXmppRosterManager::rosterReceived, this, &RosterController::populateRoster);
 
-    connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
-        RosterItem item{m_accountSettings->jid(), m_manager->getRosterEntry(jid)};
+    connect(RosterDb::instance(), &RosterDb::replaced, this, [this](const QString &accountJid) {
+        if (accountJid != m_accountSettings->jid()) {
+            return;
+        }
 
-        item.encryption = m_accountSettings->encryption();
-        item.lastMessageDateTime = QDateTime::currentDateTimeUtc();
+        // Reconcile the chat-list rows against the full new roster.
+        RosterDb::instance()->load(accountJid).then(this, [this, accountJid](RosterDb::RosterCache cache) {
+            QList<RosterItem> items;
+            items.reserve(static_cast<int>(cache.items.size()));
 
-        // Add the item to the dabatase.
-        // Any further usage of the item is done once it is added to RosterModel (see connection for RosterModel::itemAdded()).
-        // That way, it is not needed to retrieve the item multiple times from the database.
-        ChatDb::instance()->addItem(item);
+            for (const auto &entry : cache.items) {
+                RosterItem item{accountJid, entry};
+                item.encryption = m_accountSettings->encryption();
+                items.append(item);
+            }
+
+            ChatDb::instance()->replaceItems(accountJid, items);
+        });
     });
 
-    connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
-        ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
-            item.name = changedItem.name();
-            item.subscription = changedItem.subscriptionType();
+    connect(RosterDb::instance(), &RosterDb::itemUpserted, this, [this](const QString &accountJid, const QXmppRosterIq::Item &rosterItem) {
+        if (accountJid != m_accountSettings->jid()) {
+            return;
+        }
 
-            const auto groups = changedItem.groups();
-            item.groups = {groups.cbegin(), groups.cend()};
-        });
+        const auto jid = rosterItem.bareJid();
 
-        if (m_isItemBeingChanged) {
-            m_isItemBeingChanged = false;
+        if (RosterModel::instance()->hasItem(accountJid, jid)) {
+            // Existing chat: only the roster data changed, so refresh its fused view.
+            ChatDb::instance()->refreshItem(accountJid, jid);
+        } else {
+            RosterItem item{accountJid, rosterItem};
+            item.encryption = m_accountSettings->encryption();
+            item.lastMessageDateTime = QDateTime::currentDateTimeUtc();
+
+            // Add the item to the database.
+            // Any further usage of the item is done once it is added to RosterModel (see connection for RosterModel::itemAdded()).
+            // That way, it is not needed to retrieve the item multiple times from the database.
+            ChatDb::instance()->addItem(item);
         }
     });
 
-    connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
-        const auto accountJid = m_accountSettings->jid();
+    connect(RosterDb::instance(), &RosterDb::itemRemoved, this, [this](const QString &accountJid, const QString &jid) {
+        if (accountJid != m_accountSettings->jid()) {
+            return;
+        }
+
         MessageDb::instance()->removeMessages(accountJid, jid);
         ChatDb::instance()->removeItem(accountJid, jid);
 
@@ -256,8 +279,6 @@ void RosterController::removeGroup(const QString &group)
 
 void RosterController::updateGroups(const QString &jid, const QString &name, const QList<QString> &groups)
 {
-    m_isItemBeingChanged = true;
-
     // TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
     m_manager->addItem(jid, name, {groups.cbegin(), groups.cend()});
 }
@@ -304,29 +325,17 @@ void RosterController::populateRoster()
 {
     qCDebug(KAIDAN_CORE_LOG) << "Populating roster";
 
-    const auto accountJid = m_accountSettings->jid();
-
-    QList<RosterItem> rosterItems;
+    // The chat-list rows are reconciled separately when RosterDb reports the roster change; here we
+    // only process subscription requests that arrived before the roster was received.
     const auto jids = m_manager->getRosterBareJids();
 
     for (const auto &jid : jids) {
-        RosterItem rosterItem = {accountJid, m_manager->getRosterEntry(jid)};
-        rosterItem.encryption = m_accountSettings->encryption();
-        rosterItems.append(rosterItem);
-    }
-
-    for (auto itr = rosterItems.begin(); itr != rosterItems.end(); ++itr) {
-        const auto jid = itr->jid;
-
         // Process subscription requests from roster items that were received before the roster was
         // received.
         if (m_unprocessedSubscriptionRequests.contains(jid)) {
             addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
         }
     }
-
-    // replace current contacts with new ones from server
-    ChatDb::instance()->replaceItems(accountJid, rosterItems);
 
     // Process subscription requests from strangers that were received before the roster was
     // received.

@@ -100,7 +100,6 @@ private:
     QMap<QString, QXmppPresence> m_unrespondedSubscriptionRequests;
     QList<QString> m_pendingAutomaticInitialAdditionJids;
     bool m_addingOwnJidToRosterAllowed = true;
-    bool m_isItemBeingChanged = false;
 };
 
 Q_DECLARE_METATYPE(RosterController::ContactAdditionWithUriResult)
