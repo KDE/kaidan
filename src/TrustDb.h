@@ -18,7 +18,7 @@ struct UnprocessedKey;
 
 /**
  * TrustDb manages the e2ee trust management data for only one user account (unlike MessageDb
- * and RosterDb currently).
+ * and ChatDb currently).
  */
 class TrustDb : public DatabaseComponent, public QXmppAtmTrustStorage
 {

@@ -14,6 +14,7 @@
 #include "Account.h"
 #include "Algorithms.h"
 #include "ChatController.h"
+#include "ChatDb.h"
 #include "ClientController.h"
 #include "GroupChatController.h"
 #include "GroupChatUser.h"
@@ -21,7 +22,6 @@
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "QmlUtils.h"
-#include "RosterDb.h"
 
 MixController::MixController(AccountSettings *accountSettings,
                              GroupChatController *groupChatController,
@@ -390,7 +390,7 @@ void MixController::handleServicesChanged()
 
 void MixController::handleChannelInformationUpdated(const QString &channelJid, const QXmppMixInfoItem &information)
 {
-    RosterDb::instance()->updateItem(m_accountSettings->jid(), channelJid, [information](RosterItem &item) {
+    ChatDb::instance()->updateItem(m_accountSettings->jid(), channelJid, [information](RosterItem &item) {
         item.groupChatName = information.name();
         item.groupChatDescription = information.description();
     });

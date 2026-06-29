@@ -19,11 +19,11 @@
 #include "AccountDb.h"
 #include "AvatarImageCache.h"
 #include "CallController.h"
+#include "ChatDb.h"
 #include "Database.h"
 #include "Globals.h"
 #include "GroupChatUserDb.h"
 #include "MessageDb.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
 
@@ -47,7 +47,7 @@ MainController::MainController(QObject *parent)
     new Database(this);
     new AccountDb(this);
     new MessageDb(this);
-    new RosterDb(this);
+    new ChatDb(this);
     new GroupChatUserDb(this);
 
     new AccountController(this);

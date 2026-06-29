@@ -152,7 +152,7 @@ private:
 
     friend class DatabaseComponent;
     friend class DatabaseTest;
-    friend class RosterDbTest;
+    friend class ChatDbTest;
     // TODO: Remove TrustDb as friend class once MessageDb is no singleton anymore
     friend class TrustDb;
 };

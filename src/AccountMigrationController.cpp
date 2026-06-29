@@ -19,10 +19,10 @@
 // Kaidan
 #include "AccountDb.h"
 #include "Algorithms.h"
+#include "ChatDb.h"
 #include "Encryption.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
-#include "RosterDb.h"
 #include "RosterItem.h"
 #include "RosterModel.h"
 #include "XmlUtils.h"
@@ -538,7 +538,7 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
 
             for (const ClientRosterItemSettings &itemSettings : oldRosterItemSettings) {
                 auto updateRosterItem = [newAccountJid, itemSettings]() {
-                    return RosterDb::instance()->updateItem(newAccountJid, itemSettings.jid, [itemSettings](RosterItem &item) {
+                    return ChatDb::instance()->updateItem(newAccountJid, itemSettings.jid, [itemSettings](RosterItem &item) {
                         item.encryption = itemSettings.encryption.value_or(item.encryption);
                         item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
                         item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
@@ -556,8 +556,8 @@ QFuture<void> AccountMigrationController::importClientSettings(Account *newAccou
                         promise->start();
                         auto *context = new QObject(this);
 
-                        connect(RosterDb::instance(),
-                                &RosterDb::itemAdded,
+                        connect(ChatDb::instance(),
+                                &ChatDb::itemAdded,
                                 context,
                                 [context, promise, newAccountJid, jid = itemSettings.jid, updateRosterItem](const RosterItem &rosterItem) mutable {
                                     if (rosterItem.accountJid == newAccountJid && rosterItem.jid == jid) {

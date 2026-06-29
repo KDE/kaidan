@@ -32,6 +32,7 @@
 #include "Account.h"
 #include "AccountDb.h"
 #include "Algorithms.h"
+#include "ChatDb.h"
 #include "EncryptionController.h"
 #include "FileSharingController.h"
 #include "Globals.h"
@@ -42,7 +43,6 @@
 #include "MediaUtils.h"
 #include "MessageDb.h"
 #include "RosterController.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 
 // Number of messages fetched at once when loading MAM backlog
@@ -69,7 +69,7 @@ MessageController::MessageController(AccountSettings *accountSettings,
     , m_mamManager(mamManager)
     , m_messageReceiptManager(messageReceiptManager)
 {
-    connect(RosterDb::instance(), &RosterDb::itemsReplaced, this, &MessageController::handleRosterReceived);
+    connect(ChatDb::instance(), &ChatDb::itemsReplaced, this, &MessageController::handleRosterReceived);
 
     connect(m_fileSharingController, &FileSharingController::filesUploadedForPendingMessage, this, &MessageController::sendPendingMessageWithUploadedFiles);
 
@@ -698,7 +698,7 @@ void MessageController::updateLatestMessage(const QString &chatJid, const QStrin
 
     // TODO: Check whether the own server supports archiving group chat messages and do not store stanza IDs for each group chat in that case
     if (receivedFromGroupChat) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [stanzaId, timestamp](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [stanzaId, timestamp](RosterItem &item) {
             // Check "<=" instead of "<" to update the ID in the rare case that the timestamps are
             // equal (e.g., because the timestamps are not precise enough).
             if (item.latestGroupChatMessageStanzaTimestamp <= timestamp) {
@@ -725,12 +725,12 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
         if (isOwnMessage) {
             Q_EMIT contactMessageRead(senderJid, recipientJid);
 
-            RosterDb::instance()->updateItem(m_accountSettings->jid(), recipientJid, [=](RosterItem &item) {
+            ChatDb::instance()->updateItem(m_accountSettings->jid(), recipientJid, [=](RosterItem &item) {
                 item.lastReadContactMessageId = markedId;
                 item.readMarkerPending = false;
             });
         } else {
-            RosterDb::instance()->updateItem(m_accountSettings->jid(), senderJid, [markedId](RosterItem &item) {
+            ChatDb::instance()->updateItem(m_accountSettings->jid(), senderJid, [markedId](RosterItem &item) {
                 item.lastReadOwnMessageId = markedId;
             });
         }
@@ -1116,7 +1116,7 @@ void MessageController::sendPendingReadMarkers()
                 }
             }
 
-            RosterDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [](RosterItem &item) {
+            ChatDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [](RosterItem &item) {
                 item.readMarkerPending = false;
             });
         }

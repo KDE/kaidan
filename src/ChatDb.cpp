@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "RosterDb.h"
+#include "ChatDb.h"
 
 // Qt
 #include <QSqlDriver>
@@ -26,21 +26,21 @@ Q_DECLARE_METATYPE(QXmppRosterIq::Item::SubscriptionType)
 
 using namespace SqlUtils;
 
-RosterDb *RosterDb::s_instance = nullptr;
+ChatDb *ChatDb::s_instance = nullptr;
 
-RosterDb::RosterDb(QObject *parent)
+ChatDb::ChatDb(QObject *parent)
     : DatabaseComponent(parent)
 {
-    Q_ASSERT(!RosterDb::s_instance);
+    Q_ASSERT(!ChatDb::s_instance);
     s_instance = this;
 }
 
-RosterDb::~RosterDb()
+ChatDb::~ChatDb()
 {
     s_instance = nullptr;
 }
 
-RosterDb *RosterDb::instance()
+ChatDb *ChatDb::instance()
 {
     return s_instance;
 }
@@ -100,14 +100,14 @@ static RosterUpdateRecords createUpdateRecord(const RosterItem &oldItem, const R
     return records;
 }
 
-QFuture<QList<RosterItem>> RosterDb::fetchItems()
+QFuture<QList<RosterItem>> ChatDb::fetchItems()
 {
     return run([this]() {
         return _fetchItems();
     });
 }
 
-QFuture<void> RosterDb::addItem(RosterItem item)
+QFuture<void> ChatDb::addItem(RosterItem item)
 {
     return run([this, item]() mutable {
         fetchLastMessage(item);
@@ -115,14 +115,14 @@ QFuture<void> RosterDb::addItem(RosterItem item)
     });
 }
 
-QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
+QFuture<void> ChatDb::updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
     return run([this, accountJid, jid, updateItem]() {
         _updateItem(accountJid, jid, updateItem);
     });
 }
 
-QFuture<void> RosterDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
+QFuture<void> ChatDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
 {
     return run([this, accountJid, items]() {
         // load current items (only XMPP roster entries, joined to their chat data)
@@ -185,14 +185,14 @@ QFuture<void> RosterDb::replaceItems(const QString &accountJid, const QList<Rost
     });
 }
 
-QFuture<void> RosterDb::removeItem(const QString &accountJid, const QString &jid)
+QFuture<void> ChatDb::removeItem(const QString &accountJid, const QString &jid)
 {
     return run([this, accountJid, jid]() {
         _removeItem(accountJid, jid);
     });
 }
 
-QFuture<void> RosterDb::removeItems(const QString &accountJid)
+QFuture<void> ChatDb::removeItems(const QString &accountJid)
 {
     return run([this, accountJid]() {
         auto query = createQuery();
@@ -214,7 +214,7 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid)
     });
 }
 
-QList<RosterItem> RosterDb::_fetchItems()
+QList<RosterItem> ChatDb::_fetchItems()
 {
     auto items = fetchBasicItems();
 
@@ -228,7 +228,7 @@ QList<RosterItem> RosterDb::_fetchItems()
     return items;
 }
 
-QList<RosterItem> RosterDb::fetchBasicItems()
+QList<RosterItem> ChatDb::fetchBasicItems()
 {
     auto query = createQuery();
     // The chats table is the primary set: every chat is listed, joining its roster data if it is
@@ -237,7 +237,7 @@ QList<RosterItem> RosterDb::fetchBasicItems()
     return parseItemsFromQuery(query);
 }
 
-void RosterDb::fetchGroups(RosterItem &item)
+void ChatDb::fetchGroups(RosterItem &item)
 {
     enum {
         Group,
@@ -263,7 +263,7 @@ void RosterDb::fetchGroups(RosterItem &item)
     }
 }
 
-void RosterDb::addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups)
+void ChatDb::addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups)
 {
     auto query = createQuery();
 
@@ -274,7 +274,7 @@ void RosterDb::addGroups(const QString &accountJid, const QString &jid, const QL
     }
 }
 
-void RosterDb::updateGroups(const RosterItem &oldItem, const RosterItem &newItem)
+void ChatDb::updateGroups(const RosterItem &oldItem, const RosterItem &newItem)
 {
     const auto &oldGroups = oldItem.groups;
 
@@ -308,7 +308,7 @@ void RosterDb::updateGroups(const RosterItem &oldItem, const RosterItem &newItem
     }
 }
 
-void RosterDb::removeGroups(const QString &accountJid)
+void ChatDb::removeGroups(const QString &accountJid)
 {
     auto query = createQuery();
 
@@ -318,7 +318,7 @@ void RosterDb::removeGroups(const QString &accountJid)
               {{u":accountJid", accountJid}});
 }
 
-void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
+void ChatDb::removeGroups(const QString &accountJid, const QString &jid)
 {
     auto query = createQuery();
 
@@ -328,12 +328,12 @@ void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
               {{u":accountJid", accountJid}, {u":chatJid", jid}});
 }
 
-void RosterDb::fetchLastMessage(RosterItem &item)
+void ChatDb::fetchLastMessage(RosterItem &item)
 {
     fetchLastMessage(item, fetchBasicItems());
 }
 
-void RosterDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &allItems)
+void ChatDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &allItems)
 {
     const auto accountJid = item.accountJid;
     const auto jid = item.jid;
@@ -365,17 +365,17 @@ void RosterDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &allIt
     }
 }
 
-void RosterDb::fetchUnreadMessageCount(RosterItem &item)
+void ChatDb::fetchUnreadMessageCount(RosterItem &item)
 {
     item.unreadMessageCount = MessageDb::instance()->_latestContactMessageCount(item.accountJid, item.jid, item.lastReadContactMessageId);
 }
 
-void RosterDb::fetchMarkedMessageCount(RosterItem &item)
+void ChatDb::fetchMarkedMessageCount(RosterItem &item)
 {
     item.markedMessageCount = MessageDb::instance()->_markedMessageCount(item.accountJid, item.jid);
 }
 
-void RosterDb::_addItem(RosterItem item)
+void ChatDb::_addItem(RosterItem item)
 {
     fetchUnreadMessageCount(item);
     fetchMarkedMessageCount(item);
@@ -413,7 +413,7 @@ void RosterDb::_addItem(RosterItem item)
     addGroups(item.accountJid, item.jid, item.groups);
 }
 
-void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
+void ChatDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
     auto query = createQuery();
     execQuery(query,
@@ -459,7 +459,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
     }
 }
 
-void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
+void ChatDb::_removeItem(const QString &accountJid, const QString &jid)
 {
     Q_EMIT itemRemoved(accountJid, jid);
 
@@ -479,7 +479,7 @@ void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
     GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 }
 
-QList<RosterItem> RosterDb::parseItemsFromQuery(QSqlQuery &query)
+QList<RosterItem> ChatDb::parseItemsFromQuery(QSqlQuery &query)
 {
     QList<RosterItem> items;
 
@@ -490,7 +490,7 @@ QList<RosterItem> RosterDb::parseItemsFromQuery(QSqlQuery &query)
     return items;
 }
 
-RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
+RosterItem ChatDb::parseItemFromQuery(QSqlQuery &query)
 {
     QSqlRecord rec = query.record();
 
@@ -540,7 +540,7 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     return item;
 }
 
-void RosterDb::updateItemByRecord(const QString &table, const QString &accountJid, const QString &jid, const QSqlRecord &record)
+void ChatDb::updateItemByRecord(const QString &table, const QString &accountJid, const QString &jid, const QSqlRecord &record)
 {
     auto query = createQuery();
     auto &driver = sqlDriver();
@@ -550,4 +550,4 @@ void RosterDb::updateItemByRecord(const QString &table, const QString &accountJi
     execQuery(query, driver.sqlStatement(QSqlDriver::UpdateStatement, table, record, false) + simpleWhereStatement(&driver, keyValuePairs));
 }
 
-#include "moc_RosterDb.cpp"
+#include "moc_ChatDb.cpp"

@@ -76,8 +76,8 @@ ecm_add_test(
 )
 
 ecm_add_test(
-    RosterDbTest.cpp
-    TEST_NAME RosterDbTest
+    ChatDbTest.cpp
+    TEST_NAME ChatDbTest
     LINK_LIBRARIES Kaidan::Tests
 )
 

@@ -8,10 +8,10 @@
 #include "Account.h"
 #include "Algorithms.h"
 #include "ChatController.h"
+#include "ChatDb.h"
 #include "GroupChatUserDb.h"
 #include "MainController.h"
 #include "MixController.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 
 GroupChatController::GroupChatController(AccountSettings *accountSettings, MessageController *messageController, QXmppMixManager *mixManager, QObject *parent)
@@ -19,17 +19,17 @@ GroupChatController::GroupChatController(AccountSettings *accountSettings, Messa
     , m_accountSettings(accountSettings)
     , m_mixController(new MixController(accountSettings, this, messageController, mixManager, this))
 {
-    connect(RosterDb::instance(), &RosterDb::itemAdded, this, &GroupChatController::requestGroupChatData);
+    connect(ChatDb::instance(), &ChatDb::itemAdded, this, &GroupChatController::requestGroupChatData);
     connect(RosterModel::instance(), &RosterModel::itemAdded, this, &GroupChatController::handleRosterItemAdded);
 
     connect(this, &GroupChatController::groupChatMadePrivate, this, [this](const QString &groupChatJid) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
             item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public, false);
         });
     });
 
     connect(this, &GroupChatController::groupChatMadePublic, this, [this](const QString &groupChatJid) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
             item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public);
         });
     });
@@ -43,7 +43,7 @@ GroupChatController::GroupChatController(AccountSettings *accountSettings, Messa
     connect(this, &GroupChatController::groupChatLeft, GroupChatUserDb::instance(), qOverload<const QString &>(&GroupChatUserDb::removeUsers));
 
     connect(this, &GroupChatController::groupChatDeleted, this, [this](const QString &groupChatJid) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), groupChatJid, [](RosterItem &item) {
             item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
         });
     });

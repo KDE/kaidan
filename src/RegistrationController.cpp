@@ -16,12 +16,12 @@
 // Kaidan
 #include "AccountController.h"
 #include "AccountDb.h"
+#include "ChatDb.h"
 #include "ClientController.h"
 #include "EncryptionController.h"
 #include "ImageProvider.h"
 #include "MessageDb.h"
 #include "RegistrationDataFormModel.h"
-#include "RosterDb.h"
 #include "VCardController.h"
 
 using namespace std::chrono_literals;
@@ -446,7 +446,7 @@ void RegistrationController::handleAccountDeletionFromServerFailed(const QXmppSt
 void RegistrationController::removeLocalAccountData()
 {
     MessageDb::instance()->removeMessages(m_accountSettings->jid());
-    RosterDb::instance()->removeItems(m_accountSettings->jid());
+    ChatDb::instance()->removeItems(m_accountSettings->jid());
     AccountDb::instance()->removeAccount(m_accountSettings->jid());
 }
 

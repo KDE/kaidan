@@ -13,12 +13,12 @@
 
 // Kaidan
 #include "AccountController.h"
+#include "ChatDb.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "RosterController.h"
-#include "RosterDb.h"
 #include "RosterItemWatcher.h"
 
 RosterModel *RosterModel::s_instance = nullptr;
@@ -34,10 +34,10 @@ RosterModel::RosterModel(QObject *parent)
     Q_ASSERT(!s_instance);
     s_instance = this;
 
-    connect(RosterDb::instance(), &RosterDb::itemAdded, this, &RosterModel::addItem);
-    connect(RosterDb::instance(), &RosterDb::itemUpdated, this, &RosterModel::updateItem);
-    connect(RosterDb::instance(), &RosterDb::itemRemoved, this, &RosterModel::removeItem);
-    connect(RosterDb::instance(), &RosterDb::itemsRemoved, this, &RosterModel::removeItems);
+    connect(ChatDb::instance(), &ChatDb::itemAdded, this, &RosterModel::addItem);
+    connect(ChatDb::instance(), &ChatDb::itemUpdated, this, &RosterModel::updateItem);
+    connect(ChatDb::instance(), &ChatDb::itemRemoved, this, &RosterModel::removeItem);
+    connect(ChatDb::instance(), &ChatDb::itemsRemoved, this, &RosterModel::removeItems);
 
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &RosterModel::handleMessageAdded);
     connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &RosterModel::handleMessageUpdated);
@@ -51,7 +51,7 @@ RosterModel::RosterModel(QObject *parent)
     connect(AccountController::instance(), &AccountController::accountAvailable, this, [this]() {
         initializeNotificationRuleUpdates();
 
-        RosterDb::instance()->fetchItems().then(this, [this](const QList<RosterItem> &items) {
+        ChatDb::instance()->fetchItems().then(this, [this](const QList<RosterItem> &items) {
             handleItemsFetched(items);
         });
     });
@@ -186,7 +186,7 @@ std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &accou
 
 void RosterModel::setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption)
 {
-    RosterDb::instance()->updateItem(accountJid, jid, [encryption](RosterItem &item) {
+    ChatDb::instance()->updateItem(accountJid, jid, [encryption](RosterItem &item) {
         item.encryption = encryption;
     });
 }
@@ -194,7 +194,7 @@ void RosterModel::setItemEncryption(const QString &accountJid, const QString &ji
 void RosterModel::setItemEncryption(const QString &accountJid, Encryption::Enum encryption)
 {
     for (const auto &item : std::as_const(m_items)) {
-        RosterDb::instance()->updateItem(accountJid, item.jid, [encryption](RosterItem &item) {
+        ChatDb::instance()->updateItem(accountJid, item.jid, [encryption](RosterItem &item) {
             item.encryption = encryption;
         });
     }
@@ -245,7 +245,7 @@ const QList<RosterItem> RosterModel::items(const QString &accountJid) const
 
 void RosterModel::pinItem(const QString &accountJid, const QString &jid)
 {
-    RosterDb::instance()->updateItem(accountJid, jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
+    ChatDb::instance()->updateItem(accountJid, jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
         item.pinningPosition = highestPinningPosition + 1;
     });
 }
@@ -257,14 +257,14 @@ void RosterModel::unpinItem(const QString &accountJid, const QString &jid)
             // Decrease the pinning position of the pinned items with higher pinning positions than
             // the pinning position of the item being pinned.
             if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
-                RosterDb::instance()->updateItem(accountJid, item.jid, [](RosterItem &item) {
+                ChatDb::instance()->updateItem(accountJid, item.jid, [](RosterItem &item) {
                     item.pinningPosition -= 1;
                 });
             }
         }
 
         // Reset the pinning position of the item being unpinned.
-        RosterDb::instance()->updateItem(accountJid, jid, [](RosterItem &item) {
+        ChatDb::instance()->updateItem(accountJid, jid, [](RosterItem &item) {
             item.pinningPosition = -1;
         });
     }
@@ -291,7 +291,7 @@ void RosterModel::reorderPinnedItem(int oldIndex, int newIndex)
     for (int i = min; i <= max; ++i) {
         const auto &item = m_items[i];
 
-        RosterDb::instance()->updateItem(item.accountJid, item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
+        ChatDb::instance()->updateItem(item.accountJid, item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
             if (i == oldIndex) {
                 // Set the new moved item's pinningPosition.
                 item.pinningPosition = pinningPosition;

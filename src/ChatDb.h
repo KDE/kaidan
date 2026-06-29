@@ -10,15 +10,15 @@
 
 struct RosterItem;
 
-class RosterDb : public DatabaseComponent
+class ChatDb : public DatabaseComponent
 {
     Q_OBJECT
 
 public:
-    explicit RosterDb(QObject *parent = nullptr);
-    ~RosterDb() override;
+    explicit ChatDb(QObject *parent = nullptr);
+    ~ChatDb() override;
 
-    static RosterDb *instance();
+    static ChatDb *instance();
 
     QFuture<QList<RosterItem>> fetchItems();
 
@@ -63,5 +63,5 @@ private:
 
     void updateItemByRecord(const QString &table, const QString &accountJid, const QString &jid, const QSqlRecord &record);
 
-    static RosterDb *s_instance;
+    static ChatDb *s_instance;
 };

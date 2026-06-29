@@ -9,13 +9,13 @@
 #include <QQuickItem>
 #include <QQuickItemGrabResult>
 // Kaidan
-#include "RosterDb.h"
+#include "ChatDb.h"
 
 AvatarCache::AvatarCache(AccountSettings *accountSettings, QObject *parent)
     : QObject(parent)
     , m_accountSettings(accountSettings)
 {
-    connect(RosterDb::instance(), &RosterDb::itemRemoved, this, &AvatarCache::removeAvatar);
+    connect(ChatDb::instance(), &ChatDb::itemRemoved, this, &AvatarCache::removeAvatar);
 }
 
 QPixmap AvatarCache::avatar(const QString &chatJid)

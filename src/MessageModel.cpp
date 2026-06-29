@@ -19,6 +19,7 @@
 #include "Account.h"
 #include "AtmController.h"
 #include "ChatController.h"
+#include "ChatDb.h"
 #include "EncryptionController.h"
 #include "Globals.h"
 #include "KaidanCoreLog.h"
@@ -27,7 +28,6 @@
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "NotificationController.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 
 auto DisplayedMessageReaction::operator<=>(const DisplayedMessageReaction &other) const
@@ -511,7 +511,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
             readMarkerPending = false;
         }
 
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
             item.lastReadContactMessageId = readMessageId;
             item.readMarkerPending = readMarkerPending;
         });
@@ -898,14 +898,14 @@ void MessageModel::removeMessage(const QString &messageId)
                 isNewLastReadMessageIdValid && newLastReadMessageIndex < m_messages.size() ? m_messages.at(newLastReadMessageIndex).id : QString()};
 
             if (newLastReadMessageId.isEmpty()) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
+                ChatDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
                     item.lastReadContactMessageId.clear();
                     item.lastReadOwnMessageId.clear();
                     item.lastMessage.clear();
                     item.lastMessageGroupChatSenderName.clear();
                 });
             } else {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
+                ChatDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
                     if (itr->isOwn) {
                         item.lastReadOwnMessageId = newLastReadMessageId;
                     } else {
@@ -1060,7 +1060,7 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
     if (m_chatController->rosterItem().lastReadContactMessageId.isEmpty()) {
         for (const auto &message : std::as_const(m_messages)) {
             if (!message.isOwn) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, messageId = message.id](RosterItem &item) {
+                ChatDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, messageId = message.id](RosterItem &item) {
                     item.lastReadContactMessageId = messageId;
                 });
                 break;

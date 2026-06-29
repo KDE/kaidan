@@ -15,12 +15,12 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "Account.h"
+#include "ChatDb.h"
 #include "ClientController.h"
 #include "EncryptionController.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "MessageDb.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 
 RosterController::RosterController(AccountSettings *accountSettings,
@@ -45,11 +45,11 @@ RosterController::RosterController(AccountSettings *accountSettings,
         // Add the item to the dabatase.
         // Any further usage of the item is done once it is added to RosterModel (see connection for RosterModel::itemAdded()).
         // That way, it is not needed to retrieve the item multiple times from the database.
-        RosterDb::instance()->addItem(item);
+        ChatDb::instance()->addItem(item);
     });
 
     connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
+        ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
             item.name = changedItem.name();
             item.subscription = changedItem.subscriptionType();
 
@@ -65,7 +65,7 @@ RosterController::RosterController(AccountSettings *accountSettings,
     connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
         const auto accountJid = m_accountSettings->jid();
         MessageDb::instance()->removeMessages(accountJid, jid);
-        RosterDb::instance()->removeItem(accountJid, jid);
+        ChatDb::instance()->removeItem(accountJid, jid);
 
         // Do not remove own devices in case the notes chat is removed.
         if (jid != accountJid) {
@@ -264,28 +264,28 @@ void RosterController::updateGroups(const QString &jid, const QString &name, con
 
 void RosterController::setChatStateSendingEnabled(const QString &jid, bool chatStateSendingEnabled)
 {
-    RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
+    ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
         item.chatStateSendingEnabled = chatStateSendingEnabled;
     });
 }
 
 void RosterController::setReadMarkerSendingEnabled(const QString &jid, bool readMarkerSendingEnabled)
 {
-    RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
+    ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
         item.readMarkerSendingEnabled = readMarkerSendingEnabled;
     });
 }
 
 void RosterController::setNotificationRule(const QString &jid, RosterItem::NotificationRule notificationRule)
 {
-    RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
+    ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [=](RosterItem &item) {
         item.notificationRule = notificationRule;
     });
 }
 
 void RosterController::setAutomaticMediaDownloadsRule(const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule)
 {
-    RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [rule](RosterItem &item) {
+    ChatDb::instance()->updateItem(m_accountSettings->jid(), jid, [rule](RosterItem &item) {
         item.automaticMediaDownloadsRule = rule;
     });
 }
@@ -326,7 +326,7 @@ void RosterController::populateRoster()
     }
 
     // replace current contacts with new ones from server
-    RosterDb::instance()->replaceItems(accountJid, rosterItems);
+    ChatDb::instance()->replaceItems(accountJid, rosterItems);
 
     // Process subscription requests from strangers that were received before the roster was
     // received.
@@ -370,7 +370,7 @@ void RosterController::applyOldContactData(const QString &oldContactJid, const Q
     const auto accountJid = m_accountSettings->jid();
 
     if (const auto oldItem = RosterModel::instance()->item(accountJid, oldContactJid)) {
-        RosterDb::instance()->updateItem(accountJid, newContactJid, [oldItem = *oldItem](RosterItem &newItem) {
+        ChatDb::instance()->updateItem(accountJid, newContactJid, [oldItem = *oldItem](RosterItem &newItem) {
             newItem.pinningPosition = oldItem.pinningPosition;
             newItem.chatStateSendingEnabled = oldItem.chatStateSendingEnabled;
             newItem.readMarkerSendingEnabled = oldItem.readMarkerSendingEnabled;

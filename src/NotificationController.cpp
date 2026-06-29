@@ -19,13 +19,13 @@
 #include "AvatarCache.h"
 #include "Call.h"
 #include "ChatController.h"
+#include "ChatDb.h"
 #include "GroupChatUserDb.h"
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "QXmppUtils.h"
 #include "RosterController.h"
-#include "RosterDb.h"
 #include "RosterModel.h"
 
 // Q_OS_BSD4 includes all BSD variants and also Q_OS_APPLE
@@ -444,7 +444,7 @@ void NotificationController::reply(const QString &chatJid, const QString &messag
 
 void NotificationController::markAsRead(const RosterItem &rosterItem, const QString &messageId)
 {
-    RosterDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [messageId](RosterItem &item) {
+    ChatDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [messageId](RosterItem &item) {
         item.lastReadContactMessageId = messageId;
     });
 
