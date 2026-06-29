@@ -376,7 +376,7 @@ QFuture<QList<MessageDb::DownloadableFile>> MessageDb::fetchAutomaticallyDownloa
                                     SELECT m.chatJid, m.id, f.*
                                     FROM files AS f
                                     INNER JOIN chatMessages AS m ON m.fileGroupId = f.fileGroupId
-                                    INNER JOIN roster AS r ON r.accountJid = m.accountJid AND r.jid = m.chatJid
+                                    INNER JOIN chats AS r ON r.accountJid = m.accountJid AND r.jid = m.chatJid
                                     INNER JOIN accounts AS a ON a.jid = m.accountJid
                                     WHERE m.accountJid = :accountJid AND f.transferState = 0 AND f.localFilePath IS NULL
                                 )"),

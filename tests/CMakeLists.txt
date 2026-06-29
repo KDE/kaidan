@@ -76,6 +76,12 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    RosterDbTest.cpp
+    TEST_NAME RosterDbTest
+    LINK_LIBRARIES Kaidan::Tests
+)
+
+ecm_add_test(
     TrustDbTest.cpp
     TEST_NAME TrustDbTest
     LINK_LIBRARIES Kaidan::Tests

@@ -61,7 +61,7 @@ private:
     static QList<RosterItem> parseItemsFromQuery(QSqlQuery &query);
     static RosterItem parseItemFromQuery(QSqlQuery &query);
 
-    void updateItemByRecord(const QString &accountJid, const QString &jid, const QSqlRecord &record);
+    void updateItemByRecord(const QString &table, const QString &accountJid, const QString &jid, const QSqlRecord &record);
 
     static RosterDb *s_instance;
 };

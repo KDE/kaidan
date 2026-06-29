@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 57
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(57)
+#define DATABASE_LATEST_VERSION 58
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(58)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -375,19 +375,23 @@ void Database::createNewDatabase()
                                                                SQL_ATTRIBUTE(encryption, SQL_INTEGER)
                                                                    SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
 
-    // roster
+    // roster (pure XMPP roster data, RFC 6121)
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_ROSTER,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
-                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
-                                       SQL_ATTRIBUTE(groupChatName, SQL_TEXT) SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
-                                           SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
-                                                           SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
-                                                               SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
-                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
+                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) "PRIMARY KEY(accountJid, jid)"));
+
+    // chats (chat-list / conversation data, not part of the XMPP roster)
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_CHATS,
+                               SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+                                   SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT) SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER)
+                                       SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+                                           SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+                                               SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+                                                   SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+                                                       SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+                                                           SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_ROSTER_GROUPS,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
@@ -2022,6 +2026,50 @@ void Database::convertDatabaseToV57()
     execQuery(query, QStringLiteral("ALTER TABLE files_tmp RENAME TO files"));
 
     d->version = 57;
+}
+
+void Database::convertDatabaseToV58()
+{
+    DATABASE_CONVERT_TO_VERSION(57)
+    QSqlQuery query(currentDatabase());
+
+    // Split the roster table into the pure XMPP roster data ("roster") and the chat-list /
+    // conversation data ("chats").
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_CHATS,
+                               SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+                                   SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT) SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER)
+                                       SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+                                           SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+                                               SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+                                                   SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+                                                       SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+                                                           SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
+
+    execQuery(query, QStringLiteral(R"(
+			INSERT INTO chats
+			SELECT accountJid, jid, groupChatName, groupChatDescription, groupChatFlags, encryption,
+			lastReadOwnMessageId, lastReadContactMessageId, latestGroupChatMessageStanzaId,
+			latestGroupChatMessageStanzaTimestamp, readMarkerPending, pinningPosition,
+			chatStateSendingEnabled, readMarkerSendingEnabled, notificationRule, automaticMediaDownloadsRule
+			FROM roster
+		)"));
+
+    execQuery(query,
+              SQL_CREATE_TABLE("roster_tmp",
+                               SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
+                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) "PRIMARY KEY(accountJid, jid)"));
+
+    execQuery(query, QStringLiteral(R"(
+			INSERT INTO roster_tmp
+			SELECT accountJid, jid, name, subscription, groupChatParticipantId
+			FROM roster
+		)"));
+
+    execQuery(query, QStringLiteral("DROP TABLE roster"));
+    execQuery(query, QStringLiteral("ALTER TABLE roster_tmp RENAME TO roster"));
+
+    d->version = 58;
 }
 
 #include "moc_Database.cpp"
