@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 58
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(58)
+#define DATABASE_LATEST_VERSION 59
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(59)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -372,22 +372,22 @@ void Database::createNewDatabase()
                                                    SQL_ATTRIBUTE(port, SQL_BOOL) SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER)
                                                        SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER) SQL_ATTRIBUTE(plainAuthAllowed, SQL_BOOL)
                                                            SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
-                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
+                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER)
+                                                                   SQL_ATTRIBUTE(rosterVersion, SQL_TEXT) "PRIMARY KEY(jid)"));
 
     // roster
     execQuery(query,
-              SQL_CREATE_TABLE(DB_TABLE_ROSTER,
-                               SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
-                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
-                                       SQL_ATTRIBUTE(groupChatName, SQL_TEXT) SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
-                                           SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-                                               SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
-                                                   SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
-                                                       SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
-                                                           SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
-                                                               SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
-                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
+              SQL_CREATE_TABLE(
+                  DB_TABLE_ROSTER,
+                  SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
+                      SQL_ATTRIBUTE(subscription, SQL_INTEGER) SQL_ATTRIBUTE(subscriptionStatus, SQL_TEXT) SQL_ATTRIBUTE(subscriptionApproved, SQL_BOOL)
+                          SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT) SQL_ATTRIBUTE(groupChatName, SQL_TEXT) SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
+                              SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER) SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+                                  SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT) SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+                                      SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+                                          SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+                                              SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL) SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+                                                  SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_ROSTER_GROUPS,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
@@ -2048,6 +2048,21 @@ void Database::convertDatabaseToV58()
     execQuery(query, QStringLiteral("ALTER TABLE files_tmp RENAME TO files"));
 
     d->version = 58;
+}
+
+void Database::convertDatabaseToV59()
+{
+    DATABASE_CONVERT_TO_VERSION(58)
+    QSqlQuery query(currentDatabase());
+
+    // Add the column "rosterVersion" to store the RFC 6121 roster version.
+    execQuery(query, QStringLiteral("ALTER TABLE accounts ADD rosterVersion " SQL_TEXT));
+
+    // Add the roster columns that store the remaining roster-wire item attributes.
+    execQuery(query, QStringLiteral("ALTER TABLE roster ADD subscriptionStatus " SQL_TEXT));
+    execQuery(query, QStringLiteral("ALTER TABLE roster ADD subscriptionApproved " SQL_BOOL));
+
+    d->version = 59;
 }
 
 #include "moc_Database.cpp"
