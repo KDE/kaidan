@@ -56,6 +56,10 @@ static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem
         rec.append(createSqlField(QStringLiteral("name"), newItem.name));
     if (oldItem.subscription != newItem.subscription)
         rec.append(createSqlField(QStringLiteral("subscription"), static_cast<int>(newItem.subscription)));
+    if (oldItem.subscriptionStatus != newItem.subscriptionStatus)
+        rec.append(createSqlField(QStringLiteral("subscriptionStatus"), newItem.subscriptionStatus));
+    if (oldItem.subscriptionApproved != newItem.subscriptionApproved)
+        rec.append(createSqlField(QStringLiteral("subscriptionApproved"), newItem.subscriptionApproved));
     if (oldItem.groupChatParticipantId != newItem.groupChatParticipantId)
         rec.append(createSqlField(QStringLiteral("groupChatParticipantId"), newItem.groupChatParticipantId));
     if (oldItem.groupChatName != newItem.groupChatName)
@@ -98,14 +102,6 @@ QFuture<QList<RosterItem>> RosterDb::fetchItems()
     });
 }
 
-QFuture<void> RosterDb::addItem(RosterItem item)
-{
-    return run([this, item]() mutable {
-        fetchLastMessage(item);
-        _addItem(item);
-    });
-}
-
 QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
     return run([this, accountJid, jid, updateItem]() {
@@ -113,90 +109,71 @@ QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid
     });
 }
 
-QFuture<void> RosterDb::replaceItems(const QString &accountJid, const QList<RosterItem> &items)
-{
-    return run([this, accountJid, items]() {
-        // load current items
-        auto query = createQuery();
-        execQuery(query,
-                  QStringLiteral(R"(
-				SELECT *
-				FROM roster
-				WHERE accountJid = :accountJid
-			)"),
-                  {{u":accountJid", accountJid}});
-
-        auto oldItems = parseItemsFromQuery(query);
-
-        for (auto &oldItem : oldItems) {
-            fetchGroups(oldItem);
-        }
-
-        transaction();
-
-        QList<QString> newJids = transform(items, [](const RosterItem &rosterItem) {
-            return rosterItem.jid;
-        });
-
-        for (const auto &oldItem : std::as_const(oldItems)) {
-            const auto jid = oldItem.jid;
-
-            // We will remove the already existing JIDs, so we get a set of JIDs that
-            // are completely new.
-            //
-            // By calling remove(), we also find out whether the JID is already
-            // existing or not.
-            if (newJids.removeOne(jid)) {
-                auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
-                    return rosterItem.jid == jid;
-                });
-
-                // item is also included in newJids -> update
-                _updateItem(accountJid, jid, [newItem = *itr](RosterItem &oldItem) {
-                    oldItem.name = newItem.name;
-                    oldItem.subscription = newItem.subscription;
-                    oldItem.groups = newItem.groups;
-                });
-            } else {
-                // item is not included in newJids -> delete
-                _removeItem(accountJid, jid);
-            }
-        }
-
-        // now add the completely new JIDs
-        for (const QString &jid : newJids) {
-            auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
-                return rosterItem.jid == jid;
-            });
-            _addItem(*itr);
-        }
-
-        commit();
-        Q_EMIT itemsReplaced(accountJid);
-    });
-}
-
-QFuture<void> RosterDb::removeItem(const QString &accountJid, const QString &jid)
-{
-    return run([this, accountJid, jid]() {
-        _removeItem(accountJid, jid);
-    });
-}
-
 QFuture<void> RosterDb::removeItems(const QString &accountJid)
 {
     return run([this, accountJid]() {
-        auto query = createQuery();
+        _removeItems(accountJid);
+    });
+}
 
-        execQuery(query,
-                  QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-                                 "WHERE accountJid = :accountJid"),
-                  {{u":accountJid", accountJid}});
+QXmppTask<QXmppRosterStorage::RosterCache> RosterDb::fetchRosterCache(const QString &accountJid)
+{
+    return runTask([this, accountJid]() {
+        const auto items = fetchWireItems(accountJid);
 
-        removeGroups(accountJid);
-        GroupChatUserDb::instance()->_removeUsers(accountJid);
+        std::vector<QXmppRosterIq::Item> cacheItems;
+        cacheItems.reserve(items.size());
 
-        itemsRemoved(accountJid);
+        for (const auto &item : items) {
+            QXmppRosterIq::Item cacheItem;
+            cacheItem.setBareJid(item.jid);
+            cacheItem.setName(item.name);
+            cacheItem.setSubscriptionType(item.subscription);
+            cacheItem.setSubscriptionStatus(item.subscriptionStatus);
+            cacheItem.setIsApproved(item.subscriptionApproved);
+            cacheItem.setGroups({item.groups.cbegin(), item.groups.cend()});
+
+            if (!item.groupChatParticipantId.isEmpty()) {
+                cacheItem.setIsMixChannel(true);
+                cacheItem.setMixParticipantId(item.groupChatParticipantId);
+            }
+
+            cacheItems.push_back(std::move(cacheItem));
+        }
+
+        return QXmppRosterStorage::RosterCache{_fetchRosterVersion(accountJid), std::move(cacheItems)};
+    });
+}
+
+QXmppTask<void> RosterDb::replaceRoster(const QString &accountJid, const QString &version, const QList<RosterItem> &items)
+{
+    return runTask([this, accountJid, version, items]() {
+        _replaceItems(accountJid, items);
+        _updateRosterVersion(accountJid, version);
+    });
+}
+
+QXmppTask<void> RosterDb::upsertRosterItem(const QString &accountJid, const QString &version, RosterItem item)
+{
+    return runTask([this, accountJid, version, item]() mutable {
+        _upsertItem(accountJid, std::move(item));
+        _updateRosterVersion(accountJid, version);
+    });
+}
+
+QXmppTask<void> RosterDb::removeRosterItem(const QString &accountJid, const QString &version, const QString &jid)
+{
+    return runTask([this, accountJid, version, jid]() {
+        _removeItem(accountJid, jid);
+        _updateRosterVersion(accountJid, version);
+    });
+}
+
+QXmppTask<void> RosterDb::clearRoster(const QString &accountJid)
+{
+    return runTask([this, accountJid]() {
+        _removeItems(accountJid);
+        _updateRosterVersion(accountJid, {});
     });
 }
 
@@ -219,6 +196,26 @@ QList<RosterItem> RosterDb::fetchBasicItems()
     auto query = createQuery();
     execQuery(query, QStringLiteral("SELECT * FROM roster"));
     return parseItemsFromQuery(query);
+}
+
+QList<RosterItem> RosterDb::fetchWireItems(const QString &accountJid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+				SELECT *
+				FROM roster
+				WHERE accountJid = :accountJid
+			)"),
+              {{u":accountJid", accountJid}});
+
+    auto items = parseItemsFromQuery(query);
+
+    for (auto &item : items) {
+        fetchGroups(item);
+    }
+
+    return items;
 }
 
 void RosterDb::fetchGroups(RosterItem &item)
@@ -371,6 +368,8 @@ void RosterDb::_addItem(RosterItem item)
                {u"jid", item.jid},
                {u"name", item.name},
                {u"subscription", static_cast<int>(item.subscription)},
+               {u"subscriptionStatus", item.subscriptionStatus},
+               {u"subscriptionApproved", item.subscriptionApproved},
                {u"groupChatParticipantId", item.groupChatParticipantId},
                {u"groupChatName", item.groupChatName},
                {u"groupChatDescription", item.groupChatDescription},
@@ -433,6 +432,85 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
     }
 }
 
+void RosterDb::_upsertItem(const QString &accountJid, RosterItem item)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+				SELECT COUNT(*)
+				FROM roster
+				WHERE accountJid = :accountJid AND jid = :jid
+			)"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":jid", item.jid},
+              });
+
+    if (query.first() && query.value(0).toInt() > 0) {
+        // The item already exists: only override the roster-wire columns and keep all other
+        // conversation data (encryption, read markers, pinning, …) untouched.
+        _updateItem(accountJid, item.jid, [newItem = item](RosterItem &oldItem) {
+            oldItem.name = newItem.name;
+            oldItem.subscription = newItem.subscription;
+            oldItem.subscriptionStatus = newItem.subscriptionStatus;
+            oldItem.subscriptionApproved = newItem.subscriptionApproved;
+            oldItem.groups = newItem.groups;
+        });
+    } else {
+        fetchLastMessage(item);
+        _addItem(item);
+    }
+}
+
+void RosterDb::_replaceItems(const QString &accountJid, const QList<RosterItem> &items)
+{
+    auto oldItems = fetchWireItems(accountJid);
+
+    transaction();
+
+    QList<QString> newJids = transform(items, [](const RosterItem &rosterItem) {
+        return rosterItem.jid;
+    });
+
+    for (const auto &oldItem : std::as_const(oldItems)) {
+        const auto jid = oldItem.jid;
+
+        // We will remove the already existing JIDs, so we get a set of JIDs that
+        // are completely new.
+        //
+        // By calling remove(), we also find out whether the JID is already
+        // existing or not.
+        if (newJids.removeOne(jid)) {
+            auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
+                return rosterItem.jid == jid;
+            });
+
+            // item is also included in newJids -> update
+            _updateItem(accountJid, jid, [newItem = *itr](RosterItem &oldItem) {
+                oldItem.name = newItem.name;
+                oldItem.subscription = newItem.subscription;
+                oldItem.subscriptionStatus = newItem.subscriptionStatus;
+                oldItem.subscriptionApproved = newItem.subscriptionApproved;
+                oldItem.groups = newItem.groups;
+            });
+        } else {
+            // item is not included in newJids -> delete
+            _removeItem(accountJid, jid);
+        }
+    }
+
+    // now add the completely new JIDs
+    for (const QString &jid : newJids) {
+        auto itr = std::ranges::find_if(items, [jid](const RosterItem &rosterItem) {
+            return rosterItem.jid == jid;
+        });
+        _addItem(*itr);
+    }
+
+    commit();
+    Q_EMIT itemsReplaced(accountJid);
+}
+
 void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
 {
     Q_EMIT itemRemoved(accountJid, jid);
@@ -446,6 +524,48 @@ void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
 
     removeGroups(accountJid, jid);
     GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
+}
+
+void RosterDb::_removeItems(const QString &accountJid)
+{
+    auto query = createQuery();
+
+    execQuery(query,
+              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+                             "WHERE accountJid = :accountJid"),
+              {{u":accountJid", accountJid}});
+
+    removeGroups(accountJid);
+    GroupChatUserDb::instance()->_removeUsers(accountJid);
+
+    Q_EMIT itemsRemoved(accountJid);
+}
+
+QString RosterDb::_fetchRosterVersion(const QString &accountJid)
+{
+    auto query = createQuery();
+
+    execQuery(query,
+              QStringLiteral("SELECT rosterVersion FROM " DB_TABLE_ACCOUNTS " "
+                             "WHERE jid = :accountJid"),
+              {{u":accountJid", accountJid}});
+
+    if (query.first()) {
+        return query.value(0).toString();
+    }
+
+    return {};
+}
+
+void RosterDb::_updateRosterVersion(const QString &accountJid, const QString &version)
+{
+    auto query = createQuery();
+
+    execQuery(query,
+              QStringLiteral("UPDATE " DB_TABLE_ACCOUNTS " "
+                             "SET rosterVersion = :version "
+                             "WHERE jid = :accountJid"),
+              {{u":version", version}, {u":accountJid", accountJid}});
 }
 
 QList<RosterItem> RosterDb::parseItemsFromQuery(QSqlQuery &query)
@@ -467,6 +587,8 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     int idxJid = rec.indexOf(QStringLiteral("jid"));
     int idxName = rec.indexOf(QStringLiteral("name"));
     int idxSubscription = rec.indexOf(QStringLiteral("subscription"));
+    int idxSubscriptionStatus = rec.indexOf(QStringLiteral("subscriptionStatus"));
+    int idxSubscriptionApproved = rec.indexOf(QStringLiteral("subscriptionApproved"));
     int idxGroupChatParticipantId = rec.indexOf(QStringLiteral("groupChatParticipantId"));
     int idxGroupChatName = rec.indexOf(QStringLiteral("groupChatName"));
     int idxGroupChatDescription = rec.indexOf(QStringLiteral("groupChatDescription"));
@@ -489,6 +611,8 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     item.jid = query.value(idxJid).toString();
     item.name = query.value(idxName).toString();
     item.subscription = query.value(idxSubscription).value<QXmppRosterIq::Item::SubscriptionType>();
+    item.subscriptionStatus = query.value(idxSubscriptionStatus).toString();
+    item.subscriptionApproved = query.value(idxSubscriptionApproved).toBool();
     item.groupChatParticipantId = query.value(idxGroupChatParticipantId).toString();
     item.groupChatName = query.value(idxGroupChatName).toString();
     item.groupChatDescription = query.value(idxGroupChatDescription).toString();

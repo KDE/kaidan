@@ -15,6 +15,8 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
     : accountJid(accountJid)
     , jid(item.bareJid())
     , subscription(item.subscriptionType())
+    , subscriptionStatus(item.subscriptionStatus())
+    , subscriptionApproved(item.isApproved())
     , groupChatParticipantId(item.mixParticipantId())
 {
     if (!item.isMixChannel()) {

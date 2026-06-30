@@ -36,36 +36,11 @@ RosterController::RosterController(AccountSettings *accountSettings,
 {
     connect(m_manager, &QXmppRosterManager::rosterReceived, this, &RosterController::populateRoster);
 
-    connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
-        RosterItem item{m_accountSettings->jid(), m_manager->getRosterEntry(jid)};
-
-        item.encryption = m_accountSettings->encryption();
-        item.lastMessageDateTime = QDateTime::currentDateTimeUtc();
-
-        // Add the item to the dabatase.
-        // Any further usage of the item is done once it is added to RosterModel (see connection for RosterModel::itemAdded()).
-        // That way, it is not needed to retrieve the item multiple times from the database.
-        RosterDb::instance()->addItem(item);
-    });
-
-    connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), jid, [jid, changedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
-            item.name = changedItem.name();
-            item.subscription = changedItem.subscriptionType();
-
-            const auto groups = changedItem.groups();
-            item.groups = {groups.cbegin(), groups.cend()};
-        });
-
-        if (m_isItemBeingChanged) {
-            m_isItemBeingChanged = false;
-        }
-    });
-
+    // The roster's persistence (adding, updating and replacing items) is handled by RosterStorage.
+    // Only the side effects that are not part of the roster storage are handled here.
     connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
         const auto accountJid = m_accountSettings->jid();
         MessageDb::instance()->removeMessages(accountJid, jid);
-        RosterDb::instance()->removeItem(accountJid, jid);
 
         // Do not remove own devices in case the notes chat is removed.
         if (jid != accountJid) {
@@ -256,7 +231,6 @@ void RosterController::removeGroup(const QString &group)
 
 void RosterController::updateGroups(const QString &jid, const QList<QString> &groups)
 {
-    m_isItemBeingChanged = true;
     m_manager->updateRosterGroups(jid, {groups.cbegin(), groups.cend()});
 }
 
@@ -302,29 +276,18 @@ void RosterController::populateRoster()
 {
     qCDebug(KAIDAN_CORE_LOG) << "Populating roster";
 
-    const auto accountJid = m_accountSettings->jid();
+    // The roster items themselves are already persisted by RosterStorage before this signal is
+    // emitted.
 
-    QList<RosterItem> rosterItems;
     const auto jids = m_manager->getRosterBareJids();
 
     for (const auto &jid : jids) {
-        RosterItem rosterItem = {accountJid, m_manager->getRosterEntry(jid)};
-        rosterItem.encryption = m_accountSettings->encryption();
-        rosterItems.append(rosterItem);
-    }
-
-    for (auto itr = rosterItems.begin(); itr != rosterItems.end(); ++itr) {
-        const auto jid = itr->jid;
-
         // Process subscription requests from roster items that were received before the roster was
         // received.
         if (m_unprocessedSubscriptionRequests.contains(jid)) {
             addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
         }
     }
-
-    // replace current contacts with new ones from server
-    RosterDb::instance()->replaceItems(accountJid, rosterItems);
 
     // Process subscription requests from strangers that were received before the roster was
     // received.

@@ -125,6 +125,12 @@ public:
     // Type of this roster item's presence subscription.
     QXmppRosterIq::Item::SubscriptionType subscription = QXmppRosterIq::Item::NotSet;
 
+    // Pending presence subscription state (the "ask" attribute), e.g., "subscribe".
+    QString subscriptionStatus;
+
+    // Whether the contact's presence subscription has been pre-approved.
+    bool subscriptionApproved = false;
+
     // Roster groups (i.e., labels) used for filtering (e.g., "Family", "Friends" etc.).
     QList<QString> groups;
 
