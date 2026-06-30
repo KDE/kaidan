@@ -39,6 +39,9 @@ public:
     QFuture<void> updateGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled);
     QFuture<void> updateGeoLocationMapService(const QString &jid, AccountSettings::GeoLocationMapService geoLocationMapService);
 
+    QString _fetchRosterVersion(const QString &jid);
+    void _updateRosterVersion(const QString &jid, const QString &version);
+
     /**
      * Fetches the stanza ID of the latest locally stored (existing or removed) message.
      */

@@ -213,6 +213,26 @@ QFuture<void> AccountDb::updateGeoLocationMapService(const QString &jid, Account
     return updateField(jid, QStringLiteral("geoLocationMapService"), writeValue(geoLocationMapService));
 }
 
+QString AccountDb::_fetchRosterVersion(const QString &jid)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral("SELECT rosterVersion FROM " DB_TABLE_ACCOUNTS " "
+                             "WHERE jid = :jid"),
+              {{u":jid", jid}});
+
+    if (query.first()) {
+        return query.value(0).toString();
+    }
+
+    return {};
+}
+
+void AccountDb::_updateRosterVersion(const QString &jid, const QString &version)
+{
+    updateField(jid, QStringLiteral("rosterVersion"), writeValue(version));
+}
+
 QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 {
     return run([this, jid]() {

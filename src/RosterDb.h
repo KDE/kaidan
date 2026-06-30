@@ -5,6 +5,9 @@
 
 #pragma once
 
+// QXmpp
+#include <QXmppRosterStorage.h>
+#include <QXmppTask.h>
 // Kaidan
 #include "DatabaseComponent.h"
 
@@ -21,25 +24,32 @@ public:
     static RosterDb *instance();
 
     QFuture<QList<RosterItem>> fetchItems();
+    QXmppTask<QXmppRosterStorage::RosterCache> fetchRosterCache(const QString &accountJid);
 
-    QFuture<void> addItem(RosterItem item);
-    Q_SIGNAL void itemAdded(const RosterItem &item);
-
-    QFuture<void> updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
-    Q_SIGNAL void itemUpdated(const RosterItem &item);
-
-    QFuture<void> replaceItems(const QString &accountJid, const QList<RosterItem> &items);
+    QXmppTask<void> replaceItems(const QString &accountJid, const QString &version, const QList<RosterItem> &items);
     Q_SIGNAL void itemsReplaced(const QString &accountJid);
 
-    QFuture<void> removeItem(const QString &accountJid, const QString &jid);
+    QFuture<void> updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
+    QXmppTask<void> updateOrInsertItem(const QString &accountJid, const QString &version, RosterItem item);
+    Q_SIGNAL void itemAdded(const RosterItem &item);
+    Q_SIGNAL void itemUpdated(const RosterItem &item);
+
+    QXmppTask<void> removeItem(const QString &accountJid, const QString &version, const QString &jid);
     Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
 
     QFuture<void> removeItems(const QString &accountJid);
     Q_SIGNAL void itemsRemoved(const QString &accountJid);
 
 private:
+    template<typename Functor>
+    auto runTask(Functor function)
+    {
+        return runAsyncTask(this, dbWorker(), function);
+    }
+
     QList<RosterItem> _fetchItems();
     QList<RosterItem> fetchBasicItems();
+    QList<RosterItem> fetchWireItems(const QString &accountJid);
 
     void fetchGroups(RosterItem &item);
     void addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups);
@@ -55,8 +65,10 @@ private:
 
     void _addItem(RosterItem item);
     void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
-    void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
+    void _upsertItem(const QString &accountJid, RosterItem item);
+    void _replaceItems(const QString &accountJid, const QList<RosterItem> &items);
     void _removeItem(const QString &accountJid, const QString &jid);
+    void _removeItems(const QString &accountJid);
 
     static QList<RosterItem> parseItemsFromQuery(QSqlQuery &query);
     static RosterItem parseItemFromQuery(QSqlQuery &query);
