@@ -2,7 +2,7 @@
     {
         "jid": "07f.de",
         "category": "A",
-        "latestChange": "2026-06-03",
+        "latestChange": "2026-06-26",
         "website": {
             "en": "https://07f.de"
         },
@@ -186,9 +186,109 @@
         "since": "2018-10-04"
     },
     {
+        "jid": "based.pt",
+        "category": "B",
+        "latestChange": "2026-06-15",
+        "website": {
+            "en": "https://based.pt"
+        },
+        "alternativeJids": [],
+        "busFactor": 1,
+        "organization": "private person",
+        "passwordReset": {},
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "13.0.5",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": false,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {
+            "en": "https://based.pt/"
+        },
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 1073,
+        "maximumHttpFileUploadTotalSize": 0,
+        "maximumHttpFileUploadStorageTime": 7,
+        "maximumMessageArchiveManagementStorageTime": 7,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "en": "https://based.pt"
+        },
+        "serverLocations": [
+            "pt"
+        ],
+        "emailSupport": {
+            "en": [
+                "bacalhau@based.pt"
+            ]
+        },
+        "chatSupport": {
+            "en": [
+                "bacalhau@based.pt"
+            ]
+        },
+        "groupChatSupport": {
+            "en": [
+                "support@muc.based.pt"
+            ]
+        },
+        "since": "2024-01-01"
+    },
+    {
+        "jid": "chalec.org",
+        "category": "A",
+        "latestChange": "2026-06-19",
+        "website": {
+            "fr": "https://www.chalec.org/services/xmpp/"
+        },
+        "alternativeJids": [],
+        "busFactor": 3,
+        "organization": "non-governmental",
+        "passwordReset": {},
+        "serverTesting": true,
+        "serverSoftwareName": "ejabberd",
+        "serverSoftwareVersion": "26.4.0",
+        "ratingGreenWebCheck": false,
+        "inBandRegistration": true,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": true,
+        "registrationWebPage": {},
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 500,
+        "maximumHttpFileUploadTotalSize": 500,
+        "maximumHttpFileUploadStorageTime": 30,
+        "maximumMessageArchiveManagementStorageTime": 30,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "fr": "https://www.chalec.org/mentions-legales.html"
+        },
+        "serverLocations": [
+            "fr"
+        ],
+        "emailSupport": {
+            "en": [
+                "contact+xmpp@chalec.org"
+            ]
+        },
+        "chatSupport": {},
+        "groupChatSupport": {
+            "en": [
+                "chalec@salons.a-lec.org"
+            ]
+        },
+        "since": "2022-08-10"
+    },
+    {
         "jid": "chat.between-us.online",
         "category": "A",
-        "latestChange": "2026-05-31",
+        "latestChange": "2026-06-28",
         "website": {
             "en": "https://between-us.online"
         },
@@ -396,7 +496,7 @@
     {
         "jid": "draugr.de",
         "category": "B",
-        "latestChange": "2026-05-05",
+        "latestChange": "2026-06-06",
         "website": {
             "de": "https://www.draugr.de"
         },
@@ -412,7 +512,7 @@
         "passwordReset": {},
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "26.2.0",
+        "serverSoftwareVersion": "26.4.0",
         "ratingGreenWebCheck": true,
         "inBandRegistration": false,
         "inBandRegistrationEmailAddressRequired": false,
@@ -447,7 +547,7 @@
     {
         "jid": "durare.org",
         "category": "B",
-        "latestChange": "2026-05-29",
+        "latestChange": "2026-06-18",
         "website": {
             "en": "https://durare.org"
         },
@@ -889,7 +989,7 @@
     {
         "jid": "magicbroccoli.de",
         "category": "A",
-        "latestChange": "2026-04-13",
+        "latestChange": "2026-06-06",
         "website": {
             "en": "https://magicbroccoli.de"
         },
@@ -901,7 +1001,7 @@
         },
         "serverTesting": true,
         "serverSoftwareName": "ejabberd",
-        "serverSoftwareVersion": "26.01.51-magicbroccoli.de",
+        "serverSoftwareVersion": "26.04.12-magicbroccoli.de",
         "ratingGreenWebCheck": true,
         "inBandRegistration": true,
         "inBandRegistrationEmailAddressRequired": false,
@@ -931,6 +1031,69 @@
             ]
         },
         "since": "2014-06-20"
+    },
+    {
+        "jid": "monocles.eu",
+        "category": "B",
+        "latestChange": "2026-06-06",
+        "website": {
+            "en": "https://monocles.eu/more",
+            "de": "https://monocles.eu/more/de.html",
+            "es": "https://monocles.eu/more/es.html",
+            "fr": "https://monocles.eu/more/fr.html",
+            "he": "https://monocles.eu/more/he.html"
+        },
+        "alternativeJids": [],
+        "busFactor": 3,
+        "organization": "commercial person",
+        "passwordReset": {
+            "en": "https://ocean.monocles.eu/login",
+            "de": "https://ocean.monocles.eu/login",
+            "es": "https://ocean.monocles.eu/login",
+            "fr": "https://ocean.monocles.eu/login"
+        },
+        "serverTesting": true,
+        "serverSoftwareName": "Prosody",
+        "serverSoftwareVersion": "13.0.6",
+        "ratingGreenWebCheck": true,
+        "inBandRegistration": false,
+        "inBandRegistrationEmailAddressRequired": false,
+        "inBandRegistrationCaptchaRequired": false,
+        "registrationWebPage": {
+            "en": "https://ocean.monocles.eu/apps/registration/"
+        },
+        "ratingXmppComplianceTester": 100,
+        "ratingImObservatoryClientToServer": "A",
+        "ratingImObservatoryServerToServer": "A",
+        "maximumHttpFileUploadFileSize": 209,
+        "maximumHttpFileUploadTotalSize": 3221,
+        "maximumHttpFileUploadStorageTime": 30,
+        "maximumMessageArchiveManagementStorageTime": 60,
+        "professionalHosting": true,
+        "freeOfCharge": true,
+        "legalNotice": {
+            "en": "https://monocles.eu/legal-privacy/",
+            "de": "https://monocles.eu/legal-privacy/de.html"
+        },
+        "serverLocations": [
+            "de"
+        ],
+        "emailSupport": {
+            "en": [
+                "support@monocles.eu"
+            ]
+        },
+        "chatSupport": {
+            "en": [
+                "support@monocles.eu"
+            ]
+        },
+        "groupChatSupport": {
+            "en": [
+                "support@conference.monocles.eu"
+            ]
+        },
+        "since": "2021-08-21"
     },
     {
         "jid": "movim.eu",
@@ -1036,7 +1199,7 @@
     {
         "jid": "projectsegfau.lt",
         "category": "A",
-        "latestChange": "2026-05-12",
+        "latestChange": "2026-06-24",
         "website": {
             "en": "https://projectsegfau.lt"
         },
@@ -1246,7 +1409,7 @@
     {
         "jid": "worlio.com",
         "category": "B",
-        "latestChange": "2026-04-19",
+        "latestChange": "2026-06-16",
         "website": {
             "en": "https://xmpp.worlio.com"
         },
@@ -1297,50 +1460,6 @@
             ]
         },
         "since": "2023-03-07"
-    },
-    {
-        "jid": "xmpp.earth",
-        "category": "A",
-        "latestChange": "2026-04-26",
-        "website": {
-            "en": "https://xmpp.earth"
-        },
-        "alternativeJids": [],
-        "busFactor": 2,
-        "organization": "non-governmental",
-        "passwordReset": {},
-        "serverTesting": true,
-        "serverSoftwareName": "",
-        "serverSoftwareVersion": "",
-        "ratingGreenWebCheck": true,
-        "inBandRegistration": true,
-        "inBandRegistrationEmailAddressRequired": false,
-        "inBandRegistrationCaptchaRequired": false,
-        "registrationWebPage": {},
-        "ratingXmppComplianceTester": 100,
-        "ratingImObservatoryClientToServer": "A",
-        "ratingImObservatoryServerToServer": "A",
-        "maximumHttpFileUploadFileSize": 262,
-        "maximumHttpFileUploadTotalSize": 600,
-        "maximumHttpFileUploadStorageTime": 90,
-        "maximumMessageArchiveManagementStorageTime": 365,
-        "professionalHosting": true,
-        "freeOfCharge": true,
-        "legalNotice": {
-            "en": "https://xmpp.earth/tos.txt"
-        },
-        "serverLocations": [
-            "de",
-            "se"
-        ],
-        "emailSupport": {},
-        "chatSupport": {},
-        "groupChatSupport": {
-            "en": [
-                "support@muc.xmpp.earth"
-            ]
-        },
-        "since": "2022-08-01"
     },
     {
         "jid": "xmpp.is",
@@ -1400,7 +1519,7 @@
     {
         "jid": "xmpp.party",
         "category": "A",
-        "latestChange": "2026-03-31",
+        "latestChange": "2026-06-11",
         "website": {
             "en": "https://xmpp.party"
         },
@@ -1455,7 +1574,7 @@
     {
         "jid": "yax.im",
         "category": "A",
-        "latestChange": "2026-06-03",
+        "latestChange": "2026-06-23",
         "website": {
             "en": "https://yaxim.org/yax.im/"
         },
