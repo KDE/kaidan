@@ -58,6 +58,8 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemoPreKeyPairs"
 #define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemoPreKeyPairsSigned"
 #define DB_TABLE_ROSTER_GROUPS "rosterGroups"
+#define DB_TABLE_ROSTER_STORAGE "rosterStorage"
+#define DB_TABLE_ROSTER_STORAGE_VERSION "rosterStorageVersion"
 #define DB_QUERY_LIMIT_MESSAGES 20
 #define DB_QUERY_LIMIT_GROUP_CHAT_USERS 80
 

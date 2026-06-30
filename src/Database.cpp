@@ -45,8 +45,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 57
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(57)
+#define DATABASE_LATEST_VERSION 58
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(58)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -490,6 +490,17 @@ void Database::createNewDatabase()
               SQL_CREATE_TABLE(DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
                                SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL) SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
                                    SQL_ATTRIBUTE(creationTimestamp, SQL_INTEGER) "PRIMARY KEY(account, id)"));
+
+    // roster storage (RFC 6121 §2.6 roster versioning cache; owned exclusively by RosterStorageDb)
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_ROSTER_STORAGE,
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
+                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(ask, SQL_TEXT) SQL_ATTRIBUTE(approved, SQL_BOOL_NOT_NULL)
+                                       SQL_ATTRIBUTE(isMixChannel, SQL_BOOL_NOT_NULL) SQL_ATTRIBUTE(mixParticipantId, SQL_TEXT)
+                                           SQL_ATTRIBUTE(groups, SQL_TEXT) "PRIMARY KEY(account, jid)"));
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_ROSTER_STORAGE_VERSION,
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(version, SQL_TEXT_NOT_NULL) "PRIMARY KEY(account)"));
 
     // blocked
     execQuery(
@@ -2022,6 +2033,25 @@ void Database::convertDatabaseToV57()
     execQuery(query, QStringLiteral("ALTER TABLE files_tmp RENAME TO files"));
 
     d->version = 57;
+}
+
+void Database::convertDatabaseToV58()
+{
+    DATABASE_CONVERT_TO_VERSION(57)
+    QSqlQuery query(currentDatabase());
+
+    // Add the roster versioning cache tables owned exclusively by RosterStorageDb.
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_ROSTER_STORAGE,
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT)
+                                   SQL_ATTRIBUTE(subscription, SQL_INTEGER_NOT_NULL) SQL_ATTRIBUTE(ask, SQL_TEXT) SQL_ATTRIBUTE(approved, SQL_BOOL_NOT_NULL)
+                                       SQL_ATTRIBUTE(isMixChannel, SQL_BOOL_NOT_NULL) SQL_ATTRIBUTE(mixParticipantId, SQL_TEXT)
+                                           SQL_ATTRIBUTE(groups, SQL_TEXT) "PRIMARY KEY(account, jid)"));
+    execQuery(query,
+              SQL_CREATE_TABLE(DB_TABLE_ROSTER_STORAGE_VERSION,
+                               SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(version, SQL_TEXT_NOT_NULL) "PRIMARY KEY(account)"));
+
+    d->version = 58;
 }
 
 #include "moc_Database.cpp"

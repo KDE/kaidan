@@ -50,6 +50,7 @@
 #include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RegistrationController.h"
+#include "RosterStorageDb.h"
 #include "TrustDb.h"
 
 ClientController::ClientController(AccountSettings *accountSettings, QObject *parent)
@@ -76,6 +77,7 @@ ClientController::ClientController(AccountSettings *accountSettings, QObject *pa
     m_messageReceiptManager = m_client->addNewExtension<QXmppMessageReceiptManager>();
     m_registrationManager = m_client->addNewExtension<QXmppRegistrationManager>();
     m_rosterManager = m_client->addNewExtension<QXmppRosterManager>(m_client);
+    m_rosterManager->setStorage(std::make_unique<RosterStorageDb>(m_accountSettings));
     m_vCardManager = m_client->addNewExtension<QXmppVCardManager>();
     m_versionManager = m_client->addNewExtension<QXmppVersionManager>();
     m_mixManager = m_client->addNewExtension<QXmppMixManager>();

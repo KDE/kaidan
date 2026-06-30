@@ -190,6 +190,8 @@ target_sources(libkaidancore PRIVATE
     RosterItemWatcher.h
     RosterModel.cpp
     RosterModel.h
+    RosterStorageDb.cpp
+    RosterStorageDb.h
     Settings.cpp
     Settings.h
     SqlUtils.cpp

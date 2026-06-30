@@ -76,6 +76,12 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    RosterStorageDbTest.cpp
+    TEST_NAME RosterStorageDbTest
+    LINK_LIBRARIES Kaidan::Tests
+)
+
+ecm_add_test(
     TrustDbTest.cpp
     TEST_NAME TrustDbTest
     LINK_LIBRARIES Kaidan::Tests
