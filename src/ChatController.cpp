@@ -173,9 +173,9 @@ QString ChatController::chatStateText() const
 
     switch (m_account->chatStateCache()->chatState(m_jid)) {
     case QXmppMessage::State::Composing:
-        return tr("%1 is typing…").arg(rosterItem().displayName());
+        return tr("%1 is typing…", "%1 is a username").arg(rosterItem().displayName());
     case QXmppMessage::State::Paused:
-        return tr("%1 paused typing").arg(rosterItem().displayName());
+        return tr("%1 paused typing", "%1 is a username").arg(rosterItem().displayName());
     case QXmppMessage::State::Active:
     case QXmppMessage::State::Inactive:
     case QXmppMessage::State::Gone:

@@ -591,7 +591,8 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
                                           m_chatController->groupChatUserJids())
                     .then([this, addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
-                            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                                tr("Reaction could not be sent: %1", "%1 is an error message").arg(error->description));
 
                             MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
                                                                  m_chatController->jid(),
@@ -687,7 +688,8 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                                           m_chatController->groupChatUserJids())
                     .then([this, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
-                            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                                tr("Reaction could not be sent: %1", "%1 is an error message").arg(error->description));
 
                             MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
                                                                  m_chatController->jid(),
@@ -771,7 +773,8 @@ void MessageModel::resendMessageReactions(const QString &messageId)
                                       m_chatController->groupChatUserJids())
                 .then([this, messageId, senderId](QXmpp::SendResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
-                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(
+                            tr("Reactions could not be sent: %1", "%1 is an error message").arg(error->description));
 
                         MessageDb::instance()->updateMessage(m_chatController->account()->settings()->jid(),
                                                              m_chatController->jid(),

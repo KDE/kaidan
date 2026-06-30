@@ -129,7 +129,8 @@ QVariant ProviderModel::data(const QModelIndex &index, int role) const
             //: Deletion of message history stored on provider
             return tr("Unlimited");
         default:
-            return tr("%1 days").arg(item.messageStorageDuration());
+            //: Number of days for which message history is stored on the provider
+            return tr("%n day(s)", nullptr, item.messageStorageDuration());
         }
     case Role::FreeOfCharge:
         return item.freeOfCharge();

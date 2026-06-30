@@ -495,18 +495,18 @@ Kirigami.GlobalDrawer {
 			// provide an option to undo that.
 			// JIDs in the roster can be blocked again via their details.
 			if (!RosterModel.hasItem(root.selectedAccount.settings.jid, jid)) {
-				showPassiveNotification(qsTr("Unblocked %1").arg(jid), "long", qsTr("Undo"), () => {
+				showPassiveNotification(qsTr("Unblocked %1", "%1 is a JID").arg(jid), "long", qsTr("Undo"), () => {
 					root.selectedAccount.blockingController.block(jid)
 				})
 			}
 		}
 
 		function onBlockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not block %1: %2").arg(jid).arg(errorText))
+			showPassiveNotification(qsTr("Could not block %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
 		}
 
 		function onUnblockingFailed(jid, errorText) {
-			showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
+			showPassiveNotification(qsTr("Could not unblock %1: %2", "%1 is a JID, %2 an error message").arg(jid).arg(errorText))
 		}
 	}
 

@@ -463,7 +463,7 @@ bool Message::addFileFallbackMessageBase(QXmppMessage &message, const File &file
 
 QString Message::groupChatInvitationText() const
 {
-    return tr("Invitation to group %1").arg(groupChatInvitation->groupChatJid);
+    return tr("Invitation to group %1", "%1 is the group JID").arg(groupChatInvitation->groupChatJid);
 }
 
 bool Message::Reply::operator==(const Reply &other) const

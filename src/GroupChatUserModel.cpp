@@ -55,7 +55,7 @@ QVariant GroupChatUserModel::data(const QModelIndex &index, int role) const
         case GroupChatUser::Status::Joined:
             return tr("Joined");
         case GroupChatUser::Status::Left:
-            return tr("Left");
+            return tr("Left", "As in: 'User has left the group chat'");
         case GroupChatUser::Status::Banned:
             return tr("Banned");
         }

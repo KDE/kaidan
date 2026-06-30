@@ -548,7 +548,7 @@ Controls.ItemDelegate {
 			}
 
 			ScalableText {
-				text: qsTr("%1 has read up to this point").arg(chatName)
+				text: qsTr("%1 has read up to this point", "%1 is a username").arg(chatName)
 				color: Kirigami.Theme.disabledTextColor
 				scaleFactor: 0.9
 				elide: Text.ElideMiddle

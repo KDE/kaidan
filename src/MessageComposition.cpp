@@ -591,7 +591,8 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 
     if (size > limit) {
         Q_EMIT MainController::instance()->passiveNotificationRequested(
-            tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), m_accountSettings->httpUploadLimitText()));
+            tr("'%1' cannot be sent because it is larger than %2", "%1 is a filename, %2 is a human-readable storage amount (e.g. 5 MB)")
+                .arg(fileInfo.fileName(), m_accountSettings->httpUploadLimitText()));
         return;
     }
 

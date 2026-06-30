@@ -18,7 +18,7 @@ import "../elements/fields"
 
 DetailsContent {
 	id: root
-	mediaAreaText: qsTr("You can share media up to %1.").arg(account.settings.httpUploadLimitText)
+	mediaAreaText: qsTr("You can share media up to %1.", "%1 is a size limit, e.g. 5 MB").arg(account.settings.httpUploadLimitText)
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
@@ -413,7 +413,7 @@ DetailsContent {
 			Layout.fillWidth: true
 			model: root.account.settings.chatSupportAddresses
 			delegate: FormCard.FormButtonDelegate {
-				text: qsTr("Support %1").arg(index + 1)
+				text: qsTr("Support %1", "as in 'get help'").arg(index + 1)
 				description: modelData
 				background: SecondaryFormButtonBackground {}
 				width: ListView.view.width
@@ -448,7 +448,7 @@ DetailsContent {
 			Layout.fillWidth: true
 			model: root.account.settings.groupChatSupportAddresses
 			delegate: FormCard.FormButtonDelegate {
-				text: qsTr("Group Support %1").arg(index + 1)
+				text: qsTr("Group Support %1", "as in 'get help'").arg(index + 1)
 				description: modelData
 				background: SecondaryFormButtonBackground {}
 				width: ListView.view.width
@@ -762,7 +762,7 @@ DetailsContent {
 					function onPasswordChangeFailed(errorMessage) {
 						passwordBusyIndicator.visible = false
 						passwordChangeErrorMessage.visible = true
-						passwordChangeErrorMessage.text = qsTr("Failed to change password: %1").arg(errorMessage)
+						passwordChangeErrorMessage.text = qsTr("Failed to change password: %1", "%1 is an error message").arg(errorMessage)
 					}
 
 					function onPasswordChangeSucceeded() {
@@ -905,7 +905,7 @@ DetailsContent {
 					connectionSettingsErrorMessage.visible = false
 				} else {
 					connectionSettingsErrorMessage.visible = true
-					connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(root.account.connection.errorText)
+					connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1", "%1 is an error message").arg(root.account.connection.errorText)
 				}
 			}
 
@@ -1049,7 +1049,7 @@ DetailsContent {
 
 				function onAccountDeletionFromClientAndServerFailed(errorMessage) {
 					accountDeletionButtonArea.busy = false
-					passiveNotification(qsTr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(errorMessage))
+					passiveNotification(qsTr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1", "%1 is an error message").arg(errorMessage))
 				}
 			}
 		}

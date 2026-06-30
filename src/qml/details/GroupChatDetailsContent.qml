@@ -389,7 +389,7 @@ RosterItemDetailsContent {
 				target: root.chatController.account.groupChatController
 
 				function onGroupChatLeavingFailed(groupChatJid, errorMessage) {
-					passiveNotification(qsTr("The group %1 could not be left%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+					passiveNotification(qsTr("The group %1 could not be left%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
 		}
@@ -413,7 +413,7 @@ RosterItemDetailsContent {
 				target: root.chatController.account.groupChatController
 
 				function onGroupChatDeletionFailed(groupChatJid, errorMessage) {
-					passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+					passiveNotification(qsTr("The group %1 could not be deleted%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
 		}

@@ -169,7 +169,7 @@ Controls.Control {
 				}
 
 				Controls.Label {
-					text: qsTr("%1/%2 selected").arg(fileProxyModel.checkedCount).arg(fileProxyModel.rowCount)
+					text: qsTr("%1/%2 selected", "%1 and %2 are numbers").arg(fileProxyModel.checkedCount).arg(fileProxyModel.rowCount)
 					horizontalAlignment: Qt.AlignLeft
 					Layout.fillWidth: true
 				}
@@ -252,7 +252,7 @@ Controls.Control {
 			}
 			onFilesDeleted: (files, errors) => {
 				if (errors.length > 0) {
-					passiveNotification(qsTr("Not all files could be deleted:\n%1").arg(errors[0]))
+					passiveNotification(qsTr("Not all files could be deleted:\n%1", "%1 is an error message").arg(errors[0]))
 					console.warn("Not all files could be deleted:", errors)
 				}
 

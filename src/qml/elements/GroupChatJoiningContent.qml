@@ -58,7 +58,7 @@ ConfirmationArea {
 		target: root.account.groupChatController
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+			passiveNotification(qsTr("The group %1 could not be joined%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
 

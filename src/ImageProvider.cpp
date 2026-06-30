@@ -130,7 +130,8 @@ void ImageProvider::copySourceToClipboard(const QUrl &source, const QSize &size)
             Q_EMIT sourceCopiedToClipboard(source, size);
         });
     } else {
-        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not copy invalid source to clipboard: %1").arg(source.toString()));
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("Could not copy invalid source to clipboard: %1", "%1 is the invalid source URL").arg(source.toString()));
     }
 }
 
@@ -338,7 +339,8 @@ QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePa
                 promise->finish();
             });
     } else {
-        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not generate thumbnail: %1 does not exist").arg(localFilePath));
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("Could not generate thumbnail: %1 does not exist", "%1 is a file path").arg(localFilePath));
         promise->addResult({});
         promise->finish();
     }
@@ -368,7 +370,8 @@ QFuture<QImage> ImageProvider::generateQrCodeImage(const QString &text, int edge
             image.setDevicePixelRatio(devicePixelRatio);
             promise->addResult(std::move(image));
         } catch (const std::invalid_argument &e) {
-            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not generate QR code: %1").arg(QString::fromUtf8(e.what())));
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Could not generate QR code: %1", "%1 is an error message").arg(QString::fromUtf8(e.what())));
             promise->addResult({});
         }
     }

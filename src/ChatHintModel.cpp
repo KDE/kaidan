@@ -257,13 +257,17 @@ void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &re
         const auto oldJid = request.oldJid();
 
         if (oldJid.isEmpty()) {
-            return tr("%1 would like to receive your personal data such as availability, devices and other personal information%2")
+            return tr("%1 would like to receive your personal data such as availability, devices and other personal information%2",
+                      "%1 is an account display name, %2 is appended text that begins with ': ' and is shown if the request has a status message, otherwise it "
+                      "is empty")
                 .arg(displayName, appendedText);
         }
 
         const auto oldDisplayName = RosterModel::instance()->item(m_accountSettings->jid(), oldJid)->displayName();
         return tr("Your contact %1 (%2) is %3 (%4) now and would like to receive your personal data such as availability, devices and other personal "
-                  "information again%5")
+                  "information again%5",
+                  "%1 and %3 are account display names, %2 and %4 are account JIDs, %5 is appended text that begins with ': ' and is shown if the "
+                  "request has a status message, otherwise it is empty")
             .arg(oldDisplayName, oldJid, displayName, jid, appendedText);
     }();
 

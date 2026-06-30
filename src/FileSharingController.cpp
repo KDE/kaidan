@@ -506,7 +506,7 @@ QFuture<bool> FileSharingController::sendFileTask(const QString &chatJid, const 
             const auto errorText = error->description;
 
             handleTransferError(chatJid, messageId, file.id, *progress, *error, [errorText]() {
-                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1").arg(errorText));
+                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not upload file: %1", "%1 is an error message").arg(errorText));
             }).then([promise]() {
                 promise->addResult(false);
                 promise->finish();

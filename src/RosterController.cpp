@@ -150,7 +150,8 @@ void RosterController::addContact(const QString &jid, const QString &name, const
                             return;
                         }
 
-                        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("%1 could not be added: %2").arg(jid, error->description));
+                        Q_EMIT MainController::instance()->passiveNotificationRequested(
+                            tr("%1 could not be added: %2", "%1 is a JID, %2 an error message").arg(jid, error->description));
                     } else if (!ownJidBeingAdded && !QXmppUtils::jidToUser(jid).isEmpty()) {
                         m_manager->subscribeTo(jid, message);
                     }
@@ -177,7 +178,8 @@ void RosterController::subscribeToPresence(const QString &contactJid)
     m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                tr("Requesting to see the personal data of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
+                tr("Requesting to see the personal data of %1 failed because of a connection problem: %2", "%1 is a contact JID, %2 an error message")
+                    .arg(contactJid, error->description));
         }
     });
 }
@@ -188,7 +190,8 @@ bool RosterController::acceptSubscriptionToPresence(const QString &contactJid)
         m_unrespondedSubscriptionRequests.remove(contactJid);
         return true;
     } else {
-        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("Allowing %1 to see your personal data failed", "%1 is a contact JID").arg(contactJid));
         return false;
     }
 }
@@ -199,7 +202,8 @@ bool RosterController::refuseSubscriptionToPresence(const QString &contactJid)
         m_unrespondedSubscriptionRequests.remove(contactJid);
         return true;
     } else {
-        Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
+        Q_EMIT MainController::instance()->passiveNotificationRequested(
+            tr("Stopping %1 to see your personal data failed", "%1 is a contact JID").arg(contactJid));
         return false;
     }
 }

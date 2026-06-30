@@ -17,7 +17,7 @@ Dialog {
 	property ListViewSearchField searchField
 	property string errorMessage
 
-	title: qsTr("Search public groups (%1)")
+	title: qsTr("Search public groups (%1)", "%1 is 'number of visible groups/total number of groups', e.g. '5/20'")
 		.arg("%1/%2".arg(publicGroupChatProxyModel.count).arg(publicGroupChatModel.count))
 	// "implicitHeight" is needed in addition to "preferredHeight" to avoid a binding loop.
 	implicitHeight: maximumHeight
@@ -176,7 +176,7 @@ Dialog {
 
 	PublicGroupChatSearchController {
 		id: publicGroupChatSearchController
-		onError: root.errorMessage = qsTr("The public groups could not be retrieved: %1").arg(error)
+		onError: root.errorMessage = qsTr("The public groups could not be retrieved: %1", "%1 is an error message").arg(error)
 	}
 
 	Connections {

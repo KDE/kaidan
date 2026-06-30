@@ -613,7 +613,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     parseSharedFiles(msg, message);
 
     if (!encryptionName.isEmpty() && message.encryption == Encryption::NoEncryption) {
-        message.setPreparedBody(tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName));
+        message.setPreparedBody(
+            tr("This message is encrypted with %1 but could not be decrypted", "%1 is the name of an encryption method").arg(encryptionName));
     } else {
         // Do not use the file sharing fallback body.
         if (messageBody != msg.outOfBandUrl()) {
@@ -1016,7 +1017,8 @@ void MessageController::sendPendingMessageReactions()
                     sendMessageReaction(chatJid, messageId, isGroupChat, emojis, encryption, encryptionJids)
                         .then([this, chatJid, messageId, accountJid = m_accountSettings->jid()](QXmpp::SendResult &&result) {
                             if (const auto error = std::get_if<QXmppError>(&result)) {
-                                Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                                Q_EMIT MainController::instance()->passiveNotificationRequested(
+                                    tr("Reaction could not be sent: %1", "%1 is an error message").arg(error->description));
 
                                 MessageDb::instance()->updateMessage(m_accountSettings->jid(), chatJid, messageId, [accountJid](Message &message) {
                                     auto &reactionSender = message.reactionSenders[accountJid];

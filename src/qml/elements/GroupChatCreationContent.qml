@@ -98,15 +98,15 @@ ConfirmationArea {
 		}
 
 		function onPrivateGroupChatCreationFailed(serviceJid, errorMessage) {
-			passiveNotification(qsTr("The group could not be created on %1%2").arg(serviceJid).arg(errorMessage ? ": " + errorMessage : ""))
+			passiveNotification(qsTr("The group could not be created on %1%2", "%1 is a service JID, %2 is either empty or ': ' followed by an error message").arg(serviceJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
 		function onPublicGroupChatCreationFailed(groupChatJid, errorMessage) {
-			passiveNotification(qsTr("The group %1 could not be created%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+			passiveNotification(qsTr("The group %1 could not be created%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+			passiveNotification(qsTr("The group %1 could not be joined%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
 

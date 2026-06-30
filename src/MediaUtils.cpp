@@ -443,7 +443,7 @@ QString MediaUtils::namedFilter(Enums::MessageType hint)
     case Enums::MessageType::MessageVideo:
     case Enums::MessageType::MessageAudio:
     case Enums::MessageType::MessageDocument:
-        return tr("%1 (%2)").arg(filterName(hint), filter(hint));
+        return tr("%1 (%2)", "%1 is a human-readable filter name, %2 the actual filter pattern").arg(filterName(hint), filter(hint));
     case Enums::MessageType::MessageGeoLocation:
     case Enums::MessageType::MessageUnknown:
         break;

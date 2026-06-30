@@ -383,7 +383,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
                                             if (const auto error = std::get_if<QXmppError>(&result)) {
                                                 informUser(error->description);
                                             } else {
-                                                informUser(tr("Account '%1' migrated to '%2'")
+                                                informUser(tr("Account '%1' migrated to '%2'", "%1 and %2 are account display names")
                                                                .arg(m_oldAccount->settings()->displayName())
                                                                .arg(newAccount->settings()->displayName()));
                                             }

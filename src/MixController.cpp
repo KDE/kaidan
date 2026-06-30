@@ -122,7 +122,7 @@ void MixController::requestChannelAccessibility(const QString &channelJid)
     m_manager->requestChannelJids(QXmppUtils::jidToDomain(channelJid)).then(this, [this, channelJid](QXmppMixManager::ChannelJidResult &&result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
+                tr("Whether %1 is public could not be determined: %2", "%1 is a channel JID, %2 an error message").arg(channelJid, error->description));
         } else if (const auto channelJids = std::get<QList<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
             m_groupChatController->groupChatMadePublic(channelJid);
         } else {
@@ -136,7 +136,7 @@ void MixController::requestChannelInformation(const QString &channelJid)
     m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid](QXmppMixManager::InformationResult &&result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
+                tr("Could not retrieve information of group %1: %2", "%1 is a channel JID, %2 an error message").arg(channelJid, error->description));
         } else {
             handleChannelInformationUpdated(channelJid, std::get<QXmppMixInfoItem>(result));
         }
@@ -147,7 +147,8 @@ void MixController::renameChannel(const QString &channelJid, const QString &newC
 {
     m_manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName](QXmppMixManager::InformationResult &&result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
-            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Could not rename group %1: %2", "%1 is the old channel JID, %2 is an error message").arg(channelJid, error->description));
         } else {
             auto information = std::get<QXmppMixInfoItem>(result);
             information.setName(newChannelName);
@@ -155,7 +156,8 @@ void MixController::renameChannel(const QString &channelJid, const QString &newC
             auto future = m_manager->updateChannelInformation(channelJid, information);
             future.then(this, [channelJid, newChannelName](QXmppClient::EmptyResult &&result) {
                 if (const auto error = std::get_if<QXmppError>(&result)) {
-                    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(
+                        tr("Could not rename group %1: %2", "%1 is the old channel JID, %2 is an error message").arg(channelJid, error->description));
                 }
             });
         }
@@ -232,13 +234,15 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
         m_manager->requestChannelNodes(channelJid).then(this, [this, sendInvitation, channelJid, contactJid](QXmppMixManager::ChannelNodeResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 Q_EMIT MainController::instance()->passiveNotificationRequested(
-                    tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
+                    tr("%1 could not be invited to %2: %3", "%1 is a contact JID, %2 a channel JID, %3 an error message")
+                        .arg(contactJid, channelJid, error->description));
             } else {
                 auto allowJid = [this, sendInvitation, channelJid, contactJid]() {
                     m_manager->allowJid(channelJid, contactJid).then(this, [sendInvitation, channelJid, contactJid](QXmppClient::EmptyResult &&result) {
                         if (const auto error = std::get_if<QXmppError>(&result)) {
                             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                                tr("%1 could not be invited to %2: %3").arg(contactJid, channelJid, error->description));
+                                tr("%1 could not be invited to %2: %3", "%1 is a contact JID, %2 a channel JID, %3 an error message")
+                                    .arg(contactJid, channelJid, error->description));
                         } else {
                             // Invitations are only sent to real users.
                             // Invitations are not sent to domains which are only used to restrict the channel's membership to JIDs of that domain.
@@ -264,7 +268,8 @@ void MixController::requestChannelUsers(const QString &channelJid)
 {
     m_manager->requestChannelNodes(channelJid).then(this, [this, channelJid](QXmppMixManager::ChannelNodeResult &&result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
-            Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Nodes of %1 could not be retrieved: %2").arg(channelJid, error->description));
+            Q_EMIT MainController::instance()->passiveNotificationRequested(
+                tr("Nodes of %1 could not be retrieved: %2", "%1 is a channel JID, %2 an error message").arg(channelJid, error->description));
         } else {
             const auto nodes = std::get<QXmppMixConfigItem::Nodes>(result);
 
@@ -272,7 +277,8 @@ void MixController::requestChannelUsers(const QString &channelJid)
                 m_manager->requestAllowedJids(channelJid).then(this, [this, channelJid](QXmppMixManager::JidResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
                         Q_EMIT MainController::instance()->passiveNotificationRequested(
-                            tr("Allowed users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                            tr("Allowed users of %1 could not be retrieved: %2", "%1 is a channel JID, %2 an error message")
+                                .arg(channelJid, error->description));
                     } else {
                         const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
                         for (const auto &jid : jids) {
@@ -286,7 +292,8 @@ void MixController::requestChannelUsers(const QString &channelJid)
                 m_manager->requestBannedJids(channelJid).then(this, [this, channelJid](QXmppMixManager::JidResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
                         Q_EMIT MainController::instance()->passiveNotificationRequested(
-                            tr("Banned users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                            tr("Banned users of %1 could not be retrieved: %2", "%1 is a channel JID, %2 an error message")
+                                .arg(channelJid, error->description));
                     } else {
                         const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
                         for (const auto &jid : jids) {
@@ -301,7 +308,7 @@ void MixController::requestChannelUsers(const QString &channelJid)
     m_manager->requestParticipants(channelJid).then(this, [this, channelJid](QXmppMixManager::ParticipantResult result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
+                tr("Joined users of %1 could not be retrieved: %2", "%1 is a channel JID, %2 an error message").arg(channelJid, error->description));
         } else {
             const auto participants = std::get<QList<QXmppMixParticipantItem>>(result);
             for (const auto &participant : participants) {
@@ -316,7 +323,8 @@ void MixController::banUser(const QString &channelJid, const QString &userJid)
     m_manager->requestChannelConfiguration(channelJid).then(m_manager, [this, channelJid, userJid](QXmppMixManager::ConfigurationResult &&result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
             Q_EMIT MainController::instance()->passiveNotificationRequested(
-                tr("%1 could not be banned from %2: %3").arg(userJid, channelJid, error->description));
+                tr("%1 could not be banned from %2: %3", "%1 is a user JID, %2 a channel JID, %3 an error message")
+                    .arg(userJid, channelJid, error->description));
         } else {
             auto channelConfiguration = std::get<QXmppMixConfigItem>(result);
             auto banJid = [this, channelJid, userJid]() {
