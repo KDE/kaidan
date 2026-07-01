@@ -159,6 +159,7 @@ Kirigami.GlobalDrawer {
 									implicitWidth: passwordConfirmationButton.width
 									implicitHeight: passwordConfirmationButton.height
 									Layout.alignment: passwordConfirmationButton.Layout.alignment
+									Layout.topMargin: passwordConfirmationButton.Layout.topMargin
 								}
 							}
 						}
