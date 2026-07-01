@@ -13,64 +13,64 @@ msgstr ""
 "X-Generator: Lokalize 24.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "연결 끊김"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/Account.cpp:480
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "연결됨"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "연결을 새로 고칠 수 없습니다."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -78,17 +78,17 @@ msgid ""
 msgstr ""
 "인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "이 서버에서 등록을 지원하지 않습니다."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "로그인할 수 없습니다. 먼저 받은 이메일 메시지를 확인하십시오."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "서버에 연결할 수 없습니다."
@@ -104,8 +104,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "계정을 이전할 수 없음: 연결되어 있어야 함"
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
-msgctxt "AccountMigrationController|"
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "'%1' 계정이 '%2'(으)로 이전됨"
 
@@ -138,7 +140,7 @@ msgstr "서버의 장치"
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
-msgctxt "ChatController|"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 님이 입력 중…"
 
@@ -146,7 +148,7 @@ msgstr "%1 님이 입력 중…"
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
-msgctxt "ChatController|"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 님이 입력을 일시 정지함"
 
@@ -160,7 +162,7 @@ msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr "계정이 활성화되지 않았습니다. 활성화된 후 메시지를 주고받습니다"
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:289 src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "끄기"
@@ -191,16 +193,31 @@ msgid "Connecting…"
 msgstr "연결 중..."
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
-msgctxt "ChatHintModel|"
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt ""
+"ChatHintModel|%1 is an account display name, %2 is appended text that begins "
+"with ': ' and is shown if the request has a status message, otherwise it is "
+"empty"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr "%1에서 현재 상태, 장치, 기타 개인 정보를 수신하려고 합니다%2"
 
-#: src/ChatHintModel.cpp:265
-#, qt-format
-msgctxt "ChatHintModel|"
+#: src/ChatHintModel.cpp:267
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
+msgctxt ""
+"ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
+"JIDs, %5 is appended text that begins with ': ' and is shown if the request "
+"has a status message, otherwise it is empty"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
@@ -208,47 +225,47 @@ msgstr ""
 "%1(%2) 연락처가 %3(%4)(으)로 변경되었으며 현재 상태, 장치, 기타 개인 정보를 "
 "다시수신하려고 합니다%5"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "거절"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "허용"
 
-#: src/ChatHintModel.cpp:274
+#: src/ChatHintModel.cpp:278
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "허용 중…"
 
-#: src/ChatHintModel.cpp:288
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "이 그룹에 사용자가 없음"
 
-#: src/ChatHintModel.cpp:289
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "대화 상대 초대"
 
-#: src/ChatHintModel.cpp:291
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "초대 영역 여는 중"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "이 그룹이 삭제됨"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "떠나기"
 
-#: src/ChatHintModel.cpp:312
+#: src/ChatHintModel.cpp:316
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "그룹 대화 떠나는 중"
@@ -284,7 +301,7 @@ msgstr "기능이 지원되지 않음"
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
-msgctxt "FileSharingController|"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "파일을 다운로드할 수 없음: %1"
 
@@ -320,7 +337,10 @@ msgid "Joined"
 msgstr "입장함"
 
 #: src/GroupChatUserModel.cpp:58
-msgctxt "GroupChatUserModel|"
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
+msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "떠남"
 
@@ -329,21 +349,27 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "차단됨"
 
-#: src/ImageProvider.cpp:133
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:134
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not copy invalid source to clipboard: %1"
+msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "잘못된 원본을 클립보드에 복사할 수 없음: %1"
 
-#: src/ImageProvider.cpp:341
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:343
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate thumbnail: %1 does not exist"
+msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "섬네일을 생성할 수 없음: %1이(가) 없음"
 
-#: src/ImageProvider.cpp:371
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:374
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate QR code: %1"
+msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "QR 코드를 생성할 수 없음: %1"
 
@@ -448,8 +474,11 @@ msgid "Documents"
 msgstr "문서"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
-msgctxt "MediaUtils|"
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
+msgctxt ""
+"MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
@@ -469,8 +498,10 @@ msgid "Location"
 msgstr "위치"
 
 #: src/Message.cpp:466
-#, qt-format
-msgctxt "Message|"
+#, fuzzy, qt-format
+#| msgctxt "Message|"
+#| msgid "Invitation to group %1"
+msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "%1 그룹에 초대받음"
 
@@ -492,9 +523,13 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageComposition.cpp:593
-#, qt-format
-msgctxt "FileSelectionModel|"
+#: src/MessageComposition.cpp:594
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt ""
+"FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
+"(e.g. 5 MB)"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
@@ -511,15 +546,19 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:616
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:617
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
+msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1019
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:1021
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
@@ -543,24 +582,28 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:595 src/MessageModel.cpp:692
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:774
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:777
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1317
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1320
+#: src/MessageModel.cpp:1323
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -571,70 +614,89 @@ msgid "The group already exists"
 msgstr "그룹이 이미 존재함"
 
 #: src/MixController.cpp:125
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Whether %1 is public could not be determined: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "%1이(가) 공개 상태인지 알 수 없음: %2"
 
 #: src/MixController.cpp:139
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not retrieve information of group %1: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "%1 그룹의 정보를 가져올 수 없음: %2"
 
-#: src/MixController.cpp:150 src/MixController.cpp:158
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:151 src/MixController.cpp:160
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "%1 그룹의 이름을 바꿀 수 없음: %2"
 
-#: src/MixController.cpp:178
+#: src/MixController.cpp:180
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "그룹이 존재하지 않음"
 
-#: src/MixController.cpp:181
+#: src/MixController.cpp:183
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "그룹에 입장이 허용되지 않음"
 
-#: src/MixController.cpp:235 src/MixController.cpp:241
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:237 src/MixController.cpp:244
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be invited to %2: %3"
+msgctxt ""
+"MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 님을 %2에 초대할 수 없음: %3"
 
-#: src/MixController.cpp:267
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:272
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Nodes of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1의 메모를 가져올 수 없음: %2"
 
-#: src/MixController.cpp:275
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:280
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Allowed users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1에 허용된 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:289
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:295
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Banned users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1에서 차단된 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:304
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:311
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1에 입장한 사용자 목록을 가져올 수 없음: %2"
 
-#: src/MixController.cpp:319
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:326
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be banned from %2: %3"
+msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%2에서 %1 님을 차단할 수 없음: %3"
 
-#: src/MixController.cpp:363
+#: src/MixController.cpp:371
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "그룹 삭제가 허용되지 않음"
@@ -749,13 +811,15 @@ msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "무제한"
 
-#: src/ProviderModel.cpp:132
+#. Number of days for which message history is stored on the provider
+#: src/ProviderModel.cpp:133
 #, fuzzy, qt-format
 #| msgctxt "ProviderListModel|"
 #| msgid "%1 days"
 msgctxt "ProviderModel|"
-msgid "%1 days"
-msgstr "%1일"
+msgid "%n day(s)"
+msgid_plural "%n day(s)"
+msgstr[0] "%1일"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -845,8 +909,10 @@ msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
@@ -856,20 +922,26 @@ msgid "Undo"
 msgstr "실행 취소"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1 님의 차단을 해제할 수 없음: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
+msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "%1까지의 미디어를 공유할 수 있습니다."
 
@@ -1080,8 +1152,10 @@ msgid "Support"
 msgstr "지원"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "%1 지원"
 
@@ -1096,8 +1170,10 @@ msgid "Join your provider's public support group"
 msgstr "공급자의 공개 지원 그룹에 입장"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "%1 그룹 지원"
 
@@ -1223,8 +1299,10 @@ msgid "Change password"
 msgstr "암호 변경"
 
 #: src/qml/details/AccountDetailsContent.qml:765
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "암호를 변경할 수 없음: %1"
 
@@ -1309,8 +1387,10 @@ msgid "Applying changes…"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:908
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "연결 설정을 변경할 수 없음: %1"
 
@@ -1429,8 +1509,12 @@ msgid "Deleting account…"
 msgstr "계정 삭제 중…"
 
 #: src/qml/details/AccountDetailsContent.qml:1052
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
@@ -1954,8 +2038,12 @@ msgid "Leaving group chat…"
 msgstr "그룹 대화 떠나는 중…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be left%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be left%2"
 msgstr "%1 그룹에서 떠날 수 없음%2"
 
@@ -1975,8 +2063,12 @@ msgid "Deleting group chat…"
 msgstr "그룹 대화 삭제 중…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be deleted%2"
 msgstr "%1 그룹을 삭제할 수 없음%2"
 
@@ -2071,14 +2163,20 @@ msgid "Other"
 msgstr "기타"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
+msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2개 selected"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
+msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
 "%1"
@@ -2317,8 +2415,10 @@ msgid "New"
 msgstr "새로운 항목"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
-msgctxt "ChatMessage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
+msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 님이 여기까지 읽음"
 
@@ -2784,20 +2884,32 @@ msgid "Nickname (optional):"
 msgstr "별명(선택 사항):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:101
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group could not be created on %1%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group could not be created on %1%2"
 msgstr "이 그룹은 %1에 생성할 수 없음%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:105
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be created%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be created%2"
 msgstr "%1 그룹을 생성할 수 없음%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:109
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "%1 그룹에 참가할 수 없음%2"
 
@@ -2842,8 +2954,12 @@ msgid "Nickname (optional):"
 msgstr "별명(선택 사항):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, qt-format
-msgctxt "GroupChatJoiningContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "%1 그룹에 참가할 수 없음%2"
 
@@ -3262,8 +3378,12 @@ msgid "Organization"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "Search public groups (%1)"
+msgctxt ""
+"PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
+"groups', e.g. '5/20'"
 msgid "Search public groups (%1)"
 msgstr "공개 그룹 검색(%1)"
 
@@ -3278,8 +3398,10 @@ msgid "Retry"
 msgstr "다시 시도"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "The public groups could not be retrieved: %1"
+msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "공개 그룹을 가져올 수 없음: %1"
 
@@ -3546,8 +3668,10 @@ msgid "About"
 msgstr "정보"
 
 #: src/qml/GlobalDrawer.qml:498
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
@@ -3557,14 +3681,18 @@ msgid "Undo"
 msgstr "실행 취소"
 
 #: src/qml/GlobalDrawer.qml:505
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
 #: src/qml/GlobalDrawer.qml:509
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1 님의 차단을 해제할 수 없음: %2"
 
@@ -3912,43 +4040,53 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/RosterController.cpp:153
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:154
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 님을 추가할 수 없음: %2"
 
-#: src/RosterController.cpp:160
+#: src/RosterController.cpp:161
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대를 추가할 수 없었습니다."
 
-#: src/RosterController.cpp:170
+#: src/RosterController.cpp:171
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대의 이름을 변경할 수 없었습니다."
 
-#: src/RosterController.cpp:180
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:181
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr "연결 문제로 인하여 %1 님의 개인 데이터 표시 요청이 실패함: %2"
 
-#: src/RosterController.cpp:191
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:194
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 님이 개인 데이터를 볼 수 있도록 허용할 수 없음"
 
-#: src/RosterController.cpp:202
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:206
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 님이 개인 데이터를 더 이상 보지 못하도록 중단할 수 없음"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:300
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대를 삭제할 수 없었습니다."
@@ -3997,6 +4135,26 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "반응을 전송할 수 없음: %1"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The group %1 could not be joined%2"
+#~ msgstr "%1 그룹에 참가할 수 없음%2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Unblocked %1"
+#~ msgstr "%1 님의 차단을 해제함"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "%1 님을 차단할 수 없음: %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "%1 님의 차단을 해제할 수 없음: %2"
 
 #~ msgctxt "QObject|"
 #~ msgid "dd MMM at hh:mm"

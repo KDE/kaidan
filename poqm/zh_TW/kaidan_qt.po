@@ -13,81 +13,81 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 26.07.70\n"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "已斷線"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "已連線"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
-#: src/Account.cpp:495
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
-#: src/Account.cpp:499
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
-#: src/Account.cpp:501
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
-#: src/Account.cpp:503
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
-#: src/Account.cpp:505
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
-#: src/Account.cpp:507
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
-#: src/Account.cpp:509
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
 
-#: src/Account.cpp:511
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "無法登入。請先確認您收到的電子郵件信件。"
 
-#: src/Account.cpp:513
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "無法連線到伺服器。"
@@ -103,8 +103,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "無法移轉帳號：沒有連線"
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
-msgctxt "AccountMigrationController|"
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "帳號「%1」已移轉到「%2」"
 
@@ -134,14 +136,18 @@ msgid "Devices on Servers"
 msgstr "伺服器上的裝置"
 
 #: src/ChatController.cpp:176
-#, qt-format
-msgctxt "ChatController|"
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 正在輸入…"
 
 #: src/ChatController.cpp:178
-#, qt-format
-msgctxt "ChatController|"
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 暫時停止輸入"
 
@@ -151,7 +157,7 @@ msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr "您的帳號已停用 — 訊息將在連線後交換"
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:289 src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "忽略"
@@ -182,16 +188,31 @@ msgid "Connecting…"
 msgstr "連線中…"
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
-msgctxt "ChatHintModel|"
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt ""
+"ChatHintModel|%1 is an account display name, %2 is appended text that begins "
+"with ': ' and is shown if the request has a status message, otherwise it is "
+"empty"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
-#: src/ChatHintModel.cpp:265
-#, qt-format
-msgctxt "ChatHintModel|"
+#: src/ChatHintModel.cpp:267
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
+msgctxt ""
+"ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
+"JIDs, %5 is appended text that begins with ': ' and is shown if the request "
+"has a status message, otherwise it is empty"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
@@ -199,32 +220,32 @@ msgstr ""
 "您的聯絡人 %1 (%2) 已 %3 (%4) 而希望取得您的個人資訊，例如上線狀態、裝置以及"
 "其他個人資訊%5"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒絕"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允許"
 
-#: src/ChatHintModel.cpp:274
+#: src/ChatHintModel.cpp:278
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "允許中…"
 
-#: src/ChatHintModel.cpp:288
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "這個群組沒有使用者"
 
-#: src/ChatHintModel.cpp:289
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀請聯絡人"
 
-#: src/ChatHintModel.cpp:291
+#: src/ChatHintModel.cpp:295
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -232,17 +253,17 @@ msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在開啟邀請區域"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群組已被刪除"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "離開"
 
-#: src/ChatHintModel.cpp:312
+#: src/ChatHintModel.cpp:316
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -277,7 +298,7 @@ msgstr ""
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Couldn't download file: %1"
-msgctxt "FileSharingController|"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "無法下載檔案：%1"
 
@@ -313,7 +334,10 @@ msgid "Joined"
 msgstr "已加入"
 
 #: src/GroupChatUserModel.cpp:58
-msgctxt "GroupChatUserModel|"
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
+msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "已離開"
 
@@ -322,25 +346,25 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已被封鎖"
 
-#: src/ImageProvider.cpp:133
+#: src/ImageProvider.cpp:134
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "聯絡人已複製到剪貼簿"
 
-#: src/ImageProvider.cpp:341
+#: src/ImageProvider.cpp:343
 #, qt-format
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:371
+#: src/ImageProvider.cpp:374
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "無法解除封鎖 %1：%2"
 
@@ -445,8 +469,11 @@ msgid "Documents"
 msgstr "文件"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
-msgctxt "MediaUtils|"
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
+msgctxt ""
+"MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
@@ -467,7 +494,7 @@ msgstr "位置"
 
 #: src/Message.cpp:466
 #, qt-format
-msgctxt "Message|"
+msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr ""
 
@@ -492,9 +519,13 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "「%1」無法傳送，因為它比 %2 還大"
 
-#: src/MessageComposition.cpp:593
-#, qt-format
-msgctxt "FileSelectionModel|"
+#: src/MessageComposition.cpp:594
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt ""
+"FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
+"(e.g. 5 MB)"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "「%1」無法傳送，因為它比 %2 還大"
 
@@ -514,19 +545,19 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "訊息無法傳送。"
 
-#: src/MessageController.cpp:616
+#: src/MessageController.cpp:617
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
-msgctxt "MessageController|"
+msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此訊息已用 %1 加密但無法解密"
 
-#: src/MessageController.cpp:1019
+#: src/MessageController.cpp:1021
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %1"
-msgctxt "MessageController|"
+msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
@@ -550,24 +581,28 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "錯誤"
 
-#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:595 src/MessageModel.cpp:692
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageModel.cpp:774
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:777
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageModel.cpp:1317
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1320
+#: src/MessageModel.cpp:1323
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -584,83 +619,86 @@ msgstr "聯絡人已存在"
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "無法新增 %1：%2"
 
 #: src/MixController.cpp:139
-#, qt-format
-msgctxt "MixController|"
-msgid "Could not retrieve information of group %1: %2"
-msgstr ""
-
-#: src/MixController.cpp:150 src/MixController.cpp:158
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
+msgid "Could not retrieve information of group %1: %2"
+msgstr "無法解除封鎖 %1：%2"
+
+#: src/MixController.cpp:151 src/MixController.cpp:160
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
-#: src/MixController.cpp:178
+#: src/MixController.cpp:180
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "群組不存在"
 
-#: src/MixController.cpp:181
+#: src/MixController.cpp:183
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:235 src/MixController.cpp:241
+#: src/MixController.cpp:237 src/MixController.cpp:244
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt ""
+"MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:267
+#: src/MixController.cpp:272
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:275
+#: src/MixController.cpp:280
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:289
+#: src/MixController.cpp:295
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:304
+#: src/MixController.cpp:311
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:319
+#: src/MixController.cpp:326
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "MixController|"
+msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "無法新增 %1：%2"
 
-#: src/MixController.cpp:363
+#: src/MixController.cpp:371
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
@@ -760,11 +798,15 @@ msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "無限制"
 
-#: src/ProviderModel.cpp:132
-#, qt-format
+#. Number of days for which message history is stored on the provider
+#: src/ProviderModel.cpp:133
+#, fuzzy, qt-format
+#| msgctxt "ProviderModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
-msgid "%1 days"
-msgstr "%1 天"
+msgid "%n day(s)"
+msgid_plural "%n day(s)"
+msgstr[0] "%1 天"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -842,8 +884,10 @@ msgid "Drop files to be sent"
 msgstr "拖放檔案來傳送"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
@@ -853,20 +897,26 @@ msgid "Undo"
 msgstr "復原"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
+msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "您可以分享最大 %1 的媒體。"
 
@@ -1092,8 +1142,10 @@ msgid "Support"
 msgstr "支援"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "支援 %1"
 
@@ -1108,8 +1160,10 @@ msgid "Join your provider's public support group"
 msgstr "加入您的提供者的公開支援群組"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "群組支援 %1"
 
@@ -1241,8 +1295,10 @@ msgid "Change password"
 msgstr "變更密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:765
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "變更密碼失敗：%1"
 
@@ -1328,8 +1384,10 @@ msgid "Applying changes…"
 msgstr "正在套用變更…"
 
 #: src/qml/details/AccountDetailsContent.qml:908
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "無法變更連線設定：%1"
 
@@ -1471,7 +1529,7 @@ msgstr "正在刪除帳號…"
 #| msgid ""
 #| "Your account could not be deleted from the server. Therefore, it was also "
 #| "not removed from this app: %1"
-msgctxt "AccountDetailsContent|"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
@@ -2085,7 +2143,9 @@ msgstr "能夠聊天"
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "GroupChatDetailsContent|"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be left%2"
 msgstr "無法新增 %1：%2"
 
@@ -2119,7 +2179,9 @@ msgstr "正在新增聯絡人…"
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "GroupChatDetailsContent|"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be deleted%2"
 msgstr "無法新增 %1：%2"
 
@@ -2237,14 +2299,20 @@ msgid "Other"
 msgstr "其他"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
+msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "已選取 %1/%2"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
+msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
 "%1"
@@ -2592,8 +2660,10 @@ msgid "New"
 msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
-msgctxt "ChatMessage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
+msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 已閱讀到此處"
 
@@ -3119,7 +3189,9 @@ msgstr "名稱（可選）："
 #| "The public groups could not be retrieved, try again.\n"
 #| "\n"
 #| "%1"
-msgctxt "GroupChatCreationContent|"
+msgctxt ""
+"GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group could not be created on %1%2"
 msgstr ""
 "無法取得公開群組，請重試。\n"
@@ -3130,7 +3202,9 @@ msgstr ""
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "GroupChatCreationContent|"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be created%2"
 msgstr "無法新增 %1：%2"
 
@@ -3138,7 +3212,9 @@ msgstr "無法新增 %1：%2"
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "GroupChatCreationContent|"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "無法新增 %1：%2"
 
@@ -3204,7 +3280,9 @@ msgstr "名稱（可選）："
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "GroupChatJoiningContent|"
+msgctxt ""
+"GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "無法新增 %1：%2"
 
@@ -3644,7 +3722,9 @@ msgstr "組織"
 #, fuzzy, qt-format
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Search public groups (%1)"
-msgctxt "PublicGroupChatSearchDialog|"
+msgctxt ""
+"PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
+"groups', e.g. '5/20'"
 msgid "Search public groups (%1)"
 msgstr "搜尋公開群組 (%1)"
 
@@ -3671,7 +3751,7 @@ msgstr "重試"
 #| "The public groups could not be retrieved, try again.\n"
 #| "\n"
 #| "%1"
-msgctxt "PublicGroupChatSearchDialog|"
+msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr ""
 "無法取得公開群組，請重試。\n"
@@ -3995,9 +4075,9 @@ msgstr "關於"
 
 #: src/qml/GlobalDrawer.qml:498
 #, fuzzy, qt-format
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
-msgctxt "GlobalDrawer|"
+msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
@@ -4011,17 +4091,17 @@ msgstr "復原"
 
 #: src/qml/GlobalDrawer.qml:505
 #, fuzzy, qt-format
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
-msgctxt "GlobalDrawer|"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
 #: src/qml/GlobalDrawer.qml:509
 #, fuzzy, qt-format
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "GlobalDrawer|"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
@@ -4445,15 +4525,15 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/RosterController.cpp:153
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
-msgctxt "RosterController|"
+msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/RosterController.cpp:160
+#: src/RosterController.cpp:161
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact, as a result of not being connected."
@@ -4461,7 +4541,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "無法新增聯絡人，由於未連線。"
 
-#: src/RosterController.cpp:170
+#: src/RosterController.cpp:171
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact, as a result of not being connected."
@@ -4469,35 +4549,35 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "無法重新命名聯絡人，由於未連線。"
 
-#: src/RosterController.cpp:180
+#: src/RosterController.cpp:181
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
 #| "Requesting to see the personal data of %1 failed because of a connection "
 #| "problem: %2"
-msgctxt "RosterController|"
+msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr "請求檢視 %1 的個人資料時失敗，原因是連線問題：%2"
 
-#: src/RosterController.cpp:191
+#: src/RosterController.cpp:194
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %1 to see your personal data failed"
-msgctxt "RosterController|"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允許 %1 檢視您的個人資料時失敗"
 
-#: src/RosterController.cpp:202
+#: src/RosterController.cpp:206
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Stopping %1 to see your personal data failed"
-msgctxt "RosterController|"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止允許 %1 檢視您的個人資料時失敗"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:300
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact, as a result of not being connected."
@@ -4552,6 +4632,38 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "無法傳送反應：%1"
+
+#, fuzzy
+#~| msgctxt "RosterManager|"
+#~| msgid "%1 could not be added: %2"
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The group %1 could not be joined%2"
+#~ msgstr "無法新增 %1：%2"
+
+#, fuzzy
+#~| msgctxt "main|"
+#~| msgid "Unblocked %1"
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Unblocked %1"
+#~ msgstr "已解除封鎖 %1"
+
+#, fuzzy
+#~| msgctxt "main|"
+#~| msgid "Could not block %1: %2"
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "無法封鎖 %1：%2"
+
+#, fuzzy
+#~| msgctxt "main|"
+#~| msgid "Could not unblock %1: %2"
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "無法解除封鎖 %1：%2"
 
 #~ msgctxt "QObject|"
 #~ msgid "dd MMM at hh:mm"

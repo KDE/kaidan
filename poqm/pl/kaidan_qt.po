@@ -15,42 +15,42 @@ msgstr ""
 "X-Generator: Lokalize 25.04.2\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Rozłączony"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Łączenie…"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Połączony"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nieprawidłowa nazwa użytkownika lub hasło."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Nie można połączyć się z serwerem. Sprawdź swoje połączenie sieciowe."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Błąd podczas próby zabezpieczonego połączenia."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Serwer nie obsługuje zabezpieczonych połączeń."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -59,12 +59,12 @@ msgstr ""
 "Nie można połączyć się z serwerem. Sprawdź połączenie internetowe lub nazwę "
 "serwera."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Serwer jest niedostępny lub zablokowany przez zaporę sieciową."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "Connection|"
 #| msgid "Authentification protocol not supported by the server."
@@ -72,12 +72,12 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokół uwierzytelniania nie jest obsługiwany przez serwer."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Nie udało się odświeżyć połączenia."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,19 +85,19 @@ msgid ""
 msgstr ""
 "Dostęp do Internetu jest niedozwolony. Sprawdź, czy masz dostęp do internetu."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ten serwer nie obsługuje procesu rejestracji."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Nie można było się zalogować. Najpierw sprawdź, czy otrzymany adres pocztowy "
 "się zgadza."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Nie udało połączyć się z serwerem."
@@ -114,8 +114,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Nie można przenieść konta: Musisz być podłączonym"
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
-msgctxt "AccountMigrationController|"
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "Przeniesiono konto z '%1' do '%2'"
 
@@ -148,7 +150,7 @@ msgstr "Urządzenia na serwerach"
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
-msgctxt "ChatController|"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 pisze..."
 
@@ -156,7 +158,7 @@ msgstr "%1 pisze..."
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
-msgctxt "ChatController|"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 wstrzymał pisanie"
 
@@ -172,7 +174,7 @@ msgstr ""
 "dopiero po jego włączeniu"
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:289 src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Odrzuć"
@@ -206,8 +208,15 @@ msgid "Connecting…"
 msgstr "Łączenie…"
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
-msgctxt "ChatHintModel|"
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt ""
+"ChatHintModel|%1 is an account display name, %2 is appended text that begins "
+"with ': ' and is shown if the request has a status message, otherwise it is "
+"empty"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
@@ -215,9 +224,17 @@ msgstr ""
 "%1 chciałby otrzymać twoje dane osobiste takie jak dostępność, urządzenia i "
 "inne dane osobowe %2"
 
-#: src/ChatHintModel.cpp:265
-#, qt-format
-msgctxt "ChatHintModel|"
+#: src/ChatHintModel.cpp:267
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
+msgctxt ""
+"ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
+"JIDs, %5 is appended text that begins with ': ' and is shown if the request "
+"has a status message, otherwise it is empty"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
@@ -225,47 +242,47 @@ msgstr ""
 "Twój kontakt %1 (%2) jest teraz %3 (%4) i chciałby ponownie otrzymać twoje "
 "dane osobiste takie jak dostępność, urządzenia i inne dane osobowe %5"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Odmów"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Zezwól"
 
-#: src/ChatHintModel.cpp:274
+#: src/ChatHintModel.cpp:278
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Wczytywanie…"
 
-#: src/ChatHintModel.cpp:288
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Ta grupa nie ma żadnych użytkowników"
 
-#: src/ChatHintModel.cpp:289
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Zaproś kontakty"
 
-#: src/ChatHintModel.cpp:291
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Otwieranie obszaru zaproszeń"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Ta grupa została usunięta"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Opuść"
 
-#: src/ChatHintModel.cpp:312
+#: src/ChatHintModel.cpp:316
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Opuszczanie rozmowy grupowej"
@@ -301,7 +318,7 @@ msgstr "Nieobsługiwana funkcja"
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Could not download file: %1"
-msgctxt "FileSharingController|"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "Nie można pobrać pliku: %1"
 
@@ -337,7 +354,10 @@ msgid "Joined"
 msgstr "Dołączył"
 
 #: src/GroupChatUserModel.cpp:58
-msgctxt "GroupChatUserModel|"
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
+msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "Opuścił"
 
@@ -346,25 +366,25 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Zbanowany"
 
-#: src/ImageProvider.cpp:133
+#: src/ImageProvider.cpp:134
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Skopiowano znajomego do schowka"
 
-#: src/ImageProvider.cpp:341
+#: src/ImageProvider.cpp:343
 #, qt-format
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:371
+#: src/ImageProvider.cpp:374
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
-msgctxt "ImageProvider|"
+msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Nie można przemianować grupy %1: %2"
 
@@ -469,8 +489,11 @@ msgid "Documents"
 msgstr "Dokumenty"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
-msgctxt "MediaUtils|"
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
+msgctxt ""
+"MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
@@ -490,8 +513,10 @@ msgid "Location"
 msgstr "Położenie"
 
 #: src/Message.cpp:466
-#, qt-format
-msgctxt "Message|"
+#, fuzzy, qt-format
+#| msgctxt "Message|"
+#| msgid "Invitation to group %1"
+msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "Zaproszenie do grupy %1"
 
@@ -513,9 +538,13 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "Nie można wysłać '%1', bo jest większy niż %2"
 
-#: src/MessageComposition.cpp:593
-#, qt-format
-msgctxt "FileSelectionModel|"
+#: src/MessageComposition.cpp:594
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt ""
+"FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
+"(e.g. 5 MB)"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Nie można wysłać '%1', bo jest większy niż %2"
 
@@ -532,16 +561,20 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Nie można wysłać wiadomości."
 
-#: src/MessageController.cpp:616
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:617
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
+msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageController.cpp:1019
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:1021
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie można wysłać reakcji: %1"
 
@@ -565,24 +598,28 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Błąd"
 
-#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:595 src/MessageModel.cpp:692
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
-msgstr "Nie udało się wysłać reakcji: %1"
+msgstr "Nie można wysłać reakcji: %1"
 
-#: src/MessageModel.cpp:774
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:777
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Nie udało się wysłać reakcji: %1"
 
-#: src/MessageModel.cpp:1317
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: src/MessageModel.cpp:1320
+#: src/MessageModel.cpp:1323
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Wczoraj"
@@ -593,70 +630,89 @@ msgid "The group already exists"
 msgstr "Grupa już istnieje"
 
 #: src/MixController.cpp:125
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Whether %1 is public could not be determined: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Nie można ustalić tego, czy %1 jest publiczny: %2"
 
 #: src/MixController.cpp:139
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not retrieve information of group %1: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Nie można pobrać informacji o grupie %1: %2"
 
-#: src/MixController.cpp:150 src/MixController.cpp:158
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:151 src/MixController.cpp:160
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Nie można przemianować grupy %1: %2"
 
-#: src/MixController.cpp:178
+#: src/MixController.cpp:180
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Grupa nie istnieje"
 
-#: src/MixController.cpp:181
+#: src/MixController.cpp:183
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Nie masz pozwolenia na dołączenie do grupy"
 
-#: src/MixController.cpp:235 src/MixController.cpp:241
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:237 src/MixController.cpp:244
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be invited to %2: %3"
+msgctxt ""
+"MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Nie można zaprosić %1 do %2: %3"
 
-#: src/MixController.cpp:267
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:272
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Nodes of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Nie można pobrać węzłów %1: %2"
 
-#: src/MixController.cpp:275
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:280
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Allowed users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Nie można pobrać dozwolonych użytkowników %1: %2"
 
-#: src/MixController.cpp:289
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:295
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Banned users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Nie można pobrać zbanowanych użytkowników %1: %2"
 
-#: src/MixController.cpp:304
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:311
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Nie można pobrać użytkowników, którzy dołączyli %1: %2"
 
-#: src/MixController.cpp:319
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:326
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be banned from %2: %3"
+msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Nie można zbanować %1 w %2: %3"
 
-#: src/MixController.cpp:363
+#: src/MixController.cpp:371
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Nie masz pozwolenia na usunięcie do grupy"
@@ -774,13 +830,17 @@ msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Nieograniczona"
 
-#: src/ProviderModel.cpp:132
+#. Number of days for which message history is stored on the provider
+#: src/ProviderModel.cpp:133
 #, fuzzy, qt-format
 #| msgctxt "ProviderListModel|"
 #| msgid "%1 days"
 msgctxt "ProviderModel|"
-msgid "%1 days"
-msgstr "%1 dni"
+msgid "%n day(s)"
+msgid_plural "%n day(s)"
+msgstr[0] "%1 dni"
+msgstr[1] "%1 dni"
+msgstr[2] "%1 dni"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -873,8 +933,10 @@ msgid "Drop files to be sent"
 msgstr "Upuść pliki do wysłania"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Odblokowany %1"
 
@@ -884,20 +946,26 @@ msgid "Undo"
 msgstr "Cofnij"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Nie można zablokować %1: %2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Nie można odblokować %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
+msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "Możesz udostępniać media do %1."
 
@@ -1111,8 +1179,10 @@ msgid "Support"
 msgstr "Wsparcie"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Wesprzyj %1"
 
@@ -1127,8 +1197,10 @@ msgid "Join your provider's public support group"
 msgstr "Dołącz do publicznej grupy wsparcia swojego dostawcy"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Wsparcie grupy %1"
 
@@ -1258,8 +1330,10 @@ msgid "Change password"
 msgstr "Zmień hasło"
 
 #: src/qml/details/AccountDetailsContent.qml:765
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Nie udało się zmienić hasła: %1"
 
@@ -1349,8 +1423,10 @@ msgid "Applying changes…"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:908
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nie można zmienić ustawień połączenia: %1"
 
@@ -1471,8 +1547,12 @@ msgid "Deleting account…"
 msgstr "Usuwanie konta…"
 
 #: src/qml/details/AccountDetailsContent.qml:1052
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
@@ -2011,8 +2091,12 @@ msgid "Leaving group chat…"
 msgstr "Opuszczanie rozmowy grupowej…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be left%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be left%2"
 msgstr "Nie można było opuścić grupy %1 %2"
 
@@ -2032,8 +2116,12 @@ msgid "Deleting group chat…"
 msgstr "Usuwanie rozmowy grupowej…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be deleted%2"
 msgstr "Nie udało się usunąć grupy %1 %2"
 
@@ -2134,14 +2222,20 @@ msgid "Other"
 msgstr "Inne"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
+msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 zaznaczonych"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
+msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
 "%1"
@@ -2409,8 +2503,10 @@ msgid "New"
 msgstr "Nowy"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
-msgctxt "ChatMessage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
+msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 przeczytał do tego miejsca"
 
@@ -2880,20 +2976,32 @@ msgid "Nickname (optional):"
 msgstr "Ksywka (dobrowolnie):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:101
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group could not be created on %1%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group could not be created on %1%2"
 msgstr "Nie można utworzyć grupy na %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:105
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be created%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be created%2"
 msgstr "Nie udało się utworzyć grupy %1 %2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:109
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "Nie można dołączyć do grupy %1 %2"
 
@@ -2938,8 +3046,12 @@ msgid "Nickname (optional):"
 msgstr "Ksywka (dobrowolnie):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, qt-format
-msgctxt "GroupChatJoiningContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "Nie można dołączyć do grupy %1 %2"
 
@@ -3362,8 +3474,12 @@ msgid "Organization"
 msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "Search public groups (%1)"
+msgctxt ""
+"PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
+"groups', e.g. '5/20'"
 msgid "Search public groups (%1)"
 msgstr "Poszukaj w grupach publicznych (%1)"
 
@@ -3378,8 +3494,10 @@ msgid "Retry"
 msgstr "Ponów"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "The public groups could not be retrieved: %1"
+msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Nie można było pobrać grup publicznych: %1"
 
@@ -3647,8 +3765,10 @@ msgid "About"
 msgstr "O programie"
 
 #: src/qml/GlobalDrawer.qml:498
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Odblokowany %1"
 
@@ -3658,14 +3778,18 @@ msgid "Undo"
 msgstr "Cofnij"
 
 #: src/qml/GlobalDrawer.qml:505
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Nie można zablokować %1: %2"
 
 #: src/qml/GlobalDrawer.qml:509
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Nie można odblokować %1: %2"
 
@@ -4017,25 +4141,31 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/RosterController.cpp:153
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:154
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Nie udało się dodać %1: %2"
 
-#: src/RosterController.cpp:160
+#: src/RosterController.cpp:161
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Nie można dodać kontaktu, bo nie jesteś podłączony."
 
-#: src/RosterController.cpp:170
+#: src/RosterController.cpp:171
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Nie można zmienić nazwy kontaktu, bo nie jesteś podłączony."
 
-#: src/RosterController.cpp:180
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:181
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
@@ -4043,19 +4173,23 @@ msgstr ""
 "Nie udała się prośba o zobaczenie danych osobowych %1 ze względu na kłopoty "
 "z połączeniem: %2"
 
-#: src/RosterController.cpp:191
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:194
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Nie udało się zezwolić %1 na oglądane twoich danych osobowych"
 
-#: src/RosterController.cpp:202
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:206
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Nie udało się zaprzestać pokazywania twoich danych osobowych %1"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:300
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Nie można usunąć kontaktu, bo nie jesteś podłączony."
@@ -4107,6 +4241,26 @@ msgstr "Urodziny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nie udało się wysłać reakcji: %1"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The group %1 could not be joined%2"
+#~ msgstr "Nie można dołączyć do grupy %1 %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Unblocked %1"
+#~ msgstr "Odblokowany %1"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "Nie można zablokować %1: %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "Nie można odblokować %1: %2"
 
 #~ msgctxt "QObject|"
 #~ msgid "dd MMM at hh:mm"

@@ -13,42 +13,42 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.9\n"
 
-#: src/Account.cpp:476
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "გათიშულია"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "დაკავშირება"
 
-#: src/Account.cpp:491
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "მომხმარებელი ან პაროლი არასწორია."
 
-#: src/Account.cpp:493
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "სერვერთან მიერთების შეცდომა. გადაამოწმეთ თქვენი ინტერნეტკავშირი."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "შეცდომა უსაფრთხოდ მიერთების მცდელობისას."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "ამ სერვერს დაცული მიერთების მხარდაჭერა არ გააჩნია."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -57,22 +57,22 @@ msgstr ""
 "სერვერთან მიერთების პრობლემა. გადაამოწმეთ ინტერნეტკავშირი ან თქვენი სერვერის "
 "სახელი."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "სერვერი გამორთულია ან დაბლოკილია ბრანდმაუერით."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "ავთენტიკაციის პროტოკოლი მხარდაუჭერელია სერვერის მიერ."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "მიერთების განახლება შეუძლებელია."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,18 +81,18 @@ msgstr ""
 "ინტერნეტთან წვდომა აკრძალულია. შეამოწმეთ თქვენ სისტემის ინტერნეტთან წვდომის "
 "კონფიგურაცია."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "ამ სერვერს რეგისტრაციის მხარდაჭერა არ გააჩნია."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "შესვლა შეუძლებელია. ჯერ დაადასტურეთ ელფოსტის შეტყობინება, რომელიც მიიღეთ."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "სერვერთან მიერთების შეცდომა."
@@ -110,8 +110,10 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "ანგარიშის მიგრაცია შეუძლებელია: დაკავშირებული უნდა ბრძანდებოდეთ"
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
-msgctxt "AccountMigrationController|"
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "ანგარიში '%1' მიგრირებულია '%2'-ზე"
 
@@ -141,14 +143,18 @@ msgid "Devices on Servers"
 msgstr "მოწყობილობები სერვერებზე"
 
 #: src/ChatController.cpp:176
-#, qt-format
-msgctxt "ChatController|"
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 is typing…"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 კრეფს…"
 
 #: src/ChatController.cpp:178
-#, qt-format
-msgctxt "ChatController|"
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 paused typing"
+msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1-მა შეწყვიტა კრეფა"
 
@@ -159,7 +165,7 @@ msgstr ""
 "თქვენი ანგარიში გამორთულია - შეტყობინებების მიმოცვლა მოხდება, როცა ჩართავთ"
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:289 src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "გაუქმება"
@@ -190,8 +196,15 @@ msgid "Connecting…"
 msgstr "დაკავშირება…"
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
-msgctxt "ChatHintModel|"
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt ""
+"ChatHintModel|%1 is an account display name, %2 is appended text that begins "
+"with ': ' and is shown if the request has a status message, otherwise it is "
+"empty"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
@@ -199,9 +212,17 @@ msgstr ""
 "%1-ს სურს მიიღოს თქვენი პირადი მონაცემები, როგორიცაა ხელმისაწვდომობა, "
 "მოწყობილობები და სხვა პირად ინფორმაცია %2"
 
-#: src/ChatHintModel.cpp:265
-#, qt-format
-msgctxt "ChatHintModel|"
+#: src/ChatHintModel.cpp:267
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
+msgctxt ""
+"ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
+"JIDs, %5 is appended text that begins with ': ' and is shown if the request "
+"has a status message, otherwise it is empty"
 msgid ""
 "Your contact %1 (%2) is %3 (%4) now and would like to receive your personal "
 "data such as availability, devices and other personal information again%5"
@@ -210,47 +231,47 @@ msgstr ""
 "მონაცემები, როგორიცაა ხელმისაწვდომობა, მოწყობილობები და სხვა პირად "
 "ინფორმაცია კიდევ ერთხელ %5"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "უარყოფა"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "დაშვება"
 
-#: src/ChatHintModel.cpp:274
+#: src/ChatHintModel.cpp:278
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "დაშვება…"
 
-#: src/ChatHintModel.cpp:288
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "ამ ჯგუფს მომხმარებლები არ ჰყავს"
 
-#: src/ChatHintModel.cpp:289
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "კონტაქტების მოწვევა"
 
-#: src/ChatHintModel.cpp:291
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "მოწვევის ადგილის გახსნა"
 
-#: src/ChatHintModel.cpp:309
+#: src/ChatHintModel.cpp:313
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "ეს ჯგუფი წაშლილია"
 
-#: src/ChatHintModel.cpp:310
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "გასვლა"
 
-#: src/ChatHintModel.cpp:312
+#: src/ChatHintModel.cpp:316
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "ჯგუფური ჩატიდან გასვლა"
@@ -277,8 +298,10 @@ msgid "Media sharing is unsupported"
 msgstr "მედიის გაზიარება მხარდაჭერილი არაა"
 
 #: src/FileSharingController.cpp:509
-#, qt-format
-msgctxt "FileSharingController|"
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not upload file: %1"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "ფაილის ატვირთვის შეცდომა: %1"
 
@@ -309,7 +332,10 @@ msgid "Joined"
 msgstr "შესულია"
 
 #: src/GroupChatUserModel.cpp:58
-msgctxt "GroupChatUserModel|"
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
+msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "წავიდა"
 
@@ -318,21 +344,27 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "ბანი ადევს"
 
-#: src/ImageProvider.cpp:133
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:134
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not copy invalid source to clipboard: %1"
+msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "ვერ დავაკოპირე არასწორი წყარო ბუფერში: %1"
 
-#: src/ImageProvider.cpp:341
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:343
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate thumbnail: %1 does not exist"
+msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "მინიატურის გენერაცია შეუძლებელია: %1 არ არსებობს"
 
-#: src/ImageProvider.cpp:371
-#, qt-format
-msgctxt "ImageProvider|"
+#: src/ImageProvider.cpp:374
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate QR code: %1"
+msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
 
@@ -437,8 +469,11 @@ msgid "Documents"
 msgstr "დოკუმენტები"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
-msgctxt "MediaUtils|"
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
+msgctxt ""
+"MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
@@ -458,8 +493,10 @@ msgid "Location"
 msgstr "მდებარეობა"
 
 #: src/Message.cpp:466
-#, qt-format
-msgctxt "Message|"
+#, fuzzy, qt-format
+#| msgctxt "Message|"
+#| msgid "Invitation to group %1"
+msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "მოსაწვევი ჯგუფში %1"
 
@@ -479,9 +516,13 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "ხმოვანი შეტყობინების გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
-#: src/MessageComposition.cpp:593
-#, qt-format
-msgctxt "FileSelectionModel|"
+#: src/MessageComposition.cpp:594
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
+msgctxt ""
+"FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
+"(e.g. 5 MB)"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'-ის გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
@@ -495,15 +536,19 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "შეტყობინების გაგზავნა შეუძლებელია."
 
-#: src/MessageController.cpp:616
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:617
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
+msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "შეტყობინება %1-ითაა დაშიფრული, მაგრამ გაშიფვრა შეუძლებელია"
 
-#: src/MessageController.cpp:1019
-#, qt-format
-msgctxt "MessageController|"
+#: src/MessageController.cpp:1021
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
@@ -527,24 +572,28 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:594 src/MessageModel.cpp:690
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:595 src/MessageModel.cpp:692
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:774
-#, qt-format
-msgctxt "MessageModel|"
+#: src/MessageModel.cpp:777
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
+msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1317
+#: src/MessageModel.cpp:1320
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1320
+#: src/MessageModel.cpp:1323
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -555,70 +604,89 @@ msgid "The group already exists"
 msgstr "ჯგუფი უკვე არსებობს"
 
 #: src/MixController.cpp:125
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Whether %1 is public could not be determined: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "შეუძლებელია დადგენა, საჯაროა, თუ არა %1: %2"
 
 #: src/MixController.cpp:139
-#, qt-format
-msgctxt "MixController|"
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not retrieve information of group %1: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "ვერ მივიღე ინფორმაცია ჯგუფისთვის %1: %2"
 
-#: src/MixController.cpp:150 src/MixController.cpp:158
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:151 src/MixController.cpp:160
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
+msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "შეუძლებელია სახელის გადარქმევა ჯგუფისთვის %1: %2"
 
-#: src/MixController.cpp:178
+#: src/MixController.cpp:180
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "ჯგუფი არ არსებობს"
 
-#: src/MixController.cpp:181
+#: src/MixController.cpp:183
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "ჯგუფთან მიერთების უფლება არ გაქვთ"
 
-#: src/MixController.cpp:235 src/MixController.cpp:241
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:237 src/MixController.cpp:244
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be invited to %2: %3"
+msgctxt ""
+"MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1-ის მოწვევა %2-ზე შეუძლებელია: %3"
 
-#: src/MixController.cpp:267
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:272
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Nodes of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1-ის კვანძების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:275
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:280
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Allowed users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1-ის დაშვებული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:289
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:295
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Banned users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1-ის ბანდადებული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:304
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:311
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1-ში შესული მომხმარებლების მიღება შეუძლებელია: %2"
 
-#: src/MixController.cpp:319
-#, qt-format
-msgctxt "MixController|"
+#: src/MixController.cpp:326
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be banned from %2: %3"
+msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1-ზე ბანის დადება %2-ში შეუძლებელია: %3"
 
-#: src/MixController.cpp:363
+#: src/MixController.cpp:371
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "ჯგუფის წაშლის უფლება არ გაქვთ"
@@ -718,11 +786,16 @@ msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "შეუზღუდავი"
 
-#: src/ProviderModel.cpp:132
-#, qt-format
+#. Number of days for which message history is stored on the provider
+#: src/ProviderModel.cpp:133
+#, fuzzy, qt-format
+#| msgctxt "ProviderModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
-msgid "%1 days"
-msgstr "%1 დღე"
+msgid "%n day(s)"
+msgid_plural "%n day(s)"
+msgstr[0] "%1 დღე"
+msgstr[1] "%1 დღე"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -800,8 +873,10 @@ msgid "Drop files to be sent"
 msgstr "დაყარეთ გასაგზავნი ფაილები"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
@@ -811,20 +886,26 @@ msgid "Undo"
 msgstr "დაბრუნება"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
-msgctxt "ChatPage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1-ის განბლოკვა შეუძლებელია: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
+msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "მედია %1-მდე შეგიძლიათ, გააზიაროთ."
 
@@ -1037,8 +1118,10 @@ msgid "Support"
 msgstr "მხარდაჭერა"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "%1-ის მხარდაჭერა"
 
@@ -1053,8 +1136,10 @@ msgid "Join your provider's public support group"
 msgstr "შეუერთდით თქვენი სერვისის მომწოდებლის საჯარო დახმარების ჯგუფს"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
+msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "ჯგუფის მხარდაჭერა %1"
 
@@ -1185,8 +1270,10 @@ msgid "Change password"
 msgstr "პაროლის შეცვლა"
 
 #: src/qml/details/AccountDetailsContent.qml:765
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "პაროლის შეცვლის შეცდომა: %1"
 
@@ -1276,8 +1363,10 @@ msgid "Applying changes…"
 msgstr "ცვლილებების გადატარება…"
 
 #: src/qml/details/AccountDetailsContent.qml:908
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "მიერთების პარამეტრების შეცვლა შეუძლებელია: %1"
 
@@ -1397,8 +1486,12 @@ msgid "Deleting account…"
 msgstr "ანგარიშის წაშლა…"
 
 #: src/qml/details/AccountDetailsContent.qml:1052
-#, qt-format
-msgctxt "AccountDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
@@ -1933,8 +2026,12 @@ msgid "Leaving group chat…"
 msgstr "ჯგუფური ჩატიდან გასვლა…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be left%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be left%2"
 msgstr "ჯგუფიდან %1 გასვლა შეუძლებელია %2"
 
@@ -1954,8 +2051,12 @@ msgid "Deleting group chat…"
 msgstr "ჯგუფური ჩატის წაშლა…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, qt-format
-msgctxt "GroupChatDetailsContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
+msgctxt ""
+"GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be deleted%2"
 msgstr "ჯგუფის %1 წაშლა შეუძლებელია %2"
 
@@ -2053,14 +2154,20 @@ msgid "Other"
 msgstr "სხვა"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
+msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 არჩეულია"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
-msgctxt "MediaOverview|"
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
+msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
 "%1"
@@ -2298,8 +2405,10 @@ msgid "New"
 msgstr "ახალი"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
-msgctxt "ChatMessage|"
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
+msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1-მა ამ წერტილამდე წაიკითხა"
 
@@ -2743,20 +2852,32 @@ msgid "Nickname (optional):"
 msgstr "მეტსახელი (არასავალდებულო):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:101
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group could not be created on %1%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group could not be created on %1%2"
 msgstr "ჯგუფის შექმნა შეუძლებელია %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:105
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be created%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be created%2"
 msgstr "ჯგუფის %1 შექმნა შეუძლებელია %2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:109
-#, qt-format
-msgctxt "GroupChatCreationContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "ჯგუფში %1 შესვლა შეუძლებელია %2"
 
@@ -2801,8 +2922,12 @@ msgid "Nickname (optional):"
 msgstr "მეტსახელი (არასავალდებულო):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, qt-format
-msgctxt "GroupChatJoiningContent|"
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
+msgctxt ""
+"GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
+"followed by an error message"
 msgid "The group %1 could not be joined%2"
 msgstr "ჯგუფში %1 შესვლა შეუძლებელია %2"
 
@@ -3163,8 +3288,12 @@ msgid "Organization"
 msgstr "ორგანიზაცია"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "Search public groups (%1)"
+msgctxt ""
+"PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
+"groups', e.g. '5/20'"
 msgid "Search public groups (%1)"
 msgstr "საჯარო ჯგუფების ძებნა (%1)"
 
@@ -3179,8 +3308,10 @@ msgid "Retry"
 msgstr "თავიდან ცდა"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
-msgctxt "PublicGroupChatSearchDialog|"
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "The public groups could not be retrieved: %1"
+msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "საჯარო ჯგუფების მიღება შეუძლებელია: %1"
 
@@ -3444,8 +3575,10 @@ msgid "About"
 msgstr "შესახებ"
 
 #: src/qml/GlobalDrawer.qml:498
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
+msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 განბლოკილია"
 
@@ -3455,14 +3588,18 @@ msgid "Undo"
 msgstr "დაბრუნება"
 
 #: src/qml/GlobalDrawer.qml:505
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
 
 #: src/qml/GlobalDrawer.qml:509
-#, qt-format
-msgctxt "GlobalDrawer|"
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1-ის განბლოკვა შეუძლებელია: %2"
 
@@ -3803,44 +3940,54 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
-#: src/RosterController.cpp:153
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:154
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "%1 could not be added: %2"
+msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1-ის დამატება შეუძლებელია: %2"
 
-#: src/RosterController.cpp:160
+#: src/RosterController.cpp:161
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "კონტაქტის დამატება შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterController.cpp:170
+#: src/RosterController.cpp:171
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "კონტაქტის სახელის გადარქმევა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterController.cpp:180
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:181
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
+msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
 "%1-ის პირადი მონაცემების ნახვის მოთხოვნა ჩავარდა მიერთების პრობლემის გამო: %2"
 
-#: src/RosterController.cpp:191
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:194
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Allowing %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების დაშვება ჩავარდა"
 
-#: src/RosterController.cpp:202
-#, qt-format
-msgctxt "RosterController|"
+#: src/RosterController.cpp:206
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Stopping %1 to see your personal data failed"
+msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარა"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:300
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "კონტაქტის წაშლა შეუძლებელია. მიერთებული არ ბრძანდებით."
@@ -3889,6 +4036,26 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The group %1 could not be joined%2"
+#~ msgstr "ჯგუფში %1 შესვლა შეუძლებელია %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Unblocked %1"
+#~ msgstr "%1 განბლოკილია"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "%1-ის დაბლოკვა შეუძლებელია: %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "%1-ის განბლოკვა შეუძლებელია: %2"
 
 #~ msgctxt "QObject|"
 #~ msgid "dd MMM at hh:mm"
