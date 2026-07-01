@@ -724,7 +724,7 @@ DetailsContent {
 					IconButton {
 						id: passwordChangeButton
 						text: qsTr("Change password")
-						icon.name: "emblem-ok-symbolic"
+						icon.source: "emblem-ok-symbolic"
 						visible: !passwordBusyIndicator.visible
 						Layout.alignment: Qt.AlignTop
 						Layout.topMargin: Kirigami.Units.largeSpacing * 4
