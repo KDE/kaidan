@@ -335,7 +335,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
 
-#: src/ImageProvider.cpp:134
+#: src/ImageProvider.cpp:124
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not copy invalid source to clipboard: %1"
@@ -343,7 +343,7 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "无法将无效源复制到剪贴板：%1"
 
-#: src/ImageProvider.cpp:343
+#: src/ImageProvider.cpp:302
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate thumbnail: %1 does not exist"
@@ -351,7 +351,7 @@ msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "无法生成缩略图：%1 不存在"
 
-#: src/ImageProvider.cpp:374
+#: src/ImageProvider.cpp:356
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate QR code: %1"
