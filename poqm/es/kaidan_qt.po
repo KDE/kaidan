@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-02 12:29+0100\n"
-"PO-Revision-Date: 2026-05-02 17:00+0100\n"
+"PO-Revision-Date: 2026-07-01 16:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/Account.cpp:475
 msgctxt "Connection|"
@@ -316,7 +316,7 @@ msgstr "No unido"
 #: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
-msgstr "Unido"
+msgstr "Se ha unido"
 
 #: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
@@ -1968,7 +1968,7 @@ msgstr "Borrando conversación de grupo…"
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr "No se ha podido añadir borrar el grupo %1%2"
+msgstr "No se ha podido borrar el grupo %1%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:12
 msgctxt "GroupChatDetailsDialog|"
@@ -2073,7 +2073,7 @@ msgstr "Otros"
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr "%1/%2 seleccionado"
+msgstr "%1/%2 seleccionados"
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format

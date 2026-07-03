@@ -108,7 +108,7 @@ msgstr "无法迁移账号：您需要已连接"
 #, qt-format
 msgctxt "AccountMigrationController|"
 msgid "Account '%1' migrated to '%2'"
-msgstr "账号“%1”已迁移到“%2”"
+msgstr ""
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -139,13 +139,13 @@ msgstr "服务器上的设备"
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 is typing…"
-msgstr "%1 正在输入…"
+msgstr ""
 
 #: src/ChatController.cpp:178
 #, qt-format
 msgctxt "ChatController|"
 msgid "%1 paused typing"
-msgstr "%1 已暂停输入"
+msgstr ""
 
 #: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
@@ -189,7 +189,7 @@ msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
-msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
+msgstr ""
 
 #: src/ChatHintModel.cpp:280
 #, qt-format
@@ -271,7 +271,7 @@ msgstr "媒体分享功能不受支持"
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not upload file: %1"
-msgstr "无法上传文件：%1"
+msgstr ""
 
 #: src/FileSharingController.cpp:624
 msgctxt "FileSharingController|"
@@ -302,7 +302,7 @@ msgstr "已加入"
 #: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Left"
-msgstr "已离开"
+msgstr ""
 
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
@@ -313,19 +313,19 @@ msgstr "已封禁"
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not copy invalid source to clipboard: %1"
-msgstr "无法将无效源复制到剪贴板：%1"
+msgstr ""
 
 #: src/ImageProvider.cpp:323
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate thumbnail: %1 does not exist"
-msgstr "无法生成缩略图：%1 不存在"
+msgstr ""
 
 #: src/ImageProvider.cpp:353
 #, qt-format
 msgctxt "ImageProvider|"
 msgid "Could not generate QR code: %1"
-msgstr "无法生成二维码：%1"
+msgstr ""
 
 #: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
@@ -431,7 +431,7 @@ msgstr "文档"
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/Message.cpp:136
 msgctxt "QObject|"
@@ -457,7 +457,7 @@ msgstr "位置"
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
-msgstr "邀请加入群聊 %1"
+msgstr ""
 
 #: src/MessageComposition.cpp:273
 msgctxt "MessageComposition|"
@@ -473,7 +473,7 @@ msgstr "未知大小"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr "无法发送“%1”，因为它大于 %2"
+msgstr ""
 
 #: src/MessageController.cpp:278
 msgctxt "MessageController|"
@@ -489,13 +489,13 @@ msgstr "无法发送消息。"
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "此消息已使用 %1 加密，但无法解密"
+msgstr ""
 
 #: src/MessageController.cpp:1019
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
-msgstr "无法发送回应：%1"
+msgstr ""
 
 #: src/MessageModel.cpp:273
 msgctxt "MessageModel|"
@@ -521,13 +521,13 @@ msgstr "错误"
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr "无法发送回应：%1"
+msgstr ""
 
 #: src/MessageModel.cpp:774
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr "无法发送回应：%1"
+msgstr ""
 
 #: src/MessageModel.cpp:1317
 msgctxt "MessageModel|"
@@ -548,19 +548,19 @@ msgstr "此群聊已存在"
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
-msgstr "无法确定 %1 是否为公开：%2"
+msgstr ""
 
 #: src/MixController.cpp:139
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
-msgstr "无法检索群聊 %1 的信息：%2"
+msgstr ""
 
 #: src/MixController.cpp:150 src/MixController.cpp:158
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
-msgstr "无法重命名群聊 %1：%2"
+msgstr ""
 
 #: src/MixController.cpp:178
 msgctxt "MixController|"
@@ -576,37 +576,37 @@ msgstr "不允许您加入此群聊"
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
-msgstr "无法邀请 %1 加入 %2：%3"
+msgstr ""
 
 #: src/MixController.cpp:269
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
-msgstr "无法检索 %1 的节点：%2"
+msgstr ""
 
 #: src/MixController.cpp:277
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
-msgstr "无法检索 %1 的允许用户：%2"
+msgstr ""
 
 #: src/MixController.cpp:291
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
-msgstr "无法检索 %1 的已封禁用户：%2"
+msgstr ""
 
 #: src/MixController.cpp:306
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
-msgstr "无法检索 %1 的已加入用户：%2"
+msgstr ""
 
 #: src/MixController.cpp:321
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
-msgstr "无法从 %2 中封禁 %1：%3"
+msgstr ""
 
 #: src/MixController.cpp:365
 msgctxt "MixController|"
@@ -778,7 +778,7 @@ msgstr "拖放要发送的文件"
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Unblocked %1"
-msgstr "已取消屏蔽 %1"
+msgstr ""
 
 #: src/qml/ChatPage.qml:853
 msgctxt "ChatPage|"
@@ -789,19 +789,19 @@ msgstr "撤销"
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not block %1: %2"
-msgstr "无法屏蔽 %1：%2"
+msgstr ""
 
 #: src/qml/ChatPage.qml:864
 #, qt-format
 msgctxt "ChatPage|"
 msgid "Could not unblock %1: %2"
-msgstr "无法取消屏蔽 %1：%2"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:21
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "You can share media up to %1."
-msgstr "您最多可以分享 %1 媒体。"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:25
 #: src/qml/details/AccountDetailsContent.qml:277
@@ -1012,7 +1012,7 @@ msgstr "支持"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr "支持 %1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:442
 msgctxt "AccountDetailsContent|"
@@ -1028,7 +1028,7 @@ msgstr "加入您的提供者的公开支持群聊"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr "群聊支持 %1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:474
 msgctxt "AccountDetailsContent|"
@@ -1153,7 +1153,7 @@ msgstr "更改密码"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr "无法更改密码：%1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:791
 msgctxt "AccountDetailsContent|"
@@ -1237,7 +1237,7 @@ msgstr "正在应用更改…"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr "无法更改连接设置：%1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
@@ -1355,7 +1355,7 @@ msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
-msgstr "无法从服务器中删除您的账号。因此，它也没有从此应用中移除：%1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsDialog.qml:13
 msgctxt "AccountDetailsDialog|"
@@ -1870,7 +1870,7 @@ msgstr "正在离开群聊…"
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "无法离开群聊 %1 %2"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:403
 msgctxt "GroupChatDetailsContent|"
@@ -1891,7 +1891,7 @@ msgstr "正在删除群聊…"
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
-msgstr "无法删除群聊 %1 %2"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsDialog.qml:12
 msgctxt "GroupChatDetailsDialog|"
@@ -1986,7 +1986,7 @@ msgstr "其他"
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr "已选择 %1/%2"
+msgstr ""
 
 #: src/qml/details/MediaOverview.qml:254
 #, qt-format
@@ -1995,8 +1995,6 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
-"并非所有文件都可以删除：\n"
-"%1"
 
 #: src/qml/details/NotesChatDetailsContent.qml:22
 msgctxt "NotesChatDetailsContent|"
@@ -2226,7 +2224,7 @@ msgstr "新消息"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr "%1 已阅读至此"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:59
 msgctxt "ChatMessageContextMenu|"
@@ -2596,19 +2594,19 @@ msgstr "昵称（选填）："
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
-msgstr "无法在 %1 上创建群聊 %2"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:105
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
-msgstr "无法创建群聊 %1 %2"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:109
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "无法加入群聊 %1 %2"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationDialog.qml:15
 msgctxt "GroupChatCreationDialog|"
@@ -2654,7 +2652,7 @@ msgstr "昵称（选填）："
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "无法加入群聊 %1 %2"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningDialog.qml:16
 msgctxt "GroupChatJoiningDialog|"
@@ -2923,7 +2921,7 @@ msgstr "组织"
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "Search public groups (%1)"
-msgstr "搜索公开群聊（%1）"
+msgstr ""
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:73
 msgctxt "PublicGroupChatSearchDialog|"
@@ -2939,7 +2937,7 @@ msgstr "重试"
 #, qt-format
 msgctxt "PublicGroupChatSearchDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "无法检索公开群聊：%1"
+msgstr ""
 
 #: src/qml/elements/QrCodeScanningArea.qml:47
 msgctxt "QrCodeScanningArea|"
@@ -3191,7 +3189,7 @@ msgstr "关于"
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Unblocked %1"
-msgstr "已取消屏蔽 %1"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:462
 msgctxt "GlobalDrawer|"
@@ -3202,13 +3200,13 @@ msgstr "撤销"
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not block %1: %2"
-msgstr "无法屏蔽 %1：%2"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:473
 #, qt-format
 msgctxt "GlobalDrawer|"
 msgid "Could not unblock %1: %2"
-msgstr "无法取消屏蔽 %1：%2"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:26
 msgctxt "QrCodeOnboardingPage|"
@@ -3541,7 +3539,7 @@ msgstr "未知大小"
 #, qt-format
 msgctxt "RosterController|"
 msgid "%1 could not be added: %2"
-msgstr "无法添加 %1：%2"
+msgstr ""
 
 #: src/RosterController.cpp:153
 msgctxt "RosterController|"
@@ -3559,19 +3557,19 @@ msgctxt "RosterController|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
-msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
+msgstr ""
 
 #: src/RosterController.cpp:184
 #, qt-format
 msgctxt "RosterController|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "允许 %1 查看您的个人数据失败"
+msgstr ""
 
 #: src/RosterController.cpp:195
 #, qt-format
 msgctxt "RosterController|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "停止 %1 查看您的个人数据失败"
+msgstr ""
 
 #: src/RosterController.cpp:291
 msgctxt "RosterController|"
