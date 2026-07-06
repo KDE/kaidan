@@ -685,7 +685,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
             }
         });
 
-        m_rosterController->addContact(senderJid, {}, {}, true);
+        m_rosterController->addContact(senderJid, {}, true);
     } else {
         storeMessage();
     }

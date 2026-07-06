@@ -48,17 +48,16 @@ public:
      *
      * @param uriString XMPP URI string that contains only a JID
      */
-    Q_INVOKABLE ContactAdditionWithUriResult addContactWithUri(const QString &uriString, const QString &name = {}, const QString &message = {});
+    Q_INVOKABLE ContactAdditionWithUriResult addContactWithUri(const QString &uriString, const QString &name = {});
 
     /**
      * Adds a contact to the roster.
      *
      * @param jid bare JID of the contact
      * @param name name for the contact to be display
-     * @param message message presented to the added contact
      * @param automaticInitialAddition whether the contact is added after a first received message
      */
-    Q_INVOKABLE void addContact(const QString &jid, const QString &name = {}, const QString &message = {}, bool automaticInitialAddition = false);
+    Q_INVOKABLE void addContact(const QString &jid, const QString &name = {}, bool automaticInitialAddition = false);
     Q_SIGNAL void contactAdditionFailed(const QString &jid);
 
     Q_INVOKABLE void renameContact(const QString &jid, const QString &newContactName);

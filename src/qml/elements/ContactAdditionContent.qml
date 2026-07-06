@@ -37,7 +37,7 @@ ConfirmationArea {
 
 				// If the user inserted an XMPP URI into jidField, process that URI including possible trust decisions.
 				// Otherwise, simply add the contact.
-				switch (account.rosterController.addContactWithUri(xmppUri, name, messageField.text)) {
+				switch (account.rosterController.addContactWithUri(xmppUri, name)) {
 				case RosterController.ContactAdditionWithUriResult.AddingContact:
 					// Try to authenticate or distrust keys.
 					switch (account.atmController.makeTrustDecisionsWithUri(xmppUri)) {
@@ -54,7 +54,7 @@ ConfirmationArea {
 				case RosterController.ContactAdditionWithUriResult.ContactExists:
 					break
 				case RosterController.ContactAdditionWithUriResult.InvalidUri:
-					account.rosterController.addContact(jid, name, messageField.text)
+					account.rosterController.addContact(jid, name)
 					break
 				}
 			} else {
@@ -91,14 +91,7 @@ ConfirmationArea {
 		id: nameField
 		label: qsTr("Name (optional)")
 		inputMethodHints: Qt.ImhPreferUppercase
-		onAccepted: messageField.forceActiveFocus()
-	}
-
-	FormCard.FormTextAreaDelegate {
-		id: messageField
-		label: qsTr("Message (optional, unencrypted)")
-		placeholderText: qsTr("Hello, I'm…")
-		inputMethodHints: Qt.ImhPreferUppercase
+		onAccepted: confirmationButton.clicked()
 	}
 
 	Connections {

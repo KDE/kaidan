@@ -92,7 +92,7 @@ RosterController::RosterController(AccountSettings *accountSettings,
     connect(RosterModel::instance(), &RosterModel::groupsChanged, this, &RosterController::groupsChanged);
 }
 
-RosterController::ContactAdditionWithUriResult RosterController::addContactWithUri(const QString &uriString, const QString &name, const QString &message)
+RosterController::ContactAdditionWithUriResult RosterController::addContactWithUri(const QString &uriString, const QString &name)
 {
     if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
         const auto uri = std::get<QXmppUri>(uriParsingResult);
@@ -107,7 +107,7 @@ RosterController::ContactAdditionWithUriResult RosterController::addContactWithU
             return ContactAdditionWithUriResult::ContactExists;
         }
 
-        addContact(jid, name, message);
+        addContact(jid, name);
 
         return ContactAdditionWithUriResult::AddingContact;
     }
@@ -115,7 +115,7 @@ RosterController::ContactAdditionWithUriResult RosterController::addContactWithU
     return ContactAdditionWithUriResult::InvalidUri;
 }
 
-void RosterController::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
+void RosterController::addContact(const QString &jid, const QString &name, bool automaticInitialAddition)
 {
     if (m_connection->state() == Enums::ConnectionState::StateConnected) {
         if (automaticInitialAddition) {
@@ -132,30 +132,28 @@ void RosterController::addContact(const QString &jid, const QString &name, const
                 Q_EMIT contactAdditionFailed(jid);
             }
         } else {
-            m_manager->addRosterItem(jid, name).then(
-                this,
-                [this, jid, message, automaticInitialAddition, ownJidBeingAdded](QXmppRosterManager::Result &&result) {
-                    if (const auto error = std::get_if<QXmppError>(&result)) {
-                        if (const auto stanzaError = error->takeValue<QXmppStanza::Error>(); ownJidBeingAdded && stanzaError
-                            && stanzaError->type() == QXmppStanza::Error::Cancel && stanzaError->condition() == QXmppStanza::Error::NotAllowed) {
-                            m_addingOwnJidToRosterAllowed = false;
+            m_manager->addRosterItem(jid, name).then(this, [this, jid, automaticInitialAddition, ownJidBeingAdded](QXmppRosterManager::Result &&result) {
+                if (const auto error = std::get_if<QXmppError>(&result)) {
+                    if (const auto stanzaError = error->takeValue<QXmppStanza::Error>(); ownJidBeingAdded && stanzaError
+                        && stanzaError->type() == QXmppStanza::Error::Cancel && stanzaError->condition() == QXmppStanza::Error::NotAllowed) {
+                        m_addingOwnJidToRosterAllowed = false;
 
-                            if (automaticInitialAddition) {
-                                return;
-                            }
-
-                            m_pendingAutomaticInitialAdditionJids.removeOne(jid);
-                            Q_EMIT contactAdditionFailed(jid);
-
+                        if (automaticInitialAddition) {
                             return;
                         }
 
-                        Q_EMIT MainController::instance()->passiveNotificationRequested(
-                            tr("%1 could not be added: %2", "%1 is a JID, %2 an error message").arg(jid, error->description));
-                    } else if (!ownJidBeingAdded && !QXmppUtils::jidToUser(jid).isEmpty()) {
-                        m_manager->subscribeTo(jid, message);
+                        m_pendingAutomaticInitialAdditionJids.removeOne(jid);
+                        Q_EMIT contactAdditionFailed(jid);
+
+                        return;
                     }
-                });
+
+                    Q_EMIT MainController::instance()->passiveNotificationRequested(
+                        tr("%1 could not be added: %2", "%1 is a JID, %2 an error message").arg(jid, error->description));
+                } else if (!ownJidBeingAdded && !QXmppUtils::jidToUser(jid).isEmpty()) {
+                    m_manager->subscribeTo(jid);
+                }
+            });
         }
     } else {
         Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Could not add contact as a result of not being connected."));
