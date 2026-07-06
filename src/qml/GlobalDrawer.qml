@@ -44,23 +44,11 @@ Kirigami.GlobalDrawer {
 		return count
 	}
 
-	// Workaround needed for Kirigami Addons <= v1.12.1 because FormCard.FormCard does not set
-	// implicitWidth which is used by Kirigami.GlobalDrawer to determine its width.
-	component Card : FormCard.FormCard {
-		implicitWidth: {
-			const layout = lastChild(lastChild(this))
-			return layout?.implicitWidth ?? 0
-		}
-
-		function lastChild(item) {
-			return item.children[item.children.length - 1]
-		}
-	}
-
 	handle.visible: false
 	handleVisible: false
+	preferredSize: pageStack.defaultColumnWidth
 	topContent: [
-		Card {
+		FormCard.FormCard {
 			Layout.rightMargin: 1
 
 			FormCard.FormHeader {
@@ -174,7 +162,7 @@ Kirigami.GlobalDrawer {
 			}
 		},
 
-		Card {
+		FormCard.FormCard {
 			Layout.topMargin: Kirigami.Units.largeSpacing
 			Layout.rightMargin: 1
 
