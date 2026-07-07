@@ -1146,18 +1146,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "输入您当前的密码"
 
-#: src/qml/details/AccountDetailsContent.qml:701
-msgctxt "AccountDetailsContent|"
-msgid "Enter correct password"
-msgstr "输入正确的密码"
-
 #: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "新密码"
 
 #: src/qml/details/AccountDetailsContent.qml:714
-#: src/qml/details/AccountDetailsContent.qml:972
+#: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密码"
@@ -1168,32 +1163,35 @@ msgid "Enter your new password"
 msgstr "输入新密码"
 
 #: src/qml/details/AccountDetailsContent.qml:717
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
-msgid "Enter different password to change it"
+msgid "Enter a different password to change it"
 msgstr "输入不同的密码进行更改"
 
-#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "更改密码"
 
-#: src/qml/details/AccountDetailsContent.qml:765
+#: src/qml/details/AccountDetailsContent.qml:762
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:771
+#: src/qml/details/AccountDetailsContent.qml:768
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "密码更改成功"
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:796
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "密码显示选项"
 
-#: src/qml/details/AccountDetailsContent.qml:807
+#: src/qml/details/AccountDetailsContent.qml:800
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1205,131 +1203,131 @@ msgstr ""
 "稍后在其他设备上使用您的账号，<b>请考虑将密码存储在其他地方。此操作无法撤销！"
 "</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:813
+#: src/qml/details/AccountDetailsContent.qml:806
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "不要以文本形式显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:814
+#: src/qml/details/AccountDetailsContent.qml:807
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr "允许使用登录二维码添加其他设备，但从不显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:821
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "正在从文本中移除密码…"
 
-#: src/qml/details/AccountDetailsContent.qml:827
+#: src/qml/details/AccountDetailsContent.qml:820
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "不要以任何方式暴露密码"
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:821
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr "既不允许使用登录二维码添加其他设备，也不允许显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:835
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "正在从文本和二维码中移除密码…"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:838
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "连接"
 
-#: src/qml/details/AccountDetailsContent.qml:849
+#: src/qml/details/AccountDetailsContent.qml:842
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "配置要连接的主机名和端口（空字段为默认值）"
 
-#: src/qml/details/AccountDetailsContent.qml:877
+#: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr "应用更改"
 
-#: src/qml/details/AccountDetailsContent.qml:878
+#: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr "正在应用更改…"
 
-#: src/qml/details/AccountDetailsContent.qml:908
+#: src/qml/details/AccountDetailsContent.qml:901
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:921
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "连接设置已更改"
 
-#: src/qml/details/AccountDetailsContent.qml:932
+#: src/qml/details/AccountDetailsContent.qml:925
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "切换设备"
 
-#: src/qml/details/AccountDetailsContent.qml:936
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr "切勿向他人展示本部分的信息。否则他人将能无限制地访问您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:942
+#: src/qml/details/AccountDetailsContent.qml:935
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "显示登录二维码"
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:936
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "通过另一台设备扫描二维码即可登录"
 
-#: src/qml/details/AccountDetailsContent.qml:959
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "显示凭据"
 
-#: src/qml/details/AccountDetailsContent.qml:960
+#: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "在另一台设备上输入凭据即可登录"
 
-#: src/qml/details/AccountDetailsContent.qml:966
+#: src/qml/details/AccountDetailsContent.qml:959
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:977
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "迁移"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:982
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "迁移账号"
 
-#: src/qml/details/AccountDetailsContent.qml:990
+#: src/qml/details/AccountDetailsContent.qml:983
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "正在准备账号迁移…"
 
-#: src/qml/details/AccountDetailsContent.qml:992
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "这可能需要一段时间"
 
-#: src/qml/details/AccountDetailsContent.qml:992
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1339,45 +1337,45 @@ msgstr ""
 "将账号数据（聊天记录除外）迁移到另一个账号。将从此应用中移除您当前的账号。如"
 "果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1014
+#: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "从 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1014
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "从此应用中移除账号。如果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1029
+#: src/qml/details/AccountDetailsContent.qml:1022
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1029
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全删除"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1030
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "从提供者删除账号。您将无法再次使用您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:1045
+#: src/qml/details/AccountDetailsContent.qml:1038
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在删除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1045
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
@@ -2420,35 +2418,28 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/qml/elements/ContactAdditionContent.qml:30
+#: src/qml/elements/ContactAdditionContent.qml:32
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "添加"
 
-#: src/qml/elements/ContactAdditionContent.qml:42
+#: src/qml/elements/ContactAdditionContent.qml:45
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "为联系人做出信任决定"
 
-#: src/qml/elements/ContactAdditionContent.qml:62
+#: src/qml/elements/ContactAdditionContent.qml:65
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
-#: src/qml/elements/ContactAdditionContent.qml:91
+#: src/qml/elements/ContactAdditionContent.qml:92
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
-msgid "Name (optional):"
+msgid "Name (optional)"
 msgstr "名称（选填）："
-
-#: src/qml/elements/ContactAdditionContent.qml:99
-msgctxt "ContactAdditionContent|"
-msgid "Message (optional, unencrypted):"
-msgstr "消息（可选，未加密）："
-
-#: src/qml/elements/ContactAdditionContent.qml:106
-msgctxt "ContactAdditionContent|"
-msgid "Hello, I'm…"
-msgstr "您好，我是…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2511,26 +2502,35 @@ msgid "Copy"
 msgstr "复制"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
-msgid "Hostname:"
+msgid "Hostname"
 msgstr "主机名："
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
-msgid "The hostname must not contain blank spaces"
-msgstr "主机名不能包含空格"
+msgid "Enter a valid hostname or leave it empty"
+msgstr "输入有效的用户名或将字段留空以获取随机用户名"
 
-#: src/qml/elements/CustomConnectionSettings.qml:61
+#: src/qml/elements/CustomConnectionSettings.qml:50
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
-msgid "Port:"
+msgid "Port"
 msgstr "端口："
 
-#: src/qml/elements/CustomConnectionSettings.qml:107
+#: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
 msgstr "明文身份验证（SASL PLAIN）"
 
-#: src/qml/elements/CustomConnectionSettings.qml:108
+#: src/qml/elements/CustomConnectionSettings.qml:89
 msgctxt "CustomConnectionSettings|"
 msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
@@ -2604,20 +2604,26 @@ msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/fields/JidField.qml:21
+#: src/qml/elements/fields/JidField.qml:20
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by chat address"
 msgctxt "JidField|"
-msgid "The chat address must have the form <b>username@server</b>"
-msgstr "聊天地址的格式必须是 <b>username@server</b>"
+msgid "Enter a valid chat address"
+msgstr "通过聊天地址添加联系人"
 
-#: src/qml/elements/fields/PasswordField.qml:20
+#: src/qml/elements/fields/PasswordField.qml:23
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Please enter a valid password"
+msgctxt "PasswordField|"
+msgid "Enter a valid password"
+msgstr "请输入有效的密码"
+
+#: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
 msgid "Password"
 msgstr "密码"
-
-#: src/qml/elements/fields/PasswordField.qml:30
-msgctxt "PasswordField|"
-msgid "Please enter a valid password"
-msgstr "请输入有效的密码"
 
 #: src/qml/elements/GeoLocationMap.qml:52
 msgctxt "GeoLocationMap|"
@@ -2649,52 +2655,66 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/qml/elements/GroupChatCreationContent.qml:19
+#: src/qml/elements/GroupChatCreationContent.qml:21
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "创建"
 
-#: src/qml/elements/GroupChatCreationContent.qml:27
+#: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "正在创建群聊…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:32
+#: src/qml/elements/GroupChatCreationContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
-msgid "Group Name (optional)"
+msgid "Group name (optional)"
 msgstr "群聊名称（选填）"
 
-#: src/qml/elements/GroupChatCreationContent.qml:33
+#: src/qml/elements/GroupChatCreationContent.qml:29
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "示例群聊"
 
-#: src/qml/elements/GroupChatCreationContent.qml:41
+#: src/qml/elements/GroupChatCreationContent.qml:37
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "公开"
 
-#: src/qml/elements/GroupChatCreationContent.qml:54
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "群聊地址"
 
-#: src/qml/elements/GroupChatCreationContent.qml:57
+#: src/qml/elements/GroupChatCreationContent.qml:54
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "示例群聊"
 
-#: src/qml/elements/GroupChatCreationContent.qml:59
+#: src/qml/elements/GroupChatCreationContent.qml:56
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "输入有效的群聊地址"
 
-#: src/qml/elements/GroupChatCreationContent.qml:84
+#: src/qml/elements/GroupChatCreationContent.qml:65
+#, fuzzy
+#| msgctxt "BlockingModel|"
+#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
-msgid "Nickname (optional):"
+msgid "Service"
+msgstr "设备"
+
+#: src/qml/elements/GroupChatCreationContent.qml:73
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Nickname (optional):"
+msgctxt "GroupChatCreationContent|"
+msgid "Nickname (optional)"
 msgstr "昵称（选填）："
 
-#: src/qml/elements/GroupChatCreationContent.qml:101
+#: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
@@ -2702,7 +2722,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:105
+#: src/qml/elements/GroupChatCreationContent.qml:94
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2710,7 +2730,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:109
+#: src/qml/elements/GroupChatCreationContent.qml:98
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2728,34 +2748,46 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "创建群聊"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:18
+#: src/qml/elements/GroupChatJoiningContent.qml:19
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "加入"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:20
+#: src/qml/elements/GroupChatJoiningContent.qml:21
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
-msgid "Joining group chat…"
+msgid "Joining group…"
 msgstr "正在加入群聊…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:25
-msgctxt "GroupChatJoiningContent|"
-msgid "Address"
-msgstr "地址"
-
 #: src/qml/elements/GroupChatJoiningContent.qml:26
+#, fuzzy
+#| msgctxt "UrlFormButtonDelegate|"
+#| msgid "Copy web address"
+msgctxt "GroupChatJoiningContent|"
+msgid "Group address"
+msgstr "复制网址"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
-msgid "The address must have the form <b>group@server</b>"
-msgstr "地址格式必须是 <b>group@server</b>"
+msgid "Enter a valid group address"
+msgstr "输入有效的群聊地址"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
-msgid "Nickname (optional):"
+msgid "Nickname (optional)"
 msgstr "昵称（选填）："
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
@@ -2863,12 +2895,12 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "正在加载…"
 
-#: src/qml/elements/LoginArea.qml:29 src/qml/elements/LoginArea.qml:100
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "登录"
 
-#: src/qml/elements/LoginArea.qml:38
+#: src/qml/elements/LoginArea.qml:39
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "扫描登录二维码"
@@ -2878,7 +2910,7 @@ msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "显示连接设置"
 
-#: src/qml/elements/LoginArea.qml:101
+#: src/qml/elements/LoginArea.qml:91
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "正在连接…"
@@ -3319,115 +3351,115 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "选择聊天即可开始"
 
-#: src/qml/GlobalDrawer.qml:66
+#: src/qml/GlobalDrawer.qml:55
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "账号"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:119
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密码"
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "输入正确的密码"
 
-#: src/qml/GlobalDrawer.qml:140
+#: src/qml/GlobalDrawer.qml:129
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "确认密码"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "操作"
 
-#: src/qml/GlobalDrawer.qml:188
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "请启用您的账号以使用所有可用操作"
 
-#: src/qml/GlobalDrawer.qml:188
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "启用账号以使用所有可用操作"
 
-#: src/qml/GlobalDrawer.qml:193
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "通过二维码添加联系人"
 
-#: src/qml/GlobalDrawer.qml:200
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "通过聊天地址添加联系人"
 
-#: src/qml/GlobalDrawer.qml:207
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "创建群聊"
 
-#: src/qml/GlobalDrawer.qml:207
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "创建群聊（不支持）"
 
-#: src/qml/GlobalDrawer.qml:233
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "加入群聊"
 
-#: src/qml/GlobalDrawer.qml:233
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "加入群聊（不支持）"
 
-#: src/qml/GlobalDrawer.qml:260
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜索公开群聊"
 
-#: src/qml/GlobalDrawer.qml:274
+#: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "关于"
 
-#: src/qml/GlobalDrawer.qml:498
+#: src/qml/GlobalDrawer.qml:484
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:498
+#: src/qml/GlobalDrawer.qml:484
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/GlobalDrawer.qml:505
+#: src/qml/GlobalDrawer.qml:491
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:509
+#: src/qml/GlobalDrawer.qml:495
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:26
+#: src/qml/QrCodeOnboardingPage.qml:27
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "扫描二维码"
 
-#: src/qml/QrCodeOnboardingPage.qml:28
+#: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "扫描二维码"
 
-#: src/qml/QrCodeOnboardingPage.qml:28
+#: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "显示说明"
@@ -3510,8 +3542,11 @@ msgid "Enter your desired credentials"
 msgstr "输入所需的凭据"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
-msgid "Display Name"
+msgid "Display name"
 msgstr "显示名称"
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
@@ -3524,17 +3559,17 @@ msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr "输入有效的用户名或将字段留空以获取随机用户名"
 
-#: src/qml/registration/ManualRegistrationPage.qml:141
+#: src/qml/registration/ManualRegistrationPage.qml:140
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "提供者要求更强的密码。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:190
+#: src/qml/registration/ManualRegistrationPage.qml:189
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "用户名已被占用。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:194
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "新的随机用户名已生成。"
@@ -3714,17 +3749,17 @@ msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "置顶和移动"
 
-#: src/qml/StartPage.qml:27
+#: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "账号迁移"
 
-#: src/qml/StartPage.qml:27
+#: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
 msgid "Account Creation"
 msgstr "账号创建"
 
-#: src/qml/StartPage.qml:50
+#: src/qml/StartPage.qml:51
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "在各种设备上享受自由的通信！"
@@ -3749,23 +3784,23 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/RosterController.cpp:154
+#: src/RosterController.cpp:152
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr ""
 
-#: src/RosterController.cpp:161
+#: src/RosterController.cpp:159
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:169
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterController.cpp:181
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3773,19 +3808,19 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterController.cpp:194
+#: src/RosterController.cpp:192
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:206
+#: src/RosterController.cpp:204
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:300
+#: src/RosterController.cpp:298
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
@@ -3834,3 +3869,31 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter correct password"
+#~ msgstr "输入正确的密码"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Message (optional, unencrypted):"
+#~ msgstr "消息（可选，未加密）："
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Hello, I'm…"
+#~ msgstr "您好，我是…"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "The hostname must not contain blank spaces"
+#~ msgstr "主机名不能包含空格"
+
+#~ msgctxt "JidField|"
+#~ msgid "The chat address must have the form <b>username@server</b>"
+#~ msgstr "聊天地址的格式必须是 <b>username@server</b>"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "Address"
+#~ msgstr "地址"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The address must have the form <b>group@server</b>"
+#~ msgstr "地址格式必须是 <b>group@server</b>"

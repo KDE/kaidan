@@ -1182,18 +1182,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Introduïu la contrasenya actual"
 
-#: src/qml/details/AccountDetailsContent.qml:701
-msgctxt "AccountDetailsContent|"
-msgid "Enter correct password"
-msgstr "Introduïu la contrasenya correcta"
-
 #: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Contrasenya nova"
 
 #: src/qml/details/AccountDetailsContent.qml:714
-#: src/qml/details/AccountDetailsContent.qml:972
+#: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasenya"
@@ -1204,32 +1199,35 @@ msgid "Enter your new password"
 msgstr "Introduïu la contrasenya nova"
 
 #: src/qml/details/AccountDetailsContent.qml:717
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
-msgid "Enter different password to change it"
+msgid "Enter a different password to change it"
 msgstr "Introduïu una contrasenya diferent per a canviar-la"
 
-#: src/qml/details/AccountDetailsContent.qml:728
+#: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:765
+#: src/qml/details/AccountDetailsContent.qml:762
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Ha fallat en canviar la contrasenya: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:771
+#: src/qml/details/AccountDetailsContent.qml:768
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:796
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Visibilitat de la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:807
+#: src/qml/details/AccountDetailsContent.qml:800
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1242,12 +1240,12 @@ msgstr ""
 "utilitzar el vostre compte en un altre dispositiu més tard, <b>considereu "
 "desar la contrasenya en un altre lloc. Això no es pot desfer!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:813
+#: src/qml/details/AccountDetailsContent.qml:806
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "No mostris la contrasenya com a text"
 
-#: src/qml/details/AccountDetailsContent.qml:814
+#: src/qml/details/AccountDetailsContent.qml:807
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1256,17 +1254,17 @@ msgstr ""
 "Permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió però mai mostra la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:821
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "S'està eliminant la contrasenya del text…"
 
-#: src/qml/details/AccountDetailsContent.qml:827
+#: src/qml/details/AccountDetailsContent.qml:820
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "No exposis la contrasenya de cap manera"
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:821
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1275,17 +1273,17 @@ msgstr ""
 "No es permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió ni mostrar la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:835
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "S'està eliminant la contrasenya del text i del codi QR…"
 
-#: src/qml/details/AccountDetailsContent.qml:845
+#: src/qml/details/AccountDetailsContent.qml:838
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:849
+#: src/qml/details/AccountDetailsContent.qml:842
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1294,33 +1292,33 @@ msgstr ""
 "Configura el nom del servidor i el port al qual connectar (camps buits per "
 "als valors predeterminats)"
 
-#: src/qml/details/AccountDetailsContent.qml:877
+#: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr "Aplica els canvis"
 
-#: src/qml/details/AccountDetailsContent.qml:878
+#: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr "S'estan aplicant els canvis…"
 
-#: src/qml/details/AccountDetailsContent.qml:908
+#: src/qml/details/AccountDetailsContent.qml:901
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "No es pot canviar la configuració de la connexió: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:921
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:932
+#: src/qml/details/AccountDetailsContent.qml:925
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/details/AccountDetailsContent.qml:936
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1329,53 +1327,53 @@ msgstr ""
 "No mostreu mai la informació d'aquesta secció a ningú més. Permetria un "
 "accés il·limitat al vostre compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:942
+#: src/qml/details/AccountDetailsContent.qml:935
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Mostra un codi QR d'inici de sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:943
+#: src/qml/details/AccountDetailsContent.qml:936
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "Escanegeu el codi QR en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:959
+#: src/qml/details/AccountDetailsContent.qml:952
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Mostra les credencials"
 
-#: src/qml/details/AccountDetailsContent.qml:960
+#: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr ""
 "Introduïu les credencials en un altre dispositiu per a iniciar-hi sessió"
 
-#: src/qml/details/AccountDetailsContent.qml:966
+#: src/qml/details/AccountDetailsContent.qml:959
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Adreça de xat"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:977
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migració"
 
-#: src/qml/details/AccountDetailsContent.qml:989
+#: src/qml/details/AccountDetailsContent.qml:982
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migra el compte"
 
-#: src/qml/details/AccountDetailsContent.qml:990
+#: src/qml/details/AccountDetailsContent.qml:983
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "S'està preparant la migració del compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:992
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "Això pot trigar una estona"
 
-#: src/qml/details/AccountDetailsContent.qml:992
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1386,17 +1384,17 @@ msgstr ""
 "El compte actual s'eliminarà d'aquesta aplicació. Feu una còpia de seguretat "
 "de les vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1014
+#: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminació"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1013
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Elimina del Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1014
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1405,17 +1403,17 @@ msgstr ""
 "Elimina el compte d'aquesta aplicació. Feu una còpia de seguretat de les "
 "vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1029
+#: src/qml/details/AccountDetailsContent.qml:1022
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "S'està eliminant el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1036
+#: src/qml/details/AccountDetailsContent.qml:1029
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Suprimeix completament"
 
-#: src/qml/details/AccountDetailsContent.qml:1037
+#: src/qml/details/AccountDetailsContent.qml:1030
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1423,12 +1421,12 @@ msgstr ""
 "Suprimeix el compte en el proveïdor. No podreu tornar a utilitzar el vostre "
 "compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:1045
+#: src/qml/details/AccountDetailsContent.qml:1038
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "S'està suprimint el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1045
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
@@ -2507,35 +2505,28 @@ msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Confirmeu"
 
-#: src/qml/elements/ContactAdditionContent.qml:30
+#: src/qml/elements/ContactAdditionContent.qml:32
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Afegeix"
 
-#: src/qml/elements/ContactAdditionContent.qml:42
+#: src/qml/elements/ContactAdditionContent.qml:45
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "Decisions de confiança efectuades pel contacte"
 
-#: src/qml/elements/ContactAdditionContent.qml:62
+#: src/qml/elements/ContactAdditionContent.qml:65
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Afegeix un contacte…"
 
-#: src/qml/elements/ContactAdditionContent.qml:91
+#: src/qml/elements/ContactAdditionContent.qml:92
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
-msgid "Name (optional):"
+msgid "Name (optional)"
 msgstr "Nom (opcional):"
-
-#: src/qml/elements/ContactAdditionContent.qml:99
-msgctxt "ContactAdditionContent|"
-msgid "Message (optional, unencrypted):"
-msgstr "Missatge (opcional, sense encriptar):"
-
-#: src/qml/elements/ContactAdditionContent.qml:106
-msgctxt "ContactAdditionContent|"
-msgid "Hello, I'm…"
-msgstr "Hola, soc…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2600,26 +2591,36 @@ msgid "Copy"
 msgstr "Copia"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
-msgid "Hostname:"
+msgid "Hostname"
 msgstr "Nom del servidor:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
-msgid "The hostname must not contain blank spaces"
-msgstr "El nom del servidor no pot contenir espais en blanc"
+msgid "Enter a valid hostname or leave it empty"
+msgstr ""
+"Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori"
 
-#: src/qml/elements/CustomConnectionSettings.qml:61
+#: src/qml/elements/CustomConnectionSettings.qml:50
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
-msgid "Port:"
+msgid "Port"
 msgstr "Port:"
 
-#: src/qml/elements/CustomConnectionSettings.qml:107
+#: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
 msgstr "Autenticació senzilla (SASL PLAIN)"
 
-#: src/qml/elements/CustomConnectionSettings.qml:108
+#: src/qml/elements/CustomConnectionSettings.qml:89
 msgctxt "CustomConnectionSettings|"
 msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
@@ -2694,20 +2695,26 @@ msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "usuari@example.org"
 
-#: src/qml/elements/fields/JidField.qml:21
+#: src/qml/elements/fields/JidField.qml:20
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by chat address"
 msgctxt "JidField|"
-msgid "The chat address must have the form <b>username@server</b>"
-msgstr "Cal que l'adreça de xat tingui la forma <b>nomusuari@servidor</b>"
+msgid "Enter a valid chat address"
+msgstr "Afegeix un contacte a partir de l'adreça de xat"
 
-#: src/qml/elements/fields/PasswordField.qml:20
+#: src/qml/elements/fields/PasswordField.qml:23
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Please enter a valid password"
+msgctxt "PasswordField|"
+msgid "Enter a valid password"
+msgstr "Introduïu una contrasenya vàlida"
+
+#: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
 msgid "Password"
 msgstr "Contrasenya"
-
-#: src/qml/elements/fields/PasswordField.qml:30
-msgctxt "PasswordField|"
-msgid "Please enter a valid password"
-msgstr "Introduïu una contrasenya vàlida"
 
 #: src/qml/elements/GeoLocationMap.qml:52
 msgctxt "GeoLocationMap|"
@@ -2739,52 +2746,66 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Envia la ubicació"
 
-#: src/qml/elements/GroupChatCreationContent.qml:19
+#: src/qml/elements/GroupChatCreationContent.qml:21
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "Crea"
 
-#: src/qml/elements/GroupChatCreationContent.qml:27
+#: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "S'està creant un grup de xat…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:32
+#: src/qml/elements/GroupChatCreationContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
-msgid "Group Name (optional)"
+msgid "Group name (optional)"
 msgstr "Nom de grup (opcional)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:33
+#: src/qml/elements/GroupChatCreationContent.qml:29
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "Grup d'exemple"
 
-#: src/qml/elements/GroupChatCreationContent.qml:41
+#: src/qml/elements/GroupChatCreationContent.qml:37
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Públic"
 
-#: src/qml/elements/GroupChatCreationContent.qml:54
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "ID del grup"
 
-#: src/qml/elements/GroupChatCreationContent.qml:57
+#: src/qml/elements/GroupChatCreationContent.qml:54
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "grup-exemple"
 
-#: src/qml/elements/GroupChatCreationContent.qml:59
+#: src/qml/elements/GroupChatCreationContent.qml:56
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "Introduïu un ID vàlid de grup"
 
-#: src/qml/elements/GroupChatCreationContent.qml:84
+#: src/qml/elements/GroupChatCreationContent.qml:65
+#, fuzzy
+#| msgctxt "BlockingModel|"
+#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
-msgid "Nickname (optional):"
+msgid "Service"
+msgstr "Dispositius"
+
+#: src/qml/elements/GroupChatCreationContent.qml:73
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Nickname (optional):"
+msgctxt "GroupChatCreationContent|"
+msgid "Nickname (optional)"
 msgstr "Sobrenom (opcional):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:101
+#: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
@@ -2792,7 +2813,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr "El grup no s'ha pogut crear a %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:105
+#: src/qml/elements/GroupChatCreationContent.qml:94
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2800,7 +2821,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr "El grup %1 no s'ha pogut crear%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:109
+#: src/qml/elements/GroupChatCreationContent.qml:98
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2818,34 +2839,46 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "Crea un grup de xat"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:18
+#: src/qml/elements/GroupChatJoiningContent.qml:19
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "Uneix-te"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:20
+#: src/qml/elements/GroupChatJoiningContent.qml:21
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
-msgid "Joining group chat…"
+msgid "Joining group…"
 msgstr "Us esteu unint a un grup de xat…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:25
-msgctxt "GroupChatJoiningContent|"
-msgid "Address"
-msgstr "Adreça"
-
 #: src/qml/elements/GroupChatJoiningContent.qml:26
+#, fuzzy
+#| msgctxt "UrlFormButtonDelegate|"
+#| msgid "Copy web address"
+msgctxt "GroupChatJoiningContent|"
+msgid "Group address"
+msgstr "Copia l'adreça de la web"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "grup@grups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
-msgid "The address must have the form <b>group@server</b>"
-msgstr "Cal que l'adreça tingui la forma <b>grup@servidor</b>"
+msgid "Enter a valid group address"
+msgstr "Introduïu un ID vàlid de grup"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
-msgid "Nickname (optional):"
+msgid "Nickname (optional)"
 msgstr "Sobrenom (opcional):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
@@ -2954,12 +2987,12 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: src/qml/elements/LoginArea.qml:29 src/qml/elements/LoginArea.qml:100
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Inici de sessió"
 
-#: src/qml/elements/LoginArea.qml:38
+#: src/qml/elements/LoginArea.qml:39
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Escaneja un codi QR d'inici de sessió"
@@ -2969,7 +3002,7 @@ msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "Mostra la configuració de la connexió"
 
-#: src/qml/elements/LoginArea.qml:101
+#: src/qml/elements/LoginArea.qml:91
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
@@ -3419,115 +3452,115 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Seleccioneu un xat per a iniciar"
 
-#: src/qml/GlobalDrawer.qml:66
+#: src/qml/GlobalDrawer.qml:55
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: src/qml/GlobalDrawer.qml:130
+#: src/qml/GlobalDrawer.qml:119
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Contrasenya"
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Introduïu la contrasenya correcta"
 
-#: src/qml/GlobalDrawer.qml:140
+#: src/qml/GlobalDrawer.qml:129
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Confirmeu la contrasenya"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Accions"
 
-#: src/qml/GlobalDrawer.qml:188
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Activa el vostre compte per a fer servir totes les accions disponibles"
 
-#: src/qml/GlobalDrawer.qml:188
+#: src/qml/GlobalDrawer.qml:174
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Activa un compte per a fer servir totes les accions disponibles"
 
-#: src/qml/GlobalDrawer.qml:193
+#: src/qml/GlobalDrawer.qml:179
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Afegeix un contacte a partir del codi QR"
 
-#: src/qml/GlobalDrawer.qml:200
+#: src/qml/GlobalDrawer.qml:186
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Afegeix un contacte a partir de l'adreça de xat"
 
-#: src/qml/GlobalDrawer.qml:207
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Crea un grup"
 
-#: src/qml/GlobalDrawer.qml:207
+#: src/qml/GlobalDrawer.qml:193
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Crea un grup (no implementat)"
 
-#: src/qml/GlobalDrawer.qml:233
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Uniu-vos al grup"
 
-#: src/qml/GlobalDrawer.qml:233
+#: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Unir-se a un grup (no implementat)"
 
-#: src/qml/GlobalDrawer.qml:260
+#: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Cerca grups públics"
 
-#: src/qml/GlobalDrawer.qml:274
+#: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Quant a"
 
-#: src/qml/GlobalDrawer.qml:498
+#: src/qml/GlobalDrawer.qml:484
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 desbloquejat"
 
-#: src/qml/GlobalDrawer.qml:498
+#: src/qml/GlobalDrawer.qml:484
 msgctxt "GlobalDrawer|"
 msgid "Undo"
 msgstr "Desfés"
 
-#: src/qml/GlobalDrawer.qml:505
+#: src/qml/GlobalDrawer.qml:491
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "No s'ha pogut bloquejar %1: %2"
 
-#: src/qml/GlobalDrawer.qml:509
+#: src/qml/GlobalDrawer.qml:495
 #, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "No s'ha pogut desbloquejar %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:26
+#: src/qml/QrCodeOnboardingPage.qml:27
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "Escaneja un codi QR"
 
-#: src/qml/QrCodeOnboardingPage.qml:28
+#: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Escaneja un codi QR"
 
-#: src/qml/QrCodeOnboardingPage.qml:28
+#: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Mostra una explicació"
@@ -3612,8 +3645,11 @@ msgid "Enter your desired credentials"
 msgstr "Introduïu les vostres credencials desitjades"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
-msgid "Display Name"
+msgid "Display name"
 msgstr "Nom a mostrar"
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
@@ -3627,17 +3663,17 @@ msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 "Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori"
 
-#: src/qml/registration/ManualRegistrationPage.qml:141
+#: src/qml/registration/ManualRegistrationPage.qml:140
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "El proveïdor necessita una contrasenya més forta."
 
-#: src/qml/registration/ManualRegistrationPage.qml:190
+#: src/qml/registration/ManualRegistrationPage.qml:189
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "El nom d'usuari ja està agafat."
 
-#: src/qml/registration/ManualRegistrationPage.qml:194
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "S'ha generat un nom d'usuari aleatori nou."
@@ -3819,17 +3855,17 @@ msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Fixa i mou"
 
-#: src/qml/StartPage.qml:27
+#: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Migració del compte"
 
-#: src/qml/StartPage.qml:27
+#: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
 msgid "Account Creation"
 msgstr "Creació de compte"
 
-#: src/qml/StartPage.qml:50
+#: src/qml/StartPage.qml:51
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Gaudiu de la comunicació lliure a tots els dispositius!"
@@ -3854,23 +3890,23 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/RosterController.cpp:154
+#: src/RosterController.cpp:152
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "No s'ha pogut afegir %1: %2"
 
-#: src/RosterController.cpp:161
+#: src/RosterController.cpp:159
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterController.cpp:171
+#: src/RosterController.cpp:169
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "No s'ha pogut reanomenar el contacte perquè no hi ha connexió."
 
-#: src/RosterController.cpp:181
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3880,19 +3916,19 @@ msgstr ""
 "La sol·licitud de veure les dades personals de %1 ha fallat per un problema "
 "de connexió: %2"
 
-#: src/RosterController.cpp:194
+#: src/RosterController.cpp:192
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Ha fallat en permetre a %1 veure les vostres dades personals"
 
-#: src/RosterController.cpp:206
+#: src/RosterController.cpp:204
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Ha fallat en aturar a %1 de veure les vostres dades personals"
 
-#: src/RosterController.cpp:300
+#: src/RosterController.cpp:298
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
@@ -3941,3 +3977,31 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Enter correct password"
+#~ msgstr "Introduïu la contrasenya correcta"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Message (optional, unencrypted):"
+#~ msgstr "Missatge (opcional, sense encriptar):"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Hello, I'm…"
+#~ msgstr "Hola, soc…"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "The hostname must not contain blank spaces"
+#~ msgstr "El nom del servidor no pot contenir espais en blanc"
+
+#~ msgctxt "JidField|"
+#~ msgid "The chat address must have the form <b>username@server</b>"
+#~ msgstr "Cal que l'adreça de xat tingui la forma <b>nomusuari@servidor</b>"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "Address"
+#~ msgstr "Adreça"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The address must have the form <b>group@server</b>"
+#~ msgstr "Cal que l'adreça tingui la forma <b>grup@servidor</b>"
