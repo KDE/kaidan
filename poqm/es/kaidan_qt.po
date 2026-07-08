@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 16:36+0100\n"
-"PO-Revision-Date: 2026-07-01 16:43+0100\n"
+"PO-Revision-Date: 2026-07-07 23:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/Account.cpp:465
 msgctxt "Connection|"
@@ -1198,9 +1198,6 @@ msgid "Enter your new password"
 msgstr "Introduzca su contraseña nueva"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Introduzca una contraseña distinta para cambiarla"
@@ -2531,12 +2528,9 @@ msgid "Adding contact…"
 msgstr "Añadiendo contacto…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Nombre (opcional):"
+msgstr "Nombre (opcional)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2599,30 +2593,19 @@ msgid "Copy"
 msgstr "Copiar"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Nombre de máquina:"
+msgstr "Nombre de máquina"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr ""
-"Introduzca un nombre de usuario válido o deje el campo en blanco para usar "
-"uno aleatorio"
+msgstr "Introduzca un nombre de máquina válido o deje el campo en blanco"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Puerto:"
+msgstr "Puerto"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2704,17 +2687,11 @@ msgid "user@example.org"
 msgstr "usuario@ejemplo.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Añadir contacto por dirección de conversación"
+msgstr "Introduzca una dirección de conversación válida"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "Introduzca una contraseña válida"
@@ -2765,9 +2742,6 @@ msgid "Creating group chat…"
 msgstr "Creando conversación de grupo…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Nombre del grupo (opcional)"
@@ -2798,20 +2772,14 @@ msgid "Enter a valid group ID"
 msgstr "Introduzca un ID de grupo válido"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Dispositivos"
+msgstr "Servicio"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Apodo (opcional):"
+msgstr "Apodo (opcional)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2853,20 +2821,14 @@ msgid "Join"
 msgstr "Unirse"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Uniéndose a conversación de grupo…"
+msgstr "Uniéndose al grupo…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Copiar dirección web"
+msgstr "Dirección del grupo"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2874,20 +2836,14 @@ msgid "group@groups.example.org"
 msgstr "grupo@grupos.ejemplo.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Introduzca un ID de grupo válido"
+msgstr "Introduzca una dirección de grupo válida"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Apodo (opcional):"
+msgstr "Apodo (opcional)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -3654,9 +3610,6 @@ msgid "Enter your desired credentials"
 msgstr "Introduzca las credenciales que desee"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Nombre visible"
@@ -3988,32 +3941,3 @@ msgstr "Cumpleaños"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Enter correct password"
-#~ msgstr "Introduzca la contraseña correcta"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Message (optional, unencrypted):"
-#~ msgstr "Mensaje (opcional, descifrado):"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Hello, I'm…"
-#~ msgstr "¡Hola! Soy…"
-
-#~ msgctxt "CustomConnectionSettings|"
-#~ msgid "The hostname must not contain blank spaces"
-#~ msgstr "El nombre de máquina no debe contener espacios en blanco"
-
-#~ msgctxt "JidField|"
-#~ msgid "The chat address must have the form <b>username@server</b>"
-#~ msgstr ""
-#~ "La dirección de conversación debe tener la forma <b>usuario@servidor</b>"
-
-#~ msgctxt "GroupChatJoiningContent|"
-#~ msgid "Address"
-#~ msgstr "Dirección"
-
-#~ msgctxt "GroupChatJoiningContent|"
-#~ msgid "The address must have the form <b>group@server</b>"
-#~ msgstr "La dirección debe tener la forma <b>grupo@servidor</b>"

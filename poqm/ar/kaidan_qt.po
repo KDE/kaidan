@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-01 17:58+0400\n"
+"PO-Revision-Date: 2026-07-07 18:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1170,9 +1170,6 @@ msgid "Enter your new password"
 msgstr "أدخل كلمة سرك"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "أدخل كلمة سر مختلفة لتغييرها"
@@ -2456,12 +2453,9 @@ msgid "Adding contact…"
 msgstr "يضيف متراسل جديد…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "الاسم (اختياري):"
+msgstr "الاسم (اختياري)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2524,28 +2518,19 @@ msgid "Copy"
 msgstr "انسخ"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "اسم المضيف:"
+msgstr "اسم المضيف"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr "أدخل اسم مستخدم صالح أو اترك الحقل فارغًا لاسم مستخدم عشوائي"
+msgstr "أدخل اسم مستضيف صالح أو اترك الحقل فارغًا"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "المنفذ:"
+msgstr "المنفذ"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2627,20 +2612,14 @@ msgid "user@example.org"
 msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "أضف متراسل بعنوان الدردشة"
+msgstr "أدخِل عنوان دردشة صحيح"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
-msgstr "من فضلك أدخل كلمة السر صالحة"
+msgstr "أدخل كلمة سر صالحة"
 
 #: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
@@ -2688,9 +2667,6 @@ msgid "Creating group chat…"
 msgstr "أنشئ مجموعة دردشة…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "اسم المجموعة (اختياري)"
@@ -2721,20 +2697,14 @@ msgid "Enter a valid group ID"
 msgstr "أدخل معرف مجموعة صالح"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "الأجهزة"
+msgstr "الخدمة"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "اللقب (اختياري):"
+msgstr "اللقب (اختياري)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2776,20 +2746,14 @@ msgid "Join"
 msgstr "انضم"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "ينضم إلى مجموعة دردشة…"
+msgstr "ينضم إلى مجموعة…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "انسخ عنوان الويب"
+msgstr "عنوان المجموعة"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2797,20 +2761,14 @@ msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "أدخل معرف مجموعة صالح"
+msgstr "أدخِل عنوان مجموعة صحيح"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "اللقب (اختياري):"
+msgstr "اللقب (اختياري)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -3566,9 +3524,6 @@ msgid "Enter your desired credentials"
 msgstr "أدخل بيانات اعتمادك المطلوبة"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "اسم العرض"

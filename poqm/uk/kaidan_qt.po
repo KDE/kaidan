@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-01 13:34+0300\n"
+"PO-Revision-Date: 2026-07-07 08:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1199,9 +1199,6 @@ msgid "Enter your new password"
 msgstr "Введіть ваш новий пароль"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Введіть інший пароль, щоб змінити його"
@@ -2521,12 +2518,9 @@ msgid "Adding contact…"
 msgstr "Додавання контакту…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Назва (необов'язково):"
+msgstr "Назва (необов’язково):"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2589,30 +2583,19 @@ msgid "Copy"
 msgstr "Копіювати"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Назва вузла:"
+msgstr "Назва вузла"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr ""
-"Вкажіть коректне ім'я користувача або не заповнюйте це поле, якщо ім'я слід "
-"вибрати випадковим чином."
+msgstr "Введіть коректну назву вузла або не заповнюйте"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Порт:"
+msgstr "Порт"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2697,20 +2680,14 @@ msgid "user@example.org"
 msgstr "користувач@приклад.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Додати контакт за адресою у спілкування"
+msgstr "Введіть коректну адресу спілкування"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
-msgstr "Будь ласка, введіть коректний пароль"
+msgstr "Введіть коректний пароль"
 
 #: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
@@ -2758,9 +2735,6 @@ msgid "Creating group chat…"
 msgstr "Створюємо групове спілкування…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Назва групи (необов'язково)"
@@ -2791,20 +2765,14 @@ msgid "Enter a valid group ID"
 msgstr "Введіть коректний ідентифікатор групи"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Пристрої"
+msgstr "Служба"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Псевдонім (необов’язково):"
+msgstr "Псевдонім (необов’язково)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2846,20 +2814,14 @@ msgid "Join"
 msgstr "Долучитися"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Долучення до групового спілкування…"
+msgstr "Долучення до групи…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Копіювати адресу"
+msgstr "Адреса групи"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2867,20 +2829,14 @@ msgid "group@groups.example.org"
 msgstr "група@групи.приклад.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Введіть коректний ідентифікатор групи"
+msgstr "Введіть коректну адресу групи"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Псевдонім (необов’язково):"
+msgstr "Псевдонім (необов’язково)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -3644,9 +3600,6 @@ msgid "Enter your desired credentials"
 msgstr "Введіть ваші бажані реєстраційні дані"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Екранне ім'я"

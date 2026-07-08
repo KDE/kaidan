@@ -1183,9 +1183,6 @@ msgid "Enter your new password"
 msgstr "შეიყვანეთ თქვენი ახალი პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "შესაცვლელად სხვა პაროლი შეიყვანეთ"
@@ -2496,12 +2493,9 @@ msgid "Adding contact…"
 msgstr "კონტაქტის დამატება…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "სახელი (არასავალდებულო):"
+msgstr "სახელი (არასავალდებულო)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2566,30 +2560,19 @@ msgid "Copy"
 msgstr "კოპირება"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "ჰოსტის სახელი:"
+msgstr "ჰოსტის სახელი"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr ""
-"შეიყვანეთ სწორი მომხმარებლის სახელი ან, შემთხვევითის ასარჩევად, ეს ველი "
-"ცარიელი დატოვეთ"
+msgstr "შეიყვანეთ მართებული ჰოსტის სახელი, ან დატოვეთ ცარიელი"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "პორტი:"
+msgstr "პორტი"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2672,17 +2655,11 @@ msgid "user@example.org"
 msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "კონტაქტის დამატება ჩატის მისამართით"
+msgstr "შეიყვანეთ სწორი ჩატის მისამართი"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "შეიყვანეთ სწორი პაროლი"
@@ -2733,9 +2710,6 @@ msgid "Creating group chat…"
 msgstr "ჯგუფური ჩატის შექმნა…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "ჯგუფის სახელი (არასავალდებულო)"
@@ -2766,20 +2740,14 @@ msgid "Enter a valid group ID"
 msgstr "შეიყვანეთ სწორი ჯგუფის ID"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "მოწყობილობები"
+msgstr "სერვისი"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "მეტსახელი (არასავალდებულო):"
+msgstr "მეტსახელი (არასავალდებულო)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2821,20 +2789,14 @@ msgid "Join"
 msgstr "შეერთება"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "ჯგუფურ ჩატში შესვლა…"
+msgstr "ჯგუფში გაწევრება…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "ვეგბვერდის მისამართის კოპირება"
+msgstr "ჯგუფის მისამართი"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2842,20 +2804,14 @@ msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "შეიყვანეთ სწორი ჯგუფის ID"
+msgstr "შეიყვანეთ სწორი ჯგუფის მისამართი"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "მეტსახელი (არასავალდებულო):"
+msgstr "მეტსახელი (არასავალდებულო)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -3622,9 +3578,6 @@ msgid "Enter your desired credentials"
 msgstr "შეიყვანეთ სასურველი ავტორიზაციის დეტალები"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "საჩვენებელი სახელი"
