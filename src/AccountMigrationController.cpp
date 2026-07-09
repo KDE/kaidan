@@ -427,7 +427,7 @@ bool AccountMigrationController::saveAccountDataToDisk(const QString &filePath, 
 
     QXmlStreamWriter writer(&file);
 
-    data.toXml(&writer);
+    data.toXml(&writer, QXmppExportData::Format::Xep0227);
 
     if (writer.hasError()) {
         file.remove();
