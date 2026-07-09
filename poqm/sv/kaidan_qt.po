@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2022-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-10-13 22:29+0200\n"
+"PO-Revision-Date: 2026-07-08 21:40+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/Account.cpp:465
 msgctxt "Connection|"
@@ -107,9 +107,7 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Kontot kunde inte överföras. Du måste vara ansluten."
 
 #: src/AccountMigrationController.cpp:386
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "Konto '%1' överfört till '%2'"
@@ -140,31 +138,23 @@ msgid "Devices on Servers"
 msgstr "Enheter på servrar"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 skriver…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "QmlUtils|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 slutade skriva"
 
 #: src/ChatHintModel.cpp:234
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
-"Kontot är inte aktiverat. Meddelanden skickas och tas emot när det väl är "
-"aktiverat."
+"Kontot är inaktiverat. Meddelanden skickas och tas emot när det väl är "
+"anslutet."
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
 #: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
@@ -198,11 +188,7 @@ msgid "Connecting…"
 msgstr "Ansluter…"
 
 #: src/ChatHintModel.cpp:260
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
 "with ': ' and is shown if the request has a status message, otherwise it is "
@@ -215,12 +201,7 @@ msgstr ""
 "annan personlig information%2"
 
 #: src/ChatHintModel.cpp:267
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
-#| "personal data such as availability, devices and other personal "
-#| "information again%5"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
 "JIDs, %5 is appended text that begins with ': ' and is shown if the request "
@@ -278,12 +259,9 @@ msgid "Leaving group chat"
 msgstr "Lämnar gruppchatt"
 
 #: src/FileSharingController.cpp:305 src/FileSharingController.cpp:440
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "FileSharingController|"
 msgid "Canceled"
-msgstr "Avbryt"
+msgstr "Avbruten"
 
 #: src/FileSharingController.cpp:336
 #, qt-format
@@ -294,44 +272,34 @@ msgstr "Kunde inte ladda ner fil: %1"
 #: src/FileSharingController.cpp:383
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Stöd för mediadelning är okänt"
 
 #: src/FileSharingController.cpp:386
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Funktionen stöds inte"
+msgstr "Mediadelning stöds inte"
 
 #: src/FileSharingController.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not download file: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
-msgstr "Kunde inte ladda ner fil: %1"
+msgstr "Kunde inte ladda upp fil: %1"
 
 #: src/FileSharingController.cpp:624
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Överföring avbruten"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Uppladdning misslyckades: %1"
+msgstr "Överföring misslyckades: %1"
 
 #: src/Globals.h:99
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Save selection"
 msgctxt "QObject|"
 msgid "No selection"
-msgstr "Spara markering"
+msgstr "Ingen markering"
 
 #: src/GroupChatUserModel.cpp:54
 msgctxt "GroupChatUserModel|"
@@ -344,9 +312,6 @@ msgid "Joined"
 msgstr "Har gått med"
 
 #: src/GroupChatUserModel.cpp:58
-#, fuzzy
-#| msgctxt "GroupChatUserModel|"
-#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "Vänster"
@@ -357,25 +322,19 @@ msgid "Banned"
 msgstr "Bannlyst"
 
 #: src/ImageProvider.cpp:124
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not copy invalid source to clipboard: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Kunde inte kopiera ogiltig källa till klippbordet: %1"
 
 #: src/ImageProvider.cpp:302
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate thumbnail: %1 does not exist"
+#, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Kunde inte skapa miniatyrbild: %1 finns inte"
 
 #: src/ImageProvider.cpp:356
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate QR code: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Kunde inte skapa QR-kod: %1"
@@ -481,9 +440,7 @@ msgid "Documents"
 msgstr "Dokument"
 
 #: src/MediaUtils.cpp:446
-#, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
+#, qt-format
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -505,9 +462,7 @@ msgid "Location"
 msgstr "Plats"
 
 #: src/Message.cpp:466
-#, fuzzy, qt-format
-#| msgctxt "Message|"
-#| msgid "Invitation to group %1"
+#, qt-format
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "Inbjudan till grupp %1"
@@ -523,17 +478,13 @@ msgid "Unknown size"
 msgstr "Okänd storlek"
 
 #: src/MessageComposition.cpp:561
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "'%1' kan inte skickas eftersom det är större än %2"
+msgstr "Röstmeddelande kan inte skickas eftersom det är större än %2"
 
 #: src/MessageComposition.cpp:594
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
@@ -541,12 +492,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' kan inte skickas eftersom det är större än %2"
 
 #: src/MessageController.cpp:278
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Meddelande kunde inte skickas."
+msgstr "Meddelande kunde inte skickas"
 
 #: src/MessageController.cpp:282
 msgctxt "MessageController|"
@@ -554,17 +502,13 @@ msgid "Message could not be sent."
 msgstr "Meddelande kunde inte skickas."
 
 #: src/MessageController.cpp:617
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Meddelandet är krypterat med %1 men kunde inte avkrypteras"
 
 #: src/MessageController.cpp:1021
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktion kunde inte skickas: %1"
@@ -590,17 +534,13 @@ msgid "Error"
 msgstr "Fel"
 
 #: src/MessageModel.cpp:595 src/MessageModel.cpp:692
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktion kunde inte skickas: %1"
 
 #: src/MessageModel.cpp:777
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Reaktioner kunde inte skickas: %1"
@@ -621,25 +561,19 @@ msgid "The group already exists"
 msgstr "Gruppen finns redan"
 
 #: src/MixController.cpp:125
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Whether %1 is public could not be determined: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Det gick inte att avgöra om %1 är öppen: %2"
 
 #: src/MixController.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not retrieve information of group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Kunde inte hämta information om grupp %1: %2"
 
 #: src/MixController.cpp:151 src/MixController.cpp:160
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Kunde inte byta namn på grupp %1: %2"
@@ -655,50 +589,38 @@ msgid "You aren't allowed to join the group"
 msgstr "Du har inte tillåtelse att gå med i gruppen"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be invited to %2: %3"
+#, qt-format
 msgctxt ""
 "MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 kunde inte bjudas in till %2: %3"
 
 #: src/MixController.cpp:272
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Nodes of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Noder i %1 kunde inte hämtas: %2"
 
 #: src/MixController.cpp:280
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Allowed users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Tillåtna användare i %1 kunde inte hämtas: %2"
 
 #: src/MixController.cpp:295
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Banned users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Bannlysta användare i %1 kunde inte hämtas: %2"
 
 #: src/MixController.cpp:311
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Användare som har gått med i %1 kunde inte hämtas: %2"
 
 #: src/MixController.cpp:326
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be banned from %2: %3"
+#, qt-format
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kunde inte bannlysas från %2: %3"
@@ -712,18 +634,15 @@ msgstr "Du har inte tillåtelse att ta bort gruppen"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Inkommande samtal från %1"
 
 #: src/NotificationController.cpp:104
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Inkommande videosamtal från %1"
 
 #: src/NotificationController.cpp:120
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Acceptera"
@@ -731,7 +650,7 @@ msgstr "Acceptera"
 #: src/NotificationController.cpp:127
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Avslå"
 
 #: src/NotificationController.cpp:314 src/NotificationController.cpp:376
 msgctxt "NotificationController|"
@@ -744,20 +663,14 @@ msgid "Mark as read"
 msgstr "Markera som läst"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Svara"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Svara"
+msgstr "Svara…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -800,9 +713,6 @@ msgid "Offline"
 msgstr "Nerkopplad"
 
 #: src/ProviderModel.cpp:73
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Egen leverantör"
@@ -811,23 +721,18 @@ msgstr "Egen leverantör"
 #. ----------
 #. Deletion of message history stored on provider
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Unlimited"
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Obegränsat"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, fuzzy, qt-format
-#| msgctxt "ProviderListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%1 dagar"
-msgstr[1] "%1 dagar"
+msgstr[0] "%n dag"
+msgstr[1] "%n dagar"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -842,59 +747,47 @@ msgstr "Om Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Samtal"
 
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Avsluta samtal"
 
 #: src/qml/ChatPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Öppna supportchatt"
+msgstr "Öppna samtal"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Starta samtal"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Öppna videosamtal"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Starta videosamtal"
 
 #: src/qml/ChatPage.qml:163
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Sök uppåt"
 
 #: src/qml/ChatPage.qml:174
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Sök neråt"
 
 #: src/qml/ChatPage.qml:186
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Stäng sökning"
+msgstr "Avsluta sökning"
 
 #: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
@@ -917,9 +810,7 @@ msgid "Drop files to be sent"
 msgstr "Släpp filer att skicka"
 
 #: src/qml/ChatPage.qml:918
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
@@ -930,25 +821,19 @@ msgid "Undo"
 msgstr "Ångra"
 
 #: src/qml/ChatPage.qml:925
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/ChatPage.qml:929
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kunde inte ta bort blockering för %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "Tillåter att dela media upp till %1."
@@ -1162,9 +1047,7 @@ msgid "Support"
 msgstr "Support"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Support %1"
@@ -1180,9 +1063,7 @@ msgid "Join your provider's public support group"
 msgstr "Gå med i leverantörens öppna supportgrupp"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Gruppsupport %1"
@@ -1300,9 +1181,6 @@ msgid "Enter your new password"
 msgstr "Ange ditt nya lösenord"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Ange ett annorlunda lösenord för att ändra det"
@@ -1313,9 +1191,7 @@ msgid "Change password"
 msgstr "Ändra lösenord"
 
 #: src/qml/details/AccountDetailsContent.qml:762
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Failed to change password: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Misslyckades ändra lösenord: %1"
@@ -1398,17 +1274,15 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
-msgstr ""
+msgstr "Verkställ ändringar"
 
 #: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr ""
+msgstr "Verkställer ändringar…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection settings could not be changed: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Anslutningsinställningarna kunde inte ändras.: %1"
@@ -1531,11 +1405,7 @@ msgid "Deleting account…"
 msgstr "Tar bort konto…"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1738,12 +1608,9 @@ msgid "Send typing notifications"
 msgstr "Skicka skrivunderrättelser"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indikera vilka meddelanden du har läst"
+msgstr "Indikera när du skriver"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -2030,12 +1897,9 @@ msgid "Send typing notifications"
 msgstr "Skicka skrivunderrättelser"
 
 #: src/qml/details/GroupChatDetailsContent.qml:350
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Indikera vilka meddelanden du har läst"
+msgstr "Indikera när du skriver"
 
 #: src/qml/details/GroupChatDetailsContent.qml:356
 msgctxt "GroupChatDetailsContent|"
@@ -2068,9 +1932,7 @@ msgid "Leaving group chat…"
 msgstr "Lämnar gruppchatt…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be left%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2093,9 +1955,7 @@ msgid "Deleting group chat…"
 msgstr "Tar bort gruppchatt…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2195,19 +2055,13 @@ msgid "Other"
 msgstr "Annat"
 
 #: src/qml/details/MediaOverview.qml:172
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid "%1/%2 selected"
+#, qt-format
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 markerade"
 
 #: src/qml/details/MediaOverview.qml:255
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid ""
-#| "Not all files could be deleted:\n"
-#| "%1"
+#, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2428,20 +2282,14 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Lägg till dold meddelandedel"
+msgstr "Dölj dold meddelandedel"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Lägg till dold meddelandedel"
+msgstr "Visa dold meddelandedel"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2449,33 +2297,25 @@ msgid "New"
 msgstr "Ny"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, fuzzy, qt-format
-#| msgctxt "ChatMessage|"
-#| msgid "%1 has read up to this point"
+#, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 har läst hit"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:57
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Ta bort fil"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:65
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Öppna den markerade filens katalog"
+msgstr "Öppna fil i katalog"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:78
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
-msgstr ""
+msgstr "Skicka igen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:86
 msgctxt "ChatMessageContextMenu|"
@@ -2534,9 +2374,6 @@ msgstr "Avbryt tillägg av dold meddelandedel"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 #: src/qml/elements/ChatPageSendingPane.qml:612
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Avbryt"
@@ -2609,7 +2446,7 @@ msgstr "Mer "
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Skjut för att avbryta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2618,12 +2455,9 @@ msgid "Send"
 msgstr "Skicka"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Skicka ett röstmeddelande"
+msgstr "Spela in ett röstmeddelande"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2636,12 +2470,9 @@ msgid "Add"
 msgstr "Lägg till"
 
 #: src/qml/elements/ContactAdditionContent.qml:45
-#, fuzzy
-#| msgctxt "QrCodeScanningArea|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "Lita på beslut gjorda för kontakten: fortsätt med steg 2"
+msgstr "Lita på beslut gjorda för kontakten"
 
 #: src/qml/elements/ContactAdditionContent.qml:65
 msgctxt "ContactAdditionContent|"
@@ -2649,9 +2480,6 @@ msgid "Adding contact…"
 msgstr "Lägger till kontakt…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
 msgstr "Namn (valfritt):"
@@ -2717,34 +2545,24 @@ msgid "Copy"
 msgstr "Kopiera"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Värddatornamn:"
+msgstr "Värddatornamn"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr ""
-"Ange ett giltigt användarnamn eller lämna fältet tomt för ett slumpmässigt."
+msgstr "Ange ett giltigt användarnamn eller lämna det tomt"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Port:"
+msgstr "Port"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
 msgid "Plain authentication (SASL PLAIN)"
-msgstr ""
+msgstr "Enkel behörighetskontroll (SASL PLAIN)"
 
 #: src/qml/elements/CustomConnectionSettings.qml:89
 msgctxt "CustomConnectionSettings|"
@@ -2752,6 +2570,8 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
+"Krävs om leverantör använder LDAP, vilket ofta är fallet i organisationer "
+"där man kan logga in med ett enda konto."
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
@@ -2761,52 +2581,52 @@ msgstr "Vissa funktioner blir synliga när kontot väl är aktiverat"
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr ""
+msgstr "Favoriter"
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr ""
+msgstr "Människor"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
 msgid "Nature"
-msgstr ""
+msgstr "Natur"
 
 #: src/qml/elements/EmojiPicker.qml:71
 msgctxt "EmojiPicker|"
 msgid "Food"
-msgstr ""
+msgstr "Mat"
 
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr ""
+msgstr "Aktivitet"
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
 msgid "Travel"
-msgstr ""
+msgstr "Resor"
 
 #: src/qml/elements/EmojiPicker.qml:89
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr ""
+msgstr "Objekt"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
 msgid "Symbols"
-msgstr ""
+msgstr "Symboler"
 
 #: src/qml/elements/EmojiPicker.qml:101
 msgctxt "EmojiPicker|"
 msgid "Flags"
-msgstr ""
+msgstr "Flaggor"
 
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "Inga emoji hittades"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2819,17 +2639,11 @@ msgid "user@example.org"
 msgstr "användare@exempel.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Lägg till kontakt enligt chattadress"
+msgstr "Ange en giltig chattadress"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "Ange ett giltigt lösenord"
@@ -2855,25 +2669,16 @@ msgid "Location"
 msgstr "Plats"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
-#, fuzzy
-#| msgctxt "GeoLocationSharingDialog|"
-#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "Dela plats"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "Hur platser öppnas"
+msgstr "Följ nuvarande plats"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Skicka plats"
@@ -2889,9 +2694,6 @@ msgid "Creating group chat…"
 msgstr "Skapar gruppchatt…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Gruppnamn (valfritt)"
@@ -2922,25 +2724,17 @@ msgid "Enter a valid group ID"
 msgstr "Ange en giltig gruppidentifikation"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Enheter"
+msgstr "Tjänst"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Smeknamn (valfritt):"
+msgstr "Smeknamn (valfritt)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group could not be created on %1%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2948,9 +2742,7 @@ msgid "The group could not be created on %1%2"
 msgstr "Gruppen kunde inte skapas på %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:94
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be created%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2958,9 +2750,7 @@ msgid "The group %1 could not be created%2"
 msgstr "Gruppen %1 kunde inte skapas%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:98
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2983,20 +2773,14 @@ msgid "Join"
 msgstr "Gå med"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Går med i gruppchatt…"
+msgstr "Går med i grupp…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Kopiera webbadress"
+msgstr "Gruppadress"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -3004,25 +2788,17 @@ msgid "group@groups.example.org"
 msgstr "grupp@grupp.exempel.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Ange en giltig gruppidentifikation"
+msgstr "Ange en giltig gruppadress"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Smeknamn (valfritt):"
+msgstr "Smeknamn (valfritt)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -3065,9 +2841,6 @@ msgid "Take a picture"
 msgstr "Ta en bild"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Ta en bild"
@@ -3141,12 +2914,9 @@ msgid "Scan login QR code"
 msgstr "Läs QR-inloggningskod"
 
 #: src/qml/elements/LoginArea.qml:56
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "LoginArea|"
 msgid "Show connection settings"
-msgstr "Ändra anslutningsinställningar"
+msgstr "Visa anslutningsinställningar"
 
 #: src/qml/elements/LoginArea.qml:91
 msgctxt "LoginArea|"
@@ -3154,94 +2924,61 @@ msgid "Connecting…"
 msgstr "Ansluter…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Paus"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Spela"
 
 #: src/qml/elements/MediaViewer.qml:92
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Välj en leverantör"
+msgstr "Stäng mediavisning"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Leverantörsinformation"
+msgstr "Dölj detaljinformation"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Visa detaljinformation"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Quote message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Citera meddelande"
+msgstr "Gå till meddelande"
 
 #: src/qml/elements/MediaViewer.qml:129
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Ta bort"
 
 #: src/qml/elements/MediaViewer.qml:139
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Öppna den markerade filens katalog"
+msgstr "Öppna i katalog"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Öppna externt"
 
 #: src/qml/elements/MediaViewer.qml:175
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Kopiera meddelande"
+msgstr "Meddelande"
 
 #: src/qml/elements/MediaViewer.qml:182
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Beskrivning"
 
 #: src/qml/elements/MediaViewer.qml:200
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Namn"
@@ -3249,22 +2986,22 @@ msgstr "Namn"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Skickat och mottaget"
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Föregående"
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3332,63 +3069,52 @@ msgid "Retry updating reactions"
 msgstr "Försök att uppdatera reaktioner igen"
 
 #: src/qml/elements/ProviderFilterArea.qml:18
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "Registrering misslyckades:"
+msgstr "Registrering via Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to create an account directly via Kaidan"
 msgstr ""
+"Visa bara leverantörer som tillåter att skapa ett konto direkt via Kaidan"
 
 #: src/qml/elements/ProviderFilterArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "ProviderFilterArea|"
 msgid "Free of charge"
-msgstr "Ledig för chatt"
+msgstr "Utan kostnad"
 
 #: src/qml/elements/ProviderFilterArea.qml:26
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that are free of charge"
-msgstr ""
+msgstr "Visa bara leverantörer som är utan kostnad"
 
 #: src/qml/elements/ProviderFilterArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password"
 msgctxt "ProviderFilterArea|"
 msgid "Password reset"
-msgstr "Lösenord"
+msgstr "Lösenordsnollställning"
 
 #: src/qml/elements/ProviderFilterArea.qml:33
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers that allow to reset your password"
-msgstr ""
+msgstr "Visa bara leverantörer som tillåter nollställning av lösenord"
 
 #: src/qml/elements/ProviderFilterArea.qml:39
 msgctxt "ProviderFilterArea|"
 msgid "Green hosting"
-msgstr ""
+msgstr "Gröna leverantörer"
 
 #: src/qml/elements/ProviderFilterArea.qml:40
 msgctxt "ProviderFilterArea|"
 msgid "Show only providers whose service runs on renewable energy"
-msgstr ""
+msgstr "Visa bara leverantörer vars tjänster använder förnyelsebar energi"
 
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr ""
+msgstr "Bussfaktor"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ProviderFilterArea|"
 msgid "Location"
 msgstr "Plats"
@@ -3398,56 +3124,40 @@ msgctxt "ProviderFilterArea|"
 msgid ""
 "Show only providers that store and process their data in the selected country"
 msgstr ""
+"Visa bara leverantörer som lagrar och behandlar data i det valda landet"
 
 #: src/qml/elements/ProviderFilterArea.qml:62
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Maximum size of shared media"
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Maximal storlek på delad media"
+msgstr "Storlek på delad media"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Stores shared media up to:"
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Lagrar delad media upp till:"
+msgstr "Total storlek på delad media"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "Lagringstid för meddelanden"
+msgstr "Lagringstid för media"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderFilterArea|"
 msgid "Message storage duration"
 msgstr "Lagringstid för meddelanden"
 
 #: src/qml/elements/ProviderFilterArea.qml:94
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "ProviderFilterArea|"
 msgid "Availability"
-msgstr "Tillgängligt"
+msgstr "Tillgänglighet"
 
 #: src/qml/elements/ProviderFilterArea.qml:102
 msgctxt "ProviderFilterArea|"
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt ""
 "PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
 "groups', e.g. '5/20'"
@@ -3465,9 +3175,7 @@ msgid "Retry"
 msgstr "Försök igen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "De öppna grupperna kunde tyvärr inte hämtas: %1"
@@ -3619,17 +3327,14 @@ msgid "Pin"
 msgstr "Fäst upp"
 
 #: src/qml/elements/SearchBarPage.qml:63
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Öppna bild…"
+msgstr "Visa meny"
 
 #: src/qml/elements/SearchBarPage.qml:73
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Gå tillbaka"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:26
 msgctxt "UrlFormButtonDelegate|"
@@ -3642,17 +3347,14 @@ msgid "Record a video"
 msgstr "Spela in en video"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio Recording"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "Ljudinspelning"
+msgstr "Stoppa inspelning"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Starta inspelning"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3735,9 +3437,7 @@ msgid "About"
 msgstr "Om"
 
 #: src/qml/GlobalDrawer.qml:484
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
@@ -3748,17 +3448,13 @@ msgid "Undo"
 msgstr "Ångra"
 
 #: src/qml/GlobalDrawer.qml:491
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kunde inte ta bort blockering för %1: %2"
@@ -3820,7 +3516,7 @@ msgstr "Slutför registreringen."
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr ""
+msgstr "Försök med en annan leverantör"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
@@ -3860,9 +3556,6 @@ msgid "Enter your desired credentials"
 msgstr "Ange önskad inloggningsinformation"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Namn som visas"
@@ -3901,9 +3594,6 @@ msgstr "Välj en leverantör"
 #: src/qml/registration/ProviderPage.qml:26
 #: src/qml/registration/ProviderPage.qml:268
 #: src/qml/registration/ProviderPage.qml:281
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Filter"
 msgctxt "ProviderPage|"
 msgid "Filter"
 msgstr "Filter"
@@ -3919,17 +3609,14 @@ msgid "Provider Address"
 msgstr "Leverantörsadress"
 
 #: src/qml/registration/ProviderPage.qml:129
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change connection settings"
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr "Ändra anslutningsinställningar"
+msgstr "Visa anslutningsinställningar"
 
 #: src/qml/registration/ProviderPage.qml:173
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr ""
+msgstr "Datalagrings- och behandlingsplatser"
 
 #: src/qml/registration/ProviderPage.qml:178
 msgctxt "ProviderPage|"
@@ -3947,9 +3634,6 @@ msgid "Maximum size of shared media"
 msgstr "Maximal storlek på delad media"
 
 #: src/qml/registration/ProviderPage.qml:193
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Messages storage duration"
 msgctxt "ProviderPage|"
 msgid "Message storage duration"
 msgstr "Lagringstid för meddelanden"
@@ -4115,9 +3799,7 @@ msgid "Unknown size"
 msgstr "Okänd storlek"
 
 #: src/RosterController.cpp:152
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
@@ -4135,11 +3817,7 @@ msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterController.cpp:179
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -4149,17 +3827,13 @@ msgstr ""
 "anslutningsproblem: %2"
 
 #: src/RosterController.cpp:192
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
 #: src/RosterController.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
