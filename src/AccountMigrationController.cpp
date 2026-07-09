@@ -34,7 +34,6 @@
 
 #define writeDataElement(NAME) XmlUtils::Writer::text(&writer, QStringLiteral(#NAME), NAME)
 
-static constexpr QStringView s_kaidan_ns = u"kaidan";
 static constexpr QStringView s_client_settings = u"client-settings";
 static constexpr QStringView s_old_configuration = u"old-configuration";
 static constexpr QStringView s_roster = u"roster";
@@ -57,7 +56,7 @@ struct ClientRosterItemSettings {
     static std::variant<ClientRosterItemSettings, QXmppError> fromDom(const QDomElement &rootElement)
     {
         Q_ASSERT(rootElement.tagName() == s_item);
-        Q_ASSERT(rootElement.namespaceURI() == s_kaidan_ns);
+        Q_ASSERT(rootElement.namespaceURI() == s_kaidan_export_ns);
 
         ClientRosterItemSettings data;
 
@@ -124,7 +123,7 @@ struct ClientConfiguration {
     static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)
     {
         Q_ASSERT(rootElement.tagName() == s_old_configuration);
-        Q_ASSERT(rootElement.namespaceURI() == s_kaidan_ns);
+        Q_ASSERT(rootElement.namespaceURI() == s_kaidan_export_ns);
 
         ClientConfiguration data;
 
@@ -149,7 +148,7 @@ struct ClientConfiguration {
     void toXml(QXmlStreamWriter &writer) const
     {
         writer.writeStartElement(s_old_configuration.toString());
-        writer.writeDefaultNamespace(s_kaidan_ns.toString());
+        writer.writeDefaultNamespace(s_kaidan_export_ns.toString());
         writeDataElement(jid);
         writeDataElement(password);
         writeDataElement(host);
@@ -240,7 +239,7 @@ struct ClientSettings {
         const auto rosterElement = rootElement.firstChildElement(s_roster.toString());
         ClientSettings settings;
 
-        if (oldConfigurationElement.namespaceURI() == s_kaidan_ns) {
+        if (oldConfigurationElement.namespaceURI() == s_kaidan_export_ns) {
             const auto result = ClientConfiguration::fromDom(oldConfigurationElement);
 
             if (const auto error = std::get_if<QXmppError>(&result)) {
@@ -250,7 +249,7 @@ struct ClientSettings {
             settings.oldConfiguration = std::get<ClientConfiguration>(result);
         }
 
-        if (rosterElement.namespaceURI() == s_kaidan_ns) {
+        if (rosterElement.namespaceURI() == s_kaidan_export_ns) {
             settings.roster.reserve(rosterElement.childNodes().size());
 
             for (QDomNode node = rosterElement.firstChild(); !node.isNull(); node = node.nextSibling()) {
@@ -284,7 +283,7 @@ struct ClientSettings {
 
         // Roster items
         writer.writeStartElement(s_roster.toString());
-        writer.writeDefaultNamespace(s_kaidan_ns.toString());
+        writer.writeDefaultNamespace(s_kaidan_export_ns.toString());
         for (const auto &entry : roster) {
             entry.toXml(writer);
         }
