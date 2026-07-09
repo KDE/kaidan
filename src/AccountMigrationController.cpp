@@ -39,7 +39,7 @@ static constexpr QStringView s_client_settings = u"client-settings";
 static constexpr QStringView s_old_configuration = u"old-configuration";
 static constexpr QStringView s_roster = u"roster";
 static constexpr QStringView s_item = u"item";
-static constexpr QStringView s_qxmpp_export_ns = u"org.qxmpp.export";
+static constexpr QStringView s_kaidan_export_ns = u"im.kaidan.export";
 
 struct ClientRosterItemSettings {
     ClientRosterItemSettings() = default;
@@ -234,7 +234,7 @@ struct ClientSettings {
     static std::variant<ClientSettings, QXmppError> fromDom(const QDomElement &rootElement)
     {
         Q_ASSERT(rootElement.tagName() == s_client_settings);
-        Q_ASSERT(rootElement.namespaceURI() == s_qxmpp_export_ns);
+        Q_ASSERT(rootElement.namespaceURI() == s_kaidan_export_ns);
 
         const auto oldConfigurationElement = rootElement.firstChildElement(s_old_configuration.toString());
         const auto rosterElement = rootElement.firstChildElement(s_roster.toString());
@@ -277,7 +277,7 @@ struct ClientSettings {
 
     void toXml(QXmlStreamWriter &writer) const
     {
-        writer.writeStartElement(s_client_settings.toString());
+        writer.writeStartElement(s_kaidan_export_ns.toString(), s_client_settings.toString());
 
         // Old configuration
         oldConfiguration.toXml(writer);
@@ -305,7 +305,7 @@ AccountMigrationController::AccountMigrationController(QObject *parent)
         data.toXml(writer);
     };
 
-    QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(s_client_settings, s_qxmpp_export_ns);
+    QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(s_client_settings, s_kaidan_export_ns);
 }
 
 AccountMigrationController::~AccountMigrationController() = default;
