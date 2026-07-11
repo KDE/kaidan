@@ -1163,12 +1163,9 @@ msgid "Enter your new password"
 msgstr "输入新密码"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
-msgstr "输入不同的密码进行更改"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
@@ -2434,12 +2431,9 @@ msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "名称（选填）："
+msgstr ""
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2502,28 +2496,19 @@ msgid "Copy"
 msgstr "复制"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "主机名："
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr "输入有效的用户名或将字段留空以获取随机用户名"
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "端口："
+msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2605,20 +2590,14 @@ msgid "user@example.org"
 msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "通过聊天地址添加联系人"
+msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
-msgstr "请输入有效的密码"
+msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
@@ -2666,12 +2645,9 @@ msgid "Creating group chat…"
 msgstr "正在创建群聊…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
-msgstr "群聊名称（选填）"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:29
 msgctxt "GroupChatCreationContent|"
@@ -2699,20 +2675,14 @@ msgid "Enter a valid group ID"
 msgstr "输入有效的群聊地址"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "设备"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "昵称（选填）："
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2754,20 +2724,14 @@ msgid "Join"
 msgstr "加入"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "正在加入群聊…"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "复制网址"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2775,20 +2739,14 @@ msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "输入有效的群聊地址"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "昵称（选填）："
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -3542,12 +3500,9 @@ msgid "Enter your desired credentials"
 msgstr "输入所需的凭据"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
-msgstr "显示名称"
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
 msgctxt "ManualRegistrationPage|"
@@ -3869,31 +3824,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Enter correct password"
-#~ msgstr "输入正确的密码"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Message (optional, unencrypted):"
-#~ msgstr "消息（可选，未加密）："
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Hello, I'm…"
-#~ msgstr "您好，我是…"
-
-#~ msgctxt "CustomConnectionSettings|"
-#~ msgid "The hostname must not contain blank spaces"
-#~ msgstr "主机名不能包含空格"
-
-#~ msgctxt "JidField|"
-#~ msgid "The chat address must have the form <b>username@server</b>"
-#~ msgstr "聊天地址的格式必须是 <b>username@server</b>"
-
-#~ msgctxt "GroupChatJoiningContent|"
-#~ msgid "Address"
-#~ msgstr "地址"
-
-#~ msgctxt "GroupChatJoiningContent|"
-#~ msgid "The address must have the form <b>group@server</b>"
-#~ msgstr "地址格式必须是 <b>group@server</b>"
