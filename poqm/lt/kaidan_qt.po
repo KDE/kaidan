@@ -699,14 +699,20 @@ msgid "Mark as read"
 msgstr "Žymėti kaip skaitytą"
 
 #: src/NotificationController.cpp:322
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Atsakyti"
 
 #: src/NotificationController.cpp:323
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Atsakyti…"
+msgstr "Atsakyti"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -1321,7 +1327,7 @@ msgstr "Ryšio nuostatos pakeistos"
 #: src/qml/details/AccountDetailsContent.qml:925
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr ""
+msgstr "Perjungti įrenginį"
 
 #: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
@@ -1646,7 +1652,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
-msgstr "Šalinimas"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
@@ -3070,7 +3076,7 @@ msgstr ""
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Žinutė"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:182
 #, fuzzy
@@ -3091,22 +3097,22 @@ msgstr "Vardas"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr "Dydis"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr "Išsiųsta/Gauta"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr "Ankstesnė"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr "Kita"
+msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3993,6 +3999,10 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Internetinė svetainė"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
+
 #~ msgctxt "ContactAdditionContent|"
 #~ msgid "Message (optional, unencrypted):"
 #~ msgstr "Žinutė (nešifruota, nebūtina):"
@@ -4004,10 +4014,6 @@ msgstr "Internetinė svetainė"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Adresas"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
 
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Could not block %1: %2"

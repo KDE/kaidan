@@ -4392,6 +4392,11 @@ msgid "Website"
 msgstr "Website"
 
 #, fuzzy
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Inviat"
+
+#, fuzzy
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Actual contrasigne:"
@@ -4400,11 +4405,6 @@ msgstr "Website"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Adresse de conversation:"
-
-#, fuzzy
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Inviat"
 
 #, fuzzy
 #~ msgctxt "GroupChatJoiningContent|"
@@ -4422,9 +4422,11 @@ msgstr "Website"
 #~ msgstr "Ne successat trovar li action «%1»"
 
 #, fuzzy
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Cluder li panel de sercha"
+#~| msgctxt "SendMediaSheet|"
+#~| msgid "Remove file"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Remover li file"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4438,16 +4440,19 @@ msgstr "Website"
 #~ msgstr "%1 es in li rete"
 
 #, fuzzy
-#~| msgctxt "SendMediaSheet|"
-#~| msgid "Remove file"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Remover li file"
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Cambiar li contrasigne"
 
 #, fuzzy
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Localisationes"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Cambiar li contrasigne"
+
+#, fuzzy
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Statu"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4464,29 +4469,14 @@ msgstr "Website"
 #~ msgstr "Parametres de conexion"
 
 #, fuzzy
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Statu"
-
-#, fuzzy
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Cambiar li contrasigne"
-
-#, fuzzy
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Cambiar li contrasigne"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Localisationes"
 
 #, fuzzy
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Ne successat executer `lsof', code de errore: %1"
-
-#, fuzzy
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marcar quam ínleet"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4500,6 +4490,11 @@ msgstr "Website"
 #~ msgctxt "Kaidan|"
 #~ msgid "Offline"
 #~ msgstr "Ne in li rete"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marcar quam ínleet"
 
 #, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"

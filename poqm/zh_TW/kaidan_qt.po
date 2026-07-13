@@ -736,14 +736,20 @@ msgid "Mark as read"
 msgstr "標記為已讀"
 
 #: src/NotificationController.cpp:322
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "回覆"
 
 #: src/NotificationController.cpp:323
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "回覆…"
+msgstr "回覆"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -826,7 +832,7 @@ msgstr ""
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr "離開通話"
+msgstr ""
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -3057,7 +3063,7 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr "找不到表情符號"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3346,6 +3352,9 @@ msgid "Take a picture"
 msgstr "拍照"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "拍照"
@@ -3431,11 +3440,17 @@ msgid "Connecting…"
 msgstr "連線中…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "暫停"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "播放"
@@ -3458,11 +3473,11 @@ msgstr "詳細資訊…"
 
 #: src/qml/elements/MediaViewer.qml:116
 #, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Details…"
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
-msgstr "詳細資訊…"
+msgstr "顯示詳情"
 
 #: src/qml/elements/MediaViewer.qml:122
 #, fuzzy
@@ -3491,7 +3506,7 @@ msgstr "移除檔案"
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr "在外部開啟"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:175
 #, fuzzy
@@ -3520,7 +3535,7 @@ msgstr "名稱"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr "大小"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
@@ -3983,12 +3998,12 @@ msgstr "錄製影片"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "停止錄製"
+msgstr ""
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr "開始錄製"
+msgstr ""
 
 #: src/qml/EmptyChatPage.qml:31
 #, fuzzy
@@ -4648,6 +4663,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "M月d日 hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "無法傳送反應：%1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "輸入目前密碼"
@@ -4685,10 +4708,6 @@ msgstr "網站"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "聊天位址格式必須是 <b>使用者名稱@伺服器</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "無法傳送反應：%1"
-
 #, fuzzy
 #~| msgctxt "RosterManager|"
 #~| msgid "%1 could not be added: %2"
@@ -4717,24 +4736,9 @@ msgstr "網站"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "無法解除封鎖 %1：%2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "M月d日 hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "詳細資訊…"
-
-#, fuzzy
-#~| msgctxt "ChatPageSearchView|"
-#~| msgid "Close message search bar"
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "關閉訊息搜尋列"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "搜尋"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4753,10 +4757,6 @@ msgstr "網站"
 #~ "typing"
 #~ msgstr "提供您已開啟此對話、正在打字或是已停止打字的資訊"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 在線上"
-
 #, fuzzy
 #~| msgctxt "SendMediaSheet|"
 #~| msgid "Remove file"
@@ -4764,35 +4764,17 @@ msgstr "網站"
 #~ msgid "Remove selected file"
 #~ msgstr "移除檔案"
 
-#, fuzzy
-#~| msgctxt "ProviderView|"
-#~| msgid "Server locations:"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "伺服器位置："
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "搜尋"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 在線上"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "輸入不同的連線設定來變更它"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "連線設定"
-
-#, fuzzy
-#~| msgctxt "LoginArea|"
-#~| msgid "Connection settings"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "連線設定"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "聯絡人已存在"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "開啟聊天"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4805,16 +4787,38 @@ msgstr "網站"
 #~ msgid "Maximize avatar"
 #~ msgstr "最大化大頭貼"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "聯絡人已存在"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "開啟聊天"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "連線設定"
+
+#, fuzzy
+#~| msgctxt "LoginArea|"
+#~| msgid "Connection settings"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "連線設定"
+
+#, fuzzy
+#~| msgctxt "ProviderView|"
+#~| msgid "Server locations:"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "伺服器位置："
+
 #, fuzzy
 #~| msgctxt "QrCodeGenerator|"
 #~| msgid "Generating the QR code failed: %1"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "產生 QR code 失敗：%1"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "標記為第一未讀"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4831,6 +4835,10 @@ msgstr "網站"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "連結會在您連線之後開啟。"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "標記為第一未讀"
 
 #, fuzzy
 #~| msgctxt "ChatMessageContextMenu|"

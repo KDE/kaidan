@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2026-03-08 13:00+0100\n"
+"PO-Revision-Date: 2026-01-30 07:38+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -737,14 +737,20 @@ msgid "Mark as read"
 msgstr "Marquer comme lu"
 
 #: src/NotificationController.cpp:322
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Répondre"
 
 #: src/NotificationController.cpp:323
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Répondre…"
+msgstr "Répondre"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -2772,49 +2778,31 @@ msgstr ""
 "Certaines fonctionnalités deviendront visibles une fois votre compte activé."
 
 #: src/qml/elements/EmojiPicker.qml:53
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Favorites"
 msgctxt "EmojiPicker|"
 msgid "Favorites"
 msgstr "Favoris"
 
 #: src/qml/elements/EmojiPicker.qml:59
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "People"
 msgctxt "EmojiPicker|"
 msgid "People"
 msgstr "Personnes"
 
 #: src/qml/elements/EmojiPicker.qml:65
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Nature"
 msgctxt "EmojiPicker|"
 msgid "Nature"
 msgstr "Nature"
 
 #: src/qml/elements/EmojiPicker.qml:71
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Food"
 msgctxt "EmojiPicker|"
 msgid "Food"
 msgstr "Nourriture"
 
 #: src/qml/elements/EmojiPicker.qml:77
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Activity"
 msgctxt "EmojiPicker|"
 msgid "Activity"
 msgstr "Activités"
 
 #: src/qml/elements/EmojiPicker.qml:83
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Travel"
 msgctxt "EmojiPicker|"
 msgid "Travel"
 msgstr "Voyage"
@@ -2828,17 +2816,11 @@ msgid "Objects"
 msgstr "Rejeter"
 
 #: src/qml/elements/EmojiPicker.qml:95
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Symbols"
 msgctxt "EmojiPicker|"
 msgid "Symbols"
 msgstr "Symboles"
 
 #: src/qml/elements/EmojiPicker.qml:101
-#, fuzzy
-#| msgctxt "EmojiPicker|"
-#| msgid "Flags"
 msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr "Drapeaux"
@@ -2846,7 +2828,7 @@ msgstr "Drapeaux"
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr "Aucune émoticône n'a été trouvée."
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3839,7 +3821,7 @@ msgstr "Terminer l'inscription !"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr "Veuillez essayer un autre fournisseur"
+msgstr ""
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
@@ -4227,6 +4209,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site Internet"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM à hh : mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Il a été impossible d'envoyer une réaction : %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Saisissez un mot de passe correct"
@@ -4257,10 +4247,6 @@ msgstr "Site Internet"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "L'adresse doit avoir le format <b>groupe@serveur</b>."
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Il a été impossible d'envoyer une réaction : %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Il a été impossible de rejoindre le groupe %1 : %2"
@@ -4277,21 +4263,9 @@ msgstr "Site Internet"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Impossible de débloquer %1 : %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM à hh : mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Détails…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Terminer la recherche"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Rechercher"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4309,37 +4283,21 @@ msgstr "Site Internet"
 #~ "Indiquer quand vous avez ouvert cette conversation, quand vous avez fait "
 #~ "des saisies et les avez arrêtées."
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 est en ligne"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Supprimer le fichier sélectionné"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Emplacements des serveurs"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Rechercher"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 est en ligne"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Saisir une configuration de connexion différente pour les modifier"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuration de connexion"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuration de connexion"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Le contact existe déjà."
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Ouvrir une discussion"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4349,20 +4307,36 @@ msgstr "Site Internet"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximiser un avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Le contact existe déjà."
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Ouvrir une discussion"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuration de connexion"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuration de connexion"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Emplacements des serveurs"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "La génération du code « QR » a échoué : %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marquer comme premier non lu"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
 #~ "Il a été impossible de réaliser la migration du compte : une autre "
-#~ "migration est déjà en cours."
+#~ "migration est déjà en cours"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4383,6 +4357,10 @@ msgstr "Site Internet"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Cela peut prendre du temps"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marquer comme premier non lu"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

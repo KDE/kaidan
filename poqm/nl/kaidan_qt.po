@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-07 16:58+0200\n"
+"PO-Revision-Date: 2026-06-19 10:11+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/Account.cpp:465
 msgctxt "Connection|"
@@ -113,7 +113,9 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Account kon niet gemigreerd worden: u moet verbonden zijn"
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "Account '%1' gemigreerd naar '%2'"
@@ -144,13 +146,17 @@ msgid "Devices on Servers"
 msgstr "Apparaten op servers"
 
 #: src/ChatController.cpp:176
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 is typing…"
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 is bezig met typen…"
 
 #: src/ChatController.cpp:178
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 paused typing"
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 is gepauzeerd met typen"
@@ -194,7 +200,11 @@ msgid "Connecting…"
 msgstr "Bezig met verbinden…"
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
 "with ': ' and is shown if the request has a status message, otherwise it is "
@@ -207,7 +217,12 @@ msgstr ""
 "andere personele informatie %2 vragen"
 
 #: src/ChatHintModel.cpp:267
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
 "JIDs, %5 is appended text that begins with ': ' and is shown if the request "
@@ -287,7 +302,9 @@ msgid "Media sharing is unsupported"
 msgstr "Delen van media wordt niet ondersteund"
 
 #: src/FileSharingController.cpp:509
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not upload file: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "Kon niet uploaden bestand: %1"
@@ -319,6 +336,9 @@ msgid "Joined"
 msgstr "Neemt deel aan"
 
 #: src/GroupChatUserModel.cpp:58
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "Links"
@@ -329,19 +349,25 @@ msgid "Banned"
 msgstr "Geblokkeerd"
 
 #: src/ImageProvider.cpp:124
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not copy invalid source to clipboard: %1"
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Kon ongeldige bron niet naar klembord kopiëren: %1"
 
 #: src/ImageProvider.cpp:302
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate thumbnail: %1 does not exist"
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Kon geen miniatuur genereren: %1 bestaat niet"
 
 #: src/ImageProvider.cpp:356
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate QR code: %1"
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Kon QR-code niet genereren: %1"
@@ -447,7 +473,9 @@ msgid "Documents"
 msgstr "Documenten"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -469,7 +497,9 @@ msgid "Location"
 msgstr "Locatie"
 
 #: src/Message.cpp:466
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "Message|"
+#| msgid "Invitation to group %1"
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "Uitnodiging aan groep %1"
@@ -485,13 +515,17 @@ msgid "Unknown size"
 msgstr "Onbekende grootte"
 
 #: src/MessageComposition.cpp:561
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "Geluidsbericht kan niet verzonden worden omdat het groter is dan %2"
+msgstr "'%1' kan niet verzonden worden omdat het groter is dan %2"
 
 #: src/MessageComposition.cpp:594
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
@@ -509,13 +543,17 @@ msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
 #: src/MessageController.cpp:617
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
 #: src/MessageController.cpp:1021
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reactie kon niet worden verzonden: %1"
@@ -541,13 +579,17 @@ msgid "Error"
 msgstr "Fout"
 
 #: src/MessageModel.cpp:595 src/MessageModel.cpp:692
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reactie kon niet worden verzonden: %1"
 
 #: src/MessageModel.cpp:777
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Reacties konden niet worden verzonden: %1"
@@ -568,19 +610,25 @@ msgid "The group already exists"
 msgstr "De groep bestaat al"
 
 #: src/MixController.cpp:125
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Whether %1 is public could not be determined: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Of %1 publiek is kon niet worden bepaald: %2"
 
 #: src/MixController.cpp:139
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not retrieve information of group %1: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Kon informatie van group %1 niet ophalen: %2"
 
 #: src/MixController.cpp:151 src/MixController.cpp:160
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Kon groep %1 niet hernoemen: %2"
@@ -596,38 +644,50 @@ msgid "You aren't allowed to join the group"
 msgstr "U mag niet met de groep meedoen"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be invited to %2: %3"
 msgctxt ""
 "MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 kon niet worden uitgenodigd bij %2: %3"
 
 #: src/MixController.cpp:272
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Nodes of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Knooppunten van %1 konden niet worden opgehaald: %2"
 
 #: src/MixController.cpp:280
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Allowed users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Toegestane gebruikers van %1 konden niet worden opgehaald: %2"
 
 #: src/MixController.cpp:295
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Banned users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Verbannen gebruikers van %1 konden niet worden opgehaald: %2"
 
 #: src/MixController.cpp:311
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Gebruikers die meedoen aan %1 konden niet worden opgehaald: %2"
 
 #: src/MixController.cpp:326
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be banned from %2: %3"
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kon niet worden verbannen uit %2: %3"
@@ -670,14 +730,20 @@ msgid "Mark as read"
 msgstr "Markeren als gelezen"
 
 #: src/NotificationController.cpp:322
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Beantwoorden"
 
 #: src/NotificationController.cpp:323
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Beantwoorden…"
+msgstr "Beantwoorden"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -734,12 +800,14 @@ msgstr "Onbeperkt"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%n dag(en)"
-msgstr[1] "%n dag(en)"
+msgstr[0] "%1 dagen"
+msgstr[1] "%1 dagen"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -759,7 +827,7 @@ msgstr "Oproep"
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr "Oproep beëindigen"
+msgstr ""
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -817,7 +885,9 @@ msgid "Drop files to be sent"
 msgstr "Te verzenden bestanden laten vallen"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
@@ -828,19 +898,25 @@ msgid "Undo"
 msgstr "Ongedaan maken"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kon %1 niet deblokkeren: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "U kunt media delen tot op %1:"
@@ -1056,7 +1132,9 @@ msgid "Support"
 msgstr "Ondersteuning"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Ondersteuning %1"
@@ -1072,7 +1150,9 @@ msgid "Join your provider's public support group"
 msgstr "Doe mee met de publieke ondersteuningsgroep van uw leverancier"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Groepsondersteuning %1"
@@ -1187,9 +1267,12 @@ msgid "Enter your new password"
 msgstr "Uw nieuwe wachtwoord invoeren"
 
 #: src/qml/details/AccountDetailsContent.qml:717
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
-msgstr "Voer een ander wachtwoord in om het te wijzigen"
+msgstr "Ander wachtwoord invoeren om het te wijzigen"
 
 #: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
@@ -1197,7 +1280,9 @@ msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
 #: src/qml/details/AccountDetailsContent.qml:762
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Wijzigen van wachtwoord is mislukt: %1"
@@ -1289,7 +1374,9 @@ msgid "Applying changes…"
 msgstr "Wijzigingen worden toegepast…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Verbindingsinstellingen konden niet gewijzigd worden: %1"
@@ -1412,7 +1499,11 @@ msgid "Deleting account…"
 msgstr "Account wordt verwijderd…"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1949,7 +2040,9 @@ msgid "Leaving group chat…"
 msgstr "Groep-chat verlaten…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be left%2"
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -1974,7 +2067,9 @@ msgid "Deleting group chat…"
 msgstr "Groep-chat verwijderen…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2077,13 +2172,19 @@ msgid "Other"
 msgstr "Overig"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 geselecteerd"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2156,7 +2257,7 @@ msgstr "Verwijdering"
 #: src/qml/details/ProviderChatDetailsContent.qml:31
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
@@ -2305,14 +2406,20 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/qml/elements/ChatMessage.qml:234
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Verborgen deel van bericht verbergen"
+msgstr "Verborgen deel van bericht toevoegen"
 
 #: src/qml/elements/ChatMessage.qml:234
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Verborgen deel van bericht tonen"
+msgstr "Verborgen deel van bericht toevoegen"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2320,7 +2427,9 @@ msgid "New"
 msgstr "Nieuw"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 heeft tot dit punt gelezen"
@@ -2358,7 +2467,7 @@ msgstr "Citaat"
 #: src/qml/elements/ChatMessageContextMenu.qml:134
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Doorsturen"
+msgstr "Vooruit"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:142
 msgctxt "ChatMessageContextMenu|"
@@ -2397,6 +2506,9 @@ msgstr "Toevoegen van verborgen deel van bericht annuleren"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 #: src/qml/elements/ChatPageSendingPane.qml:612
+#, fuzzy
+#| msgctxt "NewMediaSheet|"
+#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Annuleren"
@@ -2469,7 +2581,7 @@ msgstr "Meer"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr "Schuif om te annuleren"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2478,9 +2590,12 @@ msgid "Send"
 msgstr "Verzenden"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Een stembericht opnemen"
+msgstr "Een stembericht versturen"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2503,9 +2618,12 @@ msgid "Adding contact…"
 msgstr "Contactpersoon wordt toegevoegd"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Naam (optioneel)"
+msgstr "Naam (optioneel):"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2568,19 +2686,30 @@ msgid "Copy"
 msgstr "Kopiëren"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Hostnaam"
+msgstr "Hostnaam:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr "Voer een geldige hostnaam in of laat het leeg"
+msgstr ""
+"Voer een geldige gebruikersnaam in of laat het veld leeg voor een "
+"willekeurige."
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Poort"
+msgstr "Poort:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2633,9 +2762,12 @@ msgid "Travel"
 msgstr "Reizigen"
 
 #: src/qml/elements/EmojiPicker.qml:89
+#, fuzzy
+#| msgctxt "NotificationController|"
+#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "Objecten"
+msgstr "Afwijzen"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
@@ -2650,7 +2782,7 @@ msgstr "Vlaggen"
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr "Geen emoji gevonden"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2663,11 +2795,17 @@ msgid "user@example.org"
 msgstr "gebruiker@voorbeeld.nl"
 
 #: src/qml/elements/fields/JidField.qml:20
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Voer een geldig chatadres in"
+msgstr "Contactpersoon toevoegen met chat-adres"
 
 #: src/qml/elements/fields/PasswordField.qml:23
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "Voer een geldig wachtwoord in"
@@ -2693,16 +2831,25 @@ msgid "Location"
 msgstr "Locatie"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
+#, fuzzy
+#| msgctxt "GeoLocationSharingDialog|"
+#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "Locatie delen"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "Huidige locatie volgen"
+msgstr "Hoe locaties te openen"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Stuur locatie"
@@ -2718,6 +2865,9 @@ msgid "Creating group chat…"
 msgstr "Chat met groep aanmaken…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Groepsnaam (optioneel)"
@@ -2748,17 +2898,25 @@ msgid "Enter a valid group ID"
 msgstr "Een geldig groep-ID invoeren"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
+#, fuzzy
+#| msgctxt "BlockingModel|"
+#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Service"
+msgstr "Apparaten"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "Schermnaam (optioneel):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group could not be created on %1%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2766,7 +2924,9 @@ msgid "The group could not be created on %1%2"
 msgstr "De groep kon niet worden aangemaakt op %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:94
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be created%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2774,7 +2934,9 @@ msgid "The group %1 could not be created%2"
 msgstr "De groep %1 kon niet worden aangemaakt %2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:98
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2797,14 +2959,20 @@ msgid "Join"
 msgstr "Meedoen"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Aan groep meedoen…"
+msgstr "Aan chat van groep meedoen…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
+#, fuzzy
+#| msgctxt "UrlFormButtonDelegate|"
+#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Groepsadres"
+msgstr "Website-adres kopiëren"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2812,17 +2980,25 @@ msgid "group@groups.example.org"
 msgstr "groep@groepen.voorbeeld.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Voer een geldig groepsadres in"
+msgstr "Een geldig groep-ID invoeren"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Schermnaam (optioneel)"
+msgstr "Schermnaam (optioneel):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2865,6 +3041,9 @@ msgid "Take a picture"
 msgstr "Een foto nemen"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Neem foto's"
@@ -2948,61 +3127,94 @@ msgid "Connecting…"
 msgstr "Bezig met verbinden…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pauzeren"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Afspelen"
 
 #: src/qml/elements/MediaViewer.qml:92
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Mediaviewer sluiten"
+msgstr "Een leverancier kiezen"
 
 #: src/qml/elements/MediaViewer.qml:116
+#, fuzzy
+#| msgctxt "ProviderChatDetailsDialog|"
+#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Details verbergen"
+msgstr "Details van leverancier"
 
 #: src/qml/elements/MediaViewer.qml:116
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Details tonen"
 
 #: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Quote message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Ga naar bericht"
+msgstr "Bericht aanhalen"
 
 #: src/qml/elements/MediaViewer.qml:129
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Verwijderen"
 
 #: src/qml/elements/MediaViewer.qml:139
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "In map openen"
+msgstr "Bestand in map openen"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr "Extern openen"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:175
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Bericht"
+msgstr "Bericht kopiëren"
 
 #: src/qml/elements/MediaViewer.qml:182
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Beschrijving"
 
 #: src/qml/elements/MediaViewer.qml:200
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Naam"
@@ -3010,22 +3222,22 @@ msgstr "Naam"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr "Grootte"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr "Verzenden/ontvangen"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr "Vorige"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr "Volgende"
+msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3185,7 +3397,9 @@ msgid "Organization"
 msgstr "Organisatie"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "Search public groups (%1)"
 msgctxt ""
 "PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
 "groups', e.g. '5/20'"
@@ -3203,7 +3417,9 @@ msgid "Retry"
 msgstr "Opnieuw proberen"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "The public groups could not be retrieved: %1"
 msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "De publieke groepen konden niet opgehaald worden: %1"
@@ -3378,14 +3594,17 @@ msgid "Record a video"
 msgstr "Een video opnemen"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
+#, fuzzy
+#| msgctxt "MultimediaSettings|"
+#| msgid "Audio Recording"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "Stop opnemen"
+msgstr "Opnemen van geluid"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr "Opnemen starten"
+msgstr ""
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3468,7 +3687,9 @@ msgid "About"
 msgstr "Info over"
 
 #: src/qml/GlobalDrawer.qml:484
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
@@ -3479,13 +3700,17 @@ msgid "Undo"
 msgstr "Ongedaan maken"
 
 #: src/qml/GlobalDrawer.qml:491
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kon %1 niet deblokkeren: %2"
@@ -3547,7 +3772,7 @@ msgstr "De registratie voltooien!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr "Probeer een andere leverancier"
+msgstr ""
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
@@ -3586,6 +3811,9 @@ msgid "Enter your desired credentials"
 msgstr "Uw gewenste credentials invoeren"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Schermnaam"
@@ -3831,7 +4059,9 @@ msgid "Unknown size"
 msgstr "Onbekende grootte"
 
 #: src/RosterController.cpp:152
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
@@ -3849,7 +4079,11 @@ msgstr ""
 "verbinding beschikbaar is."
 
 #: src/RosterController.cpp:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3859,13 +4093,17 @@ msgstr ""
 "probleem met de verbinding: %2"
 
 #: src/RosterController.cpp:192
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Allowing %1 to see your personal data failed"
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 toestaan om uw persoonlijke gegevens te zien is mislukt"
 
 #: src/RosterController.cpp:204
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Stopping %1 to see your personal data failed"
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
@@ -3920,6 +4158,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM om hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reactie kon niet worden verzonden: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Juiste wachtwoord invoeren"
@@ -3948,10 +4194,6 @@ msgstr "Website"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Het adres moet de vorm <b>groep@server</b> hebben"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reactie kon niet worden verzonden: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Aan de groep %1 kon niet worden meegedaan %2"
@@ -3968,21 +4210,9 @@ msgstr "Website"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Kon %1 niet deblokkeren: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM om hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Details…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Zoeken afsluiten"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Zoeken"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4000,37 +4230,21 @@ msgstr "Website"
 #~ "Geef aan wanneer u deze conversatie open heeft, aan het typen bent en "
 #~ "gestopt met typen"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 is online"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Geselecteerd bestand verwijderen"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Serverlocaties"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 is online"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Andere verbindingsinstellingen invoeren om ze te wijzigen"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Verbindingsinstellingen"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Verbindingsinstellingen"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Contactpersoon bestaat al"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Chat openen"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4040,15 +4254,31 @@ msgstr "Website"
 #~ msgid "Maximize avatar"
 #~ msgstr "Avatar maximaliseren"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Contactpersoon bestaat al"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Chat openen"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Verbindingsinstellingen"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Verbindingsinstellingen"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Serverlocaties"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "De QR-code genereren is mislukt: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markeren als eerste ongelezen"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Account kon niet gemigreerd worden: een andere migratie is al bezig"
@@ -4072,6 +4302,10 @@ msgstr "Website"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Dat kan lang duren"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markeren als eerste ongelezen"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
