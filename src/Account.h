@@ -129,6 +129,9 @@ public:
         bool initialized = false;
         bool initialMessagesRetrieved = false;
         QString jid;
+#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
+        QString jidResource;
+#endif
         QString password;
         QXmppCredentials credentials;
         QUuid userAgentDeviceId;
@@ -165,6 +168,10 @@ public:
     QString jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
+
+#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
+    QString jidResource() const;
+#endif
 
     QString password() const;
     void setPassword(const QString &password);
@@ -256,6 +263,9 @@ public:
     QString loginUriString() const;
 
 private:
+#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
+    void generateJidResource();
+#endif
     void generateUserAgentDeviceId();
 
     Data m_data;
