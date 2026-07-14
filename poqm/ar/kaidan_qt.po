@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-04-16 14:01+0400\n"
+"PO-Revision-Date: 2026-07-07 18:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -104,9 +104,7 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "لا يمكن ترحيل الحساب: يجب أن تكون متصلاً"
 
 #: src/AccountMigrationController.cpp:386
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "ترحل الحساب ’%1‘ إلى '%2'"
@@ -137,17 +135,13 @@ msgid "Devices on Servers"
 msgstr "الأجهزة على الخوادم"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "‏%1 يكتب…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "توقف %1 عن الكتابة مؤقتاً"
@@ -189,11 +183,7 @@ msgid "Connecting…"
 msgstr "يتّصل…"
 
 #: src/ChatHintModel.cpp:260
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
 "with ': ' and is shown if the request has a status message, otherwise it is "
@@ -206,12 +196,7 @@ msgstr ""
 "الأخرى %2"
 
 #: src/ChatHintModel.cpp:267
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
-#| "personal data such as availability, devices and other personal "
-#| "information again%5"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
 "JIDs, %5 is appended text that begins with ': ' and is shown if the request "
@@ -290,9 +275,7 @@ msgid "Media sharing is unsupported"
 msgstr "مشاركة الوسائط غير متاحة"
 
 #: src/FileSharingController.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not upload file: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "تحميل الملف غير ممكن: %1"
@@ -324,9 +307,6 @@ msgid "Joined"
 msgstr "انضم"
 
 #: src/GroupChatUserModel.cpp:58
-#, fuzzy
-#| msgctxt "GroupChatUserModel|"
-#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "خرج"
@@ -337,25 +317,19 @@ msgid "Banned"
 msgstr "حُظر"
 
 #: src/ImageProvider.cpp:124
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not copy invalid source to clipboard: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "تعذر نسخ المصدر غير الصالح إلى الحافظة: %1"
 
 #: src/ImageProvider.cpp:302
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate thumbnail: %1 does not exist"
+#, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "تعذر إنشاء الصورة المصغرة: %1 غير موجود"
 
 #: src/ImageProvider.cpp:356
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate QR code: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "تعذر إنشاء رمز الاستجابة السريعة: %1"
@@ -461,9 +435,7 @@ msgid "Documents"
 msgstr "المستندات"
 
 #: src/MediaUtils.cpp:446
-#, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
+#, qt-format
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -485,9 +457,7 @@ msgid "Location"
 msgstr "المكان"
 
 #: src/Message.cpp:466
-#, fuzzy, qt-format
-#| msgctxt "Message|"
-#| msgid "Invitation to group %1"
+#, qt-format
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "دعوة للمجموعة %1"
@@ -503,17 +473,13 @@ msgid "Unknown size"
 msgstr "حجم مجهول"
 
 #: src/MessageComposition.cpp:561
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "تعذر إرسال الرسالة الصوتية '%1' لأن حجمها أكبر من %2"
+msgstr "تعذر إرسال الرسالة الصوتية لأن حجمها أكبر من %2"
 
 #: src/MessageComposition.cpp:594
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
@@ -531,17 +497,13 @@ msgid "Message could not be sent."
 msgstr "تعذر إرسال الرسالة."
 
 #: src/MessageController.cpp:617
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "هذه الرّسالة معمّاة ب%1 لكن لا يمكن فك تعميتها"
 
 #: src/MessageController.cpp:1021
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
@@ -567,17 +529,13 @@ msgid "Error"
 msgstr "خطأ"
 
 #: src/MessageModel.cpp:595 src/MessageModel.cpp:692
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
 #: src/MessageModel.cpp:777
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
@@ -598,25 +556,19 @@ msgid "The group already exists"
 msgstr "المجموعة موجودة فعلًا"
 
 #: src/MixController.cpp:125
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Whether %1 is public could not be determined: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "ما إذا كان %1 هو العام لا يمكن تحديده: %2"
 
 #: src/MixController.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not retrieve information of group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "لا يمكن استرداد معلومات المجموعة %1: %2"
 
 #: src/MixController.cpp:151 src/MixController.cpp:160
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "لا يمكن إعادة تسمية المجموعة %1: %2"
@@ -632,50 +584,38 @@ msgid "You aren't allowed to join the group"
 msgstr "لا يُسمح لك بالانضمام إلى المجموعة"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be invited to %2: %3"
+#, qt-format
 msgctxt ""
 "MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 لا يمكن دعوتها إلى %2:%3"
 
 #: src/MixController.cpp:272
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Nodes of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "لا يمكن استرداد العقد من %1:%2"
 
 #: src/MixController.cpp:280
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Allowed users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "لا يمكن استرداد المستخدمين المسموحين من %1: %2"
 
 #: src/MixController.cpp:295
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Banned users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "لا يمكن استرداد المستخدمين المحظورون من %1: %2"
 
 #: src/MixController.cpp:311
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "لم يتمكن المستخدمون المنضمون إلى %1 من استرداد: %2"
 
 #: src/MixController.cpp:326
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be banned from %2: %3"
+#, qt-format
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 لا يمكن حظره من %2: %3"
@@ -718,20 +658,14 @@ msgid "Mark as read"
 msgstr "علّم كمقروءة"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "ردّ"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "ردّ"
+msgstr "ردّ…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -788,18 +722,16 @@ msgstr "غير محدود"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, fuzzy, qt-format
-#| msgctxt "ProviderModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%1 يوم"
-msgstr[1] "%1 يوم"
-msgstr[2] "%1 يوم"
-msgstr[3] "%1 يوم"
-msgstr[4] "%1 يوم"
-msgstr[5] "%1 يوم"
+msgstr[0] "يوم واحد"
+msgstr[1] "يوم واحد"
+msgstr[2] "يومان"
+msgstr[3] "%n أيام"
+msgstr[4] "%n يومًا"
+msgstr[5] "%n يوم"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -819,7 +751,7 @@ msgstr "اتصل"
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "أنهِ الاتصال"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -877,9 +809,7 @@ msgid "Drop files to be sent"
 msgstr "اسقط الملفات المراد إرسالها"
 
 #: src/qml/ChatPage.qml:918
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "ارفع حظر %1"
@@ -890,25 +820,19 @@ msgid "Undo"
 msgstr "تراجع"
 
 #: src/qml/ChatPage.qml:925
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "لا يمكن حظر %1: %2"
 
 #: src/qml/ChatPage.qml:929
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "لا يمكن إلغاء حظر %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "يمكنك مشاركة الوسائط حتى %1."
@@ -1119,9 +1043,7 @@ msgid "Support"
 msgstr "الدعم"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "ادعم %1"
@@ -1137,9 +1059,7 @@ msgid "Join your provider's public support group"
 msgstr "انضم إلى مجموعة الدعم العام لمزودك"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "مجموعة الدعم %1"
@@ -1250,9 +1170,6 @@ msgid "Enter your new password"
 msgstr "أدخل كلمة سرك"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "أدخل كلمة سر مختلفة لتغييرها"
@@ -1263,9 +1180,7 @@ msgid "Change password"
 msgstr "غير كلمة السر"
 
 #: src/qml/details/AccountDetailsContent.qml:762
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Failed to change password: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "فشل في تغيير كلمة السر: %1"
@@ -1353,9 +1268,7 @@ msgid "Applying changes…"
 msgstr "يطبق التّغييرات…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection settings could not be changed: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "لا يمكن تعديل إعدادات الاتّصال: %1"
@@ -1476,11 +1389,7 @@ msgid "Deleting account…"
 msgstr "يحذف الحساب…"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1997,9 +1906,7 @@ msgid "Leaving group chat…"
 msgstr "يترك الدردشة الجماعية…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be left%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2022,9 +1929,7 @@ msgid "Deleting group chat…"
 msgstr "يحذف مجموعة الدردشة…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2123,19 +2028,13 @@ msgid "Other"
 msgstr "أخرى"
 
 #: src/qml/details/MediaOverview.qml:172
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid "%1/%2 selected"
+#, qt-format
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 محدّد"
 
 #: src/qml/details/MediaOverview.qml:255
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid ""
-#| "Not all files could be deleted:\n"
-#| "%1"
+#, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2356,20 +2255,14 @@ msgid "Spoiler"
 msgstr "مخفي"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "أضف جزء الرسالة المخفي"
+msgstr "أخف جزء الرسالة المخفي"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "أضف جزء الرسالة المخفي"
+msgstr "اعرض جزء الرسالة المخفي"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2377,9 +2270,7 @@ msgid "New"
 msgstr "جديد"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, fuzzy, qt-format
-#| msgctxt "ChatMessage|"
-#| msgid "%1 has read up to this point"
+#, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "قرأ %1 لهذه النقطة"
@@ -2456,9 +2347,6 @@ msgstr "ألغ إضافة جزء الرسالة الخفي"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 #: src/qml/elements/ChatPageSendingPane.qml:612
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "ألغِ"
@@ -2531,7 +2419,7 @@ msgstr "المزيد"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "اسحب لإلغاء"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2540,12 +2428,9 @@ msgid "Send"
 msgstr "ارسل"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "أرسل رسالة صوتية"
+msgstr "سجّل رسالة صوتية"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2568,12 +2453,9 @@ msgid "Adding contact…"
 msgstr "يضيف متراسل جديد…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "الاسم (اختياري):"
+msgstr "الاسم (اختياري)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2636,28 +2518,19 @@ msgid "Copy"
 msgstr "انسخ"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "اسم المضيف:"
+msgstr "اسم المضيف"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr "أدخل اسم مستخدم صالح أو اترك الحقل فارغًا لاسم مستخدم عشوائي"
+msgstr "أدخل اسم مستضيف صالح أو اترك الحقل فارغًا"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "المنفذ:"
+msgstr "المنفذ"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2681,12 +2554,12 @@ msgstr "ستصبح بعض الوظائف مرئية بمجرد تمكين حسا
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr "المفضلة"
+msgstr "المفضّلة"
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr "أناس"
+msgstr "أشخاص"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
@@ -2701,7 +2574,7 @@ msgstr "طعام"
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr "نشاط"
+msgstr "النّشاط"
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
@@ -2709,12 +2582,9 @@ msgid "Travel"
 msgstr "سفر"
 
 #: src/qml/elements/EmojiPicker.qml:89
-#, fuzzy
-#| msgctxt "NotificationController|"
-#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "ارفض"
+msgstr "كائنات"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
@@ -2729,7 +2599,7 @@ msgstr "أعلام"
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "لم يعثر على رموز تعبيرية"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2742,20 +2612,14 @@ msgid "user@example.org"
 msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "أضف متراسل بعنوان الدردشة"
+msgstr "أدخِل عنوان دردشة صحيح"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
-msgstr "من فضلك أدخل كلمة السر صالحة"
+msgstr "أدخل كلمة سر صالحة"
 
 #: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
@@ -2778,28 +2642,19 @@ msgid "Location"
 msgstr "المكان"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
-#, fuzzy
-#| msgctxt "GeoLocationSharingDialog|"
-#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "شارك موقع جغرافي"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "كيفية فتح المواقع"
+msgstr "اتبع المواقع الحالي"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
-msgstr "أرسل موقع جغرافي"
+msgstr "أرسل موقعاً جغرافياً"
 
 #: src/qml/elements/GroupChatCreationContent.qml:21
 msgctxt "GroupChatCreationContent|"
@@ -2812,9 +2667,6 @@ msgid "Creating group chat…"
 msgstr "أنشئ مجموعة دردشة…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "اسم المجموعة (اختياري)"
@@ -2845,25 +2697,17 @@ msgid "Enter a valid group ID"
 msgstr "أدخل معرف مجموعة صالح"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "الأجهزة"
+msgstr "الخدمة"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "اللقب (اختياري):"
+msgstr "اللقب (اختياري)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group could not be created on %1%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2871,9 +2715,7 @@ msgid "The group could not be created on %1%2"
 msgstr "لا يمكن إنشاء المجموعة على %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:94
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be created%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2881,9 +2723,7 @@ msgid "The group %1 could not be created%2"
 msgstr "لا يمكن إنشاء المجموعة %1 %2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:98
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2906,20 +2746,14 @@ msgid "Join"
 msgstr "انضم"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "ينضم إلى مجموعة دردشة…"
+msgstr "ينضم إلى مجموعة…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "انسخ عنوان الويب"
+msgstr "عنوان المجموعة"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2927,25 +2761,17 @@ msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "أدخل معرف مجموعة صالح"
+msgstr "أدخِل عنوان مجموعة صحيح"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "اللقب (اختياري):"
+msgstr "اللقب (اختياري)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2988,9 +2814,6 @@ msgid "Take a picture"
 msgstr "خذ صورة"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "خذ صورة"
@@ -3073,94 +2896,61 @@ msgid "Connecting…"
 msgstr "يتّصل…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "ألبث"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "شغّل"
 
 #: src/qml/elements/MediaViewer.qml:92
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "اختر مزود"
+msgstr "أغلق عارض وسائط"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "تفاصيل المزود"
+msgstr "أخفِ التّفاصيل"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "أظهر التّفاصيل"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Quote message"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "اقتبس رسالة"
+msgstr "انتقل إلى الرسالة"
 
 #: src/qml/elements/MediaViewer.qml:129
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "احذف"
 
 #: src/qml/elements/MediaViewer.qml:139
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "افتح ملف في مجلد"
+msgstr "افتح في المجلد"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "افتحه خارجيا"
 
 #: src/qml/elements/MediaViewer.qml:175
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Edit Message"
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "تعديل الرسالة"
+msgstr "الرسالة"
 
 #: src/qml/elements/MediaViewer.qml:182
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "الوصف"
 
 #: src/qml/elements/MediaViewer.qml:200
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "الاسم"
@@ -3168,22 +2958,22 @@ msgstr "الاسم"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "الحجم"
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "أرسلت/استقبلت"
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "السابق"
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "التالي"
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3337,9 +3127,7 @@ msgid "Organization"
 msgstr "المنظّمة"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt ""
 "PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
 "groups', e.g. '5/20'"
@@ -3357,9 +3145,7 @@ msgid "Retry"
 msgstr "أعِد المحاولة"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "لا يمكن استرداد المجموعات العامة: %1"
@@ -3531,17 +3317,14 @@ msgid "Record a video"
 msgstr "سجّل فيديو"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio Recording"
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "تسجيل صوتي"
+msgstr "أوقف التسجيل"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "ابدأ التسجيل"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3624,9 +3407,7 @@ msgid "About"
 msgstr "عن"
 
 #: src/qml/GlobalDrawer.qml:484
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "ارفع حظر %1"
@@ -3637,17 +3418,13 @@ msgid "Undo"
 msgstr "تراجع"
 
 #: src/qml/GlobalDrawer.qml:491
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "لا يمكن حظر %1: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "لا يمكن إلغاء حظر %1: %2"
@@ -3709,7 +3486,7 @@ msgstr "أكمل التسجيل!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr ""
+msgstr "جرب مزودًا آخر"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
@@ -3747,9 +3524,6 @@ msgid "Enter your desired credentials"
 msgstr "أدخل بيانات اعتمادك المطلوبة"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "اسم العرض"
@@ -3991,9 +3765,7 @@ msgid "Unknown size"
 msgstr "حجم مجهول"
 
 #: src/RosterController.cpp:152
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "لا يمكن إضافة %1: %2"
@@ -4009,11 +3781,7 @@ msgid "Could not rename contact as a result of not being connected."
 msgstr "لا يمكن إعادة تسمية متراسلك بسبب عدم توفر الاتصال."
 
 #: src/RosterController.cpp:179
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -4021,17 +3789,13 @@ msgid ""
 msgstr "فشلت طلب رؤية البيانات الشخصية من %1 بسبب مشكلة الاتصال: %2"
 
 #: src/RosterController.cpp:192
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "فشل السماح لـ %1 بالاطلاع على بياناتك الشخصية"
 
 #: src/RosterController.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "فشل إيقاف %1 عن الإطلاع على بياناتك الشخصية"

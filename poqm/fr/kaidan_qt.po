@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2026-01-30 07:38+0100\n"
+"PO-Revision-Date: 2026-03-08 13:00+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -737,20 +737,14 @@ msgid "Mark as read"
 msgstr "Marquer comme lu"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Répondre"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Répondre"
+msgstr "Répondre…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -2778,31 +2772,49 @@ msgstr ""
 "Certaines fonctionnalités deviendront visibles une fois votre compte activé."
 
 #: src/qml/elements/EmojiPicker.qml:53
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Favorites"
 msgctxt "EmojiPicker|"
 msgid "Favorites"
 msgstr "Favoris"
 
 #: src/qml/elements/EmojiPicker.qml:59
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "People"
 msgctxt "EmojiPicker|"
 msgid "People"
 msgstr "Personnes"
 
 #: src/qml/elements/EmojiPicker.qml:65
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Nature"
 msgctxt "EmojiPicker|"
 msgid "Nature"
 msgstr "Nature"
 
 #: src/qml/elements/EmojiPicker.qml:71
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Food"
 msgctxt "EmojiPicker|"
 msgid "Food"
 msgstr "Nourriture"
 
 #: src/qml/elements/EmojiPicker.qml:77
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Activity"
 msgctxt "EmojiPicker|"
 msgid "Activity"
 msgstr "Activités"
 
 #: src/qml/elements/EmojiPicker.qml:83
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Travel"
 msgctxt "EmojiPicker|"
 msgid "Travel"
 msgstr "Voyage"
@@ -2816,11 +2828,17 @@ msgid "Objects"
 msgstr "Rejeter"
 
 #: src/qml/elements/EmojiPicker.qml:95
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Symbols"
 msgctxt "EmojiPicker|"
 msgid "Symbols"
 msgstr "Symboles"
 
 #: src/qml/elements/EmojiPicker.qml:101
+#, fuzzy
+#| msgctxt "EmojiPicker|"
+#| msgid "Flags"
 msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr "Drapeaux"
@@ -2828,7 +2846,7 @@ msgstr "Drapeaux"
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "Aucune émoticône n'a été trouvée."
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3821,7 +3839,7 @@ msgstr "Terminer l'inscription !"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr ""
+msgstr "Veuillez essayer un autre fournisseur"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
