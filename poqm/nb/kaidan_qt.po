@@ -453,8 +453,6 @@ msgstr "Dokumenter"
 
 #: src/MediaUtils.cpp:446
 #, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -2418,8 +2416,6 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record voice"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Ta opp stemme"
@@ -2511,8 +2507,6 @@ msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
 #, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
 msgstr "Vertsnavn:"
@@ -2524,8 +2518,6 @@ msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
 #, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
 msgstr "Port:"
@@ -2639,24 +2631,18 @@ msgstr ""
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
 #, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
 msgstr "Send plassering"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
 #, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
 msgstr "Send plassering"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
 #, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Send plassering"
@@ -2820,8 +2806,6 @@ msgstr ""
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
 #, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Ta bilde"
@@ -2961,8 +2945,6 @@ msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:200
 #, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Navn"
@@ -3871,8 +3853,3 @@ msgstr "Geburtsdag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Nettside"
-
-#, fuzzy
-#~ msgctxt "CustomConnectionSettings|"
-#~ msgid "The hostname must not contain blank spaces"
-#~ msgstr "Vertsnavnet kan ikke inneholde mellomrom"
