@@ -6,7 +6,7 @@
 # Sources / Resources
 #
 
-set(TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}")
+set(TARGET_GSTREAMER_PLUGINS "" CACHE STRING "Custom GStreamer plugins directory, relative to the executable")
 
 configure_file(${CMAKE_SOURCE_DIR}/GlobalsGen.h.in ${CMAKE_BINARY_DIR}/GlobalsGen.h)
 

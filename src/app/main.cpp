@@ -17,6 +17,7 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDir>
+#include <QFile>
 #include <QIcon>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -511,6 +512,16 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         KCrash::initialize();
     }
 #endif
+
+    // When the GStreamer plugins are shipped next to the application (e.g. inside the macOS
+    // .app bundle), point GStreamer at them. TARGET_GSTREAMER_PLUGINS is empty otherwise, so
+    // GStreamer keeps using its default (system) plugin search path.
+    if (const QString gstreamerPlugins = QStringLiteral(TARGET_GSTREAMER_PLUGINS); !gstreamerPlugins.isEmpty()) {
+        const QString path = QDir::isAbsolutePath(gstreamerPlugins)
+            ? gstreamerPlugins
+            : QDir::cleanPath(QCoreApplication::applicationDirPath() + QLatin1Char('/') + gstreamerPlugins);
+        qputenv("GST_PLUGIN_SYSTEM_PATH_1_0", QFile::encodeName(path));
+    }
 
     // Allow importing org.freedesktop.gstreamer.Qt6GLVideoItem and using GstGLQt6VideoItem in QML.
     gst_init(&argc, &argv);
