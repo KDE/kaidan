@@ -54,6 +54,7 @@ Dialog {
 			// right: emojis
 			Flow {
 				spacing: Kirigami.Units.largeSpacing
+				layoutDirection: Qt.RightToLeft
 				Layout.fillWidth: true
 
 				Repeater {
