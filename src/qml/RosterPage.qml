@@ -85,6 +85,7 @@ SearchBarPage {
 				if (active) {
 					if (!pageStack.wideMode) {
 						pageStack.goForward()
+						root.activeChatPage.forceActiveFocus()
 					}
 				} else {
 					// Emitting the signal is needed because there are slots in other places.
