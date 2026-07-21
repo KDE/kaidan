@@ -204,6 +204,60 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.16.0" date="2026-07-21T00:00:00Z">
+      <description>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>Add button to try another XMPP provider during automatic registration (@melvo)</li>
+          <li>Display avatars in notifications (@pehg, @melvo)</li>
+          <li>Allow to reply to message via its notification on supported systems (@pehg)</li>
+          <li>Handle pressing Down/Escape button in chats (@melvo)</li>
+          <li>Apply new look to emoji picker with consistent interactive background (@melvo)</li>
+          <li>Add search field for emojis as message reactions (@melvo)</li>
+          <li>Open emoji/participant picker at cursor position while ensuring picker's width fits best (@melvo)</li>
+          <li>Allow to navigate through emoji picker via keyboard to select emoji (@melvo)</li>
+          <li>Play notification sounds (@pehg)</li>
+          <li>Show more tooltips (@melvo)</li>
+          <li>Add viewer for opening/browsing media within a chat (@fazevedo)</li>
+          <li>Add support to record voice messages via long press (@melvo)</li>
+          <li>Rework user interface for consistent and smoother look/behavior including buttons, fields, and fading opacity of icons (@melvo)</li>
+          <li>Focus message input field on starting/canceling reply (@melvo)</li>
+          <li>Allow to zoom via mouse wheel in location map and move map by dragging (@melvo)</li>
+          <li>Allow to share selected location via Return button (@melvo)</li>
+        </ul>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Ignore incoming call requests from other own devices (@melvo)</li>
+          <li>Fix recognizing video calls (@melvo)</li>
+          <li>Hide contact name/avatar and adapt stop button's background if video playback is active in calls (@melvo)</li>
+          <li>Maintain last focused user interface elements in various uses cases (@melvo)</li>
+          <li>Fix quitting calls (@melvo)</li>
+          <li>Fix highlighting contact invitation hint in groups (@melvo)</li>
+          <li>Fix wrong highlighting on opening group participant picker in some cases and ensure that highlighted item is not changed as long as count does not change (@melvo)</li>
+          <li>Fix opening chat in all cases (@melvo)</li>
+          <li>Fix displaying full sender names of message reactions (@melvo)</li>
+          <li>Ensure account avatar's background color is updated if system colors change (e.g., on switching between light/dark mode) (@melvo)</li>
+          <li>Fix position of chat name/date in chat list (@melvo)</li>
+          <li>Fix showing multiple notifications for media (@melvo)</li>
+          <li>Fix saving new draft after sending draft (@melvo)</li>
+          <li>Fix highlighting referenced message after loading from database (@fazevedo)</li>
+          <li>Fix behavior of toggle buttons on release after long press (@melvo)</li>
+          <li>Ensure icons in media viewer and message context menu are always sharp (@melvo)</li>
+          <li>Fix displaying notifications for personal data (e.g., availability and device info) sharing requests even if no chat is open (@melvo)</li>
+          <li>Update chat list filtering on availability changes of contacts (@melvo)</li>
+          <li>Fix sound behavior for subsequent messages (@melvo)</li>
+          <li>Fix message input field overlapping messages if its height increases (@melvo)</li>
+          <li>Keep zoom level within bounds while zooming in location map (@melvo)</li>
+          <li>Fix displaying avatar after canceling selection (@melvo)</li>
+          <li>Fix location displaying/sharing including proper location markers (@melvo)</li>
+          <li>Allow entering credentials to log in (@fazevedo)</li>
+          <li>Fix displaying marked message area (@melvo)</li>
+        </ul>
+        <p>Kaidan requires KItemModels now</p>
+        <p>Kaidan requires Qt 6.9 now</p>
+        <p>Kaidan requires QXmpp 1.16 now</p>
+      </description>
+    </release>
     <release type="stable" version="0.15.0" date="2026-01-30T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>

@@ -1,4 +1,58 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.16.0
+--------------
+Released: 2026-07-21
+
+Features:
+* Add button to try another XMPP provider during automatic registration (@melvo)
+* Display avatars in notifications (@pehg, @melvo)
+* Allow to reply to message via its notification on supported systems (@pehg)
+* Handle pressing Down/Escape button in chats (@melvo)
+* Apply new look to emoji picker with consistent interactive background (@melvo)
+* Add search field for emojis as message reactions (@melvo)
+* Open emoji/participant picker at cursor position while ensuring picker's width fits best (@melvo)
+* Allow to navigate through emoji picker via keyboard to select emoji (@melvo)
+* Play notification sounds (@pehg)
+* Show more tooltips (@melvo)
+* Add viewer for opening/browsing media within a chat (@fazevedo)
+* Add support to record voice messages via long press (@melvo)
+* Rework user interface for consistent and smoother look/behavior including buttons, fields, and fading opacity of icons (@melvo)
+* Focus message input field on starting/canceling reply (@melvo)
+* Allow to zoom via mouse wheel in location map and move map by dragging (@melvo)
+* Allow to share selected location via Return button (@melvo)
+
+Bugfixes:
+* Ignore incoming call requests from other own devices (@melvo)
+* Fix recognizing video calls (@melvo)
+* Hide contact name/avatar and adapt stop button's background if video playback is active in calls (@melvo)
+* Maintain last focused user interface elements in various uses cases (@melvo)
+* Fix quitting calls (@melvo)
+* Fix highlighting contact invitation hint in groups (@melvo)
+* Fix wrong highlighting on opening group participant picker in some cases and ensure that highlighted item is not changed as long as count does not change (@melvo)
+* Fix opening chat in all cases (@melvo)
+* Fix displaying full sender names of message reactions (@melvo)
+* Ensure account avatar's background color is updated if system colors change (e.g., on switching between light/dark mode) (@melvo)
+* Fix position of chat name/date in chat list (@melvo)
+* Fix showing multiple notifications for media (@melvo)
+* Fix saving new draft after sending draft (@melvo)
+* Fix highlighting referenced message after loading from database (@fazevedo)
+* Fix behavior of toggle buttons on release after long press (@melvo)
+* Ensure icons in media viewer and message context menu are always sharp (@melvo)
+* Fix displaying notifications for personal data (e.g., availability and device info) sharing requests even if no chat is open (@melvo)
+* Update chat list filtering on availability changes of contacts (@melvo)
+* Fix sound behavior for subsequent messages (@melvo)
+* Fix message input field overlapping messages if its height increases (@melvo)
+* Keep zoom level within bounds while zooming in location map (@melvo)
+* Fix displaying avatar after canceling selection (@melvo)
+* Fix location displaying/sharing including proper location markers (@melvo)
+* Allow entering credentials to log in (@fazevedo)
+* Fix displaying marked message area (@melvo)
+
+Notes:
+* Kaidan requires KItemModels now
+* Kaidan requires Qt 6.9 now
+* Kaidan requires QXmpp 1.16 now
+
 Version 0.15.0
 --------------
 Released: 2026-01-30
