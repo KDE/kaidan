@@ -113,7 +113,7 @@ SearchBarPage {
 			// The workaround is needed because rosterListView's focus is automatically forced
 			// after creation even when forcing searchFields's focus within its
 			// Component.onCompleted.
-			if (!Kirigami.Settings.isMobile && activeFocus) {
+			if (activeFocus) {
 				root.forceActiveFocus()
 			}
 		}
