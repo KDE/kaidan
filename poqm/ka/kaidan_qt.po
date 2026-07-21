@@ -26,7 +26,7 @@ msgstr "დაკავშირება…"
 #: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "Connected"
-msgstr "დაკავშირება"
+msgstr "დაკავშირებულია"
 
 #: src/Account.cpp:497
 msgctxt "Connection|"
@@ -182,7 +182,7 @@ msgstr "მიერთების პრობლემა"
 #: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
 msgid "Show error"
-msgstr "შეცდომი&ს ჩვენება"
+msgstr "შეცდომის ჩვენება"
 
 #: src/ChatHintModel.cpp:247
 msgctxt "ChatHintModel|"
@@ -340,7 +340,7 @@ msgstr "მინიატურის გენერაცია შეუძ�
 #, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
-msgstr "QR კოდის გენერაცია შეუძლებელია: %1"
+msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
 #: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
@@ -648,7 +648,7 @@ msgstr "შემომავალი ვიდეოზარი %1-დან"
 #: src/NotificationController.cpp:120
 msgctxt "NotificationController|"
 msgid "Accept"
-msgstr "მიღება"
+msgstr "დასტური"
 
 #: src/NotificationController.cpp:127
 msgctxt "NotificationController|"
@@ -2485,7 +2485,7 @@ msgstr "დამატება"
 #: src/qml/elements/ContactAdditionContent.qml:45
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
-msgstr "კონტაქტისთვის მიღებული ნდობის გადაწყვეტილებები"
+msgstr "კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა"
 
 #: src/qml/elements/ContactAdditionContent.qml:65
 msgctxt "ContactAdditionContent|"
@@ -2536,7 +2536,7 @@ msgstr ""
 #: src/qml/elements/ContactInvitationHintDelegate.qml:23
 msgctxt "ContactInvitationHintDelegate|"
 msgid "Invite contacts to this group…"
-msgstr "კონტაქტების მოწვევა ამ ჯგუფში…"
+msgstr "კონტაქტების მოწვევაა ამ ჯგუფში…"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2642,7 +2642,7 @@ msgstr "ალმები"
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr "ემოჯიები აღმოჩენილი არაა"
+msgstr "emoji ვერ მოიძებნა"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -3087,7 +3087,7 @@ msgstr "რეაქციების განახლების თავ�
 #: src/qml/elements/ProviderFilterArea.qml:18
 msgctxt "ProviderFilterArea|"
 msgid "Registration via Kaidan"
-msgstr "რეგისტრაციის Kaidan-დან"
+msgstr "რეგისტრაცია Kaidan-დან"
 
 #: src/qml/elements/ProviderFilterArea.qml:19
 msgctxt "ProviderFilterArea|"
@@ -3132,7 +3132,7 @@ msgstr ""
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "ავტობუსის ფაქტორი"
+msgstr "სალტეს ფაქტორი"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
 msgctxt "ProviderFilterArea|"
@@ -3343,7 +3343,7 @@ msgstr "%1:"
 #: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
-msgstr "ჩამოხსნა"
+msgstr "მოხსნა"
 
 #: src/qml/elements/RosterItemDelegate.qml:289
 msgctxt "RosterItemDelegate|"
@@ -3865,7 +3865,7 @@ msgstr "კონტაქტის წაშლა შეუძლებელ�
 #: src/RosterItem.cpp:31
 msgctxt "QObject|"
 msgid "Provider"
-msgstr "სერვისის მომწოდებელი"
+msgstr "მომწოდებელი"
 
 #: src/RosterItem.cpp:36
 msgctxt "QObject|"
@@ -3907,6 +3907,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "დდ თთთ სს:წწ"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "შეიყვანეთ სწორი პაროლი"
@@ -3935,10 +3943,6 @@ msgstr "ვებსაიტი"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "მისამართის აუცილებელი ფორმაა <b>username@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "ჯგუფში %1 შესვლა შეუძლებელია %2"
@@ -3955,21 +3959,9 @@ msgstr "ვებსაიტი"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "%1-ის განბლოკვა შეუძლებელია: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "დდ თთთ სს:წწ"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "დეტალები…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "ძებნის დახურვა"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "ძებნა"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -3983,37 +3975,21 @@ msgstr "ვებსაიტი"
 #~ "typing"
 #~ msgstr "მითითება, როცა საუბარი გახსნილი გაქვთ, კრეფთ ან შეწყვიტეთ კრეფა"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 ონლაინაა"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "მონიშნული ფაილის წაშლა"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "სერვერის მდებარეობები"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "ძებნა"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 ონლაინაა"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "მიერთების პარამეტრები შეიცვალა"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "შეერთების მორგება"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "კავშირის პარამეტრები"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "კონტაქტი უკვე არსებობს"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "ჩატის გახსნა"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4023,15 +3999,31 @@ msgstr "ვებსაიტი"
 #~ msgid "Maximize avatar"
 #~ msgstr "ავატარის გადიდება"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "კონტაქტი უკვე არსებობს"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "ჩატის გახსნა"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "შეერთების მორგება"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "კავშირის პარამეტრები"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "სერვერის მდებარეობები"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "ანგარიშის მიგრაცია შეუძლებელია: უკვე მიმდინარეობს სხვა მიგრაცია"
@@ -4055,6 +4047,10 @@ msgstr "ვებსაიტი"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "ამას, შეიძლება, დიდი დრო დასჭირდეს"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

@@ -4871,6 +4871,13 @@ msgid "Website"
 msgstr "Վեբ-կայք"
 
 #, fuzzy
+#~| msgctxt "MessageHandler|"
+#~| msgid "Message could not be sent."
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
+
+#, fuzzy
 #~| msgctxt "ChangePassword|"
 #~| msgid "Current password:"
 #~ msgctxt "AccountDetailsContent|"
@@ -4887,13 +4894,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Զրույցի հասցե:"
-
-#, fuzzy
-#~| msgctxt "MessageHandler|"
-#~| msgid "Message could not be sent."
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
 #, fuzzy
 #~| msgctxt "MessageHandler|"
@@ -4917,11 +4917,11 @@ msgstr "Վեբ-կայք"
 #~ msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
 #, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Close message search bar"
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Ավարտել որոնումը"
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Հեռացնել"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4933,34 +4933,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1-ը հասանելի է"
-
-#, fuzzy
-#~| msgctxt "LocalAccountRemoval|"
-#~| msgid "Remove"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Հեռացնել"
-
-#, fuzzy
-#~| msgctxt "MediaUtils|"
-#~| msgid "Send location"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Ուղարկել տեղադրություն"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Connection settings"
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Կապի կարգավորումներ"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Connection settings"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Կապի կարգավորումներ"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
@@ -4977,18 +4949,32 @@ msgstr "Վեբ-կայք"
 #~ msgstr "Փոխել գաղտնաբառը"
 
 #, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Կապի կարգավորումներ"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connection settings"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Կապի կարգավորումներ"
+
+#, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Send location"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Ուղարկել տեղադրություն"
+
+#, fuzzy
 #~| msgctxt "QrCodeGenerator|"
 #~| msgid "Generating the QR code failed: %1"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR կոդի ստեղծումը ձախողվել է: %1"
-
-#, fuzzy
-#~| msgctxt "QObject|"
-#~| msgid "Mark as read"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Համարել կարդացած"
 
 #, fuzzy
 #~| msgctxt "GlobalDrawer|"
@@ -5014,6 +5000,13 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
+
+#, fuzzy
+#~| msgctxt "QObject|"
+#~| msgid "Mark as read"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Համարել կարդացած"
 
 #, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"

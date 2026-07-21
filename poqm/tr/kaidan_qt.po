@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-07 08:30+0300\n"
+"PO-Revision-Date: 2026-07-01 19:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +60,7 @@ msgstr ""
 #: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Sunucu çevrim dışı veya bir güvenlik duvarı tarafından engelleniyor."
+msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
 #: src/Account.cpp:509
 msgctxt "Connection|"
@@ -107,7 +107,9 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Hesap göç ettirilemedi: Bağlı olmanız gerekiyor."
 
 #: src/AccountMigrationController.cpp:386
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|"
+#| msgid "Account '%1' migrated to '%2'"
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "“%1” hesabı, “%2” konumuna göç ettirildi"
@@ -138,13 +140,17 @@ msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
 #: src/ChatController.cpp:176
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 is typing…"
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 yazıyor…"
 
 #: src/ChatController.cpp:178
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatController|"
+#| msgid "%1 paused typing"
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
@@ -187,7 +193,11 @@ msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
 #: src/ChatHintModel.cpp:260
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
 "with ': ' and is shown if the request has a status message, otherwise it is "
@@ -200,7 +210,12 @@ msgstr ""
 "ister%2"
 
 #: src/ChatHintModel.cpp:267
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
+#| "personal data such as availability, devices and other personal "
+#| "information again%5"
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
 "JIDs, %5 is appended text that begins with ': ' and is shown if the request "
@@ -279,7 +294,9 @@ msgid "Media sharing is unsupported"
 msgstr "Ortam paylaşımı özelliği desteklenmiyor"
 
 #: src/FileSharingController.cpp:509
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Could not upload file: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "Dosya karşıya yüklenemedi: %1"
@@ -311,6 +328,9 @@ msgid "Joined"
 msgstr "Katıldı"
 
 #: src/GroupChatUserModel.cpp:58
+#, fuzzy
+#| msgctxt "GroupChatUserModel|"
+#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "Ayrıldı"
@@ -321,19 +341,25 @@ msgid "Banned"
 msgstr "Yasaklı"
 
 #: src/ImageProvider.cpp:124
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not copy invalid source to clipboard: %1"
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Geçersiz kaynak panoya kopyalanamadı: %1"
 
 #: src/ImageProvider.cpp:302
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate thumbnail: %1 does not exist"
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Küçük görsel oluşturulamadı: %1 yok"
 
 #: src/ImageProvider.cpp:356
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ImageProvider|"
+#| msgid "Could not generate QR code: %1"
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Kare kod oluşturulamadı: %1"
@@ -439,7 +465,9 @@ msgid "Documents"
 msgstr "Belgeler"
 
 #: src/MediaUtils.cpp:446
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaUtils|"
+#| msgid "%1 (%2)"
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -461,7 +489,9 @@ msgid "Location"
 msgstr "Konum"
 
 #: src/Message.cpp:466
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "Message|"
+#| msgid "Invitation to group %1"
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "%1 grubuna davet"
@@ -477,13 +507,17 @@ msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
 #: src/MessageComposition.cpp:561
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "Ses iletisi gönderilemiyor; çünkü %2 boyutundan büyük"
+msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
 
 #: src/MessageComposition.cpp:594
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSelectionModel|"
+#| msgid "'%1' cannot be sent because it is larger than %2"
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
@@ -501,13 +535,17 @@ msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
 
 #: src/MessageController.cpp:617
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti %1 ile şifreli; ancak şifresi çözülemedi"
 
 #: src/MessageController.cpp:1021
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Tepki gönderilemedi: %1"
@@ -533,13 +571,17 @@ msgid "Error"
 msgstr "Hata"
 
 #: src/MessageModel.cpp:595 src/MessageModel.cpp:692
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Reaction could not be sent: %1"
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Tepki gönderilemedi: %1"
 
 #: src/MessageModel.cpp:777
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %1"
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Tepkiler gönderilemedi: %1"
@@ -557,22 +599,28 @@ msgstr "Dün"
 #: src/MixController.cpp:104
 msgctxt "MixController|"
 msgid "The group already exists"
-msgstr "Grup hâlihazırda var"
+msgstr "Grup halihazırda var"
 
 #: src/MixController.cpp:125
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Whether %1 is public could not be determined: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
-msgstr "%1 kanalının genel olup olmadığı algılanamadı: %2"
+msgstr "%1 ögesinin genel olup olmadığı algılanamadı: %2"
 
 #: src/MixController.cpp:139
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not retrieve information of group %1: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "%1 grubunun bilgisi alınamadı: %2"
 
 #: src/MixController.cpp:151 src/MixController.cpp:160
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Could not rename group %1: %2"
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "%1 grubu yeniden adlandırılamadı: %2"
@@ -588,38 +636,50 @@ msgid "You aren't allowed to join the group"
 msgstr "Bu gruba katılmanıza izin yok"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be invited to %2: %3"
 msgctxt ""
 "MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1, %2 grubuna davet edilemedi: %3"
 
 #: src/MixController.cpp:272
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Nodes of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "%1 düğümleri alınamadı: %2"
 
 #: src/MixController.cpp:280
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Allowed users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "%1 için izin verilen kullanıcılar alınamadı: %2"
 
 #: src/MixController.cpp:295
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Banned users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "%1 için yasaklı olan kullanıcılar alınamadı: %2"
 
 #: src/MixController.cpp:311
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "%1 için katılmış olan kullanıcılar alınamadı: %2"
 
 #: src/MixController.cpp:326
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "%1 could not be banned from %2: %3"
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kişisine %2 için yasak getirilemedi: %3"
@@ -662,14 +722,20 @@ msgid "Mark as read"
 msgstr "Okundu Olarak İmle"
 
 #: src/NotificationController.cpp:322
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Yanıtla"
 
 #: src/NotificationController.cpp:323
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Yanıtla…"
+msgstr "Yanıtla"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -726,12 +792,14 @@ msgstr "Sınırsız"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ProviderModel|"
+#| msgid "%1 days"
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%n gün"
-msgstr[1] "%n gün"
+msgstr[0] "%1 gün"
+msgstr[1] "%1 gün"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -751,7 +819,7 @@ msgstr "Ara"
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr "Çağrıdan Çık"
+msgstr ""
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -809,7 +877,9 @@ msgid "Drop files to be sent"
 msgstr "Gönderilecek dosyaları bırakın"
 
 #: src/qml/ChatPage.qml:918
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
@@ -820,19 +890,25 @@ msgid "Undo"
 msgstr "Geri Al"
 
 #: src/qml/ChatPage.qml:925
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
 #: src/qml/ChatPage.qml:929
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You can share media up to %1."
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "%1 boyutuna kadar ortam paylaşabilirsiniz."
@@ -961,8 +1037,9 @@ msgid ""
 "provider OpenStreetMap is used. The data is downloaded from it after "
 "submitting the location."
 msgstr ""
-"Kaidan’da konumları görüntülemek için OpenStreetMap gibi üçüncü parti çevrim "
-"içi veri sağlayıcıları kullanılır. Veri, konum girildikten sonra indirilir."
+"Kaidan’da konumları görüntülemek için OpenStreetMap gibi üçüncü parti "
+"çevrimiçi veri sağlayıcıları kullanılır. Veri, konum girildikten sonra "
+"indirilir."
 
 #: src/qml/details/AccountDetailsContent.qml:324
 msgctxt "AccountDetailsContent|"
@@ -1045,7 +1122,9 @@ msgid "Support"
 msgstr "Destek"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support %1"
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Destekle: %1"
@@ -1061,7 +1140,9 @@ msgid "Join your provider's public support group"
 msgstr "Sağlayıcınızın destek grubuna katıl"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Group Support %1"
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Grup Olarak Destekle: %1"
@@ -1176,6 +1257,9 @@ msgid "Enter your new password"
 msgstr "Yeni parolanızı girin"
 
 #: src/qml/details/AccountDetailsContent.qml:717
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Değiştirmek için farklı bir parola gir"
@@ -1186,7 +1270,9 @@ msgid "Change password"
 msgstr "Parolayı değiştir"
 
 #: src/qml/details/AccountDetailsContent.qml:762
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Parola değiştirilemedi: %1"
@@ -1277,7 +1363,9 @@ msgid "Applying changes…"
 msgstr "Değişiklikler uygulanıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Bağlantı ayarları değiştirilemedi: %1"
@@ -1398,7 +1486,11 @@ msgid "Deleting account…"
 msgstr "Hesap siliniyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1929,7 +2021,9 @@ msgid "Leaving group chat…"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be left%2"
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -1952,7 +2046,9 @@ msgid "Deleting group chat…"
 msgstr "Grup sohbeti siliniyor…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2056,13 +2152,19 @@ msgid "Other"
 msgstr "Diğer"
 
 #: src/qml/details/MediaOverview.qml:172
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid "%1/%2 selected"
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 seçili"
 
 #: src/qml/details/MediaOverview.qml:255
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2245,7 +2347,7 @@ msgstr "Kaynak Kodunu Görüntüle"
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
-"Kaidan’ın kaynak kodunu çevrim içi olarak görüntüle ve projeye katkıda bulun"
+"Kaidan’ın kaynak kodunu çevrimiçi olarak görüntüle ve projeye katkıda bulun"
 
 #: src/qml/elements/AboutHeader.qml:40
 msgctxt "AboutHeader|"
@@ -2283,14 +2385,20 @@ msgid "Spoiler"
 msgstr "Tatkaçıran"
 
 #: src/qml/elements/ChatMessage.qml:234
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Gizli ileti kısmını gizle"
+msgstr "Gizli ileti kısmı ekle"
 
 #: src/qml/elements/ChatMessage.qml:234
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Gizli ileti kısmını göster"
+msgstr "Gizli ileti kısmı ekle"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2298,7 +2406,9 @@ msgid "New"
 msgstr "Yeni"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatMessage|"
+#| msgid "%1 has read up to this point"
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1, bu noktaya kadar okudu"
@@ -2375,9 +2485,12 @@ msgstr "Gizli ileti kısmı eklemeyi iptal et"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 #: src/qml/elements/ChatPageSendingPane.qml:612
+#, fuzzy
+#| msgctxt "FileSharingController|"
+#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "İptal"
+msgstr "İptal Edildi"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 msgctxt "ChatPageSendingPane|"
@@ -2447,7 +2560,7 @@ msgstr "Daha fazla"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr "İptal etmek için kaydırın"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2456,9 +2569,12 @@ msgid "Send"
 msgstr "Gönder"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Ses iletisi kaydet"
+msgstr "Sesli mesaj gönder"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2481,9 +2597,12 @@ msgid "Adding contact…"
 msgstr "Kişi ekleniyor…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Ad (isteğe bağlı)"
+msgstr "Ad (isteğe bağlı):"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2546,19 +2665,30 @@ msgid "Copy"
 msgstr "Kopyala"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Makine adı"
+msgstr "Makine adı:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr "Geçerli bir makine adı girin veya boş bırakın"
+msgstr ""
+"Lütfen geçerli bir kullanıcı adı girin veya rastgele bir tane için boş "
+"bırakın."
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
+#, fuzzy
+#| msgctxt "CustomConnectionSettings|"
+#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Kapı"
+msgstr "Kapı:"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2582,52 +2712,55 @@ msgstr "Kimi özellikler, hesabınız etkinleştirildikten sonra görünür olac
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr "Sık Kullanılanlar"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr "Kişiler"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
 msgid "Nature"
-msgstr "Doğa"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:71
 msgctxt "EmojiPicker|"
 msgid "Food"
-msgstr "Yiyecek"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr "Etkinlik"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
 msgid "Travel"
-msgstr "Yolculuk"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:89
+#, fuzzy
+#| msgctxt "NotificationController|"
+#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "Nesneler"
+msgstr "Reddet"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
 msgid "Symbols"
-msgstr "Semboller"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:101
 msgctxt "EmojiPicker|"
 msgid "Flags"
-msgstr "Bayraklar"
+msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr "Bulunan emoji yok"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2640,11 +2773,17 @@ msgid "user@example.org"
 msgstr "kullanıcı@örnek.org"
 
 #: src/qml/elements/fields/JidField.qml:20
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Geçerli bir sohbet adresi girin"
+msgstr "Sohbet adresi ile kişi ekle"
 
 #: src/qml/elements/fields/PasswordField.qml:23
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "Geçerli bir parola girin"
@@ -2670,16 +2809,25 @@ msgid "Location"
 msgstr "Konum"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
+#, fuzzy
+#| msgctxt "GeoLocationSharingDialog|"
+#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
-msgstr "Konum paylaş"
+msgstr "Konum Paylaş"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "Geçerli konumu takip et"
+msgstr "Konumlar nasıl açılır"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Konum gönder"
@@ -2695,9 +2843,12 @@ msgid "Creating group chat…"
 msgstr "Grup sohbeti oluşturuluyor…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
-msgstr "Grup adı (isteğe bağlı)"
+msgstr "Grup adı (isteğe bağlı):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:29
 msgctxt "GroupChatCreationContent|"
@@ -2725,25 +2876,35 @@ msgid "Enter a valid group ID"
 msgstr "Geçerli bir grup kimliği girin"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
+#, fuzzy
+#| msgctxt "BlockingModel|"
+#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Hizmet"
+msgstr "Aygıtlar"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Takma ad (isteğe bağlı)"
+msgstr "Takma ad (isteğe bağlı):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group could not be created on %1%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
 "followed by an error message"
 msgid "The group could not be created on %1%2"
-msgstr "Bu grup %1 üzerinde oluşturulamadı%2"
+msgstr "Bu grup %1%2 üzerinde oluşturulamadı"
 
 #: src/qml/elements/GroupChatCreationContent.qml:94
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be created%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2751,7 +2912,9 @@ msgid "The group %1 could not be created%2"
 msgstr "%1 grubu oluşturulamadı%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:98
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2774,14 +2937,20 @@ msgid "Join"
 msgstr "Katıl"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Gruba katılınıyor…"
+msgstr "Grup sohbetine katılınıyor…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
+#, fuzzy
+#| msgctxt "UrlFormButtonDelegate|"
+#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Grup adresi"
+msgstr "Web sitesi adresini kopyala"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2789,17 +2958,25 @@ msgid "group@groups.example.org"
 msgstr "grup@gruplar.örnek.org"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Geçerli bir grup adresi girin"
+msgstr "Geçerli bir grup kimliği girin"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
+#, fuzzy
+#| msgctxt "GroupChatJoiningContent|"
+#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Takma ad (isteğe bağlı)"
+msgstr "Takma ad (isteğe bağlı):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "The group %1 could not be joined%2"
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2843,9 +3020,12 @@ msgid "Take a picture"
 msgstr "Resim Çek"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
-msgstr "Resim Çek"
+msgstr "Resim çek"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2925,61 +3105,91 @@ msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Duraklat"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
+#, fuzzy
+#| msgctxt "Audio|"
+#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
-msgstr "Oynat/Çal"
+msgstr "Oynat"
 
 #: src/qml/elements/MediaViewer.qml:92
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Ortam görüntüleyicisini kapat"
+msgstr "Sağlayıcı Seç"
 
 #: src/qml/elements/MediaViewer.qml:116
+#, fuzzy
+#| msgctxt "ProviderChatDetailsDialog|"
+#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Ayrıntıları gizle"
+msgstr "Sağlayıcı Ayrıntıları"
 
 #: src/qml/elements/MediaViewer.qml:116
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Ayrıntıları göster"
 
 #: src/qml/elements/MediaViewer.qml:122
+#, fuzzy
+#| msgctxt "RosterItemDelegate|"
+#| msgid "No messages yet"
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "İletiye git"
+msgstr "Henüz bir ileti yok"
 
 #: src/qml/elements/MediaViewer.qml:129
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Kaldır"
 
 #: src/qml/elements/MediaViewer.qml:139
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Klasörde aç"
+msgstr "Dosyanın klasörünü aç"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr "Dış uygulamada aç"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "İleti"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:182
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Açıklama"
 
 #: src/qml/elements/MediaViewer.qml:200
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Ad"
@@ -2987,22 +3197,22 @@ msgstr "Ad"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr "Büyüklük"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr "Gönderildi/Alındı"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr "Önceki"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr "Sonraki"
+msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3159,7 +3369,9 @@ msgid "Organization"
 msgstr "Organizasyon"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "Search public groups (%1)"
 msgctxt ""
 "PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
 "groups', e.g. '5/20'"
@@ -3177,7 +3389,9 @@ msgid "Retry"
 msgstr "Yeniden Dene"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "PublicGroupChatSearchDialog|"
+#| msgid "The public groups could not be retrieved: %1"
 msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "Genel gruplar alınamadı: %1"
@@ -3352,12 +3566,12 @@ msgstr "Video kaydet"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr "Kaydı durdur"
+msgstr ""
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr "Kaydı başlat"
+msgstr ""
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3440,7 +3654,9 @@ msgid "About"
 msgstr "Hakkında"
 
 #: src/qml/GlobalDrawer.qml:484
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Unblocked %1"
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
@@ -3451,13 +3667,17 @@ msgid "Undo"
 msgstr "Geri Al"
 
 #: src/qml/GlobalDrawer.qml:491
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not block %1: %2"
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|"
+#| msgid "Could not unblock %1: %2"
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
@@ -3559,6 +3779,9 @@ msgid "Enter your desired credentials"
 msgstr "İstediğiniz oturum açma bilgilerini girin"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Görüntü adı"
@@ -3803,7 +4026,9 @@ msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
 #: src/RosterController.cpp:152
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "%1 could not be added: %2"
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 eklenemedi: %2"
@@ -3819,7 +4044,11 @@ msgid "Could not rename contact as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
 #: src/RosterController.cpp:179
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid ""
+#| "Requesting to see the personal data of %1 failed because of a connection "
+#| "problem: %2"
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -3829,13 +4058,17 @@ msgstr ""
 "başarısız oldu: %2"
 
 #: src/RosterController.cpp:192
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Allowing %1 to see your personal data failed"
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 kişisinin sizin kişisel verinizi görme isteği başarısız oldu"
 
 #: src/RosterController.cpp:204
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "RosterController|"
+#| msgid "Stopping %1 to see your personal data failed"
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
@@ -3891,6 +4124,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM, hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Tepki gönderilemedi: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Doğru parolayı gir"
@@ -3919,10 +4160,6 @@ msgstr "Web sitesi"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Sohbet adresinin biçimi <b>grup@sunucu</b> olmalıdır"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Tepki gönderilemedi: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "%1 grubuna katılınamadı%2"
@@ -3938,10 +4175,6 @@ msgstr "Web sitesi"
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "%1 engeli kaldırılamadı: %2"
-
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM, hh:mm"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"

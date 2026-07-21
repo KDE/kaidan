@@ -4,15 +4,15 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 # or the same license as the source of its messages in English.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2025 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2019 Joan CiberSheep <cibersheep@gmail.com>
 # SPDX-FileCopyrightText: 2019 Txaume <txaumevw@gmail.com>
 # SPDX-FileCopyrightText: 2020 Adolfo Jayme Barrientos <fitojb@ubuntu.com>
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2022-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-07-07 10:20+0200\n"
+"PO-Revision-Date: 2026-07-13 09:10+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Language: ca\n"
 "X-Qt-Contexts: true\n"
 
@@ -3932,6 +3932,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM a les hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "No s'ha pogut enviar la reacció: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Introduïu la contrasenya correcta"
@@ -3959,3 +3967,19 @@ msgstr "Lloc web"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Cal que l'adreça tingui la forma <b>grup@servidor</b>"
+
+#~ msgctxt "GroupChatJoiningContent|"
+#~ msgid "The group %1 could not be joined%2"
+#~ msgstr "No podeu unir-vos al grup %1: %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Unblocked %1"
+#~ msgstr "%1 desbloquejat"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "No s'ha pogut bloquejar %1: %2"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "No s'ha pogut desbloquejar %1: %2"

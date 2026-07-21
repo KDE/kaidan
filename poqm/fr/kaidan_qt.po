@@ -4227,6 +4227,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site Internet"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM à hh : mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Il a été impossible d'envoyer une réaction : %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Saisissez un mot de passe correct"
@@ -4257,10 +4265,6 @@ msgstr "Site Internet"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "L'adresse doit avoir le format <b>groupe@serveur</b>."
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Il a été impossible d'envoyer une réaction : %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Il a été impossible de rejoindre le groupe %1 : %2"
@@ -4277,21 +4281,9 @@ msgstr "Site Internet"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Impossible de débloquer %1 : %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM à hh : mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Détails…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Terminer la recherche"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Rechercher"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4309,37 +4301,21 @@ msgstr "Site Internet"
 #~ "Indiquer quand vous avez ouvert cette conversation, quand vous avez fait "
 #~ "des saisies et les avez arrêtées."
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 est en ligne"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Supprimer le fichier sélectionné"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Emplacements des serveurs"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Rechercher"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 est en ligne"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Saisir une configuration de connexion différente pour les modifier"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuration de connexion"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Configuration de connexion"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Le contact existe déjà."
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Ouvrir une discussion"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4349,20 +4325,36 @@ msgstr "Site Internet"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximiser un avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Le contact existe déjà."
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Ouvrir une discussion"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuration de connexion"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuration de connexion"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Emplacements des serveurs"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "La génération du code « QR » a échoué : %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marquer comme premier non lu"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
 #~ "Il a été impossible de réaliser la migration du compte : une autre "
-#~ "migration est déjà en cours."
+#~ "migration est déjà en cours"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4383,6 +4375,10 @@ msgstr "Site Internet"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Cela peut prendre du temps"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marquer comme premier non lu"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

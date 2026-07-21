@@ -191,7 +191,7 @@ msgstr "Włączanie…"
 
 #: src/ChatHintModel.cpp:244
 #, fuzzy
-#| msgctxt "Connection|"
+#| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
@@ -4279,6 +4279,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM o hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nie udało się wysłać reakcji: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Wpisz poprawne hasło"
@@ -4307,10 +4315,6 @@ msgstr "Strona sieciowa"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Adres musi mieć postać <b>grupa@serwer</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nie udało się wysłać reakcji: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Nie można dołączyć do grupy %1 %2"
@@ -4327,21 +4331,9 @@ msgstr "Strona sieciowa"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Nie można odblokować %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM o hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Szczegóły…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Zamknij wyszukiwanie"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Poszukaj"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4357,37 +4349,21 @@ msgstr "Strona sieciowa"
 #~ msgstr ""
 #~ "Wskazuje, czy masz tę rozmowę otwartą, czy piszesz lub czy przestałeś"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 jest dostępny"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Usuń zaznaczony plik"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Umiejscowienie serwerów"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Poszukaj"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 jest dostępny"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Wpisz inne ustawienia połączenia, aby je zmienić"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Ustawienia połączenia"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Ustawienia połączenia"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Znajomy już istnieje"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Rozpocznij rozmowę"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4397,15 +4373,31 @@ msgstr "Strona sieciowa"
 #~ msgid "Maximize avatar"
 #~ msgstr "Zmaksymalizuj awatara"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Znajomy już istnieje"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Rozpocznij rozmowę"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Ustawienia połączenia"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Ustawienia połączenia"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Umiejscowienie serwerów"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Nie udało utworzyć kodu QR: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Nie można przenieść konta: Już trwa jakieś przenoszenie"
@@ -4429,6 +4421,10 @@ msgstr "Strona sieciowa"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "To może trochę zająć"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

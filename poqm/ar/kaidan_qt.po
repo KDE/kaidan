@@ -3850,6 +3850,14 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "الموقع الإلكتروني"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM في hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "تعذر إرسال التفاعل: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "أدخل كلمة السر صحيحة"
@@ -3878,10 +3886,6 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "يجب أن يكون العنوان النموذج <b>group@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "تعذر إرسال التفاعل: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "لا يمكن الانضمام إلى المجموعة %1 %2"
@@ -3898,21 +3902,9 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "لا يمكن إلغاء حظر %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM في hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "التفاصيل…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "أغلق البحث"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "ابحث"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -3926,37 +3918,21 @@ msgstr "الموقع الإلكتروني"
 #~ "typing"
 #~ msgstr "بيّن وقت فتح هذه المحادثة، ووقت الكتابة، ووقت التوقف عن الكتابة"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "‏%1 متّصل"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "أزل الملف المحدد"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "مواقع الخادم"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "ابحث"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "‏%1 متّصل"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "أدخل إعدادات اتصال مختلفة لتغييرها"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "إعدادات الاتّصال"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "إعدادات الاتّصال"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "الاتصال موجود فعلًا"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "افتح دردشة"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -3966,18 +3942,34 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "Maximize avatar"
 #~ msgstr "كبّر الصورة الرمزية"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "الاتصال موجود فعلًا"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "افتح دردشة"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "مواقع الخادم"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "فشل إنشاء رمز الاستجابة السريعة: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "علّم كَغَير مقروءة من قبل"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم بالفعل"
+#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم فعلًا"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -3994,13 +3986,17 @@ msgstr "الموقع الإلكتروني"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr ""
-#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للإنضمام إلى "
+#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للانضمام إلى "
 #~ "محادثة)\n"
-#~ "سيتم فتح هذا الرابط عندما تتصل بالإنترنت."
+#~ "سيُفتح هذا الرابط عندما تتصل بالإنترنت."
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "يمكن أن يستغرق وقتًا طويلاً"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "علّم كَغَير مقروءة من قبل"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
