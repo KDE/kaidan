@@ -567,9 +567,9 @@ Kirigami.GlobalDrawer {
 			const focusedItem = applicationWindow().activeFocusItem
 
 			// Update root.lastFocusedItem to become any focused item outside of GlobalDrawer.
-			// "!root.handle.visibleChildren.includes(focusedItem)" is used to filter out the drawer handle.
+			// "!(focusedItem instanceof IconButton)" is used to filter out the drawer handle.
 			// "focusedItem !== root.lastFocusedItem" avoids setting root.lastFocusedItem twice for the same item.
-			if (!root.handle.visibleChildren.includes(focusedItem) && !root.drawerOpen && focusedItem !== root.lastFocusedItem && !lastFocusedItemCached) {
+			if (!(focusedItem instanceof IconButton) && !root.drawerOpen && focusedItem !== root.lastFocusedItem && !root.lastFocusedItemCached) {
 				root.lastFocusedItem = focusedItem
 			}
 		}
