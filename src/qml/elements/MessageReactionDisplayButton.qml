@@ -109,7 +109,7 @@ MessageReactionButton {
 	}
 	Controls.ToolTip.text: {
 		if (!ownReactionIncluded) {
-			return ""
+			return qsTr("Add same reaction")
 		}
 
 		if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
