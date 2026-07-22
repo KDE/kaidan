@@ -43,9 +43,6 @@ AccountSettings::AccountSettings(Data data, QObject *parent)
     : QObject(parent)
     , m_data(data)
 {
-#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
-    generateJidResource();
-#endif
     generateUserAgentDeviceId();
 }
 
@@ -71,13 +68,6 @@ void AccountSettings::setJid(const QString &jid)
         Q_EMIT jidChanged();
     }
 }
-
-#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
-QString AccountSettings::jidResource() const
-{
-    return m_data.jidResource;
-}
-#endif
 
 QString AccountSettings::password() const
 {
@@ -393,13 +383,6 @@ QString AccountSettings::loginUriString() const
 
     return uri.toString();
 }
-
-#if QXMPP_VERSION < QT_VERSION_CHECK(1, 17, 0)
-void AccountSettings::generateJidResource()
-{
-    m_data.jidResource = QXmppUtils::generateStanzaHash(4);
-}
-#endif
 
 void AccountSettings::generateUserAgentDeviceId()
 {
