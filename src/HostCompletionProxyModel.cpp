@@ -11,7 +11,7 @@ HostCompletionProxyModel::HostCompletionProxyModel(QObject *parent)
 
     connect(this, &HostCompletionProxyModel::userInputChanged, this, [this] {
         beginFilterChange();
-        endFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     });
 }
 

@@ -71,7 +71,7 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
     if (userJids.isEmpty()) {
         m_jids.clear();
         beginFilterChange();
-        endFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
         return;
     }
 
@@ -87,7 +87,7 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
         if (m_jids != jids) {
             m_jids = jids;
             beginFilterChange();
-            endFilterChange();
+            endFilterChange(QSortFilterProxyModel::Direction::Rows);
         }
     });
 }

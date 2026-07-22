@@ -30,7 +30,7 @@ void GroupChatInviteeFilterModel::setAccountJid(const QString &accountJid)
     if (m_accountJid != accountJid) {
         m_accountJid = accountJid;
         beginFilterChange();
-        endFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }
 
@@ -39,7 +39,7 @@ void GroupChatInviteeFilterModel::setGroupChatUserJids(const QList<QString> &gro
     if (m_groupChatUserJids != groupChatUserJids) {
         m_groupChatUserJids = groupChatUserJids;
         beginFilterChange();
-        endFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }
 

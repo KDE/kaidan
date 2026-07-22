@@ -14,7 +14,7 @@ PublicGroupChatProxyModel::PublicGroupChatProxyModel(QObject *parent)
 
     connect(this, &PublicGroupChatProxyModel::languageFilterChanged, this, [this] {
         beginFilterChange();
-        endFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
     });
     connect(this, &PublicGroupChatProxyModel::rowsInserted, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::rowsRemoved, this, &PublicGroupChatProxyModel::countChanged);
