@@ -28,8 +28,8 @@ bool GroupChatInviteeFilterModel::filterAcceptsRow(int sourceRow, const QModelIn
 void GroupChatInviteeFilterModel::setAccountJid(const QString &accountJid)
 {
     if (m_accountJid != accountJid) {
-        m_accountJid = accountJid;
         beginFilterChange();
+        m_accountJid = accountJid;
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }
@@ -37,8 +37,8 @@ void GroupChatInviteeFilterModel::setAccountJid(const QString &accountJid)
 void GroupChatInviteeFilterModel::setGroupChatUserJids(const QList<QString> &groupChatUserJids)
 {
     if (m_groupChatUserJids != groupChatUserJids) {
-        m_groupChatUserJids = groupChatUserJids;
         beginFilterChange();
+        m_groupChatUserJids = groupChatUserJids;
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
     }
 }

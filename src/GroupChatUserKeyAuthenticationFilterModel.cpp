@@ -69,8 +69,8 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
     const auto userJids = model->userJids();
 
     if (userJids.isEmpty()) {
-        m_jids.clear();
         beginFilterChange();
+        m_jids.clear();
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
         return;
     }
@@ -85,8 +85,8 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
         });
 
         if (m_jids != jids) {
-            m_jids = jids;
             beginFilterChange();
+            m_jids = jids;
             endFilterChange(QSortFilterProxyModel::Direction::Rows);
         }
     });
