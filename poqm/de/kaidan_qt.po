@@ -3546,6 +3546,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Details anzeigen"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add Contact"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Kontakt hinzufügen"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 #, fuzzy
 msgctxt "MessageReactionDisplayButton|"
@@ -4377,8 +4385,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Anmelden mit deinem XMPP Account"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
