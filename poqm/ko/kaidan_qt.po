@@ -3261,6 +3261,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "자세한 정보 표시"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "반응 추가…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -4029,8 +4037,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "2단계: 등록한 계정으로 로그인"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "필터"
@@ -4171,14 +4179,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "MMM dd일 hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "반응을 전송할 수 없음: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "올바른 암호를 입력하십시오"
@@ -4207,6 +4207,10 @@ msgstr "웹사이트"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "대화 주소는 <b>group@server</b> 형식이어야 함"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "반응을 전송할 수 없음: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "%1 그룹에 참가할 수 없음%2"
@@ -4223,9 +4227,21 @@ msgstr "웹사이트"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "%1 님의 차단을 해제할 수 없음: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "MMM dd일 hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "자세히…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "검색 닫기"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "검색"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4243,37 +4259,21 @@ msgstr "웹사이트"
 #~ "이 대화를 열었거나, 메시지를 입력하고 있거나, 메시지 입력을 중단했음을 알"
 #~ "리는 정보 전송"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "선택한 파일 삭제"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "검색"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 님이 온라인"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "선택한 파일 삭제"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "서버 위치"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "다른 연결 설정을 입력하면 변경합니다"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "아바타 최대화"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "아바타 최대화"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "대화 상대가 이미 존재함"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "대화 열기"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4283,15 +4283,31 @@ msgstr "웹사이트"
 #~ msgid "Connection settings"
 #~ msgstr "연결 설정"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "서버 위치"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "대화 상대가 이미 존재함"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "대화 열기"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "아바타 최대화"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "아바타 최대화"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR 코드 생성 실패: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "첫 읽지 않은 상태로 표시"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "계정을 이전할 수 없음: 다른 이전 작업이 진행 중"
@@ -4315,10 +4331,6 @@ msgstr "웹사이트"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "시간이 걸릴 수 있습니다"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "첫 읽지 않은 상태로 표시"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

@@ -3066,6 +3066,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Mostra i dettagli"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Aggiungi reazione…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -3789,8 +3797,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Passo 2: accedi con il tuo account registrato"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtro"
@@ -3929,14 +3937,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "gg MMM alle hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Impossibile inviare la reazione: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Digita la password corretta"
@@ -3965,6 +3965,10 @@ msgstr "Sito web"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "L'indirizzo deve avere la forma <b>gruppo@server</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Impossibile inviare la reazione: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Impossibile unirsi al gruppo %1%2"
@@ -3981,9 +3985,21 @@ msgstr "Sito web"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Impossibile sbloccare %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "gg MMM alle hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Dettagli…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Chiudi la ricerca"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4001,37 +4017,21 @@ msgstr "Sito web"
 #~ "Indica quando hai questa conversazione aperta, stai digitando e hai "
 #~ "smesso di digitare"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Rimuovi il file selezionato"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Cerca"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 è in linea"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Rimuovi il file selezionato"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Posizioni del server"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Digita diverse impostazioni di connessione per modificarle"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Massimizza l'avatar"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Massimizza l'avatar"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Il contatto esiste già"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Apri la chat"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4041,18 +4041,35 @@ msgstr "Sito web"
 #~ msgid "Connection settings"
 #~ msgstr "Impostazioni di connessione"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Posizioni del server"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Il contatto esiste già"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Apri la chat"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Massimizza l'avatar"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Massimizza l'avatar"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generazione del codice QR non riuscita: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marca come primo non letto"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "Impossibile migrare l'account: è già in corso un'altra migrazione"
+#~ msgstr ""
+#~ "L'account non può essere migrato: è già in corso un'altra migrazione"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4073,10 +4090,6 @@ msgstr "Sito web"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Può richiedere del tempo"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marca come primo non letto"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

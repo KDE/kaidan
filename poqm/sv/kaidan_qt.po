@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-13 06:22+0200\n"
+"PO-Revision-Date: 2026-07-08 21:40+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -723,7 +723,7 @@ msgstr "Egen leverantör"
 #: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
 msgctxt "ProviderModel|"
 msgid "Unlimited"
-msgstr "Obegränsad"
+msgstr "Obegränsat"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
@@ -757,12 +757,12 @@ msgstr "Avsluta samtal"
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Öppna ljudsamtal"
+msgstr "Öppna samtal"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "Starta ljudsamtal"
+msgstr "Starta samtal"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
@@ -1279,7 +1279,7 @@ msgstr "Verkställ ändringar"
 #: src/qml/details/AccountDetailsContent.qml:871
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "Verkställer ansiktsändringar…"
+msgstr "Verkställer ändringar…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
 #, qt-format
@@ -2058,7 +2058,7 @@ msgstr "Annat"
 #, qt-format
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
-msgstr "%1/%2 valda"
+msgstr "%1/%2 markerade"
 
 #: src/qml/details/MediaOverview.qml:255
 #, qt-format
@@ -2350,7 +2350,7 @@ msgstr "Redigera"
 #: src/qml/elements/ChatMessageContextMenu.qml:167
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr "Markera"
+msgstr "Märk"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:175
 msgctxt "ChatMessageContextMenu|"
@@ -2586,7 +2586,7 @@ msgstr "Favoriter"
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr "Personer"
+msgstr "Människor"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
@@ -3032,6 +3032,14 @@ msgstr "Lägg till reaktion…"
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Visa detaljinformation"
+
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Lägg till reaktion…"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3752,8 +3760,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Steg 2: Logga in med det registrerade kontot"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
@@ -3888,14 +3896,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM kl. hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reaktion kunde inte skickas: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Ange korrekt lösenord"
@@ -3924,6 +3924,10 @@ msgstr "Webbplats"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Adressen måste ha formen <b>grupp@server</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reaktion kunde inte skickas: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Gruppen %1 gick inte att gå med i%2"
@@ -3940,9 +3944,21 @@ msgstr "Webbplats"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Kunde inte ta bort blockering för %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM kl. hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Detaljinformation…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Stäng sökning"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Sök"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -3958,37 +3974,21 @@ msgstr "Webbplats"
 #~ msgstr ""
 #~ "Indikera när du har konversationen öppen, och skriver eller slutar skriva"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Ta bort markerad fil"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Sök"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 är uppkopplad"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Ta bort markerad fil"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Serverplatser"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Ange andra anslutningsinställningar för att ändra dem"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximera avatar"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximera avatar"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontakten finns redan"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Öppna chatt"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -3998,15 +3998,31 @@ msgstr "Webbplats"
 #~ msgid "Connection settings"
 #~ msgstr "Anslutningsinställningar"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Serverplatser"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontakten finns redan"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Öppna chatt"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximera avatar"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximera avatar"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Misslyckades skapa QR-kod: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markera som första olästa"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Kontot kunde inte överföras: En annan överföring pågår redan."
@@ -4030,10 +4046,6 @@ msgstr "Webbplats"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Det kan ta lång tid"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markera som första olästa"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

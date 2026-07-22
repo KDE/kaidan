@@ -3820,6 +3820,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Ուղարկել տեղադրություն"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 #, fuzzy
 #| msgctxt "Kaidan|"
@@ -4709,8 +4717,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Մուտք գործեք Ձեր XMPP հաշիվ"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4871,13 +4879,6 @@ msgid "Website"
 msgstr "Վեբ-կայք"
 
 #, fuzzy
-#~| msgctxt "MessageHandler|"
-#~| msgid "Message could not be sent."
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
-
-#, fuzzy
 #~| msgctxt "ChangePassword|"
 #~| msgid "Current password:"
 #~ msgctxt "AccountDetailsContent|"
@@ -4894,6 +4895,13 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Զրույցի հասցե:"
+
+#, fuzzy
+#~| msgctxt "MessageHandler|"
+#~| msgid "Message could not be sent."
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
 #, fuzzy
 #~| msgctxt "MessageHandler|"
@@ -4917,11 +4925,11 @@ msgstr "Վեբ-կայք"
 #~ msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
 #, fuzzy
-#~| msgctxt "LocalAccountRemoval|"
-#~| msgid "Remove"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Հեռացնել"
+#~| msgctxt "ChatPage|"
+#~| msgid "Close message search bar"
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Ավարտել որոնումը"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4935,18 +4943,18 @@ msgstr "Վեբ-կայք"
 #~ msgstr "%1-ը հասանելի է"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Change password"
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Փոխել գաղտնաբառը"
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Հեռացնել"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Change password"
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Փոխել գաղտնաբառը"
+#~| msgctxt "MediaUtils|"
+#~| msgid "Send location"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Ուղարկել տեղադրություն"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4963,11 +4971,18 @@ msgstr "Վեբ-կայք"
 #~ msgstr "Կապի կարգավորումներ"
 
 #, fuzzy
-#~| msgctxt "MediaUtils|"
-#~| msgid "Send location"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Ուղարկել տեղադրություն"
+#~| msgctxt "ChangePassword|"
+#~| msgid "Change password"
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Փոխել գաղտնաբառը"
+
+#, fuzzy
+#~| msgctxt "ChangePassword|"
+#~| msgid "Change password"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Փոխել գաղտնաբառը"
 
 #, fuzzy
 #~| msgctxt "QrCodeGenerator|"
@@ -4975,6 +4990,13 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR կոդի ստեղծումը ձախողվել է: %1"
+
+#, fuzzy
+#~| msgctxt "QObject|"
+#~| msgid "Mark as read"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Համարել կարդացած"
 
 #, fuzzy
 #~| msgctxt "GlobalDrawer|"
@@ -5000,13 +5022,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
-
-#, fuzzy
-#~| msgctxt "QObject|"
-#~| msgid "Mark as read"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Համարել կարդացած"
 
 #, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"

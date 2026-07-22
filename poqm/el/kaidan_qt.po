@@ -179,9 +179,12 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:247
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Ασφάλεια λογαριασμού"
 
 #: src/ChatHintModel.cpp:260
 #, qt-format
@@ -723,9 +726,12 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Chat address:"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "Διεύθυνση συνομιλίας:"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -3389,6 +3395,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Σίγαση ειδοποιήσεων"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -4173,8 +4187,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4330,10 +4344,10 @@ msgstr "Ιστότοπος"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
-#~| msgid "Search down"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Αναζήτηση προς τα κάτω"
+#~| msgid "Close message search bar"
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Κλείστε τη γραμμή αναζήτησης μηνυμάτων"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4341,6 +4355,27 @@ msgstr "Ιστότοπος"
 #~ msgctxt "SearchBarPage|"
 #~ msgid "Search"
 #~ msgstr "Αναζήτηση"
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Search down"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Αναζήτηση προς τα κάτω"
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Mute notifications"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Σίγαση ειδοποιήσεων"
+
+#, fuzzy
+#~| msgctxt "AccountSecurity|"
+#~| msgid "Account Security"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Ασφάλεια λογαριασμού"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
@@ -4355,20 +4390,6 @@ msgstr "Ιστότοπος"
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "Νέος κωδικός πρόσβασης:"
-
-#, fuzzy
-#~| msgctxt "AccountSecurity|"
-#~| msgid "Account Security"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Ασφάλεια λογαριασμού"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Mute notifications"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Σίγαση ειδοποιήσεων"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

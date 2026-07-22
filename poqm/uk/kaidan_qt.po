@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-13 20:54+0300\n"
+"PO-Revision-Date: 2026-07-07 08:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3073,6 +3073,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Показати подробиці"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Додати реакцію…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -3798,8 +3806,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Крок 2. Вхід до зареєстрованого облікового запису"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Фільтрувати"
@@ -3935,14 +3943,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM о hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Не вдалося надіслати реакцію: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Введіть правильний пароль"
@@ -3972,6 +3972,10 @@ msgstr "Сайт"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Адреса повинна мати форму <b>група@сервер</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Не вдалося надіслати реакцію: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Не вдалося долучитися до групи %1%2"
@@ -3988,9 +3992,21 @@ msgstr "Сайт"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Не вдалося розблокувати %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM о hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Подробиці…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Закрити вікно пошуку"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Пошук"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4008,37 +4024,21 @@ msgstr "Сайт"
 #~ "Показувати, коли вами відкрито це спілкування, коли ви набираєте "
 #~ "повідомлення і припиняєте його набирати"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Вилучити позначений файл"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Пошук"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 у мережі"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Вилучити позначений файл"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Розташування серверів"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Введіть інші параметри з'єднання, щоб змінити їх"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Максимізувати аватар"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Максимізувати аватар"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Запис такого контакту вже існує"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Почати спілкування"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4048,15 +4048,31 @@ msgstr "Сайт"
 #~ msgid "Connection settings"
 #~ msgstr "Параметри з'єднання"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Розташування серверів"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Запис такого контакту вже існує"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Почати спілкування"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Максимізувати аватар"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Максимізувати аватар"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Не вдалося створити QR-код: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Позначити як перше непрочитане"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
@@ -4082,10 +4098,6 @@ msgstr "Сайт"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Обробка може бути досить тривалою"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Позначити як перше непрочитане"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

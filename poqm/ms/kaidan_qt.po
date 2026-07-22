@@ -3864,6 +3864,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Hantar kedudukan"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 #, fuzzy
 #| msgctxt "Kaidan|"
@@ -4756,8 +4764,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Log masuk akaun XMPP anda"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4920,13 +4928,6 @@ msgid "Website"
 msgstr "Laman web"
 
 #, fuzzy
-#~| msgctxt "MessageHandler|"
-#~| msgid "Message could not be sent."
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Mesej gagal dihantar."
-
-#, fuzzy
 #~| msgctxt "ChangePassword|"
 #~| msgid "Current password:"
 #~ msgctxt "AccountDetailsContent|"
@@ -4943,6 +4944,13 @@ msgstr "Laman web"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Alamat sembang:"
+
+#, fuzzy
+#~| msgctxt "MessageHandler|"
+#~| msgid "Message could not be sent."
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Mesej gagal dihantar."
 
 #, fuzzy
 #~| msgctxt "MessageHandler|"
@@ -4966,11 +4974,11 @@ msgstr "Laman web"
 #~ msgstr "Tidak dapat menyimpan fail: %1"
 
 #, fuzzy
-#~| msgctxt "LocalAccountRemoval|"
-#~| msgid "Remove"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Buang"
+#~| msgctxt "ChatPage|"
+#~| msgid "Close message search bar"
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Tutup bar gelintar mesej"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4984,18 +4992,18 @@ msgstr "Laman web"
 #~ msgstr "%1 berada dalam talian"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Change password"
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Tukar kata laluan"
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Buang"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Change password"
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Tukar kata laluan"
+#~| msgctxt "MediaUtils|"
+#~| msgid "Send location"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Hantar kedudukan"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -5012,11 +5020,18 @@ msgstr "Laman web"
 #~ msgstr "Tetapan sambungan"
 
 #, fuzzy
-#~| msgctxt "MediaUtils|"
-#~| msgid "Send location"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Hantar kedudukan"
+#~| msgctxt "ChangePassword|"
+#~| msgid "Change password"
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Tukar kata laluan"
+
+#, fuzzy
+#~| msgctxt "ChangePassword|"
+#~| msgid "Change password"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Tukar kata laluan"
 
 #, fuzzy
 #~| msgctxt "QrCodeGenerator|"
@@ -5024,6 +5039,13 @@ msgstr "Laman web"
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Penjanaan kod QR telah gagal: %1"
+
+#, fuzzy
+#~| msgctxt "QObject|"
+#~| msgid "Mark as read"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Tanda sebagai telah dibaca"
 
 #, fuzzy
 #~| msgctxt "GlobalDrawer|"
@@ -5049,13 +5071,6 @@ msgstr "Laman web"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "Pautan akan dibuka selepas anda disambungkan."
-
-#, fuzzy
-#~| msgctxt "QObject|"
-#~| msgid "Mark as read"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Tanda sebagai telah dibaca"
 
 #, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"

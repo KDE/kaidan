@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-13 12:12+0200\n"
+"PO-Revision-Date: 2026-07-07 16:58+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1059,7 +1059,7 @@ msgstr "Ondersteuning"
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
-msgstr "Ondersteuning van %1"
+msgstr "Ondersteuning %1"
 
 #: src/qml/details/AccountDetailsContent.qml:434
 msgctxt "AccountDetailsContent|"
@@ -2156,7 +2156,7 @@ msgstr "Verwijdering"
 #: src/qml/details/ProviderChatDetailsContent.qml:31
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
-msgstr "Verwijderen"
+msgstr "Verwijder"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
@@ -2358,7 +2358,7 @@ msgstr "Citaat"
 #: src/qml/elements/ChatMessageContextMenu.qml:134
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
-msgstr "Vooruit"
+msgstr "Doorsturen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:142
 msgctxt "ChatMessageContextMenu|"
@@ -2755,7 +2755,7 @@ msgstr "Service"
 #: src/qml/elements/GroupChatCreationContent.qml:73
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Schermnaam (optioneel)"
+msgstr "Schermnaam (optioneel):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -3056,6 +3056,14 @@ msgstr "Reactie toevoegen…"
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Details tonen"
+
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Reactie toevoegen…"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3784,8 +3792,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Stap 2: aanmelden met uw geregistreerde account"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
@@ -3920,14 +3928,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM om hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reactie kon niet worden verzonden: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Juiste wachtwoord invoeren"
@@ -3956,6 +3956,10 @@ msgstr "Website"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Het adres moet de vorm <b>groep@server</b> hebben"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reactie kon niet worden verzonden: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Aan de groep %1 kon niet worden meegedaan %2"
@@ -3972,9 +3976,21 @@ msgstr "Website"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Kon %1 niet deblokkeren: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM om hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Details…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Zoeken afsluiten"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Zoeken"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -3992,37 +4008,21 @@ msgstr "Website"
 #~ "Geef aan wanneer u deze conversatie open heeft, aan het typen bent en "
 #~ "gestopt met typen"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Geselecteerd bestand verwijderen"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Zoeken"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 is online"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Geselecteerd bestand verwijderen"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Serverlocaties"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Andere verbindingsinstellingen invoeren om ze te wijzigen"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Avatar maximaliseren"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Avatar maximaliseren"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Contactpersoon bestaat al"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Chat openen"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4032,15 +4032,31 @@ msgstr "Website"
 #~ msgid "Connection settings"
 #~ msgstr "Verbindingsinstellingen"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Serverlocaties"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Contactpersoon bestaat al"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Chat openen"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Avatar maximaliseren"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Avatar maximaliseren"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "De QR-code genereren is mislukt: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markeren als eerste ongelezen"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Account kon niet gemigreerd worden: een andere migratie is al bezig"
@@ -4064,10 +4080,6 @@ msgstr "Website"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Dat kan lang duren"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markeren als eerste ongelezen"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

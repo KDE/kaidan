@@ -3005,6 +3005,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "أظهر التّفاصيل"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "أضف تفاعل…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -3718,8 +3726,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "الخطوة 2: الولوج  بحسابك المسجل"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "المُرشِّح"
@@ -3850,14 +3858,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "الموقع الإلكتروني"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM في hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "تعذر إرسال التفاعل: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "أدخل كلمة السر صحيحة"
@@ -3886,6 +3886,10 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "يجب أن يكون العنوان النموذج <b>group@server</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "تعذر إرسال التفاعل: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "لا يمكن الانضمام إلى المجموعة %1 %2"
@@ -3902,9 +3906,21 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "لا يمكن إلغاء حظر %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM في hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "التفاصيل…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "أغلق البحث"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "ابحث"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -3918,37 +3934,21 @@ msgstr "الموقع الإلكتروني"
 #~ "typing"
 #~ msgstr "بيّن وقت فتح هذه المحادثة، ووقت الكتابة، ووقت التوقف عن الكتابة"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "أزل الملف المحدد"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "ابحث"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "‏%1 متّصل"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "أزل الملف المحدد"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "مواقع الخادم"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "أدخل إعدادات اتصال مختلفة لتغييرها"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "كبّر الصورة الرمزية"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "كبّر الصورة الرمزية"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "الاتصال موجود فعلًا"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "افتح دردشة"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -3958,18 +3958,34 @@ msgstr "الموقع الإلكتروني"
 #~ msgid "Connection settings"
 #~ msgstr "إعدادات الاتّصال"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "مواقع الخادم"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "الاتصال موجود فعلًا"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "افتح دردشة"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "كبّر الصورة الرمزية"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "كبّر الصورة الرمزية"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "فشل إنشاء رمز الاستجابة السريعة: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "علّم كَغَير مقروءة من قبل"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم فعلًا"
+#~ msgstr "لا يمكن ترحيل الحساب: هناك ترحيل آخر قيد التقدم بالفعل"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -3986,17 +4002,13 @@ msgstr "الموقع الإلكتروني"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr ""
-#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للانضمام إلى "
+#~ "الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للإنضمام إلى "
 #~ "محادثة)\n"
-#~ "سيُفتح هذا الرابط عندما تتصل بالإنترنت."
+#~ "سيتم فتح هذا الرابط عندما تتصل بالإنترنت."
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "يمكن أن يستغرق وقتًا طويلاً"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "علّم كَغَير مقروءة من قبل"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

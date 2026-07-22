@@ -191,7 +191,7 @@ msgstr "Włączanie…"
 
 #: src/ChatHintModel.cpp:244
 #, fuzzy
-#| msgctxt "QmlUtils|"
+#| msgctxt "Connection|"
 #| msgid "Could not connect to the server."
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
@@ -3359,6 +3359,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Pokaż szczegóły"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Dodaj reakcję…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -4132,8 +4140,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Krok 2: Zaloguj się na swoje zarejestrowane konto"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtr"
@@ -4279,14 +4287,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM o hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nie udało się wysłać reakcji: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Wpisz poprawne hasło"
@@ -4315,6 +4315,10 @@ msgstr "Strona sieciowa"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Adres musi mieć postać <b>grupa@serwer</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nie udało się wysłać reakcji: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Nie można dołączyć do grupy %1 %2"
@@ -4331,9 +4335,21 @@ msgstr "Strona sieciowa"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Nie można odblokować %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM o hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Szczegóły…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Zamknij wyszukiwanie"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Poszukaj"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4349,37 +4365,21 @@ msgstr "Strona sieciowa"
 #~ msgstr ""
 #~ "Wskazuje, czy masz tę rozmowę otwartą, czy piszesz lub czy przestałeś"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Usuń zaznaczony plik"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Poszukaj"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 jest dostępny"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Usuń zaznaczony plik"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Umiejscowienie serwerów"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Wpisz inne ustawienia połączenia, aby je zmienić"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Zmaksymalizuj awatara"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Zmaksymalizuj awatara"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Znajomy już istnieje"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Rozpocznij rozmowę"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4389,15 +4389,31 @@ msgstr "Strona sieciowa"
 #~ msgid "Connection settings"
 #~ msgstr "Ustawienia połączenia"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Umiejscowienie serwerów"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Znajomy już istnieje"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Rozpocznij rozmowę"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Zmaksymalizuj awatara"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Zmaksymalizuj awatara"
 
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Nie udało utworzyć kodu QR: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
+
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Nie można przenieść konta: Już trwa jakieś przenoszenie"
@@ -4421,10 +4437,6 @@ msgstr "Strona sieciowa"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "To może trochę zająć"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Oznacz jak pierwszą nieprzeczytaną"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

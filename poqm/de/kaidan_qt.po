@@ -3546,6 +3546,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Details anzeigen"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add Contact"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Kontakt hinzufügen"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 #, fuzzy
 msgctxt "MessageReactionDisplayButton|"
@@ -4377,8 +4385,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Anmelden mit deinem XMPP Account"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4526,13 +4534,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
 
-#, fuzzy
-#~| msgctxt "MessageHandler|"
-#~| msgid "Message could not be sent."
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nachricht kann nicht versendet werden."
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Richtiges Passwort eingeben"
@@ -4548,6 +4549,13 @@ msgstr "Webseite"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Chat-Adresse"
+
+#, fuzzy
+#~| msgctxt "MessageHandler|"
+#~| msgid "Message could not be sent."
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nachricht kann nicht versendet werden."
 
 #, fuzzy
 #~| msgctxt "MessageHandler|"
@@ -4575,11 +4583,11 @@ msgstr "Webseite"
 #~ msgstr "Details …"
 
 #, fuzzy
-#~| msgctxt "LocalAccountRemoval|"
-#~| msgid "Remove"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Entfernen"
+#~| msgctxt "ChatPage|"
+#~| msgid "Close message search bar"
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Suche schließen"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4591,6 +4599,36 @@ msgstr "Webseite"
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 ist online"
+
+#, fuzzy
+#~| msgctxt "LocalAccountRemoval|"
+#~| msgid "Remove"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Entfernen"
+
+#, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Send location"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Standort senden"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Verbindungseinstellungen"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Verbindungseinstellungen"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontakt existiert bereits"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Chat öffnen"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
@@ -4606,32 +4644,16 @@ msgstr "Webseite"
 #~ msgid "Maximize avatar"
 #~ msgstr "Passwort ändern"
 
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontakt existiert bereits"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Chat öffnen"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Verbindungseinstellungen"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Verbindungseinstellungen"
-
-#, fuzzy
-#~| msgctxt "MediaUtils|"
-#~| msgid "Send location"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Standort senden"
-
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generierung des QR-Codes fehlgeschlagen: %1"
+
+#, fuzzy
+#~| msgctxt "QObject|"
+#~| msgid "Mark as read"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Als gelesen markieren"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4649,13 +4671,6 @@ msgstr "Webseite"
 #~ msgctxt "Kaidan|"
 #~ msgid "The link will be opened after you have connected."
 #~ msgstr "Der Link wird nach Aufbau der Verbindung geöffnet."
-
-#, fuzzy
-#~| msgctxt "QObject|"
-#~| msgid "Mark as read"
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Als gelesen markieren"
 
 #, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"

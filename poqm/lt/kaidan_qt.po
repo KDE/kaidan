@@ -699,20 +699,14 @@ msgid "Mark as read"
 msgstr "Žymėti kaip skaitytą"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Atsakyti"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Atsakyti"
+msgstr "Atsakyti…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -1327,7 +1321,7 @@ msgstr "Ryšio nuostatos pakeistos"
 #: src/qml/details/AccountDetailsContent.qml:925
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr "Perjungti įrenginį"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
@@ -1652,7 +1646,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Šalinimas"
 
 #: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
@@ -3076,7 +3070,7 @@ msgstr ""
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr ""
+msgstr "Žinutė"
 
 #: src/qml/elements/MediaViewer.qml:182
 #, fuzzy
@@ -3097,22 +3091,22 @@ msgstr "Vardas"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Dydis"
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Išsiųsta/Gauta"
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Ankstesnė"
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Kita"
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3143,6 +3137,14 @@ msgstr "Pridėti reakciją…"
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Rodyti išsamiau"
+
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Pridėti reakciją…"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3865,8 +3867,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -3999,10 +4001,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Internetinė svetainė"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
-
 #~ msgctxt "ContactAdditionContent|"
 #~ msgid "Message (optional, unencrypted):"
 #~ msgstr "Žinutė (nešifruota, nebūtina):"
@@ -4014,6 +4012,10 @@ msgstr "Internetinė svetainė"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Adresas"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
 
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Could not block %1: %2"

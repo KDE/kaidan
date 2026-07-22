@@ -182,9 +182,12 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:247
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr ""
+msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
 
 #: src/ChatHintModel.cpp:260
 #, qt-format
@@ -712,9 +715,12 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Chat address:"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "ਚੈਟ ਐਡਰੈਸ:"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -3169,6 +3175,11 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr ""
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -3924,8 +3935,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4080,6 +4091,13 @@ msgstr ""
 #~ msgstr "ਚੈਟ ਐਡਰੈਸ:"
 
 #, fuzzy
+#~| msgctxt "AccountSecurity|"
+#~| msgid "Account Security"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+
+#, fuzzy
 #~| msgctxt "ChangePassword|"
 #~| msgid "Change password"
 #~ msgctxt "ContactDetailsHeader|"
@@ -4092,13 +4110,6 @@ msgstr ""
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
-
-#, fuzzy
-#~| msgctxt "AccountSecurity|"
-#~| msgid "Account Security"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

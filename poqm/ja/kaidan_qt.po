@@ -775,9 +775,10 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:73
+#, fuzzy
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "チャットアドレス："
 
 #. Unlimited file size for uploading
 #. ----------
@@ -3286,6 +3287,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr ""
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connect"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "接続"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -4072,8 +4081,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr ""
@@ -4217,13 +4226,6 @@ msgstr "ウェブサイト"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
-#~| msgid "Connect"
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "接続"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
 #~| msgid "Your Password:"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
@@ -4233,6 +4235,13 @@ msgstr "ウェブサイト"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "チャットアドレス："
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connect"
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "接続"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4256,25 +4265,18 @@ msgstr "ウェブサイト"
 #~ msgstr "接続"
 
 #, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Compose message"
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "メッセージを書く"
+
+#, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"
 #~| msgid "Delete"
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "削除"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Password"
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "合言葉"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Password"
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "合言葉"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4289,6 +4291,20 @@ msgstr "ウェブサイト"
 #~ msgctxt "ProviderPage|"
 #~ msgid "Connection settings"
 #~ msgstr "接続"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Password"
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "合言葉"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Password"
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "合言葉"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"

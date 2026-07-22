@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-13 07:01-0300\n"
+"PO-Revision-Date: 2026-07-07 08:09-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -3061,6 +3061,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Mostrar detalhes"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Adicionar reação…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -3782,8 +3790,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Passo 2: Entre com sua conta registrada"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtro"
@@ -3916,14 +3924,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site da web"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM às hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Não foi possível enviar a reação: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Digite a senha correta"
@@ -3953,6 +3953,10 @@ msgstr "Site da web"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "O endereço deve estar no formato <b>grupo@servidor</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Não foi possível enviar a reação: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Não foi possível entrar no grupo %1 %2"
@@ -3968,6 +3972,10 @@ msgstr "Site da web"
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Não foi possível desbloquear %1: %2"
+
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM às hh:mm"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"

@@ -252,6 +252,9 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:247
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connecting…"
@@ -3473,6 +3476,14 @@ msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
 msgstr "Show details"
 
+#: src/qml/elements/MessageReactionDisplayButton.qml:112
+#, fuzzy
+#| msgctxt "MessageReactionAdditionButton|"
+#| msgid "Add reaction…"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Add same reaction"
+msgstr "Add reaction…"
+
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
@@ -4323,8 +4334,8 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Step 2: Log in with your registered account"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:216
-#: src/qml/RosterPage.qml:229
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
+#: src/qml/RosterPage.qml:230
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filter"
@@ -4482,14 +4493,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM at hh:mm"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reaction could not be sent: %1"
-
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Enter correct password"
@@ -4521,6 +4524,10 @@ msgstr "Website"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "The address must have the form <b>group@server</b>"
 
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reaction could not be sent: %1"
+
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "The group %1 could not be joined%2"
@@ -4546,9 +4553,21 @@ msgstr "Website"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Could not unblock %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM at hh:mm"
+
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Details…"
+
+#~ msgctxt "ChatPageSearchView|"
+#~ msgid "Close search"
+#~ msgstr "Close search"
+
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Search"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4566,37 +4585,21 @@ msgstr "Website"
 #~ "Indicate when you have this conversation open, are typing and stopped "
 #~ "typing"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Remove selected file"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Search"
-
 #~ msgctxt "QmlUtils|"
 #~ msgid "%1 is online"
 #~ msgstr "%1 is online"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Remove selected file"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Server locations"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Enter different connection settings to change them"
-
-#~ msgctxt "ContactDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximise avatar"
-
-#~ msgctxt "GroupChatDetailsHeader|"
-#~ msgid "Maximize avatar"
-#~ msgstr "Maximise avatar"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Contact already exists"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Open chat"
 
 #~ msgctxt "LoginArea|"
 #~ msgid "Connection settings"
@@ -4606,9 +4609,21 @@ msgstr "Website"
 #~ msgid "Connection settings"
 #~ msgstr "Connection settings"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Server locations"
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Contact already exists"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Open chat"
+
+#~ msgctxt "ContactDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximise avatar"
+
+#~ msgctxt "GroupChatDetailsHeader|"
+#~ msgid "Maximize avatar"
+#~ msgstr "Maximise avatar"
 
 #, fuzzy
 #~| msgctxt "AbstractQrCodeGenerator|"
@@ -4617,7 +4632,15 @@ msgstr "Website"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generating the QR code failed: %1"
 
-#~ msgctxt "AccountMigrationManager|"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Mark as first unread"
+
+#, fuzzy
+#~| msgctxt "AccountMigrationManager|"
+#~| msgid ""
+#~| "Account could not be migrated: Another migration is already in progress"
+#~ msgctxt "AccountMigrationController|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr ""
@@ -4642,10 +4665,6 @@ msgstr "Website"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "That can take long"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Mark as first unread"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
