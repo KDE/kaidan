@@ -19,6 +19,7 @@ Controls.AbstractButton {
 	property bool inverted: false
 	property bool longPressBehaviorEnabled: true
 	property bool _longPressed: false
+	property alias smoothOpacityChange: smoothOpacityChangeBehavior.enabled
 
 	hoverEnabled: true
 	visible: opacity
@@ -59,6 +60,7 @@ Controls.AbstractButton {
 	}
 
 	Behavior on opacity {
+		id: smoothOpacityChangeBehavior
 		NumberAnimation {}
 	}
 }

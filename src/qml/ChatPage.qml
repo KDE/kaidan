@@ -163,7 +163,7 @@ SearchBarPage {
 			text: qsTr("Search upwards")
 			icon.source: "go-up-symbolic"
 			opacity: root.searchField.opacity
-			visible: root.searchField.visible
+			smoothOpacityChange: false
 			onClicked: {
 				root.searchFromCurrentIndex(true)
 				root.searchField.forceActiveFocus()
@@ -174,7 +174,7 @@ SearchBarPage {
 			text: qsTr("Search downwards")
 			icon.source: "go-down-symbolic"
 			opacity: root.searchField.opacity
-			visible: root.searchField.visible
+			smoothOpacityChange: false
 			onClicked: {
 				root.searchFromCurrentIndex(false)
 				root.searchField.forceActiveFocus()
