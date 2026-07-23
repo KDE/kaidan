@@ -12,10 +12,6 @@ PublicGroupChatProxyModel::PublicGroupChatProxyModel(QObject *parent)
 {
     sort(0, Qt::AscendingOrder);
 
-    connect(this, &PublicGroupChatProxyModel::languageFilterChanged, this, [this] {
-        beginFilterChange();
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
-    });
     connect(this, &PublicGroupChatProxyModel::rowsInserted, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::rowsRemoved, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::layoutChanged, this, &PublicGroupChatProxyModel::countChanged);
@@ -41,7 +37,10 @@ const QString &PublicGroupChatProxyModel::languageFilter() const
 void PublicGroupChatProxyModel::setLanguageFilter(const QString &language)
 {
     if (m_languageFilter != language) {
+        beginFilterChange();
         m_languageFilter = language;
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+
         Q_EMIT languageFilterChanged(m_languageFilter);
     }
 }

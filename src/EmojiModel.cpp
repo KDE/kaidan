@@ -1517,11 +1517,11 @@ Emoji::Group EmojiProxyModel::group() const
 void EmojiProxyModel::setGroup(Emoji::Group group)
 {
     if (m_group != group) {
-        m_group = group;
-        Q_EMIT groupChanged();
-
         beginFilterChange();
+        m_group = group;
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
+
+        Q_EMIT groupChanged();
     }
 }
 
@@ -1535,14 +1535,20 @@ void EmojiProxyModel::addFavoriteEmoji(int proxyRow)
     const Emoji emoji = index(proxyRow, 0).data(static_cast<int>(EmojiModel::Roles::Emoji)).value<Emoji>();
 
     if (!m_favoriteEmojis.contains(emoji.unicode())) {
-        m_favoriteEmojis << emoji.unicode();
-        Q_EMIT hasFavoriteEmojisChanged();
+        // The favorites only affect the current filtering while the favorites group is shown.
+        const bool filterChanges = m_group == Emoji::Group::Favorites;
 
-        if (m_group == Emoji::Group::Favorites) {
+        if (filterChanges) {
             beginFilterChange();
+        }
+
+        m_favoriteEmojis << emoji.unicode();
+
+        if (filterChanges) {
             endFilterChange(QSortFilterProxyModel::Direction::Rows);
         }
 
+        Q_EMIT hasFavoriteEmojisChanged();
         Settings::instance()->setFavoriteEmojis(m_favoriteEmojis);
     }
 }
