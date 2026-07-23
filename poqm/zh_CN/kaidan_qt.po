@@ -15,96 +15,96 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
 "X-Crowdin-File-ID: 57154\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "已断开连接"
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "已连接"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "用户名或密码无效。"
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "无法连接到服务器。请检查您的互联网连接。"
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "尝试安全连接时出错。"
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "服务器不支持安全连接。"
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "无法连接到服务器。请检查您的互联网连接或服务器名称。"
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "服务器已离线或被防火墙屏蔽。"
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "服务器不支持身份验证协议。"
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "无法刷新连接。"
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "不允许访问互联网。请检查系统的互联网访问配置。"
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "此服务器不支持注册。"
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "无法登录。请先确认您收到的电子邮件。"
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "无法连接到服务器。"
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要已连接"
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"

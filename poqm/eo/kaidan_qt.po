@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -27,7 +27,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Konekti"
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -35,7 +35,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connect"
@@ -43,7 +43,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konekti"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -51,7 +51,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Nevalida uzantnomo aŭ pasvorto."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -60,7 +60,7 @@ msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ne povas konekti al la servilo. Bonvolu kontroli vian interretan konekton."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -68,7 +68,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Eraro dum provado sekure konektiĝi."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -76,7 +76,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "La servilo ne subtenas sekurajn konektojn."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -90,7 +90,7 @@ msgstr ""
 "Ne eblis konekti al la servilo. Bonvolu kontroli vian interretan konekton aŭ "
 "vian servilnomon."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -98,7 +98,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "La servilo estas eksterreta aŭ blokita de fajroŝirmilo."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -106,7 +106,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Aŭtentikiga protokolo ne subtenata de la servilo."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -114,7 +114,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "La konekto ne povis esti refreŝigita."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -128,7 +128,7 @@ msgstr ""
 "La interreta aliro ne estas permesita. Bonvolu kontroli la agordon de "
 "interreta aliro de via sistemo."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -136,12 +136,12 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ĉi tiu servilo ne subtenas registradon."
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Could not connect to the server."
@@ -149,17 +149,17 @@ msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ne eblis konekti al la servilo."
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, fuzzy, qt-format
 #| msgctxt "StartPage|"
 #| msgid "Account Migration"

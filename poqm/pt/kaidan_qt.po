@@ -18,7 +18,7 @@ msgstr ""
 "X-POFile-SpellExtra: Spoiler XMPP QR spoiler CAPTCHA Kaidan áudios OMEMO\n"
 "X-POFile-SpellExtra: avatar Mastodon\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Connection"
@@ -26,7 +26,7 @@ msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Ligação"
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -34,7 +34,7 @@ msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "A ligar…"
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Connection"
@@ -42,7 +42,7 @@ msgctxt "Connection|"
 msgid "Connected"
 msgstr "Ligação"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Invalid username or password."
@@ -50,7 +50,7 @@ msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "O nome de utilizador ou a senha são inválidos."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Cannot connect to the server. Please check your internet connection."
@@ -60,7 +60,7 @@ msgstr ""
 "Não é possível contactar o servidor. Por favor, verifique a sua ligação à "
 "Internet."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Error while trying to connect securely."
@@ -68,7 +68,7 @@ msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Erro ao tentar-se ligar de forma segura."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server doesn't support secure connections."
@@ -76,7 +76,7 @@ msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor não suporta ligações seguras."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -90,7 +90,7 @@ msgstr ""
 "Não foi possível contactar o servidor. Verifique a sua ligação à Internet ou "
 "o nome do seu servidor."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The server is offline or blocked by a firewall."
@@ -98,7 +98,7 @@ msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desligado ou bloqueado por uma 'firewall'."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "Authentification protocol not supported by the server."
@@ -106,7 +106,7 @@ msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "O protocolo de autenticação não é compatível com o servidor."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "The connection could not be refreshed."
@@ -114,7 +114,7 @@ msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Não foi possível actualizar a ligação."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid ""
@@ -128,7 +128,7 @@ msgstr ""
 "O acesso à Internet não é permitido. Por favor, verifique a configuração de "
 "acesso à Internet do seu sistema."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -136,27 +136,27 @@ msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Este servidor não suporta qualquer registo."
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, fuzzy, qt-format
 #| msgctxt "GlobalDrawer|"
 #| msgid "Accounts"

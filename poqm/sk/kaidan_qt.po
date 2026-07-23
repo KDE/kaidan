@@ -16,43 +16,43 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Pripájam..."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Neplatné používateľské meno alebo heslo."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Nedá sa pripojiť k serveru. Skontrolujte prosím pripojenie k internetu."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Chyba pri pokuse o bezpečné pripojenie."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Server nepodporuje bezpečné pripojenia."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -61,22 +61,22 @@ msgstr ""
 "Nepodarilo sa pripojiť k serveru. Skontrolujte prosím pripojenie k internetu "
 "alebo názov servera."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Server je offline alebo blokovaný bránou firewall."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Overovací protokol nie je serverom podporovaný."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Pripájam..."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -85,33 +85,33 @@ msgstr ""
 "Prístup na internet nie je povolený. Skontrolujte konfiguráciu internetového "
 "pripojenia vo vašom systéme."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Tento server nepodporuje registráciu."
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Prihlásenie sa nepodarilo. Najskôr potvrďte e-mail, ktorý ste dostali."
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Nepodarilo sa pripojiť k serveru."
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "Účet sa nepodarilo migrovať: Nepodarilo sa načítať exportované dáta účtu"
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Účet sa nepodarilo migrovať: Musíte byť pripojení"
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, fuzzy, qt-format
 #| msgctxt "AccountMigrationController|"
 #| msgid "Account '%1' migrated to '%2'"

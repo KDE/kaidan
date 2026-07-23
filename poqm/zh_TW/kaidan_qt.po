@@ -13,96 +13,96 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 26.07.70\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "已斷線"
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "已連線"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "無效的使用者名稱或密碼。"
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "嘗試安全連線時發生錯誤。"
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "伺服器不支援安全連線。"
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "驗證協定不受伺服器支援。"
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "連線無法重新整理。"
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "這個伺服器不支援新註冊。"
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "無法登入。請先確認您收到的電子郵件信件。"
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "無法連線到伺服器。"
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "無法移轉帳號：無法載入匯出的帳號資料"
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "無法移轉帳號：沒有連線"
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, fuzzy, qt-format
 #| msgctxt "AccountMigrationController|"
 #| msgid "Account '%1' migrated to '%2'"

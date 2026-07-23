@@ -13,42 +13,42 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.9\n"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:465
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "გათიშულია"
 
-#: src/Account.cpp:484
+#: src/Account.cpp:467
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
 
-#: src/Account.cpp:486
+#: src/Account.cpp:469
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "დაკავშირება"
 
-#: src/Account.cpp:497
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "მომხმარებელი ან პაროლი არასწორია."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "სერვერთან მიერთების შეცდომა. გადაამოწმეთ თქვენი ინტერნეტკავშირი."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:484
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "შეცდომა უსაფრთხოდ მიერთების მცდელობისას."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:486
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "ამ სერვერს დაცული მიერთების მხარდაჭერა არ გააჩნია."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:488
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -57,22 +57,22 @@ msgstr ""
 "სერვერთან მიერთების პრობლემა. გადაამოწმეთ ინტერნეტკავშირი ან თქვენი სერვერის "
 "სახელი."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "სერვერი გამორთულია ან დაბლოკილია ბრანდმაუერით."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "ავთენტიკაციის პროტოკოლი მხარდაუჭერელია სერვერის მიერ."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "მიერთების განახლება შეუძლებელია."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:496
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -81,35 +81,35 @@ msgstr ""
 "ინტერნეტთან წვდომა აკრძალულია. შეამოწმეთ თქვენ სისტემის ინტერნეტთან წვდომის "
 "კონფიგურაცია."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:498
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "ამ სერვერს რეგისტრაციის მხარდაჭერა არ გააჩნია."
 
-#: src/Account.cpp:517
+#: src/Account.cpp:500
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "შესვლა შეუძლებელია. ჯერ დაადასტურეთ ელფოსტის შეტყობინება, რომელიც მიიღეთ."
 
-#: src/Account.cpp:519
+#: src/Account.cpp:502
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "სერვერთან მიერთების შეცდომა."
 
-#: src/AccountMigrationController.cpp:331
+#: src/AccountMigrationController.cpp:330
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "ანგარიშის მიგრაცია შეუძლებელია: გატანილი ანგარიშის მონაცემების ჩატვირთვა "
 "შეუძლებელია"
 
-#: src/AccountMigrationController.cpp:348
+#: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "ანგარიშის მიგრაცია შეუძლებელია: დაკავშირებული უნდა ბრძანდებოდეთ"
 
-#: src/AccountMigrationController.cpp:386
+#: src/AccountMigrationController.cpp:385
 #, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
@@ -3050,12 +3050,9 @@ msgid "Show details"
 msgstr "დეტალების ჩვენება"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:112
-#, fuzzy
-#| msgctxt "MessageReactionAdditionButton|"
-#| msgid "Add reaction…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Add same reaction"
-msgstr "რეაქციის დამატება…"
+msgstr "იგივე რეაქციის დამატება"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
