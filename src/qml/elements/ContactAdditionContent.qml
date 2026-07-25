@@ -54,7 +54,14 @@ ConfirmationArea {
 				case RosterController.ContactAdditionWithUriResult.ContactExists:
 					break
 				case RosterController.ContactAdditionWithUriResult.InvalidUri:
-					account.rosterController.addContact(jid, name)
+					const accountJid = account.settings.jid
+
+					if (RosterModel.hasItem(accountJid, jid)) {
+						MainController.openChatPageRequested(accountJid, jid)
+					} else {
+						account.rosterController.addContact(jid, name)
+					}
+
 					break
 				}
 			} else {
