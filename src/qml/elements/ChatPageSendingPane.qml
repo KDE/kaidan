@@ -158,6 +158,8 @@ Controls.Pane {
 
 		Kirigami.Separator {
 			visible: root.composition.isSpoiler
+			Layout.topMargin: Kirigami.Units.smallSpacing
+			Layout.bottomMargin: Kirigami.Units.smallSpacing
 			Layout.fillWidth: true
 		}
 
