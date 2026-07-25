@@ -574,7 +574,6 @@ SearchBarPage {
 				IconButton {
 					text: qsTr("Cancel forwarding")
 					icon.source: "window-close-symbolic"
-					icon.width: Kirigami.Units.iconSizes.enormous
 					Layout.alignment: Qt.AlignHCenter
 					onClicked: root.chatController.messageBodyToForward = ""
 				}
