@@ -661,7 +661,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: filePastingShortcut.nativeText
-						level: 5
 						wrapMode: Text.Wrap
 						horizontalAlignment: Text.AlignHCenter
 						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
