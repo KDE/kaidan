@@ -135,7 +135,13 @@ Kirigami.Dialog {
 			icon.source: "mail-forward-symbolic"
 			contextMenu: root
 			shown: root.message.messageBody
-			onClicked: root.message.chatController.messageBodyToForward = root.message.messageBody
+			onClicked: {
+				root.message.chatController.messageBodyToForward = root.message.messageBody
+
+				if (!pageStack.wideMode) {
+					pageStack.goBack()
+				}
+			}
 		}
 
 		ChatMessageContextMenuButton {
