@@ -29,7 +29,6 @@ ImageBackgroundPage {
 
 		ChatInfo {
 			text: qsTr("Select a chat to start")
-			level: 1
 			font.weight: Font.Medium
 			wrapMode: Text.Wrap
 			horizontalAlignment: Text.AlignHCenter

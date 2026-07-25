@@ -587,7 +587,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: qsTr("Select a chat to forward the message")
-						level: 1
 						font.weight: Font.Medium
 						wrapMode: Text.Wrap
 						horizontalAlignment: Text.AlignHCenter
@@ -639,7 +638,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: qsTr("Drop files to be sent")
-						level: 1
 						font.weight: Font.Medium
 						wrapMode: Text.Wrap
 						horizontalAlignment: Text.AlignHCenter

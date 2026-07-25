@@ -6,8 +6,7 @@ import QtQuick
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
-Kirigami.Heading {
-	level: 5
+Controls.Label {
 	leftPadding: font.pixelSize * 0.7
 	rightPadding: leftPadding
 	topPadding: leftPadding * 0.4
