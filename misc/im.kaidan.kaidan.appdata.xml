@@ -412,6 +412,7 @@
           <li xml:lang="ca">Emmagatzema les contrasenyes en un fitxer sense encriptar si no hi ha cap gestor de contrasenyes disponible o es proporciona l'opció corresponent de la línia d'ordres (@fazevedo)</li>
           <li xml:lang="ca-valencia">Emmagatzema les contrasenyes en un fitxer sense encriptar si no hi ha cap gestor de contrasenyes disponible o es proporciona l'opció corresponent de la línia d'ordres (@fazevedo)</li>
           <li xml:lang="es">Guardar las contraseñas en un archivo sin cifrar cuando no se dispone de un gestor de contraseñas o cuando se usa la correspondiente opción de la línea de órdenes (@fazevedo).</li>
+          <li xml:lang="he">סיסמאות מאוחסנות בקובץ לא מוצפן אם אין מנהל סיסמאות זמין או שסופקה האפשרות המתאימה דרך שורת הפקודות (‎@fazevedo)</li>
           <li xml:lang="ka">დაემატა პაროლების დაუშიფრავ ფაილში შენახვა, თუ პაროლების მმართველი ხელმიუწვდომელია, ან შესაბამისი ბრძანების სტრიქონის პარამეტრია მითითებული (@fazevedo)</li>
           <li xml:lang="nl">Sla wachtwoorden op in een onversleuteld bestand als er geen wachtwoordbeheerder beschikbaar is of als de bijbehorende opdrachtregeloptie is opgegeven (@fazevedo).</li>
           <li xml:lang="pt-BR">Armazenar as senhas em um arquivo não criptografado se nenhum gerenciador de senhas estiver disponível ou se a opção de linha de comando correspondente não for fornecida (@fazevedo)</li>
@@ -459,6 +460,7 @@
           <li xml:lang="ca-valencia">Corregix la cua de les bambolles de missatge que se superposen (@melvo)</li>
           <li xml:lang="es">Corregir la cola superpuesta de la burbuja de mensaje (@melvo).</li>
           <li xml:lang="fr">Correction du chevauchement de la queue de la bulle de message (@melvo)</li>
+          <li xml:lang="he">תוקן זנב הבועה החופף של ההודעות (‎@melvo)</li>
           <li xml:lang="ka">გასწორდა შეტყობინების ბუშტის გადაფარვადი კუდის პრობლემა (@melvo)</li>
           <li xml:lang="nl">Corrigeer de overlappende staart van de berichtballon (@melvo)</li>
           <li xml:lang="pt-BR">Correção da sobreposição na cauda do balão de mensagem (@melvo)</li>
@@ -516,6 +518,7 @@
           <li xml:lang="ca">Corregeix la creació de connexió de base de dades addicional en un fil incorrecte (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix la creació de connexió de base de dades addicional en un fil incorrecte (@melvo)</li>
           <li xml:lang="fr">Correction de la création d'une connexion supplémentaire à la base de données sur le mauvais processus (@melvo)</li>
+          <li xml:lang="he">תוקנה יצירת חיבור נוסף למסד נתונים בתהליכון שגוי (‎@melvo)</li>
           <li xml:lang="ka">გასწორდა მონაცემთა ბაზის დამატებითი კავშირის შექმნა არასწორ ნაკადზე (@melvo)</li>
           <li xml:lang="nl">Het probleem met het aanmaken van een extra databaseverbinding op de verkeerde thread is opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Correção da criação de uma conexão de banco de dados adicional na thread errada (@melvo)</li>
@@ -555,6 +558,7 @@
           <li xml:lang="ar">إصلاح إعادة ضبط مسودة الرسالة بعد إلغاء تصحيح الرسالة (@melvo)</li>
           <li xml:lang="ca">Corregeix el restabliment de l'esborrany de missatge després de cancel·lar la correcció del missatge (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix el restabliment de l'esborrany de missatge després de cancel·lar la correcció del missatge (@melvo)</li>
+          <li xml:lang="he">תוקן איפוס הודעות טיוטה לאחר ביטול תיקון הודעה (‎@melvo)</li>
           <li xml:lang="ka">გასწორდა მონახაზი შეტყობინების ჩამოყრა შეტყობინების ჩასწორების გაუქმების შემდეგ (@melvo)</li>
           <li xml:lang="nl">Het probleem met het terugzetten van conceptberichten na het annuleren van berichtcorrecties is opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Corrigido o problema de redefinição da mensagem de rascunho após o cancelamento da correção da mensagem (@melvo)</li>
@@ -569,6 +573,7 @@
           <li xml:lang="ca">Corregeix el reenviament de la reacció de missatge que ha fallat (@melvo)</li>
           <li xml:lang="ca-valencia">Corregix el reenviament de la reacció de missatge que ha fallat (@melvo)</li>
           <li xml:lang="fr">Correction du renvoi défaillant de la réaction aux messages (@melvo)</li>
+          <li xml:lang="he">תוקנה שליחת תגובת רגש להודעה שנכשלה מחדש (‎@melvo)</li>
           <li xml:lang="ka">გასწორდა ჩავარდნილი შეტყობინების რეაქციის ხელახლა გაგზავნა (@melvo)</li>
           <li xml:lang="nl">Het probleem met het opnieuw verzenden van mislukte berichten opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Correção da reação ao reenvio de mensagens com falha (@melvo)</li>
@@ -1421,7 +1426,7 @@
           <li>Fix selecting media via long press in media overview (@melvo)</li>
           <li xml:lang="ar">إصلاح تحديد الوسائط عبر الضغط المطول في نظرة الوسائط العامة (@melvo)</li>
           <li xml:lang="ca">Corregeix la selecció d'elements multimèdia a través d'una pulsació llarga a la vista general d'elements multimèdia (@melvo)</li>
-          <li xml:lang="ca-valencia">Corregix la selecció d'elements multimèdia a través d'una premuda llarga a la vista general d'elements multimèdia (@melvo)</li>
+          <li xml:lang="ca-valencia">Corregix la selecció d'elements multimèdia a través d'una pulsació llarga a la vista general d'elements multimèdia (@melvo)</li>
           <li xml:lang="fr">Correction de la sélection des média grâce à un appui long dans l'aperçu des média (@melvo)</li>
           <li xml:lang="he">תוקנה בחירת מדיה בלחיצה אורכה בסקירת המדיה (‎@melvo)</li>
           <li xml:lang="ka">გასწორდა მედიის მონიშვნა ხანგრძლივი დაჭერით მედიის მიმოხილვაში (@melvo)</li>
@@ -3161,6 +3166,7 @@
           <li xml:lang="ar">تخزين الوسائط المرسلة في أدلة مناسبة مع امتدادات ملفات ملائمة (@melvo)</li>
           <li xml:lang="ca">Emmagatzema els elements multimèdia enviats en els directoris adequats amb extensions de fitxer apropiades (@melvo)</li>
           <li xml:lang="ca-valencia">Emmagatzema els elements multimèdia enviats en els directoris adequats amb extensions de fitxer apropiades (@melvo)</li>
+          <li xml:lang="he">אחסון מדיה שנשלחה בתיקיות מתאימות עם סיומות קבצים הולמות (‎@melvo)</li>
           <li xml:lang="ka">გაგზავნილი მედიის შენახვა შესაბამის საქაღალდეებში ფაილების სათანადო გაფართოებებით (@melvo)</li>
           <li xml:lang="nl">Bewaar verzonden media in geschikte mappen met de juiste bestandsextensies. (@melvo)</li>
           <li xml:lang="pt-BR">Armazenar as mídias enviadas em diretórios adequados com as extensões de arquivo apropriadas (@melvo)</li>
@@ -3174,6 +3180,7 @@
           <li xml:lang="ar">السماح بإرسال الوسائط بخطوات أقل من التسجيل إلى الإرسال (@melvo)</li>
           <li xml:lang="ca">Permet l'enviament d'elements multimèdia amb menys passos des de l'enregistrament a l'enviament (@melvo)</li>
           <li xml:lang="ca-valencia">Permet l'enviament d'elements multimèdia amb menys passos des de la gravació a l'enviament (@melvo)</li>
+          <li xml:lang="he">אפשר לשלוח מדיה עם פחות שלבים מהקלטה עד שליחה (‎@melvo)</li>
           <li xml:lang="ka">მედიის გაგზავნის დაშვება ნაკლები ნაბიჯით ჩაწერიდან გაგზავნამდე (@melvo)</li>
           <li xml:lang="nl">Maak het mogelijk om media met minder stappen te versturen, van opnemen tot verzenden (@melvo)</li>
           <li xml:lang="pt-BR">Permitir o envio de mídia com menos etapas, da gravação ao envio (@melvo)</li>
@@ -3187,6 +3194,7 @@
           <li xml:lang="ar">إضافة الوسائط المراد إرسالها في منطقة قابلة للتمرير فوق حقل إدخال الرسالة (@melvo)</li>
           <li xml:lang="ca">Afegeix elements multimèdia que s'enviaran a l'àrea desplaçable sobre el camp d'entrada del missatge (@melvo)</li>
           <li xml:lang="ca-valencia">Afig elements multimèdia que s'enviaran a l'àrea desplaçable sobre el camp d'entrada del missatge (@melvo)</li>
+          <li xml:lang="he">הוספת מדיה לשליחה באזור שאפשר לגלול בו מעל שדה קלט ההודעות (‎@melvo)</li>
           <li xml:lang="ka">დაემატა გასაგზავნი მედიის განთავსება შეტყობინების შესაყვანი ველის ზემოთ, გადახვევად არეში (@melvo)</li>
           <li xml:lang="nl">Voeg de media die u wilt versturen toe in het schuifbare gedeelte boven het berichtinvoerveld (@melvo)</li>
           <li xml:lang="pt-BR">Adicionar mídia para ser enviada na área rolável acima do campo de entrada de mensagem (@melvo)</li>
@@ -3443,7 +3451,7 @@
           <li>Fix multiple corrections of the same message (@melvo, @taibsu)</li>
           <li xml:lang="ar">إصلاح التصحيحات المتعددة لنفس الرسالة (@melvo، @taibsu)</li>
           <li xml:lang="ca">Corregeix diverses correccions del mateix missatge (@melvo, @taibsu)</li>
-          <li xml:lang="ca-valencia">Corregix diverses correccions del mateix missatge (@melvo, @taibsu)</li>
+          <li xml:lang="ca-valencia">Corregix diverses esmenes del mateix missatge (@melvo, @taibsu)</li>
           <li xml:lang="fr">Correction de modifications multiples dans le même message (@melvo, @taibsu)</li>
           <li xml:lang="he">תוקנו מספר תיקונים לאותה ההודעה (‎@melvo,‏ ‎@taibsu)</li>
           <li xml:lang="ka">გასწორდა ერთი და იმავე შეტყობინების მრავალჯერადი შესწორება (@melvo, @taibsu)</li>
@@ -6619,7 +6627,7 @@
           <li>Fix timezone bug of message timestamps (@lnj)</li>
           <li xml:lang="ar">إصلاح علة المنطقة الزمنية للطوابع الزمنية للرسائل (@lnj)</li>
           <li xml:lang="ca">Corregeix l'error de fus horari de les marques horàries de missatge (@lnj)</li>
-          <li xml:lang="ca-valencia">Corregix l'error de fus horari de les marques horàries de missatge (@lnj)</li>
+          <li xml:lang="ca-valencia">Corregix l'error de fus horari de les marques de temps de missatge (@lnj)</li>
           <li xml:lang="fr">Correction du bogue concernant le fuseau horaire pour les horodatages des messages (@lnj)</li>
           <li xml:lang="he">תוקנה תקלת אזורי זמן של חותמות זמן של הודעות (‎@lnj)</li>
           <li xml:lang="ka">გასწორდა შეტყობინების დროის შტამპების დროის სარტყლის ხარვეზი (@lnj)</li>
@@ -6798,7 +6806,7 @@
           <li>ChatPage: Fixed recipient's instead of author's avatar displayed (#131, #137) (@lnj)</li>
           <li xml:lang="ar">صفحة الدردشة: أُصلح عرض صورة المستلم بدلاً من صورة الكاتب رقم 131 و137 (@lnj)</li>
           <li xml:lang="ca">ChatPage: s'ha corregit el destinatari en lloc de mostrar l'avatar de l'autor (#131, #137) (@lnj)</li>
-          <li xml:lang="ca-valencia">ChatPage: s'ha corregit el destinatari en lloc de mostrar l'avatar de l'autor (#131, #137) (@lnj)</li>
+          <li xml:lang="ca-valencia">ChatPage: s'ha esmenat el destinatari en lloc de mostrar l'avatar de l'autor (#131, #137) (@lnj)</li>
           <li xml:lang="he">עמוד שיחה: תוקנה הופעת התמונה הייצוגית של הנמען במקום היוצר (#131, #137) (‎@lnj)</li>
           <li xml:lang="ka">ChatPage: გასწორდა ავტორის ნაცვლად მიმღების ავატარის ჩვენება (#131, #137) (@lnj)</li>
           <li xml:lang="nl">ChatPage: De avatar van de ontvanger werd correct weergegeven in plaats van die van de auteur (#131, #137) (@lnj)</li>
@@ -6942,7 +6950,7 @@
           <li>New chat page design - showing time, delivery status and round avatars (#123) (@lnj)</li>
           <li xml:lang="ar">تصميم جديد لصفحة الدردشة - يعرض الوقت، وحالة التسليم وصوراً شخصية مستديرة رقم 123 (@lnj)</li>
           <li xml:lang="ca">Disseny nou de la pàgina de xat - mostrant l'hora, l'estat de lliurament i avatars rodons (#123) (@lnj)</li>
-          <li xml:lang="ca-valencia">Disseny nou de la pàgina de xat - mostrant l'hora, l'estat de lliurament i avatars rodons (#123) (@lnj)</li>
+          <li xml:lang="ca-valencia">Disseny nou de la pàgina de xat – mostrant l'hora, l'estat de lliurament i avatars rodons (#123) (@lnj)</li>
           <li xml:lang="he">עיצוב חדש לעמוד שיחה - מופיעים בו הזמן, מצב השליחה ותמונות ייצוגיות מעוגלות (#123) (‎@lnj)</li>
           <li xml:lang="ka">ჩატის გვერდის ახალი დიზაინი - დროის, მიწოდების სტატუსის და მომრგვალებული ავატარების ჩვენება (#123) (@lnj)</li>
           <li xml:lang="nl">Nieuw ontwerp voor de chatpagina - met weergave van tijd, bezorgstatus en ronde avatars (#123) (@lnj)</li>
