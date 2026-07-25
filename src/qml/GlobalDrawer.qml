@@ -561,6 +561,16 @@ Kirigami.GlobalDrawer {
 	}
 
 	Connections {
+		target: MainController
+
+		function onOpenChatPageRequested(accountJid, chatJid) {
+			// Avoid focusing the formerly focused item after closing one of the views that open the chat page once completed.
+			// That maintains the focus on the message input field of the opened chat.
+			root.lastFocusedItem = null
+		}
+	}
+
+	Connections {
 		target: applicationWindow()
 
 		function onActiveFocusItemChanged() {
