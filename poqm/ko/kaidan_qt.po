@@ -898,17 +898,17 @@ msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "전달 취소"
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:589
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "메시지를 전달하려는 채팅 선택"
 
-#: src/qml/ChatPage.qml:642
+#: src/qml/ChatPage.qml:640
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
@@ -916,12 +916,12 @@ msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 님의 차단을 해제함"
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "실행 취소"
 
-#: src/qml/ChatPage.qml:925
+#: src/qml/ChatPage.qml:921
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
@@ -929,7 +929,7 @@ msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 님을 차단할 수 없음: %2"
 
-#: src/qml/ChatPage.qml:929
+#: src/qml/ChatPage.qml:925
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
@@ -2461,22 +2461,22 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "전달"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:142
+#: src/qml/elements/ChatMessageContextMenu.qml:148
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "복사"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:156
+#: src/qml/elements/ChatMessageContextMenu.qml:162
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "편집"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:173
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "표시"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:175
+#: src/qml/elements/ChatMessageContextMenu.qml:181
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "이 장치에서 삭제"
@@ -2496,8 +2496,8 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "숨겨진 메시지 부분 추가 취소"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
-#: src/qml/elements/ChatPageSendingPane.qml:612
+#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:614
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Cancel"
@@ -2505,83 +2505,83 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "이모지 추가"
 
-#: src/qml/elements/ChatPageSendingPane.qml:199
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "참가자 언급"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "숨겨진 부분이 있는 <b>암호화된</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "숨겨진 부분이 있는 <b>암호화되지 않은</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>암호화된</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>암호화되지 않은</b> 메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:365
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "사진 찍기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:370
+#: src/qml/elements/ChatPageSendingPane.qml:372
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "동영상 녹화"
 
-#: src/qml/elements/ChatPageSendingPane.qml:377
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "파일 공유"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:389
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "위치 공유"
 
-#: src/qml/elements/ChatPageSendingPane.qml:394
+#: src/qml/elements/ChatPageSendingPane.qml:396
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "숨겨진 메시지 부분 추가"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "숨기기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "더 보기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:471
+#: src/qml/elements/ChatPageSendingPane.qml:473
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
-#: src/qml/elements/ChatPageSendingPane.qml:571
+#: src/qml/elements/ChatPageSendingPane.qml:531
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "보내기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:531
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send a voice message"
@@ -2607,12 +2607,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "대화 상대의 신뢰 결정을 내림 - 2단계로 진행하십시오"
 
-#: src/qml/elements/ContactAdditionContent.qml:65
+#: src/qml/elements/ContactAdditionContent.qml:72
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "대화 상대 추가…"
 
-#: src/qml/elements/ContactAdditionContent.qml:92
+#: src/qml/elements/ContactAdditionContent.qml:99
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"

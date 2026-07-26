@@ -102,7 +102,7 @@ msgstr "无法迁移账号：无法加载导出的账号数据"
 #: src/AccountMigrationController.cpp:347
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr "无法迁移账号：您需要已连接"
+msgstr "无法迁移账号：您需要处于连接状态"
 
 #: src/AccountMigrationController.cpp:385
 #, qt-format
@@ -792,34 +792,34 @@ msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "取消转发"
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:589
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "选择聊天以转发消息"
 
-#: src/qml/ChatPage.qml:642
+#: src/qml/ChatPage.qml:640
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "拖放要发送的文件"
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 #, qt-format
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "已取消屏蔽 %1"
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "撤销"
 
-#: src/qml/ChatPage.qml:925
+#: src/qml/ChatPage.qml:921
 #, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "无法屏蔽 %1：%2"
 
-#: src/qml/ChatPage.qml:929
+#: src/qml/ChatPage.qml:925
 #, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
@@ -1075,7 +1075,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:498
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr "您必须连接才能屏蔽或取消屏蔽聊天地址"
+msgstr "您必须处于连接状态才能屏蔽或取消屏蔽聊天地址"
 
 #: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
@@ -1767,7 +1767,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:164
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr "您必须连接才能更改参与者"
+msgstr "您必须处于连接状态才能更改参与者"
 
 #: src/qml/details/GroupChatDetailsContent.qml:212
 msgctxt "GroupChatDetailsContent|"
@@ -2290,22 +2290,22 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "转发"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:142
+#: src/qml/elements/ChatMessageContextMenu.qml:148
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "复制"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:156
+#: src/qml/elements/ChatMessageContextMenu.qml:162
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "编辑"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:173
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "标记"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:175
+#: src/qml/elements/ChatMessageContextMenu.qml:181
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "从此设备移除"
@@ -2325,89 +2325,89 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消添加隐藏消息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
-#: src/qml/elements/ChatPageSendingPane.qml:612
+#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:614
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "添加表情符号"
 
-#: src/qml/elements/ChatPageSendingPane.qml:199
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "提及参与者"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "编写包含隐藏部分的<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "编写包含隐藏部分的<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "编写<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "编写<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:365
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "拍摄照片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:370
+#: src/qml/elements/ChatPageSendingPane.qml:372
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "录制视频"
 
-#: src/qml/elements/ChatPageSendingPane.qml:377
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享文件"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:389
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "分享您的位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:394
+#: src/qml/elements/ChatPageSendingPane.qml:396
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "添加隐藏消息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "隐藏"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "更多"
 
-#: src/qml/elements/ChatPageSendingPane.qml:471
+#: src/qml/elements/ChatPageSendingPane.qml:473
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr "滑动即可取消"
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
-#: src/qml/elements/ChatPageSendingPane.qml:571
+#: src/qml/elements/ChatPageSendingPane.qml:531
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "发送"
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:531
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "录制语音消息"
@@ -2427,12 +2427,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "为联系人做出信任决定"
 
-#: src/qml/elements/ContactAdditionContent.qml:65
+#: src/qml/elements/ContactAdditionContent.qml:72
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
-#: src/qml/elements/ContactAdditionContent.qml:92
+#: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
 msgstr "名称（选填）"
@@ -2986,12 +2986,9 @@ msgid "Show details"
 msgstr "显示详情"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:112
-#, fuzzy
-#| msgctxt "MessageReactionAdditionButton|"
-#| msgid "Add reaction…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Add same reaction"
-msgstr "添加回应…"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"

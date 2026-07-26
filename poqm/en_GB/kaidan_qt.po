@@ -976,7 +976,7 @@ msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:589
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -984,12 +984,12 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Select a chat to start"
 
-#: src/qml/ChatPage.qml:642
+#: src/qml/ChatPage.qml:640
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Unblocked %1"
@@ -997,7 +997,7 @@ msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Unblocked %1"
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 #, fuzzy
 #| msgctxt "main|"
 #| msgid "Undo"
@@ -1005,7 +1005,7 @@ msgctxt "ChatPage|"
 msgid "Undo"
 msgstr "Undo"
 
-#: src/qml/ChatPage.qml:925
+#: src/qml/ChatPage.qml:921
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not block %1: %2"
@@ -1013,7 +1013,7 @@ msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Could not block %1: %2"
 
-#: src/qml/ChatPage.qml:929
+#: src/qml/ChatPage.qml:925
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -2636,22 +2636,22 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:142
+#: src/qml/elements/ChatMessageContextMenu.qml:148
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Copy"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:156
+#: src/qml/elements/ChatMessageContextMenu.qml:162
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:173
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:175
+#: src/qml/elements/ChatMessageContextMenu.qml:181
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Remove from this device"
@@ -2671,8 +2671,8 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancel adding hidden message part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
-#: src/qml/elements/ChatPageSendingPane.qml:612
+#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:614
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Cancel"
@@ -2680,37 +2680,37 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:199
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Mention a participant"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Compose <b>encrypted </b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Compose <b>unencrypted</b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Compose <b>encrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Compose <b>unencrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:365
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Take picture"
@@ -2718,7 +2718,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Take picture"
 
-#: src/qml/elements/ChatPageSendingPane.qml:370
+#: src/qml/elements/ChatPageSendingPane.qml:372
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Record video"
@@ -2726,12 +2726,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Record video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:377
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Share files"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:389
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Send your location"
@@ -2739,7 +2739,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Send your location"
 
-#: src/qml/elements/ChatPageSendingPane.qml:394
+#: src/qml/elements/ChatPageSendingPane.qml:396
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2747,7 +2747,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Add hidden message part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Hide text"
@@ -2755,18 +2755,18 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Hide text"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:471
+#: src/qml/elements/ChatPageSendingPane.qml:473
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
-#: src/qml/elements/ChatPageSendingPane.qml:571
+#: src/qml/elements/ChatPageSendingPane.qml:531
+#: src/qml/elements/ChatPageSendingPane.qml:573
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -2774,7 +2774,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Send"
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:531
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2800,12 +2800,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "Trust decisions made for contact - Continue with step 2"
 
-#: src/qml/elements/ContactAdditionContent.qml:65
+#: src/qml/elements/ContactAdditionContent.qml:72
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Adding contact…"
 
-#: src/qml/elements/ContactAdditionContent.qml:92
+#: src/qml/elements/ContactAdditionContent.qml:99
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"

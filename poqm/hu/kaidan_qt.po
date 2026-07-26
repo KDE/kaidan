@@ -821,28 +821,28 @@ msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:589
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr ""
 
-#: src/qml/ChatPage.qml:642
+#: src/qml/ChatPage.qml:640
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 #, qt-format
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/ChatPage.qml:918
+#: src/qml/ChatPage.qml:914
 msgctxt "ChatPage|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/ChatPage.qml:925
+#: src/qml/ChatPage.qml:921
 #, fuzzy, qt-format
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -850,7 +850,7 @@ msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Fiók törlése teljesen"
 
-#: src/qml/ChatPage.qml:929
+#: src/qml/ChatPage.qml:925
 #, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
@@ -2521,22 +2521,22 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:142
+#: src/qml/elements/ChatMessageContextMenu.qml:148
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:156
+#: src/qml/elements/ChatMessageContextMenu.qml:162
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:167
+#: src/qml/elements/ChatMessageContextMenu.qml:173
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:175
+#: src/qml/elements/ChatMessageContextMenu.qml:181
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -2560,63 +2560,63 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
-#: src/qml/elements/ChatPageSendingPane.qml:612
+#: src/qml/elements/ChatPageSendingPane.qml:172
+#: src/qml/elements/ChatPageSendingPane.qml:614
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/qml/elements/ChatPageSendingPane.qml:170
+#: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:199
+#: src/qml/elements/ChatPageSendingPane.qml:201
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:230
+#: src/qml/elements/ChatPageSendingPane.qml:232
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:237
+#: src/qml/elements/ChatPageSendingPane.qml:239
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:365
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:370
+#: src/qml/elements/ChatPageSendingPane.qml:372
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:377
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:389
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2624,12 +2624,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Az értesítések némítása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:394
+#: src/qml/elements/ChatPageSendingPane.qml:396
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2637,23 +2637,23 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Szöveg elrejtése"
 
-#: src/qml/elements/ChatPageSendingPane.qml:457
+#: src/qml/elements/ChatPageSendingPane.qml:459
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:471
+#: src/qml/elements/ChatPageSendingPane.qml:473
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
-#: src/qml/elements/ChatPageSendingPane.qml:571
+#: src/qml/elements/ChatPageSendingPane.qml:531
+#: src/qml/elements/ChatPageSendingPane.qml:573
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:529
+#: src/qml/elements/ChatPageSendingPane.qml:531
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2676,12 +2676,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:65
+#: src/qml/elements/ContactAdditionContent.qml:72
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:92
+#: src/qml/elements/ContactAdditionContent.qml:99
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
 msgstr ""
