@@ -102,7 +102,7 @@ msgstr "无法迁移账号：无法加载导出的账号数据"
 #: src/AccountMigrationController.cpp:348
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr "无法迁移账号：您需要已连接"
+msgstr "无法迁移账号：您需要处于连接状态"
 
 #: src/AccountMigrationController.cpp:386
 #, qt-format
@@ -1075,7 +1075,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:498
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr "您必须连接才能屏蔽或取消屏蔽聊天地址"
+msgstr "您必须处于连接状态才能屏蔽或取消屏蔽聊天地址"
 
 #: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
@@ -1767,7 +1767,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:164
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
-msgstr "您必须连接才能更改参与者"
+msgstr "您必须处于连接状态才能更改参与者"
 
 #: src/qml/details/GroupChatDetailsContent.qml:212
 msgctxt "GroupChatDetailsContent|"
@@ -2986,12 +2986,9 @@ msgid "Show details"
 msgstr "显示详情"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:112
-#, fuzzy
-#| msgctxt "MessageReactionAdditionButton|"
-#| msgid "Add reaction…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Add same reaction"
-msgstr "添加回应…"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
