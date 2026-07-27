@@ -996,12 +996,11 @@ void Database::convertDatabaseToV29()
 
     // Add the column "deliveryState" and remove the column "timestamp" from the primary key.
     execQuery(query,
-              SQL_CREATE_TABLE("messageReactions_tmp",
-                               SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
-                                   SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
-                                       SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
-                                           SQL_ATTRIBUTE(deliverySvoid convertDatabaseToV48();
-                                                         tate, SQL_INTEGER) "PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"));
+              SQL_CREATE_TABLE(
+                  "messageReactions_tmp",
+                  SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+                      SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+                          SQL_ATTRIBUTE(deliveryState, SQL_INTEGER) "PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"));
 
     execQuery(query,
               QStringLiteral("INSERT INTO messageReactions_tmp SELECT messageSender, messageRecipient, messageId, "
