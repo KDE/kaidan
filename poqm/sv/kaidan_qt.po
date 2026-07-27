@@ -3803,25 +3803,25 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 "Kunde inte lägga till kontakt som ett resultat av att inte vara uppkopplad."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3831,29 +3831,29 @@ msgstr ""
 "Begäran att se personlig information för %1 misslyckades på grund av ett "
 "anslutningsproblem: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Leverantör"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Anteckningar"

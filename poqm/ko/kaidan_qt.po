@@ -4083,7 +4083,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "%1 could not be added: %2"
@@ -4091,17 +4091,17 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 님을 추가할 수 없음: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대를 추가할 수 없었습니다."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대의 이름을 변경할 수 없었습니다."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid ""
@@ -4113,7 +4113,7 @@ msgid ""
 "problem: %2"
 msgstr "연결 문제로 인하여 %1 님의 개인 데이터 표시 요청이 실패함: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -4121,7 +4121,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 님이 개인 데이터를 볼 수 있도록 허용할 수 없음"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -4129,17 +4129,17 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 님이 개인 데이터를 더 이상 보지 못하도록 중단할 수 없음"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대를 삭제할 수 없었습니다."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "공급자"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "메모"

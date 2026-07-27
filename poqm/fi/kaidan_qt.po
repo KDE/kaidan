@@ -4089,7 +4089,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "%1 could not be added: %2"
@@ -4097,17 +4097,17 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä käyttäjää %1: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska ei olla verkossa."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Nimeä ei voitu muuttaa, koska ei olla verkossa."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid ""
@@ -4121,7 +4121,7 @@ msgstr ""
 "Yhteysongelman vuoksi käyttäjän %1 pyyntö nähdä henkilökohtaisia tietojasi "
 "epäonnistui: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -4129,7 +4129,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Käyttäjän %1 salliminen henkilökohtaisiin tietoihisi epäonnistui"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -4137,17 +4137,17 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Käyttäjän %1 pääsyä henkilökohtaisiin tietoihisi ei saatu lopetetuksi"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska ei olla verkossa."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Tarjoaja"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"

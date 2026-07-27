@@ -3746,23 +3746,23 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知大小"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3770,29 +3770,29 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "提供者"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"

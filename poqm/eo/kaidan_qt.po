@@ -4301,7 +4301,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -4309,7 +4309,7 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 ne povis esti aldonita: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact as a result of not being connected."
@@ -4317,7 +4317,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Ne eblis aldoni kontakton pro nekonekteco."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact as a result of not being connected."
@@ -4325,7 +4325,7 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Ne eblis renomi kontakton pro nekonekteco."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -4338,7 +4338,7 @@ msgid ""
 msgstr ""
 "Peto vidi la personajn datumojn de %1 malsukcesis pro koneksa problemo: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -4346,7 +4346,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Permesi al %1 vidi viajn personajn datumojn malsukcesis"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -4354,7 +4354,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Malsukcesis ĉesigi %1 por vidi viajn personajn datumojn"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact as a result of not being connected."
@@ -4362,7 +4362,7 @@ msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Ne eblis forigi kontakton pro nekonekteco."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Provider"
@@ -4370,7 +4370,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "Provizanto"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notoj"

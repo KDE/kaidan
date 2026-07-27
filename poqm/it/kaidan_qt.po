@@ -3843,25 +3843,25 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr ""
 "Impossibile aggiungere il contatto a causa dell'assenza di connessione."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "Impossibile rinominare il contatto a causa dell'assenza di connessione."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3871,7 +3871,7 @@ msgstr ""
 "La richiesta di vedere i dati personali di %1 non è riuscita a causa di un "
 "problema di connessione: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
@@ -3879,7 +3879,7 @@ msgstr ""
 "L'attribuzione a %1 del permesso di vedere i tuoi dati personali non è "
 "riuscita"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
@@ -3887,17 +3887,17 @@ msgstr ""
 "La rimozione da %1 del permesso di vedere i tuoi dati personali non è "
 "riuscita"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa dell'assenza di connessione."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Fornitore"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Note"

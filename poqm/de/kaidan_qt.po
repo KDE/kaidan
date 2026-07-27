@@ -1,5 +1,5 @@
+# SPDX-FileCopyrightText: 2022-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
-# SPDX-FileCopyrightText: 2022, 2023 Frederik Schwarzer <schwarzer@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
@@ -4440,7 +4440,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Unbekannte Größe"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -4448,19 +4448,19 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 #, fuzzy
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Konnte den Kontakt nicht hinzufügen, da Sie nicht verbunden sind."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 #, fuzzy
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Konnte den Kontakt nicht umbenennen, da keine Verbindung besteht."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -4468,25 +4468,25 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 #, fuzzy
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Konnte den Kontakt nicht entfernen, da Sie nicht verbunden sind."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Provider"
@@ -4494,7 +4494,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "Anbieter"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notizen"

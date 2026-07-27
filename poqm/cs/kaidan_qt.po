@@ -3825,23 +3825,23 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 se nepodařilo přidat: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Kontakt se nepodařilo přidat, protože připojení není k dispozici."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Kontakt nebylo možné přejmenovat, protože připojení není k dispozici."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3850,29 +3850,29 @@ msgid ""
 msgstr ""
 "Žádost o zobrazení osobních údajů %1 selhala kvůli problému s připojením: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Povolení uživateli %1 k zobrazování vašich osobních údajů se nezdařilo"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Zastavení zobrazování vašich osobních údajů uživateli %1 se nezdařilo"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kontakt se nepodařilo odstranit, protože připojení není k dispozici."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Poskytovatel"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Poznámky"

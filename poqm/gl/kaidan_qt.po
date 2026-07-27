@@ -4188,7 +4188,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamaño descoñecido"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "%1 could not be added: %2"
@@ -4196,17 +4196,17 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Non foi posíbel engadir %1: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Non foi posíbel engadir o contacto porque non hai conexión."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Non foi posíbel renomear o contacto porque non hai conexión."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid ""
@@ -4220,7 +4220,7 @@ msgstr ""
 "A solicitude para ver a información persoal de %1 fallou debido a un "
 "problema de conexión: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -4228,7 +4228,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Non foi posíbel permitir a %1 ver a súa información persoal."
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterController|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -4236,12 +4236,12 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Non foi posíbel facer que %1 deixe de ver a súa información persoal."
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Non foi posíbel eliminar o contacto porque non hai conexión."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Provider"
@@ -4249,7 +4249,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "Provedor"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"

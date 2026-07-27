@@ -3835,25 +3835,25 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 kon niet worden toegevoegd: %2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Kan geen contactpersoon toevoegen omdat er geen verbinding is."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr ""
 "De naam van de contactpersoon kon niet worden veranderd, doordat er geen "
 "verbinding beschikbaar is."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -3863,29 +3863,29 @@ msgstr ""
 "Verzoek om de persoonlijke gegevens van %1 te zien is mislukt vanwege een "
 "probleem met de verbinding: %2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 toestaan om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Kan de contactpersoon niet verwijderen omdat er geen verbinding is."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Provider"
 msgstr "Leverancier"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notities"

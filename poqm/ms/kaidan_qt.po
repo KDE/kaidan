@@ -4825,7 +4825,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -4833,7 +4833,7 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Mesej gagal dihantar."
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact, as a result of not being connected."
@@ -4841,7 +4841,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Tidak dapat menambah kenalan, kerana anda tiada sambungan internet."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact, as a result of not being connected."
@@ -4851,7 +4851,7 @@ msgstr ""
 "Tidak boleh menamakan semula kenalan, kerana anda tidak bersambung ke "
 "internet."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
@@ -4859,19 +4859,19 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact, as a result of not being connected."
@@ -4879,7 +4879,7 @@ msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Tidak dapat membuang kenalan, kerana anda tiada sambungan internet."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "ServerListModel|"
 #| msgid "Custom server"
@@ -4887,7 +4887,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "Pelayan tersuai"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr ""

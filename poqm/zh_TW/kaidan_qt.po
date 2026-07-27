@@ -4548,7 +4548,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -4556,7 +4556,7 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "無法新增 %1：%2"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact, as a result of not being connected."
@@ -4564,7 +4564,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "無法新增聯絡人，由於未連線。"
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact, as a result of not being connected."
@@ -4572,7 +4572,7 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "無法重新命名聯絡人，由於未連線。"
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -4584,7 +4584,7 @@ msgid ""
 "problem: %2"
 msgstr "請求檢視 %1 的個人資料時失敗，原因是連線問題：%2"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %1 to see your personal data failed"
@@ -4592,7 +4592,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允許 %1 檢視您的個人資料時失敗"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Stopping %1 to see your personal data failed"
@@ -4600,7 +4600,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止允許 %1 檢視您的個人資料時失敗"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact, as a result of not being connected."
@@ -4608,7 +4608,7 @@ msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "無法移除聯絡人，由於未連線。"
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Provider"
@@ -4616,7 +4616,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "提供者："
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "筆記"

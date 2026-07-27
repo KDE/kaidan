@@ -4991,7 +4991,7 @@ msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/RosterController.cpp:152
+#: src/RosterController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -4999,7 +4999,7 @@ msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "Não foi possível adicionar o %1"
 
-#: src/RosterController.cpp:159
+#: src/RosterController.cpp:134
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not add contact, as a result of not being connected."
@@ -5007,7 +5007,7 @@ msgctxt "RosterController|"
 msgid "Could not add contact as a result of not being connected."
 msgstr "Não foi possível adicionar o contacto, por não estar ligado."
 
-#: src/RosterController.cpp:169
+#: src/RosterController.cpp:144
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not rename contact, as a result of not being connected."
@@ -5015,7 +5015,7 @@ msgctxt "RosterController|"
 msgid "Could not rename contact as a result of not being connected."
 msgstr "Não foi possível mudar o nome do contacto, por não estar ligado."
 
-#: src/RosterController.cpp:179
+#: src/RosterController.cpp:154
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -5029,7 +5029,7 @@ msgstr ""
 "Não foi possível pedir a visualização do estado do  %s, devido a um erro de "
 "ligação: %s"
 
-#: src/RosterController.cpp:192
+#: src/RosterController.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %s to see your status failed"
@@ -5037,7 +5037,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Permitir ao %s ver o seu estado"
 
-#: src/RosterController.cpp:204
+#: src/RosterController.cpp:179
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %s to see your status failed"
@@ -5045,7 +5045,7 @@ msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Permitir ao %s ver o seu estado"
 
-#: src/RosterController.cpp:298
+#: src/RosterController.cpp:272
 #, fuzzy
 #| msgctxt "RosterManager|"
 #| msgid "Could not remove contact, as a result of not being connected."
@@ -5053,7 +5053,7 @@ msgctxt "RosterController|"
 msgid "Could not remove contact as a result of not being connected."
 msgstr "Não foi possível remover o contacto, por não estar ligado."
 
-#: src/RosterItem.cpp:31
+#: src/RosterItem.cpp:33
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Provider"
@@ -5061,7 +5061,7 @@ msgctxt "QObject|"
 msgid "Provider"
 msgstr "Fornecedor"
 
-#: src/RosterItem.cpp:36
+#: src/RosterItem.cpp:38
 msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
