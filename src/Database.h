@@ -12,6 +12,7 @@
 
 // std
 #include <memory>
+#include <span>
 // Qt
 #include <QObject>
 
@@ -85,68 +86,28 @@ private:
      */
     void createNewDatabase();
 
-    /*
-     * Upgrades the database to the next version.
+    /**
+     * One step of the database schema history.
      */
-    void convertDatabaseToV2();
-    void convertDatabaseToV3();
-    void convertDatabaseToV4();
-    void convertDatabaseToV5();
-    void convertDatabaseToV6();
-    void convertDatabaseToV7();
-    void convertDatabaseToV8();
-    void convertDatabaseToV9();
-    void convertDatabaseToV10();
-    void convertDatabaseToV11();
-    void convertDatabaseToV12();
-    void convertDatabaseToV13();
-    void convertDatabaseToV14();
-    void convertDatabaseToV15();
-    void convertDatabaseToV16();
-    void convertDatabaseToV17();
-    void convertDatabaseToV18();
-    void convertDatabaseToV19();
-    void convertDatabaseToV20();
-    void convertDatabaseToV21();
-    void convertDatabaseToV22();
-    void convertDatabaseToV23();
-    void convertDatabaseToV24();
-    void convertDatabaseToV25();
-    void convertDatabaseToV26();
-    void convertDatabaseToV27();
-    void convertDatabaseToV28();
-    void convertDatabaseToV29();
-    void convertDatabaseToV30();
-    void convertDatabaseToV31();
-    void convertDatabaseToV32();
-    void convertDatabaseToV33();
-    void convertDatabaseToV34();
-    void convertDatabaseToV35();
-    void convertDatabaseToV36();
-    void convertDatabaseToV37();
-    void convertDatabaseToV38();
-    void convertDatabaseToV39();
-    void convertDatabaseToV40();
-    void convertDatabaseToV41();
-    void convertDatabaseToV42();
-    void convertDatabaseToV43();
-    void convertDatabaseToV44();
-    void convertDatabaseToV45();
-    void convertDatabaseToV46();
-    void convertDatabaseToV47();
-    void convertDatabaseToV48();
-    void convertDatabaseToV49();
-    void convertDatabaseToV50();
-    void convertDatabaseToV51();
-    void convertDatabaseToV52();
-    void convertDatabaseToV53();
-    void convertDatabaseToV54();
-    void convertDatabaseToV55();
-    void convertDatabaseToV56();
-    void convertDatabaseToV57();
-    void convertDatabaseToV58();
-    void convertDatabaseToV59();
-    void convertDatabaseToV60();
+    struct Migration {
+        /**
+         * Schema version the database has once @c apply has run.
+         */
+        int version;
+
+        /**
+         * A plain function pointer on purpose: a migration cannot capture anything and
+         * cannot reach into the Database instance.
+         */
+        void (*apply)(QSqlQuery &query);
+    };
+
+    /**
+     * All migrations, ordered by strictly increasing version.
+     */
+    static std::span<const Migration> migrations();
+
+    static int latestVersion();
 
     std::unique_ptr<DatabasePrivate> d;
 
