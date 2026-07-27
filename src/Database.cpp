@@ -1660,7 +1660,7 @@ void Database::convertDatabaseToV48()
             }();
             const auto record = AccountDb::createUpdateRecord({}, sqlAccount);
             const auto updateAccountSQL = [&]() -> QString {
-                const auto driver = currentDatabase().driver();
+                const auto driver = query.driver();
                 return QString(driver->sqlStatement(QSqlDriver::InsertStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false))
                     .replace(QStringLiteral("INSERT "), QStringLiteral("INSERT OR REPLACE "));
             }();
