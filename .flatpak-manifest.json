@@ -45,6 +45,64 @@
             ]
         },
         {
+            "name": "opencv",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DBUILD_LIST=core,dnn,ml,imgproc,imgcodecs,objdetect,calib3d,features2d,flann,highgui,stitching,shape,superres",
+                "-DBUILD_EXAMPLES=OFF",
+                "-DBUILD_TESTS=OFF",
+                "-DINSTALL_C_EXAMPLES=OFF",
+                "-DINSTALL_PYTHON_EXAMPLES=OFF",
+                "-DOPENCV_DNN_OPENCL=ON",
+                "-DOPENCV_GENERATE_PKGCONFIG=ON",
+                "-DWITH_1394=OFF",
+                "-DWITH_ADE=OFF",
+                "-DWITH_DIRECTX=OFF",
+                "-DWITH_DSHOW=OFF",
+                "-DWITH_EIGEN=OFF",
+                "-DWITH_FFMPEG=OFF",
+                "-DWITH_GSTREAMER=OFF",
+                "-DWITH_GTK=OFF",
+                "-DWITH_IPP=OFF",
+                "-DWITH_JASPER=OFF",
+                "-DWITH_JPEG=OFF",
+                "-DWITH_LAPACK=OFF",
+                "-DWITH_OPENCL=ON",
+                "-DWITH_OPENCL_SVM=ON",
+                "-DWITH_OPENEXR=OFF",
+                "-DWITH_PNG=OFF",
+                "-DWITH_PROTOBUF=ON",
+                "-DWITH_QT=OFF",
+                "-DWITH_TBB=OFF",
+                "-DWITH_TESSERACT=OFF",
+                "-DWITH_TIFF=OFF",
+                "-DWITH_V4L=OFF",
+                "-DWITH_VTK=OFF",
+                "-DWITH_WEBP=OFF"
+            ],
+            "cleanup": [
+                "/bin"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/opencv/opencv/archive/4.14.0.tar.gz",
+                    "sha256": "ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 6615,
+                        "stable-only": true,
+                        "versions": {
+                            "<": "5.0.0"
+                        },
+                        "url-template": "https://github.com/opencv/opencv/archive/$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
             "name": "kquickimageeditor",
             "buildsystem": "cmake-ninja",
             "sources": [
