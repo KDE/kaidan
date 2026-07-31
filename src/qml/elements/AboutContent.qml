@@ -13,8 +13,6 @@ import im.kaidan.kaidan
 
 FormInfoContent {
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		UrlFormButtonDelegate {
 			text: qsTr("Visit website")
 			description: qsTr("Open Kaidan's website in a web browser")
@@ -52,10 +50,7 @@ FormInfoContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.AbstractFormDelegate {
-			Layout.fillWidth: true
 			background: null
 			contentItem: ColumnLayout {
 				Controls.Label {
@@ -76,7 +71,6 @@ FormInfoContent {
 		}
 
 		FormCard.AbstractFormDelegate {
-			Layout.fillWidth: true
 			background: null
 			contentItem: ColumnLayout {
 				Controls.Label {
@@ -97,7 +91,6 @@ FormInfoContent {
 		}
 
 		FormCard.AbstractFormDelegate {
-			Layout.fillWidth: true
 			background: null
 			contentItem: ColumnLayout {
 				Controls.Label {

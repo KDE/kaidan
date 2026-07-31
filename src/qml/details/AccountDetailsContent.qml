@@ -255,8 +255,6 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Notifications")
 		}
@@ -309,8 +307,6 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Locations")
 		}
@@ -360,7 +356,6 @@ DetailsContent {
 
 		visible: providerUrl.toString() || root.account.settings.chatSupportAddresses.length || root.account.settings.groupChatSupportAddresses.length
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		ProviderModel {
 			id: providerModel
@@ -410,7 +405,6 @@ DetailsContent {
 			id: chatSupportListView
 			visible: chatSupportExpansionButton.checked
 			implicitHeight: contentHeight
-			Layout.fillWidth: true
 			model: root.account.settings.chatSupportAddresses
 			delegate: FormCard.FormButtonDelegate {
 				text: qsTr("Support %1", "as in 'get help'").arg(index + 1)
@@ -445,7 +439,6 @@ DetailsContent {
 		InlineListView {
 			visible: groupChatSupportExpansionButton.checked
 			implicitHeight: contentHeight
-			Layout.fillWidth: true
 			model: root.account.settings.groupChatSupportAddresses
 			delegate: FormCard.FormButtonDelegate {
 				text: qsTr("Group Support %1", "as in 'get help'").arg(index + 1)
@@ -460,7 +453,6 @@ DetailsContent {
 	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
 		visible: root.account.settings.enabled || blockingListView.count
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Blocked Chat Addresses")
@@ -478,7 +470,6 @@ DetailsContent {
 			}
 			visible: blockingExpansionButton.checked
 			implicitHeight: contentHeight
-			Layout.fillWidth: true
 			header: Loader {
 				sourceComponent: root.account.settings.enabled ? blockingComponent : null
 				width: ListView.view.width
@@ -622,7 +613,6 @@ DetailsContent {
 		id: notesAdditionArea
 		visible: root.account.settings.enabled && !RosterModel.hasItem(root.account.settings.jid, root.account.settings.jid)
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Notes")
@@ -679,7 +669,6 @@ DetailsContent {
 		id: passwordChangeArea
 		visible: root.account.settings.enabled && root.account.settings.inBandRegistrationFeaturesSupported
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Password Change")
@@ -793,7 +782,6 @@ DetailsContent {
 
 	FormCard.FormCard {
 		visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Invisible
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Password Visibility")
@@ -835,7 +823,6 @@ DetailsContent {
 	FormCard.FormCard {
 		visible: root.account.settings.enabled
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Connection")
@@ -922,7 +909,6 @@ DetailsContent {
 
 	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Switch Device")
@@ -974,7 +960,6 @@ DetailsContent {
 	FormCard.FormCard {
 		visible: root.account.settings.enabled
 		enabled: accountRemovalArea.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Migration")
@@ -1002,7 +987,6 @@ DetailsContent {
 
 	FormCard.FormCard {
 		id: accountRemovalArea
-		Layout.fillWidth: true
 		enabled: !accountRemovalButtonArea.busy && !accountDeletionButtonArea.busy
 		visible: root.account.settings.enabled
 

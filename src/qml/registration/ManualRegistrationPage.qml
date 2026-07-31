@@ -60,7 +60,6 @@ RegistrationPage {
 		CustomContentFormCard {
 			title: qsTr("Enter your desired credentials")
 			visible: root.account.connection.error !== ClientController.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
-			Layout.fillWidth: true
 
 			ColumnLayout {
 				Field {

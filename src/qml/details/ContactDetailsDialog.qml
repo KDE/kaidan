@@ -19,6 +19,5 @@ RosterItemDetailsDialog {
 	ContactDetailsContent {
 		dialog: root
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 }

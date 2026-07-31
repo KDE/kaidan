@@ -23,8 +23,6 @@ RosterItemDetailsContent {
 
 	topArea: [
 		FormCard.FormCard {
-			Layout.fillWidth: true
-
 			FormCard.FormHeader {
 				title: qsTr("Invite")
 			}
@@ -38,7 +36,6 @@ RosterItemDetailsContent {
 				}
 				visible: inviteeExpansionButton.checked
 				implicitHeight: contentHeight
-				Layout.fillWidth: true
 				header: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -131,8 +128,6 @@ RosterItemDetailsContent {
 		},
 
 		FormCard.FormCard {
-			Layout.fillWidth: true
-
 			FormCard.FormHeader {
 				title: qsTr("Participants")
 			}
@@ -152,7 +147,6 @@ RosterItemDetailsContent {
 				}
 				visible: userExpansionButton.checked
 				implicitHeight: contentHeight
-				Layout.fillWidth: true
 				header: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -245,7 +239,6 @@ RosterItemDetailsContent {
 			}
 			visible: keyAuthenticationButton.visible && keyAuthenticationButton.checked
 			implicitHeight: contentHeight
-			Layout.fillWidth: true
 			header: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -302,8 +295,6 @@ RosterItemDetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Notifications")
 		}
@@ -337,8 +328,6 @@ RosterItemDetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Privacy")
 		}
@@ -360,7 +349,6 @@ RosterItemDetailsContent {
 
 	FormCard.FormCard {
 		id: removalArea
-		Layout.fillWidth: true
 		visible: root.chatController.account.settings.enabled
 		enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
 

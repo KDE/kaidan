@@ -71,7 +71,6 @@ ExplanationTogglePage {
 			visible: false
 			Layout.alignment: Qt.AlignHCenter
 			Layout.topMargin: Kirigami.Units.largeSpacing
-			Layout.fillWidth: true
 		}
 	}
 	content: QrCodeScanner {

@@ -21,7 +21,6 @@ FormCard.FormCard {
 	required property string jid
 
 	visible: account.settings.enabled && deviceRepeater.count
-	Layout.fillWidth: true
 
 	FormCard.FormHeader {
 		title: qsTr("Connected Devices")

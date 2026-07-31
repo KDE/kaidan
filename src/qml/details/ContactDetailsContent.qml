@@ -100,8 +100,6 @@ RosterItemDetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Notifications")
 		}
@@ -131,8 +129,6 @@ RosterItemDetailsContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Privacy")
 		}
@@ -189,7 +185,6 @@ RosterItemDetailsContent {
 
 	FormCard.FormCard {
 		visible: root.chatController.account.settings.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Removal")

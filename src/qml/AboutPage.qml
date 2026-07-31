@@ -12,7 +12,5 @@ FormInfoPage {
 	title: qsTr("About Kaidan")
 
 	AboutHeader {}
-	AboutContent {
-		Layout.fillWidth: true
-	}
+	AboutContent {}
 }

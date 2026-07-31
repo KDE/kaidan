@@ -14,6 +14,5 @@ RosterItemDetailsPage {
 
 	NotesChatDetailsContent {
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 }

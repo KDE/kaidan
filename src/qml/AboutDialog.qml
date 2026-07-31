@@ -16,7 +16,5 @@ FormInfoDialog {
 		dialog: root
 	}
 
-	AboutContent {
-		Layout.fillWidth: true
-	}
+	AboutContent {}
 }

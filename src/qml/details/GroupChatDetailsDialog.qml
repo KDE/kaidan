@@ -20,7 +20,6 @@ RosterItemDetailsDialog {
 		id: content
 		dialog: root
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 
 	function openInviteeListView() {

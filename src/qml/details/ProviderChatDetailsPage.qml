@@ -14,6 +14,5 @@ RosterItemDetailsPage {
 
 	ProviderChatDetailsContent {
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 }

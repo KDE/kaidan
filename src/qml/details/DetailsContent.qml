@@ -52,8 +52,6 @@ FormInfoContent {
 	}
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
-
 		FormCard.FormHeader {
 			title: qsTr("Media")
 		}
@@ -103,7 +101,6 @@ FormInfoContent {
 
 	FormCard.FormCard {
 		id: vCardArea
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Profile")
@@ -129,13 +126,11 @@ FormInfoContent {
 
 	FormCard.FormCard {
 		id: encryptionArea
-		Layout.fillWidth: true
 	}
 
 	FormCard.FormCard {
 		// Hide this if there are no items and no header.
 		visible: rosterGoupListView.count || rosterGoupListView.headerItem
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Labels")
@@ -146,7 +141,6 @@ FormInfoContent {
 			model: root.account.rosterController.groups
 			visible: rosterGroupExpansionButton.checked
 			implicitHeight: contentHeight
-			Layout.fillWidth: true
 		}
 
 		FormExpansionButton {
@@ -156,7 +150,6 @@ FormInfoContent {
 
 	FormCard.FormCard {
 		id: sharingArea
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Sharing")

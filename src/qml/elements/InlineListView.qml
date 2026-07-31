@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Layouts
 
 /**
  * This is a list view that can be placed inside of a flickable element.
@@ -12,4 +13,5 @@ import QtQuick
 ListView {
 	interactive: false
 	clip: true
+	Layout.fillWidth: true
 }

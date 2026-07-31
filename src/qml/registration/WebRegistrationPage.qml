@@ -44,8 +44,6 @@ ImageBackgroundPage {
 		}
 
 		FormCard.FormCard {
-			Layout.fillWidth: true
-
 			FormCard.FormHeader {
 				title: qsTr("Step 1: Register account")
 			}
@@ -71,7 +69,6 @@ ImageBackgroundPage {
 			title: qsTr("Step 2: Log in with your registered account")
 			account: root.account
 			visible: false
-			Layout.fillWidth: true
 		}
 	}
 

@@ -22,7 +22,6 @@ DetailsDialog {
 	AccountDetailsContent {
 		dialog: root
 		account: root.account
-		Layout.fillWidth: true
 	}
 
 	Connections {

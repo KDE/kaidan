@@ -147,7 +147,6 @@ ExplanationOptionsTogglePage {
 						text: model.label
 						description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 						descriptionItem.textFormat: Text.MarkdownText
-						Layout.fillWidth: true
 						onClicked: encryptionKeyCopyButton.clicked()
 					}
 

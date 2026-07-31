@@ -60,8 +60,6 @@ ImageBackgroundPage {
 				visible: true
 				onClicked: pushLayer(qrCodeOnboardingPage)
 			}
-			Layout.alignment: Qt.AlignHCenter
-			Layout.fillWidth: true
 
 			Connections {
 				target: pageStack.layers
@@ -97,9 +95,6 @@ ImageBackgroundPage {
 		}
 
 		FormCard.FormCard {
-			Layout.alignment: Qt.AlignHCenter
-			Layout.fillWidth: true
-
 			FormCard.FormHeader {
 				title: qsTr("Register")
 			}

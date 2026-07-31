@@ -17,6 +17,5 @@ RosterItemDetailsDialog {
 	NotesChatDetailsContent {
 		dialog: root
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 }

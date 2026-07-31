@@ -110,7 +110,6 @@ Kirigami.GlobalDrawer {
 
 					FormCard.FormCard {
 						visible: modelData.connection.error === ClientController.AuthenticationFailed
-						Layout.fillWidth: true
 
 						FormCardCustomContentArea {
 							contentItem: RowLayout {
@@ -154,7 +153,6 @@ Kirigami.GlobalDrawer {
 					}
 				}
 				implicitHeight: contentHeight
-				Layout.fillWidth: true
 			}
 
 			FormAdditionButton {

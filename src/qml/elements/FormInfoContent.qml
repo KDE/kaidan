@@ -21,4 +21,5 @@ Controls.Control {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
 	}
+	Layout.fillWidth: true
 }

@@ -42,7 +42,6 @@ ColumnLayout {
 			}
 		]
 		implicitHeight: contentHeight
-		Layout.fillWidth: true
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -104,7 +103,6 @@ ColumnLayout {
 		model: AccountController.accounts
 		visible: count > 1
 		implicitHeight: contentHeight
-		Layout.fillWidth: true
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -166,7 +164,6 @@ ColumnLayout {
 		model: RosterModel.groups
 		visible: count
 		implicitHeight: contentHeight
-		Layout.fillWidth: true
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window

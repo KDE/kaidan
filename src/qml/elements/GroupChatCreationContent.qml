@@ -28,7 +28,6 @@ ConfirmationArea {
 		label: qsTr("Group name (optional)")
 		placeholderText: qsTr("Example Group")
 		inputMethodHints: Qt.ImhPreferUppercase	
-		Layout.fillWidth: true
 		onAccepted: confirm()
 	}
 
@@ -56,7 +55,6 @@ ConfirmationArea {
 		invalidHintText: qsTr("Enter a valid group ID")
 		inputValidator.patterns: InputValidator.Pattern.NotEmpty
 		visible: publicGroupChatCheckBox.checked
-		Layout.fillWidth: true
 		onAccepted: confirm()
 	}
 
@@ -74,7 +72,6 @@ ConfirmationArea {
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		visible: publicGroupChatCheckBox.checked
-		Layout.fillWidth: true
 		onAccepted: confirm()
 	}
 

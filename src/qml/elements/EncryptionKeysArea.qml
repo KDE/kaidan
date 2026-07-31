@@ -17,7 +17,6 @@ GridLayout {
 	Layout.maximumHeight: parent.flow === GridLayout.LeftToRight ? parent.height : parent.height / 2 - parent.rowSpacing * 2
 
 	FormCard.FormCard {
-		Layout.fillWidth: true
 		Layout.maximumHeight: parent.height
 		Layout.alignment: Qt.AlignCenter
 

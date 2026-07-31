@@ -27,7 +27,6 @@ ConfirmationArea {
 		placeholderText: qsTr("group@groups.example.org")
 		invalidHintText: qsTr("Enter a valid group address")
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
-		Layout.fillWidth: true
 		onTextEdited: {
 			const jidOfXmppUri = Utils.jid(text)
 
@@ -50,7 +49,6 @@ ConfirmationArea {
 		label: qsTr("Nickname (optional)")
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
-		Layout.fillWidth: true
 		onAccepted: confirm()
 	}
 

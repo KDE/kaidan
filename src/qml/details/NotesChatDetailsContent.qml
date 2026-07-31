@@ -44,7 +44,6 @@ RosterItemDetailsContent {
 
 	FormCard.FormCard {
 		visible: root.chatController.account.settings.enabled
-		Layout.fillWidth: true
 
 		FormCard.FormHeader {
 			title: qsTr("Removal")

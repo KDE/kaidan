@@ -16,7 +16,6 @@ RosterItemDetailsPage {
 	GroupChatDetailsContent {
 		id: content
 		chatController: root.chatController
-		Layout.fillWidth: true
 	}
 
 	function openInviteeListView() {

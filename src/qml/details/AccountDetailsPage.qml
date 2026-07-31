@@ -19,7 +19,6 @@ DetailsPage {
 
 	AccountDetailsContent {
 		account: root.account
-		Layout.fillWidth: true
 	}
 
 	Connections {

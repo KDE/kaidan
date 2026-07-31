@@ -80,7 +80,6 @@ RegistrationPage {
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
 				visible: root.account.connection.error !== ClientController.EmailConfirmationRequired
-				Layout.fillWidth: true
 				onVisibleChanged: {
 					if (visible) {
 						forceActiveFocus()
@@ -100,7 +99,6 @@ RegistrationPage {
 						implicitHeight: Kirigami.Units.iconSizes.small
 					}
 					visible: customDataFormArea.visible
-					Layout.fillWidth: true
 					onClicked: root.requestRegistrationFormFromAnotherProvider()
 				}
 			}
@@ -110,7 +108,6 @@ RegistrationPage {
 				account: root.account
 				registrationFunction: register
 				loginFunction: logIn
-				Layout.fillWidth: true
 			}
 		}
 	}
