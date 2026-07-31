@@ -14,7 +14,6 @@ Dialog {
 
 	title: qsTr("Create group chat")
 	bottomInset: 0
-	padding: Kirigami.Units.mediumSpacing
 	onOpened: content.groupChatNameField.forceActiveFocus()
 
 	GroupChatCreationContent {
