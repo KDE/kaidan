@@ -17,6 +17,9 @@ ClickableItemDelegate {
 		id: avatar
 		jid: root.jid
 		name: root.name
+		Layout.topMargin: Kirigami.Units.smallSpacing
+		Layout.bottomMargin: Kirigami.Units.smallSpacing
+		Layout.leftMargin: Kirigami.Units.smallSpacing
 	}
 
 	Kirigami.Heading {

@@ -492,7 +492,7 @@ DetailsContent {
 						FormCard.AbstractFormDelegate {
 							background: null
 							contentItem: RowLayout {
-								spacing: Kirigami.Units.largeSpacing * 3
+								spacing: FormCard.FormCardUnits.horizontalSpacing
 
 								Controls.Label {
 									text: qsTr("You must be connected to block or unblock chat addresses")
@@ -522,7 +522,6 @@ DetailsContent {
 									icon.source: "list-add-symbolic"
 									visible: !root.account.blockingController.busy
 									enabled: blockingTextField.text.length
-									Layout.rightMargin: Kirigami.Units.largeSpacing
 									onClicked: {
 										const jid = blockingTextField.text
 
@@ -539,9 +538,8 @@ DetailsContent {
 
 								Controls.BusyIndicator {
 									visible: root.account.blockingController.busy
-									Layout.preferredWidth: blockingButton.Layout.preferredWidth
-									Layout.preferredHeight: Layout.preferredWidth
-									Layout.rightMargin: blockingButton.Layout.rightMargin
+									implicitWidth: blockingButton.implicitWidth
+									implicitHeight: blockingButton.implicitHeight
 								}
 							}
 						}
@@ -678,6 +676,7 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
+		id: passwordChangeArea
 		visible: root.account.settings.enabled && root.account.settings.inBandRegistrationFeaturesSupported
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
@@ -690,100 +689,104 @@ DetailsContent {
 			text: qsTr("Change your password. You need to enter the new password on all your other devices!")
 		}
 
-		FormCardCustomContentArea {
-			contentItem: ColumnLayout {
-				id: passwordChangeArea
+		PasswordField {
+			id: passwordVerificationField
+			label: qsTr("Current password")
+			placeholderText: qsTr("Enter your current password")
+			invalidHintText: placeholderText
+			valid: acceptableInput && text === root.account.settings.password
+			visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Visible
+			enabled: !passwordBusyIndicator.visible
+			Layout.rightMargin: passwordButtonFieldArea.spacing + passwordChangeButton.implicitWidth + passwordButtonFieldArea.Layout.rightMargin
+			onAccepted: passwordChangeArea.confirm()
+		}
 
-				PasswordField {
-					id: passwordVerificationField
-					label: qsTr("Current password")
-					placeholderText: qsTr("Enter your current password")
-					invalidHintText: placeholderText
-					valid: acceptableInput && text === root.account.settings.password
-					visible: root.account.settings.passwordVisibility !== AccountSettings.PasswordVisibility.Visible
-					enabled: !passwordBusyIndicator.visible
-					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
-					onAccepted: passwordChangeArea.confirm()
-				}
+		RowLayout {
+			id: passwordButtonFieldArea
+			spacing: 0
+			Layout.rightMargin: FormCard.FormCardUnits.horizontalPadding
 
-				RowLayout {
-					id: passwordButtonFieldArea
-
-					PasswordField {
-						id: passwordField
-						label: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
-						placeholderText: qsTr("Enter your new password")
-						text: passwordVerificationField.visible ? "" : root.account.settings.password
-						invalidHintText: qsTr("Enter a different password to change it")
-						valid: acceptableInput && text !== root.account.settings.password
-						showPasswordQuality: true
-						enabled: !passwordBusyIndicator.visible
-						onAccepted: passwordChangeArea.confirm()
-					}
-
-					IconButton {
-						id: passwordChangeButton
-						text: qsTr("Change password")
-						icon.source: "emblem-ok-symbolic"
-						visible: !passwordBusyIndicator.visible
-						Layout.alignment: Qt.AlignTop
-						Layout.topMargin: Kirigami.Units.largeSpacing * 4
-						onClicked: passwordChangeArea.confirm()
-					}
-
-					Controls.BusyIndicator {
-						id: passwordBusyIndicator
-						visible: false
-						implicitWidth: passwordChangeButton.width
-						implicitHeight: passwordChangeButton.height
-						Layout.alignment: passwordChangeButton.Layout.alignment
-						Layout.topMargin: passwordChangeButton.Layout.topMargin
-					}
-				}
-
-				Controls.Label {
-					id: passwordChangeErrorMessage
-					visible: false
-					font.weight: Font.Medium
-					wrapMode: Text.WordWrap
-					padding: 10
-					Layout.fillWidth: true
-					background: RoundedRectangle {
-						color: Kirigami.Theme.negativeBackgroundColor
-					}
-				}
+			PasswordField {
+				id: passwordField
+				label: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
+				placeholderText: qsTr("Enter your new password")
+				text: passwordVerificationField.visible ? "" : root.account.settings.password
+				invalidHintText: qsTr("Enter a different password to change it")
+				valid: acceptableInput && text !== root.account.settings.password
+				showPasswordQuality: true
+				enabled: !passwordBusyIndicator.visible
+				onAccepted: passwordChangeArea.confirm()
 
 				Connections {
-					target: root.account.registrationController
+					target: passwordVerificationField
 
-					function onPasswordChangeFailed(errorMessage) {
-						passwordBusyIndicator.visible = false
-						passwordChangeErrorMessage.visible = true
-						passwordChangeErrorMessage.text = qsTr("Failed to change password: %1", "%1 is an error message").arg(errorMessage)
-					}
-
-					function onPasswordChangeSucceeded() {
-						passwordBusyIndicator.visible = false
-						passwordChangeErrorMessage.visible = false
-						passiveNotification(qsTr("Password changed successfully"))
+					function onVisibleChanged() {
+						// Ensure that the text is hidden if passwordVerificationField becomes visible.
+						// That is needed because passwordField.text is internally overwritten.
+						passwordField.text = passwordVerificationField.visible ? "" : root.account.settings.password
 					}
 				}
+			}
 
-				function confirm() {
-					if (passwordVerificationField.visible) {
-						if (!passwordVerificationField.valid) {
-							passwordVerificationField.forceActiveFocus()
-							return
-						}
-					}
+			IconButton {
+				id: passwordChangeButton
+				text: qsTr("Change password")
+				icon.source: "emblem-ok-symbolic"
+				visible: !passwordBusyIndicator.visible
+				Layout.alignment: Qt.AlignTop
+				Layout.topMargin: Kirigami.Units.largeSpacing * 4
+				onClicked: passwordChangeArea.confirm()
+			}
 
-					if (passwordField.valid) {
-						passwordBusyIndicator.visible = true
-						root.account.registrationController.changePassword(passwordField.text)
-					} else {
-						passwordField.forceActiveFocus()
-					}
-				}
+			Controls.BusyIndicator {
+				id: passwordBusyIndicator
+				visible: false
+				implicitWidth: passwordChangeButton.width
+				implicitHeight: passwordChangeButton.height
+				Layout.alignment: passwordChangeButton.Layout.alignment
+				Layout.topMargin: passwordChangeButton.Layout.topMargin
+			}
+		}
+
+		Controls.Label {
+			id: passwordChangeErrorMessage
+			visible: false
+			font.weight: Font.Medium
+			wrapMode: Text.WordWrap
+			padding: 10
+			Layout.fillWidth: true
+			background: RoundedRectangle {
+				color: Kirigami.Theme.negativeBackgroundColor
+			}
+		}
+
+		Connections {
+			target: root.account.registrationController
+
+			function onPasswordChangeFailed(errorMessage) {
+				passwordBusyIndicator.visible = false
+				passwordChangeErrorMessage.visible = true
+				passwordChangeErrorMessage.text = qsTr("Failed to change password: %1", "%1 is an error message").arg(errorMessage)
+			}
+
+			function onPasswordChangeSucceeded() {
+				passwordBusyIndicator.visible = false
+				passwordChangeErrorMessage.visible = false
+				passiveNotification(qsTr("Password changed successfully"))
+			}
+		}
+
+		function confirm() {
+			if (passwordVerificationField.visible && !passwordVerificationField.valid) {
+				passwordVerificationField.forceActiveFocus()
+				return
+			}
+
+			if (passwordField.valid) {
+				passwordBusyIndicator.visible = true
+				root.account.registrationController.changePassword(passwordField.text)
+			} else {
+				passwordField.forceActiveFocus()
 			}
 		}
 	}

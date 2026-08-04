@@ -17,8 +17,6 @@ ContactDelegate {
 		text: qsTr("Ban")
 		icon.source: "edit-delete-symbolic"
 		visible: root.account.settings.enabled && root.account.connection.state === Enums.StateConnected
-		flat: !root.hovered
-		Layout.rightMargin: Kirigami.Units.smallSpacing * 3
 		onClicked: root.account.groupChatController.banUser(root.account.settings.jid, root.chatJid, root.jid)
 	}
 }

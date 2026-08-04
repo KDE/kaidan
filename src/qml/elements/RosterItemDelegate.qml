@@ -41,7 +41,6 @@ ClickableItemDelegate {
 	signal moveRequested(int oldIndex, int newIndex)
 	signal dropRequested(int oldIndex, int newIndex)
 
-
 	interactiveBackground.color: {
 		let color
 		let colorOpacity

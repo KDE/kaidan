@@ -253,8 +253,6 @@ RosterItemDetailsContent {
 				FormCard.AbstractFormDelegate {
 					background: null
 					contentItem: RowLayout {
-						spacing: Kirigami.Units.largeSpacing * 3
-
 						SimpleListViewSearchField {
 							listView: keyAuthenticationUserListView
 							Layout.fillWidth: true

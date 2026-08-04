@@ -23,7 +23,6 @@ LoadingStackArea {
 
 		CenteredAdaptiveButton {
 			id: confirmationButton
-			Layout.topMargin: FormCard.FormCardUnits.verticalPadding
 			Layout.bottomMargin: FormCard.FormCardUnits.verticalPadding
 			Layout.leftMargin: FormCard.FormCardUnits.horizontalPadding
 			Layout.rightMargin: FormCard.FormCardUnits.horizontalPadding

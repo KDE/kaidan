@@ -58,7 +58,7 @@ DetailsContent {
 					FormCard.AbstractFormDelegate {
 						background: null
 						contentItem: RowLayout {
-							spacing: Kirigami.Units.largeSpacing * 3
+							spacing: FormCard.FormCardUnits.horizontalSpacing
 
 							Controls.TextField {
 								id: rosterGroupField
@@ -80,7 +80,6 @@ DetailsContent {
 								icon.source: "list-add-symbolic"
 								enabled: rosterGroupField.text.length
 								visible: !rosterGroupBusyIndicator.visible
-								Layout.rightMargin: Kirigami.Units.largeSpacing
 								onClicked: {
 									let groups = root.chatController.rosterItem.groups
 
@@ -102,9 +101,8 @@ DetailsContent {
 							Controls.BusyIndicator {
 								id: rosterGroupBusyIndicator
 								visible: false
-								Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
-								Layout.preferredHeight: Layout.preferredWidth
-								Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
+								implicitWidth: rosterGroupAdditionButton.implicitWidth
+								implicitHeight: rosterGroupAdditionButton.implicitHeight
 							}
 
 							Connections {
