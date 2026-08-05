@@ -190,7 +190,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     // Initialize the resources from Kaidan's core library.
     Q_INIT_RESOURCE(data);
     Q_INIT_RESOURCE(misc);
-    Q_INIT_RESOURCE(qml);
 #if defined(Q_OS_ANDROID)
     Q_INIT_RESOURCE(notifications);
 #endif
@@ -424,7 +423,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         return ImageProvider::instance();
     });
 
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    engine.loadFromModule(APPLICATION_ID, u"Main");
     if (engine.rootObjects().isEmpty()) {
         return -1;
     }

@@ -224,7 +224,6 @@ target_sources(libkaidancore PRIVATE
 
     ${CMAKE_SOURCE_DIR}/data/data.qrc
     ${CMAKE_SOURCE_DIR}/misc/misc.qrc
-    ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
 )
 
 string(REPLACE "." "/" KAIDAN_QML_MODULE_PATH ${APPLICATION_ID})
@@ -244,6 +243,18 @@ add_library(Kaidan::Qml ALIAS kaidanqmlplugin)
 foreach(target libkaidancore kaidanqmlplugin)
     file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${target}_autogen/include)
 endforeach()
+
+# The QML files are located in a subdirectory, but belong to the module's root
+include(qml/QmlFiles.cmake)
+
+foreach(qml_file ${KAIDAN_QML_FILES})
+    set_source_files_properties(qml/${qml_file} PROPERTIES QT_RESOURCE_ALIAS ${qml_file})
+    list(APPEND KAIDAN_QML_FILE_PATHS qml/${qml_file})
+endforeach()
+
+qt_target_qml_sources(libkaidancore
+    QML_FILES ${KAIDAN_QML_FILE_PATHS}
+)
 
 # Bundled knotifications configuration files on platforms that require it
 if(ANDROID)

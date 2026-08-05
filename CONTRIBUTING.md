@@ -143,9 +143,11 @@ If you add such a new file, please add it to the related [CMakeLists file](src/C
 ## QML
 
 Kaidan uses [QML](https://doc.qt.io/qt-6/qmlapplications.html) for its user interface.
-New QML files must be added to the related [Qt resource collection file](src/qml/qml.qrc).
-You can add your file to the end of the listings without applying any order.
-Please do not change the order of existing files.
+New QML files must be added to the related [CMake file](src/qml/QmlFiles.cmake).
+Please keep the listing alphabetically sorted.
+Their names must start with an uppercase letter and be unique across all
+directories, because each file becomes a type of the `im.kaidan.kaidan` QML
+module.
 
 ## JavaScript
 

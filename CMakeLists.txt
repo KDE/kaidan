@@ -50,6 +50,8 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent
 
 # Use ':/qt/qml/' as resource prefix for QML modules
 qt_policy(SET QTP0001 NEW)
+# Generate a qmldir file for each subdirectory of QML files in a module
+qt_policy(SET QTP0004 NEW)
 
 if(NOT WIN32 AND NOT APPLE)
     find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
