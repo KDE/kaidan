@@ -25,8 +25,6 @@ PublicGroupChatSearchController::PublicGroupChatSearchController(QNetworkAccessM
     , m_throttler(new QTimer(this))
     , m_manager(manager)
 {
-    qRegisterMetaType<PublicGroupChats>();
-
     Q_ASSERT(m_manager);
 
     m_throttler->setSingleShot(true);

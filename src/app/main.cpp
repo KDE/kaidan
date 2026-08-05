@@ -54,15 +54,7 @@
 // GStreamer
 #include <gst/gst.h>
 // QXmpp
-#include <QXmppClient.h>
-#include <QXmppMixInfoItem.h>
-#include <QXmppMixParticipantItem.h>
-#include <QXmppRegisterIq.h>
-#include <QXmppResultSet.h>
 #include <QXmppSpamReport.h>
-#include <QXmppUri.h>
-#include <QXmppVCardIq.h>
-#include <QXmppVersionIq.h>
 // Kaidan
 #include "Account.h"
 #include "AccountController.h"
@@ -297,87 +289,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     }
 
     QApplication app(argc, argv);
-
-    // register qMetaTypes
-    qRegisterMetaType<Provider>();
-    qRegisterMetaType<QXmppStanzaId>();
-    qRegisterMetaType<QList<QXmppStanzaId>>();
-    qRegisterMetaType<RosterItem>();
-    qRegisterMetaType<RosterItemWatcher *>();
-    qRegisterMetaType<RosterModel *>();
-    qRegisterMetaType<RosterController *>();
-    qRegisterMetaType<Message>();
-    qRegisterMetaType<MessageModel *>();
-    qRegisterMetaType<ChatHintModel *>();
-    qRegisterMetaType<DiscoveryController *>();
-    qRegisterMetaType<VCardController *>();
-    qRegisterMetaType<VersionController *>();
-    qRegisterMetaType<RegistrationController *>();
-    qRegisterMetaType<AccountMigrationController *>();
-    qRegisterMetaType<FileSharingController *>();
-    qRegisterMetaType<EncryptionController *>();
-    qRegisterMetaType<QmlUtils *>();
-    qRegisterMetaType<QList<Message>>();
-    qRegisterMetaType<QList<RosterItem>>();
-    qRegisterMetaType<QHash<QString, RosterItem>>();
-    qRegisterMetaType<std::function<void()>>();
-    qRegisterMetaType<std::function<void(RosterItem &)>>();
-    qRegisterMetaType<std::function<void(Message &)>>();
-    qRegisterMetaType<QXmppVCardIq>();
-    qRegisterMetaType<QMimeType>();
-    qRegisterMetaType<InputValidator *>();
-    qRegisterMetaType<QXmppVersionIq>();
-    qRegisterMetaType<QXmppUri>();
-    qRegisterMetaType<QMap<QString, QUrl>>();
-    qRegisterMetaType<std::shared_ptr<Message>>();
-    qRegisterMetaType<AtmController *>();
-    qRegisterMetaType<GroupChatController *>();
-    qRegisterMetaType<GroupChatUser>();
-    qRegisterMetaType<QList<GroupChatUser>>();
-    qRegisterMetaType<std::function<void(GroupChatUser &)>>();
-    qRegisterMetaType<GroupChatUserModel *>();
-    qRegisterMetaType<CallController *>();
-    // The alias is needed because the type shares its QMetaType::id() with quint32.
-    qRegisterMetaType<uint32_t>("uint32_t");
-
-    // Enums for c++ member calls using enums
-    qRegisterMetaType<Qt::ApplicationState>();
-    qRegisterMetaType<QXmppClient::State>();
-    qRegisterMetaType<QXmppMessage::State>();
-    qRegisterMetaType<QXmppStanza::Error>();
-    qRegisterMetaType<MessageType>();
-    qRegisterMetaType<Enums::ConnectionState>();
-    qRegisterMetaType<PublicGroupChatModel::CustomRole>();
-    qRegisterMetaType<ClientController::ConnectionError>();
-    qRegisterMetaType<Enums::MessageType>();
-    qRegisterMetaType<Presence::Availability>();
-    qRegisterMetaType<Enums::DeliveryState>();
-    qRegisterMetaType<MessageOrigin>();
-    qRegisterMetaType<ProviderModel::Role>();
-    qRegisterMetaType<Encryption>();
-    qRegisterMetaType<MessageReactionDeliveryState>();
-    qRegisterMetaType<FileModel::Role>();
-    qRegisterMetaType<FileProxyModel::Mode>();
-    qRegisterMetaType<AccountSettings::PasswordVisibility>();
-    qRegisterMetaType<AccountSettings::AutomaticMediaDownloadsRule>();
-    qRegisterMetaType<AccountSettings::ContactNotificationRule>();
-    qRegisterMetaType<AccountSettings::GroupChatNotificationRule>();
-    qRegisterMetaType<AccountSettings::GeoLocationMapService>();
-    qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
-    qRegisterMetaType<RosterItem::GroupChatFlag>();
-    qRegisterMetaType<RosterModel::RosterItemRoles>();
-    qRegisterMetaType<Message::TrustLevel>();
-    qRegisterMetaType<InputValidator::Pattern>();
-    qRegisterMetaType<InputValidator::Patterns>();
-
-    // QXmpp
-    qRegisterMetaType<QXmppResultSetReply>();
-    qRegisterMetaType<QXmppMessage>();
-    qRegisterMetaType<QXmppPresence>();
-    qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
-    qRegisterMetaType<QXmppMixInfoItem>();
-    qRegisterMetaType<QXmppMixParticipantItem>();
-    qRegisterMetaType<QMultiHash<QString, QByteArray>>();
 
     // Keychain
 
