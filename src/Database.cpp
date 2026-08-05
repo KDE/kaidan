@@ -1805,7 +1805,7 @@ std::span<const Database::Migration> Database::migrations()
          [](QSqlQuery &query) {
              // Reactions used to reference own one-to-one messages by the stanza ID added by the own
              // server via MAM/carbons, which the contact never sees. Those messages are referenced by
-             // their origin ID now (see Message::relevantId()), and a reaction row is keyed by that
+             // their origin ID now (see Message::referenceId()), and a reaction row is keyed by that
              // reference ID, so move stored rows to the origin ID (or the message ID as a fallback).
              //
              // Group chat reactions (keyed by the room's stanza ID) and corrections (keyed by replaceId)

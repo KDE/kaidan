@@ -284,7 +284,7 @@ QList<QXmppMessage> Message::fileFallbackMessages() const
     });
 }
 
-QString Message::relevantId() const
+QString Message::referenceId() const
 {
     // The ID this message is referenced by when reacting to / replying to / retracting it,
     // following XEP-0359 as required by XEP-0444, XEP-0461 and XEP-0424.

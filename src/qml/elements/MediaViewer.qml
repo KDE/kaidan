@@ -122,7 +122,7 @@ Controls.Control {
 				text: qsTr("Go to message")
 				icon.source: "internet-mail-symbolic"
 				visible: mediaListView.currentItemLocallyAvailable
-				onClicked: root.highlightMessageRequested(mediaListView.currentItemModel.message.relevantId)
+				onClicked: root.highlightMessageRequested(mediaListView.currentItemModel.message.referenceId)
 			}
 
 			IconButton {
@@ -131,7 +131,7 @@ Controls.Control {
 				visible: mediaListView.currentItemModel?.file.locallyAvailable ?? false
 				onClicked: {
 					const model = mediaListView.currentItemModel
-					root.chatController.messageModel.deleteFile(model.message.relevantId, model.file)
+					root.chatController.messageModel.deleteFile(model.message.referenceId, model.file)
 				}
 			}
 
@@ -417,7 +417,7 @@ Controls.Control {
 								const chatJid = root.chatController.jid
 								const file = model.file
 								const message = model.message
-								const messageId = message.relevantId
+								const messageId = message.referenceId
 
 								if (file.transferState === File.TransferState.Pending || file.transferState === File.TransferState.Transferring) {
 									root.chatController.account.fileSharingController.cancelTransfer(chatJid, messageId, file)

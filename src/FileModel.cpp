@@ -240,7 +240,7 @@ void FileTreeModel::handleMessageUpdated(Message message)
     }
 
     const auto it = std::ranges::find_if(m_files, [&message](const Message &msg) {
-        return msg.relevantId() == message.relevantId();
+        return msg.referenceId() == message.referenceId();
     });
 
     if (it == m_files.cend()) {

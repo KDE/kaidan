@@ -204,7 +204,7 @@ class Message
     Q_GADGET
     Q_DECLARE_TR_FUNCTIONS(Message)
 
-    Q_PROPERTY(QString relevantId READ relevantId CONSTANT)
+    Q_PROPERTY(QString referenceId READ referenceId CONSTANT)
     Q_PROPERTY(QString formattedTimestamp READ formattedTimestamp CONSTANT)
     Q_PROPERTY(Encryption::Enum encryption MEMBER encryption CONSTANT)
     Q_PROPERTY(DeliveryState deliveryState MEMBER deliveryState CONSTANT)
@@ -277,7 +277,7 @@ public:
     [[nodiscard]] QXmppMessage toQXmpp() const;
     [[nodiscard]] QList<QXmppMessage> fileFallbackMessages() const;
 
-    QString relevantId() const;
+    QString referenceId() const;
     QString senderJid() const;
     bool isServerMessage() const;
     bool isGroupChatMessage() const;

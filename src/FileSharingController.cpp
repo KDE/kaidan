@@ -589,7 +589,7 @@ void FileSharingController::handleMessageAdded(const Message &message, MessageOr
                 }
             }
         } else {
-            MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.relevantId(), [](Message &message) {
+            MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.referenceId(), [](Message &message) {
                 for (auto &file : message.files) {
                     file.transferState = File::TransferState::Done;
                 }

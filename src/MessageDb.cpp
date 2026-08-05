@@ -1129,7 +1129,7 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                                               {u":messageSenderId",
                                                oldMessage.isOwn ? oldMessage.accountJid
                                                                 : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                              {u":messageId", oldMessage.relevantId()},
+                                              {u":messageId", oldMessage.referenceId()},
                                               {u":emoji", reaction.emoji},
                                           });
                             } else {
@@ -1144,7 +1144,7 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                                               {u":messageSenderId",
                                                oldMessage.isOwn ? oldMessage.accountJid
                                                                 : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                              {u":messageId", oldMessage.relevantId()},
+                                              {u":messageId", oldMessage.referenceId()},
                                               {u":senderId", senderId},
                                               {u":emoji", reaction.emoji},
                                           });
@@ -1167,7 +1167,7 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
                                        {u"messageSenderId",
                                         oldMessage.isOwn ? oldMessage.accountJid
                                                          : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                       {u"messageId", oldMessage.relevantId()},
+                                       {u"messageId", oldMessage.referenceId()},
                                        {u"senderId", senderId == oldMessage.accountJid ? QVariant{} : senderId},
                                        {u"timestamp", reactionSender.latestTimestamp},
                                        {u"deliveryState", static_cast<int>(reaction.deliveryState)},
@@ -1719,7 +1719,7 @@ void MessageDb::_fetchReactions(QList<Message> &messages)
                       {u":accountJid", message.accountJid},
                       {u":chatJid", message.chatJid},
                       {u":messageSenderId", message.isOwn ? message.accountJid : (message.isGroupChatMessage() ? message.groupChatSenderId : message.chatJid)},
-                      {u":messageId", message.relevantId()},
+                      {u":messageId", message.referenceId()},
                   });
 
         // Iterate over all found emojis.

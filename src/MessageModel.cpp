@@ -157,7 +157,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return rosterItem->displayName();
     }
     case Id:
-        return msg.relevantId();
+        return msg.referenceId();
     case StanzaId: {
         if (msg.stanzaId.isEmpty()) {
             return {};
@@ -460,7 +460,7 @@ void MessageModel::resendMessage(int index)
 
     const auto message = m_messages.at(index);
 
-    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), message.relevantId(), [](Message &message) {
+    MessageDb::instance()->updateMessage(m_accountSettings->jid(), m_chatController->jid(), message.referenceId(), [](Message &message) {
         message.deliveryState = DeliveryState::Pending;
     });
 
@@ -544,7 +544,7 @@ void MessageModel::setMessageMarked(int index, bool marked)
 void MessageModel::addMessageReaction(const QString &messageId, const QString &emoji)
 {
     const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
-        return message.relevantId() == messageId;
+        return message.referenceId() == messageId;
     });
 
     if (itr != m_messages.cend()) {
@@ -633,7 +633,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 void MessageModel::removeMessageReaction(const QString &messageId, const QString &emoji)
 {
     const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
-        return message.relevantId() == messageId;
+        return message.referenceId() == messageId;
     });
 
     if (itr != m_messages.cend()) {
@@ -735,7 +735,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 void MessageModel::resendMessageReactions(const QString &messageId)
 {
     const auto itr = std::ranges::find_if(m_messages, [&](const Message &message) {
-        return message.relevantId() == messageId;
+        return message.referenceId() == messageId;
     });
 
     if (itr != m_messages.cend()) {
@@ -889,7 +889,7 @@ void MessageModel::deleteFile(const QString &messageId, const File &file)
 void MessageModel::removeMessage(const QString &messageId)
 {
     const auto hasCorrectId = [&messageId](const Message &message) {
-        return message.relevantId() == messageId;
+        return message.referenceId() == messageId;
     };
 
     const auto itr = std::ranges::find_if(m_messages, hasCorrectId);
@@ -967,7 +967,7 @@ int MessageModel::searchMessageById(const QString &messageId)
     int i = 0;
 
     for (; i < m_messages.size(); i++) {
-        if (m_messages.at(i).relevantId() == messageId) {
+        if (m_messages.at(i).referenceId() == messageId) {
             return i;
         }
     }
