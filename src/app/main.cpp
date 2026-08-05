@@ -124,8 +124,6 @@
 #include "VCardModel.h"
 #include "VersionController.h"
 
-Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
-
 const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
 const auto QUICK_CONTROLS_DEFAULT_MOBILE_STYLE = QStringLiteral("Material");
