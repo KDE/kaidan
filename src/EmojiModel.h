@@ -107,5 +107,3 @@ private:
     Emoji::Group m_group = Emoji::Group::Invalid;
     QStringList m_favoriteEmojis;
 };
-
-Q_DECLARE_METATYPE(Emoji)

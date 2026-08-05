@@ -39,9 +39,6 @@ public:
     bool operator==(const ChatHintButton &other) const = default;
 };
 
-Q_DECLARE_METATYPE(ChatHintButton)
-Q_DECLARE_METATYPE(ChatHintButton::Type)
-
 class ChatHintModel : public QAbstractListModel
 {
     Q_OBJECT

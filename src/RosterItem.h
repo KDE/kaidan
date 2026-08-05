@@ -223,9 +223,3 @@ public:
     // Whether files are downloaded automatically.
     AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Account;
 };
-
-Q_DECLARE_METATYPE(RosterItem)
-Q_DECLARE_METATYPE(RosterItem::NotificationRule)
-Q_DECLARE_METATYPE(RosterItem::EffectiveNotificationRule)
-Q_DECLARE_METATYPE(RosterItem::AutomaticMediaDownloadsRule)
-Q_DECLARE_METATYPE(RosterItem::GroupChatFlags)

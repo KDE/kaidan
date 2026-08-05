@@ -134,25 +134,6 @@
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 
-Q_DECLARE_METATYPE(Qt::ApplicationState)
-
-Q_DECLARE_METATYPE(QXmppClient::State)
-Q_DECLARE_METATYPE(QXmppMessage::State)
-Q_DECLARE_METATYPE(QXmppPresence)
-Q_DECLARE_METATYPE(QXmppStanza::Error)
-Q_DECLARE_METATYPE(QXmppResultSetReply)
-Q_DECLARE_METATYPE(QXmpp::TrustLevel)
-Q_DECLARE_METATYPE(QXmppUri)
-Q_DECLARE_METATYPE(QXmppVCardIq)
-Q_DECLARE_METATYPE(QXmppVersionIq)
-
-Q_DECLARE_METATYPE(std::function<void()>)
-Q_DECLARE_METATYPE(std::function<void(RosterItem &)>)
-Q_DECLARE_METATYPE(std::function<void(Message &)>)
-Q_DECLARE_METATYPE(std::function<void(GroupChatUser &)>)
-
-Q_DECLARE_METATYPE(std::shared_ptr<Message>)
-
 const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
 const auto QUICK_CONTROLS_DEFAULT_MOBILE_STYLE = QStringLiteral("Material");

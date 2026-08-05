@@ -100,5 +100,3 @@ private:
     QList<QString> m_pendingAutomaticInitialAdditionJids;
     bool m_addingOwnJidToRosterAllowed = true;
 };
-
-Q_DECLARE_METATYPE(RosterController::ContactAdditionWithUriResult)

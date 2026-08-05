@@ -17,8 +17,6 @@
 // Kaidan
 #include "Message.h"
 
-Q_DECLARE_METATYPE(QXmppStanzaId)
-
 class AccountSettings;
 class AtmController;
 class ChatController;
@@ -43,8 +41,6 @@ public:
     auto operator<=>(const DisplayedMessageReaction &other) const;
 };
 
-Q_DECLARE_METATYPE(DisplayedMessageReaction)
-
 struct DetailedMessageReaction {
     QString senderId;
     QString senderJid;
@@ -54,8 +50,6 @@ struct DetailedMessageReaction {
     bool operator==(const DetailedMessageReaction &other) const = default;
     bool operator<(const DetailedMessageReaction &other) const;
 };
-
-Q_DECLARE_METATYPE(DetailedMessageReaction)
 
 class MessageModel : public QAbstractListModel
 {

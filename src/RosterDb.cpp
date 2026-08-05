@@ -23,8 +23,6 @@
 #include "RosterItem.h"
 #include "SqlUtils.h"
 
-Q_DECLARE_METATYPE(QXmppRosterIq::Item::SubscriptionType)
-
 using namespace SqlUtils;
 
 RosterDb *RosterDb::s_instance = nullptr;

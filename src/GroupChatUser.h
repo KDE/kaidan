@@ -41,5 +41,3 @@ public:
     QString name;
     Status status;
 };
-
-Q_DECLARE_METATYPE(GroupChatUser);

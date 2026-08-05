@@ -18,8 +18,6 @@
 #include "Globals.h"
 #include "SqlUtils.h"
 
-Q_DECLARE_METATYPE(QXmpp::TrustLevel)
-
 using namespace QXmpp;
 using namespace SqlUtils;
 

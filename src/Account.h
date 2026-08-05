@@ -432,11 +432,3 @@ private:
     RegistrationController *const m_registrationController;
     VersionController *const m_versionController;
 };
-
-Q_DECLARE_METATYPE(Account)
-Q_DECLARE_METATYPE(AccountSettings::PasswordVisibility)
-Q_DECLARE_METATYPE(AccountSettings::ContactNotificationRule)
-Q_DECLARE_METATYPE(AccountSettings::GroupChatNotificationRule)
-Q_DECLARE_METATYPE(AccountSettings::AutomaticMediaDownloadsRule)
-Q_DECLARE_METATYPE(Connection)
-Q_DECLARE_METATYPE(QXmppConfiguration::StreamSecurityMode)

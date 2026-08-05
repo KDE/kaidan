@@ -28,10 +28,6 @@
 #include "MediaUtils.h"
 #include "TrustDb.h"
 
-Q_DECLARE_METATYPE(QXmpp::Cipher)
-Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)
-Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
-
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
 
 template<typename T>

@@ -61,5 +61,3 @@ private:
 
     QXmppAtmManager *const m_manager;
 };
-
-Q_DECLARE_METATYPE(AtmController::TrustDecisionWithUriResult)

@@ -77,5 +77,3 @@ private:
     bool m_attachmentAudioOnly = true;
     QSet<qint64> m_checkedIds;
 };
-
-Q_DECLARE_METATYPE(FileProxyModel::Mode)

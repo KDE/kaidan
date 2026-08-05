@@ -181,8 +181,6 @@ public:
     bool operator==(const MessageReaction &other) const = default;
 };
 
-Q_DECLARE_METATYPE(MessageReaction)
-
 struct MessageReactionSender {
     QDateTime latestTimestamp;
     QList<MessageReaction> reactions;
@@ -200,8 +198,6 @@ struct GroupChatInvitation {
 
     bool operator==(const GroupChatInvitation &other) const = default;
 };
-
-Q_DECLARE_METATYPE(GroupChatInvitation)
 
 class Message
 {
@@ -312,9 +308,6 @@ private:
     QString m_body;
 };
 
-Q_DECLARE_METATYPE(Message)
-Q_DECLARE_METATYPE(Message::TrustLevel)
-
 enum class MessageOrigin : quint8 {
     Stream,
     UserInput,
@@ -322,5 +315,3 @@ enum class MessageOrigin : quint8 {
     MamCatchUp,
     MamBacklog,
 };
-
-Q_DECLARE_METATYPE(MessageOrigin);

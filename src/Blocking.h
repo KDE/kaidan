@@ -179,6 +179,3 @@ private:
     QString m_jid;
     QXmppBlocklist::BlockingState m_state = QXmppBlocklist::NotBlocked();
 };
-
-Q_DECLARE_METATYPE(BlockingModel::JidType)
-Q_DECLARE_METATYPE(BlockingModel::Role)

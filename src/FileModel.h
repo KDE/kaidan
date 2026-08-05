@@ -55,5 +55,3 @@ public:
 private:
     FileTreeModel *const m_sourceModel;
 };
-
-Q_DECLARE_METATYPE(FileModel::Role)

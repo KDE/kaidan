@@ -11,8 +11,6 @@
 #include "PresenceCache.h"
 #include "Test.h"
 
-Q_DECLARE_METATYPE(QList<QXmppPresence>)
-
 class PresenceCacheTest : public Test
 {
     Q_OBJECT

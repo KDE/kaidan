@@ -70,6 +70,3 @@ private:
     QString m_description;
     QStringList m_languages;
 };
-
-Q_DECLARE_METATYPE(PublicGroupChat)
-Q_DECLARE_METATYPE(PublicGroupChats)

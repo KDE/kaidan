@@ -55,5 +55,3 @@ private:
         int max;
     } m_users;
 };
-
-Q_DECLARE_METATYPE(PublicGroupChatModel::CustomRole)
