@@ -12,6 +12,7 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppStanzaId.h>
 // Kaidan
@@ -54,6 +55,8 @@ struct DetailedMessageReaction {
 class MessageModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(bool mamLoading READ mamLoading NOTIFY mamLoadingChanged)
 

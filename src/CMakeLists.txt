@@ -226,6 +226,24 @@ target_sources(libkaidancore PRIVATE
     ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
 )
 
+string(REPLACE "." "/" KAIDAN_QML_MODULE_PATH ${APPLICATION_ID})
+
+qt_add_qml_module(libkaidancore
+    URI ${APPLICATION_ID}
+    VERSION 1.0
+    PLUGIN_TARGET kaidanqmlplugin
+    CLASS_NAME KaidanQmlPlugin
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${KAIDAN_QML_MODULE_PATH}
+)
+add_library(Kaidan::Qml ALIAS kaidanqmlplugin)
+
+# Qt passes the AUTOMOC include directories of both targets to the object libraries it creates for
+# the QML module, but they only exist once moc has run, which can happen after those libraries have
+# been compiled. Create them beforehand to avoid -Wmissing-include-dirs warnings.
+foreach(target libkaidancore kaidanqmlplugin)
+    file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${target}_autogen/include)
+endforeach()
+
 # Bundled knotifications configuration files on platforms that require it
 if(ANDROID)
     target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
@@ -246,7 +264,7 @@ target_sources(libkaidancore PRIVATE ${KAIDAN_ICNS})
 
 ecm_create_qm_loader(libkaidancore kaidan_qt)
 
-target_link_libraries(libkaidancore
+target_link_libraries(libkaidancore PUBLIC
     ICU::uc
     KF6::ItemModels
     KF6::KIOCore
@@ -272,15 +290,15 @@ target_link_libraries(libkaidancore
 )
 
 if (TARGET KF6::Crash)
-    target_link_libraries(libkaidancore KF6::Crash)
+    target_link_libraries(libkaidancore PUBLIC KF6::Crash)
 endif()
 
 if(ANDROID)
-    target_link_libraries(libkaidancore OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
+    target_link_libraries(libkaidancore PUBLIC OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
-    target_link_libraries (libkaidancore "pthread")
+    target_link_libraries(libkaidancore PUBLIC "pthread")
 endif()
 
 target_compile_definitions(libkaidancore PRIVATE

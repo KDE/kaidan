@@ -6,12 +6,14 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "Globals.h"
 
 class ProviderFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(bool supportsInBandRegistrationOnly MEMBER m_supportsInBandRegistrationOnly WRITE setSupportsInBandRegistrationOnly NOTIFY
                    supportsInBandRegistrationOnlyChanged)
     Q_PROPERTY(QString flag MEMBER m_flag WRITE setFlag NOTIFY flagChanged)

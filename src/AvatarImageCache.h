@@ -9,6 +9,7 @@
 // Qt
 #include <QMap>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 /**
  * Caches avatar images.
@@ -90,6 +91,7 @@ private:
 class AvatarImageWatcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(QUrl url READ url NOTIFY urlChanged)
 

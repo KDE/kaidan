@@ -6,12 +6,14 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "MessageModel.h"
 
 class MessageReactionModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString accountJid MEMBER m_accountJid WRITE setAccountJid)
     Q_PROPERTY(QString chatJid MEMBER m_chatJid WRITE setChatJid)
     Q_PROPERTY(QList<DetailedMessageReaction> reactions MEMBER m_reactions WRITE setReactions)

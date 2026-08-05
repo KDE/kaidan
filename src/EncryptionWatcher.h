@@ -6,12 +6,14 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 class EncryptionController;
 
 class EncryptionWatcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(EncryptionController *encryptionController MEMBER m_encryptionController WRITE setEncryptionController)
     Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)

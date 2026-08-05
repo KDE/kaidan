@@ -5,6 +5,7 @@
 #pragma once
 
 #include <QAbstractItemModel>
+#include <QtQml/qqmlregistration.h>
 
 class Account;
 class AccountSettings;
@@ -42,6 +43,8 @@ public:
 class ChatHintModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     enum class Role {

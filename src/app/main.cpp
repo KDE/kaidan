@@ -24,6 +24,7 @@
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QQmlApplicationEngine>
+#include <QQmlExtensionPlugin>
 #include <QRegularExpression>
 #include <QTranslator>
 #include <QWindow>
@@ -59,70 +60,30 @@
 #include "Account.h"
 #include "AccountController.h"
 #include "AccountMigrationController.h"
-#include "AccountTrustMessageUriGenerator.h"
 #include "AtmController.h"
-#include "AuthenticatableEncryptionKeyModel.h"
-#include "AuthenticatedEncryptionKeyModel.h"
-#include "AvatarCache.h"
-#include "AvatarImageCache.h"
-#include "Blocking.h"
-#include "CallController.h"
-#include "ChatController.h"
-#include "ChatHintModel.h"
 #include "ChatStateController.h"
-#include "ContactTrustMessageUriGenerator.h"
-#include "CredentialsGenerator.h"
 #include "DataFormModel.h"
-#include "DiscoveryController.h"
 #include "EmojiModel.h"
 #include "Encryption.h"
-#include "EncryptionController.h"
-#include "EncryptionWatcher.h"
 #include "Enums.h"
-#include "FileModel.h"
-#include "FileProgressCache.h"
-#include "FileProxyModel.h"
-#include "FileSharingController.h"
+#include "Globals.h"
 #include "GlobalsGen.h"
-#include "GroupChatController.h"
-#include "GroupChatInviteeFilterModel.h"
-#include "GroupChatUser.h"
-#include "GroupChatUserFilterModel.h"
-#include "GroupChatUserKeyAuthenticationFilterModel.h"
-#include "GroupChatUserModel.h"
 #include "GuiStyle.h"
 #include "HostCompletionModel.h"
-#include "HostCompletionProxyModel.h"
 #include "ImageProvider.h"
-#include "InputValidator.h"
 #include "KaidanLog.h"
 #include "Keychain.h"
 #include "MainController.h"
 #include "MediaUtils.h"
 #include "Message.h"
-#include "MessageComposition.h"
-#include "MessageModel.h"
-#include "MessageReactionModel.h"
-#include "Provider.h"
-#include "ProviderFilterModel.h"
-#include "ProviderModel.h"
 #include "PublicGroupChatModel.h"
-#include "PublicGroupChatProxyModel.h"
-#include "PublicGroupChatSearchController.h"
 #include "QmlUtils.h"
 #include "RegistrationController.h"
-#include "RegistrationDataFormFilterModel.h"
 #include "RosterController.h"
-#include "RosterFilterModel.h"
-#include "RosterItemWatcher.h"
 #include "RosterModel.h"
 #include "Settings.h"
-#include "StatusBar.h"
-#include "TextFormatter.h"
-#include "UserDevicesModel.h"
-#include "VCardController.h"
-#include "VCardModel.h"
-#include "VersionController.h"
+
+Q_IMPORT_QML_PLUGIN(KaidanQmlPlugin)
 
 const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
 const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
@@ -418,49 +379,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     gst_element_factory_make("qml6glsink", NULL);
 
     // QML type bindings
-    qmlRegisterType<StatusBar>(APPLICATION_ID, 1, 0, "StatusBar");
-    qmlRegisterType<EmojiModel>(APPLICATION_ID, 1, 0, "EmojiModel");
-    qmlRegisterType<EmojiProxyModel>(APPLICATION_ID, 1, 0, "EmojiProxyModel");
-    qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
-    qmlRegisterType<RosterFilterModel>(APPLICATION_ID, 1, 0, "RosterFilterModel");
-    qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
-    qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
-    qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
-    qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
-    qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
-    qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
-    qmlRegisterType<InputValidator>(APPLICATION_ID, 1, 0, "InputValidator");
-    qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
-    qmlRegisterType<ProviderModel>(APPLICATION_ID, 1, 0, "ProviderModel");
-    qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
-    qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
-    qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-    qmlRegisterType<PublicGroupChatSearchController>(APPLICATION_ID, 1, 0, "PublicGroupChatSearchController");
-    qmlRegisterType<PublicGroupChatModel>(APPLICATION_ID, 1, 0, "PublicGroupChatModel");
-    qmlRegisterType<PublicGroupChatProxyModel>(APPLICATION_ID, 1, 0, "PublicGroupChatProxyModel");
-    qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
-    qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
-    qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");
-    qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
-    qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
-    qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
-    qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
-    qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
-    qmlRegisterType<GroupChatInviteeFilterModel>(APPLICATION_ID, 1, 0, "GroupChatInviteeFilterModel");
-    qmlRegisterType<GroupChatUserModel>(APPLICATION_ID, 1, 0, "GroupChatUserModel");
-    qmlRegisterType<GroupChatUserFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserFilterModel");
-    qmlRegisterType<GroupChatUserKeyAuthenticationFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserKeyAuthenticationFilterModel");
-    qmlRegisterType<AccountTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "AccountTrustMessageUriGenerator");
-    qmlRegisterType<ContactTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "ContactTrustMessageUriGenerator");
-    qmlRegisterType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel");
-    qmlRegisterType<MessageModel>(APPLICATION_ID, 1, 0, "MessageModel");
-    qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
-    qmlRegisterType<ChatController>(APPLICATION_ID, 1, 0, "ChatController");
-    qmlRegisterType<VersionController>(APPLICATION_ID, 1, 0, "VersionController");
-    qmlRegisterType<PresenceCache>(APPLICATION_ID, 1, 0, "PresenceCache");
-    qmlRegisterType<AvatarCache>(APPLICATION_ID, 1, 0, "AvatarCache");
-    qmlRegisterType<AvatarImageWatcher>(APPLICATION_ID, 1, 0, "AvatarImageWatcher");
-    qmlRegisterType<ProviderFilterModel>(APPLICATION_ID, 1, 0, "ProviderFilterModel");
 
     // Q_OBJECT
     qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Not creatable from QML"));

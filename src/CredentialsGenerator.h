@@ -6,6 +6,7 @@
 #pragma once
 
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 /**
  * This class contains generators for usernames and passwords.
@@ -13,6 +14,7 @@
 class CredentialsGenerator : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit CredentialsGenerator(QObject *parent = nullptr);

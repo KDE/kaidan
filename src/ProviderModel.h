@@ -8,12 +8,16 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 
 class Provider;
+
+Q_MOC_INCLUDE("Provider.h")
 
 class ProviderModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(int providersMatchingSystemLocaleMinimumCount READ providersMatchingSystemLocaleMinimumCount CONSTANT)
     Q_PROPERTY(int maximumBusFactor MEMBER m_maximumBusFactor CONSTANT)
     Q_PROPERTY(QList<QString> availableFlags MEMBER m_availableFlags CONSTANT)
@@ -47,6 +51,7 @@ public:
     Q_ENUM(Role)
 
     explicit ProviderModel(QObject *parent = nullptr);
+    ~ProviderModel() override;
 
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

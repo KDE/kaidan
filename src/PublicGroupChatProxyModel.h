@@ -6,10 +6,12 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class PublicGroupChatProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString languageFilter READ languageFilter WRITE setLanguageFilter NOTIFY languageFilterChanged)
     Q_PROPERTY(int count READ count NOTIFY countChanged)

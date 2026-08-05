@@ -9,12 +9,14 @@
 // Qt
 #include <QAbstractListModel>
 #include <QStringList>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "GroupChatUser.h"
 
 class GroupChatUserModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)

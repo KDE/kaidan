@@ -31,6 +31,8 @@ ProviderModel::ProviderModel(QObject *parent)
     initializeAvailableOrganizations();
 }
 
+ProviderModel::~ProviderModel() = default;
+
 QHash<int, QByteArray> ProviderModel::roleNames() const
 {
     return {{static_cast<int>(Role::Display), QByteArrayLiteral("display")},

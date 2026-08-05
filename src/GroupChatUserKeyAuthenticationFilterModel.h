@@ -6,12 +6,14 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class EncryptionController;
 
 class GroupChatUserKeyAuthenticationFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit GroupChatUserKeyAuthenticationFilterModel(QObject *parent = nullptr);

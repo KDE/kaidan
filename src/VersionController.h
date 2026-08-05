@@ -7,6 +7,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 class PresenceCache;
 class QXmppClient;
@@ -14,9 +15,13 @@ class QXmppRosterManager;
 class QXmppVersionIq;
 class QXmppVersionManager;
 
+Q_MOC_INCLUDE("QXmppVersionIq.h")
+
 class VersionController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     VersionController(PresenceCache *presenceCache, QXmppVersionManager *versionManager, QObject *parent = nullptr);

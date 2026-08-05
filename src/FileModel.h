@@ -7,6 +7,7 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFutureWatcher>
+#include <QtQml/qqmlregistration.h>
 // KDE
 #include <KDescendantsProxyModel>
 // Kaidan
@@ -19,6 +20,7 @@ class FileTreeModel;
 class FileModel : public KDescendantsProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)

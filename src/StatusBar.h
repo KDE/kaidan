@@ -29,10 +29,12 @@
 // Qt
 #include <QColor>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 class StatusBar : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(bool available READ isAvailable CONSTANT)
 

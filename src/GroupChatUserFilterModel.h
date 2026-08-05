@@ -6,10 +6,12 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class GroupChatUserFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit GroupChatUserFilterModel(QObject *parent = nullptr);

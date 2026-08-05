@@ -11,6 +11,7 @@
 // Qt
 #include <QColor>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppPresence.h>
 
@@ -57,6 +58,7 @@ public:
 class PresenceCache : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum ChangeType : quint8 {
@@ -100,6 +102,7 @@ private:
 class UserResourcesWatcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(PresenceCache *presenceCache MEMBER m_presenceCache WRITE setPresenceCache)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(int resourcesCount READ resourcesCount NOTIFY resourcesCountChanged)

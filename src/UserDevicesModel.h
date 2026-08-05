@@ -7,6 +7,7 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "PresenceCache.h"
 
@@ -16,6 +17,7 @@ class VersionController;
 class UserDevicesModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(VersionController *versionController MEMBER m_versionController WRITE setVersionController)
     Q_PROPERTY(PresenceCache *presenceCache MEMBER m_presenceCache WRITE setPresenceCache)

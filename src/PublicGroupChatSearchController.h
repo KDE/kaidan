@@ -6,6 +6,7 @@
 
 // Qt
 #include <QPointer>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "PublicGroupChat.h"
 
@@ -19,6 +20,7 @@ using namespace std::chrono_literals;
 class PublicGroupChatSearchController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(bool isRunning READ isRunning WRITE setIsRunning NOTIFY isRunningChanged)
     Q_PROPERTY(PublicGroupChats cachedGroupChats READ cachedGroupChats NOTIFY groupChatsReceived)

@@ -7,12 +7,14 @@
 // Qt
 #include <QSet>
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 struct File;
 
 class FileProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(FileProxyModel::Mode mode READ mode WRITE setMode NOTIFY modeChanged)
     Q_PROPERTY(int checkedCount READ checkedCount NOTIFY checkedCountChanged)

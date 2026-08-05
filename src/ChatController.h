@@ -10,6 +10,9 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "RosterItemWatcher.h"
 
@@ -26,6 +29,7 @@ class NotificationController;
 class ChatController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(Account *account READ account NOTIFY accountChanged)
     Q_PROPERTY(QString jid READ jid NOTIFY jidChanged)

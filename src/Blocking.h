@@ -6,6 +6,7 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppBlockingManager.h>
 #include <QXmppSpamReport.h>
@@ -96,6 +97,7 @@ private:
 class BlockingModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(BlockingController *blockingController MEMBER m_blockingController WRITE setBlockingController)
 
@@ -153,6 +155,7 @@ private:
 class BlockingWatcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(BlockingController *blockingController MEMBER m_blockingController WRITE setBlockingController)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)

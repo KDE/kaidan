@@ -4,12 +4,16 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "EncryptionKeyModel.h"
 
 class AuthenticatedEncryptionKeyModel : public EncryptionKeyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit AuthenticatedEncryptionKeyModel(QObject *parent = nullptr);

@@ -6,10 +6,12 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class HostCompletionProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString userInput READ userInput WRITE setUserInput NOTIFY userInputChanged)
 

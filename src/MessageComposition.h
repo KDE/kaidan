@@ -10,6 +10,7 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
+#include <QtQml/qqmlregistration.h>
 
 // Qt
 class QGeoCoordinate;
@@ -26,6 +27,7 @@ struct File;
 class MessageComposition : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(ChatController *chatController MEMBER m_chatController WRITE setChatController)
 
@@ -192,6 +194,7 @@ private:
 class FileSelectionModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum Roles {

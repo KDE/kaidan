@@ -8,6 +8,7 @@
 #include <optional>
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "RosterItem.h"
 
@@ -31,6 +32,7 @@ private:
 class RosterItemWatcher : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(const RosterItem &item READ item NOTIFY itemChanged)

@@ -7,6 +7,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "AbstractNotifier.h"
 
@@ -26,6 +27,7 @@ using FileProgressNotifier = AbstractNotifier<qint64, std::optional<FileProgress
 class FileProgressWatcher : public QObject, public AbstractWatcher<qint64, std::optional<FileProgress>>
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(QString fileId READ fileId WRITE setFileId NOTIFY fileIdChanged)
     Q_PROPERTY(bool isLoading READ isLoading NOTIFY progressChanged)
     Q_PROPERTY(quint64 bytesSent READ bytesSent NOTIFY progressChanged)

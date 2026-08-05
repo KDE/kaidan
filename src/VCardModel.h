@@ -9,6 +9,7 @@
 #include <QAbstractListModel>
 // QXmpp
 #include <QXmppVCardIq.h>
+#include <QtQml/qqmlregistration.h>
 
 class Connection;
 class QXmppVCardIq;
@@ -17,6 +18,7 @@ class VCardController;
 class VCardModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(Connection *connection MEMBER m_connection WRITE setConnection)
     Q_PROPERTY(VCardController *vCardController MEMBER m_vCardController WRITE setVCardController)

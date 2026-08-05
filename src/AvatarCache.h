@@ -4,6 +4,9 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "Account.h"
 
@@ -20,6 +23,8 @@ using Avatar = QPixmap;
 class AvatarCache : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     explicit AvatarCache(AccountSettings *accountSettings, QObject *parent = nullptr);

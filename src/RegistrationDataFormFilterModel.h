@@ -7,6 +7,7 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 /**
  * This class is used to filter the data of the registration form.
@@ -14,6 +15,7 @@
 class RegistrationDataFormFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
 
 public:

@@ -6,10 +6,12 @@
 
 // Qt
 #include <QRegularExpressionValidator>
+#include <QtQml/qqmlregistration.h>
 
 class InputValidator : public QRegularExpressionValidator
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(InputValidator::Patterns patterns READ patterns WRITE setPatterns NOTIFY patternsChanged)
     Q_PROPERTY(QValidator::State state READ state NOTIFY stateChanged)

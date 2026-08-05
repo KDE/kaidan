@@ -4,12 +4,16 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "EncryptionKeyModel.h"
 
 class AuthenticatableEncryptionKeyModel : public EncryptionKeyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)
 

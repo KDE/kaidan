@@ -12,6 +12,7 @@
 #include <QAbstractListModel>
 #include <QSet>
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class Emoji
 {
@@ -65,6 +66,7 @@ private:
 class EmojiModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     enum class Roles {
@@ -84,6 +86,7 @@ public:
 class EmojiProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(Emoji::Group group READ group WRITE setGroup NOTIFY groupChanged)
     Q_PROPERTY(bool hasFavoriteEmojis READ hasFavoriteEmojis NOTIFY hasFavoriteEmojisChanged)

@@ -6,6 +6,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 class QQuickTextDocument;
 class QTextCursor;
@@ -13,6 +14,7 @@ class QTextCursor;
 class TextFormatter : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QQuickTextDocument *textDocument MEMBER m_textDocument WRITE setTextDocument)
     Q_PROPERTY(bool enhancedFormatting MEMBER m_enhancedFormatting WRITE setEnhancedFormatting)

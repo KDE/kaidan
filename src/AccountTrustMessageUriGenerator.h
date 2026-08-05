@@ -4,12 +4,16 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "TrustMessageUriGenerator.h"
 
 class AccountTrustMessageUriGenerator : public TrustMessageUriGenerator
 {
     Q_OBJECT
+    QML_ELEMENT
 
 public:
     explicit AccountTrustMessageUriGenerator(QObject *parent = nullptr);

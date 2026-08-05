@@ -6,10 +6,12 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 class GroupChatInviteeFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(QString accountJid MEMBER m_accountJid WRITE setAccountJid)
     Q_PROPERTY(QList<QString> groupChatUserJids MEMBER m_groupChatUserJids WRITE setGroupChatUserJids)

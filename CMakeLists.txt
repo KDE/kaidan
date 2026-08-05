@@ -48,6 +48,9 @@ set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 # Find packages
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
 
+# Use ':/qt/qml/' as resource prefix for QML modules
+qt_policy(SET QTP0001 NEW)
+
 if(NOT WIN32 AND NOT APPLE)
     find_package(Qt6GuiPrivate ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 endif()

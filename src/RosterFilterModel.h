@@ -8,6 +8,7 @@
 
 // Qt
 #include <QSortFilterProxyModel>
+#include <QtQml/qqmlregistration.h>
 
 // Kaidan
 class Account;
@@ -16,6 +17,7 @@ class PresenceCache;
 class RosterFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
 
     Q_PROPERTY(Types displayedTypes READ displayedTypes NOTIFY displayedTypesChanged)
     Q_PROPERTY(QList<QString> selectedAccountJids READ selectedAccountJids WRITE setSelectedAccountJids NOTIFY selectedAccountJidsChanged)
