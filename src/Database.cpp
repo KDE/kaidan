@@ -1801,6 +1801,51 @@ std::span<const Database::Migration> Database::migrations()
              execQuery(query, QStringLiteral("DROP TABLE chats"));
              execQuery(query, QStringLiteral("ALTER TABLE chats_tmp RENAME TO chats"));
          }},
+        {61,
+         [](QSqlQuery &query) {
+             // Reactions used to reference own one-to-one messages by the stanza ID added by the own
+             // server via MAM/carbons, which the contact never sees. Those messages are referenced by
+             // their origin ID now (see Message::relevantId()), and a reaction row is keyed by that
+             // reference ID, so move stored rows to the origin ID (or the message ID as a fallback).
+             //
+             // Group chat reactions (keyed by the room's stanza ID) and corrections (keyed by replaceId)
+             // stay untouched. "OR REPLACE" avoids a primary key conflict if the same reaction from
+             // another sender is already stored under the origin ID.
+             execQuery(query, QStringLiteral(R"(
+                                UPDATE OR REPLACE messageReactions
+                                SET messageId = (
+                                    SELECT COALESCE(NULLIF(m.originId, ''), m.id)
+                                    FROM messages m
+                                    WHERE m.accountJid = messageReactions.accountJid
+                                        AND m.chatJid = messageReactions.chatJid
+                                        AND m.stanzaId = messageReactions.messageId
+                                    LIMIT 1
+                                )
+                                WHERE EXISTS (
+                                    SELECT 1
+                                    FROM messages m
+                                    WHERE m.accountJid = messageReactions.accountJid
+                                        AND m.chatJid = messageReactions.chatJid
+                                        AND m.stanzaId = messageReactions.messageId
+                                        AND m.stanzaId IS NOT NULL AND m.stanzaId <> ''
+                                        AND (m.groupChatSenderId IS NULL OR m.groupChatSenderId = '')
+                                        AND (m.replaceId IS NULL OR m.replaceId = '')
+                                        AND COALESCE(NULLIF(m.originId, ''), m.id) <> m.stanzaId
+                                )
+                            )"));
+
+             // Own reactions have a NULL senderId and SQLite treats NULLs as distinct in the primary
+             // key, so "OR REPLACE" above cannot deduplicate them. Remove the duplicates it left,
+             // keeping the most recently stored row.
+             execQuery(query, QStringLiteral(R"(
+                                DELETE FROM messageReactions
+                                WHERE rowid NOT IN (
+                                    SELECT MAX(rowid)
+                                    FROM messageReactions
+                                    GROUP BY accountJid, chatJid, messageId, COALESCE(senderId, ''), emoji
+                                )
+                            )"));
+         }},
     };
 
     static_assert(std::ranges::adjacent_find(MIGRATIONS, std::greater_equal{}, &Migration::version) == std::ranges::end(MIGRATIONS),
