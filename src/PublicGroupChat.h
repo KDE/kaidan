@@ -7,12 +7,14 @@
 
 // Qt
 #include <QJsonObject>
+#include <QtQml/qqmlregistration.h>
 
 using PublicGroupChats = QList<class PublicGroupChat>;
 
 class PublicGroupChat
 {
     Q_GADGET
+    QML_ANONYMOUS
 
     Q_PROPERTY(QString address READ address WRITE setAddress)
     Q_PROPERTY(int users READ users WRITE setUsers)

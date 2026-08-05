@@ -7,6 +7,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppGlobal.h>
 
@@ -21,3 +22,10 @@ public:
     };
     Q_ENUM(Enum)
 };
+
+namespace EncryptionQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(Encryption)
+QML_NAMED_ELEMENT(Encryption)
+}

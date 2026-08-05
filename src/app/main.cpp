@@ -54,8 +54,6 @@
 #include <kdsingleapplication.h>
 // GStreamer
 #include <gst/gst.h>
-// QXmpp
-#include <QXmppSpamReport.h>
 // Kaidan
 #include "Account.h"
 #include "AccountController.h"
@@ -63,9 +61,6 @@
 #include "AtmController.h"
 #include "ChatStateController.h"
 #include "DataFormModel.h"
-#include "EmojiModel.h"
-#include "Encryption.h"
-#include "Enums.h"
 #include "Globals.h"
 #include "GlobalsGen.h"
 #include "GuiStyle.h"
@@ -75,8 +70,6 @@
 #include "Keychain.h"
 #include "MainController.h"
 #include "MediaUtils.h"
-#include "Message.h"
-#include "PublicGroupChatModel.h"
 #include "QmlUtils.h"
 #include "RegistrationController.h"
 #include "RosterController.h"
@@ -397,46 +390,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Not creatable from QML"));
     qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
 
-    // Q_GADGET
-    qmlRegisterUncreatableMetaObject(Emoji::staticMetaObject, APPLICATION_ID, 1, 0, "Emoji", QStringLiteral("Used by emoji models"));
-    qmlRegisterUncreatableMetaObject(Presence::staticMetaObject, APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableMetaObject(Encryption::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "Encryption",
-                                     QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableMetaObject(File::staticMetaObject, APPLICATION_ID, 1, 0, "File", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableMetaObject(PublicGroupChat::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "PublicGroupChat",
-                                     QStringLiteral("Used by PublicGroupChatModel"));
-    qmlRegisterUncreatableMetaObject(MessageReactionDeliveryState::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "MessageReactionDeliveryState",
-                                     QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableMetaObject(RosterItem::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "RosterItem",
-                                     QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableMetaObject(Message::staticMetaObject, APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableMetaObject(QMimeType::staticMetaObject, APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
-    qmlRegisterUncreatableMetaObject(QXmppSpamReport::staticMetaObject,
-                                     APPLICATION_ID,
-                                     1,
-                                     0,
-                                     "SpamReport",
-                                     QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<ChatStateController>(APPLICATION_ID, 1, 0, "ChatStateController", QStringLiteral("Not creatable from QML"));
-
-    // Q_NAMESPACE
-    qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));
 
     qmlRegisterSingletonType<QmlUtils>(APPLICATION_ID, 1, 0, "Utils", [](QQmlEngine *, QJSEngine *) {
         return static_cast<QObject *>(QmlUtils::instance());

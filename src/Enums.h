@@ -9,6 +9,7 @@
 
 // Qt
 #include <QMetaEnum>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppClient.h>
 
@@ -34,6 +35,7 @@ struct has_enum_type<T, void_t<typename T::enum_type>> : std::true_type {
 namespace Enums
 {
 Q_NAMESPACE
+QML_ELEMENT
 
 /**
  * Enumeration of possible connection states.

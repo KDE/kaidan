@@ -12,6 +12,7 @@
 #include <QImage>
 #include <QMimeType>
 #include <QUrl>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppHash.h>
 #include <QXmppMessage.h>
@@ -330,3 +331,24 @@ enum class MessageOrigin : quint8 {
     MamCatchUp,
     MamBacklog,
 };
+
+namespace FileQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(File)
+QML_NAMED_ELEMENT(File)
+}
+
+namespace MessageReactionDeliveryStateQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(MessageReactionDeliveryState)
+QML_NAMED_ELEMENT(MessageReactionDeliveryState)
+}
+
+namespace MessageQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(Message)
+QML_NAMED_ELEMENT(Message)
+}

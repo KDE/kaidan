@@ -15,7 +15,7 @@ class PublicGroupChatModel : public QAbstractListModel
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(PublicGroupChats groupChats READ groupChats WRITE setGroupChats NOTIFY groupChatsChanged)
+    Q_PROPERTY(QList<PublicGroupChat> groupChats READ groupChats WRITE setGroupChats NOTIFY groupChatsChanged)
     Q_PROPERTY(int count READ count NOTIFY groupChatsChanged)
     Q_PROPERTY(QStringList languages READ languages NOTIFY groupChatsChanged)
     Q_PROPERTY(int minUsers READ minUsers NOTIFY groupChatsChanged)

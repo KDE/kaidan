@@ -13,6 +13,7 @@
 // Qt
 #include <QDateTime>
 #include <QXmppRosterIq.h>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "Encryption.h"
 #include "Enums.h"
@@ -223,3 +224,10 @@ public:
     // Whether files are downloaded automatically.
     AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Account;
 };
+
+namespace RosterItemQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(RosterItem)
+QML_NAMED_ELEMENT(RosterItem)
+}

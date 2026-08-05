@@ -110,3 +110,10 @@ private:
     Emoji::Group m_group = Emoji::Group::Invalid;
     QStringList m_favoriteEmojis;
 };
+
+namespace EmojiQmlEnums
+{
+Q_NAMESPACE
+QML_FOREIGN_NAMESPACE(Emoji)
+QML_NAMED_ELEMENT(Emoji)
+}

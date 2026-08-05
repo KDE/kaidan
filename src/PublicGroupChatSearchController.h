@@ -23,7 +23,7 @@ class PublicGroupChatSearchController : public QObject
     QML_ELEMENT
 
     Q_PROPERTY(bool isRunning READ isRunning WRITE setIsRunning NOTIFY isRunningChanged)
-    Q_PROPERTY(PublicGroupChats cachedGroupChats READ cachedGroupChats NOTIFY groupChatsReceived)
+    Q_PROPERTY(QList<PublicGroupChat> cachedGroupChats READ cachedGroupChats NOTIFY groupChatsReceived)
 
 public:
     static constexpr auto RequestTimeout = 60s;

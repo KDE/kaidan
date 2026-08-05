@@ -172,6 +172,7 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatProxyModel.h
     PublicGroupChatSearchController.cpp
     PublicGroupChatSearchController.h
+    QmlForeignTypes.h
     QmlUtils.cpp
     QmlUtils.h
     RegistrationController.cpp
