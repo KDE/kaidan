@@ -286,14 +286,24 @@ QList<QXmppMessage> Message::fileFallbackMessages() const
 
 QString Message::relevantId() const
 {
+    // The ID this message is referenced by when reacting to / replying to / retracting it,
+    // following XEP-0359 as required by XEP-0444, XEP-0461 and XEP-0424.
+
+    // A correction overwrites id/originId/stanzaId in place (see
+    // MessageController::handleCorrection), so replaceId is the only handle left on the original.
     if (!replaceId.isEmpty()) {
         return replaceId;
     }
 
-    if (!stanzaId.isEmpty() && (isOwn || isServerMessage() || isGroupChatMessage())) {
+    // Only group chats assign a stanza ID both parties see. In a one-to-one chat the only one
+    // available is added by the own server via MAM/carbons and is invisible to the contact.
+    if (!stanzaId.isEmpty() && isGroupChatMessage()) {
         return stanzaId;
     }
 
+    // TODO: Without an origin ID and a message ID, the message cannot be referenced at all. Return
+    // an empty string here and disable the actions requiring it, once MessageController stops
+    // generating a message ID if there is none.
     if (!originId.isEmpty()) {
         return originId;
     }
