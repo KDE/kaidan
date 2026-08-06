@@ -107,15 +107,8 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.kde.org/stable/kquickimageeditor/kquickimageeditor-0.6.2.tar.xz",
-                    "sha256": "dfa8d0c8e41404937f3361c41b19cf541bb746e1b4b6970886de639122f1c9bb",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 229033,
-                        "stable-only": true,
-                        "url-template": "https://download.kde.org/stable/kquickimageeditor/kquickimageeditor-$version.tar.xz"
-                    }
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kquickimageeditor.git"
                 }
             ]
         },
