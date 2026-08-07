@@ -7,81 +7,81 @@ msgstr ""
 "X-Language: hu\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:465
+#: src/Account.cpp:478
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr ""
 
-#: src/Account.cpp:467
+#: src/Account.cpp:480
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr ""
 
-#: src/Account.cpp:469
+#: src/Account.cpp:482
 msgctxt "Connection|"
 msgid "Connected"
 msgstr ""
 
-#: src/Account.cpp:480
+#: src/Account.cpp:493
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr ""
 
-#: src/Account.cpp:482
+#: src/Account.cpp:495
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 
-#: src/Account.cpp:484
+#: src/Account.cpp:497
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr ""
 
-#: src/Account.cpp:486
+#: src/Account.cpp:499
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr ""
 
-#: src/Account.cpp:488
+#: src/Account.cpp:501
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
 
-#: src/Account.cpp:490
+#: src/Account.cpp:503
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr ""
 
-#: src/Account.cpp:492
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr ""
 
-#: src/Account.cpp:494
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr ""
 
-#: src/Account.cpp:496
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
 
-#: src/Account.cpp:498
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr ""
 
-#: src/Account.cpp:500
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/Account.cpp:502
+#: src/Account.cpp:515
 #, fuzzy
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -110,22 +110,22 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr ""
 
-#: src/Blocking.cpp:357
+#: src/Blocking.cpp:398
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr ""
 
-#: src/Blocking.cpp:359
+#: src/Blocking.cpp:400
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr ""
 
-#: src/Blocking.cpp:361
+#: src/Blocking.cpp:402
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr ""
 
-#: src/Blocking.cpp:363
+#: src/Blocking.cpp:404
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
@@ -512,56 +512,56 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageController.cpp:617
+#: src/MessageController.cpp:613
 #, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageController.cpp:1021
+#: src/MessageController.cpp:1017
 #, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:273
+#: src/MessageModel.cpp:284
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr ""
 
-#: src/MessageModel.cpp:275
+#: src/MessageModel.cpp:286
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr ""
 
-#: src/MessageModel.cpp:277
+#: src/MessageModel.cpp:288
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr ""
 
-#: src/MessageModel.cpp:279
+#: src/MessageModel.cpp:290
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr ""
 
-#: src/MessageModel.cpp:595 src/MessageModel.cpp:692
+#: src/MessageModel.cpp:606 src/MessageModel.cpp:703
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:777
+#: src/MessageModel.cpp:788
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:1320
+#: src/MessageModel.cpp:1331
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1323
+#: src/MessageModel.cpp:1334
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -816,44 +816,19 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Keresés"
 
-#: src/qml/ChatPage.qml:575
+#: src/qml/ChatPage.qml:576
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:589
+#: src/qml/ChatPage.qml:590
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr ""
 
-#: src/qml/ChatPage.qml:640
+#: src/qml/ChatPage.qml:641
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
-
-#: src/qml/ChatPage.qml:914
-#, qt-format
-msgctxt "ChatPage|%1 is a JID"
-msgid "Unblocked %1"
-msgstr ""
-
-#: src/qml/ChatPage.qml:914
-msgctxt "ChatPage|"
-msgid "Undo"
-msgstr ""
-
-#: src/qml/ChatPage.qml:921
-#, fuzzy, qt-format
-#| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
-#| msgid "Delete account completely"
-msgctxt "ChatPage|%1 is a JID, %2 an error message"
-msgid "Could not block %1: %2"
-msgstr "Fiók törlése teljesen"
-
-#: src/qml/ChatPage.qml:925
-#, qt-format
-msgctxt "ChatPage|%1 is a JID, %2 an error message"
-msgid "Could not unblock %1: %2"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:21
@@ -863,21 +838,21 @@ msgid "You can share media up to %1."
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:25
-#: src/qml/details/AccountDetailsContent.qml:269
-#: src/qml/details/AccountDetailsContent.qml:292
+#: src/qml/details/AccountDetailsContent.qml:267
+#: src/qml/details/AccountDetailsContent.qml:290
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:29
-#: src/qml/details/AccountDetailsContent.qml:273
+#: src/qml/details/AccountDetailsContent.qml:271
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:33
-#: src/qml/details/AccountDetailsContent.qml:277
-#: src/qml/details/AccountDetailsContent.qml:300
+#: src/qml/details/AccountDetailsContent.qml:275
+#: src/qml/details/AccountDetailsContent.qml:298
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr ""
@@ -941,7 +916,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:261
+#: src/qml/details/AccountDetailsContent.qml:259
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -949,34 +924,34 @@ msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Értesítések némítása"
 
-#: src/qml/details/AccountDetailsContent.qml:265
+#: src/qml/details/AccountDetailsContent.qml:263
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Üzenet írása"
 
-#: src/qml/details/AccountDetailsContent.qml:266
+#: src/qml/details/AccountDetailsContent.qml:264
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:288
+#: src/qml/details/AccountDetailsContent.qml:286
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Üzenet írása"
 
-#: src/qml/details/AccountDetailsContent.qml:289
+#: src/qml/details/AccountDetailsContent.qml:287
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:296
+#: src/qml/details/AccountDetailsContent.qml:294
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:315
+#: src/qml/details/AccountDetailsContent.qml:311
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -984,7 +959,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Locations"
 msgstr "Értesítések némítása"
 
-#: src/qml/details/AccountDetailsContent.qml:319
+#: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
 msgid ""
 "For displaying locations in Kaidan, online data from the third party "
@@ -992,17 +967,17 @@ msgid ""
 "submitting the location."
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:324
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:325
+#: src/qml/details/AccountDetailsContent.qml:321
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:329
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -1010,44 +985,44 @@ msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
 msgstr "Az értesítések némítása"
 
-#: src/qml/details/AccountDetailsContent.qml:334
+#: src/qml/details/AccountDetailsContent.qml:330
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:337
+#: src/qml/details/AccountDetailsContent.qml:333
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "System default"
 msgstr "Fiók törlése"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:337
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:341
 msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:370
+#: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:374
+#: src/qml/details/AccountDetailsContent.qml:369
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:375
+#: src/qml/details/AccountDetailsContent.qml:370
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:381
+#: src/qml/details/AccountDetailsContent.qml:376
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1055,54 +1030,54 @@ msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/AccountDetailsContent.qml:382
+#: src/qml/details/AccountDetailsContent.qml:377
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:386
+#: src/qml/details/AccountDetailsContent.qml:381
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:393
+#: src/qml/details/AccountDetailsContent.qml:388
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:400
+#: src/qml/details/AccountDetailsContent.qml:395
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:416
+#: src/qml/details/AccountDetailsContent.qml:410
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:428
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:435
+#: src/qml/details/AccountDetailsContent.qml:429
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:451
+#: src/qml/details/AccountDetailsContent.qml:444
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:466
+#: src/qml/details/AccountDetailsContent.qml:458
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1110,24 +1085,24 @@ msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/AccountDetailsContent.qml:470
+#: src/qml/details/AccountDetailsContent.qml:462
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:498
+#: src/qml/details/AccountDetailsContent.qml:489
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:506
+#: src/qml/details/AccountDetailsContent.qml:497
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:521
+#: src/qml/details/AccountDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1135,7 +1110,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/AccountDetailsContent.qml:581
+#: src/qml/details/AccountDetailsContent.qml:570
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1143,40 +1118,40 @@ msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/AccountDetailsContent.qml:609
+#: src/qml/details/AccountDetailsContent.qml:598
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:630
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:636
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:637
+#: src/qml/details/AccountDetailsContent.qml:625
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/qml/details/AccountDetailsContent.qml:638
+#: src/qml/details/AccountDetailsContent.qml:626
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:651
+#: src/qml/details/AccountDetailsContent.qml:639
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:674
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1184,7 +1159,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:690
+#: src/qml/details/AccountDetailsContent.qml:678
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -1196,7 +1171,7 @@ msgid ""
 "devices!"
 msgstr "A jelszó módosítása után újra be kell írnia az összes többi eszközén."
 
-#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:683
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -1204,7 +1179,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Az aktuális jelszó érvénytelen."
 
-#: src/qml/details/AccountDetailsContent.qml:700
+#: src/qml/details/AccountDetailsContent.qml:684
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1212,7 +1187,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:700
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1220,8 +1195,8 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Új jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:714
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:700
+#: src/qml/details/AccountDetailsContent.qml:954
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1229,7 +1204,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:715
+#: src/qml/details/AccountDetailsContent.qml:701
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1237,7 +1212,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:717
+#: src/qml/details/AccountDetailsContent.qml:703
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -1245,7 +1220,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:726
+#: src/qml/details/AccountDetailsContent.qml:722
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -1253,7 +1228,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Jelszó módosítása"
 
-#: src/qml/details/AccountDetailsContent.qml:762
+#: src/qml/details/AccountDetailsContent.qml:758
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -1261,12 +1236,12 @@ msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Jelszó módosítása"
 
-#: src/qml/details/AccountDetailsContent.qml:768
+#: src/qml/details/AccountDetailsContent.qml:764
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:787
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1274,7 +1249,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:800
+#: src/qml/details/AccountDetailsContent.qml:791
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1283,7 +1258,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:806
+#: src/qml/details/AccountDetailsContent.qml:797
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1291,14 +1266,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Új jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:807
+#: src/qml/details/AccountDetailsContent.qml:798
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:814
+#: src/qml/details/AccountDetailsContent.qml:805
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1306,7 +1281,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Új jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:820
+#: src/qml/details/AccountDetailsContent.qml:811
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1314,57 +1289,57 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Új jelszó:"
 
-#: src/qml/details/AccountDetailsContent.qml:821
+#: src/qml/details/AccountDetailsContent.qml:812
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:819
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:838
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:832
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:870
+#: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:871
+#: src/qml/details/AccountDetailsContent.qml:861
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:901
+#: src/qml/details/AccountDetailsContent.qml:891
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:914
+#: src/qml/details/AccountDetailsContent.qml:904
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:925
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:929
+#: src/qml/details/AccountDetailsContent.qml:918
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1386,7 +1361,7 @@ msgstr ""
 "Soha ne jelenítse meg ezt a QR-kódot senkinek. Ez lehetővé tenné a korlátlan "
 "hozzáférést a fiókjához!"
 
-#: src/qml/details/AccountDetailsContent.qml:935
+#: src/qml/details/AccountDetailsContent.qml:924
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -1394,7 +1369,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Megjelenítés QR-kódként"
 
-#: src/qml/details/AccountDetailsContent.qml:936
+#: src/qml/details/AccountDetailsContent.qml:925
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1414,12 +1389,12 @@ msgstr ""
 "Soha ne jelenítse meg ezt a QR-kódot senkinek. Ez lehetővé tenné a korlátlan "
 "hozzáférést a fiókjához!"
 
-#: src/qml/details/AccountDetailsContent.qml:952
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:953
+#: src/qml/details/AccountDetailsContent.qml:942
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1439,7 +1414,7 @@ msgstr ""
 "Soha ne jelenítse meg ezt a QR-kódot senkinek. Ez lehetővé tenné a korlátlan "
 "hozzáférést a fiókjához!"
 
-#: src/qml/details/AccountDetailsContent.qml:959
+#: src/qml/details/AccountDetailsContent.qml:948
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1447,7 +1422,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/AccountDetailsContent.qml:977
+#: src/qml/details/AccountDetailsContent.qml:965
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -1455,24 +1430,24 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Értesítések némítása"
 
-#: src/qml/details/AccountDetailsContent.qml:982
+#: src/qml/details/AccountDetailsContent.qml:970
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Fiók törlése"
 
-#: src/qml/details/AccountDetailsContent.qml:983
+#: src/qml/details/AccountDetailsContent.qml:971
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Fiók törlése"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:973
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:973
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1480,13 +1455,13 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:994
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eltávolít"
 
-#: src/qml/details/AccountDetailsContent.qml:1013
+#: src/qml/details/AccountDetailsContent.qml:1000
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -1494,26 +1469,26 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Eltávolítás az alkalmazásból"
 
-#: src/qml/details/AccountDetailsContent.qml:1014
+#: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1022
+#: src/qml/details/AccountDetailsContent.qml:1009
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/qml/details/AccountDetailsContent.qml:1029
+#: src/qml/details/AccountDetailsContent.qml:1016
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Fiók törlése teljesen"
 
-#: src/qml/details/AccountDetailsContent.qml:1030
+#: src/qml/details/AccountDetailsContent.qml:1017
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1523,13 +1498,13 @@ msgstr ""
 "szerverről.\n"
 "Többé nem fogja tudni használni fiókját!"
 
-#: src/qml/details/AccountDetailsContent.qml:1038
+#: src/qml/details/AccountDetailsContent.qml:1025
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/qml/details/AccountDetailsContent.qml:1045
+#: src/qml/details/AccountDetailsContent.qml:1032
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
@@ -1667,7 +1642,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:106
+#: src/qml/details/ContactDetailsContent.qml:104
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -1675,61 +1650,61 @@ msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Értesítések némítása"
 
-#: src/qml/details/ContactDetailsContent.qml:110
+#: src/qml/details/ContactDetailsContent.qml:108
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Üzenet írása"
 
-#: src/qml/details/ContactDetailsContent.qml:111
+#: src/qml/details/ContactDetailsContent.qml:109
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:114
+#: src/qml/details/ContactDetailsContent.qml:112
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Fiók törlése"
 
-#: src/qml/details/ContactDetailsContent.qml:118
+#: src/qml/details/ContactDetailsContent.qml:116
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:122
+#: src/qml/details/ContactDetailsContent.qml:120
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:137
+#: src/qml/details/ContactDetailsContent.qml:133
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:141
+#: src/qml/details/ContactDetailsContent.qml:137
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:142
+#: src/qml/details/ContactDetailsContent.qml:138
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:148
+#: src/qml/details/ContactDetailsContent.qml:144
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:149
+#: src/qml/details/ContactDetailsContent.qml:145
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:155
+#: src/qml/details/ContactDetailsContent.qml:151
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -1737,12 +1712,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Az értesítések némítása"
 
-#: src/qml/details/ContactDetailsContent.qml:156
+#: src/qml/details/ContactDetailsContent.qml:152
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:162
+#: src/qml/details/ContactDetailsContent.qml:158
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -1750,39 +1725,61 @@ msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Az értesítések némítása"
 
-#: src/qml/details/ContactDetailsContent.qml:163
+#: src/qml/details/ContactDetailsContent.qml:159
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:169
+#: src/qml/details/ContactDetailsContent.qml:170
+msgctxt "ContactDetailsContent|"
+msgid "Unblock"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:173
+#: src/qml/details/ContactDetailsContent.qml:193
+msgctxt "ContactDetailsContent|"
+msgid "Block and report"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:173
+#: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:170
+#: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
-msgid "Block all communication including status and notifications"
+msgid "Unblock this contact"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:195
+#: src/qml/details/ContactDetailsContent.qml:180
+msgctxt "ContactDetailsContent|"
+msgid "Block and (optionally) report this contact"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:180
+msgctxt "ContactDetailsContent|"
+msgid "Block this contact"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:217
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Eltávolít"
 
-#: src/qml/details/ContactDetailsContent.qml:200
+#: src/qml/details/ContactDetailsContent.qml:222
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Eltávolít"
 
-#: src/qml/details/ContactDetailsContent.qml:201
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:209
+#: src/qml/details/ContactDetailsContent.qml:231
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
@@ -1845,22 +1842,22 @@ msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:58
+#: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:68
+#: src/qml/details/DetailsContent.qml:66
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:69
+#: src/qml/details/DetailsContent.qml:67
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:109
+#: src/qml/details/DetailsContent.qml:106
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "View profile"
@@ -1868,17 +1865,17 @@ msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil megtekintése"
 
-#: src/qml/details/DetailsContent.qml:141
+#: src/qml/details/DetailsContent.qml:136
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:162
+#: src/qml/details/DetailsContent.qml:155
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:167
+#: src/qml/details/DetailsContent.qml:160
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -1886,7 +1883,7 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Megjelenítés QR-kódként"
 
-#: src/qml/details/DetailsContent.qml:181
+#: src/qml/details/DetailsContent.qml:174
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -1894,12 +1891,12 @@ msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Megjelenítés QR-kódként"
 
-#: src/qml/details/DetailsContent.qml:183
+#: src/qml/details/DetailsContent.qml:176
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:188
+#: src/qml/details/DetailsContent.qml:181
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1907,12 +1904,12 @@ msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Csevegés címe:"
 
-#: src/qml/details/DetailsContent.qml:194
+#: src/qml/details/DetailsContent.qml:187
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:196
+#: src/qml/details/DetailsContent.qml:189
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr ""
@@ -1922,34 +1919,34 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:29
+#: src/qml/details/GroupChatDetailsContent.qml:27
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:67
+#: src/qml/details/GroupChatDetailsContent.qml:64
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:123
+#: src/qml/details/GroupChatDetailsContent.qml:120
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:137
+#: src/qml/details/GroupChatDetailsContent.qml:132
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:141
+#: src/qml/details/GroupChatDetailsContent.qml:136
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:164
+#: src/qml/details/GroupChatDetailsContent.qml:158
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "You need to be connected to change your password."
@@ -1957,45 +1954,45 @@ msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "A jelszó módosításához kapcsolódnia kell."
 
-#: src/qml/details/GroupChatDetailsContent.qml:212
+#: src/qml/details/GroupChatDetailsContent.qml:206
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:216
+#: src/qml/details/GroupChatDetailsContent.qml:210
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:217
+#: src/qml/details/GroupChatDetailsContent.qml:211
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:286
-#: src/qml/details/GroupChatDetailsContent.qml:291
+#: src/qml/details/GroupChatDetailsContent.qml:277
+#: src/qml/details/GroupChatDetailsContent.qml:282
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:295
+#: src/qml/details/GroupChatDetailsContent.qml:286
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:298
+#: src/qml/details/GroupChatDetailsContent.qml:289
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:302
+#: src/qml/details/GroupChatDetailsContent.qml:293
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:299
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -2003,44 +2000,44 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Értesítések némítása"
 
-#: src/qml/details/GroupChatDetailsContent.qml:314
+#: src/qml/details/GroupChatDetailsContent.qml:303
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Üzenet írása"
 
-#: src/qml/details/GroupChatDetailsContent.qml:315
+#: src/qml/details/GroupChatDetailsContent.qml:304
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:318
+#: src/qml/details/GroupChatDetailsContent.qml:307
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Fiók törlése"
 
-#: src/qml/details/GroupChatDetailsContent.qml:322
+#: src/qml/details/GroupChatDetailsContent.qml:311
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:326
+#: src/qml/details/GroupChatDetailsContent.qml:315
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:330
+#: src/qml/details/GroupChatDetailsContent.qml:319
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:332
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:349
+#: src/qml/details/GroupChatDetailsContent.qml:336
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2048,12 +2045,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Az értesítések némítása"
 
-#: src/qml/details/GroupChatDetailsContent.qml:350
+#: src/qml/details/GroupChatDetailsContent.qml:337
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:356
+#: src/qml/details/GroupChatDetailsContent.qml:343
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2061,32 +2058,32 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Az értesítések némítása"
 
-#: src/qml/details/GroupChatDetailsContent.qml:357
+#: src/qml/details/GroupChatDetailsContent.qml:344
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:370
+#: src/qml/details/GroupChatDetailsContent.qml:356
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:376
+#: src/qml/details/GroupChatDetailsContent.qml:362
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:377
+#: src/qml/details/GroupChatDetailsContent.qml:363
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:386
+#: src/qml/details/GroupChatDetailsContent.qml:372
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:392
+#: src/qml/details/GroupChatDetailsContent.qml:378
 #, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2094,13 +2091,13 @@ msgctxt ""
 msgid "The group %1 could not be left%2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:400
+#: src/qml/details/GroupChatDetailsContent.qml:386
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Törlés"
 
-#: src/qml/details/GroupChatDetailsContent.qml:401
+#: src/qml/details/GroupChatDetailsContent.qml:387
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
@@ -2109,13 +2106,13 @@ msgstr ""
 "szerverről.\n"
 "Többé nem fogja tudni használni fiókját!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:410
+#: src/qml/details/GroupChatDetailsContent.qml:396
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Fiók eltávolítása az alkalmazásból"
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:402
 #, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2198,28 +2195,28 @@ msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:70
+#: src/qml/details/MediaOverview.qml:69
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:87
+#: src/qml/details/MediaOverview.qml:85
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:105
+#: src/qml/details/MediaOverview.qml:102
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:172
+#: src/qml/details/MediaOverview.qml:169
 #, qt-format
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:255
+#: src/qml/details/MediaOverview.qml:252
 #, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
@@ -2244,24 +2241,24 @@ msgid ""
 "read or modify the data that is synchronized across your devices."
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:50
+#: src/qml/details/NotesChatDetailsContent.qml:49
 #, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Eltávolít"
 
-#: src/qml/details/NotesChatDetailsContent.qml:55
+#: src/qml/details/NotesChatDetailsContent.qml:54
 #, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Eltávolít"
 
-#: src/qml/details/NotesChatDetailsContent.qml:56
+#: src/qml/details/NotesChatDetailsContent.qml:55
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:64
+#: src/qml/details/NotesChatDetailsContent.qml:63
 #, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
@@ -2282,24 +2279,24 @@ msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
 msgstr ""
 
-#: src/qml/details/ProviderChatDetailsContent.qml:26
+#: src/qml/details/ProviderChatDetailsContent.qml:25
 #, fuzzy
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removal"
 msgstr "Eltávolít"
 
-#: src/qml/details/ProviderChatDetailsContent.qml:31
+#: src/qml/details/ProviderChatDetailsContent.qml:30
 #, fuzzy
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove"
 msgstr "Eltávolít"
 
-#: src/qml/details/ProviderChatDetailsContent.qml:32
+#: src/qml/details/ProviderChatDetailsContent.qml:31
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/ProviderChatDetailsContent.qml:40
+#: src/qml/details/ProviderChatDetailsContent.qml:39
 #, fuzzy
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
@@ -2361,42 +2358,42 @@ msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Jelszó módosítása"
 
-#: src/qml/details/UserDevicesArea.qml:27
+#: src/qml/details/UserDevicesArea.qml:26
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:19
+#: src/qml/elements/AboutContent.qml:17
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:20
+#: src/qml/elements/AboutContent.qml:18
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:26
+#: src/qml/elements/AboutContent.qml:24
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:27
+#: src/qml/elements/AboutContent.qml:25
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:33
+#: src/qml/elements/AboutContent.qml:31
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:34
+#: src/qml/elements/AboutContent.qml:32
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:40
+#: src/qml/elements/AboutContent.qml:38
 #, fuzzy
 #| msgctxt "AboutDialog|"
 #| msgid "Report problems"
@@ -2404,12 +2401,12 @@ msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Problémák jelentése"
 
-#: src/qml/elements/AboutContent.qml:41
+#: src/qml/elements/AboutContent.qml:39
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:47
+#: src/qml/elements/AboutContent.qml:45
 #, fuzzy
 #| msgctxt "AboutDialog|"
 #| msgid "View source code online"
@@ -2417,7 +2414,7 @@ msgctxt "AboutContent|"
 msgid "View source code"
 msgstr "Forráskód megtekintése az interneten"
 
-#: src/qml/elements/AboutContent.qml:48
+#: src/qml/elements/AboutContent.qml:46
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
@@ -2453,32 +2450,86 @@ msgctxt "AccountSelectionDialog|"
 msgid "Feature unsupported"
 msgstr ""
 
+#: src/qml/elements/BlockingReportContent.qml:34
+msgctxt "BlockingReportContent|"
+msgid "Report"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutDialog|"
+#| msgid "Report problems"
+msgctxt "BlockingReportContent|"
+msgid "Report spam or abuse"
+msgstr "Problémák jelentése"
+
+#: src/qml/elements/BlockingReportContent.qml:47
+msgctxt "BlockingReportContent|"
+msgid "Reason"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:55
+msgctxt "BlockingReportContent|"
+msgid "Spam"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:56
+msgctxt "BlockingReportContent|"
+msgid "Unsolicited messages, often sent in bulk"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:60
+msgctxt "BlockingReportContent|"
+msgid "Abuse"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:61
+msgctxt "BlockingReportContent|"
+msgid "Harassing, threatening, or otherwise abusive behavior"
+msgstr ""
+
+#: src/qml/elements/BlockingReportContent.qml:70
+msgctxt "BlockingReportContent|"
+msgid "Description (optional)"
+msgstr ""
+
+#: src/qml/elements/BlockingReportDialog.qml:25
+#: src/qml/elements/BlockingReportDialog.qml:29
+msgctxt "BlockingReportDialog|"
+msgid "Block and report"
+msgstr ""
+
+#: src/qml/elements/BlockingReportDialog.qml:36
+msgctxt "BlockingReportDialog|"
+msgid "Report the selected message and block its sender"
+msgstr ""
+
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:227
+#: src/qml/elements/ChatMessage.qml:229
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:234
+#: src/qml/elements/ChatMessage.qml:236
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:234
+#: src/qml/elements/ChatMessage.qml:236
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:523
+#: src/qml/elements/ChatMessage.qml:525
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:551
+#: src/qml/elements/ChatMessage.qml:553
 #, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
@@ -2537,6 +2588,11 @@ msgid "Mark"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:181
+msgctxt "ChatMessageContextMenu|"
+msgid "Block and report"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:197
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Remove from this app"
@@ -2661,7 +2717,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Spoiler üzenet küldése"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:46
+#: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr ""
@@ -2948,37 +3004,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:37
+#: src/qml/elements/GroupChatCreationContent.qml:36
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:51
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:54
+#: src/qml/elements/GroupChatCreationContent.qml:53
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:56
+#: src/qml/elements/GroupChatCreationContent.qml:55
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:65
+#: src/qml/elements/GroupChatCreationContent.qml:63
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:73
+#: src/qml/elements/GroupChatCreationContent.qml:71
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:90
+#: src/qml/elements/GroupChatCreationContent.qml:87
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
@@ -2986,7 +3042,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:94
+#: src/qml/elements/GroupChatCreationContent.qml:91
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2994,7 +3050,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:98
+#: src/qml/elements/GroupChatCreationContent.qml:95
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -3041,12 +3097,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:50
+#: src/qml/elements/GroupChatJoiningContent.qml:49
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:61
+#: src/qml/elements/GroupChatJoiningContent.qml:59
 #, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -3142,12 +3198,12 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
 msgstr ""
 
-#: src/qml/elements/KeyAuthenticationPage.qml:156
+#: src/qml/elements/KeyAuthenticationPage.qml:155
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
 msgstr ""
 
-#: src/qml/elements/KeyAuthenticationPage.qml:160
+#: src/qml/elements/KeyAuthenticationPage.qml:159
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr ""
@@ -3564,46 +3620,46 @@ msgctxt "RosterFilterArea|"
 msgid "Public groups"
 msgstr "Keresés"
 
-#: src/qml/elements/RosterFilterArea.qml:52
+#: src/qml/elements/RosterFilterArea.qml:51
 #, fuzzy
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
 msgstr "Fiók törlése"
 
-#: src/qml/elements/RosterFilterArea.qml:53
+#: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
 msgstr ""
 
-#: src/qml/elements/RosterFilterArea.qml:114
+#: src/qml/elements/RosterFilterArea.qml:112
 #, fuzzy
 msgctxt "RosterFilterArea|"
 msgid "Filter by accounts"
 msgstr "Fiók törlése"
 
-#: src/qml/elements/RosterFilterArea.qml:115
+#: src/qml/elements/RosterFilterArea.qml:113
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
 msgstr ""
 
-#: src/qml/elements/RosterFilterArea.qml:176
+#: src/qml/elements/RosterFilterArea.qml:173
 #, fuzzy
 msgctxt "RosterFilterArea|"
 msgid "Filter by labels"
 msgstr "Fiók törlése"
 
-#: src/qml/elements/RosterFilterArea.qml:177
+#: src/qml/elements/RosterFilterArea.qml:174
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:127
+#: src/qml/elements/RosterItemDelegate.qml:126
 #, fuzzy
 msgctxt "RosterItemDelegate|"
 msgid "Deleted"
 msgstr "Törlés"
 
-#: src/qml/elements/RosterItemDelegate.qml:141
+#: src/qml/elements/RosterItemDelegate.qml:140
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Compose message"
@@ -3611,28 +3667,28 @@ msgctxt "RosterItemDelegate|"
 msgid "No messages yet"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/RosterItemDelegate.qml:157
+#: src/qml/elements/RosterItemDelegate.qml:156
 msgctxt "RosterItemDelegate|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:160
+#: src/qml/elements/RosterItemDelegate.qml:159
 msgctxt "RosterItemDelegate|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:164
+#: src/qml/elements/RosterItemDelegate.qml:163
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:289
+#: src/qml/elements/RosterItemDelegate.qml:288
 msgctxt "RosterItemDelegate|"
 msgid "Unpin"
 msgstr ""
 
-#: src/qml/elements/RosterItemDelegate.qml:289
+#: src/qml/elements/RosterItemDelegate.qml:288
 msgctxt "RosterItemDelegate|"
 msgid "Pin"
 msgstr ""
@@ -3681,7 +3737,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Fiók törlése"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:118
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -3689,7 +3745,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Jelszó:"
 
-#: src/qml/GlobalDrawer.qml:120
+#: src/qml/GlobalDrawer.qml:119
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -3697,7 +3753,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:128
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -3705,27 +3761,27 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Jelszó módosítása"
 
-#: src/qml/GlobalDrawer.qml:170
+#: src/qml/GlobalDrawer.qml:168
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:174
+#: src/qml/GlobalDrawer.qml:172
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:174
+#: src/qml/GlobalDrawer.qml:172
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:179
+#: src/qml/GlobalDrawer.qml:177
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:186
+#: src/qml/GlobalDrawer.qml:184
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -3733,27 +3789,27 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Csevegés címe:"
 
-#: src/qml/GlobalDrawer.qml:193
+#: src/qml/GlobalDrawer.qml:191
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:193
+#: src/qml/GlobalDrawer.qml:191
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:219
+#: src/qml/GlobalDrawer.qml:217
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:219
+#: src/qml/GlobalDrawer.qml:217
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:246
+#: src/qml/GlobalDrawer.qml:244
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search"
@@ -3761,35 +3817,37 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Keresés"
 
-#: src/qml/GlobalDrawer.qml:260
+#: src/qml/GlobalDrawer.qml:258
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:484
+#: src/qml/main.qml:182
 #, qt-format
-msgctxt "GlobalDrawer|%1 is a JID"
+msgctxt "main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:484
-msgctxt "GlobalDrawer|"
+#: src/qml/main.qml:182
+msgctxt "main|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:491
+#: src/qml/main.qml:189
 #, fuzzy, qt-format
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
-msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
+msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Fiók törlése teljesen"
 
-#: src/qml/GlobalDrawer.qml:495
-#, qt-format
-msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
+#: src/qml/main.qml:193
+#, fuzzy, qt-format
+#| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#| msgid "Delete account completely"
+msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Fiók törlése teljesen"
 
 #: src/qml/QrCodeOnboardingPage.qml:27
 #, fuzzy
@@ -3827,12 +3885,12 @@ msgid ""
 "Show login QR code"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:100
+#: src/qml/QrCodeOnboardingPage.qml:99
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr ""
@@ -3852,12 +3910,12 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:93
+#: src/qml/registration/AutomaticRegistrationPage.qml:92
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:132
+#: src/qml/registration/AutomaticRegistrationPage.qml:129
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
@@ -3898,32 +3956,32 @@ msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "Jelenlegi jelszó:"
 
-#: src/qml/registration/ManualRegistrationPage.qml:68
+#: src/qml/registration/ManualRegistrationPage.qml:67
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:76
+#: src/qml/registration/ManualRegistrationPage.qml:75
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:80
+#: src/qml/registration/ManualRegistrationPage.qml:79
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:140
+#: src/qml/registration/ManualRegistrationPage.qml:139
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:189
+#: src/qml/registration/ManualRegistrationPage.qml:188
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:193
+#: src/qml/registration/ManualRegistrationPage.qml:192
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
@@ -4068,7 +4126,7 @@ msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:50
+#: src/qml/registration/WebRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "AccountDeletionPage|"
 #| msgid "Delete account"
@@ -4076,29 +4134,29 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
 msgstr "Fiók törlése"
 
-#: src/qml/registration/WebRegistrationPage.qml:54
+#: src/qml/registration/WebRegistrationPage.qml:52
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:55
+#: src/qml/registration/WebRegistrationPage.qml:53
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:60
+#: src/qml/registration/WebRegistrationPage.qml:58
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:61
+#: src/qml/registration/WebRegistrationPage.qml:59
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:71
+#: src/qml/registration/WebRegistrationPage.qml:69
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr ""
@@ -4131,12 +4189,12 @@ msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr ""
 
-#: src/qml/StartPage.qml:104
+#: src/qml/StartPage.qml:99
 msgctxt "StartPage|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/StartPage.qml:108
+#: src/qml/StartPage.qml:103
 #, fuzzy
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -4144,7 +4202,7 @@ msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Fiók törlése teljesen"
 
-#: src/qml/StartPage.qml:113
+#: src/qml/StartPage.qml:108
 #, fuzzy
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -4245,6 +4303,13 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr ""
+
+#, fuzzy
+#~| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~| msgid "Delete account completely"
+#~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "Fiók törlése teljesen"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
