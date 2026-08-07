@@ -43,7 +43,7 @@ QXmppTask<void> RosterStorage::upsertItem(const QString &version, const QXmppRos
     RosterItem rosterItem{accountJid, item};
     rosterItem.encryption = m_accountSettings->encryption();
 
-    return RosterDb::instance()->updateOrInsertItem(accountJid, version, std::move(rosterItem));
+    return RosterDb::instance()->updateOrAddItem(accountJid, version, std::move(rosterItem));
 }
 
 QXmppTask<void> RosterStorage::removeItem(const QString &version, const QString &bareJid)

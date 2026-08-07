@@ -147,10 +147,10 @@ QFuture<void> RosterDb::updateItem(const QString &accountJid, const QString &jid
     });
 }
 
-QXmppTask<void> RosterDb::updateOrInsertItem(const QString &accountJid, const QString &version, RosterItem item)
+QXmppTask<void> RosterDb::updateOrAddItem(const QString &accountJid, const QString &version, RosterItem item)
 {
     return runTask([this, accountJid, version, item]() mutable {
-        _upsertItem(accountJid, std::move(item));
+        _updateOrAddItem(accountJid, std::move(item));
         AccountDb::instance()->_updateRosterVersion(accountJid, version);
     });
 }
@@ -425,7 +425,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
     }
 }
 
-void RosterDb::_upsertItem(const QString &accountJid, RosterItem item)
+void RosterDb::_updateOrAddItem(const QString &accountJid, RosterItem item)
 {
     auto query = createQuery();
     execQuery(query,

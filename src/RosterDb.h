@@ -30,7 +30,7 @@ public:
     Q_SIGNAL void itemsReplaced(const QString &accountJid);
 
     QFuture<void> updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
-    QXmppTask<void> updateOrInsertItem(const QString &accountJid, const QString &version, RosterItem item);
+    QXmppTask<void> updateOrAddItem(const QString &accountJid, const QString &version, RosterItem item);
     Q_SIGNAL void itemAdded(const RosterItem &item);
     Q_SIGNAL void itemUpdated(const RosterItem &item);
 
@@ -65,7 +65,7 @@ private:
 
     void _addItem(RosterItem item);
     void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
-    void _upsertItem(const QString &accountJid, RosterItem item);
+    void _updateOrAddItem(const QString &accountJid, RosterItem item);
     void _replaceItems(const QString &accountJid, const QList<RosterItem> &items);
     void _removeItem(const QString &accountJid, const QString &jid);
     void _removeItems(const QString &accountJid);
