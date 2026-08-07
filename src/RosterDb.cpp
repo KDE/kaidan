@@ -450,7 +450,6 @@ void RosterDb::_updateOrAddItem(const QString &accountJid, RosterItem item)
             oldItem.groups = newItem.groups;
         });
     } else {
-        fetchLastMessage(item);
         _addItem(item);
     }
 }
