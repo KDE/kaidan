@@ -365,7 +365,7 @@ RosterItemDetailsContent {
 				icon.color: Kirigami.Theme.neutralTextColor
 			}
 			confirmationButton.onClicked: {
-				groupChatDeletionButton.confirmationButton.visible = false
+				groupChatDeletionButton.button.checked = false
 				root.chatController.account.groupChatController.leaveGroupChat(root.chatController.jid)
 			}
 			busy: root.chatController.account.groupChatController.busy
@@ -389,7 +389,7 @@ RosterItemDetailsContent {
 				icon.color: Kirigami.Theme.negativeTextColor
 			}
 			confirmationButton.onClicked: {
-				groupChatLeavingButton.confirmationButton.visible = false
+				groupChatLeavingButton.button.checked = false
 				root.chatController.account.groupChatController.deleteGroupChat(root.chatController.jid)
 			}
 			busy: root.chatController.account.groupChatController.busy
