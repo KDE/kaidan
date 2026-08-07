@@ -825,30 +825,8 @@ void Database::convertDatabaseToV23()
     execQuery(query, QStringLiteral("ALTER TABLE Roster RENAME TO roster_tmp"));
     execQuery(query, QStringLiteral("ALTER TABLE roster_tmp RENAME TO roster"));
 
-    // Remove the unused columns "lastExchanged" and "lastMessage".
-    execQuery(query,
-              SQL_CREATE_TABLE("roster_tmp",
-                               SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(subscription, SQL_INTEGER)
-                                   SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
-                                           SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL) SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)));
-
-    execQuery(query,
-              QStringLiteral("INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
-                             "lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition "
-                             " FROM roster"));
-
-    execQuery(query, QStringLiteral("DROP TABLE roster"));
-
-    execQuery(query,
-              SQL_CREATE_TABLE("roster",
-                               SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(subscription, SQL_INTEGER)
-                                   SQL_ATTRIBUTE(encryption, SQL_INTEGER) SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
-                                       SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT) SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
-                                           SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL) SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)));
-
-    execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
-    execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
+    execQuery(query, QStringLiteral("ALTER TABLE roster DROP COLUMN lastExchanged"));
+    execQuery(query, QStringLiteral("ALTER TABLE roster DROP COLUMN lastMessage"));
 
     // Use camelCase for all tables.
 
