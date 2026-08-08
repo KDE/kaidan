@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-07-22 10:02+0200\n"
+"PO-Revision-Date: 2026-08-07 12:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1622,9 +1622,6 @@ msgid "Indicate which messages you have read"
 msgstr "Indica quins missatges heu llegit"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Desbloqueja"
@@ -1633,7 +1630,7 @@ msgstr "Desbloqueja"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloqueja i informa"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1644,17 +1641,17 @@ msgstr "Bloqueja"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Desbloqueja este contacte"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Bloqueja i informa (de manera opcional) este contacte"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr ""
+msgstr "Bloqueja este contacte"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2310,64 +2307,55 @@ msgid "Feature unsupported"
 msgstr "Característica no admesa"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|"
 msgid "Report"
-msgstr "Assistència"
+msgstr "Informa"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Informeu de problemes"
+msgstr "Informeu de brossa o abús"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "Motiu"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "Brossa"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "Missatges no sol·licitats, sovint enviats a l'engròs"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "Abús"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "Assetjament, amenaces o altres comportaments abusius"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Descripció"
+msgstr "Descripció (opcional)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloqueja i informa"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "Bloqueja el missatge seleccionat i bloqueja el seu remitent"
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2453,7 +2441,7 @@ msgstr "Marca"
 #: src/qml/elements/ChatMessageContextMenu.qml:181
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloqueja i informa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:197
 msgctxt "ChatMessageContextMenu|"
@@ -3558,33 +3546,24 @@ msgid "About"
 msgstr "Quant a"
 
 #: src/qml/main.qml:182
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 desbloquejat"
 
 #: src/qml/main.qml:182
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "main|"
 msgid "Undo"
 msgstr "Desfés"
 
 #: src/qml/main.qml:189
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "No s'ha pogut bloquejar %1: %2"
 
 #: src/qml/main.qml:193
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "No s'ha pogut desbloquejar %1: %2"
@@ -4013,24 +3992,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Block all communication including status and notifications"
-#~ msgstr ""
-#~ "Bloqueja totes les comunicacions, incloent-hi l'estat i les notificacions"
-
-#~ msgctxt "GlobalDrawer|%1 is a JID"
-#~ msgid "Unblocked %1"
-#~ msgstr "%1 desbloquejat"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Undo"
-#~ msgstr "Desfés"
-
-#~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
-#~ msgid "Could not block %1: %2"
-#~ msgstr "No s'ha pogut bloquejar %1: %2"
-
-#~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
-#~ msgid "Could not unblock %1: %2"
-#~ msgstr "No s'ha pogut desbloquejar %1: %2"
