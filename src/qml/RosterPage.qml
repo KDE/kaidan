@@ -31,6 +31,7 @@ SearchBarPage {
 		IconButton {
 			text: qsTr("Filter")
 			icon.source: "filter-symbolic"
+			checked: filterModel.displayedTypes || filterModel.selectedAccountJids.length || filterModel.selectedGroups.length
 			onClicked: openView(rosterFilterDialog, rosterFilterPage)
 		},
 
