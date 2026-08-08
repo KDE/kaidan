@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-22 08:52+0300\n"
+"PO-Revision-Date: 2026-08-07 19:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-i18n-doc@kde.org>\n"
 "Language: tr\n"
@@ -3659,9 +3659,7 @@ msgid "About"
 msgstr "Hakkında"
 
 #: src/qml/GlobalDrawer.qml:484
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
@@ -3672,17 +3670,13 @@ msgid "Undo"
 msgstr "Geri Al"
 
 #: src/qml/GlobalDrawer.qml:491
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
