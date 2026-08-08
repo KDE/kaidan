@@ -351,8 +351,6 @@ void RosterDb::fetchMarkedMessageCount(RosterItem &item)
 
 void RosterDb::_addItem(RosterItem item)
 {
-    fetchUnreadMessageCount(item);
-    fetchMarkedMessageCount(item);
     Q_EMIT itemAdded(item);
 
     insert(QString::fromLatin1(DB_TABLE_ROSTER),
