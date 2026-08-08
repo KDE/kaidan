@@ -37,7 +37,7 @@ SearchBarPage {
 		IconButton {
 			id: pinButton
 			text: qsTr("Pin & Move")
-			icon.source: checked ? "starred-symbolic" : "non-starred-symbolic"
+			icon.source: "non-starred-symbolic"
 			checkable: true
 			onClicked: root.forceActiveFocus()
 		}
