@@ -609,12 +609,12 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Hier"
 
-#: src/MixController.cpp:104
+#: src/MixController.cpp:103
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Le groupe existe déjà."
 
-#: src/MixController.cpp:125
+#: src/MixController.cpp:124
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Whether %1 is public could not be determined: %2"
@@ -622,7 +622,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Il a été impossible de déterminer si %1 est public : %2"
 
-#: src/MixController.cpp:139
+#: src/MixController.cpp:138
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not retrieve information of group %1: %2"
@@ -630,7 +630,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Impossible de retrouver les informations du groupe %1 : %2"
 
-#: src/MixController.cpp:151 src/MixController.cpp:160
+#: src/MixController.cpp:150 src/MixController.cpp:159
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -638,17 +638,17 @@ msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Impossible de renommer le groupe %1 : %2"
 
-#: src/MixController.cpp:180
+#: src/MixController.cpp:179
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "Le groupe n'existe pas."
 
-#: src/MixController.cpp:183
+#: src/MixController.cpp:182
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Vous n'êtes pas autorisé à rejoindre le groupe"
 
-#: src/MixController.cpp:237 src/MixController.cpp:244
+#: src/MixController.cpp:236 src/MixController.cpp:243
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "%1 could not be invited to %2: %3"
@@ -657,7 +657,7 @@ msgctxt ""
 msgid "%1 could not be invited to %2: %3"
 msgstr "Il a été impossible d'inviter %1 à %2 : %3"
 
-#: src/MixController.cpp:272
+#: src/MixController.cpp:271
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Nodes of %1 could not be retrieved: %2"
@@ -665,7 +665,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Il a été impossible de retrouver les nœuds de %1 : %2"
 
-#: src/MixController.cpp:280
+#: src/MixController.cpp:279
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Allowed users of %1 could not be retrieved: %2"
@@ -674,7 +674,7 @@ msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr ""
 "Il a été impossible de retrouver les utilisateurs autorisés pour %1 : %2"
 
-#: src/MixController.cpp:295
+#: src/MixController.cpp:294
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Banned users of %1 could not be retrieved: %2"
@@ -682,7 +682,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Il a été impossible de retrouver les utilisateurs bannis de %1 : %2"
 
-#: src/MixController.cpp:311
+#: src/MixController.cpp:310
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Joined users of %1 could not be retrieved: %2"
@@ -691,7 +691,7 @@ msgid "Joined users of %1 could not be retrieved: %2"
 msgstr ""
 "Il a été impossible de retrouver les utilisateurs ayant rejoint %1 : %2"
 
-#: src/MixController.cpp:326
+#: src/MixController.cpp:325
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "%1 could not be banned from %2: %3"
@@ -699,7 +699,7 @@ msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Il a été impossible de bannir %1 de %2 : %3"
 
-#: src/MixController.cpp:371
+#: src/MixController.cpp:370
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Vous n'êtes pas autorisé à supprimer le groupe"
@@ -3833,9 +3833,6 @@ msgid "Unblocked %1"
 msgstr "%1 débloqué"
 
 #: src/qml/main.qml:182
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "main|"
 msgid "Undo"
 msgstr "Annuler"
@@ -4157,13 +4154,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Étape 2 : se connecter à votre compte enregistré"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
-#: src/qml/RosterPage.qml:230
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtrer"
 
-#: src/qml/RosterPage.qml:39
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Épingler et déplacer"

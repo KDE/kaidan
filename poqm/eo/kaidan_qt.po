@@ -670,12 +670,12 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
-#: src/MixController.cpp:104
+#: src/MixController.cpp:103
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "La grupo jam ekzistas"
 
-#: src/MixController.cpp:125
+#: src/MixController.cpp:124
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Whether %1 is public could not be determined: %2"
@@ -683,7 +683,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Ĉu %1 estas publika ne povis esti taksita: %2"
 
-#: src/MixController.cpp:139
+#: src/MixController.cpp:138
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -691,7 +691,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Ne eblis alinomi grupon %1: %2"
 
-#: src/MixController.cpp:151 src/MixController.cpp:160
+#: src/MixController.cpp:150 src/MixController.cpp:159
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -699,17 +699,17 @@ msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Ne eblis alinomi grupon %1: %2"
 
-#: src/MixController.cpp:180
+#: src/MixController.cpp:179
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr ""
 
-#: src/MixController.cpp:183
+#: src/MixController.cpp:182
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:237 src/MixController.cpp:244
+#: src/MixController.cpp:236 src/MixController.cpp:243
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "%1 could not be invited to %2: %3"
@@ -718,7 +718,7 @@ msgctxt ""
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 ne povis esti invitita al %2: %3"
 
-#: src/MixController.cpp:272
+#: src/MixController.cpp:271
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Nodes of %1 could not be retrieved: %2"
@@ -726,7 +726,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Nodoj de %1 ne povis esti akiritaj: %2"
 
-#: src/MixController.cpp:280
+#: src/MixController.cpp:279
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Allowed users of %1 could not be retrieved: %2"
@@ -734,7 +734,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Permesitaj uzantoj de %1 ne povis esti akiritaj: %2"
 
-#: src/MixController.cpp:295
+#: src/MixController.cpp:294
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Banned users of %1 could not be retrieved: %2"
@@ -742,7 +742,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Forbaritaj uzantoj de %1 ne povis esti akiritaj: %2"
 
-#: src/MixController.cpp:311
+#: src/MixController.cpp:310
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Joined users of %1 could not be retrieved: %2"
@@ -750,7 +750,7 @@ msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Aliĝintaj uzantoj de %1 ne povis esti akiritaj: %2"
 
-#: src/MixController.cpp:326
+#: src/MixController.cpp:325
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "%1 could not be banned from %2: %3"
@@ -758,7 +758,7 @@ msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 ne povis esti forbarita de %2: %3"
 
-#: src/MixController.cpp:371
+#: src/MixController.cpp:370
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
@@ -4310,13 +4310,13 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
 msgstr "Paŝo 2: Ensaluti per via registrita konto"
 
-#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
-#: src/qml/RosterPage.qml:230
+#: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:218
+#: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Filtri"
 
-#: src/qml/RosterPage.qml:39
+#: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
 msgstr "Pingli & Movi"
