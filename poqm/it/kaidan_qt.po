@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-24 13:47+0200\n"
+"PO-Revision-Date: 2026-08-08 08:03+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1614,9 +1614,6 @@ msgid "Indicate which messages you have read"
 msgstr "Indica quali messaggi hai letto"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Sblocca"
@@ -1625,7 +1622,7 @@ msgstr "Sblocca"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blocca e segnala"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1636,20 +1633,17 @@ msgstr "Blocca"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Sblocca questo contatto"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Blocca e (facoltativamente) segnala questo contatto"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Cerca contatti"
+msgstr "Blocca questo contatto"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2302,64 +2296,55 @@ msgid "Feature unsupported"
 msgstr "Funzionalità non supportata"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|"
 msgid "Report"
-msgstr "Supporto"
+msgstr "Segnala"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Segnala problemi"
+msgstr "Segnala spam o abuso"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "Motivo"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "Messaggi non richiesti, spesso inviati in massa"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "Abuso"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "Comportamenti molesti, minacciosi o comunque offensivi"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Descrizione"
+msgstr "Descrizione (facoltativa)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blocca e segnala"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "Segnala il messaggio selezionato e blocca il mittente."
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2445,7 +2430,7 @@ msgstr "Contrassegna"
 #: src/qml/elements/ChatMessageContextMenu.qml:181
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blocca e segnala"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:197
 msgctxt "ChatMessageContextMenu|"
@@ -3550,33 +3535,24 @@ msgid "About"
 msgstr "Informazioni"
 
 #: src/qml/main.qml:182
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Sbloccato %1"
 
 #: src/qml/main.qml:182
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "main|"
 msgid "Undo"
 msgstr "Annulla"
 
 #: src/qml/main.qml:189
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Impossibile bloccare %1: %2"
 
 #: src/qml/main.qml:193
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Impossibile sbloccare %1: %2"
