@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/Account.cpp:478
 msgctxt "Connection|"
@@ -111,9 +111,7 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Nepavyko perkelti paskyros: Turite būti prisijungę prie interneto"
 
 #: src/AccountMigrationController.cpp:385
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "Paskyra „%1“ perkelta į „%2“"
@@ -144,17 +142,13 @@ msgid "Devices on Servers"
 msgstr "Įrenginiai serveriuose"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 rašo…"
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 nustojo rašyti"
@@ -286,9 +280,7 @@ msgid "Media sharing is unsupported"
 msgstr "Medijos bendrinimas nepalaikomas"
 
 #: src/FileSharingController.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not upload file: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "Nepavyko išsiųsti failo: %1"
@@ -330,25 +322,19 @@ msgid "Banned"
 msgstr ""
 
 #: src/ImageProvider.cpp:124
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not copy invalid source to clipboard: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Nepavyko nukopijuoti netinkamo šaltinio į iškarpinę: %1"
 
 #: src/ImageProvider.cpp:302
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate thumbnail: %1 does not exist"
+#, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Nepavyko sukurti miniatiūros: %1 nėra"
 
 #: src/ImageProvider.cpp:356
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate QR code: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Nepavyko sukurti QR kodo: %1"
@@ -454,9 +440,7 @@ msgid "Documents"
 msgstr "Dokumentai"
 
 #: src/MediaUtils.cpp:446
-#, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
+#, qt-format
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -494,22 +478,18 @@ msgid "Unknown size"
 msgstr "Nežinomas dydis"
 
 #: src/MessageComposition.cpp:561
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "„%1“ negali būti išsiųstas, nes yra didesnis nei %2"
+msgstr "Balso žinutė negali būti išsiųsta, nes ji didesnė nei %2"
 
 #: src/MessageComposition.cpp:594
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr "„%1“ negali būti išsiųstas, nes yra didesnis nei %2"
+msgstr "„%1“ negali būti išsiųstas, nes jis didesnis nei %2"
 
 #: src/MessageController.cpp:278
 msgctxt "MessageController|"
@@ -528,9 +508,7 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
 #: src/MessageController.cpp:1017
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Nepavyko išsiųsti reakcijos: %1"
@@ -556,17 +534,13 @@ msgid "Error"
 msgstr "Klaida"
 
 #: src/MessageModel.cpp:606 src/MessageModel.cpp:703
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Nepavyko išsiųsti reakcijos: %1"
 
 #: src/MessageModel.cpp:788
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Nepavyko išsiųsti reakcijų: %1"
@@ -601,9 +575,7 @@ msgid "Could not retrieve information of group %1: %2"
 msgstr "Nepavyko pervadinti grupės %1: %2"
 
 #: src/MixController.cpp:150 src/MixController.cpp:159
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Nepavyko pervadinti grupės %1: %2"
@@ -1022,7 +994,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:369
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
-msgstr ""
+msgstr "Aplankyti internetinę svetainę"
 
 #: src/qml/details/AccountDetailsContent.qml:370
 msgctxt "AccountDetailsContent|"
@@ -1032,7 +1004,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:376
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
-msgstr ""
+msgstr "Kopijuoti internetinės svetainės adresą"
 
 #: src/qml/details/AccountDetailsContent.qml:377
 msgctxt "AccountDetailsContent|"
@@ -1042,7 +1014,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:381
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr ""
+msgstr "Internetinės svetainės adresas nukopijuotas į iškarpinę"
 
 #: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
@@ -1196,9 +1168,7 @@ msgid "Change password"
 msgstr "Keisti slaptažodį"
 
 #: src/qml/details/AccountDetailsContent.qml:758
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Failed to change password: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Nepavyko pakeisti slaptažodžio: %1"
@@ -1279,9 +1249,7 @@ msgid "Applying changes…"
 msgstr "Taikomai pakeitimai…"
 
 #: src/qml/details/AccountDetailsContent.qml:891
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection settings could not be changed: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nepavyko pakeisti ryšio nuostatų: %1"
@@ -1294,7 +1262,7 @@ msgstr "Ryšio nuostatos pakeistos"
 #: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr ""
+msgstr "Perjungti įrenginį"
 
 #: src/qml/details/AccountDetailsContent.qml:918
 msgctxt "AccountDetailsContent|"
@@ -1346,7 +1314,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:973
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
-msgstr ""
+msgstr "Tai gali šiek tiek užtrukti"
 
 #: src/qml/details/AccountDetailsContent.qml:973
 msgctxt "AccountDetailsContent|"
@@ -1359,12 +1327,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:994
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Šalinimas"
 
 #: src/qml/details/AccountDetailsContent.qml:1000
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
-msgstr ""
+msgstr "Šalinti iš Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:1001
 msgctxt "AccountDetailsContent|"
@@ -1376,12 +1344,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr ""
+msgstr "Šalinama paskyra…"
 
 #: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
-msgstr ""
+msgstr "Visiškai ištrinti"
 
 #: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
@@ -1392,7 +1360,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:1025
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr ""
+msgstr "Ištrinama paskyra…"
 
 #: src/qml/details/AccountDetailsContent.qml:1032
 #, qt-format
@@ -1609,34 +1577,34 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:170
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Atblokuoti"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Užblokuoti ir pranešti"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Užblokuoti"
 
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Atblokuoti šį adresatą"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Užblokuoti šį adresatą ir (pasirinktinai) apie jį pranešti"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr ""
+msgstr "Užblokuoti šį adresatą"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -1918,22 +1886,22 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:356
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
-msgstr ""
+msgstr "Išėjimas ir ištrynimas"
 
 #: src/qml/details/GroupChatDetailsContent.qml:362
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "Išeiti"
 
 #: src/qml/details/GroupChatDetailsContent.qml:363
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr ""
+msgstr "Išeiti iš grupės ir pašalinti visą pokalbio istoriją"
 
 #: src/qml/details/GroupChatDetailsContent.qml:372
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr ""
+msgstr "Išeinama iš grupės pokalbio…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:378
 #, fuzzy, qt-format
@@ -1948,17 +1916,17 @@ msgstr "Grupės nėra"
 #: src/qml/details/GroupChatDetailsContent.qml:386
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: src/qml/details/GroupChatDetailsContent.qml:387
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr ""
+msgstr "Ištrinti grupę. Daugiau niekas nebegalės prisijungti prie grupės!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:396
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr ""
+msgstr "Ištrinamas grupės pokalbis…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:402
 #, fuzzy, qt-format
@@ -1993,7 +1961,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsPage.qml:10
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr ""
+msgstr "Išsamiau apie grupę"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -2066,11 +2034,7 @@ msgid "%1/%2 selected"
 msgstr ""
 
 #: src/qml/details/MediaOverview.qml:252
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid ""
-#| "Not all files could be deleted:\n"
-#| "%1"
+#, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2315,12 +2279,9 @@ msgid "Harassing, threatening, or otherwise abusive behavior"
 msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Aprašas"
+msgstr "Aprašas (nebūtinas)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
@@ -2344,20 +2305,14 @@ msgid "Spoiler"
 msgstr "„Spoileris“"
 
 #: src/qml/elements/ChatMessage.qml:236
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Pridėti paslėptą žinutės dalį"
+msgstr "Slėpti paslėptą žinutės dalį"
 
 #: src/qml/elements/ChatMessage.qml:236
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Pridėti paslėptą žinutės dalį"
+msgstr "Rodyti paslėptą žinutės dalį"
 
 #: src/qml/elements/ChatMessage.qml:525
 msgctxt "ChatMessage|"
@@ -2447,12 +2402,9 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:172
 #: src/qml/elements/ChatPageSendingPane.qml:614
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "Atsisakyta"
+msgstr "Atsisakyti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:172
 msgctxt "ChatPageSendingPane|"
@@ -2559,12 +2511,9 @@ msgid "Adding contact…"
 msgstr "Pridedamas adresatas…"
 
 #: src/qml/elements/ContactAdditionContent.qml:99
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Vardas (nebūtinas):"
+msgstr "Vardas (nebūtinas)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2640,12 +2589,9 @@ msgid "Enter a valid hostname or leave it empty"
 msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Prievadas:"
+msgstr "Prievadas"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2667,55 +2613,52 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr ""
+msgstr "Mėgstami"
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr ""
+msgstr "Žmonės"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
 msgid "Nature"
-msgstr ""
+msgstr "Gamta"
 
 #: src/qml/elements/EmojiPicker.qml:71
 msgctxt "EmojiPicker|"
 msgid "Food"
-msgstr ""
+msgstr "Maistas"
 
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr ""
+msgstr "Veikla"
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
 msgid "Travel"
-msgstr ""
+msgstr "Kelionės"
 
 #: src/qml/elements/EmojiPicker.qml:89
-#, fuzzy
-#| msgctxt "NotificationController|"
-#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "Atmesti"
+msgstr "Objektai"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
 msgid "Symbols"
-msgstr ""
+msgstr "Simboliai"
 
 #: src/qml/elements/EmojiPicker.qml:101
 msgctxt "EmojiPicker|"
 msgid "Flags"
-msgstr ""
+msgstr "Vėliavos"
 
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "Nerasta jokių jaustukų"
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2798,9 +2741,6 @@ msgid "Creating group chat…"
 msgstr "Kuriamas grupės pokalbis…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Grupės pavadinimas (nebūtinas)"
@@ -2839,12 +2779,9 @@ msgid "Service"
 msgstr "Įrenginiai"
 
 #: src/qml/elements/GroupChatCreationContent.qml:71
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Slapyvardis (nebūtinas):"
+msgstr "Slapyvardis (nebūtinas)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:87
 #, fuzzy, qt-format
@@ -2892,20 +2829,14 @@ msgid "Join"
 msgstr "Prisijungti"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Prisijungiama prie grupės pokalbio…"
+msgstr "Prisijungiama prie grupės…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Copy chat address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Kopijuoti pokalbio adresą"
+msgstr "Grupės adresas"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2921,12 +2852,9 @@ msgid "Enter a valid group address"
 msgstr "Privalote įvesti teikėjo adresą"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:49
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Slapyvardis (nebūtinas):"
+msgstr "Slapyvardis (nebūtinas)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:59
 #, fuzzy, qt-format
@@ -3059,17 +2987,11 @@ msgid "Connecting…"
 msgstr "Jungiamasi…"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pristabdyti"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Atkurti"
@@ -3080,20 +3002,14 @@ msgid "Close media viewer"
 msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Išsamiau apie teikėją"
+msgstr "Slėpti išsamesnę informaciją"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
-msgstr "Rodyti išsamiau"
+msgstr "Rodyti išsamesnę informaciją"
 
 #: src/qml/elements/MediaViewer.qml:122
 #, fuzzy
@@ -3104,20 +3020,14 @@ msgid "Go to message"
 msgstr "Kol kas nėra žinučių"
 
 #: src/qml/elements/MediaViewer.qml:129
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Šalinti"
 
 #: src/qml/elements/MediaViewer.qml:139
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Atverti failą aplanke"
+msgstr "Atverti aplanke"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
@@ -3130,20 +3040,14 @@ msgid "Message"
 msgstr "Žinutė"
 
 #: src/qml/elements/MediaViewer.qml:182
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Aprašas"
 
 #: src/qml/elements/MediaViewer.qml:200
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
-msgstr "Vardas"
+msgstr "Pavadinimas"
 
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
@@ -3417,32 +3321,32 @@ msgstr ""
 #: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
 msgid "Available contacts"
-msgstr ""
+msgstr "Prieinami adresatai"
 
 #: src/qml/elements/RosterFilterArea.qml:32
 msgctxt "RosterFilterArea|"
 msgid "Unavailable contacts"
-msgstr ""
+msgstr "Neprieinami adresatai"
 
 #: src/qml/elements/RosterFilterArea.qml:36
 msgctxt "RosterFilterArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "Privačios grupės"
 
 #: src/qml/elements/RosterFilterArea.qml:40
 msgctxt "RosterFilterArea|"
 msgid "Public groups"
-msgstr ""
+msgstr "Viešos grupės"
 
 #: src/qml/elements/RosterFilterArea.qml:51
 msgctxt "RosterFilterArea|"
 msgid "Filter by type"
-msgstr ""
+msgstr "Filtruoti pagal tipą"
 
 #: src/qml/elements/RosterFilterArea.qml:52
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
-msgstr ""
+msgstr "Rodyti tik konkretaus tipo įrašus"
 
 #: src/qml/elements/RosterFilterArea.qml:112
 msgctxt "RosterFilterArea|"
@@ -3513,7 +3417,7 @@ msgstr "Grįžti"
 #: src/qml/elements/UrlFormButtonDelegate.qml:26
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr ""
+msgstr "Kopijuoti saityno adresą"
 
 #: src/qml/elements/VideoRecordingDialog.qml:17
 msgctxt "VideoRecordingDialog|"
@@ -3617,28 +3521,21 @@ msgid "Unblocked %1"
 msgstr ""
 
 #: src/qml/main.qml:182
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "main|"
 msgid "Undo"
 msgstr "Atšaukti"
 
 #: src/qml/main.qml:189
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Nepavyko užblokuoti %1: %2"
 
 #: src/qml/main.qml:193
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
-msgstr "Nepavyko užblokuoti %1: %2"
+msgstr "Nepavyko atblokuoti %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:27
 msgctxt "QrCodeOnboardingPage|"
@@ -3756,12 +3653,12 @@ msgstr ""
 #: src/qml/registration/ManualRegistrationPage.qml:188
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "Naudotojo vardas jau užimtas."
 
 #: src/qml/registration/ManualRegistrationPage.qml:192
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "Sugeneruotas naujas atsitiktinis naudotojo vardas."
 
 #: src/qml/registration/ProviderPage.qml:22
 msgctxt "ProviderPage|"
@@ -3788,7 +3685,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:129
 msgctxt "ProviderPage|"
 msgid "Show connection settings"
-msgstr ""
+msgstr "Rodyti ryšio nuostatas"
 
 #: src/qml/registration/ProviderPage.qml:173
 msgctxt "ProviderPage|"
@@ -3798,7 +3695,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:178
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr ""
+msgstr "Kalbos"
 
 #: src/qml/registration/ProviderPage.qml:183
 msgctxt "ProviderPage|"
@@ -3931,12 +3828,12 @@ msgstr ""
 #: src/qml/RosterPage.qml:231
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "Filtruoti"
 
 #: src/qml/RosterPage.qml:40
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr ""
+msgstr "Prisegti ir perkelti"
 
 #: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
@@ -3946,7 +3843,7 @@ msgstr ""
 #: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
 msgid "Account Creation"
-msgstr ""
+msgstr "Paskyros sukūrimas"
 
 #: src/qml/StartPage.qml:51
 msgctxt "StartPage|"
