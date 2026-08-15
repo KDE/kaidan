@@ -112,9 +112,7 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Účet sa nepodarilo migrovať: Musíte byť pripojení"
 
 #: src/AccountMigrationController.cpp:386
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt "AccountMigrationController|%1 and %2 are account display names"
 msgid "Account '%1' migrated to '%2'"
 msgstr "Account '%1' migrated to '%2'"
@@ -145,17 +143,13 @@ msgid "Devices on Servers"
 msgstr "Zariadenia na serveroch"
 
 #: src/ChatController.cpp:176
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 is typing…"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 píše..."
 
 #: src/ChatController.cpp:178
-#, fuzzy, qt-format
-#| msgctxt "ChatController|"
-#| msgid "%1 paused typing"
+#, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 píše..."
@@ -197,11 +191,7 @@ msgid "Connecting…"
 msgstr "Pripájam..."
 
 #: src/ChatHintModel.cpp:260
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
 "with ': ' and is shown if the request has a status message, otherwise it is "
@@ -214,12 +204,7 @@ msgstr ""
 "osobné informácie%2"
 
 #: src/ChatHintModel.cpp:267
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 (%2) is %3 (%4) now and would like to receive your "
-#| "personal data such as availability, devices and other personal "
-#| "information again%5"
+#, qt-format
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
 "JIDs, %5 is appended text that begins with ': ' and is shown if the request "
@@ -298,9 +283,7 @@ msgid "Media sharing is unsupported"
 msgstr "Zdieľanie médií nie je podporované"
 
 #: src/FileSharingController.cpp:509
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Could not upload file: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Could not upload file: %1"
 msgstr "Nepodarilo sa uložiť súbor: %1"
@@ -332,9 +315,6 @@ msgid "Joined"
 msgstr "Pripojený"
 
 #: src/GroupChatUserModel.cpp:58
-#, fuzzy
-#| msgctxt "GroupChatUserModel|"
-#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "Odišiel"
@@ -345,25 +325,19 @@ msgid "Banned"
 msgstr "Zablokovaný"
 
 #: src/ImageProvider.cpp:124
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not copy invalid source to clipboard: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Nepodarilo sa skopírovať neplatný zdroj do schránky: %1"
 
 #: src/ImageProvider.cpp:302
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate thumbnail: %1 does not exist"
+#, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Nepodarilo sa vygenerovať miniatúru: %1 neexistuje"
 
 #: src/ImageProvider.cpp:356
-#, fuzzy, qt-format
-#| msgctxt "ImageProvider|"
-#| msgid "Could not generate QR code: %1"
+#, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
 msgstr "Nepodarilo sa uložiť súbor: %1"
@@ -469,9 +443,7 @@ msgid "Documents"
 msgstr "Dokumenty"
 
 #: src/MediaUtils.cpp:446
-#, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
+#, qt-format
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
@@ -493,9 +465,7 @@ msgid "Location"
 msgstr "Umiestnenie"
 
 #: src/Message.cpp:466
-#, fuzzy, qt-format
-#| msgctxt "Message|"
-#| msgid "Invitation to group %1"
+#, qt-format
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "Pozvánka do skupiny %1"
@@ -511,17 +481,13 @@ msgid "Unknown size"
 msgstr "Neznáma veľkosť"
 
 #: src/MessageComposition.cpp:561
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
-msgstr "„%1“ nemožno odoslať, pretože je väčší ako %2"
+msgstr "Hlasovú správu nie je možné odoslať, pretože je väčšia ako %2"
 
 #: src/MessageComposition.cpp:594
-#, fuzzy, qt-format
-#| msgctxt "FileSelectionModel|"
-#| msgid "'%1' cannot be sent because it is larger than %2"
+#, qt-format
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
 "(e.g. 5 MB)"
@@ -539,17 +505,13 @@ msgid "Message could not be sent."
 msgstr "Pripájam..."
 
 #: src/MessageController.cpp:617
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Táto správa je zašifrovaná pomocou %1, ale nepodarilo sa ju dešifrovať"
 
 #: src/MessageController.cpp:1021
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaction could not be sent: %1"
@@ -575,17 +537,13 @@ msgid "Error"
 msgstr "Chyba"
 
 #: src/MessageModel.cpp:595 src/MessageModel.cpp:692
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaction could not be sent: %1"
 
 #: src/MessageModel.cpp:777
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %1"
+#, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Reactions could not be sent: %1"
@@ -606,25 +564,19 @@ msgid "The group already exists"
 msgstr "Skupina už existuje"
 
 #: src/MixController.cpp:125
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Whether %1 is public could not be determined: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Whether %1 is public could not be determined: %2"
 
 #: src/MixController.cpp:139
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not retrieve information of group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "Nepodarilo sa získať informácie o skupine %1: %2"
 
 #: src/MixController.cpp:151 src/MixController.cpp:160
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Could not rename group %1: %2"
+#, qt-format
 msgctxt "MixController|%1 is the old channel JID, %2 is an error message"
 msgid "Could not rename group %1: %2"
 msgstr "Nepodarilo sa premenovať skupinu %1: %2"
@@ -640,50 +592,38 @@ msgid "You aren't allowed to join the group"
 msgstr "Nemáte povolenie pripojiť sa do skupiny"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be invited to %2: %3"
+#, qt-format
 msgctxt ""
 "MixController|%1 is a contact JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 could not be invited to %2: %3"
 
 #: src/MixController.cpp:272
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Nodes of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Nodes of %1 could not be retrieved: %2"
 
 #: src/MixController.cpp:280
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Allowed users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Allowed users of %1 could not be retrieved: %2"
 
 #: src/MixController.cpp:295
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Banned users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Banned users of %1 could not be retrieved: %2"
 
 #: src/MixController.cpp:311
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Joined users of %1 could not be retrieved: %2"
 
 #: src/MixController.cpp:326
-#, fuzzy, qt-format
-#| msgctxt "MixController|"
-#| msgid "%1 could not be banned from %2: %3"
+#, qt-format
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 could not be banned from %2: %3"
@@ -726,20 +666,14 @@ msgid "Mark as read"
 msgstr "Označiť ako prečítané"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Odpovedať"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Odpovedať"
+msgstr "Odpovedať…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -796,15 +730,13 @@ msgstr "Bez obmedzenia"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, fuzzy, qt-format
-#| msgctxt "ProviderModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%1 dní"
-msgstr[1] "%1 dní"
-msgstr[2] "%1 dní"
+msgstr[0] "%n deň"
+msgstr[1] "%n dni"
+msgstr[2] "%n dní"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -824,7 +756,7 @@ msgstr "Hovor"
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr ""
+msgstr "Ukončiť hovor"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
@@ -882,9 +814,7 @@ msgid "Drop files to be sent"
 msgstr "Presuňte súbory na odoslanie"
 
 #: src/qml/ChatPage.qml:918
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 bol odblokovaný"
@@ -895,25 +825,19 @@ msgid "Undo"
 msgstr "Vrátiť späť"
 
 #: src/qml/ChatPage.qml:925
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Could not block %1: %2"
 
 #: src/qml/ChatPage.qml:929
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "ChatPage|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Could not unblock %1: %2"
 
 #: src/qml/details/AccountDetailsContent.qml:21
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "You can share media up to %1."
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
 msgstr "Môžete zdieľať médiá do veľkosti %1."
@@ -1124,9 +1048,7 @@ msgid "Support"
 msgstr "Podpora"
 
 #: src/qml/details/AccountDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Podpora %1"
@@ -1142,9 +1064,7 @@ msgid "Join your provider's public support group"
 msgstr "Pripojiť sa k verejnej skupine podpory vášho poskytovateľa"
 
 #: src/qml/details/AccountDetailsContent.qml:451
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Skupinová podpora %1"
@@ -1260,9 +1180,6 @@ msgid "Enter your new password"
 msgstr "Zadajte vaše nové heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:717
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter different password to change it"
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Zadajte iné heslo, aby ste ho zmenili"
@@ -1273,9 +1190,7 @@ msgid "Change password"
 msgstr "Zmeniť heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:762
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Failed to change password: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Zmena hesla zlyhala: %1"
@@ -1364,9 +1279,7 @@ msgid "Applying changes…"
 msgstr "Používajú sa zmeny…"
 
 #: src/qml/details/AccountDetailsContent.qml:901
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection settings could not be changed: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Connection settings could not be changed: %1"
@@ -1487,11 +1400,7 @@ msgid "Deleting account…"
 msgstr "Odstraňuje sa účet…"
 
 #: src/qml/details/AccountDetailsContent.qml:1045
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -2018,9 +1927,7 @@ msgid "Leaving group chat…"
 msgstr "K dispozícii pre rozhovor"
 
 #: src/qml/details/GroupChatDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be left%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2043,9 +1950,7 @@ msgid "Deleting group chat…"
 msgstr "K dispozícii pre rozhovor"
 
 #: src/qml/details/GroupChatDetailsContent.qml:416
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt ""
 "GroupChatDetailsContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2147,19 +2052,13 @@ msgid "Other"
 msgstr "Iné"
 
 #: src/qml/details/MediaOverview.qml:172
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid "%1/%2 selected"
+#, qt-format
 msgctxt "MediaOverview|%1 and %2 are numbers"
 msgid "%1/%2 selected"
 msgstr "%1/%2 vybraných"
 
 #: src/qml/details/MediaOverview.qml:255
-#, fuzzy, qt-format
-#| msgctxt "MediaOverview|"
-#| msgid ""
-#| "Not all files could be deleted:\n"
-#| "%1"
+#, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2380,20 +2279,14 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Pridať skrytú časť správy"
+msgstr "Skryť skrytú časť správy"
 
 #: src/qml/elements/ChatMessage.qml:234
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Add hidden message part"
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
-msgstr "Pridať skrytú časť správy"
+msgstr "Zobraziť skrytú časť správy"
 
 #: src/qml/elements/ChatMessage.qml:523
 msgctxt "ChatMessage|"
@@ -2401,9 +2294,7 @@ msgid "New"
 msgstr "Nové"
 
 #: src/qml/elements/ChatMessage.qml:551
-#, fuzzy, qt-format
-#| msgctxt "ChatMessage|"
-#| msgid "%1 has read up to this point"
+#, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 prečítal/a až po tento bod"
@@ -2480,12 +2371,9 @@ msgstr "Zrušiť pridanie skrytej časti správy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 #: src/qml/elements/ChatPageSendingPane.qml:612
-#, fuzzy
-#| msgctxt "FileSharingController|"
-#| msgid "Canceled"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel"
-msgstr "Zrušené"
+msgstr "Zrušiť"
 
 #: src/qml/elements/ChatPageSendingPane.qml:170
 msgctxt "ChatPageSendingPane|"
@@ -2555,7 +2443,7 @@ msgstr "Viac"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr ""
+msgstr "Posuňte pre zrušenie"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2564,12 +2452,9 @@ msgid "Send"
 msgstr "Odoslať"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send a voice message"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
-msgstr "Odoslať hlasovú správu"
+msgstr "Nahrať hlasovú správu"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:46
 msgctxt "ConfirmationFormButtonArea|"
@@ -2592,12 +2477,9 @@ msgid "Adding contact…"
 msgstr "Pridáva sa kontakt…"
 
 #: src/qml/elements/ContactAdditionContent.qml:92
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
-msgstr "Meno (voliteľné):"
+msgstr "Meno (voliteľné)"
 
 #: src/qml/elements/ContactAdditionDialog.qml:17
 msgctxt "ContactAdditionDialog|"
@@ -2660,29 +2542,19 @@ msgid "Copy"
 msgstr "Kopírovať"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Názov hostiteľa:"
+msgstr "Názov hostiteľa"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Enter a valid username or leave the field empty for a random one"
 msgctxt "CustomConnectionSettings|"
 msgid "Enter a valid hostname or leave it empty"
-msgstr ""
-"Zadajte platné meno používateľa alebo ponechajte pole prázdne pre náhodné"
+msgstr "Zadajte platný názov hostiteľa alebo pole nechajte prázdne"
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "Port:"
+msgstr "Port"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2706,55 +2578,52 @@ msgstr "Niektoré funkcie budú viditeľné po aktivácii vášho účtu"
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr ""
+msgstr "Obľúbené"
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr ""
+msgstr "Ľudia"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
 msgid "Nature"
-msgstr ""
+msgstr "Príroda"
 
 #: src/qml/elements/EmojiPicker.qml:71
 msgctxt "EmojiPicker|"
 msgid "Food"
-msgstr ""
+msgstr "Jedlo"
 
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr ""
+msgstr "Aktivita"
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
 msgid "Travel"
-msgstr ""
+msgstr "Cestovanie"
 
 #: src/qml/elements/EmojiPicker.qml:89
-#, fuzzy
-#| msgctxt "NotificationController|"
-#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "Odmietnuť"
+msgstr "Objekty"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
 msgid "Symbols"
-msgstr ""
+msgstr "Symboly"
 
 #: src/qml/elements/EmojiPicker.qml:101
 msgctxt "EmojiPicker|"
 msgid "Flags"
-msgstr ""
+msgstr "Vlajky"
 
 #: src/qml/elements/EmojiPicker.qml:193
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
-msgstr ""
+msgstr "Nenašli sa žiadne emoji."
 
 #: src/qml/elements/fields/JidField.qml:18
 msgctxt "JidField|"
@@ -2767,17 +2636,11 @@ msgid "user@example.org"
 msgstr "pouzivatel@priklad.sk"
 
 #: src/qml/elements/fields/JidField.qml:20
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "JidField|"
 msgid "Enter a valid chat address"
-msgstr "Pridať kontakt cez adresu chatu"
+msgstr "Zadajte platnú adresu chatu"
 
 #: src/qml/elements/fields/PasswordField.qml:23
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Please enter a valid password"
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
 msgstr "Zadajte platné heslo"
@@ -2803,25 +2666,16 @@ msgid "Location"
 msgstr "Umiestnenie"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:20
-#, fuzzy
-#| msgctxt "GeoLocationSharingDialog|"
-#| msgid "Share Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Share location"
-msgstr "Umiestnenie"
+msgstr "Zdieľať polohu"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:46
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "How to open locations"
 msgctxt "GeoLocationSharingPage|"
 msgid "Follow current location"
-msgstr "Ako otvárať polohy"
+msgstr "Sledovať aktuálnu polohu"
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Odoslať polohu"
@@ -2837,9 +2691,6 @@ msgid "Creating group chat…"
 msgstr "Vytvára sa skupinový chat…"
 
 #: src/qml/elements/GroupChatCreationContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group Name (optional)"
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Názov skupiny (voliteľné)"
@@ -2870,25 +2721,17 @@ msgid "Enter a valid group ID"
 msgstr "Zadajte platné ID skupiny"
 
 #: src/qml/elements/GroupChatCreationContent.qml:65
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Zariadenia"
+msgstr "Služba"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "Prezývka"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group could not be created on %1%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2896,9 +2739,7 @@ msgid "The group could not be created on %1%2"
 msgstr "The group could not be created on %1%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:94
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be created%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2906,9 +2747,7 @@ msgid "The group %1 could not be created%2"
 msgstr "The group %1 could not be created%2"
 
 #: src/qml/elements/GroupChatCreationContent.qml:98
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -2931,20 +2770,14 @@ msgid "Join"
 msgstr "Pripojiť sa"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:21
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Joining group chat…"
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
-msgstr "Pripája sa ku skupinovému chatu…"
+msgstr "Pripája sa ku skupine…"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
-#, fuzzy
-#| msgctxt "UrlFormButtonDelegate|"
-#| msgid "Copy web address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "Kopírovať webovú adresu"
+msgstr "Adresa skupiny"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
@@ -2952,25 +2785,17 @@ msgid "group@groups.example.org"
 msgstr "skupina@skupiny.priklad.sk"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:28
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Enter a valid group ID"
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
-msgstr "Zadajte platné ID skupiny"
+msgstr "Zadajte platnú adresu skupiny"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:50
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Nickname (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr "Prezývka"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
-#, fuzzy, qt-format
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "The group %1 could not be joined%2"
+#, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
 "followed by an error message"
@@ -3013,9 +2838,6 @@ msgid "Take a picture"
 msgstr "Odfotiť"
 
 #: src/qml/elements/ImageCaptureDialog.qml:24
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take picture"
 msgstr "Odfotiť"
@@ -3098,89 +2920,61 @@ msgid "Connecting…"
 msgstr "Pripájam..."
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Pause"
 msgctxt "MediaPlayerControl|"
 msgid "Pause"
 msgstr "Pozastaviť"
 
 #: src/qml/elements/MediaPlayerControl.qml:33
-#, fuzzy
-#| msgctxt "Audio|"
-#| msgid "Play"
 msgctxt "MediaPlayerControl|"
 msgid "Play"
 msgstr "Prehrať"
 
 #: src/qml/elements/MediaViewer.qml:92
-#, fuzzy
-#| msgctxt "ProviderPage|"
-#| msgid "Choose a Provider"
 msgctxt "MediaViewer|"
 msgid "Close media viewer"
-msgstr "Vybrať súbor"
+msgstr "Zatvoriť prehliadač médií"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "ProviderChatDetailsDialog|"
-#| msgid "Provider Details"
 msgctxt "MediaViewer|"
 msgid "Hide details"
-msgstr "Podrobnosti poskytovateľa"
+msgstr "Skryť podrobnosti"
 
 #: src/qml/elements/MediaViewer.qml:116
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "MediaViewer|"
 msgid "Show details"
 msgstr "Zobraziť podrobnosti"
 
 #: src/qml/elements/MediaViewer.qml:122
-#, fuzzy
 msgctxt "MediaViewer|"
 msgid "Go to message"
-msgstr "Vybrať obrázok"
+msgstr "Prejsť na správu"
 
 #: src/qml/elements/MediaViewer.qml:129
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "MediaViewer|"
 msgid "Remove"
 msgstr "Vybrať súbor"
 
 #: src/qml/elements/MediaViewer.qml:139
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open file in folder"
 msgctxt "MediaViewer|"
 msgid "Open in folder"
-msgstr "Vybrať súbor"
+msgstr "Otvoriť v priečinku"
 
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr ""
+msgstr "Otvoriť externe"
 
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr ""
+msgstr "Správa"
 
 #: src/qml/elements/MediaViewer.qml:182
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Description"
 msgctxt "MediaViewer|"
 msgid "Description"
 msgstr "Popis"
 
 #: src/qml/elements/MediaViewer.qml:200
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Name"
 msgctxt "MediaViewer|"
 msgid "Name"
 msgstr "Názov"
@@ -3188,22 +2982,22 @@ msgstr "Názov"
 #: src/qml/elements/MediaViewer.qml:218
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr ""
+msgstr "Veľkosť"
 
 #: src/qml/elements/MediaViewer.qml:225
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr ""
+msgstr "Odoslané/Prijaté"
 
 #: src/qml/elements/MediaViewer.qml:259
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr ""
+msgstr "Predchádzajúce"
 
 #: src/qml/elements/MediaViewer.qml:266
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr ""
+msgstr "Nasledujúce"
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3236,12 +3030,9 @@ msgid "Show details"
 msgstr "Zobraziť podrobnosti"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:112
-#, fuzzy
-#| msgctxt "MessageReactionAdditionButton|"
-#| msgid "Add reaction…"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Add same reaction"
-msgstr "Pridať reakciu…"
+msgstr "Pridať rovnakú reakciu"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3369,9 +3160,7 @@ msgid "Organization"
 msgstr "Organizácia"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt ""
 "PublicGroupChatSearchDialog|%1 is 'number of visible groups/total number of "
 "groups', e.g. '5/20'"
@@ -3389,9 +3178,7 @@ msgid "Retry"
 msgstr "Skúsiť znovu"
 
 #: src/qml/elements/PublicGroupChatSearchDialog.qml:179
-#, fuzzy, qt-format
-#| msgctxt "PublicGroupChatSearchDialog|"
-#| msgid "The public groups could not be retrieved: %1"
+#, qt-format
 msgctxt "PublicGroupChatSearchDialog|%1 is an error message"
 msgid "The public groups could not be retrieved: %1"
 msgstr "The public groups could not be retrieved: %1"
@@ -3565,12 +3352,12 @@ msgstr "Nahrať video"
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Stop recording"
-msgstr ""
+msgstr "Zastaviť nahrávanie"
 
 #: src/qml/elements/VideoRecordingDialog.qml:31
 msgctxt "VideoRecordingDialog|"
 msgid "Start recording"
-msgstr ""
+msgstr "Spustiť nahrávanie"
 
 #: src/qml/EmptyChatPage.qml:31
 msgctxt "EmptyChatPage|"
@@ -3653,9 +3440,7 @@ msgid "About"
 msgstr "O aplikácii"
 
 #: src/qml/GlobalDrawer.qml:484
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 bol odblokovaný"
@@ -3666,17 +3451,13 @@ msgid "Undo"
 msgstr "Vrátiť späť"
 
 #: src/qml/GlobalDrawer.qml:491
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Could not block %1: %2"
 
 #: src/qml/GlobalDrawer.qml:495
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Could not unblock %1: %2"
@@ -3738,7 +3519,7 @@ msgstr "Dokončite registráciu!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr ""
+msgstr "Skúste iného poskytovateľa"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
@@ -3777,9 +3558,6 @@ msgid "Enter your desired credentials"
 msgstr "Zadajte požadované prihlasovacie údaje"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Zobrazované meno"
@@ -4023,9 +3801,7 @@ msgid "Unknown size"
 msgstr "Neznáma veľkosť"
 
 #: src/RosterController.cpp:152
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "%1 could not be added: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a JID, %2 an error message"
 msgid "%1 could not be added: %2"
 msgstr "%1 could not be added: %2"
@@ -4041,11 +3817,7 @@ msgid "Could not rename contact as a result of not being connected."
 msgstr "Kontakt sa nepodarilo premenovať, pretože nie ste pripojení."
 
 #: src/RosterController.cpp:179
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid ""
-#| "Requesting to see the personal data of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID, %2 an error message"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
@@ -4055,17 +3827,13 @@ msgstr ""
 "pripojením: %2"
 
 #: src/RosterController.cpp:192
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Allowing %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Povolenie prístupu %1 k vašim osobným údajom zlyhalo"
 
 #: src/RosterController.cpp:204
-#, fuzzy, qt-format
-#| msgctxt "RosterController|"
-#| msgid "Stopping %1 to see your personal data failed"
+#, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Zastavenie prístupu %1 k vašim osobným údajom zlyhalo"
