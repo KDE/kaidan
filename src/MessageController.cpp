@@ -804,7 +804,7 @@ bool MessageController::handleCorrection(const Message &message,
         }
 
         // The message must not be too old.
-        const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_CORRECTION_DAYS);
+        const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
         if (storedMessage.timestamp < timeThreshold) {
             MessageDb::instance()->_addMessage(message, origin);
             return;
@@ -814,7 +814,7 @@ bool MessageController::handleCorrection(const Message &message,
         if (MessageDb::instance()->_checkMoreRecentMessageExists(storedMessage.accountJid,
                                                                  storedMessage.chatJid,
                                                                  storedMessage.timestamp,
-                                                                 MAX_MESSAGE_CORRECTION_COUNT)) {
+                                                                 MAX_MESSAGE_MODIFICATION_COUNT)) {
             MessageDb::instance()->_addMessage(message, origin);
             return;
         }

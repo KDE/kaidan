@@ -850,13 +850,13 @@ bool MessageModel::canCorrectMessage(int index) const
     }
 
     // The message must not be too old.
-    const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_CORRECTION_DAYS);
+    const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
     if (message.timestamp < timeThreshold) {
         return false;
     }
 
     // There must not be too many more recent messages.
-    if (index >= MAX_MESSAGE_CORRECTION_COUNT) {
+    if (index >= MAX_MESSAGE_MODIFICATION_COUNT) {
         return false;
     }
 
