@@ -748,25 +748,10 @@ int MessageDb::_markedMessageCount(const QString &accountJid, const QString &cha
     return query.value(0).toInt();
 }
 
-bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)
+bool MessageDb::_isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime)
 {
-    auto query = createQuery();
-    execQuery(query,
-              QStringLiteral(R"(
-                                SELECT COUNT(*)
-                                FROM chatMessages
-                                WHERE
-                                    accountJid = :accountJid AND chatJid = :chatJid AND
-                                    timestamp >= :timestamp
-                            )"),
-              {
-                  {u":accountJid", accountJid},
-                  {u":chatJid", chatJid},
-                  {u":timestamp", timestamp.toString(Qt::ISODateWithMs)},
-              });
-
-    query.first();
-    return query.value(0).toInt() > offset;
+    return message.isModifiable(modifiedByOwnUser, referenceTime)
+        && !_checkMoreRecentMessageExists(message.accountJid, message.chatJid, message.timestamp, MAX_MESSAGE_MODIFICATION_COUNT);
 }
 
 QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin)
@@ -1930,6 +1915,27 @@ bool MessageDb::_checkMessageExists(const Message &message)
 
     query.first();
     return query.value(0).toInt();
+}
+
+bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)
+{
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                SELECT COUNT(*)
+                                FROM chatMessages
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND
+                                    timestamp >= :timestamp
+                            )"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":timestamp", timestamp.toString(Qt::ISODateWithMs)},
+              });
+
+    query.first();
+    return query.value(0).toInt() > offset;
 }
 
 QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJid)

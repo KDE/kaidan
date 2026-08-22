@@ -835,32 +835,26 @@ int MessageModel::previousCorrectableMessageIndex(int indexOffset) const
     return -1;
 }
 
-bool MessageModel::canCorrectMessage(int index) const
+bool MessageModel::canModifyMessage(int index) const
 {
-    // The message must be loaded.
-    if (index < 0 || index >= m_messages.size()) {
+    // The message must be loaded and among the most recent messages.
+    if (index < 0 || index >= m_messages.size() || index >= MAX_MESSAGE_MODIFICATION_COUNT) {
         return false;
     }
 
     const auto &message = m_messages.at(index);
 
-    if (!message.isOwn || message.groupChatInvitation || message.deliveryState == Enums::DeliveryState::Error
+    if (message.groupChatInvitation || message.deliveryState == Enums::DeliveryState::Error
         || RosterModel::instance()->item(message.accountJid, message.chatJid)->isDeletedGroupChat()) {
         return false;
     }
 
-    // The message must not be too old.
-    const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
-    if (message.timestamp < timeThreshold) {
-        return false;
-    }
+    return message.isModifiable(true, QDateTime::currentDateTimeUtc());
+}
 
-    // There must not be too many more recent messages.
-    if (index >= MAX_MESSAGE_MODIFICATION_COUNT) {
-        return false;
-    }
-
-    return true;
+bool MessageModel::canCorrectMessage(int index) const
+{
+    return canModifyMessage(index);
 }
 
 void MessageModel::deleteFile(const QString &messageId, const File &file)

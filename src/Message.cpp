@@ -328,6 +328,15 @@ bool Message::isGroupChatMessage() const
     return !groupChatSenderId.isEmpty();
 }
 
+bool Message::isModifiable(bool modifiedByOwnUser, const QDateTime &referenceTime) const
+{
+    if (isOwn != modifiedByOwnUser) {
+        return false;
+    }
+
+    return timestamp >= referenceTime.addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
+}
+
 QString Message::body() const
 {
     return m_body;

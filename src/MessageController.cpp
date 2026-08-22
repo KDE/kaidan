@@ -803,38 +803,27 @@ bool MessageController::handleCorrection(const Message &message,
             return;
         }
 
-        // The message must not be too old.
-        const auto timeThreshold = QDateTime::currentDateTimeUtc().addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
-        if (storedMessage.timestamp < timeThreshold) {
+        if (storedMessage.isOwn != message.isOwn || storedMessage.groupChatSenderId != message.groupChatSenderId) {
+            return;
+        }
+
+        // Kaidan's own limits must not cause the message to be lost.
+        if (!MessageDb::instance()->_isMessageModifiable(storedMessage, message.isOwn, message.timestamp)) {
             MessageDb::instance()->_addMessage(message, origin);
             return;
         }
 
-        // There must not be too many more recent messages.
-        if (MessageDb::instance()->_checkMoreRecentMessageExists(storedMessage.accountJid,
-                                                                 storedMessage.chatJid,
-                                                                 storedMessage.timestamp,
-                                                                 MAX_MESSAGE_MODIFICATION_COUNT)) {
-            MessageDb::instance()->_addMessage(message, origin);
-            return;
-        }
-
-        // Correct a previous message if allowed.
-        // Only the author of the original message is allowed to correct it.
-        if (storedMessage.isOwn == message.isOwn && storedMessage.groupChatSenderId == message.groupChatSenderId) {
-            storedMessage.id = message.id;
-            storedMessage.originId = message.originId;
-            storedMessage.stanzaId = message.stanzaId;
-            storedMessage.replaceId = replaceId;
-            storedMessage.reply = message.reply;
-            storedMessage.setPreparedBody(message.body());
-            storedMessage.encryption = message.encryption;
-            storedMessage.senderKey = message.senderKey;
-            storedMessage.isSpoiler = message.isSpoiler;
-            storedMessage.spoilerHint = message.spoilerHint;
-            storedMessage.senderKey = message.senderKey;
-            storedMessage.groupChatInvitation = message.groupChatInvitation;
-        }
+        storedMessage.id = message.id;
+        storedMessage.originId = message.originId;
+        storedMessage.stanzaId = message.stanzaId;
+        storedMessage.replaceId = replaceId;
+        storedMessage.reply = message.reply;
+        storedMessage.setPreparedBody(message.body());
+        storedMessage.encryption = message.encryption;
+        storedMessage.senderKey = message.senderKey;
+        storedMessage.isSpoiler = message.isSpoiler;
+        storedMessage.spoilerHint = message.spoilerHint;
+        storedMessage.groupChatInvitation = message.groupChatInvitation;
     });
 
     return true;

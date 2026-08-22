@@ -202,7 +202,10 @@ public:
     QFuture<int> markedMessageCount(const QString &accountJid, const QString &chatJid);
     int _markedMessageCount(const QString &accountJid, const QString &chatJid);
 
-    bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
+    /**
+     * Checks Message::isModifiable() and MAX_MESSAGE_MODIFICATION_COUNT.
+     */
+    bool _isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime);
 
     /**
      * Adds a message to the database.
@@ -337,6 +340,8 @@ private:
      * Checks whether a message already exists in the database
      */
     bool _checkMessageExists(const Message &message);
+
+    bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
 
     Message _initializeLastMessage(const QString &accountJid, const QString &chatJid);
 

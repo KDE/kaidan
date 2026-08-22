@@ -215,6 +215,9 @@ public:
     Q_SIGNAL void mamLoadingChanged();
 
 private:
+    // Whether the message at the given index may be corrected or retracted by the user.
+    bool canModifyMessage(int index) const;
+
     void handleMessagesFetched(const QList<Message> &m_messages);
     void handleMamBacklogRetrieved(bool complete);
 

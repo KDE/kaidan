@@ -281,6 +281,14 @@ public:
     QString senderJid() const;
     bool isGroupChatMessage() const;
 
+    /**
+     * Returns whether this message may be corrected or retracted by its author within
+     * MAX_MESSAGE_MODIFICATION_DAYS.
+     *
+     * MAX_MESSAGE_MODIFICATION_COUNT is checked by MessageDb::_isMessageModifiable().
+     */
+    bool isModifiable(bool modifiedByOwnUser, const QDateTime &referenceTime) const;
+
     QString body() const;
     void setPreparedBody(const QString &preparedBody);
     void setUnpreparedBody(const QString &unpreparedBody);
