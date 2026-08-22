@@ -6,6 +6,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 // QXmpp
 class QXmppCall;
@@ -20,6 +21,8 @@ typedef struct _GstElement GstElement;
 class Call : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
     Q_PROPERTY(QString accountJid READ accountJid CONSTANT)
     Q_PROPERTY(QString chatJid READ chatJid CONSTANT)
     Q_PROPERTY(bool audioOnly READ audioOnly NOTIFY audioOnlyChanged)

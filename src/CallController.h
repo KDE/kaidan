@@ -7,6 +7,7 @@
 // Qt
 #include <QObject>
 #include <QPromise>
+#include <QtQml/qqmlregistration.h>
 
 // QXmpp
 class QXmppCall;
@@ -23,6 +24,8 @@ class NotificationController;
 class CallController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     struct CallWrapper {

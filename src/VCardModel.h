@@ -7,9 +7,9 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppVCardIq.h>
-#include <QtQml/qqmlregistration.h>
 
 class Connection;
 class QXmppVCardIq;

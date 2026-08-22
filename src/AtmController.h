@@ -8,6 +8,7 @@
 // Qt
 #include <QFuture>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppTrustLevel.h>
 
@@ -16,6 +17,8 @@ class QXmppAtmManager;
 class AtmController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Cannot create object; only enums defined!")
 
 public:
     /**

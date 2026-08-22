@@ -9,10 +9,13 @@
 // Qt
 #include <QObject>
 #include <QQuickStyle>
+#include <QtQml/qqmlregistration.h>
 
 class GuiStyle : public QObject
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(Style)
+    QML_SINGLETON
 
     Q_PROPERTY(QString name READ name CONSTANT)
     Q_PROPERTY(bool buttonColoringEnabled READ buttonColoringEnabled CONSTANT)

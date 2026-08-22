@@ -12,6 +12,10 @@
 
 #include "MainController.h"
 
+// std
+#include <type_traits>
+// Qt
+#include <QQmlEngine>
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
@@ -144,5 +148,13 @@ QString databaseFilename()
     return u"" DB_FILE_BASE_NAME % applicationProfileSuffix() % u".sqlite3";
 }
 #endif
+
+static_assert(!std::is_default_constructible_v<MainController>);
+
+MainController *MainController::create(QQmlEngine *engine, QJSEngine *)
+{
+    engine->setObjectOwnership(MainController::instance(), QQmlEngine::CppOwnership);
+    return MainController::instance();
+}
 
 #include "moc_MainController.cpp"

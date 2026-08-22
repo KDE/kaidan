@@ -18,22 +18,36 @@
 // Qt
 #include <QObject>
 #include <QStringList>
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "Call.h"
+
+class QJSEngine;
+class QQmlEngine;
 
 class RosterModel;
 
 class MainController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(Call *activeCall READ activeCall WRITE setActiveCall NOTIFY activeCallChanged)
 
 public:
     static MainController *instance();
 
-    explicit MainController(QObject *parent = nullptr);
+    /**
+     * The parent has no default value on purpose: If MainController was
+     * default-constructible, QML would create its own instance instead of
+     * calling create() (see QML_SINGLETON).
+     */
+    explicit MainController(QObject *parent);
     ~MainController() override;
+
+    static MainController *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     /**
      * Adds an XMPP URI to be opened as soon as possible.

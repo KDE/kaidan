@@ -14,8 +14,13 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "RosterItem.h"
+
+class QJSEngine;
+class QQmlEngine;
 
 class Account;
 class Message;
@@ -24,6 +29,8 @@ enum class MessageOrigin : quint8;
 class RosterModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(QStringList groups READ groups NOTIFY groupsChanged)
 
@@ -53,8 +60,9 @@ public:
 
     static RosterModel *instance();
 
-    explicit RosterModel(QObject *parent = nullptr);
     ~RosterModel() override;
+
+    static RosterModel *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
@@ -105,6 +113,10 @@ public:
     Q_INVOKABLE void resetSelected();
 
 private:
+    friend class MainController;
+
+    explicit RosterModel(QObject *parent);
+
     void handleItemsFetched(const QList<RosterItem> &items);
 
     void addItem(const RosterItem &item);

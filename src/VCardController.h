@@ -10,6 +10,7 @@
 // Qt
 #include <QImage>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppVCardIq.h>
 
@@ -26,6 +27,8 @@ class QXmppVCardManager;
 class VCardController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     VCardController(AccountSettings *accountSettings,

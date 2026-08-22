@@ -9,6 +9,7 @@
 // Qt
 #include <QFuture>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppStanza.h>
@@ -28,6 +29,8 @@ class QXmppRegistrationManager;
 class RegistrationController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     enum RegistrationError {

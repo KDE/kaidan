@@ -8,6 +8,7 @@
 // Qt
 #include <QObject>
 #include <QVariant>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppAccountMigrationManager.h>
 
@@ -18,6 +19,8 @@ class Account;
 class AccountMigrationController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Cannot create object; only enums defined!")
 
 public:
     explicit AccountMigrationController(QObject *parent = nullptr);

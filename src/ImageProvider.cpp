@@ -4,6 +4,8 @@
 
 #include "ImageProvider.h"
 
+// std
+#include <type_traits>
 // Qt
 #include <QBuffer>
 #include <QClipboard>
@@ -13,6 +15,7 @@
 #include <QImageReader>
 #include <QMutex>
 #include <QPointer>
+#include <QQmlEngine>
 // KDE
 #include <KFileItem>
 #include <KIO/PreviewJob>
@@ -75,10 +78,12 @@ ImageProvider *ImageProvider::instance()
     return s_instance;
 }
 
-ImageProvider::ImageProvider()
+ImageProvider::ImageProvider(QQmlEngine *engine)
 {
     Q_ASSERT(!s_instance);
     s_instance = this;
+
+    engine->addImageProvider(IMAGE_PROVIDER_NAME, this);
 }
 
 ImageProvider::~ImageProvider()
@@ -404,6 +409,14 @@ bool ImageProvider::isImageOrVideo(const QString &filePath)
     const bool isImage = mimeTypeName.startsWith(QStringLiteral("image/"));
     const bool isVideo = mimeTypeName.startsWith(QStringLiteral("video/"));
     return isImage || isVideo;
+}
+
+static_assert(!std::is_default_constructible_v<ImageProvider>);
+
+ImageProvider *ImageProvider::create(QQmlEngine *engine, QJSEngine *)
+{
+    engine->setObjectOwnership(ImageProvider::instance(), QQmlEngine::CppOwnership);
+    return ImageProvider::instance();
 }
 
 #include "moc_ImageProvider.cpp"

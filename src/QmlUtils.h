@@ -9,6 +9,10 @@
 // Qt
 #include <QObject>
 #include <QUrl>
+#include <QtQml/qqmlregistration.h>
+
+class QJSEngine;
+class QQmlEngine;
 
 class QGeoCoordinate;
 
@@ -26,6 +30,8 @@ constexpr auto GROUP_CHAT_USER_MENTION_SEPARATOR = u' ';
 class QmlUtils : public QObject
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(Utils)
+    QML_SINGLETON
     Q_PROPERTY(QChar messageBubblePaddingCharacter READ messageBubblePaddingCharacter CONSTANT)
     Q_PROPERTY(QChar emojiPrefix READ emojiPrefix CONSTANT)
     Q_PROPERTY(QChar emojiSeparator READ emojiSeparator CONSTANT)
@@ -42,8 +48,9 @@ class QmlUtils : public QObject
 public:
     static QmlUtils *instance();
 
-    explicit QmlUtils(QObject *parent = nullptr);
     ~QmlUtils() override;
+
+    static QmlUtils *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     static QChar messageBubblePaddingCharacter();
 
@@ -188,4 +195,7 @@ public:
 
     Q_INVOKABLE static QString geoUri(const QGeoCoordinate &geoCoordinate);
     Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &geoUri);
+
+private:
+    explicit QmlUtils(QObject *parent);
 };

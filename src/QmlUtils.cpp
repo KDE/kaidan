@@ -6,12 +6,15 @@
 
 #include "QmlUtils.h"
 
+// std
+#include <type_traits>
 // Qt
 #include <QClipboard>
 #include <QDir>
 #include <QGeoCoordinate>
 #include <QGuiApplication>
 #include <QImage>
+#include <QQmlEngine>
 #include <QRegularExpression>
 #include <QStandardPaths>
 // QXmpp
@@ -268,6 +271,14 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
     }
 
     return {};
+}
+
+static_assert(!std::is_default_constructible_v<QmlUtils>);
+
+QmlUtils *QmlUtils::create(QQmlEngine *engine, QJSEngine *)
+{
+    engine->setObjectOwnership(QmlUtils::instance(), QQmlEngine::CppOwnership);
+    return QmlUtils::instance();
 }
 
 #include "moc_QmlUtils.cpp"

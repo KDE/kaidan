@@ -7,6 +7,7 @@
 // Qt
 #include <QObject>
 #include <QPromise>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppMessage.h>
 // Kaidan
@@ -22,6 +23,8 @@ class MessageController;
 class ChatStateController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     ChatStateController(Connection *connection,

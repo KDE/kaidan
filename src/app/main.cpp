@@ -25,6 +25,7 @@
 #include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QQmlExtensionPlugin>
+#include <QQuickStyle>
 #include <QRegularExpression>
 #include <QTranslator>
 #include <QWindow>
@@ -56,25 +57,14 @@
 #include <gst/gst.h>
 // Kaidan
 #include "Account.h"
-#include "AccountController.h"
 #include "AccountMigrationController.h"
-#include "AtmController.h"
-#include "ChatStateController.h"
-#include "DataFormModel.h"
 #include "Globals.h"
 #include "GlobalsGen.h"
-#include "GuiStyle.h"
-#include "HostCompletionModel.h"
 #include "ImageProvider.h"
 #include "KaidanLog.h"
 #include "Keychain.h"
 #include "MainController.h"
-#include "MediaUtils.h"
-#include "QmlUtils.h"
-#include "RegistrationController.h"
-#include "RosterController.h"
 #include "RosterModel.h"
-#include "Settings.h"
 
 Q_IMPORT_QML_PLUGIN(KaidanQmlPlugin)
 
@@ -312,7 +302,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #endif // !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
 
-    MainController mainController;
+    MainController mainController(nullptr);
 
 #if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     // receive messages from other instances of Kaidan
@@ -348,7 +338,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    engine.addImageProvider(IMAGE_PROVIDER_NAME, new ImageProvider);
+    new ImageProvider(&engine);
 
 #if __has_include("KCrash")
     if (QStringLiteral(BUILD_TYPE).compare(u"release", Qt::CaseInsensitive) == 0) {
@@ -369,59 +359,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     // Allow importing org.freedesktop.gstreamer.Qt6GLVideoItem and using GstGLQt6VideoItem in QML.
     gst_init(&argc, &argv);
     gst_element_factory_make("qml6glsink", NULL);
-
-    // QML type bindings
-
-    // Q_OBJECT
-    qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableType<AccountSettings>(APPLICATION_ID, 1, 0, "AccountSettings", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableType<AtmController>(APPLICATION_ID, 1, 0, "AtmController", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<QAbstractItemModel>(APPLICATION_ID, 1, 0, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
-    qmlRegisterUncreatableType<ClientController>(APPLICATION_ID, 1, 0, "ClientController", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<RegistrationController>(APPLICATION_ID, 1, 0, "RegistrationController", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableType<AccountMigrationController>(APPLICATION_ID,
-                                                           1,
-                                                           0,
-                                                           "AccountMigrationController",
-                                                           QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<RosterController>(APPLICATION_ID, 1, 0, "RosterController", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableType<Call>(APPLICATION_ID, 1, 0, "Call", QStringLiteral("Not creatable from QML"));
-
-    qmlRegisterUncreatableType<ChatStateController>(APPLICATION_ID, 1, 0, "ChatStateController", QStringLiteral("Not creatable from QML"));
-
-    qmlRegisterSingletonType<QmlUtils>(APPLICATION_ID, 1, 0, "Utils", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(QmlUtils::instance());
-    });
-    qmlRegisterSingletonType<MediaUtils>(APPLICATION_ID, 1, 0, "MediaUtils", [](QQmlEngine *, QJSEngine *) {
-        QObject *instance = new MediaUtils(qApp);
-        return instance;
-    });
-    qmlRegisterSingletonType<MainController>(APPLICATION_ID, 1, 0, "MainController", [](QQmlEngine *engine, QJSEngine *) {
-        engine->setObjectOwnership(MainController::instance(), QQmlEngine::CppOwnership);
-        return static_cast<QObject *>(MainController::instance());
-    });
-    qmlRegisterSingletonType<GuiStyle>(APPLICATION_ID, 1, 0, "Style", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(new GuiStyle(QCoreApplication::instance()));
-    });
-    qmlRegisterSingletonType<Settings>(APPLICATION_ID, 1, 0, "Settings", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(Settings::instance());
-    });
-    qmlRegisterSingletonType<AccountController>(APPLICATION_ID, 1, 0, "AccountController", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(AccountController::instance());
-    });
-    qmlRegisterSingletonType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", [](QQmlEngine *, QJSEngine *) {
-        return static_cast<QObject *>(RosterModel::instance());
-    });
-    qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
-        static auto self = new HostCompletionModel(qApp);
-        return static_cast<QObject *>(self);
-    });
-    qmlRegisterSingletonType<ImageProvider>(APPLICATION_ID, 1, 0, "ImageProvider", [](QQmlEngine *engine, QJSEngine *) {
-        engine->setObjectOwnership(ImageProvider::instance(), QQmlEngine::CppOwnership);
-        return ImageProvider::instance();
-    });
 
     engine.loadFromModule(APPLICATION_ID, u"Main");
     if (engine.rootObjects().isEmpty()) {

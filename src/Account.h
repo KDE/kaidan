@@ -12,6 +12,7 @@
 #include <QPromise>
 #include <QString>
 #include <QUuid>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppConfiguration.h>
 #include <QXmppCredentials.h>
@@ -44,6 +45,8 @@ class VersionController;
 class AccountSettings : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
@@ -270,6 +273,8 @@ private:
 class Connection : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(Enums::ConnectionState state READ state NOTIFY stateChanged)
     Q_PROPERTY(QString stateText READ stateText NOTIFY stateChanged)
@@ -319,6 +324,8 @@ private:
 class Account : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(AccountSettings *settings MEMBER m_settings CONSTANT)
     Q_PROPERTY(Connection *connection MEMBER m_connection CONSTANT)

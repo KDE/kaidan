@@ -6,8 +6,12 @@
 
 // Qt
 #include <QQuickAsyncImageProvider>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppFileSharingManager.h>
+
+class QJSEngine;
+class QQmlEngine;
 
 template<typename T>
 class QFuture;
@@ -23,14 +27,18 @@ struct File;
 class ImageProvider : public QQuickAsyncImageProvider
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(qreal screenDevicePixelRatio READ screenDevicePixelRatio WRITE setScreenDevicePixelRatio NOTIFY screenDevicePixelRatioChanged)
 
 public:
     static ImageProvider *instance();
 
-    ImageProvider();
+    explicit ImageProvider(QQmlEngine *engine);
     ~ImageProvider() override;
+
+    static ImageProvider *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
 

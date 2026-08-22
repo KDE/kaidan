@@ -11,6 +11,10 @@
 
 #include "RosterModel.h"
 
+// std
+#include <type_traits>
+// Qt
+#include <QQmlEngine>
 // Kaidan
 #include "AccountController.h"
 #include "KaidanCoreLog.h"
@@ -765,6 +769,14 @@ QString RosterModel::formatLastMessageDateTime(const QDateTime &lastMessageDateT
         // Older than seven days before today: Return the date.
         return QLocale::system().toString(lastMessageLocalDateTime.date(), QLocale::ShortFormat);
     }
+}
+
+static_assert(!std::is_default_constructible_v<RosterModel>);
+
+RosterModel *RosterModel::create(QQmlEngine *engine, QJSEngine *)
+{
+    engine->setObjectOwnership(RosterModel::instance(), QQmlEngine::CppOwnership);
+    return RosterModel::instance();
 }
 
 #include "moc_RosterModel.cpp"

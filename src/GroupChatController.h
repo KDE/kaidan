@@ -6,6 +6,7 @@
 
 // Qt
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 
 // QXmpp
 class QXmppMixManager;
@@ -31,6 +32,8 @@ struct GroupChatService {
 class GroupChatController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
     Q_PROPERTY(bool groupChatParticipationSupported READ groupChatParticipationSupported NOTIFY groupChatParticipationSupportedChanged)

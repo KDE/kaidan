@@ -6,12 +6,15 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QtQml/qqmlregistration.h>
 
 class RosterModel;
 
 class HostCompletionModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(RosterModel *rosterModel READ rosterModel WRITE setRosterModel NOTIFY rosterModelChanged)
 

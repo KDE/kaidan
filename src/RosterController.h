@@ -11,6 +11,7 @@
 #include <QFuture>
 #include <QMap>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // Kaidan
 #include "RosterItem.h"
 
@@ -23,6 +24,8 @@ class QXmppRosterManager;
 class RosterController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
     Q_PROPERTY(QList<QString> groups READ groups NOTIFY groupsChanged)
 

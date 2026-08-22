@@ -7,6 +7,8 @@
 
 #pragma once
 
+// Qt
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan
@@ -47,6 +49,8 @@ class RegistrationController;
 class ClientController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Cannot create object; only enums defined!")
 
 public:
     /**

@@ -9,6 +9,7 @@
 #include <QHash>
 #include <QList>
 #include <QObject>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppTrustLevel.h>
 
@@ -24,6 +25,8 @@ constexpr auto TRUST_LEVEL_AUTHENTICATABLE = ~(QXmpp::TrustLevel::Authenticated 
 class EncryptionController : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Not creatable from QML")
 
 public:
     struct OwnDevice {

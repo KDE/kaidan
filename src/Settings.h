@@ -14,8 +14,13 @@
 #include <QPoint>
 #include <QSettings>
 #include <QSize>
+#include <QtQml/qqmlregistration.h>
+
 // Kaidan
 #include "Enums.h"
+
+class QJSEngine;
+class QQmlEngine;
 
 /**
  * Manages settings stored in the settings file.
@@ -25,6 +30,8 @@
 class Settings : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible WRITE
                    setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
@@ -34,12 +41,15 @@ class Settings : public QObject
     Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
 
     friend class Database;
+    friend class DatabaseTest;
+    friend class MainController;
 
 public:
     static Settings *instance();
 
-    explicit Settings(QObject *parent = nullptr);
     ~Settings();
+
+    static Settings *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     ///
     /// Avoid using this in favour of adding methods here,
@@ -71,6 +81,8 @@ public:
     Q_SIGNAL void windowSizeChanged();
 
 private:
+    explicit Settings(QObject *parent);
+
     template<typename T>
     T value(const QString &key, const std::optional<T> &defaultValue = {}) const
     {

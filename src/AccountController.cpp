@@ -4,6 +4,10 @@
 
 #include "AccountController.h"
 
+// std
+#include <type_traits>
+// Qt
+#include <QQmlEngine>
 // Kaidan
 #include "AccountDb.h"
 #include "AccountMigrationController.h"
@@ -228,6 +232,14 @@ void AccountController::cancelMigration()
 
     m_migrationController->deleteLater();
     Q_EMIT migratingChanged();
+}
+
+static_assert(!std::is_default_constructible_v<AccountController>);
+
+AccountController *AccountController::create(QQmlEngine *engine, QJSEngine *)
+{
+    engine->setObjectOwnership(AccountController::instance(), QQmlEngine::CppOwnership);
+    return AccountController::instance();
 }
 
 #include "moc_AccountController.cpp"

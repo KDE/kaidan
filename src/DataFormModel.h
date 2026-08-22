@@ -8,12 +8,15 @@
 // Qt
 #include <QAbstractListModel>
 #include <QHash>
+#include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppDataForm.h>
 
 class DataFormModel : public QAbstractListModel
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_UNCREATABLE("Cannot create object; only enums defined!")
     Q_PROPERTY(QString title READ title NOTIFY formChanged)
     Q_PROPERTY(QString instructions READ instructions NOTIFY formChanged)
 
