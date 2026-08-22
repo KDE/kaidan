@@ -32,6 +32,11 @@ class MessageController : public QObject
     Q_OBJECT
 
 public:
+    struct UsableEncryption {
+        Encryption::Enum encryption;
+        QList<QString> jids;
+    };
+
     MessageController(AccountSettings *accountSettings,
                       Connection *connection,
                       EncryptionController *encryptionController,
@@ -131,6 +136,8 @@ private:
                         Encryption::Enum encryption = Encryption::NoEncryption,
                         const QList<QString> &encryptionJids = {});
     void sendReadMarkerWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId);
+
+    QFuture<std::optional<UsableEncryption>> determineUsableEncryption(const RosterItem &rosterItem);
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;

@@ -133,35 +133,15 @@ void MessageController::sendMessageWithUndecidedEncryption(Message message)
     const auto accountJid = message.accountJid;
     const auto chatJid = message.chatJid;
     const auto rosterItem = RosterModel::instance()->item(accountJid, chatJid);
-    const auto encryption = rosterItem->encryption;
 
-    auto sendMessage = [this](Message message) mutable {
+    determineUsableEncryption(*rosterItem).then([this, message, chatJid](std::optional<MessageController::UsableEncryption> usableEncryption) mutable {
+        if (usableEncryption) {
+            message.encryption = usableEncryption->encryption;
+        }
+
         MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
         sendPendingMessage(std::move(message));
-    };
-
-    auto processMessage = [message, encryption, sendMessage](bool hasUsableDevices) mutable {
-        if (hasUsableDevices) {
-            message.encryption = encryption;
-        }
-
-        sendMessage(std::move(message));
-    };
-
-    if (encryption == Encryption::NoEncryption) {
-        MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
-        sendPendingMessage(message);
-    } else {
-        if (rosterItem->isGroupChat()) {
-            GroupChatUserDb::instance()->userJids(accountJid, chatJid).then(this, [this, processMessage](QList<QString> &&encryptionJids) mutable {
-                if (!encryptionJids.isEmpty()) {
-                    m_encryptionController->hasUsableDevices(encryptionJids).then(processMessage);
-                }
-            });
-        } else {
-            m_encryptionController->hasUsableDevices({chatJid}).then(processMessage);
-        }
-    }
+    });
 }
 
 void MessageController::sendPendingData()
@@ -1020,7 +1000,7 @@ void MessageController::sendPendingMessageReactions()
                 const auto chatJid = reactionItr.key();
                 const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), chatJid);
 
-                auto sendReaction = [this, chatJid, messageId, emojis](bool isGroupChat = false,
+                auto sendReaction = [this, chatJid, messageId, emojis](bool isGroupChat,
                                                                        Encryption::Enum encryption = Encryption::NoEncryption,
                                                                        const QList<QString> &encryptionJids = {}) {
                     sendMessageReaction(chatJid, messageId, isGroupChat, emojis, encryption, encryptionJids)
@@ -1055,34 +1035,22 @@ void MessageController::sendPendingMessageReactions()
                         });
                 };
 
-                if (const auto encryption = rosterItem->encryption; encryption == Encryption::NoEncryption) {
-                    sendReaction();
-                } else {
-                    if (rosterItem->isGroupChat()) {
-                        GroupChatUserDb::instance()
-                            ->userJids(m_accountSettings->jid(), chatJid)
-                            .then(this, [this, sendReaction, encryption](QList<QString> &&encryptionJids) mutable {
-                                if (!encryptionJids.isEmpty()) {
-                                    m_encryptionController->hasUsableDevices(encryptionJids)
-                                        .then([sendReaction, encryption, encryptionJids](bool hasUsableDevices) mutable {
-                                            if (hasUsableDevices) {
-                                                sendReaction(true, encryption, encryptionJids);
-                                            } else {
-                                                sendReaction(true);
-                                            }
-                                        });
+                determineUsableEncryption(*rosterItem)
+                    .then(
+                        [chatJid, isGroupChat = rosterItem->isGroupChat(), sendReaction](std::optional<MessageController::UsableEncryption> usableEncryption) {
+                            if (usableEncryption) {
+                                const auto encryption = usableEncryption->encryption;
+                                const auto encryptionJids = usableEncryption->jids;
+
+                                if (encryptionJids.isEmpty()) {
+                                    sendReaction(isGroupChat, encryption);
+                                } else {
+                                    sendReaction(isGroupChat, encryption, encryptionJids);
                                 }
-                            });
-                    } else {
-                        m_encryptionController->hasUsableDevices({chatJid}).then([sendReaction, encryption](bool hasUsableDevices) mutable {
-                            if (hasUsableDevices) {
-                                sendReaction(false, encryption);
                             } else {
-                                sendReaction();
+                                sendReaction(isGroupChat);
                             }
                         });
-                    }
-                }
             }
         }
     });
@@ -1093,10 +1061,9 @@ void MessageController::sendPendingReadMarkers()
     const auto rosterItems = RosterModel::instance()->items(m_accountSettings->jid());
 
     for (const auto &rosterItem : rosterItems) {
-        if (const auto messageId = rosterItem.lastReadContactMessageId; rosterItem.readMarkerPending && !messageId.isEmpty()) {
-            if (rosterItem.readMarkerSendingEnabled) {
-                sendReadMarkerWithUndecidedEncryption(rosterItem, messageId);
-            }
+        if (const auto messageId = rosterItem.lastReadContactMessageId;
+            rosterItem.readMarkerPending && !messageId.isEmpty() && rosterItem.readMarkerSendingEnabled) {
+            sendReadMarkerWithUndecidedEncryption(rosterItem, messageId);
         }
     }
 }
@@ -1130,36 +1097,58 @@ void MessageController::sendReadMarker(const RosterItem &rosterItem,
 
 void MessageController::sendReadMarkerWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId)
 {
-    if (const auto encryption = rosterItem.encryption; encryption == Encryption::NoEncryption) {
-        sendReadMarker(rosterItem, messageId);
-    } else {
-        const auto chatJid = rosterItem.jid;
+    determineUsableEncryption(rosterItem).then([this, rosterItem, messageId](std::optional<MessageController::UsableEncryption> usableEncryption) {
+        if (usableEncryption) {
+            const auto encryption = usableEncryption->encryption;
+            const auto encryptionJids = usableEncryption->jids;
 
-        if (rosterItem.isGroupChat()) {
-            GroupChatUserDb::instance()
-                ->userJids(m_accountSettings->jid(), chatJid)
-                .then(this, [this, rosterItem, messageId, encryption](QList<QString> &&encryptionJids) mutable {
-                    if (!encryptionJids.isEmpty()) {
-                        m_encryptionController->hasUsableDevices(encryptionJids)
-                            .then([this, rosterItem, messageId, encryption, encryptionJids](bool hasUsableDevices) mutable {
-                                if (hasUsableDevices) {
-                                    sendReadMarker(rosterItem, messageId, encryption, encryptionJids);
-                                } else {
-                                    sendReadMarker(rosterItem, messageId);
-                                }
-                            });
+            if (encryptionJids.isEmpty()) {
+                sendReadMarker(rosterItem, messageId, encryption);
+            } else {
+                sendReadMarker(rosterItem, messageId, encryption, encryptionJids);
+            }
+        } else {
+            sendReadMarker(rosterItem, messageId);
+        }
+    });
+}
+
+QFuture<std::optional<MessageController::UsableEncryption>> MessageController::determineUsableEncryption(const RosterItem &rosterItem)
+{
+    const auto encryption = rosterItem.encryption;
+
+    if (encryption == Encryption::NoEncryption) {
+        return QtFuture::makeReadyValueFuture<std::optional<UsableEncryption>>({});
+    }
+
+    auto promise = std::make_shared<QPromise<std::optional<UsableEncryption>>>();
+    promise->start();
+
+    const auto chatJid = rosterItem.jid;
+
+    if (rosterItem.isGroupChat()) {
+        GroupChatUserDb::instance()
+            ->userJids(m_accountSettings->jid(), chatJid)
+            .then(this, [this, promise, encryption](QList<QString> &&encryptionJids) mutable {
+                m_encryptionController->hasUsableDevices(encryptionJids).then([promise, encryption, encryptionJids](bool hasUsableDevices) mutable {
+                    if (hasUsableDevices) {
+                        reportFinishedResult(*promise, std::make_optional<UsableEncryption>(encryption, encryptionJids));
+                    } else {
+                        reportFinishedResult(*promise, {});
                     }
                 });
-        } else {
-            m_encryptionController->hasUsableDevices({chatJid}).then([this, rosterItem, messageId, encryption](bool hasUsableDevices) mutable {
-                if (hasUsableDevices) {
-                    sendReadMarker(rosterItem, messageId, encryption);
-                } else {
-                    sendReadMarker(rosterItem, messageId);
-                }
             });
-        }
+    } else {
+        m_encryptionController->hasUsableDevices({chatJid}).then([promise, encryption](bool hasUsableDevices) mutable {
+            if (hasUsableDevices) {
+                reportFinishedResult(*promise, std::make_optional<UsableEncryption>(encryption));
+            } else {
+                reportFinishedResult(*promise, {});
+            }
+        });
     }
+
+    return promise->future();
 }
 
 #include "moc_MessageController.cpp"
