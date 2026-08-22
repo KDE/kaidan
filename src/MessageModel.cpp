@@ -59,6 +59,7 @@ MessageModel::MessageModel(AccountSettings *accountSettings,
     connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
     connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::handleMessageUpdated);
     connect(MessageDb::instance(), &MessageDb::messagesRemoved, this, &MessageModel::removeMessages);
+    connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &MessageModel::handleMessageRemoved);
 
     connect(m_chatController, &ChatController::rosterItemChanged, this, [this]() {
         if (m_lastReadOwnMessageId != m_chatController->rosterItem().lastReadOwnMessageId) {
@@ -878,61 +879,68 @@ void MessageModel::deleteFile(const QString &messageId, const File &file)
 
 void MessageModel::removeMessage(const QString &messageId)
 {
-    const auto hasCorrectId = [&messageId](const Message &message) {
-        return message.referenceId() == messageId;
-    };
+    const auto itr = std::ranges::find(m_messages, messageId, &Message::referenceId);
 
-    const auto itr = std::ranges::find_if(m_messages, hasCorrectId);
-
-    // Update the roster item of the current chat.
-    if (itr != m_messages.cend()) {
-        int readMessageIndex = std::ranges::distance(m_messages.cbegin(), itr);
-
-        const QString &lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
-        const QString &lastReadOwnMessageId = m_chatController->rosterItem().lastReadOwnMessageId;
-
-        if (lastReadContactMessageId == messageId || lastReadOwnMessageId == messageId) {
-            handleMessageRead(readMessageIndex);
-
-            // Get the previous message ID if possible.
-            const int newLastReadMessageIndex = readMessageIndex + 1;
-            const bool isNewLastReadMessageIdValid = m_messages.size() >= newLastReadMessageIndex;
-
-            const QString newLastReadMessageId{
-                isNewLastReadMessageIdValid && newLastReadMessageIndex < m_messages.size() ? m_messages.at(newLastReadMessageIndex).id : QString()};
-
-            if (newLastReadMessageId.isEmpty()) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
-                    item.lastReadContactMessageId.clear();
-                    item.lastReadOwnMessageId.clear();
-                    item.lastMessage.clear();
-                    item.lastMessageGroupChatSenderName.clear();
-                });
-            } else {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
-                    if (itr->isOwn) {
-                        item.lastReadOwnMessageId = newLastReadMessageId;
-                    } else {
-                        item.lastReadContactMessageId = newLastReadMessageId;
-                    }
-                });
-            }
-        }
-
-        // Remove the message from the database/model and delete included files.
-
-        MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, itr->id);
-
-        updateLastReadOwnMessageId();
-
-        QModelIndex index = createIndex(readMessageIndex, 0);
-
-        beginRemoveRows(QModelIndex(), readMessageIndex, readMessageIndex);
-        m_messages.removeAt(readMessageIndex);
-        endRemoveRows();
-
-        Q_EMIT dataChanged(index, index);
+    if (itr == m_messages.cend()) {
+        return;
     }
+
+    // The model is updated via MessageDb::messageRemoved().
+    MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, itr->id);
+}
+
+void MessageModel::handleMessageRemoved(const Message &message, const Message &newLastMessage)
+{
+    Q_UNUSED(newLastMessage)
+
+    if (message.accountJid != m_accountSettings->jid() || message.chatJid != m_chatController->jid()) {
+        return;
+    }
+
+    const auto itr = std::ranges::find(m_messages, message.id, &Message::id);
+
+    if (itr == m_messages.cend()) {
+        return;
+    }
+
+    const auto &messageId = message.id;
+    int messageIndex = std::ranges::distance(m_messages.cbegin(), itr);
+
+    const QString &lastReadContactMessageId = m_chatController->rosterItem().lastReadContactMessageId;
+    const QString &lastReadOwnMessageId = m_chatController->rosterItem().lastReadOwnMessageId;
+
+    if (lastReadContactMessageId == messageId || lastReadOwnMessageId == messageId) {
+        handleMessageRead(messageIndex);
+
+        // Get the previous message ID if possible.
+        const int newLastReadMessageIndex = messageIndex + 1;
+        const QString newLastReadMessageId{newLastReadMessageIndex < m_messages.size() ? m_messages.at(newLastReadMessageIndex).id : QString()};
+
+        if (newLastReadMessageId.isEmpty()) {
+            RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
+                item.lastReadContactMessageId.clear();
+                item.lastReadOwnMessageId.clear();
+                item.lastMessage.clear();
+                item.lastMessageGroupChatSenderName.clear();
+            });
+        } else {
+            RosterDb::instance()->updateItem(m_accountSettings->jid(),
+                                             m_chatController->jid(),
+                                             [isOwn = message.isOwn, newLastReadMessageId](RosterItem &item) {
+                                                 if (isOwn) {
+                                                     item.lastReadOwnMessageId = newLastReadMessageId;
+                                                 } else {
+                                                     item.lastReadContactMessageId = newLastReadMessageId;
+                                                 }
+                                             });
+        }
+    }
+
+    updateLastReadOwnMessageId();
+
+    beginRemoveRows(QModelIndex(), messageIndex, messageIndex);
+    m_messages.removeAt(messageIndex);
+    endRemoveRows();
 }
 
 void MessageModel::removeAllMessages()

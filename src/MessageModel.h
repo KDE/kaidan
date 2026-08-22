@@ -220,6 +220,7 @@ private:
 
     void handleMessage(Message msg, MessageOrigin);
     void handleMessageUpdated(Message message);
+    void handleMessageRemoved(const Message &message, const Message &newLastMessage);
 
     void handleDevicesChanged(QList<QString> jids);
 
