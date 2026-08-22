@@ -252,7 +252,7 @@ public:
      * @param messageId ID of the message
      */
     QFuture<void> removeMessage(const QString &accountJid, const QString &chatJid, const QString &messageId);
-    Q_SIGNAL void messageRemoved(const Message &newLastMessage);
+    Q_SIGNAL void messageRemoved(const Message &message, const Message &newLastMessage);
 
     /**
      * Adds additional file sources to a file.
@@ -293,6 +293,7 @@ public:
 private:
     void _addMessage(const Message &message);
     void _updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
+    void _removeMessage(const Message &message);
 
     // Setters do INSERT OR REPLACE INTO
     void fetchLatestFileData();
@@ -304,7 +305,6 @@ private:
     void _setEncryptedSources(const QList<EncryptedSource> &sources);
     void _removeFiles(const QString &accountJid);
     void _removeFiles(const QString &accountJid, const QString &chatJid);
-    void _removeFiles(const QString &accountJid, const QString &chatJid, const QString &messageId);
     void _removeFiles(const QList<qint64> &fileIds);
     void _removeFiles(const QString &statement, const QueryBindValues &bindValues);
     void _removeFileHashes(const QList<qint64> &fileIds);

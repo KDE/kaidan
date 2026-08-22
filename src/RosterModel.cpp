@@ -518,8 +518,10 @@ void RosterModel::handleMessageUpdated(const Message &message)
         });
 }
 
-void RosterModel::handleMessageRemoved(const Message &newLastMessage)
+void RosterModel::handleMessageRemoved(const Message &message, const Message &newLastMessage)
 {
+    Q_UNUSED(message)
+
     auto itr = std::ranges::find_if(m_items, [&newLastMessage](const RosterItem &item) {
         return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
     });

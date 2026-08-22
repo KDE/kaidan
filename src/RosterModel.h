@@ -118,7 +118,7 @@ private:
 
     void handleMessageAdded(const Message &message, MessageOrigin origin);
     void handleMessageUpdated(const Message &message);
-    void handleMessageRemoved(const Message &newLastMessage);
+    void handleMessageRemoved(const Message &message, const Message &newLastMessage);
 
     void handleDraftMessageAdded(const Message &message);
     void handleDraftMessageUpdated(const Message &message);

@@ -855,11 +855,9 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 
         execQuery(query,
                   QStringLiteral(R"(
-                                    SELECT id
+                                    SELECT *
                                     FROM chatMessages
-                                    WHERE
-                                        accountJid = :accountJid AND chatJid = :chatJid AND
-                                        (id = :messageId OR stanzaId = :messageId OR replaceId = :messageId)
+                                    WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
                                     LIMIT 1
                                 )"),
                   {
@@ -868,41 +866,62 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
                       {u":messageId", messageId},
                   });
 
-        if (query.next()) {
-            const auto foundMessageId = query.value(0).toString();
-
-            _removeReactions(accountJid, chatJid, messageId);
-            _removeFiles(accountJid, chatJid, foundMessageId);
-
-            // Set the message's content to NULL and the "removed" flag to true.
-            execQuery(query,
-                      QStringLiteral(R"(
-                                        UPDATE messages
-                                        SET
-                                            replyTo = NULL,
-                                            replyId = NULL,
-                                            replyQuote = NULL,
-                                            body = NULL,
-                                            spoilerHint = NULL,
-                                            fileGroupId = NULL,
-                                            groupChatInviterJid = NULL,
-                                            groupChatInviteeJid = NULL,
-                                            groupChatInvitationJid = NULL,
-                                            groupChatToken = NULL,
-                                            errorText = NULL,
-                                            removed = 1
-                                        WHERE
-                                            accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
-                                    )"),
-                      {
-                          {u":accountJid", accountJid},
-                          {u":chatJid", chatJid},
-                          {u":messageId", foundMessageId},
-                      });
+        if (const auto messages = _fetchMessagesFromQuery(query); !messages.isEmpty()) {
+            _removeMessage(messages.constFirst());
         }
-
-        Q_EMIT messageRemoved(_initializeLastMessage(accountJid, chatJid));
     });
+}
+
+void MessageDb::_removeMessage(const Message &message)
+{
+    const auto &accountJid = message.accountJid;
+    const auto &chatJid = message.chatJid;
+    const auto messageId = message.id;
+
+    // Reactions reference a message by the ID other clients know it by.
+    _removeReactions(accountJid, chatJid, message.referenceId());
+
+    // The downloaded files are deleted here because a message can be removed while it is not
+    // displayed.
+    // The files are removed by their own IDs because message IDs are not always unique.
+    for (const auto &file : message.files) {
+        MediaUtils::deleteDownloadedFile(file.localFilePath);
+    }
+    _removeFiles(transform(message.files, [](const auto &file) {
+        return file.id;
+    }));
+
+    // Set the message's content to NULL and the "removed" flag to true.
+    // The timestamp is checked as well because IDs are not always unique.
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                UPDATE messages
+                                SET
+                                    replyTo = NULL,
+                                    replyId = NULL,
+                                    replyQuote = NULL,
+                                    body = NULL,
+                                    spoilerHint = NULL,
+                                    fileGroupId = NULL,
+                                    groupChatInviterJid = NULL,
+                                    groupChatInviteeJid = NULL,
+                                    groupChatInvitationJid = NULL,
+                                    groupChatToken = NULL,
+                                    errorText = NULL,
+                                    removed = 1
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND
+                                    id = :messageId AND timestamp = :timestamp
+                            )"),
+              {
+                  {u":accountJid", accountJid},
+                  {u":chatJid", chatJid},
+                  {u":messageId", messageId},
+                  {u":timestamp", message.timestamp.toString(Qt::ISODateWithMs)},
+              });
+
+    Q_EMIT messageRemoved(message, _initializeLastMessage(accountJid, chatJid));
 }
 
 QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
@@ -1444,20 +1463,6 @@ void MessageDb::_removeFiles(const QString &accountJid, const QString &chatJid)
                  {
                      {u":accountJid", accountJid},
                      {u":chatJid", chatJid},
-                 });
-}
-
-void MessageDb::_removeFiles(const QString &accountJid, const QString &chatJid, const QString &messageId)
-{
-    _removeFiles(QStringLiteral(R"(
-                                   SELECT fileGroupId
-                                   FROM messages
-                                   WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
-                                )"),
-                 {
-                     {u":accountJid", accountJid},
-                     {u":chatJid", chatJid},
-                     {u":messageId", messageId},
                  });
 }
 

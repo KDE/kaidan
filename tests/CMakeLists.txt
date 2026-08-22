@@ -46,6 +46,12 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    MessageDbTest.cpp
+    TEST_NAME MessageDbTest
+    LINK_LIBRARIES Kaidan::Tests
+)
+
+ecm_add_test(
     OmemoDbTest.cpp
     TEST_NAME OmemoDbTest
     LINK_LIBRARIES Kaidan::Tests

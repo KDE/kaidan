@@ -921,11 +921,7 @@ void MessageModel::removeMessage(const QString &messageId)
 
         // Remove the message from the database/model and delete included files.
 
-        MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, messageId);
-
-        for (auto &file : itr->files) {
-            MediaUtils::deleteDownloadedFile(file.localFilePath);
-        }
+        MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, itr->id);
 
         updateLastReadOwnMessageId();
 
