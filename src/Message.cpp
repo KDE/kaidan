@@ -23,7 +23,6 @@
 #include <QXmppMixInvitation.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
-#include <QXmppUtils.h>
 // Kaidan
 #include "Algorithms.h"
 #include "Globals.h"
@@ -322,11 +321,6 @@ QString Message::senderJid() const
     }
 
     return chatJid;
-}
-
-bool Message::isServerMessage() const
-{
-    return QXmppUtils::jidToDomain(accountJid) == chatJid;
 }
 
 bool Message::isGroupChatMessage() const

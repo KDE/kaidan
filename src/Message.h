@@ -279,7 +279,6 @@ public:
 
     QString referenceId() const;
     QString senderJid() const;
-    bool isServerMessage() const;
     bool isGroupChatMessage() const;
 
     QString body() const;
