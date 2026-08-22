@@ -377,7 +377,7 @@ auto TrustDb::removeKeys(const QString &encryption) -> QXmppTask<void>
 auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, TrustLevels trustLevels) -> QXmppTask<bool>
 {
     Q_ASSERT(int(trustLevels) > 0);
-    return runTask([this, encryption, keyOwnerJid, trustLevels] {
+    return runTask([this, encryption, keyOwnerJid, trustLevels] -> bool {
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
@@ -393,7 +393,7 @@ auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, Trus
                   });
 
         query.first();
-        return query.value(0).toInt() > 0;
+        return query.value(0).toInt();
     });
 }
 

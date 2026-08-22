@@ -220,9 +220,6 @@ public:
     /**
      * Loads a message, runs the update lambda and writes it to the DB again.
      *
-     * A message can be found by its regular "id" or by its "replaceId" passed as the parameter
-     * "id".
-     *
      * @param accountJid JID of account
      * @param chatJid JID of the chat
      * @param messageId ID of the message

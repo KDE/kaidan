@@ -470,7 +470,7 @@ void RosterDb::_updateOrAddItem(const QString &accountJid, RosterItem item)
                   {u":jid", item.jid},
               });
 
-    if (query.first() && query.value(0).toInt() > 0) {
+    if (query.first() && query.value(0).toInt()) {
         // The item already exists: only override the roster-wire columns and keep all other
         // conversation data (encryption, read markers, pinning, …) untouched.
         _updateItem(accountJid, item.jid, [newItem = item](RosterItem &oldItem) {

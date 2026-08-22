@@ -444,7 +444,7 @@ QFuture<QList<Message>> MessageDb::fetchMessagesUntilFirstContactMessage(const Q
                                     LIMIT
                                         :index,
                                         :limit + (
-                                            SELECT COUNT()
+                                            SELECT COUNT(*)
                                             FROM chatMessages
                                             WHERE
                                                 accountJid = :accountJid AND chatJid = :chatJid AND
@@ -477,7 +477,7 @@ MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJi
 
         execQuery(query,
                   QStringLiteral(R"(
-                                    SELECT COUNT()
+                                    SELECT COUNT(*)
                                     FROM chatMessages
                                     WHERE
                                         accountJid = :accountJid AND chatJid = :chatJid AND
@@ -547,7 +547,7 @@ MessageDb::fetchMessagesUntilQueryString(const QString &accountJid, const QStrin
 
         execQuery(query,
                   QStringLiteral(R"(
-                                    SELECT COUNT()
+                                    SELECT COUNT(*)
                                     FROM chatMessages
                                     WHERE
                                         accountJid = :accountJid AND chatJid = :chatJid AND
@@ -1924,7 +1924,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
     execQuery(query, querySql, bindValues);
 
     query.first();
-    return query.value(0).toInt() > 0;
+    return query.value(0).toInt();
 }
 
 QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJid)
