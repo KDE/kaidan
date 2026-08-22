@@ -218,6 +218,13 @@ public:
     };
     Q_ENUM(TrustLevel)
 
+    // State of an own message's retraction that has not been sent yet
+    enum class RetractionState {
+        None,
+        Pending,
+        Error,
+    };
+
     struct Reply {
         // Empty for a reply to an own message in a normal chat or for a reply in an anonymous group
         // chat.
@@ -268,8 +275,9 @@ public:
     // IDs (JIDs or group chat participant IDs) of senders mapped to the senders
     QMap<QString, MessageReactionSender> reactionSenders;
     std::optional<GroupChatInvitation> groupChatInvitation;
-    // Text description of an error if it ever happened to the message
+    // Text description of an error if it ever happened to the message or its retraction
     QString errorText;
+    RetractionState retractionState = RetractionState::None;
     bool marked = false;
     // True if the message's content and related data such as files have been removed locally.
     bool removed = false;

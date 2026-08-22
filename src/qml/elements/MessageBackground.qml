@@ -189,6 +189,13 @@ Item {
 		}
 
 		Kirigami.Icon {
+			source: "edit-delete-symbolic"
+			visible: message.removalPending || message.removalFailed
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
+		}
+
+		Kirigami.Icon {
 			source: message.deliveryStateIcon
 			visible: message.isOwn && source
 			color: Kirigami.Theme.positiveTextColor

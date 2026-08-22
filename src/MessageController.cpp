@@ -23,6 +23,7 @@
 #include <QXmppHttpFileSource.h>
 #include <QXmppMamManager.h>
 #include <QXmppMessageReaction.h>
+#include <QXmppMessageRetraction.h>
 #include <QXmppMixInvitation.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppRosterManager.h>
@@ -148,6 +149,7 @@ void MessageController::sendPendingData()
 {
     sendPendingMessages();
     sendPendingMessageReactions();
+    sendPendingMessageRetractions();
     sendPendingReadMarkers();
 }
 
@@ -287,6 +289,19 @@ void MessageController::sendPendingMessageWithUploadedFiles(Message message)
         });
     } else {
         sendMessage(std::move(message));
+    }
+}
+
+void MessageController::retractMessage(const Message &message, Encryption::Enum encryption, const QList<QString> &encryptionJids)
+{
+    // The message is kept until the retraction has been sent.
+    MessageDb::instance()->updateMessage(message.accountJid, message.chatJid, message.referenceId(), [](Message &message) {
+        message.retractionState = Message::RetractionState::Pending;
+        message.errorText.clear();
+    });
+
+    if (ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
+        sendMessageRetraction(message, encryption, encryptionJids);
     }
 }
 
@@ -523,7 +538,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     // stanza ID is used for retrieving offline (i.e., catch up) messages once connected.
     updateLatestMessage(chatJid, stanzaId, timestamp, receivedFromGroupChat);
 
-    if (handleReadMarker(msg, senderJid, recipientJid, isOwn) || handleReaction(msg, chatJid, senderId) || handleFileSourcesAttachments(msg, chatJid)) {
+    if (handleReadMarker(msg, senderJid, recipientJid, isOwn) || handleReaction(msg, chatJid, senderId)
+        || handleRetraction(msg, accountJid, chatJid, isOwn, groupChatSenderId) || handleFileSourcesAttachments(msg, chatJid)) {
         return;
     }
 
@@ -829,6 +845,41 @@ bool MessageController::handleCorrection(const Message &message,
     return true;
 }
 
+bool MessageController::handleRetraction(const QXmppMessage &msg,
+                                         const QString &accountJid,
+                                         const QString &chatJid,
+                                         bool isOwnMessage,
+                                         const QString &groupChatSenderId)
+{
+    // Retracted messages are removed, so there is nothing to display for a tombstone.
+    if (msg.retracted()) {
+        return true;
+    }
+
+    const auto retraction = msg.retraction();
+
+    if (!retraction) {
+        return false;
+    }
+
+    // Moderated retractions (XEP-0425) are not supported yet.
+    if (retraction->moderation()) {
+        return true;
+    }
+
+    const auto timestamp = msg.stamp().isValid() ? msg.stamp().toUTC() : QDateTime::currentDateTimeUtc();
+
+    MessageDb::instance()->applyMessageRetraction(accountJid,
+                                                  chatJid,
+                                                  retraction->retractedId(),
+                                                  [isOwnMessage, groupChatSenderId, timestamp](const Message &message) {
+                                                      return message.groupChatSenderId == groupChatSenderId
+                                                          && MessageDb::instance()->_isMessageModifiable(message, isOwnMessage, timestamp);
+                                                  });
+
+    return true;
+}
+
 bool MessageController::updateReflectedMessage(Message &message, const QString &stanzaId)
 {
     if (message.isOwn && message.deliveryState == Enums::DeliveryState::Sent && (message.isGroupChatMessage() || message.accountJid == message.chatJid)) {
@@ -1045,6 +1096,23 @@ void MessageController::sendPendingMessageReactions()
     });
 }
 
+void MessageController::sendPendingMessageRetractions()
+{
+    MessageDb::instance()->fetchPendingMessageRetractions(m_accountSettings->jid()).then(this, [this](QList<Message> &&messages) {
+        for (const auto &message : messages) {
+            const auto rosterItem = RosterModel::instance()->item(message.accountJid, message.chatJid);
+
+            determineUsableEncryption(*rosterItem).then(this, [this, message](std::optional<UsableEncryption> usableEncryption) {
+                if (usableEncryption) {
+                    sendMessageRetraction(message, usableEncryption->encryption, usableEncryption->jids);
+                } else {
+                    sendMessageRetraction(message);
+                }
+            });
+        }
+    });
+}
+
 void MessageController::sendPendingReadMarkers()
 {
     const auto rosterItems = RosterModel::instance()->items(m_accountSettings->jid());
@@ -1100,6 +1168,63 @@ void MessageController::sendReadMarkerWithUndecidedEncryption(const RosterItem &
             sendReadMarker(rosterItem, messageId);
         }
     });
+}
+
+void MessageController::sendMessageRetraction(const Message &message, Encryption::Enum encryption, const QList<QString> &encryptionJids)
+{
+    // The limits may have been exceeded in the meantime, e.g., while the retraction was pending.
+    // The other chat participants would ignore the retraction in that case.
+    MessageDb::instance()
+        ->isMessageModifiable(message, true, QDateTime::currentDateTimeUtc())
+        .then(this, [this, message, encryption, encryptionJids](bool modifiable) {
+            if (modifiable) {
+                sendMessageRetractionWithinLimits(message, encryption, encryptionJids);
+            } else {
+                handleMessageRetractionError(message, tr("Too old to be removed for everyone"));
+            }
+        });
+}
+
+void MessageController::sendMessageRetractionWithinLimits(const Message &message, Encryption::Enum encryption, const QList<QString> &encryptionJids)
+{
+    const auto chatJid = message.chatJid;
+    const auto messageId = message.referenceId();
+
+    QXmppMessage retraction;
+
+    if (message.isGroupChatMessage()) {
+        retraction.setType(QXmppMessage::GroupChat);
+    }
+
+    retraction.setId(QXmppUtils::generateStanzaUuid());
+    retraction.setTo(chatJid);
+    retraction.setStamp(QDateTime::currentDateTimeUtc());
+    retraction.setRetraction(QXmppMessageRetraction{messageId});
+
+    // Add a fallback body for clients without retraction support.
+    retraction.setBody(tr("This person attempted to retract a message. But it is not supported by your app."));
+    retraction.setFallbackMarkers({QXmppFallback{XMLNS_MESSAGE_RETRACTION.toString(), {QXmppFallback::Reference{QXmppFallback::Body, {}}}}});
+
+    // The message itself is updated or removed instead of any message with the same ID.
+    send(std::move(retraction), encryption, encryptionJids).then(this, [this, message](QXmpp::SendResult &&result) {
+        if (const auto error = std::get_if<QXmppError>(&result)) {
+            handleMessageRetractionError(message, error->description);
+        } else {
+            MessageDb::instance()->removeMessage(message);
+        }
+    });
+}
+
+void MessageController::handleMessageRetractionError(const Message &message, const QString &errorText)
+{
+    MessageDb::instance()->updateMessage(message, [errorText](Message &storedMessage) {
+        if (storedMessage.retractionState != Message::RetractionState::None) {
+            storedMessage.retractionState = Message::RetractionState::Error;
+            storedMessage.errorText = errorText;
+        }
+    });
+
+    Q_EMIT MainController::instance()->passiveNotificationRequested(tr("Message could not be removed: %1", "%1 is an error message").arg(errorText));
 }
 
 QFuture<std::optional<MessageController::UsableEncryption>> MessageController::determineUsableEncryption(const RosterItem &rosterItem)

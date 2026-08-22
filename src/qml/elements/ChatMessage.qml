@@ -52,6 +52,8 @@ Controls.ItemDelegate {
 	property bool isLastReadOwnMessage
 	property bool isLatestOldMessage
 	property bool edited
+	property bool removalPending
+	property bool removalFailed
 	property bool isSpoiler
 	property string spoilerHint
 	property bool isShowingSpoiler: false

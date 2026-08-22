@@ -116,6 +116,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
     int idxErrorText = rec.indexOf(QStringLiteral("errorText"));
     int idxMarked = rec.indexOf(QStringLiteral("marked"));
     int idxRemoved = rec.indexOf(QStringLiteral("removed"));
+    int idxRetractionState = rec.indexOf(QStringLiteral("retractionState"));
 
     reserve(messages, query);
     while (query.next()) {
@@ -172,6 +173,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
         msg.errorText = query.value(idxErrorText).toString();
         msg.marked = query.value(idxMarked).toBool();
         msg.removed = query.value(idxRemoved).toBool();
+        msg.retractionState = Message::RetractionState(query.value(idxRetractionState).toInt());
 
         messages << std::move(msg);
     }
@@ -263,6 +265,9 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     }
     if (oldMsg.marked != newMsg.marked) {
         rec.append(createSqlField(QStringLiteral("marked"), newMsg.marked));
+    }
+    if (oldMsg.retractionState != newMsg.retractionState) {
+        rec.append(createSqlField(QStringLiteral("retractionState"), int(newMsg.retractionState)));
     }
 
     return rec;
@@ -803,6 +808,17 @@ MessageDb::updateMessage(const QString &accountJid, const QString &chatJid, cons
     });
 }
 
+QFuture<void> MessageDb::updateMessage(const Message &message, const std::function<void(Message &)> &updateMsg)
+{
+    return run([this, message, updateMsg]() {
+        if (auto storedMessage = _fetchMessage(message)) {
+            QList<Message> messages = {std::move(*storedMessage)};
+            _fetchAdditionalData(messages);
+            _updateMessage(messages.constFirst(), updateMsg);
+        }
+    });
+}
+
 QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 {
     return run([this, accountJid]() {
@@ -860,6 +876,60 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 
         if (const auto messages = _fetchMessagesFromQuery(query); !messages.isEmpty()) {
             _removeMessage(messages.constFirst());
+        }
+    });
+}
+
+QFuture<void> MessageDb::removeMessage(const Message &message)
+{
+    return run([this, message]() {
+        if (const auto storedMessage = _fetchMessage(message)) {
+            _removeMessage(*storedMessage);
+        }
+    });
+}
+
+QFuture<void> MessageDb::applyMessageRetraction(const QString &accountJid,
+                                                const QString &chatJid,
+                                                const QString &messageId,
+                                                const std::function<bool(const Message &)> &check)
+{
+    return run([this, accountJid, chatJid, messageId, check]() {
+        // An empty ID would match messages without an origin or replace ID.
+        if (messageId.isEmpty()) {
+            return;
+        }
+
+        auto query = createQuery();
+
+        // The stanza ID of a direct chat message is assigned by the own server and thus unknown to
+        // the retracting entity.
+        // The most recent message is used if IDs are not unique.
+        execQuery(query,
+                  QStringLiteral(R"(
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE
+                                        accountJid = :accountJid AND chatJid = :chatJid AND
+                                        (id = :messageId OR originId = :messageId OR replaceId = :messageId
+                                            OR (groupChatSenderId != '' AND stanzaId = :messageId))
+                                    ORDER BY timestamp DESC
+                                    LIMIT 1
+                                )"),
+                  {
+                      {u":accountJid", accountJid},
+                      {u":chatJid", chatJid},
+                      {u":messageId", messageId},
+                  });
+
+        const auto messages = _fetchMessagesFromQuery(query);
+
+        if (messages.isEmpty()) {
+            return;
+        }
+
+        if (const auto &message = messages.constFirst(); check(message)) {
+            _removeMessage(message);
         }
     });
 }
@@ -1057,6 +1127,7 @@ void MessageDb::_addMessage(const Message &message)
         {u"errorText", message.errorText},
         {u"marked", message.marked},
         {u"removed", message.removed},
+        {u"retractionState", int(message.retractionState)},
     };
 
     if (const auto reply = message.reply) {
@@ -1104,118 +1175,123 @@ void MessageDb::_updateMessage(const QString &accountJid, const QString &chatJid
     auto msgs = _fetchMessagesFromQuery(query);
     _fetchAdditionalData(msgs);
 
-    // update loaded item
     if (!msgs.isEmpty()) {
-        const auto &oldMessage = msgs.first();
-        Q_ASSERT(oldMessage.deliveryState != DeliveryState::Draft);
+        _updateMessage(msgs.constFirst(), updateMsg);
+    }
+}
 
-        Message newMessage = oldMessage;
-        updateMsg(newMessage);
-        Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
+void MessageDb::_updateMessage(const Message &oldMessage, const std::function<void(Message &)> &updateMsg)
+{
+    Q_ASSERT(oldMessage.deliveryState != DeliveryState::Draft);
 
-        _fetchReply(newMessage);
+    auto query = createQuery();
 
-        // Replace the old message's values with the updated ones if the message has changed.
-        if (oldMessage != newMessage) {
-            Q_EMIT messageUpdated(newMessage);
+    Message newMessage = oldMessage;
+    updateMsg(newMessage);
+    Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
 
-            const auto &oldReactionSenders = oldMessage.reactionSenders;
-            if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
-                // Remove old reactions.
-                for (auto itr = oldReactionSenders.begin(); itr != oldReactionSenders.end(); ++itr) {
-                    const auto &senderId = itr.key();
-                    const auto &reactionSender = itr.value();
+    _fetchReply(newMessage);
 
-                    for (const auto &reaction : reactionSender.reactions) {
-                        if (!newReactionSenders.value(senderId).reactions.contains(reaction)) {
-                            if (senderId == oldMessage.accountJid) {
-                                execQuery(query,
-                                          QStringLiteral(R"(
-                                                            DELETE FROM messageReactions
-                                                            WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL AND emoji = :emoji
-                                                        )"),
-                                          {
-                                              {u":accountJid", oldMessage.accountJid},
-                                              {u":chatJid", oldMessage.chatJid},
-                                              {u":messageSenderId",
-                                               oldMessage.isOwn ? oldMessage.accountJid
-                                                                : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                              {u":messageId", oldMessage.referenceId()},
-                                              {u":emoji", reaction.emoji},
-                                          });
-                            } else {
-                                execQuery(query,
-                                          QStringLiteral(R"(
-                                                            DELETE FROM messageReactions
-                                                            WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId = :senderId AND emoji = :emoji
-                                                        )"),
-                                          {
-                                              {u":accountJid", oldMessage.accountJid},
-                                              {u":chatJid", oldMessage.chatJid},
-                                              {u":messageSenderId",
-                                               oldMessage.isOwn ? oldMessage.accountJid
-                                                                : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                              {u":messageId", oldMessage.referenceId()},
-                                              {u":senderId", senderId},
-                                              {u":emoji", reaction.emoji},
-                                          });
-                            }
+    // Replace the old message's values with the updated ones if the message has changed.
+    if (oldMessage != newMessage) {
+        Q_EMIT messageUpdated(newMessage);
+
+        const auto &oldReactionSenders = oldMessage.reactionSenders;
+        if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
+            // Remove old reactions.
+            for (auto itr = oldReactionSenders.begin(); itr != oldReactionSenders.end(); ++itr) {
+                const auto &senderId = itr.key();
+                const auto &reactionSender = itr.value();
+
+                for (const auto &reaction : reactionSender.reactions) {
+                    if (!newReactionSenders.value(senderId).reactions.contains(reaction)) {
+                        if (senderId == oldMessage.accountJid) {
+                            execQuery(query,
+                                      QStringLiteral(R"(
+                                                        DELETE FROM messageReactions
+                                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL AND emoji = :emoji
+                                                    )"),
+                                      {
+                                          {u":accountJid", oldMessage.accountJid},
+                                          {u":chatJid", oldMessage.chatJid},
+                                          {u":messageSenderId",
+                                           oldMessage.isOwn ? oldMessage.accountJid
+                                                            : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
+                                          {u":messageId", oldMessage.referenceId()},
+                                          {u":emoji", reaction.emoji},
+                                      });
+                        } else {
+                            execQuery(query,
+                                      QStringLiteral(R"(
+                                                        DELETE FROM messageReactions
+                                                        WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId = :senderId AND emoji = :emoji
+                                                    )"),
+                                      {
+                                          {u":accountJid", oldMessage.accountJid},
+                                          {u":chatJid", oldMessage.chatJid},
+                                          {u":messageSenderId",
+                                           oldMessage.isOwn ? oldMessage.accountJid
+                                                            : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
+                                          {u":messageId", oldMessage.referenceId()},
+                                          {u":senderId", senderId},
+                                          {u":emoji", reaction.emoji},
+                                      });
                         }
                     }
                 }
-
-                // Add new reactions.
-                for (auto itr = newReactionSenders.begin(); itr != newReactionSenders.end(); ++itr) {
-                    const auto &senderId = itr.key();
-                    const auto &reactionSender = itr.value();
-
-                    for (const auto &reaction : reactionSender.reactions) {
-                        if (!oldReactionSenders.value(senderId).reactions.contains(reaction)) {
-                            insert(QString::fromLatin1(DB_TABLE_MESSAGE_REACTIONS),
-                                   {
-                                       {u"accountJid", oldMessage.accountJid},
-                                       {u"chatJid", oldMessage.chatJid},
-                                       {u"messageSenderId",
-                                        oldMessage.isOwn ? oldMessage.accountJid
-                                                         : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
-                                       {u"messageId", oldMessage.referenceId()},
-                                       {u"senderId", senderId == oldMessage.accountJid ? QVariant{} : senderId},
-                                       {u"timestamp", reactionSender.latestTimestamp},
-                                       {u"deliveryState", static_cast<int>(reaction.deliveryState)},
-                                       {u"emoji", reaction.emoji},
-                                   });
-                        }
-                    }
-                }
-            } else if (auto rec = createUpdateRecord(oldMessage, newMessage); !rec.isEmpty()) {
-                auto &driver = sqlDriver();
-
-                // Create an SQL record containing only the differences.
-                execQuery(query,
-                          driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_MESSAGES), rec, false)
-                              + simpleWhereStatement(&driver,
-                                                     {
-                                                         {QStringLiteral("accountJid"), oldMessage.accountJid},
-                                                         {QStringLiteral("chatJid"), oldMessage.chatJid},
-                                                         {QStringLiteral("id"), oldMessage.id},
-                                                     }));
             }
 
-            // remove old files
-            auto oldFileIds = transform(oldMessage.files, [](const auto &file) {
-                return file.id;
-            });
-            auto newFileIds = transform(newMessage.files, [](const auto &file) {
-                return file.id;
-            });
-            auto removedFileIds = filter(std::move(oldFileIds), [&](auto id) {
-                return !newFileIds.contains(id);
-            });
-            _removeFiles(removedFileIds);
+            // Add new reactions.
+            for (auto itr = newReactionSenders.begin(); itr != newReactionSenders.end(); ++itr) {
+                const auto &senderId = itr.key();
+                const auto &reactionSender = itr.value();
 
-            // add new files, replace changed files
-            _setFiles(newMessage.files);
+                for (const auto &reaction : reactionSender.reactions) {
+                    if (!oldReactionSenders.value(senderId).reactions.contains(reaction)) {
+                        insert(QString::fromLatin1(DB_TABLE_MESSAGE_REACTIONS),
+                               {
+                                   {u"accountJid", oldMessage.accountJid},
+                                   {u"chatJid", oldMessage.chatJid},
+                                   {u"messageSenderId",
+                                    oldMessage.isOwn ? oldMessage.accountJid
+                                                     : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
+                                   {u"messageId", oldMessage.referenceId()},
+                                   {u"senderId", senderId == oldMessage.accountJid ? QVariant{} : senderId},
+                                   {u"timestamp", reactionSender.latestTimestamp},
+                                   {u"deliveryState", static_cast<int>(reaction.deliveryState)},
+                                   {u"emoji", reaction.emoji},
+                               });
+                    }
+                }
+            }
+        } else if (auto rec = createUpdateRecord(oldMessage, newMessage); !rec.isEmpty()) {
+            auto &driver = sqlDriver();
+
+            // Create an SQL record containing only the differences.
+            execQuery(query,
+                      driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_MESSAGES), rec, false)
+                          + simpleWhereStatement(&driver,
+                                                 {
+                                                     {QStringLiteral("accountJid"), oldMessage.accountJid},
+                                                     {QStringLiteral("chatJid"), oldMessage.chatJid},
+                                                     {QStringLiteral("id"), oldMessage.id},
+                                                 }));
         }
+
+        // remove old files
+        auto oldFileIds = transform(oldMessage.files, [](const auto &file) {
+            return file.id;
+        });
+        auto newFileIds = transform(newMessage.files, [](const auto &file) {
+            return file.id;
+        });
+        auto removedFileIds = filter(std::move(oldFileIds), [&](auto id) {
+            return !newFileIds.contains(id);
+        });
+        _removeFiles(removedFileIds);
+
+        // add new files, replace changed files
+        _setFiles(newMessage.files);
     }
 }
 
@@ -1849,6 +1925,33 @@ void MessageDb::_fetchReply(Message &message)
     }
 }
 
+std::optional<Message> MessageDb::_fetchMessage(const Message &message)
+{
+    // The timestamp is checked as well because IDs are not always unique.
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
+                                SELECT *
+                                FROM chatMessages
+                                WHERE
+                                    accountJid = :accountJid AND chatJid = :chatJid AND
+                                    id = :messageId AND timestamp = :timestamp
+                                LIMIT 1
+                            )"),
+              {
+                  {u":accountJid", message.accountJid},
+                  {u":chatJid", message.chatJid},
+                  {u":messageId", message.id},
+                  {u":timestamp", message.timestamp.toString(Qt::ISODateWithMs)},
+              });
+
+    if (auto messages = _fetchMessagesFromQuery(query); !messages.isEmpty()) {
+        return messages.takeFirst();
+    }
+
+    return {};
+}
+
 std::optional<Message> MessageDb::_fetchDraftMessage(const QString &accountJid, const QString &chatJid)
 {
     auto query = createQuery();
@@ -1964,6 +2067,26 @@ QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJi
                   {
                       {u":accountJid", accountJid},
                       {u":deliveryState", int(Enums::DeliveryState::Pending)},
+                  });
+
+        return _fetchMessagesFromQuery(query);
+    });
+}
+
+QFuture<QList<Message>> MessageDb::fetchPendingMessageRetractions(const QString &accountJid)
+{
+    return run([this, accountJid]() {
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+                                    SELECT *
+                                    FROM chatMessages
+                                    WHERE accountJid = :accountJid AND retractionState = :retractionState
+                                    ORDER BY timestamp ASC
+                                )"),
+                  {
+                      {u":accountJid", accountJid},
+                      {u":retractionState", int(Message::RetractionState::Pending)},
                   });
 
         return _fetchMessagesFromQuery(query);

@@ -67,6 +67,8 @@ public:
         IsLastReadOwnMessage,
         IsLatestOldMessage,
         IsEdited,
+        IsRemovalPending,
+        IsRemovalFailed,
         ReplyToJid,
         ReplyToGroupChatParticipantId,
         ReplyToName,
@@ -150,6 +152,18 @@ public:
     Q_INVOKABLE int previousCorrectableMessageIndex(int indexOffset) const;
 
     Q_INVOKABLE bool canCorrectMessage(int index) const;
+    Q_INVOKABLE bool canRetractMessage(int index) const;
+
+    /**
+     * Returns whether a message's retraction that could not be sent may be sent, i.e., the message
+     * can still be retracted.
+     */
+    Q_INVOKABLE bool canRetryMessageRetraction(int index) const;
+
+    /**
+     * Sends the retraction of a message after it could not be sent.
+     */
+    Q_INVOKABLE void retryMessageRetraction(int index);
 
     Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);
 

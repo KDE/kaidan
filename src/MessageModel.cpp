@@ -86,6 +86,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[IsLastReadOwnMessage] = QByteArrayLiteral("isLastReadOwnMessage");
     roles[IsLatestOldMessage] = QByteArrayLiteral("isLatestOldMessage");
     roles[IsEdited] = QByteArrayLiteral("isEdited");
+    roles[IsRemovalPending] = QByteArrayLiteral("isRemovalPending");
+    roles[IsRemovalFailed] = QByteArrayLiteral("isRemovalFailed");
     roles[ReplyToJid] = QByteArrayLiteral("replyToJid");
     roles[ReplyToGroupChatParticipantId] = QByteArrayLiteral("replyToGroupChatParticipantId");
     roles[ReplyToName] = QByteArrayLiteral("replyToName");
@@ -188,6 +190,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case IsEdited:
         return !msg.replaceId.isEmpty();
+    case IsRemovalPending:
+        return msg.retractionState == Message::RetractionState::Pending;
+    case IsRemovalFailed:
+        return msg.retractionState == Message::RetractionState::Error;
     case ReplyToJid: {
         const auto reply = msg.reply;
 
@@ -265,8 +271,25 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case TrustLevel:
         return QVariant::fromValue(msg.trustLevel());
     case DeliveryState:
+        switch (msg.retractionState) {
+        case Message::RetractionState::Pending:
+            return QVariant::fromValue(DeliveryState::Pending);
+        case Message::RetractionState::Error:
+            return QVariant::fromValue(DeliveryState::Error);
+        case Message::RetractionState::None:
+            break;
+        }
         return QVariant::fromValue(msg.deliveryState);
     case DeliveryStateIcon:
+        switch (msg.retractionState) {
+        case Message::RetractionState::Pending:
+            return QStringLiteral("content-loading-symbolic");
+        case Message::RetractionState::Error:
+            return QStringLiteral("dialog-error-symbolic");
+        case Message::RetractionState::None:
+            break;
+        }
+
         switch (msg.deliveryState) {
         case DeliveryState::Pending:
             return QStringLiteral("content-loading-symbolic");
@@ -280,6 +303,15 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return {};
     case DeliveryStateName:
+        switch (msg.retractionState) {
+        case Message::RetractionState::Pending:
+            return tr("Removal pending");
+        case Message::RetractionState::Error:
+            return tr("Removal failed");
+        case Message::RetractionState::None:
+            break;
+        }
+
         switch (msg.deliveryState) {
         case DeliveryState::Pending:
             return tr("Pending");
@@ -844,7 +876,7 @@ bool MessageModel::canModifyMessage(int index) const
 
     const auto &message = m_messages.at(index);
 
-    if (message.groupChatInvitation || message.deliveryState == Enums::DeliveryState::Error
+    if (message.retractionState != Message::RetractionState::None || message.groupChatInvitation || message.deliveryState == Enums::DeliveryState::Error
         || RosterModel::instance()->item(message.accountJid, message.chatJid)->isDeletedGroupChat()) {
         return false;
     }
@@ -855,6 +887,23 @@ bool MessageModel::canModifyMessage(int index) const
 bool MessageModel::canCorrectMessage(int index) const
 {
     return canModifyMessage(index);
+}
+
+bool MessageModel::canRetractMessage(int index) const
+{
+    if (!canModifyMessage(index)) {
+        return false;
+    }
+
+    const auto &message = m_messages.at(index);
+
+    // The other chat participants must know the referenced ID, which is only the case once the
+    // message has been sent or, in group chats, reflected.
+    if (message.deliveryState == Enums::DeliveryState::Pending || (message.isGroupChatMessage() && message.stanzaId.isEmpty())) {
+        return false;
+    }
+
+    return !message.referenceId().isEmpty();
 }
 
 void MessageModel::deleteFile(const QString &messageId, const File &file)
@@ -871,11 +920,37 @@ void MessageModel::deleteFile(const QString &messageId, const File &file)
     MediaUtils::deleteDownloadedFile(file.localFilePath);
 }
 
+bool MessageModel::canRetryMessageRetraction(int index) const
+{
+    if (index < 0 || index >= m_messages.size()) {
+        return false;
+    }
+
+    // The message must still be among the most recent messages.
+    const auto &message = m_messages.at(index);
+    return message.retractionState == Message::RetractionState::Error && index < MAX_MESSAGE_MODIFICATION_COUNT
+        && message.isModifiable(true, QDateTime::currentDateTimeUtc());
+}
+
+void MessageModel::retryMessageRetraction(int index)
+{
+    if (!canRetryMessageRetraction(index)) {
+        return;
+    }
+
+    m_messageController->retractMessage(m_messages.at(index), m_chatController->activeEncryption(), m_chatController->groupChatUserJids());
+}
+
 void MessageModel::removeMessage(const QString &messageId)
 {
     const auto itr = std::ranges::find(m_messages, messageId, &Message::referenceId);
 
     if (itr == m_messages.cend()) {
+        return;
+    }
+
+    if (canRetractMessage(std::ranges::distance(m_messages.cbegin(), itr))) {
+        m_messageController->retractMessage(*itr, m_chatController->activeEncryption(), m_chatController->groupChatUserJids());
         return;
     }
 

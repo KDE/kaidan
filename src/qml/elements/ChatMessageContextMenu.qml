@@ -22,6 +22,9 @@ Kirigami.Dialog {
 	property var file: null
 	readonly property bool localFileAvailable: file && file.locallyAvailable
 	property bool currentIndexResetOnClosing: true
+	readonly property bool removalPending: message.removalPending
+	readonly property bool removalFailed: message.removalFailed
+	readonly property bool removalRetryable: removalFailed && message.chatController.messageModel.canRetryMessageRetraction(message.modelIndex)
 
 	padding: Kirigami.Units.smallSpacing
 	background: Kirigami.ShadowedRectangle {
@@ -75,11 +78,17 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			text: qsTr("Resend")
+			text: root.removalFailed ? qsTr("Retry removal") : qsTr("Resend")
 			icon.source: "view-refresh-symbolic"
 			contextMenu: root
-			shown: root.message.deliveryState === Enums.Error
-			onClicked: root.message.chatController.messageModel.resendMessage(root.message.modelIndex)
+			shown: root.removalRetryable || (!root.removalPending && !root.removalFailed && root.message.deliveryState === Enums.Error)
+			onClicked: {
+				if (root.removalFailed) {
+					root.message.chatController.messageModel.retryMessageRetraction(root.message.modelIndex)
+				} else {
+					root.message.chatController.messageModel.resendMessage(root.message.modelIndex)
+				}
+			}
 		}
 
 		ChatMessageContextMenuButton {
@@ -96,7 +105,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
+				return !root.removalPending && !root.removalFailed && !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: {
 				root.message.openReactionEmojiPicker()
@@ -117,7 +126,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
+				return !root.removalPending && !root.removalFailed && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: root.message.sendingPane.prepareReply(root.message.senderJid, root.message.groupChatSenderId, root.message.senderName, root.message.msgId, root.message.messageBody)
 		}
@@ -126,7 +135,7 @@ Kirigami.Dialog {
 			text: qsTr("Quote")
 			icon.source: "mail-reply-all-symbolic"
 			contextMenu: root
-			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
+			shown: !root.removalPending && !root.removalFailed && root.message.messageBody && !root.message.groupChatInvitationJid && !root.message.chatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareQuote(root.message.messageBody)
 		}
 
@@ -194,9 +203,10 @@ Kirigami.Dialog {
 		}
 
 		ChatMessageContextMenuButton {
-			text: qsTr("Remove from this device")
+			text: root.message.chatController.messageModel.canRetractMessage(root.message.modelIndex) ? qsTr("Remove") : qsTr("Remove from this device")
 			icon.source: "edit-delete-symbolic"
 			contextMenu: root
+			shown: !root.removalPending
 			onClicked: {
 				root.currentIndexResetOnClosing = false
 

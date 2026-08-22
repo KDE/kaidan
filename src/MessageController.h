@@ -77,6 +77,8 @@ public:
     void sendPendingMessage(Message message);
     void sendPendingMessageWithUploadedFiles(Message message);
 
+    void retractMessage(const Message &message, Encryption::Enum encryption, const QList<QString> &encryptionJids);
+
     QFuture<bool> retrieveBacklogMessages(const QString &jid, bool isGroupChat, const QString &oldestMessageStanzaId = QLatin1String(""));
 
 private:
@@ -113,6 +115,11 @@ private:
     bool handleCorrection(const Message &message, const QString &accountJid, const QString &chatJid, const QString &replaceId, MessageOrigin origin);
 
     /**
+     * @return whether the message is a retraction or a tombstone and has thus been handled
+     */
+    bool handleRetraction(const QXmppMessage &message, const QString &accountJid, const QString &chatJid, bool isOwnMessage, const QString &groupChatSenderId);
+
+    /**
      * Updates a message's delivery state and stores the received "stanzaId" if the message is sent
      * from this device and reflected from a group chat or the chat with oneself.
      *
@@ -129,6 +136,7 @@ private:
 
     void sendPendingMessages();
     void sendPendingMessageReactions();
+    void sendPendingMessageRetractions();
     void sendPendingReadMarkers();
 
     void sendReadMarker(const RosterItem &rosterItem,
@@ -136,6 +144,16 @@ private:
                         Encryption::Enum encryption = Encryption::NoEncryption,
                         const QList<QString> &encryptionJids = {});
     void sendReadMarkerWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId);
+
+    /**
+     * Sends the retraction of an own message and removes the message once it has been sent.
+     *
+     * If the message cannot be retracted anymore, the retraction is not sent and an error is stored
+     * instead.
+     */
+    void sendMessageRetraction(const Message &message, Encryption::Enum encryption = Encryption::NoEncryption, const QList<QString> &encryptionJids = {});
+    void sendMessageRetractionWithinLimits(const Message &message, Encryption::Enum encryption, const QList<QString> &encryptionJids);
+    void handleMessageRetractionError(const Message &message, const QString &errorText);
 
     QFuture<std::optional<UsableEncryption>> determineUsableEncryption(const RosterItem &rosterItem);
 

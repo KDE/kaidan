@@ -135,5 +135,6 @@ constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
 // TODO: Find a solution to not define namespaces in Kaidan
 inline constexpr QStringView XMLNS_SFS = u"urn:xmpp:sfs:0";
 inline constexpr QStringView XMLNS_MESSAGE_REPLIES = u"urn:xmpp:reply:0";
+inline constexpr QStringView XMLNS_MESSAGE_RETRACTION = u"urn:xmpp:message-retract:1";
 const auto XMLNS_OMEMO_2 = QStringLiteral("urn:xmpp:omemo:2");
 const auto XMLNS_BLOCKING_COMMAND_REPORTS = QStringLiteral("urn:xmpp:reporting:1");

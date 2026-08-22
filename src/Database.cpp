@@ -417,7 +417,9 @@ void Database::createNewDatabase()
                                 SQL_ATTRIBUTE(spoilerHint, SQL_TEXT) SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER) SQL_ATTRIBUTE(groupChatInviterJid, SQL_TEXT)
                                     SQL_ATTRIBUTE(groupChatInviteeJid, SQL_TEXT) SQL_ATTRIBUTE(groupChatInvitationJid, SQL_TEXT)
                                         SQL_ATTRIBUTE(groupChatToken, SQL_TEXT) SQL_ATTRIBUTE(errorText, SQL_TEXT) SQL_ATTRIBUTE(marked, SQL_BOOL_NOT_NULL)
-                                            SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL) "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
+                                            SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
+                                                SQL_ATTRIBUTE(retractionState,
+                                                              SQL_INTEGER_NOT_NULL) "FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"));
     execQuery(query,
               SQL_CREATE_TABLE(DB_TABLE_MESSAGE_REACTIONS,
                                SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
@@ -1845,6 +1847,10 @@ std::span<const Database::Migration> Database::migrations()
                                     GROUP BY accountJid, chatJid, messageId, COALESCE(senderId, ''), emoji
                                 )
                             )"));
+         }},
+        {62,
+         [](QSqlQuery &query) {
+             execQuery(query, QStringLiteral("ALTER TABLE messages ADD retractionState " SQL_INTEGER_NOT_NULL " DEFAULT 0"));
          }},
     };
 

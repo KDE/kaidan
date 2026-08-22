@@ -392,6 +392,8 @@ SearchBarPage {
 			isLastReadOwnMessage: model.isLastReadOwnMessage
 			isLatestOldMessage: model.isLatestOldMessage
 			edited: model.isEdited
+			removalPending: model.isRemovalPending
+			removalFailed: model.isRemovalFailed
 			isSpoiler: model.isSpoiler
 			spoilerHint: model.spoilerHint
 			errorText: model.errorText

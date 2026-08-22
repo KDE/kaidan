@@ -169,6 +169,11 @@ public:
     QFuture<QList<Message>> fetchPendingMessages(const QString &accountJid);
 
     /**
+     * Fetches messages whose retractions are to be sent automatically (i.e., are pending).
+     */
+    QFuture<QList<Message>> fetchPendingMessageRetractions(const QString &accountJid);
+
+    /**
      * Fetches message reactions marked as pending.
      *
      * @param accountJid JID of the account whose message reactions are fetched
@@ -234,6 +239,15 @@ public:
      * @param updateMsg Function that changes the message
      */
     QFuture<void> updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
+
+    /**
+     * Loads exactly the passed message instead of any message with the same ID, runs an update
+     * function and writes it to the DB again.
+     *
+     * @param message message to be updated
+     * @param updateMsg function that changes the message
+     */
+    QFuture<void> updateMessage(const Message &message, const std::function<void(Message &)> &updateMsg);
     Q_SIGNAL void messageUpdated(const Message &message);
 
     /**
@@ -260,7 +274,18 @@ public:
      * @param messageId ID of the message
      */
     QFuture<void> removeMessage(const QString &accountJid, const QString &chatJid, const QString &messageId);
+
+    /**
+     * Removes exactly the passed chat message locally instead of any message with the same ID.
+     */
+    QFuture<void> removeMessage(const Message &message);
     Q_SIGNAL void messageRemoved(const Message &message, const Message &newLastMessage);
+
+    /**
+     * Removes the retracted message if "check" returns true for it.
+     */
+    QFuture<void>
+    applyMessageRetraction(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<bool(const Message &)> &check);
 
     /**
      * Adds additional file sources to a file.
@@ -301,6 +326,7 @@ public:
 private:
     void _addMessage(const Message &message);
     void _updateMessage(const QString &accountJid, const QString &chatJid, const QString &messageId, const std::function<void(Message &)> &updateMsg);
+    void _updateMessage(const Message &oldMessage, const std::function<void(Message &)> &updateMsg);
     void _removeMessage(const Message &message);
 
     // Setters do INSERT OR REPLACE INTO
@@ -339,6 +365,10 @@ private:
 
     void _fetchReply(Message &message);
 
+    /**
+     * Fetches the stored version of the passed message by its ID and timestamp.
+     */
+    std::optional<Message> _fetchMessage(const Message &message);
     std::optional<Message> _fetchDraftMessage(const QString &accountJid, const QString &chatJid);
 
     /**
