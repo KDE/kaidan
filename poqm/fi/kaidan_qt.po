@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-01-16 17:54+0200\n"
+"PO-Revision-Date: 2026-03-13 20:57+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -155,15 +155,9 @@ msgid "%1 paused typing"
 msgstr "%1 keskeytti kirjoittamisen"
 
 #: src/ChatHintModel.cpp:234
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your account is not enabled - Messages are sent and received once enabled"
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
-msgstr ""
-"Tili ei ole käytössä: viestejä lähetetään ja vastaanotetaan käyttöönoton "
-"jälkeen"
+msgstr "Tili ei ole käytössä: viestit välitetään yhdistämisen jälkeen"
 
 #: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
 #: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
@@ -292,15 +286,12 @@ msgstr "Tiedostoa ei voitu ladata: %1"
 #: src/FileSharingController.cpp:383
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr ""
+msgstr "Mediajakotuki on tuntematon"
 
 #: src/FileSharingController.cpp:386
-#, fuzzy
-#| msgctxt "AccountSelectionDialog|"
-#| msgid "Feature unsupported"
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "Ominaisuutta ei tueta"
+msgstr "Mediajakoa ei tueta"
 
 #: src/FileSharingController.cpp:509
 #, fuzzy, qt-format
@@ -313,15 +304,13 @@ msgstr "Tiedostoa ei voitu lähettää: %1"
 #: src/FileSharingController.cpp:624
 msgctxt "FileSharingController|"
 msgid "Transfer canceled"
-msgstr ""
+msgstr "Siirto peruttu"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "MessageComposition|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Transfer failed: %1"
-msgstr "Lähetys epäonnistui: %1"
+msgstr "Siirto epäonnistui: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -536,12 +525,9 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "”%1”: ei voida lähettää, koska on yli %2"
 
 #: src/MessageController.cpp:278
-#, fuzzy
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent"
-msgstr "Viestiä ei voitu lähettää."
+msgstr "Viestiä ei voitu lähettää"
 
 #: src/MessageController.cpp:282
 msgctxt "MessageController|"
@@ -707,18 +693,15 @@ msgstr "Sinulla ei ole oikeutta poistaa ryhmää"
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "Saapuva puhelu: %1"
 
 #: src/NotificationController.cpp:104
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming video call from %1"
-msgstr ""
+msgstr "Saapuva videopuhelu: %1"
 
 #: src/NotificationController.cpp:120
-#, fuzzy
-#| msgctxt "SubRequestAcceptSheet|"
-#| msgid "Accept"
 msgctxt "NotificationController|"
 msgid "Accept"
 msgstr "Hyväksy"
@@ -726,7 +709,7 @@ msgstr "Hyväksy"
 #: src/NotificationController.cpp:127
 msgctxt "NotificationController|"
 msgid "Reject"
-msgstr ""
+msgstr "Hylkää"
 
 #: src/NotificationController.cpp:314 src/NotificationController.cpp:376
 msgctxt "NotificationController|"
@@ -739,20 +722,14 @@ msgid "Mark as read"
 msgstr "Merkitse luetuksi"
 
 #: src/NotificationController.cpp:322
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply"
 msgstr "Vastaa"
 
 #: src/NotificationController.cpp:323
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Reply"
 msgctxt "NotificationController|"
 msgid "Reply…"
-msgstr "Vastaa"
+msgstr "Vastaa…"
 
 #: src/NotificationController.cpp:361
 msgctxt "NotificationController|"
@@ -831,7 +808,7 @@ msgstr "Tietoa Kaidanista"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr ""
+msgstr "Soita"
 
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
@@ -839,51 +816,39 @@ msgid "Quit call"
 msgstr ""
 
 #: src/qml/ChatPage.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Avaa tukikeskustelu"
+msgstr "Avaa äänipuhelu"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr ""
+msgstr "Aloita äänipuhelu"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr ""
+msgstr "Avaa videopuhelu"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Start video call"
-msgstr ""
+msgstr "Aloita videopuhelu"
 
 #: src/qml/ChatPage.qml:163
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "ChatPage|"
 msgid "Search upwards"
 msgstr "Etsi ylöspäin"
 
 #: src/qml/ChatPage.qml:174
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search down"
 msgctxt "ChatPage|"
 msgid "Search downwards"
 msgstr "Etsi alaspäin"
 
 #: src/qml/ChatPage.qml:186
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close search"
 msgctxt "ChatPage|"
 msgid "Quit search"
-msgstr "Sulje haku"
+msgstr "Lopeta haku"
 
 #: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
@@ -1720,12 +1685,9 @@ msgid "Send typing notifications"
 msgstr "Näytä ilmoitus kirjoittamisesta"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Osoita, mitkä viestit olet lukenut"
+msgstr "Näytä, kun kirjoitat"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -2023,12 +1985,9 @@ msgid "Send typing notifications"
 msgstr "Lähetä ilmoitus kirjoittamisesta"
 
 #: src/qml/details/GroupChatDetailsContent.qml:350
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Indicate which messages you have read"
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Osoita, mitkä viestit olet lukenut"
+msgstr "Näytä, kun kirjoitat"
 
 #: src/qml/details/GroupChatDetailsContent.qml:356
 msgctxt "GroupChatDetailsContent|"
@@ -2452,20 +2411,14 @@ msgid "%1 has read up to this point"
 msgstr "%1 on lukenut tähän asti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:57
-#, fuzzy
-#| msgctxt "MediumSendingPreview|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:65
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Open selected file's folder"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
-msgstr "Avaa valitun tiedoston kansio"
+msgstr "Avaa tiedosto kansiosta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:78
 msgctxt "ChatMessageContextMenu|"
@@ -3603,17 +3556,14 @@ msgid "Pin"
 msgstr "Kiinnitä"
 
 #: src/qml/elements/SearchBarPage.qml:63
-#, fuzzy
-#| msgctxt "AvatarChangePage|"
-#| msgid "Open image…"
 msgctxt "SearchBarPage|"
 msgid "Open menu"
-msgstr "Avaa kuva…"
+msgstr "Avaa valikko"
 
 #: src/qml/elements/SearchBarPage.qml:73
 msgctxt "SearchBarPage|"
 msgid "Go back"
-msgstr ""
+msgstr "Palaa"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:26
 msgctxt "UrlFormButtonDelegate|"
@@ -3804,7 +3754,7 @@ msgstr "Viimeistele rekisteröityminen!"
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
 msgid "Try another provider"
-msgstr ""
+msgstr "Kokeile toista tarjoajaa"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:132
 msgctxt "AutomaticRegistrationPage|"
