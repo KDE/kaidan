@@ -357,8 +357,8 @@ private:
     void _removeReactions(const QString &accountJid, const QString &chatJid);
     void _removeReactions(const QString &accountJid, const QString &chatJid, const QString &messageId);
 
-    void _fetchGroupChatUsers(QList<Message> &messages);
-    void _fetchGroupChatUser(Message &message);
+    static void _fetchGroupChatUsers(QList<Message> &messages);
+    static void _fetchGroupChatUser(Message &message);
 
     void _fetchTrustLevels(QList<Message> &messages);
     void _fetchTrustLevel(Message &messages);
