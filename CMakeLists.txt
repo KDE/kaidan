@@ -7,10 +7,6 @@ set(CMAKE_CXX_STANDARD 23)
 set(QT_MIN_VERSION "6.10.0")
 set(KF_MIN_VERSION "6.11.0")
 
-if(POLICY CMP0071)
-    cmake_policy(SET CMP0071 NEW)
-endif()
-
 project(kaidan)
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 # CMake module path
