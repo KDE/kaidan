@@ -31,7 +31,7 @@ ColumnLayout {
 
 	FormCard.FormSwitchDelegate {
 		id: reportSwitch
-		text: qsTr("Report")
+		text: qsTr("Report", "@action, as in 'Report spam or abuse'")
 		description: qsTr("Report spam or abuse")
 		visible: root.reportsSupported && !root.reportingMandatory
 		checked: root.reportingMandatory

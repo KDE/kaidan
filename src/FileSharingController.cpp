@@ -627,7 +627,7 @@ QFuture<void> FileSharingController::handleTransferError(const QString &chatJid,
                     it->transferState = File::TransferState::Pending;
                 } else {
                     it->transferState = File::TransferState::Failed;
-                    message.errorText = tr("Transfer failed: %1").arg(errorText);
+                    message.errorText = tr("Transfer failed: %1", "%1 is an error message").arg(errorText);
                     handleFailure();
                 }
             }

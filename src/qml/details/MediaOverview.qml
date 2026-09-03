@@ -166,7 +166,7 @@ Controls.Control {
 				}
 
 				Controls.Label {
-					text: qsTr("%1/%2 selected", "%1 and %2 are numbers").arg(fileProxyModel.checkedCount).arg(fileProxyModel.rowCount)
+					text: qsTr("%Ln/%L1 selected", "%Ln is the number of selected files, %L1 the total number", fileProxyModel.checkedCount).arg(fileProxyModel.rowCount)
 					horizontalAlignment: Qt.AlignLeft
 					Layout.fillWidth: true
 				}
