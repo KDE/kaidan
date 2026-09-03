@@ -289,7 +289,7 @@ void Call::setUpVideoStream(QXmppCallStream *stream)
             return;
         }
 
-        GstElement *contactVideoSink = gst_bin_get_by_name((GstBin *)pipeline, "contactVideoSink");
+        GstElement *contactVideoSink = gst_bin_get_by_name(GST_BIN(pipeline), "contactVideoSink");
         g_assert(contactVideoSink);
         g_object_set(contactVideoSink, "widget", contactVideoItem, NULL);
 
