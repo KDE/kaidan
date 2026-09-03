@@ -54,7 +54,7 @@ private:
     QSqlQuery createQuery();
 
     /// Returns the number of active transactions on the current thread.
-    int &activeTransactions();
+    static int &activeTransactions();
     /// Begins a transaction if none has been started.
     void transaction();
     /// Commits the transaction if every transaction has been finished.
