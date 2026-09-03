@@ -228,7 +228,7 @@ public:
     Q_SIGNAL void messageSearchFinished(int queryStringMessageIndex);
 
     bool mamLoading() const;
-    void setMamLoading(bool mamLoading);
+    void setMamLoading(bool newMamLoading);
     Q_SIGNAL void mamLoadingChanged();
 
 private:

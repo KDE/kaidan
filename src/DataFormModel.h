@@ -55,7 +55,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QXmppDataForm form() const;
-    void setForm(const QXmppDataForm &form);
+    void setForm(const QXmppDataForm &newForm);
     Q_SIGNAL void formChanged();
 
     QString title() const;

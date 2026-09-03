@@ -28,10 +28,10 @@ EncryptionController *EncryptionKeyModel::encryptionController() const
     return m_encryptionController;
 }
 
-void EncryptionKeyModel::setEncryptionController(EncryptionController *encryptionController)
+void EncryptionKeyModel::setEncryptionController(EncryptionController *newEncryptionController)
 {
-    if (m_encryptionController != encryptionController) {
-        m_encryptionController = encryptionController;
+    if (m_encryptionController != newEncryptionController) {
+        m_encryptionController = newEncryptionController;
 
         if (!m_accountJid.isEmpty()) {
             setUp();
@@ -44,10 +44,10 @@ const QString &EncryptionKeyModel::accountJid() const
     return m_accountJid;
 }
 
-void EncryptionKeyModel::setAccountJid(const QString &accountJid)
+void EncryptionKeyModel::setAccountJid(const QString &newAccountJid)
 {
-    if (m_accountJid != accountJid) {
-        m_accountJid = accountJid;
+    if (m_accountJid != newAccountJid) {
+        m_accountJid = newAccountJid;
         Q_EMIT accountJidChanged();
 
         if (m_encryptionController) {

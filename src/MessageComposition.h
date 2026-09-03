@@ -58,55 +58,55 @@ public:
     {
         return m_replaceId;
     }
-    void setReplaceId(const QString &replaceId);
+    void setReplaceId(const QString &newReplaceId);
 
     [[nodiscard]] QString replyToJid() const
     {
         return m_replyToJid;
     }
-    void setReplyToJid(const QString &replyToJid);
+    void setReplyToJid(const QString &newReplyToJid);
 
     [[nodiscard]] QString replyToGroupChatParticipantId() const
     {
         return m_replyToGroupChatParticipantId;
     }
-    void setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId);
+    void setReplyToGroupChatParticipantId(const QString &newReplyToGroupChatParticipantId);
 
     [[nodiscard]] const QString &replyToName() const
     {
         return m_replyToName;
     }
-    void setReplyToName(const QString &replyToName);
+    void setReplyToName(const QString &newReplyToName);
 
     [[nodiscard]] QString replyId() const
     {
         return m_replyId;
     }
-    void setReplyId(const QString &replyId);
+    void setReplyId(const QString &newReplyId);
 
     [[nodiscard]] const QString &originalReplyId() const
     {
         return m_originalReplyId;
     }
-    void setOriginalReplyId(const QString &originalReplyId);
+    void setOriginalReplyId(const QString &newOriginalReplyId);
 
     [[nodiscard]] QString replyQuote() const
     {
         return m_replyQuote;
     }
-    void setReplyQuote(const QString &replyQuote);
+    void setReplyQuote(const QString &newReplyQuote);
 
     [[nodiscard]] QString body() const
     {
         return m_body;
     }
-    void setBody(const QString &body);
+    void setBody(const QString &newBody);
 
     [[nodiscard]] const QString &originalBody() const
     {
         return m_originalBody;
     }
-    void setOriginalBody(const QString &originalBody);
+    void setOriginalBody(const QString &newOriginalBody);
 
     [[nodiscard]] bool isSpoiler() const
     {
@@ -118,13 +118,13 @@ public:
     {
         return m_spoilerHint;
     }
-    void setSpoilerHint(const QString &spoilerHint);
+    void setSpoilerHint(const QString &newSpoilerHint);
 
     [[nodiscard]] bool isDraft() const
     {
         return m_isDraft;
     }
-    void setIsDraft(bool isDraft);
+    void setIsDraft(bool newIsDraft);
 
     [[nodiscard]] bool isForwarding() const
     {
@@ -165,7 +165,7 @@ private:
     setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
     QFuture<void> loadDraft();
     void saveDraft();
-    void setIsForwarding(bool isForwarding);
+    void setIsForwarding(bool newIsForwarding);
 
     void reset();
 

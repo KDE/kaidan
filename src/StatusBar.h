@@ -42,7 +42,7 @@ public:
     explicit StatusBar(QObject *parent = nullptr);
 
     QColor color() const;
-    void setColor(const QColor &color);
+    void setColor(const QColor &newColor);
     Q_SIGNAL void colorChanged();
 
     bool isAvailable() const;

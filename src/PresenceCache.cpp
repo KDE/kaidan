@@ -246,10 +246,10 @@ const QString &UserResourcesWatcher::jid() const
  *
  * @param jid JID to be watched
  */
-void UserResourcesWatcher::setJid(const QString &jid)
+void UserResourcesWatcher::setJid(const QString &newJid)
 {
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
         Q_EMIT jidChanged();
         Q_EMIT resourcesCountChanged();
     }

@@ -32,7 +32,7 @@ public:
     explicit TrustDb(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     auto securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy> override;
-    auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void> override;
+    auto setSecurityPolicy(const QString &encryption, SecurityPolicy newSecurityPolicy) -> QXmppTask<void> override;
     auto resetSecurityPolicy(const QString &encryption) -> QXmppTask<void> override;
 
     auto ownKey(const QString &encryption) -> QXmppTask<QByteArray> override;
@@ -55,7 +55,7 @@ public:
     static auto _trustLevel(Database *database, const QString &accountJid, const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
         -> QXmpp::TrustLevel;
 
-    auto setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, QXmpp::TrustLevel trustLevel)
+    auto setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, QXmpp::TrustLevel newTrustLevel)
         -> QXmppTask<TrustChanges> override;
     auto setTrustLevel(const QString &encryption, const QList<QString> &keyOwnerJids, QXmpp::TrustLevel oldTrustLevel, QXmpp::TrustLevel newTrustLevel)
         -> QXmppTask<TrustChanges> override;

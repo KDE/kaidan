@@ -273,9 +273,9 @@ bool QKeychainFuture::unencryptedFallback()
     return unencryptedFallbackAtomic() > 0;
 }
 
-void QKeychainFuture::setUnencryptedFallback(bool unencryptedFallback)
+void QKeychainFuture::setUnencryptedFallback(bool newUnencryptedFallback)
 {
-    unencryptedFallbackAtomic() = unencryptedFallback ? 1 : 0;
+    unencryptedFallbackAtomic() = newUnencryptedFallback ? 1 : 0;
 }
 
 QString QKeychainFuture::serviceKey()

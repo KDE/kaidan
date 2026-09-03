@@ -51,7 +51,7 @@ public:
     void setVCardController(VCardController *vCardController);
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     Q_SIGNAL void unsetEntriesProcessedChanged();

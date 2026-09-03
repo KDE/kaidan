@@ -201,10 +201,10 @@ const QString &AvatarImageWatcher::jid() const
     return m_jid;
 }
 
-void AvatarImageWatcher::setJid(const QString &jid)
+void AvatarImageWatcher::setJid(const QString &newJid)
 {
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
         Q_EMIT jidChanged();
         Q_EMIT urlChanged();
     }

@@ -90,10 +90,10 @@ Call *MainController::activeCall() const
     return m_activeCall;
 }
 
-void MainController::setActiveCall(Call *activeCall)
+void MainController::setActiveCall(Call *newActiveCall)
 {
-    if (m_activeCall != activeCall) {
-        m_activeCall = activeCall;
+    if (m_activeCall != newActiveCall) {
+        m_activeCall = newActiveCall;
         Q_EMIT activeCallChanged();
     }
 }

@@ -98,10 +98,10 @@ const QString &VCardModel::jid() const
     return m_jid;
 }
 
-void VCardModel::setJid(const QString &jid)
+void VCardModel::setJid(const QString &newJid)
 {
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
         Q_EMIT jidChanged();
         requestVCard();
     }

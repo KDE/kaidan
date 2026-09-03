@@ -40,7 +40,7 @@ public:
 
     // This is a QString because QML can't handle qint64 (converted to double)
     [[nodiscard]] QString fileId() const;
-    void setFileId(const QString &fileId);
+    void setFileId(const QString &newFileId);
     Q_SIGNAL void fileIdChanged();
 
     [[nodiscard]] bool isLoading() const

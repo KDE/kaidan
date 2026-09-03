@@ -46,7 +46,7 @@ public:
     Q_SIGNAL void chatJidChanged(const QString &jid);
 
     Messages files() const;
-    void setFiles(const Messages &files);
+    void setFiles(const Messages &newFiles);
 
     Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
 

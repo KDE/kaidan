@@ -41,7 +41,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     const PublicGroupChats &groupChats() const;
-    void setGroupChats(const PublicGroupChats &groupChats);
+    void setGroupChats(const PublicGroupChats &newGroupChats);
     Q_SIGNAL void groupChatsChanged(const PublicGroupChats &groupChats);
 
     int count() const;

@@ -41,15 +41,15 @@ public:
     Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
 
     Mode mode() const;
-    void setMode(Mode mode);
+    void setMode(Mode newMode);
     Q_SIGNAL void modeChanged();
 
     bool locallyAvailableOnly() const;
-    void setLocallyAvailableOnly(bool locallyAvailableOnly);
+    void setLocallyAvailableOnly(bool newLocallyAvailableOnly);
     Q_SIGNAL void locallyAvailableOnlyChanged();
 
     bool attachmentAudioOnly() const;
-    void setAttachmentAudioOnly(bool attachmentAudioOnly);
+    void setAttachmentAudioOnly(bool newAttachmentAudioOnly);
     Q_SIGNAL void attachmentAudioOnlyChanged();
 
     int checkedCount() const;

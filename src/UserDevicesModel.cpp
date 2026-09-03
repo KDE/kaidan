@@ -82,16 +82,16 @@ const QString &UserDevicesModel::jid() const
     return m_jid;
 }
 
-void UserDevicesModel::setJid(const QString &jid)
+void UserDevicesModel::setJid(const QString &newJid)
 {
-    m_jid = jid;
+    m_jid = newJid;
 
     // Clear data when jid of the model changes
     beginResetModel();
     m_devices.clear();
 
     // Add DeviceInfo objects for each resource
-    const auto resources = m_presenceCache->resources(jid);
+    const auto resources = m_presenceCache->resources(newJid);
     m_devices.reserve(resources.size());
 
     std::transform(resources.cbegin(), resources.cend(), std::back_inserter(m_devices), [](const QString &resource) {

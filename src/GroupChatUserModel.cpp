@@ -84,10 +84,10 @@ const QString &GroupChatUserModel::accountJid() const
     return m_accountJid;
 }
 
-void GroupChatUserModel::setAccountJid(const QString &accountJid)
+void GroupChatUserModel::setAccountJid(const QString &newAccountJid)
 {
-    if (m_accountJid != accountJid) {
-        m_accountJid = accountJid;
+    if (m_accountJid != newAccountJid) {
+        m_accountJid = newAccountJid;
         Q_EMIT accountJidChanged();
     }
 }
@@ -97,10 +97,10 @@ const QString &GroupChatUserModel::chatJid() const
     return m_chatJid;
 }
 
-void GroupChatUserModel::setChatJid(const QString &chatJid)
+void GroupChatUserModel::setChatJid(const QString &newChatJid)
 {
-    if (m_chatJid != chatJid) {
-        m_chatJid = chatJid;
+    if (m_chatJid != newChatJid) {
+        m_chatJid = newChatJid;
         Q_EMIT chatJidChanged();
     }
 }

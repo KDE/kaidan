@@ -67,10 +67,10 @@ public:
     void setFavoriteEmojis(const QStringList &emoji);
 
     QPoint windowPosition() const;
-    void setWindowPosition(const QPoint &windowPosition);
+    void setWindowPosition(const QPoint &newWindowPosition);
 
     QSize windowSize() const;
-    void setWindowSize(const QSize &windowSize);
+    void setWindowSize(const QSize &newWindowSize);
 
     void remove(const QStringList &keys);
 

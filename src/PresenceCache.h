@@ -113,7 +113,7 @@ public:
     void setPresenceCache(PresenceCache *presenceCache);
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     int resourcesCount();

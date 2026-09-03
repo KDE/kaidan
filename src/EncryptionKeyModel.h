@@ -33,10 +33,10 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     EncryptionController *encryptionController() const;
-    void setEncryptionController(EncryptionController *encryptionController);
+    void setEncryptionController(EncryptionController *newEncryptionController);
 
     const QString &accountJid() const;
-    void setAccountJid(const QString &accountJid);
+    void setAccountJid(const QString &newAccountJid);
     Q_SIGNAL void accountJidChanged();
 
 protected:

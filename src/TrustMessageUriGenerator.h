@@ -21,10 +21,10 @@ public:
     explicit TrustMessageUriGenerator(QObject *parent = nullptr);
 
     EncryptionController *encryptionController() const;
-    void setEncryptionController(EncryptionController *encryptionController);
+    void setEncryptionController(EncryptionController *newEncryptionController);
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
 
     QString uri() const;
     Q_SIGNAL void uriChanged();

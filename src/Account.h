@@ -168,15 +168,15 @@ public:
     bool initialMessagesRetrieved() const;
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     const QString &password() const;
-    void setPassword(const QString &password);
+    void setPassword(const QString &newPassword);
     Q_SIGNAL void passwordChanged();
 
     QXmppCredentials credentials() const;
-    void setCredentials(const QXmppCredentials &credentials);
+    void setCredentials(const QXmppCredentials &newCredentials);
 
     QXmppSasl2UserAgent userAgent() const;
 
@@ -185,77 +185,77 @@ public:
     QXmppConfiguration::StreamSecurityMode tlsRequirement() const;
 
     const QString &host() const;
-    void setHost(const QString &host);
+    void setHost(const QString &newHost);
     Q_SIGNAL void hostChanged();
 
     quint16 port() const;
-    void setPort(quint16 port);
+    void setPort(quint16 newPort);
     Q_SIGNAL void portChanged();
 
     quint16 autoDetectPort() const;
 
     bool plainAuthAllowed() const;
-    void setPlainAuthAllowed(bool plainAuthAllowed);
+    void setPlainAuthAllowed(bool newPlainAuthAllowed);
     Q_SIGNAL void plainAuthAllowedChanged();
 
     const QString &name() const;
-    void setName(const QString &name);
+    void setName(const QString &newName);
     Q_SIGNAL void nameChanged();
 
     QString displayName() const;
 
     bool enabled() const;
-    void setEnabled(bool enabled);
+    void setEnabled(bool newEnabled);
     Q_SIGNAL void enabledChanged();
 
     bool inBandRegistrationFeaturesSupported() const;
-    void setInBandRegistrationFeaturesSupported(bool inBandRegistrationFeaturesSupported);
+    void setInBandRegistrationFeaturesSupported(bool newInBandRegistrationFeaturesSupported);
     Q_SIGNAL void inBandRegistrationFeaturesSupportedChanged();
 
     bool blockingReportsSupported() const;
-    void setBlockingReportsSupported(bool blockingReportsSupported);
+    void setBlockingReportsSupported(bool newBlockingReportsSupported);
     Q_SIGNAL void blockingReportsSupportedChanged();
 
     qint64 httpUploadLimit() const;
-    void setHttpUploadLimit(qint64 httpUploadLimit);
+    void setHttpUploadLimit(qint64 newHttpUploadLimit);
     Q_SIGNAL void httpUploadLimitChanged();
 
     QString httpUploadLimitText() const;
 
-    void setChatSupportAddresses(const QList<QString> &chatSupportAddresses);
+    void setChatSupportAddresses(const QList<QString> &newChatSupportAddresses);
     const QList<QString> &chatSupportAddresses() const;
     Q_SIGNAL void chatSupportAddressesChanged();
 
-    void setGroupChatSupportAddresses(const QList<QString> &groupChatSupportAddresses);
+    void setGroupChatSupportAddresses(const QList<QString> &newGroupChatSupportAddresses);
     const QList<QString> &groupChatSupportAddresses() const;
     Q_SIGNAL void groupChatSupportAddressesChanged();
 
     PasswordVisibility passwordVisibility() const;
-    void setPasswordVisibility(PasswordVisibility passwordVisibility);
+    void setPasswordVisibility(PasswordVisibility newPasswordVisibility);
     Q_SIGNAL void passwordVisibilityChanged();
 
     Encryption::Enum encryption() const;
-    void setEncryption(Encryption::Enum encryption);
+    void setEncryption(Encryption::Enum newEncryption);
     Q_SIGNAL void encryptionChanged();
 
     AutomaticMediaDownloadsRule automaticMediaDownloadsRule() const;
-    void setAutomaticMediaDownloadsRule(AutomaticMediaDownloadsRule automaticMediaDownloadsRule);
+    void setAutomaticMediaDownloadsRule(AutomaticMediaDownloadsRule newAutomaticMediaDownloadsRule);
     Q_SIGNAL void automaticMediaDownloadsRuleChanged();
 
     ContactNotificationRule contactNotificationRule() const;
-    void setContactNotificationRule(ContactNotificationRule contactNotificationRule);
+    void setContactNotificationRule(ContactNotificationRule newContactNotificationRule);
     Q_SIGNAL void contactNotificationRuleChanged();
 
     GroupChatNotificationRule groupChatNotificationRule() const;
-    void setGroupChatNotificationRule(GroupChatNotificationRule groupChatNotificationRule);
+    void setGroupChatNotificationRule(GroupChatNotificationRule newGroupChatNotificationRule);
     Q_SIGNAL void groupChatNotificationRuleChanged();
 
     bool geoLocationMapPreviewEnabled() const;
-    void setGeoLocationMapPreviewEnabled(bool geoLocationMapPreviewEnabled);
+    void setGeoLocationMapPreviewEnabled(bool newGeoLocationMapPreviewEnabled);
     Q_SIGNAL void geoLocationMapPreviewEnabledChanged();
 
     GeoLocationMapService geoLocationMapService() const;
-    void setGeoLocationMapService(GeoLocationMapService geoLocationMapService);
+    void setGeoLocationMapService(GeoLocationMapService newGeoLocationMapService);
     Q_SIGNAL void geoLocationMapServiceChanged();
 
     Q_INVOKABLE void resetCustomConnectionSettings();
@@ -310,8 +310,8 @@ public:
     Q_SIGNAL void errorChanged();
 
 private:
-    void setState(Enums::ConnectionState connectionState);
-    void setError(ClientController::ConnectionError error);
+    void setState(Enums::ConnectionState newState);
+    void setError(ClientController::ConnectionError newError);
 
     ClientController *const m_clientController;
 

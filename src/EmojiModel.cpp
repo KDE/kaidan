@@ -1514,11 +1514,11 @@ Emoji::Group EmojiProxyModel::group() const
     return m_group;
 }
 
-void EmojiProxyModel::setGroup(Emoji::Group group)
+void EmojiProxyModel::setGroup(Emoji::Group newGroup)
 {
-    if (m_group != group) {
+    if (m_group != newGroup) {
         beginFilterChange();
-        m_group = group;
+        m_group = newGroup;
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
         Q_EMIT groupChanged();

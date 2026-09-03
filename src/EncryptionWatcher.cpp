@@ -35,10 +35,10 @@ const QList<QString> &EncryptionWatcher::jids() const
     return m_jids;
 }
 
-void EncryptionWatcher::setJids(const QList<QString> &jids)
+void EncryptionWatcher::setJids(const QList<QString> &newJids)
 {
-    if (m_jids != jids) {
-        m_jids = jids;
+    if (m_jids != newJids) {
+        m_jids = newJids;
         Q_EMIT jidsChanged();
 
         if (m_jids.isEmpty()) {

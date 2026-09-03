@@ -99,7 +99,7 @@ public:
     explicit AvatarImageWatcher(QObject *parent = nullptr);
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     QUrl url();

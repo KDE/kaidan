@@ -95,7 +95,7 @@ public:
     Q_SIGNAL void passiveNotificationRequested(QString text, const QString duration = {});
 
     Call *activeCall() const;
-    void setActiveCall(Call *activeCall);
+    void setActiveCall(Call *newActiveCall);
     Q_SIGNAL void activeCallChanged();
 
 private:

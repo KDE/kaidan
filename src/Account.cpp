@@ -61,10 +61,10 @@ const QString &AccountSettings::jid() const
     return m_data.jid;
 }
 
-void AccountSettings::setJid(const QString &jid)
+void AccountSettings::setJid(const QString &newJid)
 {
-    if (m_data.jid != jid) {
-        m_data.jid = jid;
+    if (m_data.jid != newJid) {
+        m_data.jid = newJid;
         Q_EMIT jidChanged();
     }
 }
@@ -74,10 +74,10 @@ const QString &AccountSettings::password() const
     return m_data.password;
 }
 
-void AccountSettings::setPassword(const QString &password)
+void AccountSettings::setPassword(const QString &newPassword)
 {
-    if (m_data.password != password) {
-        m_data.password = password;
+    if (m_data.password != newPassword) {
+        m_data.password = newPassword;
         Q_EMIT passwordChanged();
     }
 }
@@ -87,10 +87,10 @@ QXmppCredentials AccountSettings::credentials() const
     return m_data.credentials;
 }
 
-void AccountSettings::setCredentials(const QXmppCredentials &credentials)
+void AccountSettings::setCredentials(const QXmppCredentials &newCredentials)
 {
-    m_data.credentials = credentials;
-    AccountDb::instance()->updateCredentials(m_data.jid, credentials);
+    m_data.credentials = newCredentials;
+    AccountDb::instance()->updateCredentials(m_data.jid, newCredentials);
 }
 
 QXmppSasl2UserAgent AccountSettings::userAgent() const
@@ -113,10 +113,10 @@ const QString &AccountSettings::host() const
     return m_data.host;
 }
 
-void AccountSettings::setHost(const QString &host)
+void AccountSettings::setHost(const QString &newHost)
 {
-    if (m_data.host != host) {
-        m_data.host = host;
+    if (m_data.host != newHost) {
+        m_data.host = newHost;
         Q_EMIT hostChanged();
     }
 }
@@ -126,10 +126,10 @@ quint16 AccountSettings::port() const
     return m_data.port;
 }
 
-void AccountSettings::setPort(quint16 port)
+void AccountSettings::setPort(quint16 newPort)
 {
-    if (m_data.port != port) {
-        m_data.port = port;
+    if (m_data.port != newPort) {
+        m_data.port = newPort;
         Q_EMIT portChanged();
     }
 }
@@ -144,10 +144,10 @@ bool AccountSettings::plainAuthAllowed() const
     return m_data.plainAuthAllowed;
 }
 
-void AccountSettings::setPlainAuthAllowed(bool plainAuthAllowed)
+void AccountSettings::setPlainAuthAllowed(bool newPlainAuthAllowed)
 {
-    if (m_data.plainAuthAllowed != plainAuthAllowed) {
-        m_data.plainAuthAllowed = plainAuthAllowed;
+    if (m_data.plainAuthAllowed != newPlainAuthAllowed) {
+        m_data.plainAuthAllowed = newPlainAuthAllowed;
         Q_EMIT plainAuthAllowedChanged();
     }
 }
@@ -157,10 +157,10 @@ const QString &AccountSettings::name() const
     return m_data.name;
 }
 
-void AccountSettings::setName(const QString &name)
+void AccountSettings::setName(const QString &newName)
 {
-    if (m_data.name != name) {
-        m_data.name = name;
+    if (m_data.name != newName) {
+        m_data.name = newName;
         Q_EMIT nameChanged();
     }
 }
@@ -179,11 +179,11 @@ bool AccountSettings::enabled() const
     return m_data.enabled;
 }
 
-void AccountSettings::setEnabled(bool enabled)
+void AccountSettings::setEnabled(bool newEnabled)
 {
-    if (m_data.enabled != enabled) {
-        m_data.enabled = enabled;
-        AccountDb::instance()->updateEnabled(m_data.jid, enabled);
+    if (m_data.enabled != newEnabled) {
+        m_data.enabled = newEnabled;
+        AccountDb::instance()->updateEnabled(m_data.jid, newEnabled);
         Q_EMIT enabledChanged();
     }
 }
@@ -193,10 +193,10 @@ bool AccountSettings::inBandRegistrationFeaturesSupported() const
     return m_data.inBandRegistrationFeaturesSupported;
 }
 
-void AccountSettings::setInBandRegistrationFeaturesSupported(bool inBandRegistrationFeaturesSupported)
+void AccountSettings::setInBandRegistrationFeaturesSupported(bool newInBandRegistrationFeaturesSupported)
 {
-    if (m_data.inBandRegistrationFeaturesSupported != inBandRegistrationFeaturesSupported) {
-        m_data.inBandRegistrationFeaturesSupported = inBandRegistrationFeaturesSupported;
+    if (m_data.inBandRegistrationFeaturesSupported != newInBandRegistrationFeaturesSupported) {
+        m_data.inBandRegistrationFeaturesSupported = newInBandRegistrationFeaturesSupported;
         Q_EMIT inBandRegistrationFeaturesSupportedChanged();
     }
 }
@@ -206,10 +206,10 @@ bool AccountSettings::blockingReportsSupported() const
     return m_data.blockingReportsSupported;
 }
 
-void AccountSettings::setBlockingReportsSupported(bool blockingReportsSupported)
+void AccountSettings::setBlockingReportsSupported(bool newBlockingReportsSupported)
 {
-    if (m_data.blockingReportsSupported != blockingReportsSupported) {
-        m_data.blockingReportsSupported = blockingReportsSupported;
+    if (m_data.blockingReportsSupported != newBlockingReportsSupported) {
+        m_data.blockingReportsSupported = newBlockingReportsSupported;
         Q_EMIT blockingReportsSupportedChanged();
     }
 }
@@ -219,11 +219,11 @@ qint64 AccountSettings::httpUploadLimit() const
     return m_data.httpUploadLimit;
 }
 
-void AccountSettings::setHttpUploadLimit(qint64 httpUploadLimit)
+void AccountSettings::setHttpUploadLimit(qint64 newHttpUploadLimit)
 {
-    if (m_data.httpUploadLimit != httpUploadLimit) {
-        m_data.httpUploadLimit = httpUploadLimit;
-        AccountDb::instance()->updateHttpUploadLimit(m_data.jid, httpUploadLimit);
+    if (m_data.httpUploadLimit != newHttpUploadLimit) {
+        m_data.httpUploadLimit = newHttpUploadLimit;
+        AccountDb::instance()->updateHttpUploadLimit(m_data.jid, newHttpUploadLimit);
         Q_EMIT httpUploadLimitChanged();
     }
 }
@@ -233,10 +233,10 @@ QString AccountSettings::httpUploadLimitText() const
     return QmlUtils::formattedDataSize(m_data.httpUploadLimit);
 }
 
-void AccountSettings::setChatSupportAddresses(const QList<QString> &chatSupportAddresses)
+void AccountSettings::setChatSupportAddresses(const QList<QString> &newChatSupportAddresses)
 {
-    if (m_data.chatSupportAddresses != chatSupportAddresses) {
-        m_data.chatSupportAddresses = chatSupportAddresses;
+    if (m_data.chatSupportAddresses != newChatSupportAddresses) {
+        m_data.chatSupportAddresses = newChatSupportAddresses;
         Q_EMIT chatSupportAddressesChanged();
     }
 }
@@ -246,10 +246,10 @@ const QList<QString> &AccountSettings::chatSupportAddresses() const
     return m_data.chatSupportAddresses;
 }
 
-void AccountSettings::setGroupChatSupportAddresses(const QList<QString> &groupChatSupportAddresses)
+void AccountSettings::setGroupChatSupportAddresses(const QList<QString> &newGroupChatSupportAddresses)
 {
-    if (m_data.groupChatSupportAddresses != groupChatSupportAddresses) {
-        m_data.groupChatSupportAddresses = groupChatSupportAddresses;
+    if (m_data.groupChatSupportAddresses != newGroupChatSupportAddresses) {
+        m_data.groupChatSupportAddresses = newGroupChatSupportAddresses;
         Q_EMIT groupChatSupportAddressesChanged();
     }
 }
@@ -264,11 +264,11 @@ AccountSettings::PasswordVisibility AccountSettings::passwordVisibility() const
     return m_data.passwordVisibility;
 }
 
-void AccountSettings::setPasswordVisibility(PasswordVisibility passwordVisibility)
+void AccountSettings::setPasswordVisibility(PasswordVisibility newPasswordVisibility)
 {
-    if (m_data.passwordVisibility != passwordVisibility) {
-        m_data.passwordVisibility = passwordVisibility;
-        AccountDb::instance()->updatePasswordVisibility(m_data.jid, passwordVisibility);
+    if (m_data.passwordVisibility != newPasswordVisibility) {
+        m_data.passwordVisibility = newPasswordVisibility;
+        AccountDb::instance()->updatePasswordVisibility(m_data.jid, newPasswordVisibility);
         Q_EMIT passwordVisibilityChanged();
     }
 }
@@ -278,11 +278,11 @@ Encryption::Enum AccountSettings::encryption() const
     return m_data.encryption;
 }
 
-void AccountSettings::setEncryption(Encryption::Enum encryption)
+void AccountSettings::setEncryption(Encryption::Enum newEncryption)
 {
-    if (m_data.encryption != encryption) {
-        m_data.encryption = encryption;
-        AccountDb::instance()->updateEncryption(m_data.jid, encryption);
+    if (m_data.encryption != newEncryption) {
+        m_data.encryption = newEncryption;
+        AccountDb::instance()->updateEncryption(m_data.jid, newEncryption);
         Q_EMIT encryptionChanged();
     }
 }
@@ -292,11 +292,11 @@ AccountSettings::AutomaticMediaDownloadsRule AccountSettings::automaticMediaDown
     return m_data.automaticMediaDownloadsRule;
 }
 
-void AccountSettings::setAutomaticMediaDownloadsRule(AutomaticMediaDownloadsRule automaticMediaDownloadsRule)
+void AccountSettings::setAutomaticMediaDownloadsRule(AutomaticMediaDownloadsRule newAutomaticMediaDownloadsRule)
 {
-    if (m_data.automaticMediaDownloadsRule != automaticMediaDownloadsRule) {
-        m_data.automaticMediaDownloadsRule = automaticMediaDownloadsRule;
-        AccountDb::instance()->updateAutomaticMediaDownloadsRule(m_data.jid, automaticMediaDownloadsRule);
+    if (m_data.automaticMediaDownloadsRule != newAutomaticMediaDownloadsRule) {
+        m_data.automaticMediaDownloadsRule = newAutomaticMediaDownloadsRule;
+        AccountDb::instance()->updateAutomaticMediaDownloadsRule(m_data.jid, newAutomaticMediaDownloadsRule);
         Q_EMIT automaticMediaDownloadsRuleChanged();
     }
 }
@@ -306,11 +306,11 @@ AccountSettings::ContactNotificationRule AccountSettings::contactNotificationRul
     return m_data.contactNotificationRule;
 }
 
-void AccountSettings::setContactNotificationRule(ContactNotificationRule contactNotificationRule)
+void AccountSettings::setContactNotificationRule(ContactNotificationRule newContactNotificationRule)
 {
-    if (m_data.contactNotificationRule != contactNotificationRule) {
-        m_data.contactNotificationRule = contactNotificationRule;
-        AccountDb::instance()->updateContactNotificationRule(m_data.jid, contactNotificationRule);
+    if (m_data.contactNotificationRule != newContactNotificationRule) {
+        m_data.contactNotificationRule = newContactNotificationRule;
+        AccountDb::instance()->updateContactNotificationRule(m_data.jid, newContactNotificationRule);
         Q_EMIT contactNotificationRuleChanged();
     }
 }
@@ -320,11 +320,11 @@ AccountSettings::GroupChatNotificationRule AccountSettings::groupChatNotificatio
     return m_data.groupChatNotificationRule;
 }
 
-void AccountSettings::setGroupChatNotificationRule(GroupChatNotificationRule groupChatNotificationRule)
+void AccountSettings::setGroupChatNotificationRule(GroupChatNotificationRule newGroupChatNotificationRule)
 {
-    if (m_data.groupChatNotificationRule != groupChatNotificationRule) {
-        m_data.groupChatNotificationRule = groupChatNotificationRule;
-        AccountDb::instance()->updateGroupChatNotificationRule(m_data.jid, groupChatNotificationRule);
+    if (m_data.groupChatNotificationRule != newGroupChatNotificationRule) {
+        m_data.groupChatNotificationRule = newGroupChatNotificationRule;
+        AccountDb::instance()->updateGroupChatNotificationRule(m_data.jid, newGroupChatNotificationRule);
         Q_EMIT groupChatNotificationRuleChanged();
     }
 }
@@ -334,11 +334,11 @@ bool AccountSettings::geoLocationMapPreviewEnabled() const
     return m_data.geoLocationMapPreviewEnabled;
 }
 
-void AccountSettings::setGeoLocationMapPreviewEnabled(bool geoLocationMapPreviewEnabled)
+void AccountSettings::setGeoLocationMapPreviewEnabled(bool newGeoLocationMapPreviewEnabled)
 {
-    if (m_data.geoLocationMapPreviewEnabled != geoLocationMapPreviewEnabled) {
-        m_data.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
-        AccountDb::instance()->updateGeoLocationMapPreviewEnabled(m_data.jid, geoLocationMapPreviewEnabled);
+    if (m_data.geoLocationMapPreviewEnabled != newGeoLocationMapPreviewEnabled) {
+        m_data.geoLocationMapPreviewEnabled = newGeoLocationMapPreviewEnabled;
+        AccountDb::instance()->updateGeoLocationMapPreviewEnabled(m_data.jid, newGeoLocationMapPreviewEnabled);
         Q_EMIT geoLocationMapPreviewEnabledChanged();
     }
 }
@@ -348,11 +348,11 @@ AccountSettings::GeoLocationMapService AccountSettings::geoLocationMapService() 
     return m_data.geoLocationMapService;
 }
 
-void AccountSettings::setGeoLocationMapService(GeoLocationMapService geoLocationMapService)
+void AccountSettings::setGeoLocationMapService(GeoLocationMapService newGeoLocationMapService)
 {
-    if (m_data.geoLocationMapService != geoLocationMapService) {
-        m_data.geoLocationMapService = geoLocationMapService;
-        AccountDb::instance()->updateGeoLocationMapService(m_data.jid, geoLocationMapService);
+    if (m_data.geoLocationMapService != newGeoLocationMapService) {
+        m_data.geoLocationMapService = newGeoLocationMapService;
+        AccountDb::instance()->updateGeoLocationMapService(m_data.jid, newGeoLocationMapService);
         Q_EMIT geoLocationMapServiceChanged();
     }
 }
@@ -522,26 +522,26 @@ ClientController::ConnectionError Connection::error() const
     return m_error;
 }
 
-void Connection::setState(Enums::ConnectionState state)
+void Connection::setState(Enums::ConnectionState newState)
 {
-    if (m_state != state) {
-        m_state = state;
+    if (m_state != newState) {
+        m_state = newState;
         Q_EMIT stateChanged();
 
-        if (state == Enums::ConnectionState::StateConnected) {
+        if (newState == Enums::ConnectionState::StateConnected) {
             Q_EMIT connected();
-        } else if (state == Enums::ConnectionState::StateDisconnected) {
+        } else if (newState == Enums::ConnectionState::StateDisconnected) {
             Q_EMIT disconnected();
         }
     }
 }
 
-void Connection::setError(ClientController::ConnectionError error)
+void Connection::setError(ClientController::ConnectionError newError)
 {
     // For displaying errors to the user, every new error (even if it is the same as before) must be
     // emitted.
     // Thus, the error is not checked for a change but simply emitted.
-    m_error = error;
+    m_error = newError;
     Q_EMIT errorChanged();
 }
 

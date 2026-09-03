@@ -101,7 +101,7 @@ public:
 private:
     void requestGroupChatData(const RosterItem &rosterItem);
     void handleRosterItemAdded(const RosterItem &rosterItem);
-    void setBusy(bool busy);
+    void setBusy(bool newBusy);
 
     AccountSettings *const m_accountSettings;
     MixController *const m_mixController;

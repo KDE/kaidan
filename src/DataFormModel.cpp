@@ -115,10 +115,10 @@ QXmppDataForm DataFormModel::form() const
     return m_form;
 }
 
-void DataFormModel::setForm(const QXmppDataForm &form)
+void DataFormModel::setForm(const QXmppDataForm &newForm)
 {
     beginResetModel();
-    m_form = form;
+    m_form = newForm;
     endResetModel();
 
     Q_EMIT formChanged();

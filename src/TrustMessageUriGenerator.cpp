@@ -20,14 +20,14 @@ EncryptionController *TrustMessageUriGenerator::encryptionController() const
     return m_encryptionController;
 }
 
-void TrustMessageUriGenerator::setEncryptionController(EncryptionController *encryptionController)
+void TrustMessageUriGenerator::setEncryptionController(EncryptionController *newEncryptionController)
 {
-    if (m_encryptionController != encryptionController) {
+    if (m_encryptionController != newEncryptionController) {
         if (m_encryptionController) {
             m_encryptionController->disconnect(this);
         }
 
-        m_encryptionController = encryptionController;
+        m_encryptionController = newEncryptionController;
 
         if (!m_jid.isEmpty()) {
             setUp();
@@ -40,10 +40,10 @@ const QString &TrustMessageUriGenerator::jid() const
     return m_jid;
 }
 
-void TrustMessageUriGenerator::setJid(const QString &jid)
+void TrustMessageUriGenerator::setJid(const QString &newJid)
 {
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
 
         if (m_encryptionController) {
             setUp();

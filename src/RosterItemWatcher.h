@@ -41,11 +41,11 @@ public:
     ~RosterItemWatcher();
 
     const QString &accountJid() const;
-    void setAccountJid(const QString &accountJid);
+    void setAccountJid(const QString &newAccountJid);
     Q_SIGNAL void accountJidChanged();
 
     const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     const RosterItem &item() const;

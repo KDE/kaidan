@@ -90,11 +90,11 @@ FileProxyModel::Mode FileProxyModel::mode() const
     return m_mode;
 }
 
-void FileProxyModel::setMode(Mode mode)
+void FileProxyModel::setMode(Mode newMode)
 {
-    if (m_mode != mode) {
+    if (m_mode != newMode) {
         beginFilterChange();
-        m_mode = mode;
+        m_mode = newMode;
         m_checkedIds.clear();
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
@@ -109,11 +109,11 @@ bool FileProxyModel::locallyAvailableOnly() const
     return m_locallyAvailableOnly;
 }
 
-void FileProxyModel::setLocallyAvailableOnly(bool locallyAvailableOnly)
+void FileProxyModel::setLocallyAvailableOnly(bool newLocallyAvailableOnly)
 {
-    if (m_locallyAvailableOnly != locallyAvailableOnly) {
+    if (m_locallyAvailableOnly != newLocallyAvailableOnly) {
         beginFilterChange();
-        m_locallyAvailableOnly = locallyAvailableOnly;
+        m_locallyAvailableOnly = newLocallyAvailableOnly;
         m_checkedIds.clear();
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
@@ -128,11 +128,11 @@ bool FileProxyModel::attachmentAudioOnly() const
     return m_attachmentAudioOnly;
 }
 
-void FileProxyModel::setAttachmentAudioOnly(bool attachmentAudioOnly)
+void FileProxyModel::setAttachmentAudioOnly(bool newAttachmentAudioOnly)
 {
-    if (m_attachmentAudioOnly != attachmentAudioOnly) {
+    if (m_attachmentAudioOnly != newAttachmentAudioOnly) {
         beginFilterChange();
-        m_attachmentAudioOnly = attachmentAudioOnly;
+        m_attachmentAudioOnly = newAttachmentAudioOnly;
         m_checkedIds.clear();
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
 

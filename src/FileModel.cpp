@@ -41,7 +41,7 @@ public:
     Q_SIGNAL void chatJidChanged(const QString &jid);
 
     const Messages &files() const;
-    void setFiles(const Messages &files);
+    void setFiles(const Messages &newFiles);
 
     Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
 
@@ -190,11 +190,11 @@ const Messages &FileTreeModel::files() const
     return m_files;
 }
 
-void FileTreeModel::setFiles(const Messages &files)
+void FileTreeModel::setFiles(const Messages &newFiles)
 {
-    if (m_files != files) {
+    if (m_files != newFiles) {
         beginResetModel();
-        m_files = files;
+        m_files = newFiles;
         endResetModel();
 
         Q_EMIT rowCountChanged();
@@ -296,9 +296,9 @@ Messages FileModel::files() const
     return m_sourceModel->files();
 }
 
-void FileModel::setFiles(const Messages &files)
+void FileModel::setFiles(const Messages &newFiles)
 {
-    m_sourceModel->setFiles(files);
+    m_sourceModel->setFiles(newFiles);
 }
 
 QModelIndex FileModel::fileIndex(const QString &fileId) const

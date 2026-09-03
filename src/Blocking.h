@@ -169,7 +169,7 @@ public:
     void setBlockingController(BlockingController *blockingController);
 
     [[nodiscard]] const QString &jid() const;
-    void setJid(const QString &jid);
+    void setJid(const QString &newJid);
     Q_SIGNAL void jidChanged();
 
     [[nodiscard]] bool blocked() const;

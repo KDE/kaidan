@@ -46,9 +46,9 @@ QColor StatusBar::color() const
     return m_color;
 }
 
-void StatusBar::setColor(const QColor &color)
+void StatusBar::setColor(const QColor &newColor)
 {
-    m_color = color;
+    m_color = newColor;
     Q_EMIT colorChanged();
     // cppcheck-suppress knownConditionTrueFalse ; isAvailable() can only be true on Android
     if (!isAvailable())
@@ -60,7 +60,7 @@ void StatusBar::setColor(const QColor &color)
         window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.callMethod<void>("addFlags", "(I)V", SYSTEM_UI_FLAG_LAYOUT_STABLE);
         window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
-        window.callMethod<void>("setStatusBarColor", "(I)V", color.rgba());
+        window.callMethod<void>("setStatusBarColor", "(I)V", newColor.rgba());
     });
 #endif
 }

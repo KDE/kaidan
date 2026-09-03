@@ -40,7 +40,7 @@ public:
     QString extractEmail() const;
 
     bool isFakeForm() const;
-    void setIsFakeForm(bool isFakeForm);
+    void setIsFakeForm(bool newIsFakeForm);
 
     QList<int> indexesToFilter() const;
 

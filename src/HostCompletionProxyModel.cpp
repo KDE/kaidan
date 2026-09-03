@@ -27,14 +27,14 @@ const QString &HostCompletionProxyModel::userInput() const
     return m_userInput;
 }
 
-void HostCompletionProxyModel::setUserInput(const QString &userInput)
+void HostCompletionProxyModel::setUserInput(const QString &newUserInput)
 {
-    if (m_userInput != userInput) {
+    if (m_userInput != newUserInput) {
         beginFilterChange();
-        m_userInput = userInput;
+        m_userInput = newUserInput;
         endFilterChange(QSortFilterProxyModel::Direction::Rows);
 
-        Q_EMIT userInputChanged(userInput);
+        Q_EMIT userInputChanged(newUserInput);
     }
 }
 

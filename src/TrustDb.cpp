@@ -99,9 +99,9 @@ auto TrustDb::securityPolicy(const QString &encryption) -> QXmppTask<SecurityPol
     });
 }
 
-auto TrustDb::setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void>
+auto TrustDb::setSecurityPolicy(const QString &encryption, SecurityPolicy newSecurityPolicy) -> QXmppTask<void>
 {
-    return runTask([this, encryption, securityPolicy] {
+    return runTask([this, encryption, newSecurityPolicy] {
         auto query = createQuery();
         execQuery(query,
                   QStringLiteral(R"(
@@ -119,7 +119,7 @@ auto TrustDb::setSecurityPolicy(const QString &encryption, SecurityPolicy securi
                   {
                       {u":accountJid", accountJid()},
                       {u":encryption", encryption},
-                      {u":securityPolicy", int(securityPolicy)},
+                      {u":securityPolicy", int(newSecurityPolicy)},
                   });
     });
 }
@@ -456,9 +456,9 @@ auto TrustDb::_trustLevel(Database *database, const QString &accountJid, const Q
     return TrustLevel::Undecided;
 }
 
-auto TrustDb::setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, TrustLevel trustLevel) -> QXmppTask<TrustChanges>
+auto TrustDb::setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, TrustLevel newTrustLevel) -> QXmppTask<TrustChanges>
 {
-    return runTask([this, encryption, keyIds, trustLevel, account = accountJid()] {
+    return runTask([this, encryption, keyIds, newTrustLevel, account = accountJid()] {
         enum {
             RowId,
             TrustLevel_,
@@ -488,14 +488,14 @@ auto TrustDb::setTrustLevel(const QString &encryption, const QMultiHash<QString,
             execQuery(query);
 
             if (query.next()) {
-                if (query.value(TrustLevel_).value<TrustLevel>() != trustLevel) {
-                    _setTrustLevel(trustLevel, query.value(RowId).toLongLong());
+                if (query.value(TrustLevel_).value<TrustLevel>() != newTrustLevel) {
+                    _setTrustLevel(newTrustLevel, query.value(RowId).toLongLong());
                     changes.insert(ownerJid, keyId);
                 }
                 // added and has correct trust level
             } else {
                 // key needs to be added
-                insertKeys({Key{encryption, keyId, ownerJid, trustLevel}});
+                insertKeys({Key{encryption, keyId, ownerJid, newTrustLevel}});
                 changes.insert(ownerJid, keyId);
             }
         }

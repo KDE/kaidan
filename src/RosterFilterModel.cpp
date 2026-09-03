@@ -54,10 +54,10 @@ RosterFilterModel::Types RosterFilterModel::displayedTypes() const
     return m_displayedTypes;
 }
 
-void RosterFilterModel::setSelectedAccountJids(const QList<QString> &selectedAccountJids)
+void RosterFilterModel::setSelectedAccountJids(const QList<QString> &newSelectedAccountJids)
 {
-    if (m_selectedAccountJids != selectedAccountJids) {
-        m_selectedAccountJids = selectedAccountJids;
+    if (m_selectedAccountJids != newSelectedAccountJids) {
+        m_selectedAccountJids = newSelectedAccountJids;
         invalidate();
         Q_EMIT selectedAccountJidsChanged();
     }
@@ -68,10 +68,10 @@ const QList<QString> &RosterFilterModel::selectedAccountJids() const
     return m_selectedAccountJids;
 }
 
-void RosterFilterModel::setSelectedGroups(const QList<QString> &selectedGroups)
+void RosterFilterModel::setSelectedGroups(const QList<QString> &newSelectedGroups)
 {
-    if (m_selectedGroups != selectedGroups) {
-        m_selectedGroups = selectedGroups;
+    if (m_selectedGroups != newSelectedGroups) {
+        m_selectedGroups = newSelectedGroups;
         invalidate();
         Q_EMIT selectedGroupsChanged();
     }

@@ -42,11 +42,11 @@ public:
     Types displayedTypes() const;
     Q_SIGNAL void displayedTypesChanged();
 
-    void setSelectedAccountJids(const QList<QString> &selectedAccountJids);
+    void setSelectedAccountJids(const QList<QString> &newSelectedAccountJids);
     const QList<QString> &selectedAccountJids() const;
     Q_SIGNAL void selectedAccountJidsChanged();
 
-    void setSelectedGroups(const QList<QString> &selectedGroups);
+    void setSelectedGroups(const QList<QString> &newSelectedGroups);
     const QList<QString> &selectedGroups() const;
     Q_SIGNAL void selectedGroupsChanged();
 

@@ -51,10 +51,10 @@ const QString &AuthenticatableEncryptionKeyModel::chatJid() const
     return m_chatJid;
 }
 
-void AuthenticatableEncryptionKeyModel::setChatJid(const QString &chatJid)
+void AuthenticatableEncryptionKeyModel::setChatJid(const QString &newChatJid)
 {
-    if (m_chatJid != chatJid) {
-        m_chatJid = chatJid;
+    if (m_chatJid != newChatJid) {
+        m_chatJid = newChatJid;
         Q_EMIT chatJidChanged();
 
         setUp();

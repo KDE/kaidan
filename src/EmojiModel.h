@@ -97,7 +97,7 @@ public:
     ~EmojiProxyModel() override;
 
     Emoji::Group group() const;
-    void setGroup(Emoji::Group group);
+    void setGroup(Emoji::Group newGroup);
     Q_SIGNAL void groupChanged();
 
     bool hasFavoriteEmojis() const;

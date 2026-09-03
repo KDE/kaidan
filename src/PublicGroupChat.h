@@ -37,22 +37,22 @@ public:
     PublicGroupChat() = default;
 
     const QString &address() const;
-    void setAddress(const QString &address);
+    void setAddress(const QString &newAddress);
 
     int users() const;
-    void setUsers(int users);
+    void setUsers(int newUsers);
 
     bool isOpen() const;
-    void setIsOpen(bool isOpen);
+    void setIsOpen(bool newIsOpen);
 
     const QString &name() const;
-    void setName(const QString &name);
+    void setName(const QString &newName);
 
     const QString &description() const;
-    void setDescription(const QString &description);
+    void setDescription(const QString &newDescription);
 
     const QStringList &languages() const;
-    void setLanguages(const QStringList &languages);
+    void setLanguages(const QStringList &newLanguages);
 
     PublicGroupChat &operator=(const PublicGroupChat &other);
     bool operator==(const PublicGroupChat &other) const = default;

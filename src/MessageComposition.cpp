@@ -54,74 +54,74 @@ void MessageComposition::setChatController(ChatController *chatController)
     }
 }
 
-void MessageComposition::setReplaceId(const QString &replaceId)
+void MessageComposition::setReplaceId(const QString &newReplaceId)
 {
-    if (m_replaceId != replaceId) {
-        m_replaceId = replaceId;
+    if (m_replaceId != newReplaceId) {
+        m_replaceId = newReplaceId;
         Q_EMIT replaceIdChanged();
     }
 }
 
-void MessageComposition::setReplyToJid(const QString &replyToJid)
+void MessageComposition::setReplyToJid(const QString &newReplyToJid)
 {
-    if (m_replyToJid != replyToJid) {
-        m_replyToJid = replyToJid;
+    if (m_replyToJid != newReplyToJid) {
+        m_replyToJid = newReplyToJid;
         Q_EMIT replyToJidChanged();
     }
 }
 
-void MessageComposition::setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId)
+void MessageComposition::setReplyToGroupChatParticipantId(const QString &newReplyToGroupChatParticipantId)
 {
-    if (m_replyToGroupChatParticipantId != replyToGroupChatParticipantId) {
-        m_replyToGroupChatParticipantId = replyToGroupChatParticipantId;
+    if (m_replyToGroupChatParticipantId != newReplyToGroupChatParticipantId) {
+        m_replyToGroupChatParticipantId = newReplyToGroupChatParticipantId;
         Q_EMIT replyToGroupChatParticipantIdChanged();
     }
 }
 
-void MessageComposition::setReplyToName(const QString &replyToName)
+void MessageComposition::setReplyToName(const QString &newReplyToName)
 {
-    if (m_replyToName != replyToName) {
-        m_replyToName = replyToName;
+    if (m_replyToName != newReplyToName) {
+        m_replyToName = newReplyToName;
         Q_EMIT replyToNameChanged();
     }
 }
 
-void MessageComposition::setReplyId(const QString &replyId)
+void MessageComposition::setReplyId(const QString &newReplyId)
 {
-    if (m_replyId != replyId) {
-        m_replyId = replyId;
+    if (m_replyId != newReplyId) {
+        m_replyId = newReplyId;
         Q_EMIT replyIdChanged();
     }
 }
 
-void MessageComposition::setOriginalReplyId(const QString &originalReplyId)
+void MessageComposition::setOriginalReplyId(const QString &newOriginalReplyId)
 {
-    if (m_originalReplyId != originalReplyId) {
-        m_originalReplyId = originalReplyId;
+    if (m_originalReplyId != newOriginalReplyId) {
+        m_originalReplyId = newOriginalReplyId;
         Q_EMIT originalReplyIdChanged();
     }
 }
 
-void MessageComposition::setReplyQuote(const QString &replyQuote)
+void MessageComposition::setReplyQuote(const QString &newReplyQuote)
 {
-    if (m_replyQuote != replyQuote) {
-        m_replyQuote = replyQuote;
+    if (m_replyQuote != newReplyQuote) {
+        m_replyQuote = newReplyQuote;
         Q_EMIT replyQuoteChanged();
     }
 }
 
-void MessageComposition::setBody(const QString &body)
+void MessageComposition::setBody(const QString &newBody)
 {
-    if (m_body != body) {
-        m_body = body;
+    if (m_body != newBody) {
+        m_body = newBody;
         Q_EMIT bodyChanged();
     }
 }
 
-void MessageComposition::setOriginalBody(const QString &originalBody)
+void MessageComposition::setOriginalBody(const QString &newOriginalBody)
 {
-    if (m_originalBody != originalBody) {
-        m_originalBody = originalBody;
+    if (m_originalBody != newOriginalBody) {
+        m_originalBody = newOriginalBody;
         Q_EMIT originalBodyChanged();
     }
 }
@@ -134,18 +134,18 @@ void MessageComposition::setSpoiler(bool spoiler)
     }
 }
 
-void MessageComposition::setSpoilerHint(const QString &spoilerHint)
+void MessageComposition::setSpoilerHint(const QString &newSpoilerHint)
 {
-    if (m_spoilerHint != spoilerHint) {
-        m_spoilerHint = spoilerHint;
+    if (m_spoilerHint != newSpoilerHint) {
+        m_spoilerHint = newSpoilerHint;
         Q_EMIT spoilerHintChanged();
     }
 }
 
-void MessageComposition::setIsDraft(bool isDraft)
+void MessageComposition::setIsDraft(bool newIsDraft)
 {
-    if (m_isDraft != isDraft) {
-        m_isDraft = isDraft;
+    if (m_isDraft != newIsDraft) {
+        m_isDraft = newIsDraft;
         Q_EMIT isDraftChanged();
     }
 }
@@ -457,10 +457,10 @@ void MessageComposition::saveDraft()
     }
 }
 
-void MessageComposition::setIsForwarding(bool isForwarding)
+void MessageComposition::setIsForwarding(bool newIsForwarding)
 {
-    if (m_isForwarding != isForwarding) {
-        m_isForwarding = isForwarding;
+    if (m_isForwarding != newIsForwarding) {
+        m_isForwarding = newIsForwarding;
         Q_EMIT isForwardingChanged();
     }
 }

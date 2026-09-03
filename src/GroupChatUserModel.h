@@ -41,11 +41,11 @@ public:
     Q_INVOKABLE bool canFetchMore(const QModelIndex &parent) const override;
 
     const QString &accountJid() const;
-    void setAccountJid(const QString &accountJid);
+    void setAccountJid(const QString &newAccountJid);
     Q_SIGNAL void accountJidChanged();
 
     const QString &chatJid() const;
-    void setChatJid(const QString &chatJid);
+    void setChatJid(const QString &newChatJid);
     Q_SIGNAL void chatJidChanged();
 
     QStringList userJids() const;

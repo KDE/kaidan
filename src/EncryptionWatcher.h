@@ -29,7 +29,7 @@ public:
     void setEncryptionController(EncryptionController *encryptionController);
 
     const QList<QString> &jids() const;
-    void setJids(const QList<QString> &jids);
+    void setJids(const QList<QString> &newJids);
     Q_SIGNAL void jidsChanged();
 
     bool hasDistrustedDevices() const;

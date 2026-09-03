@@ -491,14 +491,14 @@ const QString &BlockingWatcher::jid() const
     return m_jid;
 }
 
-void BlockingWatcher::setJid(const QString &jid)
+void BlockingWatcher::setJid(const QString &newJid)
 {
-    if (!jid.isEmpty()) {
+    if (!newJid.isEmpty()) {
         m_blockingController->subscribeToBlocklist();
     }
 
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
         Q_EMIT jidChanged();
 
         refreshState();

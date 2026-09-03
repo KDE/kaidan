@@ -159,9 +159,9 @@ Encryption::Enum ChatController::encryption() const
     return rosterItem().encryption;
 }
 
-void ChatController::setEncryption(Encryption::Enum encryption)
+void ChatController::setEncryption(Encryption::Enum newEncryption)
 {
-    RosterModel::instance()->setItemEncryption(m_account->settings()->jid(), m_jid, encryption);
+    RosterModel::instance()->setItemEncryption(m_account->settings()->jid(), m_jid, newEncryption);
     Q_EMIT encryptionChanged();
 }
 
@@ -196,10 +196,10 @@ const QString &ChatController::messageBodyToForward() const
     return m_messageBodyToForward;
 }
 
-void ChatController::setMessageBodyToForward(const QString &messageBodyToForward)
+void ChatController::setMessageBodyToForward(const QString &newMessageBodyToForward)
 {
-    if (m_messageBodyToForward != messageBodyToForward) {
-        m_messageBodyToForward = messageBodyToForward;
+    if (m_messageBodyToForward != newMessageBodyToForward) {
+        m_messageBodyToForward = newMessageBodyToForward;
         Q_EMIT messageBodyToForwardChanged();
     }
 }
@@ -309,10 +309,10 @@ void ChatController::updateGroupChatEncryption()
     }
 }
 
-void ChatController::setGroupChatUserJids(const QList<QString> &groupChatUserJids)
+void ChatController::setGroupChatUserJids(const QList<QString> &newGroupChatUserJids)
 {
-    if (m_groupChatUserJids != groupChatUserJids) {
-        m_groupChatUserJids = groupChatUserJids;
+    if (m_groupChatUserJids != newGroupChatUserJids) {
+        m_groupChatUserJids = newGroupChatUserJids;
         Q_EMIT groupChatUserJidsChanged();
     }
 }

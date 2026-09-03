@@ -126,9 +126,9 @@ bool RegistrationDataFormModel::isFakeForm() const
     return m_isFakeForm;
 }
 
-void RegistrationDataFormModel::setIsFakeForm(bool isFakeForm)
+void RegistrationDataFormModel::setIsFakeForm(bool newIsFakeForm)
 {
-    m_isFakeForm = isFakeForm;
+    m_isFakeForm = newIsFakeForm;
 }
 
 QList<int> RegistrationDataFormModel::indexesToFilter() const

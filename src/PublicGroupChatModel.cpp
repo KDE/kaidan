@@ -63,15 +63,15 @@ const PublicGroupChats &PublicGroupChatModel::groupChats() const
     return m_groupChats;
 }
 
-void PublicGroupChatModel::setGroupChats(const PublicGroupChats &groupChats)
+void PublicGroupChatModel::setGroupChats(const PublicGroupChats &newGroupChats)
 {
-    if (m_groupChats != groupChats) {
+    if (m_groupChats != newGroupChats) {
         beginResetModel();
-        m_groupChats = groupChats;
+        m_groupChats = newGroupChats;
         m_languages.clear();
         m_users = {0, 0};
 
-        for (const PublicGroupChat &groupChat : groupChats) {
+        for (const PublicGroupChat &groupChat : newGroupChats) {
             const QStringList &groupChatLanguages = groupChat.languages();
 
             for (const QString &language : groupChatLanguages) {

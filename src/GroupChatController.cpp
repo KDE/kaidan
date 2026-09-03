@@ -184,10 +184,10 @@ void GroupChatController::handleRosterItemAdded(const RosterItem &rosterItem)
     }
 }
 
-void GroupChatController::setBusy(bool busy)
+void GroupChatController::setBusy(bool newBusy)
 {
-    if (m_busy != busy) {
-        m_busy = busy;
+    if (m_busy != newBusy) {
+        m_busy = newBusy;
         Q_EMIT busyChanged();
     }
 }

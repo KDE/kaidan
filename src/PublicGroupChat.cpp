@@ -58,9 +58,9 @@ const QString &PublicGroupChat::address() const
     return m_address;
 }
 
-void PublicGroupChat::setAddress(const QString &address)
+void PublicGroupChat::setAddress(const QString &newAddress)
 {
-    m_address = address;
+    m_address = newAddress;
 }
 
 int PublicGroupChat::users() const
@@ -68,9 +68,9 @@ int PublicGroupChat::users() const
     return m_users;
 }
 
-void PublicGroupChat::setUsers(int users)
+void PublicGroupChat::setUsers(int newUsers)
 {
-    m_users = users;
+    m_users = newUsers;
 }
 
 bool PublicGroupChat::isOpen() const
@@ -78,9 +78,9 @@ bool PublicGroupChat::isOpen() const
     return m_isOpen;
 }
 
-void PublicGroupChat::setIsOpen(bool isOpen)
+void PublicGroupChat::setIsOpen(bool newIsOpen)
 {
-    m_isOpen = isOpen;
+    m_isOpen = newIsOpen;
 }
 
 const QString &PublicGroupChat::name() const
@@ -88,9 +88,9 @@ const QString &PublicGroupChat::name() const
     return m_name;
 }
 
-void PublicGroupChat::setName(const QString &name)
+void PublicGroupChat::setName(const QString &newName)
 {
-    m_name = name;
+    m_name = newName;
 }
 
 const QString &PublicGroupChat::description() const
@@ -98,9 +98,9 @@ const QString &PublicGroupChat::description() const
     return m_description;
 }
 
-void PublicGroupChat::setDescription(const QString &description)
+void PublicGroupChat::setDescription(const QString &newDescription)
 {
-    m_description = description;
+    m_description = newDescription;
 }
 
 const QStringList &PublicGroupChat::languages() const
@@ -108,9 +108,9 @@ const QStringList &PublicGroupChat::languages() const
     return m_languages;
 }
 
-void PublicGroupChat::setLanguages(const QStringList &languages)
+void PublicGroupChat::setLanguages(const QStringList &newLanguages)
 {
-    m_languages = languages;
+    m_languages = newLanguages;
 }
 
 PublicGroupChat &PublicGroupChat::operator=(const PublicGroupChat &other) = default;

@@ -1089,10 +1089,10 @@ bool MessageModel::mamLoading() const
     return m_mamLoading;
 }
 
-void MessageModel::setMamLoading(bool mamLoading)
+void MessageModel::setMamLoading(bool newMamLoading)
 {
-    if (m_mamLoading != mamLoading) {
-        m_mamLoading = mamLoading;
+    if (m_mamLoading != newMamLoading) {
+        m_mamLoading = newMamLoading;
         Q_EMIT mamLoadingChanged();
     }
 }

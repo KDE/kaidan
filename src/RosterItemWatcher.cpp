@@ -59,11 +59,11 @@ const QString &RosterItemWatcher::accountJid() const
     return m_accountJid;
 }
 
-void RosterItemWatcher::setAccountJid(const QString &accountJid)
+void RosterItemWatcher::setAccountJid(const QString &newAccountJid)
 {
-    if (accountJid != m_accountJid) {
+    if (newAccountJid != m_accountJid) {
         unregister();
-        m_accountJid = accountJid;
+        m_accountJid = newAccountJid;
         registerIfComplete();
         Q_EMIT accountJidChanged();
         notify(RosterModel::instance()->item(m_accountJid, m_jid));
@@ -75,11 +75,11 @@ const QString &RosterItemWatcher::jid() const
     return m_jid;
 }
 
-void RosterItemWatcher::setJid(const QString &jid)
+void RosterItemWatcher::setJid(const QString &newJid)
 {
-    if (jid != m_jid) {
+    if (newJid != m_jid) {
         unregister();
-        m_jid = jid;
+        m_jid = newJid;
         registerIfComplete();
         Q_EMIT jidChanged();
         notify(RosterModel::instance()->item(m_accountJid, m_jid));

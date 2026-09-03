@@ -25,7 +25,7 @@ public:
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     const QString &chatJid() const;
-    void setChatJid(const QString &chatJid);
+    void setChatJid(const QString &newChatJid);
     Q_SIGNAL void chatJidChanged();
 
     Q_INVOKABLE bool contains(const QString &keyId);

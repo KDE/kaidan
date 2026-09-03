@@ -27,7 +27,7 @@ using WriteFuture = QFuture<WriteResult>;
 using DeleteFuture = QFuture<DeleteResult>;
 
 bool unencryptedFallback();
-void setUnencryptedFallback(bool unencryptedFallback);
+void setUnencryptedFallback(bool newUnencryptedFallback);
 QString serviceKey();
 QFuture<QKeychain::Error> migrateServiceToEncryptedKeychain(const QString &service);
 

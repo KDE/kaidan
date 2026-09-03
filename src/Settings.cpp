@@ -76,9 +76,9 @@ QPoint Settings::windowPosition() const
     return value<QPoint>(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION));
 }
 
-void Settings::setWindowPosition(const QPoint &windowPosition)
+void Settings::setWindowPosition(const QPoint &newWindowPosition)
 {
-    setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION), windowPosition, &Settings::windowPositionChanged);
+    setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION), newWindowPosition, &Settings::windowPositionChanged);
 }
 
 QSize Settings::windowSize() const
@@ -86,9 +86,9 @@ QSize Settings::windowSize() const
     return value<QSize>(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE));
 }
 
-void Settings::setWindowSize(const QSize &windowSize)
+void Settings::setWindowSize(const QSize &newWindowSize)
 {
-    setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize, &Settings::windowSizeChanged);
+    setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), newWindowSize, &Settings::windowSizeChanged);
 }
 
 void Settings::remove(const QStringList &keys)

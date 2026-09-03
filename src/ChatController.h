@@ -85,7 +85,7 @@ public:
     Q_SIGNAL void isEncryptionEnabledChanged();
 
     Encryption::Enum encryption() const;
-    void setEncryption(Encryption::Enum encryption);
+    void setEncryption(Encryption::Enum newEncryption);
     Q_SIGNAL void encryptionChanged();
 
     const QList<QString> &groupChatUserJids() const;
@@ -95,7 +95,7 @@ public:
     Q_SIGNAL void chatStateTextChanged();
 
     const QString &messageBodyToForward() const;
-    void setMessageBodyToForward(const QString &messageBodyToForward);
+    void setMessageBodyToForward(const QString &newMessageBodyToForward);
     Q_SIGNAL void messageBodyToForwardChanged();
 
 private:
@@ -105,7 +105,7 @@ private:
     void initializeGroupChat();
     void handleGroupChatUserJidsChanged(const QString &accountJid, const QString &groupChatJid);
     void updateGroupChatEncryption();
-    void setGroupChatUserJids(const QList<QString> &groupChatUserJids);
+    void setGroupChatUserJids(const QList<QString> &newGroupChatUserJids);
 
     void initializeChatStateHandling();
     void handleChatStateChanged(const QString &jid);
