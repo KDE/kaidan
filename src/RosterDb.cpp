@@ -635,7 +635,6 @@ RosterItem RosterDb::parseItemFromQuery(QSqlQuery &query)
     item.groupChatName = query.value(idxGroupChatName).toString();
     item.groupChatDescription = query.value(idxGroupChatDescription).toString();
     item.groupChatFlags = query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags>();
-    item.groupChatFlags = static_cast<RosterItem::GroupChatFlags>(query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags::Int>());
     item.encryption = query.value(idxEncryption).value<Encryption::Enum>();
     item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
     item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
