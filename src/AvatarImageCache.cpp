@@ -31,8 +31,9 @@ AvatarImageCache::AvatarImageCache(QObject *parent)
 
     // create avatar directory, if it doesn't exists
     QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
-    if (!cacheDir.exists(QStringLiteral("avatars")))
-        cacheDir.mkpath(QStringLiteral("avatars"));
+    if (!cacheDir.exists(QStringLiteral("avatars")) && !cacheDir.mkpath(QStringLiteral("avatars"))) {
+        qCWarning(KAIDAN_CORE_LOG) << "Could not create avatar cache directory in" << cacheDir.path();
+    }
 
     // search for the avatar list file (hash <-> jid)
     QString avatarFilePath = getAvatarPath(QStringLiteral("avatar_list.sha1"));
