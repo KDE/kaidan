@@ -23,6 +23,7 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
     logger->setLoggingType(QXmppLogger::SignalLogging);
     logger->setPrettyXml(true);
     logger->setColorMode(QXmppLogger::ColorMode::ColorOn);
+    logger->enableEliding(true);
     connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
 }
 
