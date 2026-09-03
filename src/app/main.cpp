@@ -237,9 +237,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     Q_INIT_RESOURCE(data);
     Q_INIT_RESOURCE(misc);
     Q_INIT_RESOURCE(qml);
-#if BUNDLE_ICONS || defined(Q_OS_ANDROID)
-    Q_INIT_RESOURCE(kirigami_icons);
-#endif
 #if defined(Q_OS_ANDROID)
     Q_INIT_RESOURCE(notifications);
 #endif

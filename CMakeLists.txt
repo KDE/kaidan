@@ -42,7 +42,6 @@ set(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # CMake options
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
-option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 
 set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 

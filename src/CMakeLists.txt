@@ -226,11 +226,6 @@ target_sources(libkaidancore PRIVATE
     ${CMAKE_SOURCE_DIR}/src/qml/qml.qrc
 )
 
-# Include bundled icons on Ubuntu Touch, Android, Windows, macOS and iOS
-if(BUNDLE_ICONS OR UBUNTU_TOUCH OR ANDROID)
-    target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/kirigami-icons.qrc")
-endif()
-
 # Bundled knotifications configuration files on platforms that require it
 if(ANDROID)
     target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
