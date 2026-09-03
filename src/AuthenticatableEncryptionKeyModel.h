@@ -34,7 +34,7 @@ protected:
     virtual void setUp() override;
 
 private:
-    void handleDevicesChanged(QList<QString> jids);
+    void handleDevicesChanged(const QList<QString> &jids);
     void updateKeys();
 
     QString m_chatJid;

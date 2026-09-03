@@ -1178,7 +1178,7 @@ void MessageModel::handleMessageUpdated(Message message)
     }
 }
 
-void MessageModel::handleDevicesChanged(QList<QString> jids)
+void MessageModel::handleDevicesChanged(const QList<QString> &jids)
 {
     // TODO: Search through all messages and only fetch trust levels for relevant keys, set those collected trust levels afterwards via another loop through all
     // messages

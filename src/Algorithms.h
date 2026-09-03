@@ -159,7 +159,7 @@ static void makeUnique(Container &container)
  * Returns whether two containers have at least one element in common.
  */
 template<typename Container>
-static bool containCommonElement(Container &containerA, Container &containerB)
+static bool containCommonElement(const Container &containerA, const Container &containerB)
 {
     return std::ranges::find_first_of(containerA, containerB) != containerA.end();
 }

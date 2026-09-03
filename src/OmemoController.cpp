@@ -180,8 +180,8 @@ QFuture<bool> OmemoController::hasUsableDevices(const QList<QString> &jids)
     auto promise = std::make_shared<QPromise<bool>>();
     promise->start();
 
-    m_manager->devices(jids).then(this, [promise](QList<QXmppOmemoDevice> devices) mutable {
-        for (const auto &device : std::as_const(devices)) {
+    m_manager->devices(jids).then(this, [promise](const QList<QXmppOmemoDevice> &devices) mutable {
+        for (const auto &device : devices) {
             const auto trustLevel = device.trustLevel();
 
             if (TRUST_LEVEL_USABLE.testFlag(trustLevel)) {

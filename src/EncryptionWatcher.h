@@ -46,7 +46,7 @@ public:
 
 private:
     void setUp();
-    void handleDevicesChanged(QList<QString> jids);
+    void handleDevicesChanged(const QList<QString> &jids);
     void update();
     void reset();
 

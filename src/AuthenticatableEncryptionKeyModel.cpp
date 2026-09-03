@@ -82,7 +82,7 @@ void AuthenticatableEncryptionKeyModel::setUp()
     }
 }
 
-void AuthenticatableEncryptionKeyModel::handleDevicesChanged(QList<QString> jids)
+void AuthenticatableEncryptionKeyModel::handleDevicesChanged(const QList<QString> &jids)
 {
     if (jids.contains(m_chatJid)) {
         updateKeys();

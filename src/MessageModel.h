@@ -242,7 +242,7 @@ private:
     void handleMessageUpdated(Message message);
     void handleMessageRemoved(const Message &message, const Message &newLastMessage);
 
-    void handleDevicesChanged(QList<QString> jids);
+    void handleDevicesChanged(const QList<QString> &jids);
 
     void addMessage(const Message &msg);
     void insertMessage(int i, const Message &msg);
