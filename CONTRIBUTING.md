@@ -303,6 +303,10 @@ The [release tool](utils/release.sh) releases a new version of Kaidan.
 Before running the tool, make sure that your public OpenPGP key is added to the [release keyring](https://invent.kde.org/sysadmin/release-keyring).
 It allows others (especially KDE's administrators) to verify your signature.
 
+When a new stable branch `Kaidan/X.Y` is created, add it to KDE's [notarization list](https://invent.kde.org/sysadmin/ci-utilities/-/blob/master/signing/macappnotarizer-projects.yaml).
+Without notarization, macOS rejects the branch's builds on first launch, even though they are signed.
+It is intentionally not enabled for `master`, because every build would be an API request to Apple.
+
 ### Versioning
 
 Kaidan uses [Semantic Versioning](https://semver.org).
