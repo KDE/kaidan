@@ -74,7 +74,7 @@ public:
     };
     Q_ENUM(ConnectionError)
 
-    ClientController(AccountSettings *accountSettings, QObject *parent = nullptr);
+    explicit ClientController(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     QXmppClient *xmppClient() const
     {

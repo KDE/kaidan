@@ -22,7 +22,7 @@ constexpr QStringView VIDEO_MEDIA_TYPE = u"video";
 class VideoOutputRenderJob : public QRunnable
 {
 public:
-    VideoOutputRenderJob(GstElement *);
+    explicit VideoOutputRenderJob(GstElement *);
     ~VideoOutputRenderJob();
 
     void run() override;

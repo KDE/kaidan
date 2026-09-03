@@ -19,7 +19,7 @@ public:
     using PreKeyPairs = QHash<uint32_t, QByteArray>;
     using Devices = QHash<QString, QHash<uint32_t, Device>>;
 
-    OmemoDb(AccountSettings *accountSettings, QObject *parent = nullptr);
+    explicit OmemoDb(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     auto allData() -> QXmppTask<OmemoData> override;
     auto resetAll() -> QXmppTask<void> override;

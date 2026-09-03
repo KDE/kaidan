@@ -29,7 +29,7 @@ public:
     using TrustChanges = QHash<QString, QMultiHash<QString, QByteArray>>;
     using SecurityPolicy = QXmpp::TrustSecurityPolicy;
 
-    TrustDb(AccountSettings *accountSettings, QObject *parent = nullptr);
+    explicit TrustDb(AccountSettings *accountSettings, QObject *parent = nullptr);
 
     auto securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy> override;
     auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void> override;
