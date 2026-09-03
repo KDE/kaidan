@@ -229,6 +229,7 @@ void Database::commitTransaction()
 void Database::transaction()
 {
     auto &transactions = activeTransactions();
+    // cppcheck-suppress knownConditionTrueFalse ; false positive, the reference aliases a thread_local counter
     if (!transactions) {
         auto db = currentDatabase();
         // currently no transactions running
@@ -246,6 +247,7 @@ void Database::commit()
 
     // reduce counter
     transactions--;
+    // cppcheck-suppress knownConditionTrueFalse ; false positive, the reference aliases a thread_local counter
     if (transactions < 0) {
         transactions = 0;
         qCWarning(KAIDAN_CORE_LOG) << "commit() called but no transaction to commit";

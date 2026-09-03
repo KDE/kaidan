@@ -50,6 +50,7 @@ void StatusBar::setColor(const QColor &color)
 {
     m_color = color;
     Q_EMIT colorChanged();
+    // cppcheck-suppress knownConditionTrueFalse ; isAvailable() can only be true on Android
     if (!isAvailable())
         return;
 

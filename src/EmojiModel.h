@@ -37,6 +37,7 @@ public:
     };
     Q_ENUM(Group)
 
+    // cppcheck-suppress noExplicitConstructor ; the emoji table is built with copy-list-initialization
     Emoji(const QString &u = {}, const QString &s = {}, Emoji::Group g = Emoji::Group::Invalid)
         : m_unicode(u)
         , m_shortName(s)

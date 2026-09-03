@@ -129,6 +129,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message, Encry
     return promise->future();
 }
 
+// cppcheck-suppress passedByValue ; the message is a sink, it is copied into the continuation below
 void MessageController::sendMessageWithUndecidedEncryption(Message message)
 {
     const auto accountJid = message.accountJid;

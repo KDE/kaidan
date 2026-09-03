@@ -153,6 +153,7 @@ void MessageComposition::setIsDraft(bool isDraft)
 void MessageComposition::send(const QString &customBody)
 {
     Q_ASSERT(!m_chatController->account()->settings()->jid().isNull());
+    // cppcheck-suppress assertWithSideEffect ; jid() only returns a member
     Q_ASSERT(!m_chatController->jid().isNull());
 
     Message message;
