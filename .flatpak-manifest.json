@@ -118,15 +118,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://download.kde.org/unstable/qxmpp/qxmpp-1.16.3.tar.xz",
-                    "sha256": "005f460a9499467c4e13c35d34df4d274204d4edd673798fab1c39cb73894ab8",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 4149,
-                        "stable-only": true,
-                        "url-template": "https://download.kde.org/unstable/qxmpp/qxmpp-$version.tar.xz"
-                    }
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/qxmpp.git",
+                    "commit": "070da101e6cfe49c2d3edb1b748f32ea9345dea2"
                 }
             ],
             "cleanup": [
