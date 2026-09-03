@@ -24,9 +24,9 @@ void FileProgressWatcher::setFileId(const QString &newFileId)
         setKey(std::move(fId));
         Q_EMIT fileIdChanged();
 
-        auto progress = FileProgressCache::instance().progress(*m_key);
-        m_loading = progress.has_value();
-        m_progress = progress.value_or(FileProgress());
+        auto fileProgress = FileProgressCache::instance().progress(*m_key);
+        m_loading = fileProgress.has_value();
+        m_progress = fileProgress.value_or(FileProgress());
         Q_EMIT progressChanged();
     }
 }

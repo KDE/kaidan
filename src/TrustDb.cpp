@@ -311,13 +311,13 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
 
 auto TrustDb::addKeys(const QString &encryption, const QString &keyOwnerJid, const QList<QByteArray> &keyIds, TrustLevel level) -> QXmppTask<void>
 {
-    std::vector<Key> keys;
-    keys.reserve(keyIds.size());
-    std::transform(keyIds.begin(), keyIds.end(), std::back_inserter(keys), [&](const auto &keyId) {
+    std::vector<Key> newKeys;
+    newKeys.reserve(keyIds.size());
+    std::transform(keyIds.begin(), keyIds.end(), std::back_inserter(newKeys), [&](const auto &keyId) {
         return Key{encryption, keyId, keyOwnerJid, level};
     });
 
-    return insertKeys(std::move(keys));
+    return insertKeys(std::move(newKeys));
 }
 
 auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QXmppTask<void>
@@ -550,23 +550,23 @@ auto TrustDb::setTrustLevel(const QString &encryption, const QList<QString> &key
 auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption, const QByteArray &senderKeyId, const QList<QXmppTrustMessageKeyOwner> &keyOwners)
     -> QXmppTask<void>
 {
-    std::vector<UnprocessedKey> keys;
-    keys.reserve(std::accumulate(keyOwners.begin(), keyOwners.end(), std::size_t(0), [](std::size_t sum, const auto &keyOwner) {
+    std::vector<UnprocessedKey> unprocessedKeys;
+    unprocessedKeys.reserve(std::accumulate(keyOwners.begin(), keyOwners.end(), std::size_t(0), [](std::size_t sum, const auto &keyOwner) {
         return sum + keyOwner.trustedKeys().size() + keyOwner.distrustedKeys().size();
     }));
 
     for (const auto &keyOwner : keyOwners) {
         const auto trustKeys = keyOwner.trustedKeys();
         const auto distrustKeys = keyOwner.distrustedKeys();
-        std::ranges::transform(trustKeys, std::back_inserter(keys), [&](const QByteArray &keyId) {
+        std::ranges::transform(trustKeys, std::back_inserter(unprocessedKeys), [&](const QByteArray &keyId) {
             return UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, true};
         });
-        std::ranges::transform(distrustKeys, std::back_inserter(keys), [&](const QByteArray &keyId) {
+        std::ranges::transform(distrustKeys, std::back_inserter(unprocessedKeys), [&](const QByteArray &keyId) {
             return UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, false};
         });
     }
 
-    return runTask([this, keys = std::move(keys)] {
+    return runTask([this, unprocessedKeys = std::move(unprocessedKeys)] {
         transaction();
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
@@ -587,7 +587,7 @@ auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption, const
 					:trust
 				)
 			)"));
-        for (const auto &key : keys) {
+        for (const auto &key : unprocessedKeys) {
             bindValues(query,
                        {
                            {u":accountJid", accountJid()},

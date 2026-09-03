@@ -100,33 +100,33 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    const auto &item = m_items.at(index.row());
+    const auto &rosterItem = m_items.at(index.row());
 
     switch (role) {
     case AccountRole:
-        return QVariant::fromValue(AccountController::instance()->account(item.accountJid));
+        return QVariant::fromValue(AccountController::instance()->account(rosterItem.accountJid));
     case JidRole:
-        return item.jid;
+        return rosterItem.jid;
     case NameRole:
-        return item.displayName();
+        return rosterItem.displayName();
     case GroupsRole:
-        return QVariant::fromValue(item.groups);
+        return QVariant::fromValue(rosterItem.groups);
     case IsNotesChatRole:
-        return item.isNotesChat();
+        return rosterItem.isNotesChat();
     case IsProviderChatRole:
-        return item.isProviderChat();
+        return rosterItem.isProviderChat();
     case IsGroupChatRole:
-        return item.isGroupChat();
+        return rosterItem.isGroupChat();
     case IsPublicGroupChatRole:
-        return item.groupChatFlags.testFlag(RosterItem::GroupChatFlag::Public);
+        return rosterItem.groupChatFlags.testFlag(RosterItem::GroupChatFlag::Public);
     case IsDeletedGroupChatRole:
-        return item.groupChatFlags.testFlag(RosterItem::GroupChatFlag::Deleted);
+        return rosterItem.groupChatFlags.testFlag(RosterItem::GroupChatFlag::Deleted);
     case LastMessageDateTimeRole: {
         // "lastMessageDateTime" is used for sorting the roster items.
         // Thus, each new item has the current date as its default value.
         // But that date should only be displayed when there is a last (exchanged or draft) message.
-        if (!item.lastMessage.isEmpty() || item.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
-            return formatLastMessageDateTime(item.lastMessageDateTime);
+        if (!rosterItem.lastMessage.isEmpty() || rosterItem.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
+            return formatLastMessageDateTime(rosterItem.lastMessageDateTime);
         }
 
         // The user interface needs a valid string.
@@ -134,23 +134,23 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
         return QString();
     }
     case UnreadMessageCountRole:
-        return item.unreadMessageCount;
+        return rosterItem.unreadMessageCount;
     case MarkedMessageCountRole:
-        return item.markedMessageCount;
+        return rosterItem.markedMessageCount;
     case LastMessageRole:
-        return item.lastMessage;
+        return rosterItem.lastMessage;
     case LastMessageIsDraftRole:
-        return item.lastMessageDeliveryState == Enums::DeliveryState::Draft;
+        return rosterItem.lastMessageDeliveryState == Enums::DeliveryState::Draft;
     case LastMessageIsOwnRole:
-        return item.lastMessageIsOwn;
+        return rosterItem.lastMessageIsOwn;
     case LastMessageGroupChatSenderNameRole:
-        return item.lastMessageGroupChatSenderName;
+        return rosterItem.lastMessageGroupChatSenderName;
     case PinnedRole:
-        return item.pinningPosition >= 0;
+        return rosterItem.pinningPosition >= 0;
     case SelectedRole:
-        return item.selected;
+        return rosterItem.selected;
     case EffectiveNotificationRuleRole:
-        return QVariant::fromValue(item.effectiveNotificationRule());
+        return QVariant::fromValue(rosterItem.effectiveNotificationRule());
     }
     return {};
 }
@@ -194,9 +194,9 @@ void RosterModel::setItemEncryption(const QString &accountJid, const QString &ji
 
 void RosterModel::setItemEncryption(const QString &accountJid, Encryption::Enum encryption)
 {
-    for (const auto &item : std::as_const(m_items)) {
-        RosterDb::instance()->updateItem(accountJid, item.jid, [encryption](RosterItem &item) {
-            item.encryption = encryption;
+    for (const auto &rosterItem : std::as_const(m_items)) {
+        RosterDb::instance()->updateItem(accountJid, rosterItem.jid, [encryption](RosterItem &rosterItem) {
+            rosterItem.encryption = encryption;
         });
     }
 }
@@ -237,9 +237,9 @@ const QList<RosterItem> RosterModel::items(const QString &accountJid) const
 {
     QList<RosterItem> items;
 
-    for (const auto &item : std::as_const(m_items)) {
-        if (item.accountJid == accountJid) {
-            items.append(item);
+    for (const auto &rosterItem : std::as_const(m_items)) {
+        if (rosterItem.accountJid == accountJid) {
+            items.append(rosterItem);
         }
     }
 
@@ -256,19 +256,19 @@ void RosterModel::pinItem(const QString &accountJid, const QString &jid)
 void RosterModel::unpinItem(const QString &accountJid, const QString &jid)
 {
     if (const auto itemBeingUnpinned = item(accountJid, jid)) {
-        for (const auto &item : std::as_const(m_items)) {
+        for (const auto &rosterItem : std::as_const(m_items)) {
             // Decrease the pinning position of the pinned items with higher pinning positions than
             // the pinning position of the item being pinned.
-            if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
-                RosterDb::instance()->updateItem(accountJid, item.jid, [](RosterItem &item) {
-                    item.pinningPosition -= 1;
+            if (rosterItem.pinningPosition > itemBeingUnpinned->pinningPosition) {
+                RosterDb::instance()->updateItem(accountJid, rosterItem.jid, [](RosterItem &rosterItem) {
+                    rosterItem.pinningPosition -= 1;
                 });
             }
         }
 
         // Reset the pinning position of the item being unpinned.
-        RosterDb::instance()->updateItem(accountJid, jid, [](RosterItem &item) {
-            item.pinningPosition = -1;
+        RosterDb::instance()->updateItem(accountJid, jid, [](RosterItem &rosterItem) {
+            rosterItem.pinningPosition = -1;
         });
     }
 }
@@ -292,19 +292,19 @@ void RosterModel::reorderPinnedItem(int oldIndex, int newIndex)
     }
 
     for (int i = min; i <= max; ++i) {
-        const auto &item = m_items[i];
+        const auto &rosterItem = m_items[i];
 
-        RosterDb::instance()->updateItem(item.accountJid, item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
+        RosterDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &rosterItem) {
             if (i == oldIndex) {
                 // Set the new moved item's pinningPosition.
-                item.pinningPosition = pinningPosition;
+                rosterItem.pinningPosition = pinningPosition;
             } else {
                 if (movedUpwards) {
                     // Decrement pinningPosition of the items that are now below the moved item.
-                    --item.pinningPosition;
+                    --rosterItem.pinningPosition;
                 } else {
                     // Increment pinningPosition of the items that are now above the moved item.
-                    ++item.pinningPosition;
+                    ++rosterItem.pinningPosition;
                 }
             }
         });
@@ -314,8 +314,8 @@ void RosterModel::reorderPinnedItem(int oldIndex, int newIndex)
 void RosterModel::toggleSelected(const QString &accountJid, const QString &jid)
 {
     for (int i = 0; i < m_items.size(); i++) {
-        if (auto &item = m_items[i]; item.accountJid == accountJid && item.jid == jid) {
-            item.selected = !item.selected;
+        if (auto &rosterItem = m_items[i]; rosterItem.accountJid == accountJid && rosterItem.jid == jid) {
+            rosterItem.selected = !rosterItem.selected;
             Q_EMIT dataChanged(index(i), index(i), {SelectedRole});
             return;
         }
@@ -325,8 +325,8 @@ void RosterModel::toggleSelected(const QString &accountJid, const QString &jid)
 void RosterModel::resetSelected()
 {
     for (int i = 0; i < m_items.size(); i++) {
-        if (auto &item = m_items[i]; item.selected) {
-            item.selected = false;
+        if (auto &rosterItem = m_items[i]; rosterItem.selected) {
+            rosterItem.selected = false;
             Q_EMIT dataChanged(index(i), index(i), {SelectedRole});
         }
     }
@@ -339,8 +339,8 @@ void RosterModel::handleItemsFetched(const QList<RosterItem> &fetchedItems)
     std::ranges::sort(m_items);
     endResetModel();
 
-    for (const auto &item : std::as_const(m_items)) {
-        RosterItemNotifier::instance().notifyWatchers(item.accountJid, item.jid, item);
+    for (const auto &rosterItem : std::as_const(m_items)) {
+        RosterItemNotifier::instance().notifyWatchers(rosterItem.accountJid, rosterItem.jid, rosterItem);
     }
 
     Q_EMIT itemsFetched(fetchedItems);
@@ -369,7 +369,7 @@ void RosterModel::updateItem(const RosterItem &updatedItem)
             newItem.selected = oldItem.selected;
 
             Q_EMIT dataChanged(index(i), index(i));
-            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, updatedItem);
+            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, newItem);
             updateItemPosition(i);
 
             if (oldGroups != groups()) {
@@ -388,9 +388,9 @@ void RosterModel::updateItem(const RosterItem &updatedItem)
 void RosterModel::removeItem(const QString &accountJid, const QString &jid)
 {
     for (int i = 0; i < m_items.size(); i++) {
-        const RosterItem &item = m_items.at(i);
+        const RosterItem &rosterItem = m_items.at(i);
 
-        if (item.accountJid == accountJid && item.jid == jid) {
+        if (rosterItem.accountJid == accountJid && rosterItem.jid == jid) {
             auto oldGroupCount = groups().size();
 
             beginRemoveRows(QModelIndex(), i, i);
@@ -728,14 +728,14 @@ int RosterModel::positionToAdd(const RosterItem &newItem)
 
 int RosterModel::positionToMove(int currentIndex)
 {
-    const auto &item = m_items.at(currentIndex);
+    const auto &rosterItem = m_items.at(currentIndex);
 
     for (int i = 0; i < m_items.size(); i++) {
         // In some cases, it is needed to skip the item that is being positioned.
         // Especially, when the item is at the beginning or at the end of the list, it must not
         // be compared to itself in order to find the correct position.
         if (currentIndex != i) {
-            if (item <= m_items.at(i)) {
+            if (rosterItem <= m_items.at(i)) {
                 if (i == currentIndex + 1) {
                     return currentIndex;
                 }

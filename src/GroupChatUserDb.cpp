@@ -64,14 +64,14 @@ std::optional<GroupChatUser> GroupChatUserDb::_user(const QString &accountJid, c
                   + QStringLiteral(" "
                                    "LIMIT 1"));
 
-    QList<GroupChatUser> users;
-    parseUsersFromQuery(query, users);
+    QList<GroupChatUser> fetchedUsers;
+    parseUsersFromQuery(query, fetchedUsers);
 
-    if (users.isEmpty()) {
+    if (fetchedUsers.isEmpty()) {
         return std::nullopt;
     }
 
-    return users.constFirst();
+    return fetchedUsers.constFirst();
 }
 
 QFuture<QList<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid, const QString &chatJid, const int offset)
@@ -349,19 +349,19 @@ void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void(GroupCh
                   + QStringLiteral(" "
                                    "LIMIT 1"));
 
-    QList<GroupChatUser> users;
-    parseUsersFromQuery(query, users);
+    QList<GroupChatUser> fetchedUsers;
+    parseUsersFromQuery(query, fetchedUsers);
 
     // Update the loaded user.
-    if (!users.isEmpty()) {
-        const auto oldUser = users.constFirst();
+    if (!fetchedUsers.isEmpty()) {
+        const auto oldUser = fetchedUsers.constFirst();
         auto newUser = oldUser;
         updateUser(newUser);
 
         // Replace the old user with the updated one if it has changed.
         if (oldUser != newUser) {
             // Create an SQL record containing the differences.
-            QSqlRecord record = createUpdateRecord(users.constFirst(), newUser);
+            QSqlRecord record = createUpdateRecord(fetchedUsers.constFirst(), newUser);
 
             execQuery(query,
                       sqlDriver().sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_GROUP_CHAT_USERS), record, false)

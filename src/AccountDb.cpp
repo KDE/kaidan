@@ -134,12 +134,12 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
                       {u":jid", jid},
                   });
 
-        QList<AccountSettings::Data> accounts;
-        parseAccountsFromQuery(query, accounts);
+        QList<AccountSettings::Data> fetchedAccounts;
+        parseAccountsFromQuery(query, fetchedAccounts);
 
         // Update the loaded account settings.
-        if (!accounts.isEmpty()) {
-            const auto &oldAccount = accounts.constFirst();
+        if (!fetchedAccounts.isEmpty()) {
+            const auto &oldAccount = fetchedAccounts.constFirst();
             AccountSettings::Data newAccount = oldAccount;
             updateAccount(newAccount);
 

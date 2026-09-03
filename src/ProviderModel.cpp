@@ -259,10 +259,10 @@ QList<Provider> ProviderModel::providersWithSystemLocale(const QList<Provider> &
 {
     QList<Provider> providers;
 
-    for (const auto &provider : preSelectedProviders) {
+    for (const auto &preSelectedProvider : preSelectedProviders) {
         if (const auto systemLocale = SystemUtils::systemLocaleCodes();
-            provider.languages().contains(systemLocale.languageCode) && provider.countries().contains(systemLocale.countryCode)) {
-            providers << provider;
+            preSelectedProvider.languages().contains(systemLocale.languageCode) && preSelectedProvider.countries().contains(systemLocale.countryCode)) {
+            providers << preSelectedProvider;
         }
     }
 

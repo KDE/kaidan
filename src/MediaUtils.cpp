@@ -100,19 +100,19 @@ static QString filter(const QList<QMimeType> &types)
     filters.reserve(types.size() * 2);
 
     for (const QMimeType &mimeType : types) {
-        QString filter = mimeType.filterString();
+        QString filterString = mimeType.filterString();
 
-        if (filter.isEmpty()) {
+        if (filterString.isEmpty()) {
             filters << QStringLiteral("*");
             continue;
         }
 
-        const int start = filter.lastIndexOf(QLatin1Char('('));
-        const int end = filter.lastIndexOf(QLatin1Char(')'));
+        const int start = filterString.lastIndexOf(QLatin1Char('('));
+        const int end = filterString.lastIndexOf(QLatin1Char(')'));
         Q_ASSERT(start != -1);
         Q_ASSERT(end != -1);
 
-        filters << filter.mid(start + 1, filter.size() - start - 1 - 1).split(QLatin1Char(' '));
+        filters << filterString.mid(start + 1, filterString.size() - start - 1 - 1).split(QLatin1Char(' '));
     }
 
     if (filters.size() > 1) {
@@ -497,10 +497,10 @@ Enums::MessageType MediaUtils::messageType(const QUrl &url)
         return messageType(url.toLocalFile());
     }
 
-    QList<QMimeType> mimeTypes;
+    QList<QMimeType> types;
 
     if (url.scheme().compare(QStringLiteral("geo")) == 0) {
-        mimeTypes = s_geoTypes;
+        types = s_geoTypes;
     } else {
         const QFileInfo fileInfo(url.fileName());
 
@@ -508,14 +508,14 @@ Enums::MessageType MediaUtils::messageType(const QUrl &url)
             return Enums::MessageType::MessageUnknown;
         }
 
-        mimeTypes = s_mimeDB.mimeTypesForFileName(fileInfo.fileName());
+        types = s_mimeDB.mimeTypesForFileName(fileInfo.fileName());
     }
 
-    for (const QMimeType &mimeType : std::as_const(mimeTypes)) {
-        const Enums::MessageType messageType = MediaUtils::messageType(mimeType);
+    for (const QMimeType &type : std::as_const(types)) {
+        const Enums::MessageType detectedType = MediaUtils::messageType(type);
 
-        if (messageType != Enums::MessageType::MessageUnknown) {
-            return messageType;
+        if (detectedType != Enums::MessageType::MessageUnknown) {
+            return detectedType;
         }
     }
 
@@ -612,13 +612,13 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 QSize MediaUtils::dimensions(const QString &filePath)
 {
     if (auto image = QImageReader(filePath); image.canRead()) {
-        QSize dimensions = image.size();
+        QSize imageSize = image.size();
 
-        if (!dimensions.isValid()) {
-            dimensions = image.read().size();
+        if (!imageSize.isValid()) {
+            imageSize = image.read().size();
         }
 
-        return dimensions;
+        return imageSize;
     }
 
     return {};

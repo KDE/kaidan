@@ -542,9 +542,9 @@ void FileSelectionModel::setAccountSettings(AccountSettings *accountSettings)
 
 void FileSelectionModel::selectFile()
 {
-    const auto files = QFileDialog::getOpenFileUrls();
+    const auto fileUrls = QFileDialog::getOpenFileUrls();
 
-    for (const auto &file : files) {
+    for (const auto &file : fileUrls) {
         addFile(file);
     }
 }

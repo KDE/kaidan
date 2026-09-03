@@ -137,9 +137,9 @@ QVariant FileTreeModel::data(const QModelIndex &index, int role) const
     if (hasIndex(index.row(), index.column(), index.parent())) {
         const auto msgIndex = index.internalId() == INT32_MAX ? index.row() : index.parent().row();
         Q_ASSERT(msgIndex != -1);
-        const auto fileIndex = index.internalId() == INT32_MAX ? -1 : index.row();
+        const auto fileRow = index.internalId() == INT32_MAX ? -1 : index.row();
         const auto &msg = m_files[msgIndex];
-        const auto file = fileIndex != -1 ? std::optional<const File>(msg.files[fileIndex]) : std::nullopt;
+        const auto file = fileRow != -1 ? std::optional<const File>(msg.files[fileRow]) : std::nullopt;
 
         switch (role) {
         case Qt::DisplayRole: {
@@ -206,10 +206,10 @@ QModelIndex FileTreeModel::fileIndex(const QString &fileId) const
     const auto id = fileId.toLongLong();
 
     for (int i = 0; i < m_files.count(); ++i) {
-        const auto &files = m_files[i].files;
+        const auto &messageFiles = m_files[i].files;
 
-        for (int j = 0; j < files.count(); ++j) {
-            const auto &file = files[j];
+        for (int j = 0; j < messageFiles.count(); ++j) {
+            const auto &file = messageFiles[j];
 
             if (file.id == id) {
                 return createIndex(j, 0, static_cast<quintptr>(i));

@@ -209,11 +209,11 @@ void RosterController::updateGroup(const QString &oldGroup, const QString &newGr
     const auto &items = RosterModel::instance()->items(m_accountSettings->jid());
 
     for (const auto &item : items) {
-        if (auto groups = item.groups; groups.contains(oldGroup)) {
-            groups.removeOne(oldGroup);
-            groups.append(newGroup);
+        if (auto itemGroups = item.groups; itemGroups.contains(oldGroup)) {
+            itemGroups.removeOne(oldGroup);
+            itemGroups.append(newGroup);
 
-            updateGroups(item.jid, groups);
+            updateGroups(item.jid, itemGroups);
         }
     }
 }
@@ -223,10 +223,10 @@ void RosterController::removeGroup(const QString &group)
     const auto &items = RosterModel::instance()->items(m_accountSettings->jid());
 
     for (const auto &item : items) {
-        if (auto groups = item.groups; groups.contains(group)) {
-            groups.removeOne(group);
+        if (auto itemGroups = item.groups; itemGroups.contains(group)) {
+            itemGroups.removeOne(group);
 
-            updateGroups(item.jid, groups);
+            updateGroups(item.jid, itemGroups);
         }
     }
 }

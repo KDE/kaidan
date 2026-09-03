@@ -223,11 +223,11 @@ bool PublicGroupChatSearchController::readGroupChats()
         return false;
     }
 
-    QJsonParseError error;
-    const auto document = QJsonDocument::fromJson(file.readAll(), &error);
+    QJsonParseError parseError;
+    const auto document = QJsonDocument::fromJson(file.readAll(), &parseError);
 
-    if (error.error != QJsonParseError::NoError) {
-        qCWarning(KAIDAN_CORE_LOG, "Cannot parse json file: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(error.errorString()));
+    if (parseError.error != QJsonParseError::NoError) {
+        qCWarning(KAIDAN_CORE_LOG, "Cannot parse json file: %ls, %ls", qUtf16Printable(file.fileName()), qUtf16Printable(parseError.errorString()));
         return false;
     }
 

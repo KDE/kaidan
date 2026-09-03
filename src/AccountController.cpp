@@ -54,9 +54,9 @@ AccountController::~AccountController()
 
 Account *AccountController::createUninitializedAccount()
 {
-    auto *account = new Account(this);
-    m_accounts.append(account);
-    return account;
+    auto *newAccount = new Account(this);
+    m_accounts.append(newAccount);
+    return newAccount;
 }
 
 void AccountController::discardUninitializedAccount(Account *accountToDiscard)
@@ -132,8 +132,8 @@ bool AccountController::migrating()
 
 bool AccountController::logOutAllAccountsToQuit()
 {
-    for (auto *account : m_accounts) {
-        if (auto *connection = account->connection(); connection->state() != Enums::ConnectionState::StateDisconnected) {
+    for (auto *currentAccount : m_accounts) {
+        if (auto *connection = currentAccount->connection(); connection->state() != Enums::ConnectionState::StateDisconnected) {
             m_accountsLoggingOutCount++;
 
             connect(connection, &Connection::stateChanged, this, [this, connection]() {
@@ -148,8 +148,8 @@ bool AccountController::logOutAllAccountsToQuit()
 
     bool loggingOut = m_accountsLoggingOutCount;
 
-    for (auto *account : m_accounts) {
-        if (auto *connection = account->connection(); connection->state() != Enums::ConnectionState::StateDisconnected) {
+    for (auto *currentAccount : m_accounts) {
+        if (auto *connection = currentAccount->connection(); connection->state() != Enums::ConnectionState::StateDisconnected) {
             connection->logOut(true);
         }
     }
@@ -176,45 +176,45 @@ QFuture<void> AccountController::loadAccounts()
 
 void AccountController::handleAccountAdded(const AccountSettings::Data &accountSettings)
 {
-    auto itr = std::ranges::find_if(m_accounts, [jid = accountSettings.jid](const Account *account) {
-        return account->settings()->jid() == jid;
+    auto itr = std::ranges::find_if(m_accounts, [jid = accountSettings.jid](const Account *addedAccount) {
+        return addedAccount->settings()->jid() == jid;
     });
 
     if (itr != m_accounts.end()) {
-        auto *account = *itr;
+        auto *addedAccount = *itr;
 
         if (m_migrationController) {
             connect(
-                account->connection(),
+                addedAccount->connection(),
                 &Connection::connected,
                 this,
-                [this, account]() {
-                    m_migrationController->finalizeMigration(account).then([this]() {
+                [this, addedAccount]() {
+                    m_migrationController->finalizeMigration(addedAccount).then([this]() {
                         cancelMigration();
                     });
                 },
                 Qt::SingleShotConnection);
         }
 
-        Q_EMIT accountAdded(account);
+        Q_EMIT accountAdded(addedAccount);
     }
 }
 
 void AccountController::removeAccount(const QString &jid)
 {
-    auto itr = std::ranges::find_if(m_accounts, [jid](const Account *account) {
-        return account->settings()->jid() == jid;
+    auto itr = std::ranges::find_if(m_accounts, [jid](const Account *accountToRemove) {
+        return accountToRemove->settings()->jid() == jid;
     });
 
     if (itr != m_accounts.end()) {
-        auto *account = *itr;
+        auto *accountToRemove = *itr;
         m_accounts.erase(itr);
         Q_EMIT accountRemoved(jid);
 
         if (m_activeAccount) {
-            m_accountToBeDeleted = account;
+            m_accountToBeDeleted = accountToRemove;
         } else {
-            account->deleteLater();
+            accountToRemove->deleteLater();
         }
 
         if (m_accounts.isEmpty()) {

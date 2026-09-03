@@ -30,8 +30,8 @@ namespace QKeychainFuture
 {
 QAtomicInteger<ushort> &unencryptedFallbackAtomic()
 {
-    static QAtomicInteger<ushort> unencryptedFallback;
-    return unencryptedFallback;
+    static QAtomicInteger<ushort> fallback;
+    return fallback;
 }
 
 QString unencryptedKeychainFilePath()
