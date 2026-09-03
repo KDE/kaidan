@@ -1135,13 +1135,14 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
     }
 
     if (m_chatController->rosterItem().lastReadContactMessageId.isEmpty()) {
-        for (const auto &message : std::as_const(m_messages)) {
-            if (!message.isOwn) {
-                RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, messageId = message.id](RosterItem &item) {
-                    item.lastReadContactMessageId = messageId;
-                });
-                break;
-            }
+        const auto message = std::ranges::find_if(m_messages, [](const Message &message) {
+            return !message.isOwn;
+        });
+
+        if (message != m_messages.cend()) {
+            RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=, messageId = message->id](RosterItem &item) {
+                item.lastReadContactMessageId = messageId;
+            });
         }
     }
 

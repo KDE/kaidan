@@ -36,11 +36,9 @@ static auto dbTableRecords(QSqlDatabase &db)
 
 static auto fieldNames(const QSqlRecord &record)
 {
-    QStringList fieldNames;
-    for (int i : iota(0, record.count())) {
-        fieldNames.push_back(record.fieldName(i));
-    }
-    return fieldNames;
+    return transform<QStringList>(iota(0, record.count()), [&record](int i) {
+        return record.fieldName(i);
+    });
 }
 
 class DatabaseTest : public Test

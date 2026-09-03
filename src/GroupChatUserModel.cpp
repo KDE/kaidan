@@ -114,13 +114,15 @@ QStringList GroupChatUserModel::userJids() const
 
 std::optional<const GroupChatUser> GroupChatUserModel::participant(const QString &accountJid, const QString &chatJid, const QString &participantId) const
 {
-    for (const auto &user : std::as_const(m_users)) {
-        if (user.accountJid == accountJid && user.chatJid == chatJid && user.id == participantId) {
-            return user;
-        }
+    const auto itr = std::ranges::find_if(m_users, [&](const GroupChatUser &user) {
+        return user.accountJid == accountJid && user.chatJid == chatJid && user.id == participantId;
+    });
+
+    if (itr == m_users.cend()) {
+        return std::nullopt;
     }
 
-    return std::nullopt;
+    return *itr;
 }
 
 QString GroupChatUserModel::participantName(const QString &accountJid, const QString &chatJid, const QString &participantId) const

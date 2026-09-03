@@ -558,12 +558,12 @@ auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption, const
     for (const auto &keyOwner : keyOwners) {
         const auto trustKeys = keyOwner.trustedKeys();
         const auto distrustKeys = keyOwner.distrustedKeys();
-        for (const auto &keyId : trustKeys) {
-            keys.push_back(UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, true});
-        }
-        for (const auto &keyId : distrustKeys) {
-            keys.push_back(UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, false});
-        }
+        std::ranges::transform(trustKeys, std::back_inserter(keys), [&](const QByteArray &keyId) {
+            return UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, true};
+        });
+        std::ranges::transform(distrustKeys, std::back_inserter(keys), [&](const QByteArray &keyId) {
+            return UnprocessedKey{encryption, keyId, keyOwner.jid(), senderKeyId, false};
+        });
     }
 
     return runTask([this, keys = std::move(keys)] {

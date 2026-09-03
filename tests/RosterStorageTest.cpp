@@ -106,13 +106,15 @@ std::optional<RosterItem> RosterStorageTest::fetchItem(const QString &jid)
 {
     const auto items = wait(RosterDb::instance()->fetchItems());
 
-    for (const auto &item : items) {
-        if (item.accountJid == accountJid && item.jid == jid) {
-            return item;
-        }
+    const auto itr = std::ranges::find_if(items, [&](const RosterItem &item) {
+        return item.accountJid == accountJid && item.jid == jid;
+    });
+
+    if (itr == items.cend()) {
+        return std::nullopt;
     }
 
-    return std::nullopt;
+    return *itr;
 }
 
 void RosterStorageTest::testUpsertAddsItem()

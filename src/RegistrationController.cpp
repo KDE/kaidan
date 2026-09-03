@@ -221,12 +221,14 @@ void RegistrationController::handleRegistrationFormReceived(const QXmppRegisterI
         // Try to find an out-of-band URL within the instructions element.
         // Most servers include a text with a link to the website.
         const auto words = iq.instructions().split(u' ');
-        for (const auto &instructionPart : words) {
-            if (instructionPart.startsWith(u"https://")) {
-                Q_EMIT registrationOutOfBandUrlReceived(QUrl{instructionPart});
-                abortRegistration();
-                return;
-            }
+        const auto instructionPart = std::ranges::find_if(words, [](const QString &word) {
+            return word.startsWith(u"https://");
+        });
+
+        if (instructionPart != words.cend()) {
+            Q_EMIT registrationOutOfBandUrlReceived(QUrl{*instructionPart});
+            abortRegistration();
+            return;
         }
 
         // If no URL has been found in the instructions, there is a problem with the server.

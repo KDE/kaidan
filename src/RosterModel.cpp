@@ -217,13 +217,15 @@ QString RosterModel::lastReadContactMessageId(const QString &accountJid, const Q
 
 std::optional<RosterItem> RosterModel::item(const QString &accountJid, const QString &jid) const
 {
-    for (const auto &item : std::as_const(m_items)) {
-        if (item.accountJid == accountJid && item.jid == jid) {
-            return item;
-        }
+    const auto itr = std::ranges::find_if(m_items, [&](const RosterItem &item) {
+        return item.accountJid == accountJid && item.jid == jid;
+    });
+
+    if (itr == m_items.cend()) {
+        return {};
     }
 
-    return {};
+    return *itr;
 }
 
 const QList<RosterItem> &RosterModel::items() const
