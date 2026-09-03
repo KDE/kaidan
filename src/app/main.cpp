@@ -138,6 +138,7 @@ void filterLog(QtMsgType type, const QMessageLogContext &context, const QString 
     if (initialized == 0) {
         QMutexLocker locker(&mutex);
 
+        // cppcheck-suppress identicalInnerCondition ; the repeated check is the second half of a double-checked lock
         if (initialized == 0) {
             filterStrings = qEnvironmentVariable(KAIDAN_LOG_FILTER_VARIABLE).split(KAIDAN_LOG_FILTER_SEPARATOR, Qt::SkipEmptyParts);
             filterStrings.append(KAIDAN_DEFAULT_FILTER_STRINGS);
@@ -168,8 +169,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #ifdef Q_OS_WIN
     if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-        freopen("CONOUT$", "w", stdout);
-        freopen("CONOUT$", "w", stderr);
+        // There is no console to report a failure on if reopening the streams fails.
+        (void)freopen("CONOUT$", "w", stdout);
+        (void)freopen("CONOUT$", "w", stderr);
     }
 #endif
 
