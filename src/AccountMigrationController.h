@@ -30,7 +30,7 @@ public:
     QFuture<void> finalizeMigration(Account *newAccount);
 
 private:
-    void informUser(const QString &notification);
+    static void informUser(const QString &notification);
 
     QString diskAccountFilePath() const;
     bool saveAccountDataToDisk(const QString &filePath, const QXmppExportData &data);

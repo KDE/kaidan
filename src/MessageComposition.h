@@ -161,7 +161,8 @@ private:
     void prepareForNewChat();
     void updateAccount();
 
-    void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
+    static void
+    setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
     QFuture<void> loadDraft();
     void saveDraft();
     void setIsForwarding(bool isForwarding);

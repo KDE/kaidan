@@ -91,7 +91,7 @@ public:
     Q_SIGNAL void groupsChanged();
 
     std::optional<Encryption::Enum> itemEncryption(const QString &accountJid, const QString &jid) const;
-    void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);
+    static void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);
     Q_INVOKABLE void setItemEncryption(const QString &accountJid, Encryption::Enum encryption);
 
     QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
