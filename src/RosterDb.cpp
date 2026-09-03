@@ -414,7 +414,7 @@ void RosterDb::_addItem(RosterItem item)
     addGroups(item.accountJid, item.jid, item.groups);
 }
 
-void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem)
+void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &update)
 {
     auto query = createQuery();
     execQuery(query,
@@ -438,7 +438,7 @@ void RosterDb::_updateItem(const QString &accountJid, const QString &jid, const 
         fetchMarkedMessageCount(oldItem);
 
         auto newItem = oldItem;
-        updateItem(newItem);
+        update(newItem);
 
         // Replace the old item's values with the updated ones if the item has changed.
         if (oldItem != newItem) {

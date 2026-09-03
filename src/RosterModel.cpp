@@ -332,10 +332,10 @@ void RosterModel::resetSelected()
     }
 }
 
-void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
+void RosterModel::handleItemsFetched(const QList<RosterItem> &fetchedItems)
 {
     beginResetModel();
-    m_items = items;
+    m_items = fetchedItems;
     std::ranges::sort(m_items);
     endResetModel();
 
@@ -343,33 +343,33 @@ void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
         RosterItemNotifier::instance().notifyWatchers(item.accountJid, item.jid, item);
     }
 
-    Q_EMIT itemsFetched(items);
+    Q_EMIT itemsFetched(fetchedItems);
     Q_EMIT groupsChanged();
 }
 
-void RosterModel::addItem(const RosterItem &item)
+void RosterModel::addItem(const RosterItem &newItem)
 {
-    insertItem(positionToAdd(item), item);
+    insertItem(positionToAdd(newItem), newItem);
 }
 
-void RosterModel::updateItem(const RosterItem &item)
+void RosterModel::updateItem(const RosterItem &updatedItem)
 {
     for (int i = 0; i < m_items.size(); i++) {
-        const auto accountJid = item.accountJid;
-        const auto jid = item.jid;
+        const auto accountJid = updatedItem.accountJid;
+        const auto jid = updatedItem.jid;
 
         if (const auto oldItem = m_items.at(i); oldItem.accountJid == accountJid && oldItem.jid == jid) {
             const auto oldGroups = groups();
 
-            m_items.replace(i, item);
+            m_items.replace(i, updatedItem);
 
             // Apply old settings that are not stored in the database.
             auto &newItem = m_items[i];
-            newItem = item;
+            newItem = updatedItem;
             newItem.selected = oldItem.selected;
 
             Q_EMIT dataChanged(index(i), index(i));
-            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, item);
+            RosterItemNotifier::instance().notifyWatchers(accountJid, jid, updatedItem);
             updateItemPosition(i);
 
             if (oldGroups != groups()) {
@@ -675,17 +675,17 @@ int RosterModel::informAboutChangedData(QList<RosterItem>::Iterator &itr, const 
     return i;
 }
 
-void RosterModel::insertItem(int index, const RosterItem &item)
+void RosterModel::insertItem(int index, const RosterItem &newItem)
 {
-    const auto accountJid = item.accountJid;
+    const auto accountJid = newItem.accountJid;
     auto oldGroupCount = groups().size();
 
     beginInsertRows(QModelIndex(), index, index);
-    m_items.insert(index, item);
+    m_items.insert(index, newItem);
     endInsertRows();
 
-    RosterItemNotifier::instance().notifyWatchers(accountJid, item.jid, item);
-    Q_EMIT itemAdded(item);
+    RosterItemNotifier::instance().notifyWatchers(accountJid, newItem.jid, newItem);
+    Q_EMIT itemAdded(newItem);
 
     if (oldGroupCount < groups().size()) {
         Q_EMIT groupsChanged();
@@ -714,10 +714,10 @@ void RosterModel::updateItemPosition(int currentIndex)
     endMoveRows();
 }
 
-int RosterModel::positionToAdd(const RosterItem &item)
+int RosterModel::positionToAdd(const RosterItem &newItem)
 {
     for (int i = 0; i < m_items.size(); i++) {
-        if (item <= m_items.at(i)) {
+        if (newItem <= m_items.at(i)) {
             return i;
         }
     }

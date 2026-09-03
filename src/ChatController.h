@@ -54,7 +54,7 @@ public:
     explicit ChatController(QObject *parent = nullptr);
     ~ChatController();
 
-    Q_INVOKABLE void initialize(Account *account, const QString &jid);
+    Q_INVOKABLE void initialize(Account *newAccount, const QString &newJid);
     Q_SIGNAL void aboutToChangeChat();
     Q_SIGNAL void chatChanged();
 
@@ -108,7 +108,7 @@ private:
     void setGroupChatUserJids(const QList<QString> &newGroupChatUserJids);
 
     void initializeChatStateHandling();
-    void handleChatStateChanged(const QString &jid);
+    void handleChatStateChanged(const QString &changedJid);
 
     void executeOnceConnected(std::function<void()> &&function);
 

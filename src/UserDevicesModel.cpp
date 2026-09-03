@@ -126,9 +126,9 @@ void UserDevicesModel::handleClientVersionReceived(const QXmppVersionIq &version
     }
 }
 
-void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource)
+void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, const QString &changedJid, const QString &resource)
 {
-    if (jid != m_jid)
+    if (changedJid != m_jid)
         return;
 
     switch (type) {

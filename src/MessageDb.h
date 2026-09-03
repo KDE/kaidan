@@ -228,7 +228,7 @@ public:
     /**
      * Updates a stored message or adds it if it is not stored.
      */
-    QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &updateMsg);
+    QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &update);
 
     /**
      * Loads a message, runs the update lambda and writes it to the DB again.
@@ -314,7 +314,7 @@ public:
     /**
      * Updates a draft message from the database.
      */
-    QFuture<void> updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void(Message &)> &updateMessage);
+    QFuture<void> updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void(Message &)> &update);
     Q_SIGNAL void draftMessageUpdated(const Message &msg);
 
     /**

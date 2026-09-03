@@ -309,12 +309,12 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
     });
 }
 
-auto TrustDb::addKeys(const QString &encryption, const QString &keyOwnerJid, const QList<QByteArray> &keyIds, TrustLevel trustLevel) -> QXmppTask<void>
+auto TrustDb::addKeys(const QString &encryption, const QString &keyOwnerJid, const QList<QByteArray> &keyIds, TrustLevel level) -> QXmppTask<void>
 {
     std::vector<Key> keys;
     keys.reserve(keyIds.size());
     std::transform(keyIds.begin(), keyIds.end(), std::back_inserter(keys), [&](const auto &keyId) {
-        return Key{encryption, keyId, keyOwnerJid, trustLevel};
+        return Key{encryption, keyId, keyOwnerJid, level};
     });
 
     return insertKeys(std::move(keys));
@@ -795,9 +795,9 @@ auto TrustDb::resetAll() -> QXmppTask<void>
     });
 }
 
-auto TrustDb::insertKeys(std::vector<Key> &&keys) -> QXmppTask<void>
+auto TrustDb::insertKeys(std::vector<Key> &&newKeys) -> QXmppTask<void>
 {
-    return runTask([this, keys = std::move(keys)] {
+    return runTask([this, newKeys = std::move(newKeys)] {
         transaction();
         auto query = createQuery();
         prepareQuery(query, QStringLiteral(R"(
@@ -817,7 +817,7 @@ auto TrustDb::insertKeys(std::vector<Key> &&keys) -> QXmppTask<void>
 				)
 			)"));
 
-        for (const auto &key : keys) {
+        for (const auto &key : newKeys) {
             bindValues(query,
                        {
                            {u":accountJid", accountJid()},
@@ -860,7 +860,7 @@ void TrustDb::_resetOwnKey(const QString &encryption)
               });
 }
 
-void TrustDb::_setTrustLevel(TrustLevel trustLevel, qint64 rowId)
+void TrustDb::_setTrustLevel(TrustLevel newTrustLevel, qint64 rowId)
 {
     auto query = createQuery();
     execQuery(query,
@@ -870,7 +870,7 @@ void TrustDb::_setTrustLevel(TrustLevel trustLevel, qint64 rowId)
 			WHERE rowid = :rowId
 		)"),
               {
-                  {u":trustLevel", int(trustLevel)},
+                  {u":trustLevel", int(newTrustLevel)},
                   {u":rowId", rowId},
               });
     Q_ASSERT(query.numRowsAffected() == 1);

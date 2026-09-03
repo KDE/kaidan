@@ -48,11 +48,11 @@ ChatController::~ChatController()
     m_chatStateController->resetPreviousChat();
 }
 
-void ChatController::initialize(Account *account, const QString &jid)
+void ChatController::initialize(Account *newAccount, const QString &newJid)
 {
-    Q_ASSERT(account);
-    Q_ASSERT(!jid.isEmpty());
-    Q_ASSERT(m_account != account || m_jid != jid);
+    Q_ASSERT(newAccount);
+    Q_ASSERT(!newJid.isEmpty());
+    Q_ASSERT(m_account != newAccount || m_jid != newJid);
 
     Q_EMIT aboutToChangeChat();
 
@@ -60,38 +60,38 @@ void ChatController::initialize(Account *account, const QString &jid)
         resetPreviousChat();
     }
 
-    if (m_account != account) {
-        m_account = account;
+    if (m_account != newAccount) {
+        m_account = newAccount;
         Q_EMIT accountChanged();
 
-        m_rosterItemWatcher.setAccountJid(account->settings()->jid());
+        m_rosterItemWatcher.setAccountJid(newAccount->settings()->jid());
 
-        m_messageController = account->messageController();
+        m_messageController = newAccount->messageController();
 
         if (m_notificationController) {
             m_notificationController->setChatController(nullptr);
         }
 
-        m_notificationController = account->notificationController();
+        m_notificationController = newAccount->notificationController();
         m_notificationController->setChatController(this);
     }
 
-    if (m_jid != jid) {
-        m_jid = jid;
+    if (m_jid != newJid) {
+        m_jid = newJid;
         Q_EMIT jidChanged();
 
-        m_rosterItemWatcher.setJid(jid);
+        m_rosterItemWatcher.setJid(newJid);
     }
 
     initializeEncryption();
     initializeGroupChat();
 
-    m_chatHintModel = new ChatHintModel(account, this, this);
+    m_chatHintModel = new ChatHintModel(newAccount, this, this);
     Q_EMIT chatHintModelChanged();
 
-    m_messageModel = new MessageModel(account->settings(),
-                                      account->connection(),
-                                      account->atmController(),
+    m_messageModel = new MessageModel(newAccount->settings(),
+                                      newAccount->connection(),
+                                      newAccount->atmController(),
                                       this,
                                       m_encryptionController,
                                       m_messageController,
@@ -327,9 +327,9 @@ void ChatController::initializeChatStateHandling()
     Q_EMIT chatStateTextChanged();
 }
 
-void ChatController::handleChatStateChanged(const QString &jid)
+void ChatController::handleChatStateChanged(const QString &changedJid)
 {
-    if (jid == m_jid) {
+    if (changedJid == m_jid) {
         Q_EMIT chatStateTextChanged();
     }
 }

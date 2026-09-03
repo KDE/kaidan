@@ -56,7 +56,7 @@ private:
 
     void registerIfComplete();
     void unregister();
-    void notify(const std::optional<RosterItem> &item);
+    void notify(const std::optional<RosterItem> &rosterItem);
 
     QString m_accountJid;
     QString m_jid;

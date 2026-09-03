@@ -244,18 +244,18 @@ QString QmlUtils::osmUserAgent()
     return u"" APPLICATION_NAME + QChar(u'/') + u"" VERSION_STRING;
 }
 
-QString QmlUtils::geoUri(const QGeoCoordinate &geoCoordinate)
+QString QmlUtils::geoUri(const QGeoCoordinate &coordinate)
 {
     QUrl uri;
     uri.setScheme(GEO_URI_SCHEME.toString());
-    uri.setPath(QString::number(geoCoordinate.latitude()) + GEO_URI_COORDINATE_SEPARATOR.toString() + QString::number(geoCoordinate.longitude()));
+    uri.setPath(QString::number(coordinate.latitude()) + GEO_URI_COORDINATE_SEPARATOR.toString() + QString::number(coordinate.longitude()));
 
     return uri.toString();
 }
 
-QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
+QGeoCoordinate QmlUtils::geoCoordinate(const QString &uriString)
 {
-    QUrl uri(geoUri);
+    QUrl uri(uriString);
 
     if (uri.scheme() == GEO_URI_SCHEME) {
         const auto coordinateParts = uri.path().split(GEO_URI_COORDINATE_SEPARATOR.toString());

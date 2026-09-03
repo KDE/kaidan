@@ -46,7 +46,7 @@ public:
 
 private:
     void handleClientVersionReceived(const QXmppVersionIq &versionIq);
-    void handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
+    void handlePresenceChanged(PresenceCache::ChangeType type, const QString &changedJid, const QString &resource);
     void handlePresencesCleared();
 
     struct DeviceInfo {

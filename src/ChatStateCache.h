@@ -43,7 +43,7 @@ public:
 
 private:
     void handleDisconnected();
-    void handleChatStateReceived(const QString &jid, QXmppMessage::State chatState);
+    void handleChatStateReceived(const QString &jid, QXmppMessage::State state);
     void removeChatState(const QString &jid);
 
     std::vector<ChatStateWrapper> m_chatStateWrappers;

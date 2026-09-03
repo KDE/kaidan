@@ -60,7 +60,7 @@ public:
      *
      * @param user allowed user
      */
-    QFuture<void> handleUserAllowedOrBanned(const GroupChatUser &user);
+    QFuture<void> handleUserAllowedOrBanned(const GroupChatUser &groupChatUser);
 
     /**
      * Handles a user that is not allowed anymore to participate or not banned anymore from
@@ -68,7 +68,7 @@ public:
      *
      * @param user disallowed or unbanned user
      */
-    QFuture<void> handleUserDisallowedOrUnbanned(const GroupChatUser &user);
+    QFuture<void> handleUserDisallowedOrUnbanned(const GroupChatUser &groupChatUser);
 
     /**
      * Handles a received participant.
@@ -128,7 +128,7 @@ private:
      *
      * @param user user being added
      */
-    void addUser(const GroupChatUser &user);
+    void addUser(const GroupChatUser &groupChatUser);
 
     /**
      * Updates a user by ID.
@@ -179,7 +179,7 @@ private:
      *
      * @param user user being removed
      */
-    void removeUser(const GroupChatUser &user);
+    void removeUser(const GroupChatUser &groupChatUser);
 
     static GroupChatUserDb *s_instance;
 };

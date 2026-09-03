@@ -105,10 +105,10 @@ void RosterItemWatcher::unregister()
     }
 }
 
-void RosterItemWatcher::notify(const std::optional<RosterItem> &item)
+void RosterItemWatcher::notify(const std::optional<RosterItem> &rosterItem)
 {
-    if (item) {
-        m_item = *item;
+    if (rosterItem) {
+        m_item = *rosterItem;
     } else {
         m_item = {};
     }

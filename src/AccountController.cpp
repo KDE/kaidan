@@ -59,11 +59,11 @@ Account *AccountController::createUninitializedAccount()
     return account;
 }
 
-void AccountController::discardUninitializedAccount(Account *account)
+void AccountController::discardUninitializedAccount(Account *accountToDiscard)
 {
-    if (!account->settings()->initialized()) {
-        account->deleteLater();
-        m_accounts.removeOne(account);
+    if (!accountToDiscard->settings()->initialized()) {
+        accountToDiscard->deleteLater();
+        m_accounts.removeOne(accountToDiscard);
 
         if (migrating()) {
             cancelMigration();
@@ -108,15 +108,15 @@ void AccountController::resetActiveAccount()
     m_activeAccount = nullptr;
 }
 
-void AccountController::startMigration(Account *account)
+void AccountController::startMigration(Account *accountToMigrate)
 {
-    Q_ASSERT(account);
+    Q_ASSERT(accountToMigrate);
     Q_ASSERT(!m_migrationController);
 
     m_migrationController = new AccountMigrationController(this);
     Q_EMIT migratingChanged();
 
-    m_migrationController->startMigration(account).then([this](bool started) {
+    m_migrationController->startMigration(accountToMigrate).then([this](bool started) {
         if (started) {
             Q_EMIT MainController::instance()->openStartPageRequested();
         } else {

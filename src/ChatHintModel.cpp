@@ -343,17 +343,17 @@ void ChatHintModel::insertChatHint(int i, const ChatHint &chatHint)
     endInsertRows();
 }
 
-void ChatHintModel::updateChatHint(ChatHintButton::Type buttonType, const std::function<void(ChatHint &)> &updateChatHint)
+void ChatHintModel::updateChatHint(ChatHintButton::Type buttonType, const std::function<void(ChatHint &)> &update)
 {
     if (const auto i = chatHintIndex(buttonType); i != -1) {
-        this->updateChatHint(i, updateChatHint);
+        this->updateChatHint(i, update);
     }
 }
 
-void ChatHintModel::updateChatHint(int i, const std::function<void(ChatHint &)> &updateChatHint)
+void ChatHintModel::updateChatHint(int i, const std::function<void(ChatHint &)> &update)
 {
     auto chatHint = m_chatHints.at(i);
-    updateChatHint(chatHint);
+    update(chatHint);
 
     // Skip further processing in case of no changes.
     if (m_chatHints.at(i) == chatHint) {

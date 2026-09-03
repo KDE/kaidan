@@ -117,10 +117,10 @@ private:
 
     explicit RosterModel(QObject *parent);
 
-    void handleItemsFetched(const QList<RosterItem> &items);
+    void handleItemsFetched(const QList<RosterItem> &fetchedItems);
 
-    void addItem(const RosterItem &item);
-    void updateItem(const RosterItem &item);
+    void addItem(const RosterItem &newItem);
+    void updateItem(const RosterItem &updatedItem);
     void removeItem(const QString &accountJid, const QString &jid);
     void removeItems(const QString &accountJid);
 
@@ -143,9 +143,9 @@ private:
 
     int informAboutChangedData(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles);
 
-    void insertItem(int index, const RosterItem &item);
+    void insertItem(int index, const RosterItem &newItem);
     void updateItemPosition(int currentIndex);
-    int positionToAdd(const RosterItem &item);
+    int positionToAdd(const RosterItem &newItem);
     int positionToMove(int currentIndex);
 
     QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;

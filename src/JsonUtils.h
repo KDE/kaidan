@@ -39,39 +39,39 @@ bool value(const QJsonObject &object, QStringView key)
 // addValue
 
 template<typename T>
-void addValue(QJsonObject &object, QStringView key, const T &value);
+void addValue(QJsonObject &object, QStringView key, const T &newValue);
 
 template<>
-void addValue(QJsonObject &object, QStringView key, const QString &value)
+void addValue(QJsonObject &object, QStringView key, const QString &newValue)
 {
     Q_ASSERT(!key.isEmpty());
 
-    if (!value.isEmpty()) {
-        object.insert(key, value);
+    if (!newValue.isEmpty()) {
+        object.insert(key, newValue);
     }
 }
 
 template<>
-void addValue(QJsonObject &object, QStringView key, const int &value)
+void addValue(QJsonObject &object, QStringView key, const int &newValue)
 {
     Q_ASSERT(!key.isEmpty());
-    object.insert(key, value);
+    object.insert(key, newValue);
 }
 
 template<>
-void addValue(QJsonObject &object, QStringView key, const bool &value)
+void addValue(QJsonObject &object, QStringView key, const bool &newValue)
 {
     Q_ASSERT(!key.isEmpty());
-    object.insert(key, value);
+    object.insert(key, newValue);
 }
 
 template<>
-void addValue(QJsonObject &object, QStringView key, const QStringList &value)
+void addValue(QJsonObject &object, QStringView key, const QStringList &newValue)
 {
     Q_ASSERT(!key.isEmpty());
 
-    if (!value.isEmpty()) {
-        object.insert(key, value.join(QLatin1Char(',')));
+    if (!newValue.isEmpty()) {
+        object.insert(key, newValue.join(QLatin1Char(',')));
     }
 }
 } // namespace Json

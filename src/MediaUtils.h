@@ -47,17 +47,17 @@ public:
     /**
      * Deletes a downloaded file.
      */
-    Q_INVOKABLE static void deleteDownloadedFile(const QString &localFilePath);
+    Q_INVOKABLE static void deleteDownloadedFile(const QString &filePath);
 
     /**
      * Returns the path of a local file URL.
      */
-    Q_INVOKABLE static QString localFilePath(const QUrl &localFileUrl);
+    Q_INVOKABLE static QString localFilePath(const QUrl &fileUrl);
 
     /**
      * Returns the URL of a local file.
      */
-    Q_INVOKABLE static QUrl localFileUrl(const QString &localFilePath);
+    Q_INVOKABLE static QUrl localFileUrl(const QString &filePath);
 
     Q_INVOKABLE static bool imageValid(const QImage &image);
 
@@ -87,7 +87,7 @@ public:
     /**
      * Opens a file's directory in a file browser and, if supported, selects the file.
      */
-    Q_INVOKABLE static void openFileInFolder(const QUrl &localFileUrl);
+    Q_INVOKABLE static void openFileInFolder(const QUrl &fileUrl);
 
     static QString mediaTypeName(Enums::MessageType mediaType);
     Q_INVOKABLE static QString newMediaLabel(Enums::MessageType hint);
@@ -100,7 +100,7 @@ public:
     Q_INVOKABLE static QList<QMimeType> mimeTypes(Enums::MessageType hint);
     Q_INVOKABLE static Enums::MessageType messageType(const QString &filePath);
     Q_INVOKABLE static Enums::MessageType messageType(const QUrl &url);
-    Q_INVOKABLE static Enums::MessageType messageType(const QMimeType &mimeType);
+    Q_INVOKABLE static Enums::MessageType messageType(const QMimeType &type);
 
     // Qml sucks... :)
     Q_INVOKABLE inline static QString mimeTypeName(const QString &filePath)
@@ -116,7 +116,7 @@ public:
     Q_INVOKABLE static bool hasAlphaChannel(const QVariant &source);
 
     static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice> file);
-    static QSize dimensions(const QString &localFilePath);
+    static QSize dimensions(const QString &filePath);
 
     static const QMimeDatabase &mimeDatabase()
     {

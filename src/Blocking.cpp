@@ -60,13 +60,13 @@ QFuture<QList<QString>> BlockingDb::blockedJids(const QString &accountJid)
     });
 }
 
-QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
+QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QList<QString> &jids)
 {
-    return run([this, accountJid, blockedJids]() {
+    return run([this, accountJid, jids]() {
         auto query = createQuery();
         execQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"), {{u":accountJid", accountJid}});
 
-        for (const auto &jid : blockedJids) {
+        for (const auto &jid : jids) {
             insert(QString::fromLatin1(DB_TABLE_BLOCKED),
                    {
                        {u"accountJid", accountJid},
@@ -76,24 +76,24 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QLis
     });
 }
 
-QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
+QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QList<QString> &jids)
 {
-    return run([this, accountJid, blockedJids]() {
+    return run([this, accountJid, jids]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid AND jid = :jid"));
-        for (const auto &jid : blockedJids) {
+        for (const auto &jid : jids) {
             bindValues(query, {{u":accountJid", accountJid}, {u":jid", jid}});
             execQuery(query);
         }
     });
 }
 
-QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
+QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QList<QString> &jids)
 {
-    return run([this, accountJid, blockedJids]() {
+    return run([this, accountJid, jids]() {
         auto query = createQuery();
         prepareQuery(query, QStringLiteral("INSERT OR REPLACE INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
-        for (const auto &jid : blockedJids) {
+        for (const auto &jid : jids) {
             bindValues(query, {{u":accountJid", accountJid}, {u":jid", jid}});
             execQuery(query);
         }
@@ -273,19 +273,19 @@ void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::Blockli
     }
 }
 
-void BlockingController::handleBlocklist(Blocklist blocklist)
+void BlockingController::handleBlocklist(Blocklist newBlocklist)
 {
     // Do not update the blocklist from the server to the version in the database.
-    if (!m_blocklist || m_blocklist->source <= blocklist.source) {
+    if (!m_blocklist || m_blocklist->source <= newBlocklist.source) {
         // update database
-        if (blocklist.source == Blocklist::Xmpp) {
-            updateDbBlocklist(blocklist.jids);
+        if (newBlocklist.source == Blocklist::Xmpp) {
+            updateDbBlocklist(newBlocklist.jids);
         }
 
         // whether the new blocklist differs
-        bool changed = !m_blocklist || m_blocklist->jids != blocklist.jids;
+        bool changed = !m_blocklist || m_blocklist->jids != newBlocklist.jids;
 
-        m_blocklist = std::move(blocklist);
+        m_blocklist = std::move(newBlocklist);
 
         // notify handlers
         if (changed) {

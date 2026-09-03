@@ -55,10 +55,10 @@ std::optional<FileProgress> FileProgressCache::progress(qint64 fileId)
     return {};
 }
 
-void FileProgressCache::reportProgress(qint64 fileId, const FileProgress &progress)
+void FileProgressCache::reportProgress(qint64 fileId, const FileProgress &fileProgress)
 {
-    m_files.insert_or_assign(fileId, progress);
-    FileProgressNotifier::instance().notifyWatchers(fileId, progress);
+    m_files.insert_or_assign(fileId, fileProgress);
+    FileProgressNotifier::instance().notifyWatchers(fileId, fileProgress);
 }
 
 void FileProgressCache::reportFinished(qint64 fileId)

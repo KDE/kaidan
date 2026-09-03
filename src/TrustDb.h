@@ -44,7 +44,7 @@ public:
     auto addKeys(const QString &encryption,
                  const QString &keyOwnerJid,
                  const QList<QByteArray> &keyIds,
-                 QXmpp::TrustLevel trustLevel = QXmpp::TrustLevel::AutomaticallyDistrusted) -> QXmppTask<void> override;
+                 QXmpp::TrustLevel level = QXmpp::TrustLevel::AutomaticallyDistrusted) -> QXmppTask<void> override;
     auto removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QXmppTask<void> override;
     auto removeKeys(const QString &encryption, const QString &keyOwnerJid) -> QXmppTask<void> override;
     auto removeKeys(const QString &encryption) -> QXmppTask<void> override;
@@ -84,7 +84,7 @@ private:
     auto insertKeys(std::vector<Key> &&) -> QXmppTask<void>;
     void _resetSecurityPolicy(const QString &encryption);
     void _resetOwnKey(const QString &encryption);
-    void _setTrustLevel(QXmpp::TrustLevel trustLevel, qint64 rowId);
+    void _setTrustLevel(QXmpp::TrustLevel newTrustLevel, qint64 rowId);
 
     inline QString accountJid() const;
 

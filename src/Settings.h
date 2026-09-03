@@ -94,26 +94,26 @@ private:
     }
 
     template<typename T>
-    void setValue(const QString &key, const T &value)
+    void setValue(const QString &key, const T &newValue)
     {
         if constexpr (!has_enum_type<T>::value && std::is_enum<T>::value) {
-            m_settings.setValue(key, static_cast<std::underlying_type_t<T>>(value));
+            m_settings.setValue(key, static_cast<std::underlying_type_t<T>>(newValue));
         } else if constexpr (has_enum_type<T>::value) {
-            m_settings.setValue(key, static_cast<typename T::Int>(value));
+            m_settings.setValue(key, static_cast<typename T::Int>(newValue));
         } else {
-            m_settings.setValue(key, QVariant::fromValue(value));
+            m_settings.setValue(key, QVariant::fromValue(newValue));
         }
     }
 
     template<typename T, typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) <= 1, T> * = nullptr>
-    void setValue(const QString &key, const T &value, S s)
+    void setValue(const QString &key, const T &newValue, S s)
     {
-        setValue(key, value);
+        setValue(key, newValue);
 
         if constexpr (int(QtPrivate::FunctionPointer<S>::ArgumentCount) == 0) {
             Q_EMIT(this->*s)();
         } else {
-            Q_EMIT(this->*s)(value);
+            Q_EMIT(this->*s)(newValue);
         }
     }
 

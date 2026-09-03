@@ -67,7 +67,7 @@ private:
     static void fetchMarkedMessageCount(RosterItem &item);
 
     void _addItem(RosterItem item);
-    void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &updateItem);
+    void _updateItem(const QString &accountJid, const QString &jid, const std::function<void(RosterItem &)> &update);
     void _updateOrAddItem(const QString &accountJid, RosterItem item);
     void _replaceItems(const QString &accountJid, const QList<RosterItem> &items, RosterItem::Origin origin = RosterItem::Origin::Roster);
     void _removeItem(const QString &accountJid, const QString &jid);

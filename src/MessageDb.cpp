@@ -787,13 +787,13 @@ void MessageDb::_addMessage(Message message, MessageOrigin origin)
     _setFiles(message.files);
 }
 
-QFuture<void> MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &updateMessage)
+QFuture<void> MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const std::function<void(Message &)> &update)
 {
     Q_ASSERT(message.deliveryState != DeliveryState::Draft);
 
-    return run([this, message, origin, updateMessage]() {
+    return run([this, message, origin, update]() {
         if (_checkMessageExists(message)) {
-            _updateMessage(message.accountJid, message.chatJid, message.originId, updateMessage);
+            _updateMessage(message.accountJid, message.chatJid, message.originId, update);
         } else {
             _addMessage(message, origin);
         }
@@ -1056,13 +1056,13 @@ QFuture<void> MessageDb::addDraftMessage(const Message &msg)
     });
 }
 
-QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void(Message &)> &updateMessage)
+QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void(Message &)> &update)
 {
-    return run([this, accountJid, chatJid, updateMessage]() {
+    return run([this, accountJid, chatJid, update]() {
         if (const auto oldMessage = _fetchDraftMessage(accountJid, chatJid); oldMessage) {
             Q_ASSERT(oldMessage->deliveryState == DeliveryState::Draft);
             Message newMessage = *oldMessage;
-            updateMessage(newMessage);
+            update(newMessage);
             Q_ASSERT(newMessage.deliveryState == DeliveryState::Draft);
 
             // Replace the old message's values with the updated ones if the message has changed.

@@ -65,11 +65,11 @@ const QList<QMimeType> MediaUtils::s_documentTypes{
 const QList<QMimeType> MediaUtils::s_geoTypes{s_mimeDB.mimeTypeForName(QStringLiteral("application/geo+json"))};
 const QRegularExpression MediaUtils::s_geoLocationRegExp(QStringLiteral("geo:([-+]?[0-9]*\\.?[0-9]+),([-+]?[0-9]*\\.?[0-9]+)"));
 
-static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent)
+static QList<QMimeType> mimeTypes(const QList<QMimeType> &types, const QString &parent)
 {
     QList<QMimeType> mimes;
 
-    for (const QMimeType &mimeType : mimeTypes) {
+    for (const QMimeType &mimeType : types) {
         if (mimeType.name().section(QLatin1Char('/'), 0, 0) == parent) {
             mimes << mimeType;
         }
@@ -78,10 +78,10 @@ static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QStri
     return mimes;
 }
 
-static QString iconName(const QList<QMimeType> &mimeTypes)
+static QString iconName(const QList<QMimeType> &types)
 {
-    if (!mimeTypes.isEmpty()) {
-        for (const QMimeType &type : mimeTypes) {
+    if (!types.isEmpty()) {
+        for (const QMimeType &type : types) {
             const QString name = type.genericIconName();
 
             if (!name.isEmpty()) {
@@ -93,13 +93,13 @@ static QString iconName(const QList<QMimeType> &mimeTypes)
     return QStringLiteral("application-octet-stream");
 }
 
-static QString filter(const QList<QMimeType> &mimeTypes)
+static QString filter(const QList<QMimeType> &types)
 {
     QStringList filters;
 
-    filters.reserve(mimeTypes.size() * 2);
+    filters.reserve(types.size() * 2);
 
-    for (const QMimeType &mimeType : mimeTypes) {
+    for (const QMimeType &mimeType : types) {
         QString filter = mimeType.filterString();
 
         if (filter.isEmpty()) {
@@ -203,21 +203,21 @@ void MediaUtils::deleteFile(const QUrl &url)
     QFile::remove(url.toLocalFile());
 }
 
-void MediaUtils::deleteDownloadedFile(const QString &localFilePath)
+void MediaUtils::deleteDownloadedFile(const QString &filePath)
 {
-    if (localFilePath.startsWith(SystemUtils::downloadDirectory())) {
-        QFile::remove(localFilePath);
+    if (filePath.startsWith(SystemUtils::downloadDirectory())) {
+        QFile::remove(filePath);
     }
 }
 
-QString MediaUtils::localFilePath(const QUrl &localFileUrl)
+QString MediaUtils::localFilePath(const QUrl &fileUrl)
 {
-    return localFileUrl.toLocalFile();
+    return fileUrl.toLocalFile();
 }
 
-QUrl MediaUtils::localFileUrl(const QString &localFilePath)
+QUrl MediaUtils::localFileUrl(const QString &filePath)
 {
-    return QUrl::fromLocalFile(localFilePath);
+    return QUrl::fromLocalFile(filePath);
 }
 
 bool MediaUtils::imageValid(const QImage &image)
@@ -300,9 +300,9 @@ QUrl MediaUtils::openFile()
     return QFileDialog::getOpenFileUrl();
 }
 
-void MediaUtils::openFileInFolder(const QUrl &localFileUrl)
+void MediaUtils::openFileInFolder(const QUrl &fileUrl)
 {
-    auto *job = KIO::highlightInFileManager({localFileUrl});
+    auto *job = KIO::highlightInFileManager({fileUrl});
 
     QObject::connect(job, &KJob::result, job, [](KJob *job) {
         if (job->error()) {
@@ -522,21 +522,21 @@ Enums::MessageType MediaUtils::messageType(const QUrl &url)
     return Enums::MessageType::MessageUnknown;
 }
 
-Enums::MessageType MediaUtils::messageType(const QMimeType &mimeType)
+Enums::MessageType MediaUtils::messageType(const QMimeType &type)
 {
-    if (!mimeType.isValid()) {
+    if (!type.isValid()) {
         return Enums::MessageType::MessageUnknown;
     }
 
-    if (mimeTypes(Enums::MessageType::MessageImage).contains(mimeType)) {
+    if (mimeTypes(Enums::MessageType::MessageImage).contains(type)) {
         return Enums::MessageType::MessageImage;
-    } else if (mimeTypes(Enums::MessageType::MessageAudio).contains(mimeType)) {
+    } else if (mimeTypes(Enums::MessageType::MessageAudio).contains(type)) {
         return Enums::MessageType::MessageAudio;
-    } else if (mimeTypes(Enums::MessageType::MessageVideo).contains(mimeType)) {
+    } else if (mimeTypes(Enums::MessageType::MessageVideo).contains(type)) {
         return Enums::MessageType::MessageVideo;
-    } else if (mimeTypes(Enums::MessageType::MessageGeoLocation).contains(mimeType)) {
+    } else if (mimeTypes(Enums::MessageType::MessageGeoLocation).contains(type)) {
         return Enums::MessageType::MessageGeoLocation;
-    } else if (mimeTypes(Enums::MessageType::MessageDocument).contains(mimeType)) {
+    } else if (mimeTypes(Enums::MessageType::MessageDocument).contains(type)) {
         return Enums::MessageType::MessageDocument;
     }
 
@@ -609,9 +609,9 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
     });
 }
 
-QSize MediaUtils::dimensions(const QString &localFilePath)
+QSize MediaUtils::dimensions(const QString &filePath)
 {
-    if (auto image = QImageReader(localFilePath); image.canRead()) {
+    if (auto image = QImageReader(filePath); image.canRead()) {
         QSize dimensions = image.size();
 
         if (!dimensions.isValid()) {

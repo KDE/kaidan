@@ -75,9 +75,9 @@ void EncryptionWatcher::setUp()
     update();
 }
 
-void EncryptionWatcher::handleDevicesChanged(const QList<QString> &jids)
+void EncryptionWatcher::handleDevicesChanged(const QList<QString> &changedJids)
 {
-    if (containCommonElement(m_jids, jids)) {
+    if (containCommonElement(m_jids, changedJids)) {
         update();
     }
 }

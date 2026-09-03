@@ -74,7 +74,7 @@ public:
     static FileProgressCache &instance();
 
     std::optional<FileProgress> progress(qint64 fileId);
-    void reportProgress(qint64 fileId, const FileProgress &progress);
+    void reportProgress(qint64 fileId, const FileProgress &fileProgress);
     void reportFinished(qint64 fileId);
 
     void cancelTransfers(const QString &jid);

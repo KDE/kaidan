@@ -193,8 +193,8 @@ public:
 
     Q_INVOKABLE static QString osmUserAgent();
 
-    Q_INVOKABLE static QString geoUri(const QGeoCoordinate &geoCoordinate);
-    Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &geoUri);
+    Q_INVOKABLE static QString geoUri(const QGeoCoordinate &coordinate);
+    Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &uriString);
 
 private:
     friend class MainController;

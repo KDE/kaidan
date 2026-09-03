@@ -128,13 +128,13 @@ std::optional<QXmppPresence> PresenceCache::presence(const QString &jid, const Q
     return std::nullopt;
 }
 
-void PresenceCache::updatePresence(const QXmppPresence &presence)
+void PresenceCache::updatePresence(const QXmppPresence &newPresence)
 {
-    if (presence.type() != QXmppPresence::Available && presence.type() != QXmppPresence::Unavailable)
+    if (newPresence.type() != QXmppPresence::Available && newPresence.type() != QXmppPresence::Unavailable)
         return;
 
-    const auto jid = QXmppUtils::jidToBareJid(presence.from());
-    const auto resource = QXmppUtils::jidToResource(presence.from());
+    const auto jid = QXmppUtils::jidToBareJid(newPresence.from());
+    const auto resource = QXmppUtils::jidToResource(newPresence.from());
 
     if (!m_presences.contains(jid))
         m_presences.insert(jid, {});
@@ -151,8 +151,8 @@ void PresenceCache::updatePresence(const QXmppPresence &presence)
     //
 
     if (userPresences.contains(resource)) {
-        if (presence.type() == QXmppPresence::Available) {
-            m_presences[jid][resource] = presence;
+        if (newPresence.type() == QXmppPresence::Available) {
+            m_presences[jid][resource] = newPresence;
             Q_EMIT presenceChanged(Updated, jid, resource);
         } else {
             // presence is 'Unavailable'
@@ -164,8 +164,8 @@ void PresenceCache::updatePresence(const QXmppPresence &presence)
         }
     } else {
         // client is unknown (hasn't been cached yet)
-        if (presence.type() == QXmppPresence::Available) {
-            userPresences.insert(resource, presence);
+        if (newPresence.type() == QXmppPresence::Available) {
+            userPresences.insert(resource, newPresence);
             Q_EMIT presenceChanged(Connected, jid, resource);
         }
 

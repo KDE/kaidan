@@ -36,7 +36,7 @@ public:
     static AccountController *create(QQmlEngine *engine, QJSEngine *jsEngine);
 
     Q_INVOKABLE Account *createUninitializedAccount();
-    Q_INVOKABLE void discardUninitializedAccount(Account *account);
+    Q_INVOKABLE void discardUninitializedAccount(Account *accountToDiscard);
 
     Q_INVOKABLE Account *account(const QString &jid) const;
     const QList<Account *> &accounts() const;
@@ -50,7 +50,7 @@ public:
     Q_INVOKABLE void setActiveAccount(Account *account);
     Q_INVOKABLE void resetActiveAccount();
 
-    Q_INVOKABLE void startMigration(Account *account);
+    Q_INVOKABLE void startMigration(Account *accountToMigrate);
     bool migrating();
     Q_SIGNAL void migratingChanged();
 

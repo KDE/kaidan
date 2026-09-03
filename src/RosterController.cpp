@@ -231,9 +231,9 @@ void RosterController::removeGroup(const QString &group)
     }
 }
 
-void RosterController::updateGroups(const QString &jid, const QList<QString> &groups)
+void RosterController::updateGroups(const QString &jid, const QList<QString> &newGroups)
 {
-    m_manager->updateRosterGroups(jid, {groups.cbegin(), groups.cend()});
+    m_manager->updateRosterGroups(jid, {newGroups.cbegin(), newGroups.cend()});
 }
 
 void RosterController::setChatStateSendingEnabled(const QString &jid, bool chatStateSendingEnabled)

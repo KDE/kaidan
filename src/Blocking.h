@@ -27,9 +27,9 @@ public:
     explicit BlockingDb(QObject *parent = nullptr);
 
     QFuture<QList<QString>> blockedJids(const QString &accountJid);
-    QFuture<void> resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
-    QFuture<void> removeBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
-    QFuture<void> addBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
+    QFuture<void> resetBlockedJids(const QString &accountJid, const QList<QString> &jids);
+    QFuture<void> removeBlockedJids(const QString &accountJid, const QList<QString> &jids);
+    QFuture<void> addBlockedJids(const QString &accountJid, const QList<QString> &jids);
 };
 
 // Coordinates loading and updates of the blocklist
@@ -77,7 +77,7 @@ private:
     void setRunning(uint);
 
     void handleXmppBlocklistResult(QXmppBlockingManager::BlocklistResult &&result);
-    void handleBlocklist(Blocklist blocklist);
+    void handleBlocklist(Blocklist newBlocklist);
     void updateDbBlocklist(const QList<QString> &blockedJids);
 
     void onJidsBlocked(const QList<QString> &blockedJids);

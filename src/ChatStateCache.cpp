@@ -61,14 +61,14 @@ void ChatStateCache::handleDisconnected()
     Q_EMIT chatStatesChanged();
 }
 
-void ChatStateCache::handleChatStateReceived(const QString &jid, QXmppMessage::State chatState)
+void ChatStateCache::handleChatStateReceived(const QString &jid, QXmppMessage::State state)
 {
     auto itr = std::ranges::find_if(m_chatStateWrappers, [jid](const ChatStateWrapper &chatStateWrapper) {
         return chatStateWrapper.jid == jid;
     });
 
     if (itr == m_chatStateWrappers.end()) {
-        if (chatState == QXmppMessage::State::Composing || chatState == QXmppMessage::State::Paused) {
+        if (state == QXmppMessage::State::Composing || state == QXmppMessage::State::Paused) {
             auto *timer = new QTimer();
             timer->setSingleShot(true);
             timer->setInterval(ACTIVE_TIMEOUT);
@@ -78,7 +78,7 @@ void ChatStateCache::handleChatStateReceived(const QString &jid, QXmppMessage::S
 
             ChatStateWrapper chatStateWrapper;
             chatStateWrapper.jid = jid;
-            chatStateWrapper.chatState = chatState;
+            chatStateWrapper.chatState = state;
             chatStateWrapper.timer = timer;
 
             m_chatStateWrappers.push_back(std::move(chatStateWrapper));
@@ -86,9 +86,9 @@ void ChatStateCache::handleChatStateReceived(const QString &jid, QXmppMessage::S
 
             Q_EMIT chatStateChanged(jid);
         }
-    } else if (itr->chatState != chatState) {
-        if (chatState == QXmppMessage::State::Composing || chatState == QXmppMessage::State::Paused) {
-            itr->chatState = chatState;
+    } else if (itr->chatState != state) {
+        if (state == QXmppMessage::State::Composing || state == QXmppMessage::State::Paused) {
+            itr->chatState = state;
             itr->timer->start();
         } else {
             m_chatStateWrappers.erase(itr);

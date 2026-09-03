@@ -79,7 +79,7 @@ public:
     /**
      * Updates the presence cache, it will ignore subscribe presences
      */
-    void updatePresence(const QXmppPresence &presence);
+    void updatePresence(const QXmppPresence &newPresence);
 
     /**
      * Clears all cached presences.
