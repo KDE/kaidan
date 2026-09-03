@@ -43,14 +43,14 @@ static constexpr QStringView s_kaidan_export_ns = u"im.kaidan.export";
 struct ClientRosterItemSettings {
     ClientRosterItemSettings() = default;
     explicit ClientRosterItemSettings(const RosterItem &item)
+        : jid(item.jid)
+        , encryption(item.encryption)
+        , notificationRule(item.notificationRule)
+        , chatStateSendingEnabled(item.chatStateSendingEnabled)
+        , readMarkerSendingEnabled(item.readMarkerSendingEnabled)
+        , pinningPosition(item.pinningPosition)
+        , automaticMediaDownloadsRule(item.automaticMediaDownloadsRule)
     {
-        jid = item.jid;
-        encryption = item.encryption;
-        notificationRule = item.notificationRule;
-        chatStateSendingEnabled = item.chatStateSendingEnabled;
-        readMarkerSendingEnabled = item.readMarkerSendingEnabled;
-        pinningPosition = item.pinningPosition;
-        automaticMediaDownloadsRule = item.automaticMediaDownloadsRule;
     }
 
     static std::variant<ClientRosterItemSettings, QXmppError> fromDom(const QDomElement &rootElement)
@@ -103,21 +103,21 @@ struct ClientRosterItemSettings {
 struct ClientConfiguration {
     ClientConfiguration() = default;
     explicit ClientConfiguration(const AccountSettings *accountSettings)
+        : jid(accountSettings->jid())
+        , password(accountSettings->password())
+        , host(accountSettings->host())
+        , port(accountSettings->port())
+        , tlsErrorsIgnored(accountSettings->tlsErrorsIgnored())
+        , tlsRequirement(accountSettings->tlsRequirement())
+        , passwordVisibility(accountSettings->passwordVisibility())
+        , encryption(accountSettings->encryption())
+        , automaticMediaDownloadsRule(accountSettings->automaticMediaDownloadsRule())
+        , name(accountSettings->name())
+        , contactNotificationRule(accountSettings->contactNotificationRule())
+        , groupChatNotificationRule(accountSettings->groupChatNotificationRule())
+        , geoLocationMapPreviewEnabled(accountSettings->geoLocationMapPreviewEnabled())
+        , geoLocationMapService(accountSettings->geoLocationMapService())
     {
-        jid = accountSettings->jid();
-        password = accountSettings->password();
-        host = accountSettings->host();
-        port = accountSettings->port();
-        tlsErrorsIgnored = accountSettings->tlsErrorsIgnored();
-        tlsRequirement = accountSettings->tlsRequirement();
-        passwordVisibility = accountSettings->passwordVisibility();
-        encryption = accountSettings->encryption();
-        automaticMediaDownloadsRule = accountSettings->automaticMediaDownloadsRule();
-        name = accountSettings->name();
-        contactNotificationRule = accountSettings->contactNotificationRule();
-        groupChatNotificationRule = accountSettings->groupChatNotificationRule();
-        geoLocationMapPreviewEnabled = accountSettings->geoLocationMapPreviewEnabled();
-        geoLocationMapService = accountSettings->geoLocationMapService();
     }
 
     static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)

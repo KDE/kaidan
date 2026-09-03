@@ -1500,8 +1500,8 @@ QHash<int, QByteArray> EmojiModel::roleNames() const
 
 EmojiProxyModel::EmojiProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
+    , m_favoriteEmojis(Settings::instance()->favoriteEmojis())
 {
-    m_favoriteEmojis = Settings::instance()->favoriteEmojis();
     Q_EMIT hasFavoriteEmojisChanged();
 }
 
