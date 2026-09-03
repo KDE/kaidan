@@ -32,7 +32,7 @@ private:
 
 struct SpyCountPair {
     std::unique_ptr<QSignalSpy> spy;
-    int count;
+    int count = 0;
 };
 
 void checkEmitted(vector<pair<RosterItemWatcher *, int>> watchers, function<void()> trigger)

@@ -176,7 +176,7 @@ public:
     QString lastMessage;
 
     // Delivery state of the last message.
-    Enums::DeliveryState lastMessageDeliveryState;
+    Enums::DeliveryState lastMessageDeliveryState = Enums::DeliveryState::Pending;
 
     // Whether the last message is an own message.
     bool lastMessageIsOwn = false;

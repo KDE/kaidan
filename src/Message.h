@@ -25,7 +25,7 @@ class QGeoCoordinate;
 using namespace Enums;
 
 struct FileHash {
-    qint64 dataId;
+    qint64 dataId = 0;
     QXmpp::HashAlgorithm hashType;
     QByteArray hashValue;
 
@@ -35,7 +35,7 @@ struct FileHash {
 };
 
 struct HttpSource {
-    qint64 fileId;
+    qint64 fileId = 0;
     QUrl url;
 
     QXmppHttpFileSource toQXmpp() const;
@@ -44,7 +44,7 @@ struct HttpSource {
 };
 
 struct EncryptedSource {
-    qint64 fileId;
+    qint64 fileId = 0;
     QUrl url;
     QXmpp::Cipher cipher;
     QByteArray key;
@@ -106,7 +106,7 @@ public:
     QByteArray thumbnail;
     QList<HttpSource> httpSources;
     QList<EncryptedSource> encryptedSources;
-    bool isNew;
+    bool isNew = false;
     bool transferOutgoing = false;
     TransferState transferState = TransferState::Pending;
 
@@ -249,7 +249,7 @@ public:
 
     QString accountJid;
     QString chatJid;
-    bool isOwn;
+    bool isOwn = false;
     QString groupChatSenderId;
     QString groupChatSenderJid;
     QString groupChatSenderName;

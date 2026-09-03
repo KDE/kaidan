@@ -29,7 +29,7 @@ class CallController : public QObject
 
 public:
     struct CallWrapper {
-        Call *call;
+        Call *call = nullptr;
         std::shared_ptr<QPromise<void>> promise;
     };
 

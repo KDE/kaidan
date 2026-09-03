@@ -53,7 +53,7 @@ private:
     PublicGroupChats m_groupChats;
     QStringList m_languages;
     struct {
-        int min;
-        int max;
+        int min = 0;
+        int max = 0;
     } m_users;
 };

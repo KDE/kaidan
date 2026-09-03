@@ -39,5 +39,5 @@ public:
     QString id = QStringLiteral("");
     QString jid;
     QString name;
-    Status status;
+    Status status = Status::Allowed;
 };

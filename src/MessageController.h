@@ -33,7 +33,7 @@ class MessageController : public QObject
 
 public:
     struct UsableEncryption {
-        Encryption::Enum encryption;
+        Encryption::Enum encryption = Encryption::NoEncryption;
         QList<QString> jids;
     };
 

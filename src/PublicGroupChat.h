@@ -66,8 +66,8 @@ public:
 
 private:
     QString m_address;
-    int m_users;
-    bool m_isOpen;
+    int m_users = 0;
+    bool m_isOpen = false;
     QString m_name;
     QString m_description;
     QStringList m_languages;

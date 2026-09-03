@@ -231,6 +231,6 @@ private:
     // Deletes a file that the user created via Kaidan.
     static void deleteNewFile(const File &file);
 
-    AccountSettings *m_accountSettings;
+    AccountSettings *m_accountSettings = nullptr;
     QList<File> m_files;
 };

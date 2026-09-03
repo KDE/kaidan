@@ -44,6 +44,6 @@ private:
 
     QFuture<QXmppAccountMigrationManager::Result<>> notifyContacts(Account *newAccount, const QList<QString> &contactJids);
 
-    Account *m_oldAccount;
+    Account *m_oldAccount = nullptr;
     QXmppExportData m_exportData;
 };

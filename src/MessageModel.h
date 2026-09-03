@@ -35,9 +35,9 @@ struct DisplayedMessageReaction {
 
 public:
     QString emoji;
-    int count;
-    bool ownReactionIncluded;
-    MessageReactionDeliveryState::Enum deliveryState;
+    int count = 0;
+    bool ownReactionIncluded = false;
+    MessageReactionDeliveryState::Enum deliveryState = MessageReactionDeliveryState::PendingAddition;
 
     auto operator<=>(const DisplayedMessageReaction &other) const;
 };

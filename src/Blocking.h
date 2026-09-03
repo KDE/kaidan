@@ -69,7 +69,7 @@ private:
         enum {
             Db,
             Xmpp,
-        } source;
+        } source = Db;
 
         QList<QString> jids;
     };
@@ -137,7 +137,7 @@ private:
     void handleUnblocked(const QList<QString> &);
 
     struct Entry {
-        JidType type;
+        JidType type = JidType::Domain;
         QString jid;
 
         auto operator<=>(const Entry &other) const

@@ -40,7 +40,7 @@ struct UnprocessedKey {
     QByteArray keyId;
     QString ownerJid;
     QByteArray senderKeyId;
-    bool trust;
+    bool trust = false;
 };
 
 std::vector<TrustLevel> trustFlagsVec(TrustLevels levels)
@@ -611,7 +611,7 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
     struct Selector {
         QString encryption;
         QByteArray keyId;
-        bool trust;
+        bool trust = false;
     };
     auto toSelector = [&](bool trust, const QByteArray &keyId) {
         return Selector{encryption, keyId, trust};

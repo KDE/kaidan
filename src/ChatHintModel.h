@@ -34,7 +34,7 @@ public:
     };
     Q_ENUM(Type)
 
-    Type type;
+    Type type = Dismiss;
     QString text;
 
     bool operator==(const ChatHintButton &other) const = default;
