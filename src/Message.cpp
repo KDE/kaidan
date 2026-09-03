@@ -133,22 +133,22 @@ MessageType File::type() const
 
 QString File::details() const
 {
-    const auto size = formattedSize();
+    const auto sizeText = formattedSize();
     const auto dateTime = formattedDateTime();
 
-    if (size.isEmpty() && dateTime.isEmpty()) {
+    if (sizeText.isEmpty() && dateTime.isEmpty()) {
         return QObject::tr("No information");
     }
 
-    if (size.isEmpty()) {
+    if (sizeText.isEmpty()) {
         return dateTime;
     }
 
     if (dateTime.isEmpty()) {
-        return size;
+        return sizeText;
     }
 
-    return QStringLiteral("%1, %2").arg(size, dateTime);
+    return QStringLiteral("%1, %2").arg(sizeText, dateTime);
 }
 
 QString File::formattedSize() const

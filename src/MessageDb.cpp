@@ -1556,8 +1556,8 @@ void MessageDb::_removeFiles(const QString &statement, const QueryBindValues &bi
     while (query.next()) {
         const auto fileGroupId = query.value(0).toLongLong();
 
-        auto query = createQuery();
-        execQuery(query,
+        auto fileIdQuery = createQuery();
+        execQuery(fileIdQuery,
                   QStringLiteral(R"(
                                 SELECT id
                                 FROM files
@@ -1568,10 +1568,10 @@ void MessageDb::_removeFiles(const QString &statement, const QueryBindValues &bi
                   });
 
         QList<qint64> fileIds;
-        reserve(fileIds, query);
+        reserve(fileIds, fileIdQuery);
 
-        while (query.next()) {
-            fileIds.append(query.value(0).toLongLong());
+        while (fileIdQuery.next()) {
+            fileIds.append(fileIdQuery.value(0).toLongLong());
         }
 
         if (!fileIds.isEmpty()) {
