@@ -24,3 +24,11 @@ Dependencies:
 Options:
   require-passing-tests-on: ['@all']
   clang-format-versions: [19]
+  cppcheck-arguments:
+    # These signatures are fixed by QAbstractItemModel, and by the accountJid/chatJid pair every other lookup uses.
+    - '--suppress=shadowFunction:src/FileModel.cpp'
+    - '--suppress=shadowFunction:src/GroupChatUserModel.cpp'
+    # The stub implementations used without KNotifications ignore their arguments, unlike the real ones.
+    - '--suppress=functionStatic:src/NotificationController.cpp'
+    # cppcheck cannot parse Qt's _s literal applied to a raw string.
+    - '--suppress=unknownMacro:src/InputValidator.cpp'
