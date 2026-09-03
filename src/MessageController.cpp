@@ -957,7 +957,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
         });
     } else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {
         const qint64 fileGroupId = MessageDb::instance()->newFileGroupId();
-        messageToEdit.files = transformFilter(urls, [&](auto &file) {
+        messageToEdit.files = transformFilter(urls, [&](const auto &file) {
             return MessageController::parseOobUrl(file, fileGroupId);
         });
 

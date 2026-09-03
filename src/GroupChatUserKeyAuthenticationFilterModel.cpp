@@ -55,7 +55,7 @@ void GroupChatUserKeyAuthenticationFilterModel::setUp()
 
 void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QList<QString> &jids)
 {
-    const auto model = static_cast<GroupChatUserModel *>(sourceModel());
+    const auto *model = static_cast<const GroupChatUserModel *>(sourceModel());
     const auto userJids = model->userJids();
 
     if (containCommonElement(userJids, jids)) {
@@ -65,7 +65,7 @@ void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QList
 
 void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 {
-    const auto model = static_cast<GroupChatUserModel *>(sourceModel());
+    const auto *model = static_cast<const GroupChatUserModel *>(sourceModel());
     const auto userJids = model->userJids();
 
     if (userJids.isEmpty()) {

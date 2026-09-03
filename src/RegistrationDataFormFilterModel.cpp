@@ -22,7 +22,7 @@ void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceM
 {
     m_filteredRows.clear();
 
-    auto *dataFormModel = static_cast<RegistrationDataFormModel *>(sourceModel);
+    const auto *dataFormModel = static_cast<const RegistrationDataFormModel *>(sourceModel);
     if (dataFormModel) {
         m_filteredRows = dataFormModel->indexesToFilter();
     }

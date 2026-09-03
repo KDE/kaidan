@@ -421,7 +421,7 @@ void Connection::logOut(bool isApplicationBeingClosed)
 {
     QList<QFuture<void>> futures;
 
-    for (auto &logoutTaskWrapper : m_logoutTaskWrappers) {
+    for (const auto &logoutTaskWrapper : m_logoutTaskWrappers) {
         auto promise = logoutTaskWrapper.promise;
         futures.append(promise->future());
         promise->start();

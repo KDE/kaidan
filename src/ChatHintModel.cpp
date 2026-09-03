@@ -195,11 +195,9 @@ void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QXmppPresenc
 
 void ChatHintModel::handleNoGroupChatUsers()
 {
-    auto chatController = m_chatController;
-
     const auto groupChatUserJids = m_chatController->groupChatUserJids();
     const auto groupChatHasOtherUsers = groupChatUserJids.size() > 1;
-    const auto chatHintShouldBeShown = chatController->rosterItem().isGroupChat() && !groupChatHasOtherUsers;
+    const auto chatHintShouldBeShown = m_chatController->rosterItem().isGroupChat() && !groupChatHasOtherUsers;
 
     if (const auto i = chatHintIndex(ChatHintButton::InviteContacts); i == -1) {
         if (chatHintShouldBeShown) {

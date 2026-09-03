@@ -102,7 +102,7 @@ struct ClientRosterItemSettings {
 
 struct ClientConfiguration {
     ClientConfiguration() = default;
-    explicit ClientConfiguration(AccountSettings *accountSettings)
+    explicit ClientConfiguration(const AccountSettings *accountSettings)
     {
         jid = accountSettings->jid();
         password = accountSettings->password();

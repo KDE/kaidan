@@ -557,7 +557,7 @@ bool FileSharingController::checkAllTransfersCompleted(const Message &message)
 void FileSharingController::downloadPendingFiles()
 {
     MessageDb::instance()->fetchAutomaticallyDownloadableFiles(m_accountSettings->jid()).then(this, [this](QList<MessageDb::DownloadableFile> &&files) {
-        for (MessageDb::DownloadableFile &file : files) {
+        for (const MessageDb::DownloadableFile &file : files) {
             downloadFile(file.chatJid, file.messageId, file.file);
         }
     });

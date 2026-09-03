@@ -325,7 +325,7 @@ void MessageComposition::prepareForNewChat()
 
 void MessageComposition::updateAccount()
 {
-    auto *account = m_chatController->account();
+    const auto *account = m_chatController->account();
 
     m_connection = account->connection();
     m_fileSharingController = account->fileSharingController();

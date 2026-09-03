@@ -196,7 +196,7 @@ void GroupChatUserModel::updateUser(const GroupChatUser &user)
 void GroupChatUserModel::removeUser(const GroupChatUser &user)
 {
     for (int i = 0; i < m_users.size(); i++) {
-        GroupChatUser &existingUser = m_users[i];
+        const GroupChatUser &existingUser = m_users.at(i);
 
         if (existingUser.accountJid == user.accountJid && existingUser.chatJid == user.chatJid && existingUser.id.isEmpty() ? existingUser.jid == user.jid
                                                                                                                             : existingUser.id == user.id) {
