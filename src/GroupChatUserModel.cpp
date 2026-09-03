@@ -79,7 +79,7 @@ bool GroupChatUserModel::canFetchMore(const QModelIndex &) const
     return !m_fetchedAll;
 }
 
-QString GroupChatUserModel::accountJid() const
+const QString &GroupChatUserModel::accountJid() const
 {
     return m_accountJid;
 }
@@ -92,7 +92,7 @@ void GroupChatUserModel::setAccountJid(const QString &accountJid)
     }
 }
 
-QString GroupChatUserModel::chatJid() const
+const QString &GroupChatUserModel::chatJid() const
 {
     return m_chatJid;
 }

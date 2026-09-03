@@ -79,7 +79,7 @@ void PublicGroupChatSearchController::setIsRunning(bool running)
     }
 }
 
-PublicGroupChats PublicGroupChatSearchController::cachedGroupChats() const
+const PublicGroupChats &PublicGroupChatSearchController::cachedGroupChats() const
 {
     return m_groupChats;
 }

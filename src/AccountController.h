@@ -39,7 +39,7 @@ public:
     Q_INVOKABLE void discardUninitializedAccount(Account *account);
 
     Q_INVOKABLE Account *account(const QString &jid) const;
-    QList<Account *> accounts() const;
+    const QList<Account *> &accounts() const;
     Q_SIGNAL void accountsChanged();
 
     Q_INVOKABLE QList<Account *> enabledAccounts() const;

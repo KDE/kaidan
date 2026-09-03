@@ -298,7 +298,7 @@ public:
      */
     bool isModifiable(bool modifiedByOwnUser, const QDateTime &referenceTime) const;
 
-    QString body() const;
+    const QString &body() const;
     void setPreparedBody(const QString &preparedBody);
     void setUnpreparedBody(const QString &unpreparedBody);
 

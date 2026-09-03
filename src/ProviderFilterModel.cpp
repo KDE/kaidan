@@ -120,7 +120,7 @@ void ProviderFilterModel::setHostedGreenOnly(bool hostedGreenOnly)
     }
 }
 
-QList<int> ProviderFilterModel::availabilities()
+const QList<int> &ProviderFilterModel::availabilities()
 {
     return AVAILABILITIES;
 }
@@ -134,7 +134,7 @@ void ProviderFilterModel::setMinimumAvailability(int minimumAvailability)
     }
 }
 
-QList<int> ProviderFilterModel::httpUploadFileSizes()
+const QList<int> &ProviderFilterModel::httpUploadFileSizes()
 {
     return HTTP_UPLOAD_FILE_SIZES;
 }
@@ -148,7 +148,7 @@ void ProviderFilterModel::setMinimumHttpUploadFileSize(int minimumHttpUploadFile
     }
 }
 
-QList<int> ProviderFilterModel::httpUploadTotalSizes()
+const QList<int> &ProviderFilterModel::httpUploadTotalSizes()
 {
     return HTTP_UPLOAD_TOTAL_SIZES;
 }
@@ -162,7 +162,7 @@ void ProviderFilterModel::setMinimumHttpUploadTotalSize(int minimumHttpUploadTot
     }
 }
 
-QList<int> ProviderFilterModel::httpUploadStorageDurations()
+const QList<int> &ProviderFilterModel::httpUploadStorageDurations()
 {
     return HTTP_UPLOAD_STORAGE_DURATIONS;
 }
@@ -176,7 +176,7 @@ void ProviderFilterModel::setMinimumHttpUploadStorageDuration(int minimumHttpUpl
     }
 }
 
-QList<int> ProviderFilterModel::messageStorageDurations()
+const QList<int> &ProviderFilterModel::messageStorageDurations()
 {
     return MESSAGE_STORAGE_DURATIONS;
 }

@@ -167,11 +167,11 @@ public:
     bool initialized() const;
     bool initialMessagesRetrieved() const;
 
-    QString jid() const;
+    const QString &jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
 
-    QString password() const;
+    const QString &password() const;
     void setPassword(const QString &password);
     Q_SIGNAL void passwordChanged();
 
@@ -184,7 +184,7 @@ public:
 
     QXmppConfiguration::StreamSecurityMode tlsRequirement() const;
 
-    QString host() const;
+    const QString &host() const;
     void setHost(const QString &host);
     Q_SIGNAL void hostChanged();
 
@@ -198,7 +198,7 @@ public:
     void setPlainAuthAllowed(bool plainAuthAllowed);
     Q_SIGNAL void plainAuthAllowedChanged();
 
-    QString name() const;
+    const QString &name() const;
     void setName(const QString &name);
     Q_SIGNAL void nameChanged();
 
@@ -223,11 +223,11 @@ public:
     QString httpUploadLimitText() const;
 
     void setChatSupportAddresses(const QList<QString> &chatSupportAddresses);
-    QList<QString> chatSupportAddresses() const;
+    const QList<QString> &chatSupportAddresses() const;
     Q_SIGNAL void chatSupportAddressesChanged();
 
     void setGroupChatSupportAddresses(const QList<QString> &groupChatSupportAddresses);
-    QList<QString> groupChatSupportAddresses() const;
+    const QList<QString> &groupChatSupportAddresses() const;
     Q_SIGNAL void groupChatSupportAddressesChanged();
 
     PasswordVisibility passwordVisibility() const;

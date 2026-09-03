@@ -35,7 +35,7 @@ public:
     EncryptionController *encryptionController() const;
     void setEncryptionController(EncryptionController *encryptionController);
 
-    QString accountJid() const;
+    const QString &accountJid() const;
     void setAccountJid(const QString &accountJid);
     Q_SIGNAL void accountJidChanged();
 

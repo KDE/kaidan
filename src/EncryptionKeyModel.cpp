@@ -39,7 +39,7 @@ void EncryptionKeyModel::setEncryptionController(EncryptionController *encryptio
     }
 }
 
-QString EncryptionKeyModel::accountJid() const
+const QString &EncryptionKeyModel::accountJid() const
 {
     return m_accountJid;
 }

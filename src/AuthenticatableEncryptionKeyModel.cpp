@@ -46,7 +46,7 @@ QVariant AuthenticatableEncryptionKeyModel::data(const QModelIndex &index, int r
     return {};
 }
 
-QString AuthenticatableEncryptionKeyModel::chatJid() const
+const QString &AuthenticatableEncryptionKeyModel::chatJid() const
 {
     return m_chatJid;
 }

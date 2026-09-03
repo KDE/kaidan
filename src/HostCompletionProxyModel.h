@@ -20,7 +20,7 @@ public:
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QString userInput() const;
+    const QString &userInput() const;
     Q_SLOT void setUserInput(const QString &userInput);
     Q_SIGNAL void userInputChanged(const QString &userInput);
 

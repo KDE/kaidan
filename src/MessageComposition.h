@@ -72,7 +72,7 @@ public:
     }
     void setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId);
 
-    [[nodiscard]] QString replyToName() const
+    [[nodiscard]] const QString &replyToName() const
     {
         return m_replyToName;
     }
@@ -84,7 +84,7 @@ public:
     }
     void setReplyId(const QString &replyId);
 
-    [[nodiscard]] QString originalReplyId() const
+    [[nodiscard]] const QString &originalReplyId() const
     {
         return m_originalReplyId;
     }
@@ -102,7 +102,7 @@ public:
     }
     void setBody(const QString &body);
 
-    [[nodiscard]] QString originalBody() const
+    [[nodiscard]] const QString &originalBody() const
     {
         return m_originalBody;
     }

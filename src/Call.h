@@ -41,8 +41,8 @@ public:
     void handleCallProposed(const std::shared_ptr<QXmppJingleMessageInitiation> &jmi, const QString &id, const QList<QXmppJingleRtpDescription> &descriptions);
     bool handleCallReceived(std::unique_ptr<QXmppCall> &call);
 
-    QString accountJid() const;
-    QString chatJid() const;
+    const QString &accountJid() const;
+    const QString &chatJid() const;
 
     bool audioOnly() const;
     Q_SIGNAL void audioOnlyChanged();

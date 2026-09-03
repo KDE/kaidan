@@ -181,7 +181,7 @@ bool RosterController::refuseSubscriptionToPresence(const QString &contactJid)
     }
 }
 
-QMap<QString, QXmppPresence> RosterController::unrespondedPresenceSubscriptionRequests()
+const QMap<QString, QXmppPresence> &RosterController::unrespondedPresenceSubscriptionRequests()
 {
     return m_unrespondedSubscriptionRequests;
 }

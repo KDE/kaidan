@@ -43,11 +43,11 @@ public:
     Q_SIGNAL void displayedTypesChanged();
 
     void setSelectedAccountJids(const QList<QString> &selectedAccountJids);
-    QList<QString> selectedAccountJids() const;
+    const QList<QString> &selectedAccountJids() const;
     Q_SIGNAL void selectedAccountJidsChanged();
 
     void setSelectedGroups(const QList<QString> &selectedGroups);
-    QList<QString> selectedGroups() const;
+    const QList<QString> &selectedGroups() const;
     Q_SIGNAL void selectedGroupsChanged();
 
     Q_INVOKABLE void reorderPinnedItem(int oldIndex, int newIndex);

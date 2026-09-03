@@ -63,7 +63,7 @@ void RosterFilterModel::setSelectedAccountJids(const QList<QString> &selectedAcc
     }
 }
 
-QList<QString> RosterFilterModel::selectedAccountJids() const
+const QList<QString> &RosterFilterModel::selectedAccountJids() const
 {
     return m_selectedAccountJids;
 }
@@ -77,7 +77,7 @@ void RosterFilterModel::setSelectedGroups(const QList<QString> &selectedGroups)
     }
 }
 
-QList<QString> RosterFilterModel::selectedGroups() const
+const QList<QString> &RosterFilterModel::selectedGroups() const
 {
     return m_selectedGroups;
 }

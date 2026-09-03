@@ -59,11 +59,11 @@ public:
     explicit Provider();
 
     bool isCustomProvider() const;
-    QString jid() const;
+    const QString &jid() const;
     bool supportsInBandRegistration() const;
     LanguageVariants<QUrl> registrationWebPages() const;
     QList<QString> languages() const;
-    QList<QString> countries() const;
+    const QList<QString> &countries() const;
     QList<QString> flags() const;
 
     LanguageVariants<QUrl> websites() const;
@@ -71,7 +71,7 @@ public:
     QUrl chosenWebsite() const;
 
     int busFactor() const;
-    QString organization() const;
+    const QString &organization() const;
     bool supportsPasswordReset() const;
     bool hostedGreen() const;
     QDate since() const;

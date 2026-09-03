@@ -77,7 +77,7 @@ void UserDevicesModel::setPresenceCache(PresenceCache *presenceCache)
     }
 }
 
-QString UserDevicesModel::jid() const
+const QString &UserDevicesModel::jid() const
 {
     return m_jid;
 }

@@ -55,7 +55,7 @@ bool Provider::isCustomProvider() const
     return m_isCustomProvider;
 }
 
-QString Provider::jid() const
+const QString &Provider::jid() const
 {
     return m_jid;
 }
@@ -75,7 +75,7 @@ QList<QString> Provider::languages() const
     return {m_websites.keyBegin(), m_websites.keyEnd()};
 }
 
-QList<QString> Provider::countries() const
+const QList<QString> &Provider::countries() const
 {
     return m_countries;
 }
@@ -143,7 +143,7 @@ int Provider::busFactor() const
     return std::max(m_busFactor, 1);
 }
 
-QString Provider::organization() const
+const QString &Provider::organization() const
 {
     return m_organization;
 }

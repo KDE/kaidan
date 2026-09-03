@@ -35,7 +35,7 @@ void TrustMessageUriGenerator::setEncryptionController(EncryptionController *enc
     }
 }
 
-QString TrustMessageUriGenerator::jid() const
+const QString &TrustMessageUriGenerator::jid() const
 {
     return m_jid;
 }

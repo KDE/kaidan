@@ -58,27 +58,27 @@ public:
     void setHostedGreenOnly(bool hostedGreenOnly);
     Q_SIGNAL void hostedGreenOnlyChanged();
 
-    static QList<int> availabilities();
+    static const QList<int> &availabilities();
 
     void setMinimumAvailability(int minimumAvailability);
     Q_SIGNAL void minimumAvailabilityChanged();
 
-    static QList<int> httpUploadFileSizes();
+    static const QList<int> &httpUploadFileSizes();
 
     void setMinimumHttpUploadFileSize(int minimumHttpUploadFileSize);
     Q_SIGNAL void minimumHttpUploadFileSizeChanged();
 
-    static QList<int> httpUploadTotalSizes();
+    static const QList<int> &httpUploadTotalSizes();
 
     void setMinimumHttpUploadTotalSize(int minimumHttpUploadTotalSize);
     Q_SIGNAL void minimumHttpUploadTotalSizeChanged();
 
-    static QList<int> httpUploadStorageDurations();
+    static const QList<int> &httpUploadStorageDurations();
 
     void setMinimumHttpUploadStorageDuration(int minimumHttpUploadStorageDuration);
     Q_SIGNAL void minimumHttpUploadStorageDurationChanged();
 
-    static QList<int> messageStorageDurations();
+    static const QList<int> &messageStorageDurations();
 
     void setMinimumMessageStorageDuration(int minimumMessageStorageDuration);
     Q_SIGNAL void minimumMessageStorageDurationChanged();

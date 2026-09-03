@@ -32,15 +32,15 @@ public:
     QHash<int, QByteArray> roleNames() const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QString accountJid() const;
+    const QString &accountJid() const;
     void setAccountJid(const QString &jid);
     Q_SIGNAL void accountJidChanged(const QString &jid);
 
-    QString chatJid() const;
+    const QString &chatJid() const;
     void setChatJid(const QString &jid);
     Q_SIGNAL void chatJidChanged(const QString &jid);
 
-    Messages files() const;
+    const Messages &files() const;
     void setFiles(const Messages &files);
 
     Q_INVOKABLE QModelIndex fileIndex(const QString &fileId) const;
@@ -159,7 +159,7 @@ QVariant FileTreeModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString FileTreeModel::accountJid() const
+const QString &FileTreeModel::accountJid() const
 {
     return m_accountJid;
 }
@@ -172,7 +172,7 @@ void FileTreeModel::setAccountJid(const QString &jid)
     }
 }
 
-QString FileTreeModel::chatJid() const
+const QString &FileTreeModel::chatJid() const
 {
     return m_chatJid;
 }
@@ -185,7 +185,7 @@ void FileTreeModel::setChatJid(const QString &jid)
     }
 }
 
-Messages FileTreeModel::files() const
+const Messages &FileTreeModel::files() const
 {
     return m_files;
 }

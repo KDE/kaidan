@@ -61,7 +61,7 @@ public:
     Account *account() const;
     Q_SIGNAL void accountChanged();
 
-    QString jid();
+    const QString &jid();
     Q_SIGNAL void jidChanged();
 
     const RosterItem &rosterItem() const;
@@ -88,13 +88,13 @@ public:
     void setEncryption(Encryption::Enum encryption);
     Q_SIGNAL void encryptionChanged();
 
-    QList<QString> groupChatUserJids() const;
+    const QList<QString> &groupChatUserJids() const;
     Q_SIGNAL void groupChatUserJidsChanged();
 
     QString chatStateText() const;
     Q_SIGNAL void chatStateTextChanged();
 
-    QString messageBodyToForward() const;
+    const QString &messageBodyToForward() const;
     void setMessageBodyToForward(const QString &messageBodyToForward);
     Q_SIGNAL void messageBodyToForwardChanged();
 

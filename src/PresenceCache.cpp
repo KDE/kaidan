@@ -236,7 +236,7 @@ void UserResourcesWatcher::setPresenceCache(PresenceCache *presenceCache)
  *
  * @return the watched JID
  */
-QString UserResourcesWatcher::jid() const
+const QString &UserResourcesWatcher::jid() const
 {
     return m_jid;
 }

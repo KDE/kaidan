@@ -93,7 +93,7 @@ void VCardModel::setVCardController(VCardController *vCardController)
     }
 }
 
-QString VCardModel::jid() const
+const QString &VCardModel::jid() const
 {
     return m_jid;
 }

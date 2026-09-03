@@ -53,7 +53,7 @@ public:
     void raise() const override;
     Error *clone() const override;
     QKeychain::Error error() const;
-    QByteArray message() const;
+    const QByteArray &message() const;
 
 private:
     QKeychain::Error m_error;

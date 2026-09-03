@@ -24,7 +24,7 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QString chatJid() const;
+    const QString &chatJid() const;
     void setChatJid(const QString &chatJid);
     Q_SIGNAL void chatJidChanged();
 

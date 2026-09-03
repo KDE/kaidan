@@ -82,7 +82,7 @@ Account *AccountController::account(const QString &jid) const
     return *itr;
 }
 
-QList<Account *> AccountController::accounts() const
+const QList<Account *> &AccountController::accounts() const
 {
     return m_accounts;
 }

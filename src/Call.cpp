@@ -97,12 +97,12 @@ bool Call::handleCallReceived(std::unique_ptr<QXmppCall> &call)
     }
 }
 
-QString Call::accountJid() const
+const QString &Call::accountJid() const
 {
     return m_accountJid;
 }
 
-QString Call::chatJid() const
+const QString &Call::chatJid() const
 {
     return m_chatJid;
 }

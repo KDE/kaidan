@@ -30,7 +30,7 @@ void EncryptionWatcher::setEncryptionController(EncryptionController *encryption
     }
 }
 
-QList<QString> EncryptionWatcher::jids() const
+const QList<QString> &EncryptionWatcher::jids() const
 {
     return m_jids;
 }

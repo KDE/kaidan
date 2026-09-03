@@ -22,7 +22,7 @@ QVariant HostCompletionProxyModel::data(const QModelIndex &index, int role) cons
     return QSortFilterProxyModel::data(index, role);
 }
 
-QString HostCompletionProxyModel::userInput() const
+const QString &HostCompletionProxyModel::userInput() const
 {
     return m_userInput;
 }

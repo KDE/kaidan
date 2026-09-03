@@ -98,7 +98,7 @@ class AvatarImageWatcher : public QObject
 public:
     explicit AvatarImageWatcher(QObject *parent = nullptr);
 
-    QString jid() const;
+    const QString &jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
 

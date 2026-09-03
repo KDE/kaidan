@@ -40,7 +40,7 @@ public:
     void setVersionController(VersionController *versionController);
     void setPresenceCache(PresenceCache *presenceCache);
 
-    QString jid() const;
+    const QString &jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
 

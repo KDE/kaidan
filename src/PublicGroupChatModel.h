@@ -45,7 +45,7 @@ public:
     Q_SIGNAL void groupChatsChanged(const PublicGroupChats &groupChats);
 
     int count() const;
-    QStringList languages() const;
+    const QStringList &languages() const;
     int minUsers() const;
     int maxUsers() const;
 

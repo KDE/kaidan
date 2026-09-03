@@ -69,7 +69,7 @@ public:
     Q_SIGNAL void presenceSubscriptionRequestReceived(const QXmppPresence &request);
     bool acceptSubscriptionToPresence(const QString &contactJid);
     Q_INVOKABLE bool refuseSubscriptionToPresence(const QString &contactJid);
-    QMap<QString, QXmppPresence> unrespondedPresenceSubscriptionRequests();
+    const QMap<QString, QXmppPresence> &unrespondedPresenceSubscriptionRequests();
 
     QList<QString> groups() const;
     Q_SIGNAL void groupsChanged();

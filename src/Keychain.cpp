@@ -90,7 +90,7 @@ QKeychain::Error QKeychainFuture::Error::error() const
     return m_error;
 }
 
-QByteArray QKeychainFuture::Error::message() const
+const QByteArray &QKeychainFuture::Error::message() const
 {
     return m_message;
 }

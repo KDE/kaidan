@@ -195,7 +195,7 @@ AvatarImageWatcher::AvatarImageWatcher(QObject *parent)
     connect(AvatarImageCache::instance(), &AvatarImageCache::avatarIdsChanged, this, &AvatarImageWatcher::urlChanged);
 }
 
-QString AvatarImageWatcher::jid() const
+const QString &AvatarImageWatcher::jid() const
 {
     return m_jid;
 }

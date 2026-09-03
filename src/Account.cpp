@@ -56,7 +56,7 @@ bool AccountSettings::initialMessagesRetrieved() const
     return m_data.initialMessagesRetrieved;
 }
 
-QString AccountSettings::jid() const
+const QString &AccountSettings::jid() const
 {
     return m_data.jid;
 }
@@ -69,7 +69,7 @@ void AccountSettings::setJid(const QString &jid)
     }
 }
 
-QString AccountSettings::password() const
+const QString &AccountSettings::password() const
 {
     return m_data.password;
 }
@@ -108,7 +108,7 @@ QXmppConfiguration::StreamSecurityMode AccountSettings::tlsRequirement() const
     return m_data.tlsRequirement;
 }
 
-QString AccountSettings::host() const
+const QString &AccountSettings::host() const
 {
     return m_data.host;
 }
@@ -152,7 +152,7 @@ void AccountSettings::setPlainAuthAllowed(bool plainAuthAllowed)
     }
 }
 
-QString AccountSettings::name() const
+const QString &AccountSettings::name() const
 {
     return m_data.name;
 }
@@ -241,7 +241,7 @@ void AccountSettings::setChatSupportAddresses(const QList<QString> &chatSupportA
     }
 }
 
-QList<QString> AccountSettings::chatSupportAddresses() const
+const QList<QString> &AccountSettings::chatSupportAddresses() const
 {
     return m_data.chatSupportAddresses;
 }
@@ -254,7 +254,7 @@ void AccountSettings::setGroupChatSupportAddresses(const QList<QString> &groupCh
     }
 }
 
-QList<QString> AccountSettings::groupChatSupportAddresses() const
+const QList<QString> &AccountSettings::groupChatSupportAddresses() const
 {
     return m_data.groupChatSupportAddresses;
 }

@@ -337,7 +337,7 @@ bool Message::isModifiable(bool modifiedByOwnUser, const QDateTime &referenceTim
     return timestamp >= referenceTime.addDays(-MAX_MESSAGE_MODIFICATION_DAYS);
 }
 
-QString Message::body() const
+const QString &Message::body() const
 {
     return m_body;
 }

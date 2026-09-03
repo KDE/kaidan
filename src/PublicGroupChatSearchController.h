@@ -33,7 +33,7 @@ public:
     ~PublicGroupChatSearchController() override;
 
     bool isRunning() const;
-    PublicGroupChats cachedGroupChats() const;
+    const PublicGroupChats &cachedGroupChats() const;
 
     Q_SLOT void requestAll();
     Q_SLOT void cancel();

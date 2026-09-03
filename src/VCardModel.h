@@ -50,7 +50,7 @@ public:
     void setConnection(Connection *connection);
     void setVCardController(VCardController *vCardController);
 
-    QString jid() const;
+    const QString &jid() const;
     void setJid(const QString &jid);
     Q_SIGNAL void jidChanged();
 

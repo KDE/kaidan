@@ -99,7 +99,7 @@ int PublicGroupChatModel::count() const
     return m_groupChats.size();
 }
 
-QStringList PublicGroupChatModel::languages() const
+const QStringList &PublicGroupChatModel::languages() const
 {
     return m_languages;
 }

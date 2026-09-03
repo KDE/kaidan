@@ -23,7 +23,7 @@ public:
     EncryptionController *encryptionController() const;
     void setEncryptionController(EncryptionController *encryptionController);
 
-    QString jid() const;
+    const QString &jid() const;
     void setJid(const QString &jid);
 
     QString uri() const;

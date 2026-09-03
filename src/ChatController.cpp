@@ -109,7 +109,7 @@ Account *ChatController::account() const
     return m_account;
 }
 
-QString ChatController::jid()
+const QString &ChatController::jid()
 {
     return m_jid;
 }
@@ -165,7 +165,7 @@ void ChatController::setEncryption(Encryption::Enum encryption)
     Q_EMIT encryptionChanged();
 }
 
-QList<QString> ChatController::groupChatUserJids() const
+const QList<QString> &ChatController::groupChatUserJids() const
 {
     return m_groupChatUserJids;
 }
@@ -191,7 +191,7 @@ QString ChatController::chatStateText() const
     return {};
 }
 
-QString ChatController::messageBodyToForward() const
+const QString &ChatController::messageBodyToForward() const
 {
     return m_messageBodyToForward;
 }

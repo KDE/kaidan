@@ -28,7 +28,7 @@ public:
 
     void setEncryptionController(EncryptionController *encryptionController);
 
-    QList<QString> jids() const;
+    const QList<QString> &jids() const;
     void setJids(const QList<QString> &jids);
     Q_SIGNAL void jidsChanged();
 
