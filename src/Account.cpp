@@ -41,7 +41,7 @@ constexpr QStringView GEO_LOCATION_WEB_URL = u"https://osmand.net/map/?pin=%1,%2
 
 AccountSettings::AccountSettings(Data data, QObject *parent)
     : QObject(parent)
-    , m_data(data)
+    , m_data(std::move(data))
 {
     generateUserAgentDeviceId();
 }
@@ -552,7 +552,7 @@ Account::Account(QObject *parent)
 
 Account::Account(AccountSettings::Data accountSettingsData, QObject *parent)
     : QObject(parent)
-    , m_settings(new AccountSettings(accountSettingsData, this))
+    , m_settings(new AccountSettings(std::move(accountSettingsData), this))
     , m_clientController(new ClientController(m_settings))
     , m_connection(new Connection(m_clientController, this))
     , m_avatarCache(new AvatarCache(m_settings, this))
