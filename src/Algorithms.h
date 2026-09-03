@@ -113,32 +113,6 @@ auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func,
     }
 }
 
-template<typename T, typename Func>
-auto sum(const QList<T> &input)
-{
-    using Output = std::decay_t<decltype(convert(input.front()))>;
-    Output output;
-
-    for (const auto &list : input) {
-        output += list;
-    }
-
-    return output;
-}
-
-template<typename T, typename Converter>
-auto transformSum(const T &input, Converter convert)
-{
-    using Output = std::decay_t<decltype(convert(*input.begin()))>;
-    Output output;
-
-    for (const auto &item : input) {
-        output += convert(item);
-    }
-
-    return output;
-}
-
 template<typename T, typename Condition>
 bool containsIf(const T &input, Condition condition)
 {
