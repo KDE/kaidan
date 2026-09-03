@@ -273,7 +273,6 @@ target_link_libraries(libkaidancore
     Qt::Xml
     Qt6Keychain::Qt6Keychain
     QXmpp::QXmpp QXmpp::Omemo
-    ${__Qt6Widgets_LIBRARIES}
     ${__KF6Notifications_LIBRARIES}
 )
 
@@ -291,7 +290,6 @@ endif()
 
 target_compile_definitions(libkaidancore PRIVATE
     QXMPP_DISABLE_DEPRECATED_BEFORE=0x010900
-    QT_DISABLE_DEPRECATED_UP_TO=0x050F00
     DEBUG_SOURCE_PATH="${CMAKE_SOURCE_DIR}"
 )
 
