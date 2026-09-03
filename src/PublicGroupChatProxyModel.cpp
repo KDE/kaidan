@@ -10,7 +10,7 @@
 PublicGroupChatProxyModel::PublicGroupChatProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    sort(0, Qt::AscendingOrder);
+    QSortFilterProxyModel::sort(0, Qt::AscendingOrder);
 
     connect(this, &PublicGroupChatProxyModel::rowsInserted, this, &PublicGroupChatProxyModel::countChanged);
     connect(this, &PublicGroupChatProxyModel::rowsRemoved, this, &PublicGroupChatProxyModel::countChanged);
