@@ -21,9 +21,8 @@ LogHandler::LogHandler(AccountSettings *accountSettings, QXmppClient *client, QO
     auto *logger = new QXmppLogger(client);
     client->setLogger(logger);
     logger->setLoggingType(QXmppLogger::SignalLogging);
-    logger->setPrettyXml(true);
+    logger->setOutputMode(QXmppLogger::OutputMode::Pretty);
     logger->setColorMode(QXmppLogger::ColorMode::ColorOn);
-    logger->enableEliding(true);
     connect(logger, &QXmppLogger::message, this, &LogHandler::handleLog);
 }
 
