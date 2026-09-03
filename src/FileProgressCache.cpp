@@ -20,7 +20,7 @@ QString FileProgressWatcher::fileId() const
 void FileProgressWatcher::setFileId(const QString &fileId)
 {
     qint64 fId = fileId.toLongLong();
-    if (!m_key || (m_key && *m_key != fId)) {
+    if (!m_key || *m_key != fId) {
         setKey(std::move(fId));
         Q_EMIT fileIdChanged();
 

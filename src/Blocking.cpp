@@ -283,7 +283,7 @@ void BlockingController::handleBlocklist(Blocklist blocklist)
         }
 
         // whether the new blocklist differs
-        bool changed = !m_blocklist || (m_blocklist && m_blocklist->jids != blocklist.jids);
+        bool changed = !m_blocklist || m_blocklist->jids != blocklist.jids;
 
         m_blocklist = std::move(blocklist);
 
