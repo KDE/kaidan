@@ -421,7 +421,6 @@ void TrustDbTest::testResetAll()
 
     QCOMPARE(wait(this, storage->keys(ns_ox)), QHash({std::pair{TrustLevel::Authenticated, authenticatedKeys}}));
 
-    return;
     storage->resetAll(ns_ox);
     storage->resetAll(ns_omemo);
 }
