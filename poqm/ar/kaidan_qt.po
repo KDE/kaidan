@@ -286,8 +286,10 @@ msgid "Transfer canceled"
 msgstr "أُلغي النقل"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
-msgctxt "FileSharingController|"
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer failed: %1"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "فشل النقل: %1"
 
@@ -2027,10 +2029,19 @@ msgid "Other"
 msgstr "أخرى"
 
 #: src/qml/details/MediaOverview.qml:169
-#, qt-format
-msgctxt "MediaOverview|%1 and %2 are numbers"
-msgid "%1/%2 selected"
-msgstr "%1/%2 محدّد"
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
+msgctxt ""
+"MediaOverview|%Ln is the number of selected files, %L1 the total number"
+msgid "%Ln/%L1 selected"
+msgid_plural "%Ln/%L1 selected"
+msgstr[0] "%1/%2 محدّد"
+msgstr[1] "%1/%2 محدّد"
+msgstr[2] "%1/%2 محدّد"
+msgstr[3] "%1/%2 محدّد"
+msgstr[4] "%1/%2 محدّد"
+msgstr[5] "%1/%2 محدّد"
 
 #: src/qml/details/MediaOverview.qml:252
 #, qt-format
@@ -2244,7 +2255,10 @@ msgid "Feature unsupported"
 msgstr "ميزة غير مدعومة"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-msgctxt "BlockingReportContent|"
+#, fuzzy
+#| msgctxt "BlockingReportContent|"
+#| msgid "Report"
+msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
 msgstr "بلّغ"
 

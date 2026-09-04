@@ -311,7 +311,7 @@ msgstr ""
 #, fuzzy, qt-format
 #| msgctxt "MessageComposition|"
 #| msgid "Upload failed: %1"
-msgctxt "FileSharingController|"
+msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "上傳失敗：%1"
 
@@ -2293,12 +2293,14 @@ msgid "Other"
 msgstr "其他"
 
 #: src/qml/details/MediaOverview.qml:169
-#, fuzzy, qt-format
+#, fuzzy
 #| msgctxt "MediaOverview|"
 #| msgid "%1/%2 selected"
-msgctxt "MediaOverview|%1 and %2 are numbers"
-msgid "%1/%2 selected"
-msgstr "已選取 %1/%2"
+msgctxt ""
+"MediaOverview|%Ln is the number of selected files, %L1 the total number"
+msgid "%Ln/%L1 selected"
+msgid_plural "%Ln/%L1 selected"
+msgstr[0] "已選取 %1/%2"
 
 #: src/qml/details/MediaOverview.qml:252
 #, fuzzy, qt-format
@@ -2623,7 +2625,7 @@ msgstr "功能不支援"
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Support"
-msgctxt "BlockingReportContent|"
+msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
 msgstr "支援"
 
