@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-07 19:07+0300\n"
+"PO-Revision-Date: 2026-09-04 19:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: src/Account.cpp:478
 msgctxt "Connection|"
@@ -290,9 +290,7 @@ msgid "Transfer canceled"
 msgstr "Aktarım iptal edildi"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Aktarım başarısız: %1"
@@ -2057,15 +2055,12 @@ msgid "Other"
 msgstr "Diğer"
 
 #: src/qml/details/MediaOverview.qml:169
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 seçili"
-msgstr[1] "%1/%2 seçili"
+msgstr[0] "%Ln / %L1 seçili"
+msgstr[1] "%Ln / %L1 seçili"
 
 #: src/qml/details/MediaOverview.qml:252
 #, qt-format
@@ -2279,9 +2274,6 @@ msgid "Feature unsupported"
 msgstr "Özellik desteklenmiyor"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "BlockingReportContent|"
-#| msgid "Report"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
 msgstr "Bildir"

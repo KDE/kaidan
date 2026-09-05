@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-07 06:29+0200\n"
+"PO-Revision-Date: 2026-09-04 07:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -302,12 +302,10 @@ msgid "Transfer canceled"
 msgstr "Prenos preklican"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
-msgstr "Prenos spodletel: %1"
+msgstr "Prenos neuspel: %1"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -2066,17 +2064,14 @@ msgid "Other"
 msgstr "Ostali"
 
 #: src/qml/details/MediaOverview.qml:169
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 izbrano"
-msgstr[1] "%1/%2 izbrano"
-msgstr[2] "%1/%2 izbrano"
-msgstr[3] "%1/%2 izbrano"
+msgstr[0] "%Ln/%L1 izbrano"
+msgstr[1] "%Ln/%L1 izbrano"
+msgstr[2] "%Ln/%L12 izbrano"
+msgstr[3] "%Ln/%L1 izbrano"
 
 #: src/qml/details/MediaOverview.qml:252
 #, qt-format
@@ -2291,12 +2286,9 @@ msgid "Feature unsupported"
 msgstr "Zmožnost ni podprta"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "BlockingReportContent|"
-#| msgid "Report"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Prijavi"
+msgstr "Poročaj"
 
 #: src/qml/elements/BlockingReportContent.qml:35
 msgctxt "BlockingReportContent|"

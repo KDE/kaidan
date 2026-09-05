@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-07 18:51+0300\n"
+"PO-Revision-Date: 2026-09-04 11:20+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -300,9 +300,7 @@ msgid "Transfer canceled"
 msgstr "Передавання скасовано"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Не вдалося передати: %1"
@@ -2090,17 +2088,14 @@ msgid "Other"
 msgstr "Інші"
 
 #: src/qml/details/MediaOverview.qml:169
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "Вибрано %1 з %2"
-msgstr[1] "Вибрано %1 з %2"
-msgstr[2] "Вибрано %1 з %2"
-msgstr[3] "Вибрано %1 з %2"
+msgstr[0] "Позначено %Ln з %L1"
+msgstr[1] "Позначено %Ln з %L1"
+msgstr[2] "Позначено %Ln з %L1"
+msgstr[3] "Позначено %Ln з %L1"
 
 #: src/qml/details/MediaOverview.qml:252
 #, qt-format
@@ -2318,9 +2313,6 @@ msgid "Feature unsupported"
 msgstr "Підтримки можливості не передбачено"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "BlockingReportContent|"
-#| msgid "Report"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
 msgstr "Поскаржитися"
