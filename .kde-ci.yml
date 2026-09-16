@@ -14,12 +14,12 @@ Dependencies:
       libraries/kirigami-addons: '@latest-kf6'
       libraries/kquickimageeditor: '@latest-kf6'
       libraries/qxmpp: '@latest-kf6'
-      'third-party/kdsingleapplication': '@latest-kf6'
+      third-party/kdsingleapplication: '@latest-kf6'
 
   - 'on': ['Linux', 'FreeBSD', 'Windows', 'macOS']
     require:
-      'frameworks/kcrash': '@latest-kf6'
-      'frameworks/kwindowsystem': '@latest-kf6'
+      frameworks/kcrash: '@latest-kf6'
+      frameworks/kwindowsystem: '@latest-kf6'
 
 Options:
   require-passing-tests-on: ['@all']
