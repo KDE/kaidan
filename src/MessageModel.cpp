@@ -512,20 +512,10 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 
     if (lastReadContactMessageId != readMessageId && isApplicationActive) {
         m_notificationController->closeMessageNotification(m_chatController->jid());
-
-        bool readMarkerPending = true;
-        if (Enums::ConnectionState(m_connection->state()) == Enums::ConnectionState::StateConnected) {
-            if (m_chatController->rosterItem().readMarkerSendingEnabled) {
-                m_messageController->sendReadMarker(m_chatController->jid(), readMessageId);
-            }
-
-            readMarkerPending = false;
-        }
-
-        RosterDb::instance()->updateItem(m_accountSettings->jid(), m_chatController->jid(), [=](RosterItem &item) {
-            item.lastReadContactMessageId = readMessageId;
-            item.readMarkerPending = readMarkerPending;
-        });
+        m_messageController->markMessageAsRead(m_chatController->rosterItem(),
+                                               readMessageId,
+                                               m_chatController->activeEncryption(),
+                                               m_chatController->groupChatUserJids());
     }
 }
 

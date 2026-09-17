@@ -25,6 +25,8 @@ class QXmppMessage;
 class QXmppMessageReceiptManager;
 class RosterController;
 
+struct RosterItem;
+
 class MessageController : public QObject
 {
     Q_OBJECT
@@ -53,16 +55,8 @@ public:
                        const QList<QString> &encryptionJids = {});
     Q_SIGNAL void chatStateReceived(const QString &senderJid, QXmppMessage::State state);
 
-    /**
-     * Sends a chat marker for a read message.
-     *
-     * @param chatJid bare JID of the chat that contains the read message
-     * @param messageId ID of the read message
-     */
-    void sendReadMarker(const QString &chatJid,
-                        const QString &messageId,
-                        Encryption::Enum encryption = Encryption::NoEncryption,
-                        const QList<QString> &encryptionJids = {});
+    void markMessageAsRead(const RosterItem &rosterItem, const QString &messageId, Encryption::Enum encryption, const QList<QString> &encryptionJids);
+    void markMessageAsReadWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId);
 
     Q_SIGNAL void contactMessageRead(const QString &accountJid, const QString &chatJid);
 
@@ -126,9 +120,17 @@ private:
     static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
     static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
+    void markMessageAsRead(const RosterItem &rosterItem, const QString &messageId, std::function<void()> sendReadMarkerFunction);
+
     void sendPendingMessages();
     void sendPendingMessageReactions();
     void sendPendingReadMarkers();
+
+    void sendReadMarker(const RosterItem &rosterItem,
+                        const QString &messageId,
+                        Encryption::Enum encryption = Encryption::NoEncryption,
+                        const QList<QString> &encryptionJids = {});
+    void sendReadMarkerWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId);
 
     AccountSettings *const m_accountSettings;
     Connection *const m_connection;

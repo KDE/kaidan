@@ -63,23 +63,28 @@ void ChatController::initialize(Account *account, const QString &jid)
     if (m_account != account) {
         m_account = account;
         Q_EMIT accountChanged();
+
+        m_rosterItemWatcher.setAccountJid(account->settings()->jid());
+
+        m_messageController = account->messageController();
+
+        if (m_notificationController) {
+            m_notificationController->setChatController(nullptr);
+        }
+
+        m_notificationController = account->notificationController();
+        m_notificationController->setChatController(this);
     }
 
     if (m_jid != jid) {
         m_jid = jid;
         Q_EMIT jidChanged();
-    }
 
-    m_rosterItemWatcher.setAccountJid(account->settings()->jid());
-    m_rosterItemWatcher.setJid(jid);
+        m_rosterItemWatcher.setJid(jid);
+    }
 
     initializeEncryption();
     initializeGroupChat();
-
-    m_messageController = account->messageController();
-
-    m_notificationController = account->notificationController();
-    m_notificationController->setChatController(this);
 
     m_chatHintModel = new ChatHintModel(account, this, this);
     Q_EMIT chatHintModelChanged();

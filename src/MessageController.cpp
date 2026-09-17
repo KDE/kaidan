@@ -340,20 +340,21 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
     return promise->future();
 }
 
-void MessageController::sendReadMarker(const QString &chatJid, const QString &messageId, Encryption::Enum encryption, const QList<QString> &encryptionJids)
+void MessageController::markMessageAsRead(const RosterItem &rosterItem,
+                                          const QString &messageId,
+                                          Encryption::Enum encryption,
+                                          const QList<QString> &encryptionJids)
 {
-    QXmppMessage message;
+    markMessageAsRead(rosterItem, messageId, [this, rosterItem, messageId, encryption, encryptionJids]() {
+        sendReadMarker(rosterItem, messageId, encryption, encryptionJids);
+    });
+}
 
-    if (const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), chatJid); rosterItem && rosterItem->isGroupChat()) {
-        message.setType(QXmppMessage::GroupChat);
-    }
-
-    message.setTo(chatJid);
-    message.setMarker(QXmppMessage::Displayed);
-    message.setMarkerId(messageId);
-    message.addHint(QXmppMessage::Store);
-
-    send(std::move(message), encryption, encryptionJids);
+void MessageController::markMessageAsReadWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId)
+{
+    markMessageAsRead(rosterItem, messageId, [this, rosterItem, messageId]() {
+        sendReadMarkerWithUndecidedEncryption(rosterItem, messageId);
+    });
 }
 
 void MessageController::handleRosterReceived(const QString &accountJid)
@@ -976,6 +977,18 @@ std::optional<File> MessageController::parseOobUrl(const QXmppOutOfBandUrl &url,
     return file;
 }
 
+void MessageController::markMessageAsRead(const RosterItem &rosterItem, const QString &messageId, std::function<void()> sendReadMarkerFunction)
+{
+    RosterDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [messageId](RosterItem &item) {
+        item.lastReadContactMessageId = messageId;
+        item.readMarkerPending = true;
+    });
+
+    if (rosterItem.readMarkerSendingEnabled && m_connection->state() == Enums::ConnectionState::StateConnected) {
+        sendReadMarkerFunction();
+    }
+}
+
 void MessageController::sendPendingMessages()
 {
     MessageDb::instance()->fetchPendingMessages(m_accountSettings->jid()).then(this, [this](QList<Message> &&messages) {
@@ -1081,41 +1094,69 @@ void MessageController::sendPendingReadMarkers()
 
     for (const auto &rosterItem : rosterItems) {
         if (const auto messageId = rosterItem.lastReadContactMessageId; rosterItem.readMarkerPending && !messageId.isEmpty()) {
-            const auto chatJid = rosterItem.jid;
-
             if (rosterItem.readMarkerSendingEnabled) {
-                if (const auto encryption = rosterItem.encryption; encryption == Encryption::NoEncryption) {
-                    sendReadMarker(chatJid, messageId);
-                } else {
-                    if (rosterItem.isGroupChat()) {
-                        GroupChatUserDb::instance()
-                            ->userJids(m_accountSettings->jid(), chatJid)
-                            .then(this, [this, chatJid, messageId, encryption](QList<QString> &&encryptionJids) mutable {
-                                if (!encryptionJids.isEmpty()) {
-                                    m_encryptionController->hasUsableDevices(encryptionJids)
-                                        .then([this, chatJid, messageId, encryption, encryptionJids](bool hasUsableDevices) mutable {
-                                            if (hasUsableDevices) {
-                                                sendReadMarker(chatJid, messageId, encryption, encryptionJids);
-                                            } else {
-                                                sendReadMarker(chatJid, messageId);
-                                            }
-                                        });
+                sendReadMarkerWithUndecidedEncryption(rosterItem, messageId);
+            }
+        }
+    }
+}
+
+void MessageController::sendReadMarker(const RosterItem &rosterItem,
+                                       const QString &messageId,
+                                       Encryption::Enum encryption,
+                                       const QList<QString> &encryptionJids)
+{
+    const auto chatJid = rosterItem.jid;
+
+    QXmppMessage message;
+
+    if (rosterItem.isGroupChat()) {
+        message.setType(QXmppMessage::GroupChat);
+    }
+
+    message.setTo(chatJid);
+    message.setMarker(QXmppMessage::Displayed);
+    message.setMarkerId(messageId);
+    message.addHint(QXmppMessage::Store);
+
+    send(std::move(message), encryption, encryptionJids).then([accountJid = rosterItem.accountJid, chatJid, messageId](QXmpp::SendResult &&result) {
+        if (std::holds_alternative<QXmpp::SendSuccess>(result)) {
+            RosterDb::instance()->updateItem(accountJid, chatJid, [messageId](RosterItem &item) {
+                item.readMarkerPending = false;
+            });
+        }
+    });
+}
+
+void MessageController::sendReadMarkerWithUndecidedEncryption(const RosterItem &rosterItem, const QString &messageId)
+{
+    if (const auto encryption = rosterItem.encryption; encryption == Encryption::NoEncryption) {
+        sendReadMarker(rosterItem, messageId);
+    } else {
+        const auto chatJid = rosterItem.jid;
+
+        if (rosterItem.isGroupChat()) {
+            GroupChatUserDb::instance()
+                ->userJids(m_accountSettings->jid(), chatJid)
+                .then(this, [this, rosterItem, messageId, encryption](QList<QString> &&encryptionJids) mutable {
+                    if (!encryptionJids.isEmpty()) {
+                        m_encryptionController->hasUsableDevices(encryptionJids)
+                            .then([this, rosterItem, messageId, encryption, encryptionJids](bool hasUsableDevices) mutable {
+                                if (hasUsableDevices) {
+                                    sendReadMarker(rosterItem, messageId, encryption, encryptionJids);
+                                } else {
+                                    sendReadMarker(rosterItem, messageId);
                                 }
                             });
-                    } else {
-                        m_encryptionController->hasUsableDevices({chatJid}).then([this, chatJid, messageId, encryption](bool hasUsableDevices) mutable {
-                            if (hasUsableDevices) {
-                                sendReadMarker(chatJid, messageId, encryption);
-                            } else {
-                                sendReadMarker(chatJid, messageId);
-                            }
-                        });
                     }
+                });
+        } else {
+            m_encryptionController->hasUsableDevices({chatJid}).then([this, rosterItem, messageId, encryption](bool hasUsableDevices) mutable {
+                if (hasUsableDevices) {
+                    sendReadMarker(rosterItem, messageId, encryption);
+                } else {
+                    sendReadMarker(rosterItem, messageId);
                 }
-            }
-
-            RosterDb::instance()->updateItem(m_accountSettings->jid(), chatJid, [](RosterItem &item) {
-                item.readMarkerPending = false;
             });
         }
     }

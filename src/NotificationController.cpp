@@ -172,7 +172,7 @@ void NotificationController::handleMessage(const Message &message, MessageOrigin
             const auto previewText = message.previewText();
             const auto notificationBody = message.isGroupChatMessage() ? message.groupChatSenderName + QStringLiteral(": ") + previewText : previewText;
 
-            if (!checkChatActive(chatJid)) {
+            if (!checkChatAndApplicationActive(chatJid)) {
                 sendMessageNotification(chatJid, message.id, notificationBody);
             }
         };
@@ -210,7 +210,7 @@ void NotificationController::handlePresenceSubscriptionRequestReceived(const QXm
     const auto subscriberJid = request.from();
     const auto rosterItem = RosterModel::instance()->item(m_accountSettings->jid(), subscriberJid);
 
-    if (rosterItem->effectiveNotificationRule() == RosterItem::EffectiveNotificationRule::Always && !checkChatActive(subscriberJid)) {
+    if (rosterItem->effectiveNotificationRule() == RosterItem::EffectiveNotificationRule::Always && !checkChatAndApplicationActive(subscriberJid)) {
         sendPresenceSubscriptionRequestNotification(subscriberJid);
     }
 }
@@ -394,7 +394,12 @@ void NotificationController::sendPresenceSubscriptionRequestNotification(const Q
 
 bool NotificationController::checkChatActive(const QString &chatJid) const
 {
-    return m_chatController && m_chatController->jid() == chatJid && QGuiApplication::applicationState() == Qt::ApplicationActive;
+    return m_chatController && m_chatController->jid() == chatJid;
+}
+
+bool NotificationController::checkChatAndApplicationActive(const QString &chatJid) const
+{
+    return checkChatActive(chatJid) && QGuiApplication::applicationState() == Qt::ApplicationActive;
 }
 
 QString NotificationController::determineChatName(const QString &chatJid) const
@@ -444,12 +449,10 @@ void NotificationController::reply(const QString &chatJid, const QString &messag
 
 void NotificationController::markAsRead(const RosterItem &rosterItem, const QString &messageId)
 {
-    RosterDb::instance()->updateItem(rosterItem.accountJid, rosterItem.jid, [messageId](RosterItem &item) {
-        item.lastReadContactMessageId = messageId;
-    });
-
-    if (rosterItem.readMarkerSendingEnabled) {
-        m_messageController->sendReadMarker(rosterItem.jid, messageId);
+    if (checkChatActive(rosterItem.jid)) {
+        m_messageController->markMessageAsRead(rosterItem, messageId, m_chatController->activeEncryption(), m_chatController->groupChatUserJids());
+    } else {
+        m_messageController->markMessageAsReadWithUndecidedEncryption(rosterItem, messageId);
     }
 }
 

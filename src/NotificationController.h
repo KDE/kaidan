@@ -87,6 +87,8 @@ private:
     void sendPresenceSubscriptionRequestNotification(const QString &chatJid);
 
     bool checkChatActive(const QString &chatJid) const;
+    bool checkChatAndApplicationActive(const QString &chatJid) const;
+
     QString determineChatName(const QString &chatJid) const;
     QPixmap retrieveAvatar(const QString &chatJid);
     void showChat(const QString &chatJid);
