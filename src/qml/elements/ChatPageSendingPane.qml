@@ -531,7 +531,7 @@ Controls.Pane {
 
 				text: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? qsTr("Send") : qsTr("Record a voice message")
 				icon.source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
-				opacity: voiceMessageCaptureSession.audioInput && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId ? 1 : 0
+				opacity: mediaDevices.audioInputs.length && root.chatPage.chatController.account.settings.httpUploadLimit && !root.composition.body && !root.composition.replaceId ? 1 : 0
 				longPressBehaviorEnabled: false
 				onClicked: {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
@@ -673,7 +673,9 @@ Controls.Pane {
 
 			CaptureSession {
 				id: voiceMessageCaptureSession
-				audioInput: AudioInput {}
+				audioInput: AudioInput {
+					device: mediaDevices.defaultAudioInput
+				}
 				recorder: MediaRecorder {
 					id: voiceMessageRecorder
 
@@ -695,10 +697,20 @@ Controls.Pane {
 							root.forceActiveFocus()
 						}
 					}
+					onErrorOccurred: (error, errorString) => {
+						// Ensure that an error occurring while recording results in deleting the
+						// file that was recorded until that point once recorderStateChanged is
+						// emitted.
+						if (recorderState !== MediaRecorder.StoppedState) {
+							canceled = true
+						}
+
+						passiveNotification(qsTr("Voice message could not be recorded: %1").arg(errorString))
+					}
 
 					function startRecording() {
-						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFileUrl()
-						voiceMessageRecorder.record()
+						outputLocation = MediaUtils.newAudioFileUrl()
+						record()
 					}
 
 					function cancel() {
@@ -706,6 +718,10 @@ Controls.Pane {
 						stop()
 					}
 				}
+			}
+
+			MediaDevices {
+				id: mediaDevices
 			}
 		}
 	}
