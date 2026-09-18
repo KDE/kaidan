@@ -3,9 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import QtQuick.Layouts
-import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
@@ -13,7 +11,7 @@ import im.kaidan.kaidan
 import "../elements"
 
 /**
- * This a form for custom data requested by a server for registration.
+ * This is a card for custom form data requested by a server for registration.
  */
 FormCard.FormCard {
 	id: root
@@ -28,22 +26,11 @@ FormCard.FormCard {
 	FormCard.FormTextDelegate {
 		text: qsTr("The provider has requested more information")
 		description: qsTr("Not everything may be required")
-	}
-
-	Kirigami.Separator {
-		Layout.fillWidth: true
-	}
-
-	FormCard.AbstractFormDelegate {
 		background: NonInteractiveFormDelegateBackground {}
-		contentItem: ColumnLayout {
-			DataForm {
-				id: form
-				displayTitle: false
-				displayInstructions: false
-				Layout.fillWidth: true
-			}
-		}
+	}
+
+	DataForm {
+		id: form
 	}
 
 	function forceActiveFocus() {

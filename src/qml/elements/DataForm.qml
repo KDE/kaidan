@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
 
@@ -14,67 +15,91 @@ ColumnLayout {
 	id: root
 
 	property alias model: repeater.model
-	property bool displayTitle: true
-	property bool displayInstructions: true
+	property bool displayTitle: false
+	property bool displayInstructions: false
 	property var lastTextFieldAcceptedFunction
 
-	Kirigami.Heading {
+	spacing: 0
+
+	FormCard.FormTextDelegate {
 		visible: displayTitle
-		text: root.model && root.model.sourceModel ? root.model.sourceModel.title : ""
-		textFormat: Text.PlainText
-		wrapMode: Text.WordWrap
+		text: root.displayTitle && root.model && root.model.sourceModel ? root.model.sourceModel.title : ""
+		description: root.displayInstructions && root.model && root.model.sourceModel ? root.model.sourceModel.instructions : ""
 	}
 
-	Controls.Label {
-		visible: displayInstructions
-		text: root.model && root.model.sourceModel ? root.model.sourceModel.instructions : ""
-		textFormat: Text.PlainText
-		wrapMode: Text.WordWrap
-	}
+	Repeater {
+		id: repeater
 
-	Kirigami.FormLayout {
-		Repeater {
-			id: repeater
-			delegate: Column {
-				visible: model.type !== DataFormModel.HiddenField
-				Kirigami.FormData.label: model.label
+		Loader {
+			sourceComponent: model.type === DataFormModel.HiddenField ? undefined : content
+			Layout.fillWidth: true
 
-				Loader {
-					id: imageLoader
-				}
+			Component {
+				id: content
 
-				Kirigami.ActionTextField {
-					id: textField
-					visible: model.isRequired && (model.type === DataFormModel.TextSingleField || model.type === DataFormModel.TextPrivateField)
-					echoMode: model.type === DataFormModel.TextPrivateField ? TextInput.Password : TextInput.Normal
-					onTextChanged: model.value = text
-					onAccepted: {
-						if (index === repeater.count - 1) {
-							lastTextFieldAcceptedFunction()
-						} else {
-							nextItemInFocusChain().forceActiveFocus()
+				ColumnLayout {
+					spacing: 0
+
+					Loader {
+						sourceComponent: model.mediaUrl.toString() ? image : undefined
+						Layout.alignment: Qt.AlignHCenter
+						Layout.fillWidth: true
+
+						Component {
+							id: image
+
+							FormCard.AbstractFormDelegate {
+								focusPolicy: Qt.NoFocus
+								background: null
+								contentItem: Image {
+									source: model.mediaUrl
+									fillMode: Image.PreserveAspectFit
+								}
+							}
 						}
 					}
 
-					Component.onCompleted: text = model.value
-				}
+					Loader {
+						sourceComponent: model.isRequired && (model.type === DataFormModel.TextSingleField || model.type === DataFormModel.TextPrivateField) ? textField : text
+						Layout.fillWidth: true
 
-				FormattedTextEdit {
-					visible: !textField.visible
-					text: model.value
-				}
+						Component {
+							id: textField
 
-				Component {
-					id: imageComponent
+							FormCard.FormTextFieldDelegate {
+								label: model.label
+								echoMode: model.type === DataFormModel.TextPrivateField ? TextInput.Password : TextInput.Normal
+								onTextChanged: model.value = text
+								onAccepted: {
+									if (index === repeater.count - 1) {
+										lastTextFieldAcceptedFunction()
+									} else {
+										nextItemInFocusChain().forceActiveFocus()
+									}
+								}
+								Component.onCompleted: text = model.value
+							}
+						}
 
-					Image {
-						source: model.mediaUrl
-					}
-				}
+						Component {
+							id: text
 
-				Component.onCompleted: {
-					if (model.mediaUrl) {
-						imageLoader.sourceComponent = imageComponent
+							ColumnLayout {
+								spacing: 0
+
+								FormCard.FormTextDelegate {
+									description: model.label
+								}
+
+								FormCard.AbstractFormDelegate {
+									background: null
+									contentItem: FormattedTextEdit {
+										text: model.value
+										enhancedFormatting: true
+									}
+								}
+							}
+						}
 					}
 				}
 			}

@@ -75,8 +75,8 @@ RegistrationPage {
 				Layout.fillWidth: true
 			}
 
-			CustomDataFormArea {
-				id: customDataFormArea
+			CustomDataFormCard {
+				id: customDataFormCard
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
 				visible: root.account.connection.error !== ClientController.EmailConfirmationRequired
@@ -98,7 +98,7 @@ RegistrationPage {
 						implicitWidth: Kirigami.Units.iconSizes.small
 						implicitHeight: Kirigami.Units.iconSizes.small
 					}
-					visible: customDataFormArea.visible
+					visible: customDataFormCard.visible
 					onClicked: root.requestRegistrationFormFromAnotherProvider()
 				}
 			}

@@ -9,6 +9,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
 
@@ -57,43 +58,47 @@ RegistrationPage {
 			Layout.fillWidth: true
 		}
 
-		CustomContentFormCard {
-			title: qsTr("Enter your desired credentials")
+		FormCard.FormCard {
 			visible: root.account.connection.error !== ClientController.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
 
-			ColumnLayout {
-				Field {
-					id: displayNameField
-					label: qsTr("Display name")
-					visible: !AccountController.migrating
-					inputMethodHints: Qt.ImhPreferUppercase
-					onAccepted: usernameField.forceActiveFocus()
-				}
+			FormCard.FormHeader {
+				title: qsTr("Enter your desired credentials")
+			}
 
-				Field {
-					id: usernameField
-					label: qsTr("Username")
-					text: displayNameField.text.replace(/ /g, ".").toLowerCase()
-					placeholderText: credentialsGenerator.generateUsername()
-					inputMethodHints: Qt.ImhPreferLowercase
-					invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
-					inputValidator.patterns: InputValidator.Pattern.Username | InputValidator.Pattern.Empty
-					onAccepted: passwordField.forceActiveFocus()
+			Field {
+				id: displayNameField
+				label: qsTr("Display name")
+				background: NonInteractiveFormDelegateBackground {}
+				visible: !AccountController.migrating
+				inputMethodHints: Qt.ImhPreferUppercase
+				onAccepted: usernameField.forceActiveFocus()
+			}
 
-					function regenerateUsername() {
-						placeholderText = credentialsGenerator.generateUsername()
-					}
-				}
+			Field {
+				id: usernameField
+				label: qsTr("Username")
+				text: displayNameField.text.replace(/ /g, ".").toLowerCase()
+				placeholderText: credentialsGenerator.generateUsername()
+				background: NonInteractiveFormDelegateBackground {}
+				inputMethodHints: Qt.ImhPreferLowercase
+				invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
+				inputValidator.patterns: InputValidator.Pattern.Username | InputValidator.Pattern.Empty
+				onAccepted: passwordField.forceActiveFocus()
 
-				RegistrationPasswordField {
-					id: passwordField
-					onAccepted: customDataFormArea.visible ? customDataFormArea.forceActiveFocus() : registerWithoutClickingRegistrationButton()
+				function regenerateUsername() {
+					placeholderText = credentialsGenerator.generateUsername()
 				}
+			}
+
+			RegistrationPasswordField {
+				id: passwordField
+				background: NonInteractiveFormDelegateBackground {}
+				onAccepted: customDataFormCard.visible ? customDataFormCard.forceActiveFocus() : registerWithoutClickingRegistrationButton()
 			}
 		}
 
-		CustomDataFormArea {
-			id: customDataFormArea
+		CustomDataFormCard {
+			id: customDataFormCard
 			model: root.formFilterModel
 			lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
 			visible: root.account.connection.error !== ClientController.EmailConfirmationRequired && root.customFormFieldsAvailable
@@ -139,14 +144,14 @@ RegistrationPage {
 				passiveNotification(qsTr("The provider requires a stronger password."))
 				break
 			case RegistrationController.CaptchaVerificationFailed:
-				nextFocusedItem = customDataFormArea
+				nextFocusedItem = customDataFormCard
 				requestRegistrationForm()
 				showPassiveNotificationForCaptchaVerificationFailedError()
 				break
 			case RegistrationController.RequiredInformationMissing:
 				requestRegistrationForm()
-				if (customDataFormArea.visible) {
-					nextFocusedItem = customDataFormArea
+				if (customDataFormCard.visible) {
+					nextFocusedItem = customDataFormCard
 					showPassiveNotificationForRequiredInformationMissingError(errorMessage)
 				} else {
 					showPassiveNotificationForUnknownError(errorMessage)
@@ -169,8 +174,8 @@ RegistrationPage {
 				usernameField.forceActiveFocus()
 			} else if (passwordField.visible) {
 				passwordField.forceActiveFocus()
-			} else if (customDataFormArea.visible) {
-				customDataFormArea.forceActiveFocus()
+			} else if (customDataFormCard.visible) {
+				customDataFormCard.forceActiveFocus()
 			}
 		}
 
