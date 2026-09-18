@@ -144,13 +144,13 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivos nos Servidores"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:181
 #, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 está digitando…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:183
 #, qt-format
 msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
@@ -508,14 +508,14 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageController.cpp:613
+#: src/MessageController.cpp:614
 #, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está criptografada com %1 mas não pode ser descriptografada"
 
-#: src/MessageController.cpp:1017
+#: src/MessageController.cpp:1030
 #, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
@@ -541,24 +541,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/MessageModel.cpp:606 src/MessageModel.cpp:703
+#: src/MessageModel.cpp:596 src/MessageModel.cpp:693
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Não foi possível enviar a reação: %1"
 
-#: src/MessageModel.cpp:788
+#: src/MessageModel.cpp:778
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Não foi possível enviar as reações: %1"
 
-#: src/MessageModel.cpp:1331
+#: src/MessageModel.cpp:1321
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hoje"
 
-#: src/MessageModel.cpp:1334
+#: src/MessageModel.cpp:1324
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ontem"

@@ -136,7 +136,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "서버의 장치"
 
-#: src/ChatController.cpp:176
+#: src/ChatController.cpp:181
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 is typing…"
@@ -144,7 +144,7 @@ msgctxt "ChatController|%1 is a username"
 msgid "%1 is typing…"
 msgstr "%1 님이 입력 중…"
 
-#: src/ChatController.cpp:178
+#: src/ChatController.cpp:183
 #, fuzzy, qt-format
 #| msgctxt "QmlUtils|"
 #| msgid "%1 paused typing"
@@ -546,7 +546,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:613
+#: src/MessageController.cpp:614
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -554,7 +554,7 @@ msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1017
+#: src/MessageController.cpp:1030
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -582,7 +582,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:606 src/MessageModel.cpp:703
+#: src/MessageModel.cpp:596 src/MessageModel.cpp:693
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -590,7 +590,7 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:788
+#: src/MessageModel.cpp:778
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reactions could not be sent: %1"
@@ -598,12 +598,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1331
+#: src/MessageModel.cpp:1321
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1334
+#: src/MessageModel.cpp:1324
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
