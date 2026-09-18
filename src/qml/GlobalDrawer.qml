@@ -111,43 +111,44 @@ Kirigami.GlobalDrawer {
 					FormCard.FormCard {
 						visible: modelData.connection.error === ClientController.AuthenticationFailed
 
-						FormCardCustomContentArea {
-							contentItem: RowLayout {
-								PasswordField {
-									id: passwordField
-									label: qsTr("Password")
-									placeholderText: qsTr("Enter your correct password")
-									text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
-									valid: acceptableInput && text !== modelData.settings.password
-									enabled: !passwordBusyIndicator.visible
-									onAccepted: passwordConfirmationButton.clicked()
-								}
+						RowLayout {
+							spacing: 0
+							Layout.rightMargin: FormCard.FormCardUnits.horizontalPadding
 
-								IconButton {
-									id: passwordConfirmationButton
-									text: qsTr("Confirm password")
-									icon.source: "emblem-ok-symbolic"
-									visible: !passwordBusyIndicator.visible
-									Layout.alignment: Qt.AlignTop
-									Layout.topMargin: Kirigami.Units.largeSpacing * 4
-									onClicked: {
-										if (passwordField.valid) {
-											modelData.settings.password = passwordField.text
-											modelData.connection.logIn()
-										} else {
-											passwordField.forceActiveFocus()
-										}
+							PasswordField {
+								id: passwordField
+								label: qsTr("Password")
+								placeholderText: qsTr("Enter your correct password")
+								text: modelData.settings.passwordVisibility === AccountSettings.PasswordVisibility.Visible ? modelData.settings.password : ""
+								valid: acceptableInput && text !== modelData.settings.password
+								enabled: !passwordBusyIndicator.visible
+								onAccepted: passwordConfirmationButton.clicked()
+							}
+
+							IconButton {
+								id: passwordConfirmationButton
+								text: qsTr("Confirm password")
+								icon.source: "emblem-ok-symbolic"
+								visible: !passwordBusyIndicator.visible
+								Layout.alignment: Qt.AlignTop
+								Layout.topMargin: Kirigami.Units.largeSpacing * 4
+								onClicked: {
+									if (passwordField.valid) {
+										modelData.settings.password = passwordField.text
+										modelData.connection.logIn()
+									} else {
+										passwordField.forceActiveFocus()
 									}
 								}
+							}
 
-								Controls.BusyIndicator {
-									id: passwordBusyIndicator
-									visible: modelData.connection.state !== Enums.StateDisconnected
-									implicitWidth: passwordConfirmationButton.width
-									implicitHeight: passwordConfirmationButton.height
-									Layout.alignment: passwordConfirmationButton.Layout.alignment
-									Layout.topMargin: passwordConfirmationButton.Layout.topMargin
-								}
+							Controls.BusyIndicator {
+								id: passwordBusyIndicator
+								visible: modelData.connection.state !== Enums.StateDisconnected
+								implicitWidth: passwordConfirmationButton.width
+								implicitHeight: passwordConfirmationButton.height
+								Layout.alignment: passwordConfirmationButton.Layout.alignment
+								Layout.topMargin: passwordConfirmationButton.Layout.topMargin
 							}
 						}
 					}
