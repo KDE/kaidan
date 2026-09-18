@@ -18,8 +18,23 @@ ConfirmationArea {
 	property Account account
 	property alias groupChatNameField: groupChatNameField
 
-	confirmationButton.text: qsTr("Create")
-	confirmationButton.onClicked: confirm()
+	confirmationButton {
+		text: qsTr("Create")
+		onClicked: {
+			if (groupChatIdField.visible && !groupChatIdField.valid) {
+				groupChatIdField.forceActiveFocusToCorrect()
+				return
+			}
+
+			const serviceJid = groupChatServiceJidComboBox.currentText
+
+			if (publicGroupChatCheckBox.checked) {
+				account.groupChatController.createPublicGroupChat(groupChatIdField.text + "@" + serviceJid)
+			} else {
+				account.groupChatController.createPrivateGroupChat(serviceJid)
+			}
+		}
+	}
 	loadingArea.description: qsTr("Creating group chat…")
 	busy: account.groupChatController.busy
 
@@ -28,7 +43,7 @@ ConfirmationArea {
 		label: qsTr("Group name (optional)")
 		placeholderText: qsTr("Example Group")
 		inputMethodHints: Qt.ImhPreferUppercase	
-		onAccepted: confirm()
+		onAccepted: confirmationButton.animateClick()
 	}
 
 	Controls.Switch {
@@ -55,7 +70,7 @@ ConfirmationArea {
 		invalidHintText: qsTr("Enter a valid group ID")
 		inputValidator.patterns: InputValidator.Pattern.NotEmpty
 		visible: publicGroupChatCheckBox.checked
-		onAccepted: confirm()
+		onAccepted: confirmationButton.animateClick()
 	}
 
 	FormCard.FormComboBoxDelegate {
@@ -72,7 +87,7 @@ ConfirmationArea {
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
 		visible: publicGroupChatCheckBox.checked
-		onAccepted: confirm()
+		onAccepted: confirmationButton.animateClick()
 	}
 
 	Connections {
@@ -94,21 +109,5 @@ ConfirmationArea {
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
 			passiveNotification(qsTr("The group %1 could not be joined%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
-	}
-
-	function confirm() {
-		if (groupChatIdField.visible && !groupChatIdField.valid) {
-			groupChatIdField.forceActiveFocus()
-			return
-		}
-
-		const serviceJid = groupChatServiceJidComboBox.currentText
-
-		if (publicGroupChatCheckBox.checked) {
-			account.groupChatController.createPublicGroupChat(groupChatIdField.text + "@" + serviceJid)
-		} else {
-			account.groupChatController.createPrivateGroupChat(serviceJid)
-		}
-
 	}
 }

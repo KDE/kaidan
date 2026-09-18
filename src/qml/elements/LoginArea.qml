@@ -116,7 +116,7 @@ FormCard.FormCard {
 	function confirm() {
 		// If the JID is invalid, focus its field.
 		if (!jidField.valid) {
-			jidField.forceActiveFocus()
+			jidField.forceActiveFocusToCorrect()
 		// If the password is invalid, focus its field.
 		// This also implies that if the JID field is focused and the password invalid, the password field will be focused instead of immediately trying to connect.
 		} else if (!passwordField.valid) {

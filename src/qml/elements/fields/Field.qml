@@ -50,10 +50,11 @@ FormCard.FormTextFieldDelegate {
 	}
 
 	/**
-	 * Focuses the input field after positioning the cursor at its end.
+	 * Focuses the input field to correct its input.
 	 */
-	function forceActiveFocus() {
+	function forceActiveFocusToCorrect() {
 		cursorPosition = text.length
-		root.clicked()
+		forceHintTextVisible = true
+		forceActiveFocus()
 	}
 }

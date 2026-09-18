@@ -767,7 +767,7 @@ DetailsContent {
 
 		function confirm() {
 			if (passwordVerificationField.visible && !passwordVerificationField.valid) {
-				passwordVerificationField.forceActiveFocus()
+				passwordVerificationField.forceActiveFocusToCorrect()
 				return
 			}
 
@@ -775,7 +775,7 @@ DetailsContent {
 				passwordBusyIndicator.visible = true
 				root.account.registrationController.changePassword(passwordField.text)
 			} else {
-				passwordField.forceActiveFocus()
+				passwordField.forceActiveFocusToCorrect()
 			}
 		}
 	}

@@ -16,8 +16,16 @@ ConfirmationArea {
 	property alias groupChatJidField: groupChatJidField
 	property alias groupChatJid: groupChatJidField.text
 
-	confirmationButton.text: qsTr("Join")
-	confirmationButton.onClicked: confirm()
+	confirmationButton {
+		text: qsTr("Join")
+		onClicked: {
+			if (groupChatJidField.valid) {
+				account.groupChatController.joinGroupChat(groupChatJid, nicknameField.text)
+			} else {
+				groupChatJidField.forceActiveFocusToCorrect()
+			}
+		}
+	}
 	loadingArea.description: qsTr("Joining group…")
 	busy: account.groupChatController.busy
 
@@ -35,13 +43,7 @@ ConfirmationArea {
 				text = jidOfXmppUri
 			}
 		}
-		onAccepted: {
-			if (valid) {
-				nicknameField.forceActiveFocus()
-			} else {
-				forceActiveFocus()
-			}
-		}
+		onAccepted: nicknameField.forceActiveFocus()
 	}
 
 	Field {
@@ -49,7 +51,7 @@ ConfirmationArea {
 		label: qsTr("Nickname (optional)")
 		text: root.account.settings.displayName
 		inputMethodHints: Qt.ImhPreferUppercase
-		onAccepted: confirm()
+		onAccepted: confirmationButton.animateClick()
 	}
 
 	Connections {
@@ -57,14 +59,6 @@ ConfirmationArea {
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
 			passiveNotification(qsTr("The group %1 could not be joined%2", "%1 is a group JID, %2 is either empty or ': ' followed by an error message").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
-		}
-	}
-
-	function confirm() {
-		if (groupChatJidField.valid) {
-			account.groupChatController.joinGroupChat(groupChatJid, nicknameField.text)
-		} else {
-			groupChatJidField.forceActiveFocus()
 		}
 	}
 }

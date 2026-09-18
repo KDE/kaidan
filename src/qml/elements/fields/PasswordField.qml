@@ -51,4 +51,12 @@ FormCard.FormPasswordFieldDelegate {
 		id: completer
 		textControl: root
 	}
+
+	/**
+	 * Focuses the input field to correct its input.
+	 */
+	function forceActiveFocusToCorrect() {
+		forceHintTextVisible = true
+		forceActiveFocus()
+	}
 }

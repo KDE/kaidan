@@ -30,7 +30,6 @@ ConfirmationArea {
 
 	confirmationButton {
 		text: qsTr("Add")
-		enabled: jidField.valid
 		onClicked: {
 			if (jidField.valid) {
 				busy = true
@@ -65,7 +64,7 @@ ConfirmationArea {
 					break
 				}
 			} else {
-				jidField.forceActiveFocus()
+				jidField.forceActiveFocusToCorrect()
 			}
 		}
 	}
@@ -85,20 +84,14 @@ ConfirmationArea {
 				root.xmppUri = ""
 			}
 		}
-		onAccepted: {
-			if (valid) {
-				nameField.forceActiveFocus()
-			} else {
-				forceActiveFocus()
-			}
-		}
+		onAccepted: nameField.forceActiveFocus()
 	}
 
 	Field {
 		id: nameField
 		label: qsTr("Name (optional)")
 		inputMethodHints: Qt.ImhPreferUppercase
-		onAccepted: confirmationButton.clicked()
+		onAccepted: confirmationButton.animateClick()
 	}
 
 	Connections {
