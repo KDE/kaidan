@@ -339,18 +339,21 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<AccountSettings::
         SET_IF(idxEncryption, encryption, Encryption::Enum);
         SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, AccountSettings::AutomaticMediaDownloadsRule);
 
-        QKeychainFuture::waitForFinished(
-            QKeychainFuture::readKey(account.jid)
-                .onFailed([account](const QKeychainFuture::Error &error) {
-                    qCWarning(KAIDAN_CORE_LOG, "Could not retrieve password for account %ls: %s", qUtf16Printable(account.jid), error.what());
-                    return QString();
-                })
-                .then([&account](const QKeychainFuture::ReadResult &result) {
-                    if (auto password = std::get_if<QString>(&result)) {
-                        account.password = *password;
-                    }
-                }),
-            KEYCHAIN_TIMEOUT);
+        auto future = QKeychainFuture::readKey(account.jid)
+                          .onFailed([jid = account.jid](const QKeychainFuture::Error &error) {
+                              qCWarning(KAIDAN_CORE_LOG, "Could not retrieve password for account %ls: %s", qUtf16Printable(jid), error.what());
+                              return QString();
+                          })
+                          .then([](const QKeychainFuture::ReadResult &result) {
+                              const auto *value = std::get_if<QString>(&result);
+                              return value ? *value : QString();
+                          });
+
+        if (QKeychainFuture::waitForFinished(future, KEYCHAIN_TIMEOUT)) {
+            account.password = future.result();
+        } else {
+            qCWarning(KAIDAN_CORE_LOG) << "Could not retrieve password for account" << account.jid << "within" << KEYCHAIN_TIMEOUT;
+        }
 
 #undef SET_IF
 
