@@ -179,7 +179,8 @@ Controls.ItemDelegate {
 					Repeater {
 						id: mediaList
 						model: root.files
-						delegate: Loader {
+
+						Loader {
 							property var file: modelData
 							property real minimumWidth: Math.max(parent.width, referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width, bubbleBackground.metaInfo.width)
 							property real maximumWidth: root.maximumBubbleContentWidth

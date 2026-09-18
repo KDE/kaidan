@@ -102,7 +102,8 @@ Kirigami.Dialog {
 						group: Emoji.Group.Flags
 					}
 				}
-				delegate: Button {
+
+				Button {
 					text: model.name
 					checkable: true
 					checked: gridView.model.group === model.group

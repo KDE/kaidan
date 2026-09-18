@@ -34,7 +34,8 @@ FormCard.FormCard {
 			presenceCache: root.account.presenceCache
 			jid: root.jid
 		}
-		delegate: FormCard.AbstractFormDelegate {
+
+		FormCard.AbstractFormDelegate {
 			visible: deviceExpansionButton.checked
 			background: null
 			contentItem: ColumnLayout {
