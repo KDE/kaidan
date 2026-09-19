@@ -27,7 +27,7 @@ ColumnLayout {
 	property alias busy: confirmationButton.busy
 	readonly property bool _bottomCornersRounded: {
 		const isLast = parent.children[parent.children.length - 1] === this
-		return parent._roundCorners && isLast
+		return parent.parent.parent.cardWidthRestricted && isLast
 	}
 
 	spacing: 0
