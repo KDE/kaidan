@@ -2280,27 +2280,27 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "没有可用的相机"
 
-#: src/qml/elements/ChatMessage.qml:229
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "剧透"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "隐藏隐藏消息部分"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "显示隐藏消息部分"
 
-#: src/qml/elements/ChatMessage.qml:525
+#: src/qml/elements/ChatMessage.qml:526
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "新消息"
 
-#: src/qml/elements/ChatMessage.qml:553
+#: src/qml/elements/ChatMessage.qml:554
 #, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
@@ -2478,17 +2478,17 @@ msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "添加"
 
-#: src/qml/elements/ContactAdditionContent.qml:45
+#: src/qml/elements/ContactAdditionContent.qml:44
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "为联系人做出信任决定"
 
-#: src/qml/elements/ContactAdditionContent.qml:72
+#: src/qml/elements/ContactAdditionContent.qml:71
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
-#: src/qml/elements/ContactAdditionContent.qml:99
+#: src/qml/elements/ContactAdditionContent.qml:92
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
 msgstr "名称（选填）"
@@ -2632,7 +2632,7 @@ msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr "旗帜"
 
-#: src/qml/elements/EmojiPicker.qml:193
+#: src/qml/elements/EmojiPicker.qml:194
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
 msgstr "未找到表情符号"
@@ -2692,57 +2692,57 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/qml/elements/GroupChatCreationContent.qml:21
+#: src/qml/elements/GroupChatCreationContent.qml:22
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "创建"
 
-#: src/qml/elements/GroupChatCreationContent.qml:23
+#: src/qml/elements/GroupChatCreationContent.qml:38
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "正在创建群聊…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:28
+#: src/qml/elements/GroupChatCreationContent.qml:43
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "群聊名称（选填）"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:44
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "示例群聊"
 
-#: src/qml/elements/GroupChatCreationContent.qml:36
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "公开"
 
-#: src/qml/elements/GroupChatCreationContent.qml:50
+#: src/qml/elements/GroupChatCreationContent.qml:65
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "群聊地址"
 
-#: src/qml/elements/GroupChatCreationContent.qml:53
+#: src/qml/elements/GroupChatCreationContent.qml:68
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "示例群聊"
 
-#: src/qml/elements/GroupChatCreationContent.qml:55
+#: src/qml/elements/GroupChatCreationContent.qml:70
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "输入有效的群聊地址"
 
-#: src/qml/elements/GroupChatCreationContent.qml:63
+#: src/qml/elements/GroupChatCreationContent.qml:78
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
 msgstr "服务"
 
-#: src/qml/elements/GroupChatCreationContent.qml:71
+#: src/qml/elements/GroupChatCreationContent.qml:86
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "昵称（选填）"
 
-#: src/qml/elements/GroupChatCreationContent.qml:87
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
@@ -2750,7 +2750,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr "无法在 %1 上创建群聊 %2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:91
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2758,7 +2758,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr "无法创建群聊 %1 %2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:95
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2776,37 +2776,37 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "创建群聊"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:19
+#: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "加入"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:21
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
 msgstr "正在加入群聊…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:34
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
 msgstr "群聊地址"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:27
+#: src/qml/elements/GroupChatJoiningContent.qml:35
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:36
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
 msgstr "输入有效的群聊地址"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:49
+#: src/qml/elements/GroupChatJoiningContent.qml:51
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr "昵称（选填）"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:59
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2911,22 +2911,22 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "正在加载…"
 
-#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:86
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "登录"
 
-#: src/qml/elements/LoginArea.qml:39
+#: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "扫描登录二维码"
 
-#: src/qml/elements/LoginArea.qml:56
+#: src/qml/elements/LoginArea.qml:52
 msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "显示连接设置"
 
-#: src/qml/elements/LoginArea.qml:91
+#: src/qml/elements/LoginArea.qml:87
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "正在连接…"
@@ -3377,72 +3377,72 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "账号"
 
-#: src/qml/GlobalDrawer.qml:118
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "密码"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "输入正确的密码"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "确认密码"
 
-#: src/qml/GlobalDrawer.qml:168
+#: src/qml/GlobalDrawer.qml:169
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "操作"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "请启用您的账号以使用所有可用操作"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "启用账号以使用所有可用操作"
 
-#: src/qml/GlobalDrawer.qml:177
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "通过二维码添加联系人"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "通过聊天地址添加联系人"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "创建群聊"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "创建群聊（不支持）"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "加入群聊"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "加入群聊（不支持）"
 
-#: src/qml/GlobalDrawer.qml:244
+#: src/qml/GlobalDrawer.qml:245
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "搜索公开群聊"
 
-#: src/qml/GlobalDrawer.qml:258
+#: src/qml/GlobalDrawer.qml:259
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "关于"
@@ -3532,62 +3532,71 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr "自动注册失败，所有提供者均存在问题"
 
-#: src/qml/registration/CustomDataFormArea.qml:25
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
+msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "输入附加信息"
 
-#: src/qml/registration/CustomDataFormArea.qml:29
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
+msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "提供者要求提供更多信息"
 
-#: src/qml/registration/CustomDataFormArea.qml:30
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
+msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "并非所有内容均为必填项"
 
-#: src/qml/registration/ManualRegistrationPage.qml:30
+#: src/qml/registration/ManualRegistrationPage.qml:31
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
 msgstr "手动注册"
 
-#: src/qml/registration/ManualRegistrationPage.qml:42
+#: src/qml/registration/ManualRegistrationPage.qml:43
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
 msgstr "填写注册表！"
 
-#: src/qml/registration/ManualRegistrationPage.qml:61
+#: src/qml/registration/ManualRegistrationPage.qml:65
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "输入所需的凭据"
 
-#: src/qml/registration/ManualRegistrationPage.qml:67
+#: src/qml/registration/ManualRegistrationPage.qml:70
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/qml/registration/ManualRegistrationPage.qml:75
+#: src/qml/registration/ManualRegistrationPage.qml:79
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "用户名"
 
-#: src/qml/registration/ManualRegistrationPage.qml:79
+#: src/qml/registration/ManualRegistrationPage.qml:84
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr "输入有效的用户名或将字段留空以获取随机用户名"
 
-#: src/qml/registration/ManualRegistrationPage.qml:139
+#: src/qml/registration/ManualRegistrationPage.qml:144
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "提供者要求更强的密码。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:188
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "用户名已被占用。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:192
+#: src/qml/registration/ManualRegistrationPage.qml:197
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "新的随机用户名已生成。"

@@ -2479,12 +2479,12 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Ez dago kamerarik erabilgarri"
 
-#: src/qml/elements/ChatMessage.qml:229
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "«Spoiler»"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Add hidden message part"
@@ -2492,7 +2492,7 @@ msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "Gehitu mezuaren ezkutatuko zatia"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Add hidden message part"
@@ -2500,12 +2500,12 @@ msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "Gehitu mezuaren ezkutatuko zatia"
 
-#: src/qml/elements/ChatMessage.qml:525
+#: src/qml/elements/ChatMessage.qml:526
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Berria"
 
-#: src/qml/elements/ChatMessage.qml:553
+#: src/qml/elements/ChatMessage.qml:554
 #, fuzzy, qt-format
 #| msgctxt "ChatMessage|"
 #| msgid "%1 has read up to this point"
@@ -2695,17 +2695,17 @@ msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Gehitu"
 
-#: src/qml/elements/ContactAdditionContent.qml:45
+#: src/qml/elements/ContactAdditionContent.qml:44
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "Kontakturako hartutako konfiantza erabakiak"
 
-#: src/qml/elements/ContactAdditionContent.qml:72
+#: src/qml/elements/ContactAdditionContent.qml:71
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Kontatua gehitze..."
 
-#: src/qml/elements/ContactAdditionContent.qml:99
+#: src/qml/elements/ContactAdditionContent.qml:92
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2866,7 +2866,7 @@ msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr ""
 
-#: src/qml/elements/EmojiPicker.qml:193
+#: src/qml/elements/EmojiPicker.qml:194
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
 msgstr ""
@@ -2941,17 +2941,17 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Bidali kokalekua"
 
-#: src/qml/elements/GroupChatCreationContent.qml:21
+#: src/qml/elements/GroupChatCreationContent.qml:22
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "Sortu"
 
-#: src/qml/elements/GroupChatCreationContent.qml:23
+#: src/qml/elements/GroupChatCreationContent.qml:38
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "Sortu berriketa-taldea..."
 
-#: src/qml/elements/GroupChatCreationContent.qml:28
+#: src/qml/elements/GroupChatCreationContent.qml:43
 #, fuzzy
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "Group Name (optional)"
@@ -2959,32 +2959,32 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Talde-izena (hautazkoa)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:44
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "Adibide-taldea"
 
-#: src/qml/elements/GroupChatCreationContent.qml:36
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Publikoa"
 
-#: src/qml/elements/GroupChatCreationContent.qml:50
+#: src/qml/elements/GroupChatCreationContent.qml:65
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "Talde IDa"
 
-#: src/qml/elements/GroupChatCreationContent.qml:53
+#: src/qml/elements/GroupChatCreationContent.qml:68
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "adibide-taldea"
 
-#: src/qml/elements/GroupChatCreationContent.qml:55
+#: src/qml/elements/GroupChatCreationContent.qml:70
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "Sartu talde ID baliodun bat"
 
-#: src/qml/elements/GroupChatCreationContent.qml:63
+#: src/qml/elements/GroupChatCreationContent.qml:78
 #, fuzzy
 #| msgctxt "BlockingModel|"
 #| msgid "Devices"
@@ -2992,7 +2992,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Service"
 msgstr "Gailuak"
 
-#: src/qml/elements/GroupChatCreationContent.qml:71
+#: src/qml/elements/GroupChatCreationContent.qml:86
 #, fuzzy
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "Nickname (optional):"
@@ -3000,7 +3000,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "Goitizena (hautazkoa):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:87
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, fuzzy, qt-format
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "The group could not be created on %1%2"
@@ -3010,7 +3010,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr "Taldea ezin izan da %1%2(e)an sortu"
 
-#: src/qml/elements/GroupChatCreationContent.qml:91
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, fuzzy, qt-format
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "The group %1 could not be created%2"
@@ -3020,7 +3020,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr "%1 taldea ezin izan da sortu%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:95
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "The group %1 could not be joined%2"
@@ -3040,12 +3040,12 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "Sortu berriketa-taldea"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:19
+#: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "Elkartu"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:21
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "GroupChatJoiningContent|"
 #| msgid "Joining group chat…"
@@ -3053,7 +3053,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
 msgstr "Berriketa-taldera elkartzen..."
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:34
 #, fuzzy
 #| msgctxt "UrlFormButtonDelegate|"
 #| msgid "Copy web address"
@@ -3061,12 +3061,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
 msgstr "Kopiatu web-helbidea"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:27
+#: src/qml/elements/GroupChatJoiningContent.qml:35
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "taldea@taldeak.adibidea.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:36
 #, fuzzy
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "Enter a valid group ID"
@@ -3074,7 +3074,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
 msgstr "Sartu talde ID baliodun bat"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:49
+#: src/qml/elements/GroupChatJoiningContent.qml:51
 #, fuzzy
 #| msgctxt "GroupChatJoiningContent|"
 #| msgid "Nickname (optional):"
@@ -3082,7 +3082,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr "Goitizena (hautazkoa):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:59
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, fuzzy, qt-format
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "The group %1 could not be joined%2"
@@ -3194,22 +3194,22 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Zamatzen..."
 
-#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:86
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Saioan sartu"
 
-#: src/qml/elements/LoginArea.qml:39
+#: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Eskaneatu saioan sartzeko QR kodea"
 
-#: src/qml/elements/LoginArea.qml:56
+#: src/qml/elements/LoginArea.qml:52
 msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "Erakutsi konexio ezarpenak"
 
-#: src/qml/elements/LoginArea.qml:91
+#: src/qml/elements/LoginArea.qml:87
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
@@ -3713,72 +3713,72 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/qml/GlobalDrawer.qml:118
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Pasahitza"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Sartu zure pasahitz zuzena"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Berretsi pasahitza"
 
-#: src/qml/GlobalDrawer.qml:168
+#: src/qml/GlobalDrawer.qml:169
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "Gaitu zure kontua erabilgarri dauden ekintza guztiak erabiltzeko"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "Gaitu kontu bat erabilgarri dauden ekintza guztiak erabiltzeko"
 
-#: src/qml/GlobalDrawer.qml:177
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Gehitu kontaktua QR kode bidez"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Gehitu kontaktua berriketa-helbidearen bidez"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Sortu taldea"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Sortu taldea (ez da onartzen)"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Elkartu taldera"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "Elkartu taldera (ez da onartzen)"
 
-#: src/qml/GlobalDrawer.qml:244
+#: src/qml/GlobalDrawer.qml:245
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Bilatu talde publikoak"
 
-#: src/qml/GlobalDrawer.qml:258
+#: src/qml/GlobalDrawer.qml:259
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Honi buruz"
@@ -3880,37 +3880,46 @@ msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
 "Erregistro automatikoak huts egin du hornitzaile guztiekin arazoak daudelako"
 
-#: src/qml/registration/CustomDataFormArea.qml:25
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
+msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Sartu informazio gehigarria"
 
-#: src/qml/registration/CustomDataFormArea.qml:29
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
+msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "Hornitzaileak informazio gehiago eskatu du"
 
-#: src/qml/registration/CustomDataFormArea.qml:30
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
+msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Baliteke dena beharrezkoa ez izatea"
 
-#: src/qml/registration/ManualRegistrationPage.qml:30
+#: src/qml/registration/ManualRegistrationPage.qml:31
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
 msgstr "Eskuz izen-ematea"
 
-#: src/qml/registration/ManualRegistrationPage.qml:42
+#: src/qml/registration/ManualRegistrationPage.qml:43
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
 msgstr "Bete izena emateko inprimakia!"
 
-#: src/qml/registration/ManualRegistrationPage.qml:61
+#: src/qml/registration/ManualRegistrationPage.qml:65
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "Sartu nahi dituzun egiaztagiriak"
 
-#: src/qml/registration/ManualRegistrationPage.qml:67
+#: src/qml/registration/ManualRegistrationPage.qml:70
 #, fuzzy
 #| msgctxt "ManualRegistrationPage|"
 #| msgid "Display Name"
@@ -3918,28 +3927,28 @@ msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Azaltzeko izena"
 
-#: src/qml/registration/ManualRegistrationPage.qml:75
+#: src/qml/registration/ManualRegistrationPage.qml:79
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Erabiltzaile-izena"
 
-#: src/qml/registration/ManualRegistrationPage.qml:79
+#: src/qml/registration/ManualRegistrationPage.qml:84
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 "Sartu balizko erabiltzaile-izen bat edo utzi eremua hutsik ausazko baterako"
 
-#: src/qml/registration/ManualRegistrationPage.qml:139
+#: src/qml/registration/ManualRegistrationPage.qml:144
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "Hornitzaileak pasahitz sendoago bat eskatzen du."
 
-#: src/qml/registration/ManualRegistrationPage.qml:188
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "Erabiltzaile-izena jada hartuta dago."
 
-#: src/qml/registration/ManualRegistrationPage.qml:192
+#: src/qml/registration/ManualRegistrationPage.qml:197
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Ausazko erabiltzaile-izen berri bat sortu da."

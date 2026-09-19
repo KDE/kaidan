@@ -2344,27 +2344,27 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "კამერა მიუწვდომელია"
 
-#: src/qml/elements/ChatMessage.qml:229
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამალვა"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის ჩვენება"
 
-#: src/qml/elements/ChatMessage.qml:525
+#: src/qml/elements/ChatMessage.qml:526
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "ახალი"
 
-#: src/qml/elements/ChatMessage.qml:553
+#: src/qml/elements/ChatMessage.qml:554
 #, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
@@ -2542,17 +2542,17 @@ msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "დამატება"
 
-#: src/qml/elements/ContactAdditionContent.qml:45
+#: src/qml/elements/ContactAdditionContent.qml:44
 msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "კონტაქტისთვის მიღებული ნდობის გადაწყვეტილებები"
 
-#: src/qml/elements/ContactAdditionContent.qml:72
+#: src/qml/elements/ContactAdditionContent.qml:71
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "კონტაქტის დამატება…"
 
-#: src/qml/elements/ContactAdditionContent.qml:99
+#: src/qml/elements/ContactAdditionContent.qml:92
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional)"
 msgstr "სახელი (არასავალდებულო)"
@@ -2699,7 +2699,7 @@ msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr "ალმები"
 
-#: src/qml/elements/EmojiPicker.qml:193
+#: src/qml/elements/EmojiPicker.qml:194
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
 msgstr "ემოჯიები აღმოჩენილი არაა"
@@ -2759,57 +2759,57 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "მდებარეობის გაგზავნა"
 
-#: src/qml/elements/GroupChatCreationContent.qml:21
+#: src/qml/elements/GroupChatCreationContent.qml:22
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr "შექმნა"
 
-#: src/qml/elements/GroupChatCreationContent.qml:23
+#: src/qml/elements/GroupChatCreationContent.qml:38
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "ჯგუფური ჩატის შექმნა…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:28
+#: src/qml/elements/GroupChatCreationContent.qml:43
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "ჯგუფის სახელი (არასავალდებულო)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:44
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "მაგალითი ჯგუფი"
 
-#: src/qml/elements/GroupChatCreationContent.qml:36
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "საჯარო"
 
-#: src/qml/elements/GroupChatCreationContent.qml:50
+#: src/qml/elements/GroupChatCreationContent.qml:65
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "ჯგუფის ID"
 
-#: src/qml/elements/GroupChatCreationContent.qml:53
+#: src/qml/elements/GroupChatCreationContent.qml:68
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "example-group"
 
-#: src/qml/elements/GroupChatCreationContent.qml:55
+#: src/qml/elements/GroupChatCreationContent.qml:70
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "შეიყვანეთ სწორი ჯგუფის ID"
 
-#: src/qml/elements/GroupChatCreationContent.qml:63
+#: src/qml/elements/GroupChatCreationContent.qml:78
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
 msgstr "სერვისი"
 
-#: src/qml/elements/GroupChatCreationContent.qml:71
+#: src/qml/elements/GroupChatCreationContent.qml:86
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "მეტსახელი (არასავალდებულო)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:87
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a service JID, %2 is either empty or ': ' "
@@ -2817,7 +2817,7 @@ msgctxt ""
 msgid "The group could not be created on %1%2"
 msgstr "ჯგუფის შექმნა შეუძლებელია %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:91
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2825,7 +2825,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr "ჯგუფის %1 შექმნა შეუძლებელია %2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:95
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, qt-format
 msgctxt ""
 "GroupChatCreationContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2843,37 +2843,37 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "ჯგუფური ჩატის შექმნა"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:19
+#: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr "შეერთება"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:21
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
 msgstr "ჯგუფში გაწევრება…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:34
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
 msgstr "ჯგუფის მისამართი"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:27
+#: src/qml/elements/GroupChatJoiningContent.qml:35
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "group@groups.example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:36
 msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
 msgstr "შეიყვანეთ სწორი ჯგუფის მისამართი"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:49
+#: src/qml/elements/GroupChatJoiningContent.qml:51
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr "მეტსახელი (არასავალდებულო)"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:59
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
 msgctxt ""
 "GroupChatJoiningContent|%1 is a group JID, %2 is either empty or ': ' "
@@ -2979,22 +2979,22 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
-#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:86
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "შესვლა"
 
-#: src/qml/elements/LoginArea.qml:39
+#: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "შესვლის QR კოდის სკანირება"
 
-#: src/qml/elements/LoginArea.qml:56
+#: src/qml/elements/LoginArea.qml:52
 msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "კავშირის პარამეტრების ჩვენება"
 
-#: src/qml/elements/LoginArea.qml:91
+#: src/qml/elements/LoginArea.qml:87
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
@@ -3455,72 +3455,72 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "ანგარიშები"
 
-#: src/qml/GlobalDrawer.qml:118
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "პაროლი"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "შეიყვანეთ თქვენი სწორი პაროლი"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:130
 msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "დაადასტურეთ პაროლი"
 
-#: src/qml/GlobalDrawer.qml:168
+#: src/qml/GlobalDrawer.qml:169
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "ქმედებები"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr "ჩართეთ თქვენი ანგარიში ყველა ხელმისაწვდომი ქმედების გამოსაყენებლად"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr "ჩართეთ ანგარიში ყველა ხელმისაწვდომი ქმედების გამოსაყენებლად"
 
-#: src/qml/GlobalDrawer.qml:177
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "კონტაქტის QR კოდით დამატება"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "კონტაქტის დამატება ჩატის მისამართით"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "ჯგუფის შექმნა"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "ჯგუფის შექმნა (მხარდაჭერილი არაა)"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "ჯგუფში შესვლა"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr "ჯგუფთან მიერთება (მხარდაჭერილი არა)"
 
-#: src/qml/GlobalDrawer.qml:244
+#: src/qml/GlobalDrawer.qml:245
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "საჯარო ჯგუფების ძებნა"
 
-#: src/qml/GlobalDrawer.qml:258
+#: src/qml/GlobalDrawer.qml:259
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "შესახებ"
@@ -3612,64 +3612,73 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr "ავტომატური რეგისტრაცია ჩავარდა ყველა პროვაიდერთან პრობლემების გამო"
 
-#: src/qml/registration/CustomDataFormArea.qml:25
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
+msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "შეიყვანეთ დამატებითი ინფორმაცია"
 
-#: src/qml/registration/CustomDataFormArea.qml:29
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
+msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "პროვაიდერმა მეტი ინფორმაცია მოითხოვა"
 
-#: src/qml/registration/CustomDataFormArea.qml:30
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
+msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "შეიძლება, ყველაფერი, აუცილებელი არ იყოს"
 
-#: src/qml/registration/ManualRegistrationPage.qml:30
+#: src/qml/registration/ManualRegistrationPage.qml:31
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
 msgstr "რეგისტრაცია ხელით"
 
-#: src/qml/registration/ManualRegistrationPage.qml:42
+#: src/qml/registration/ManualRegistrationPage.qml:43
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
 msgstr "შეავსეთ რეგისტრაციის ფორმა!"
 
-#: src/qml/registration/ManualRegistrationPage.qml:61
+#: src/qml/registration/ManualRegistrationPage.qml:65
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "შეიყვანეთ სასურველი ავტორიზაციის დეტალები"
 
-#: src/qml/registration/ManualRegistrationPage.qml:67
+#: src/qml/registration/ManualRegistrationPage.qml:70
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "საჩვენებელი სახელი"
 
-#: src/qml/registration/ManualRegistrationPage.qml:75
+#: src/qml/registration/ManualRegistrationPage.qml:79
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "მომხმარებლის სახელი"
 
-#: src/qml/registration/ManualRegistrationPage.qml:79
+#: src/qml/registration/ManualRegistrationPage.qml:84
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 "შეიყვანეთ სწორი მომხმარებლის სახელი ან, შემთხვევითის ასარჩევად, ეს ველი "
 "ცარიელი დატოვეთ"
 
-#: src/qml/registration/ManualRegistrationPage.qml:139
+#: src/qml/registration/ManualRegistrationPage.qml:144
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "მომწოდებელი უფრო ძლიერ პაროლს მოითხოვს."
 
-#: src/qml/registration/ManualRegistrationPage.qml:188
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "მომხმარებლის სახელი უკვე დაკავებულია."
 
-#: src/qml/registration/ManualRegistrationPage.qml:192
+#: src/qml/registration/ManualRegistrationPage.qml:197
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "გენერირებულია ახალი შემთხვევითი მომხმარებლის სახელი."

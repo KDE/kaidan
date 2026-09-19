@@ -3041,27 +3041,27 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Não existe nenhuma câmara disponível."
 
-#: src/qml/elements/ChatMessage.qml:229
+#: src/qml/elements/ChatMessage.qml:230
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:236
+#: src/qml/elements/ChatMessage.qml:237
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:525
+#: src/qml/elements/ChatMessage.qml:526
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:553
+#: src/qml/elements/ChatMessage.qml:554
 #, fuzzy, qt-format
 #| msgctxt "ChatMessage|"
 #| msgid "%1 has read up to this point"
@@ -3283,7 +3283,7 @@ msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Adicionar"
 
-#: src/qml/elements/ContactAdditionContent.qml:45
+#: src/qml/elements/ContactAdditionContent.qml:44
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Trust decisions made for contact - Continue with step 2"
@@ -3291,12 +3291,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Trust decisions made for contact"
 msgstr "Confiar nas decisões feitas para o contacto - Continuar com o passo 2"
 
-#: src/qml/elements/ContactAdditionContent.qml:72
+#: src/qml/elements/ContactAdditionContent.qml:71
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "A adicionar o contacto…"
 
-#: src/qml/elements/ContactAdditionContent.qml:99
+#: src/qml/elements/ContactAdditionContent.qml:92
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -3477,7 +3477,7 @@ msgctxt "EmojiPicker|"
 msgid "Flags"
 msgstr ""
 
-#: src/qml/elements/EmojiPicker.qml:193
+#: src/qml/elements/EmojiPicker.qml:194
 msgctxt "EmojiPicker|"
 msgid "No emoji found"
 msgstr ""
@@ -3558,17 +3558,17 @@ msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
 msgstr "Enviar a localização"
 
-#: src/qml/elements/GroupChatCreationContent.qml:21
+#: src/qml/elements/GroupChatCreationContent.qml:22
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:23
+#: src/qml/elements/GroupChatCreationContent.qml:38
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:28
+#: src/qml/elements/GroupChatCreationContent.qml:43
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -3576,37 +3576,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:44
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:36
+#: src/qml/elements/GroupChatCreationContent.qml:51
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:50
+#: src/qml/elements/GroupChatCreationContent.qml:65
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:53
+#: src/qml/elements/GroupChatCreationContent.qml:68
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:55
+#: src/qml/elements/GroupChatCreationContent.qml:70
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:63
+#: src/qml/elements/GroupChatCreationContent.qml:78
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:71
+#: src/qml/elements/GroupChatCreationContent.qml:86
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -3614,7 +3614,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:87
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, fuzzy, qt-format
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid ""
@@ -3630,7 +3630,7 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:91
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3640,7 +3640,7 @@ msgctxt ""
 msgid "The group %1 could not be created%2"
 msgstr "Não foi possível adicionar o %1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:95
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3666,12 +3666,12 @@ msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
 msgstr "Livre para conversação"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:19
+#: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:21
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -3679,7 +3679,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group…"
 msgstr "Livre para conversação"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:34
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Copy website address"
@@ -3687,7 +3687,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
 msgstr "Copiar o endereço da página Web"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:27
+#: src/qml/elements/GroupChatJoiningContent.qml:35
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -3695,7 +3695,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "utilizador@exemplo.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:36
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Please enter a valid password"
@@ -3703,7 +3703,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Enter a valid group address"
 msgstr "Indique por favor uma senha válida"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:49
+#: src/qml/elements/GroupChatJoiningContent.qml:51
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -3711,7 +3711,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
 msgstr "Nome (opcional):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:59
+#: src/qml/elements/GroupChatJoiningContent.qml:61
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3845,7 +3845,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "A carregar…"
 
-#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:90
+#: src/qml/elements/LoginArea.qml:30 src/qml/elements/LoginArea.qml:86
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -3853,7 +3853,7 @@ msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Ligar"
 
-#: src/qml/elements/LoginArea.qml:39
+#: src/qml/elements/LoginArea.qml:35
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3861,7 +3861,7 @@ msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Analisar o código QR"
 
-#: src/qml/elements/LoginArea.qml:56
+#: src/qml/elements/LoginArea.qml:52
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Change connection settings"
@@ -3869,7 +3869,7 @@ msgctxt "LoginArea|"
 msgid "Show connection settings"
 msgstr "Mudar a configuração da ligação"
 
-#: src/qml/elements/LoginArea.qml:91
+#: src/qml/elements/LoginArea.qml:87
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -4503,7 +4503,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Contas"
 
-#: src/qml/GlobalDrawer.qml:118
+#: src/qml/GlobalDrawer.qml:120
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -4511,7 +4511,7 @@ msgctxt "GlobalDrawer|"
 msgid "Password"
 msgstr "Senha"
 
-#: src/qml/GlobalDrawer.qml:119
+#: src/qml/GlobalDrawer.qml:121
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter correct password"
@@ -4519,7 +4519,7 @@ msgctxt "GlobalDrawer|"
 msgid "Enter your correct password"
 msgstr "Indique a senha correcta"
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:130
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -4527,37 +4527,37 @@ msgctxt "GlobalDrawer|"
 msgid "Confirm password"
 msgstr "Copiar a senha"
 
-#: src/qml/GlobalDrawer.qml:168
+#: src/qml/GlobalDrawer.qml:169
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Acções"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable your account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Enable an account to use all available actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:177
+#: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Adicionar um contacto com um código QR"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Adicionar um contacto pelo endereço de conversação"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:192
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -4565,22 +4565,22 @@ msgctxt "GlobalDrawer|"
 msgid "Create group (unsupported)"
 msgstr "Livre para conversação"
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:217
+#: src/qml/GlobalDrawer.qml:218
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:244
+#: src/qml/GlobalDrawer.qml:245
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Procurar nos grupos públicos"
 
-#: src/qml/GlobalDrawer.qml:258
+#: src/qml/GlobalDrawer.qml:259
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -4686,25 +4686,25 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic registration failed because of problems with all providers"
 msgstr ""
 
-#: src/qml/registration/CustomDataFormArea.qml:25
+#: src/qml/registration/CustomDataFormCard.qml:23
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "More information"
-msgctxt "CustomDataFormArea|"
+msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Mais informações"
 
-#: src/qml/registration/CustomDataFormArea.qml:29
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:27
+msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr ""
 
-#: src/qml/registration/CustomDataFormArea.qml:30
-msgctxt "CustomDataFormArea|"
+#: src/qml/registration/CustomDataFormCard.qml:28
+msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:30
+#: src/qml/registration/ManualRegistrationPage.qml:31
 #, fuzzy
 #| msgctxt "RegistrationPage|"
 #| msgid "Registration failed:"
@@ -4712,7 +4712,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
 msgstr "O registo foi mal-sucedido:"
 
-#: src/qml/registration/ManualRegistrationPage.qml:42
+#: src/qml/registration/ManualRegistrationPage.qml:43
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Web registration only:"
@@ -4720,7 +4720,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
 msgstr "Apenas para registo Web:"
 
-#: src/qml/registration/ManualRegistrationPage.qml:61
+#: src/qml/registration/ManualRegistrationPage.qml:65
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter correct password"
@@ -4728,7 +4728,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "Indique a senha correcta"
 
-#: src/qml/registration/ManualRegistrationPage.qml:67
+#: src/qml/registration/ManualRegistrationPage.qml:70
 #, fuzzy
 #| msgctxt "DisplayNameView|"
 #| msgid "Display Name"
@@ -4736,7 +4736,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Display name"
 msgstr "Nome Visível"
 
-#: src/qml/registration/ManualRegistrationPage.qml:75
+#: src/qml/registration/ManualRegistrationPage.qml:79
 #, fuzzy
 #| msgctxt "UsernameView|"
 #| msgid "Username"
@@ -4744,7 +4744,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Utilizador"
 
-#: src/qml/registration/ManualRegistrationPage.qml:79
+#: src/qml/registration/ManualRegistrationPage.qml:84
 #, fuzzy
 #| msgctxt "UsernameView|"
 #| msgid ""
@@ -4755,17 +4755,17 @@ msgstr ""
 "Por favor indique um utilizador válido ou deixe o campo em branco para "
 "escolher um aleatoriamente."
 
-#: src/qml/registration/ManualRegistrationPage.qml:139
+#: src/qml/registration/ManualRegistrationPage.qml:144
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "O fornecedor necessita de uma senha mais forte."
 
-#: src/qml/registration/ManualRegistrationPage.qml:188
+#: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "O utilizador já foi ocupado."
 
-#: src/qml/registration/ManualRegistrationPage.qml:192
+#: src/qml/registration/ManualRegistrationPage.qml:197
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Foi gerado um novo nome de utilizador aleatório."
