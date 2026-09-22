@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,8 +54,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"مۇلازىمېتىرغا باغلىنالمايدۇ. ئىنتېرنېت باغلىنىشى ياكى مۇلازىمېتىر ئاتىنى "
-"تەكشۈرۈڭ."
+"مۇلازىمېتىرغا باغلىنالمايدۇ. Please check your internet connection or your "
+"server name."
 
 #: src/Account.cpp:503
 msgctxt "Connection|"
@@ -166,7 +166,7 @@ msgstr "قوزغات"
 #: src/ChatHintModel.cpp:237
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
-msgstr ""
+msgstr "قوزغىتىۋاتىدۇ…"
 
 #: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
@@ -304,9 +304,6 @@ msgid "Joined"
 msgstr ""
 
 #: src/GroupChatUserModel.cpp:58
-#, fuzzy
-#| msgctxt "GroupChatUserModel|"
-#| msgid "Left"
 msgctxt "GroupChatUserModel|As in: 'User has left the group chat'"
 msgid "Left"
 msgstr "سول"
@@ -435,13 +432,11 @@ msgid "Documents"
 msgstr "پۈتۈك"
 
 #: src/MediaUtils.cpp:446
-#, fuzzy, qt-format
-#| msgctxt "MediaUtils|"
-#| msgid "%1 (%2)"
+#, qt-format
 msgctxt ""
 "MediaUtils|%1 is a human-readable filter name, %2 the actual filter pattern"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: src/Message.cpp:140
 msgctxt "QObject|"
@@ -724,13 +719,11 @@ msgstr "چەكسىز"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:133
-#, fuzzy, qt-format
-#| msgctxt "ProviderModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
 msgid_plural "%n day(s)"
-msgstr[0] "%1 كۈن"
+msgstr[0] "%n كۈن"
 
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
@@ -1015,12 +1008,10 @@ msgid "Support"
 msgstr "قوللاش"
 
 #: src/qml/details/AccountDetailsContent.qml:410
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
-msgstr "قوللاش"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:428
 msgctxt "AccountDetailsContent|"
@@ -1033,12 +1024,10 @@ msgid "Join your provider's public support group"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
+#, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
-msgstr "قوللاش"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:458
 msgctxt "AccountDetailsContent|"
@@ -1557,9 +1546,6 @@ msgid "Indicate which messages you have read"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "توسما"
@@ -2216,12 +2202,9 @@ msgid "Feature unsupported"
 msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "قوللاش"
+msgstr "دوكلات"
 
 #: src/qml/elements/BlockingReportContent.qml:35
 msgctxt "BlockingReportContent|"
@@ -2236,7 +2219,7 @@ msgstr ""
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "سپەم"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
@@ -2254,12 +2237,9 @@ msgid "Harassing, threatening, or otherwise abusive behavior"
 msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "چۈشەندۈرۈش"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
@@ -2551,12 +2531,9 @@ msgid "Copy"
 msgstr "كۆچۈر"
 
 #: src/qml/elements/CustomConnectionSettings.qml:37
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Hostname:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "ماشىنا ئاتى:"
+msgstr "كومپيۇتېر ئاتى"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
@@ -2564,12 +2541,9 @@ msgid "Enter a valid hostname or leave it empty"
 msgstr ""
 
 #: src/qml/elements/CustomConnectionSettings.qml:50
-#, fuzzy
-#| msgctxt "CustomConnectionSettings|"
-#| msgid "Port:"
 msgctxt "CustomConnectionSettings|"
 msgid "Port"
-msgstr "ئېغىز:"
+msgstr "ئېغىز"
 
 #: src/qml/elements/CustomConnectionSettings.qml:88
 msgctxt "CustomConnectionSettings|"
@@ -2591,12 +2565,12 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
 msgid "Favorites"
-msgstr ""
+msgstr "يىغقۇچ"
 
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr ""
+msgstr "كىشى"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
@@ -2611,7 +2585,7 @@ msgstr ""
 #: src/qml/elements/EmojiPicker.qml:77
 msgctxt "EmojiPicker|"
 msgid "Activity"
-msgstr ""
+msgstr "پائالىيەت"
 
 #: src/qml/elements/EmojiPicker.qml:83
 msgctxt "EmojiPicker|"
@@ -2619,22 +2593,19 @@ msgid "Travel"
 msgstr ""
 
 #: src/qml/elements/EmojiPicker.qml:89
-#, fuzzy
-#| msgctxt "NotificationController|"
-#| msgid "Reject"
 msgctxt "EmojiPicker|"
 msgid "Objects"
-msgstr "رەت قىل"
+msgstr "جىسىم"
 
 #: src/qml/elements/EmojiPicker.qml:95
 msgctxt "EmojiPicker|"
 msgid "Symbols"
-msgstr ""
+msgstr "بەلگە"
 
 #: src/qml/elements/EmojiPicker.qml:101
 msgctxt "EmojiPicker|"
 msgid "Flags"
-msgstr ""
+msgstr "بايراق"
 
 #: src/qml/elements/EmojiPicker.qml:194
 msgctxt "EmojiPicker|"
@@ -2692,12 +2663,9 @@ msgid "Follow current location"
 msgstr ""
 
 #: src/qml/elements/GeoLocationSharingPage.qml:62
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationSharingPage|"
 msgid "Send location"
-msgstr "ئورنى"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:22
 msgctxt "GroupChatCreationContent|"
@@ -2740,12 +2708,9 @@ msgid "Enter a valid group ID"
 msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:78
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices"
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "ئۈسكۈنە"
+msgstr "مۇلازىمەت"
 
 #: src/qml/elements/GroupChatCreationContent.qml:86
 msgctxt "GroupChatCreationContent|"
@@ -2797,12 +2762,9 @@ msgid "Joining group…"
 msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:34
-#, fuzzy
-#| msgctxt "GroupChatJoiningContent|"
-#| msgid "Address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Group address"
-msgstr "ئادرېس"
+msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:35
 msgctxt "GroupChatJoiningContent|"
@@ -3055,12 +3017,9 @@ msgid "Show details"
 msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:112
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No selection"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Add same reaction"
-msgstr "تاللانمىدى"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:116
 msgctxt "MessageReactionDisplayButton|"
@@ -3341,7 +3300,7 @@ msgstr ""
 #, qt-format
 msgctxt "RosterItemDelegate|"
 msgid "%1:"
-msgstr "%1:"
+msgstr ""
 
 #: src/qml/elements/RosterItemDelegate.qml:288
 msgctxt "RosterItemDelegate|"
@@ -3464,17 +3423,12 @@ msgid "About"
 msgstr "ھەققىدە"
 
 #: src/qml/main.qml:182
-#, fuzzy, qt-format
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
+#, qt-format
 msgctxt "main|%1 is a JID"
 msgid "Unblocked %1"
-msgstr "توسما"
+msgstr ""
 
 #: src/qml/main.qml:182
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "main|"
 msgid "Undo"
 msgstr "يېنىۋال"
@@ -3584,12 +3538,9 @@ msgid "Enter your desired credentials"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:70
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display name"
-msgstr "كۆرسىتىش ئىسمى"
+msgstr "كۆرسىتىش ئاتى"
 
 #: src/qml/registration/ManualRegistrationPage.qml:79
 msgctxt "ManualRegistrationPage|"
@@ -3912,7 +3863,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "تور بېكەت"
 
-#, fuzzy
 #~| msgctxt "AccountDetailsContent|"
 #~| msgid "Unblock"
 #~ msgctxt "GlobalDrawer|%1 is a JID"
