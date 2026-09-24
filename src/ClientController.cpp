@@ -268,7 +268,7 @@ void ClientController::onConnected()
     m_encryptionController->setUp().then([this]() {
         if (m_uploadManager->support() == QXmppHttpUploadManager::Support::Unknown) {
             connect(m_uploadManager,
-                    &QXmppHttpUploadManager::servicesChanged,
+                    &QXmppHttpUploadManager::supportChanged,
                     m_messageController,
                     &MessageController::sendPendingData,
                     Qt::SingleShotConnection);
