@@ -839,7 +839,7 @@ QFuture<void> MessageDb::removeMessages(const QString &accountJid)
 QFuture<void> MessageDb::removeMessages(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
-        _removeReactions(accountJid);
+        _removeReactions(accountJid, chatJid);
         _removeFiles(accountJid, chatJid);
 
         auto query = createQuery();
