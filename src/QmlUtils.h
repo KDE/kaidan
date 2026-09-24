@@ -197,5 +197,9 @@ public:
     Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &geoUri);
 
 private:
+    friend class MainController;
+
     explicit QmlUtils(QObject *parent);
+
+    static QmlUtils *s_instance;
 };

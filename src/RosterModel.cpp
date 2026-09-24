@@ -11,16 +11,13 @@
 
 #include "RosterModel.h"
 
-// std
-#include <type_traits>
-// Qt
-#include <QQmlEngine>
 // Kaidan
 #include "AccountController.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "MessageController.h"
 #include "MessageDb.h"
+#include "QmlSingleton.h"
 #include "RosterController.h"
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
@@ -771,12 +768,9 @@ QString RosterModel::formatLastMessageDateTime(const QDateTime &lastMessageDateT
     }
 }
 
-static_assert(!std::is_default_constructible_v<RosterModel>);
-
-RosterModel *RosterModel::create(QQmlEngine *engine, QJSEngine *)
+RosterModel *RosterModel::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(RosterModel::instance(), QQmlEngine::CppOwnership);
-    return RosterModel::instance();
+    return qmlSingletonInstance<RosterModel>();
 }
 
 #include "moc_RosterModel.cpp"

@@ -4,8 +4,6 @@
 
 #include "ImageProvider.h"
 
-// std
-#include <type_traits>
 // Qt
 #include <QBuffer>
 #include <QClipboard>
@@ -30,6 +28,7 @@
 #include "MainController.h"
 #include "MediaUtils.h"
 #include "Message.h"
+#include "QmlSingleton.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -411,12 +410,9 @@ bool ImageProvider::isImageOrVideo(const QString &filePath)
     return isImage || isVideo;
 }
 
-static_assert(!std::is_default_constructible_v<ImageProvider>);
-
-ImageProvider *ImageProvider::create(QQmlEngine *engine, QJSEngine *)
+ImageProvider *ImageProvider::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(ImageProvider::instance(), QQmlEngine::CppOwnership);
-    return ImageProvider::instance();
+    return qmlSingletonInstance<ImageProvider>();
 }
 
 #include "moc_ImageProvider.cpp"

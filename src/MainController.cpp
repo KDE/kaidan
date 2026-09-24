@@ -12,10 +12,6 @@
 
 #include "MainController.h"
 
-// std
-#include <type_traits>
-// Qt
-#include <QQmlEngine>
 // QXmpp
 #include <QXmppUri.h>
 // Kaidan
@@ -27,6 +23,8 @@
 #include "Globals.h"
 #include "GroupChatUserDb.h"
 #include "MessageDb.h"
+#include "QmlSingleton.h"
+#include "QmlUtils.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
@@ -57,6 +55,7 @@ MainController::MainController(QObject *parent)
     new AccountController(this);
     new AvatarImageCache(this);
     new RosterModel(this);
+    new QmlUtils(this);
 }
 
 MainController::~MainController()
@@ -149,12 +148,9 @@ QString databaseFilename()
 }
 #endif
 
-static_assert(!std::is_default_constructible_v<MainController>);
-
-MainController *MainController::create(QQmlEngine *engine, QJSEngine *)
+MainController *MainController::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(MainController::instance(), QQmlEngine::CppOwnership);
-    return MainController::instance();
+    return qmlSingletonInstance<MainController>();
 }
 
 #include "moc_MainController.cpp"

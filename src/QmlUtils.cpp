@@ -6,15 +6,12 @@
 
 #include "QmlUtils.h"
 
-// std
-#include <type_traits>
 // Qt
 #include <QClipboard>
 #include <QDir>
 #include <QGeoCoordinate>
 #include <QGuiApplication>
 #include <QImage>
-#include <QQmlEngine>
 #include <QRegularExpression>
 #include <QStandardPaths>
 // QXmpp
@@ -23,6 +20,7 @@
 // Kaidan
 #include "Globals.h"
 #include "KaidanCoreLog.h"
+#include "QmlSingleton.h"
 #include "SystemUtils.h"
 
 const auto NEW_LINE = QStringLiteral("\n");
@@ -31,13 +29,10 @@ const auto QUOTE_PREFIX = QStringLiteral("> ");
 constexpr QStringView GEO_URI_SCHEME = u"geo";
 constexpr QStringView GEO_URI_COORDINATE_SEPARATOR = u",";
 
-static QmlUtils *s_instance;
+QmlUtils *QmlUtils::s_instance = nullptr;
 
 QmlUtils *QmlUtils::instance()
 {
-    if (!s_instance)
-        return new QmlUtils(QGuiApplication::instance());
-
     return s_instance;
 }
 
@@ -273,12 +268,9 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
     return {};
 }
 
-static_assert(!std::is_default_constructible_v<QmlUtils>);
-
-QmlUtils *QmlUtils::create(QQmlEngine *engine, QJSEngine *)
+QmlUtils *QmlUtils::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(QmlUtils::instance(), QQmlEngine::CppOwnership);
-    return QmlUtils::instance();
+    return qmlSingletonInstance<QmlUtils>();
 }
 
 #include "moc_QmlUtils.cpp"

@@ -7,13 +7,10 @@
 
 #include "Settings.h"
 
-// std
-#include <type_traits>
-// Qt
-#include <QQmlEngine>
 // Kaidan
 #include "Globals.h"
 #include "MainController.h"
+#include "QmlSingleton.h"
 
 Settings *Settings::s_instance = nullptr;
 
@@ -100,12 +97,9 @@ void Settings::remove(const QStringList &keys)
         m_settings.remove(key);
 }
 
-static_assert(!std::is_default_constructible_v<Settings>);
-
-Settings *Settings::create(QQmlEngine *engine, QJSEngine *)
+Settings *Settings::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(Settings::instance(), QQmlEngine::CppOwnership);
-    return Settings::instance();
+    return qmlSingletonInstance<Settings>();
 }
 
 #include "moc_Settings.cpp"

@@ -4,10 +4,6 @@
 
 #include "AccountController.h"
 
-// std
-#include <type_traits>
-// Qt
-#include <QQmlEngine>
 // Kaidan
 #include "AccountDb.h"
 #include "AccountMigrationController.h"
@@ -15,6 +11,7 @@
 #include "KaidanCoreLog.h"
 #include "Keychain.h"
 #include "MainController.h"
+#include "QmlSingleton.h"
 
 AccountController *AccountController::s_instance = nullptr;
 
@@ -234,12 +231,9 @@ void AccountController::cancelMigration()
     Q_EMIT migratingChanged();
 }
 
-static_assert(!std::is_default_constructible_v<AccountController>);
-
-AccountController *AccountController::create(QQmlEngine *engine, QJSEngine *)
+AccountController *AccountController::create(QQmlEngine *, QJSEngine *)
 {
-    engine->setObjectOwnership(AccountController::instance(), QQmlEngine::CppOwnership);
-    return AccountController::instance();
+    return qmlSingletonInstance<AccountController>();
 }
 
 #include "moc_AccountController.cpp"

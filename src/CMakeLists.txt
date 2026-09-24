@@ -173,6 +173,7 @@ target_sources(libkaidancore PRIVATE
     PublicGroupChatSearchController.cpp
     PublicGroupChatSearchController.h
     QmlForeignTypes.h
+    QmlSingleton.h
     QmlUtils.cpp
     QmlUtils.h
     RegistrationController.cpp
