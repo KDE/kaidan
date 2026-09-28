@@ -204,7 +204,12 @@ public:
 
     /**
      * Checks Message::isModifiable() and MAX_MESSAGE_MODIFICATION_COUNT.
+     *
+     * Only the messages until "referenceTime" (i.e., the time of the modification) are counted.
+     * Otherwise, a modification received after more recent messages (e.g., from an archive)
+     * would be rejected because of messages that have been exchanged after the modification.
      */
+    QFuture<bool> isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime);
     bool _isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime);
 
     /**
@@ -341,7 +346,11 @@ private:
      */
     bool _checkMessageExists(const Message &message);
 
-    bool _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset);
+    /**
+     * Checks whether there are more than "offset" messages from "timestamp" until "referenceTime".
+     */
+    bool
+    _checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QDateTime &referenceTime, int offset);
 
     Message _initializeLastMessage(const QString &accountJid, const QString &chatJid);
 

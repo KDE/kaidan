@@ -9,6 +9,7 @@
 #include <QTest>
 // Kaidan
 #include "Database.h"
+#include "Globals.h"
 #include "MediaUtils.h"
 #include "Message.h"
 #include "MessageDb.h"
@@ -45,6 +46,7 @@ private:
     Q_SLOT void testRemoveMessageByOtherId();
     Q_SLOT void testRemoveMessageReactions();
     Q_SLOT void testRemoveMessageFiles();
+    Q_SLOT void testMessageModifiableUntilReferenceTime();
 
     void addMessage(const Message &message);
     bool messageExists(const QString &chatJid, const QString &messageId);
@@ -155,6 +157,30 @@ void MessageDbTest::testRemoveMessageFiles()
 
     wait(messageDb->removeMessage(s_accountJid, s_chatJid, message.id));
     QVERIFY(!QFile::exists(localFilePath));
+}
+
+// Only the messages until the modification count, e.g., if the modification is received from an
+// archive after more recent messages.
+void MessageDbTest::testMessageModifiableUntilReferenceTime()
+{
+    const auto chatJid = QStringLiteral("erin@example.org");
+    const auto timestamp = QDateTime::currentDateTimeUtc().addSecs(-3600);
+
+    auto message = createMessage(chatJid, QStringLiteral("modify-until-reference-time"));
+    message.timestamp = timestamp;
+    addMessage(message);
+
+    for (int i = 1; i <= MAX_MESSAGE_MODIFICATION_COUNT; i++) {
+        auto moreRecentMessage = createMessage(chatJid, QStringLiteral("modify-until-reference-time-%1").arg(i));
+        moreRecentMessage.timestamp = timestamp.addSecs(60 + i);
+        addMessage(moreRecentMessage);
+    }
+
+    // The more recent messages have been exchanged after the modification.
+    QVERIFY(wait(messageDb->isMessageModifiable(message, false, timestamp.addSecs(60))));
+
+    // Too many more recent messages have been exchanged before the modification.
+    QVERIFY(!wait(messageDb->isMessageModifiable(message, false, QDateTime::currentDateTimeUtc())));
 }
 
 QTEST_GUILESS_MAIN(MessageDbTest)

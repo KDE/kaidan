@@ -748,10 +748,17 @@ int MessageDb::_markedMessageCount(const QString &accountJid, const QString &cha
     return query.value(0).toInt();
 }
 
+QFuture<bool> MessageDb::isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime)
+{
+    return run([this, message, modifiedByOwnUser, referenceTime] {
+        return _isMessageModifiable(message, modifiedByOwnUser, referenceTime);
+    });
+}
+
 bool MessageDb::_isMessageModifiable(const Message &message, bool modifiedByOwnUser, const QDateTime &referenceTime)
 {
     return message.isModifiable(modifiedByOwnUser, referenceTime)
-        && !_checkMoreRecentMessageExists(message.accountJid, message.chatJid, message.timestamp, MAX_MESSAGE_MODIFICATION_COUNT);
+        && !_checkMoreRecentMessageExists(message.accountJid, message.chatJid, message.timestamp, referenceTime, MAX_MESSAGE_MODIFICATION_COUNT);
 }
 
 QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin)
@@ -1917,7 +1924,11 @@ bool MessageDb::_checkMessageExists(const Message &message)
     return query.value(0).toInt();
 }
 
-bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, int offset)
+bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid,
+                                              const QString &chatJid,
+                                              const QDateTime &timestamp,
+                                              const QDateTime &referenceTime,
+                                              int offset)
 {
     auto query = createQuery();
     execQuery(query,
@@ -1926,12 +1937,13 @@ bool MessageDb::_checkMoreRecentMessageExists(const QString &accountJid, const Q
                                 FROM chatMessages
                                 WHERE
                                     accountJid = :accountJid AND chatJid = :chatJid AND
-                                    timestamp >= :timestamp
+                                    timestamp >= :timestamp AND timestamp <= :referenceTime
                             )"),
               {
                   {u":accountJid", accountJid},
                   {u":chatJid", chatJid},
                   {u":timestamp", timestamp.toString(Qt::ISODateWithMs)},
+                  {u":referenceTime", referenceTime.toUTC().toString(Qt::ISODateWithMs)},
               });
 
     query.first();
