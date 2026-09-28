@@ -30,6 +30,7 @@
 #include <QXmppMixManager.h>
 #include <QXmppMovedManager.h>
 #include <QXmppMucManagerV2.h>
+#include <QXmppNetworkMonitor.h>
 #include <QXmppOmemoManager.h>
 #include <QXmppPepBookmarkManager.h>
 #include <QXmppPubSubBaseItem.h>
@@ -64,6 +65,7 @@ ClientController::ClientController(AccountSettings *accountSettings, QObject *pa
 
         client->addNewExtension<QXmppCarbonManagerV2>();
         client->addNewExtension<QXmppEntityTimeManager>();
+        client->addNewExtension<QXmppNetworkMonitor>();
         client->addNewExtension<QXmppPubSubManager>();
 
         return client;
