@@ -3,15 +3,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-10 22:05+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-09-28 00:10+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:478
@@ -293,9 +293,7 @@ msgid "Transfer canceled"
 msgstr "Přenos zrušen"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Přenos se nezdařil: %1"
@@ -2073,16 +2071,13 @@ msgid "Other"
 msgstr "Jiné"
 
 #: src/qml/details/MediaOverview.qml:169
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "vybráno %1/%2"
-msgstr[1] "vybráno %1/%2"
-msgstr[2] "vybráno %1/%2"
+msgstr[0] "%Ln/%L1 vybráno"
+msgstr[1] "%Ln/%L1 vybráno"
+msgstr[2] "%Ln/%L1 vybráno"
 
 #: src/qml/details/MediaOverview.qml:252
 #, qt-format
@@ -2297,12 +2292,9 @@ msgid "Feature unsupported"
 msgstr "Funkce není podporována"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "BlockingReportContent|"
-#| msgid "Report"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Nahlásit"
+msgstr "Hlášení"
 
 #: src/qml/elements/BlockingReportContent.qml:35
 msgctxt "BlockingReportContent|"
@@ -3618,25 +3610,16 @@ msgstr ""
 "Automatická registrace se nezdařila kvůli problémům u všech poskytovatelů"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Zadejte další informace"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "Poskytovatel požádal o další informace"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Možná nebude vše nezbytné"
