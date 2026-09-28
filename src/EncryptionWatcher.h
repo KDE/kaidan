@@ -16,7 +16,6 @@ class EncryptionWatcher : public QObject
     QML_ELEMENT
 
     Q_PROPERTY(EncryptionController *encryptionController MEMBER m_encryptionController WRITE setEncryptionController)
-    Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
     Q_PROPERTY(QList<QString> jids READ jids WRITE setJids NOTIFY jidsChanged)
 
     Q_PROPERTY(bool hasDistrustedDevices READ hasDistrustedDevices NOTIFY hasDistrustedDevicesChanged)
@@ -28,10 +27,6 @@ public:
     explicit EncryptionWatcher(QObject *parent = nullptr);
 
     void setEncryptionController(EncryptionController *encryptionController);
-
-    QString accountJid() const;
-    void setAccountJid(const QString &accountJid);
-    Q_SIGNAL void accountJidChanged();
 
     QList<QString> jids() const;
     void setJids(const QList<QString> &jids);
@@ -53,13 +48,18 @@ private:
     void setUp();
     void handleDevicesChanged(QList<QString> jids);
     void update();
+    void reset();
 
-    EncryptionController *m_encryptionController;
-    QString m_accountJid;
+    void setHasDistrustedDevices(bool hasDistrustedDevices);
+    void setHasUsableDevices(bool hasUsableDevices);
+    void setHasAuthenticatableDevices(bool hasAuthenticatableDevices);
+    void setHasAuthenticatableDistrustedDevices(bool hasAuthenticatableDistrustedDevices);
+
+    EncryptionController *m_encryptionController = nullptr;
     QList<QString> m_jids;
 
-    bool m_hasDistrustedDevices;
-    bool m_hasUsableDevices;
-    bool m_hasAuthenticatableDevices;
-    bool m_hasAuthenticatableDistrustedDevices;
+    bool m_hasDistrustedDevices = false;
+    bool m_hasUsableDevices = false;
+    bool m_hasAuthenticatableDevices = false;
+    bool m_hasAuthenticatableDistrustedDevices = false;
 };

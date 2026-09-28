@@ -151,7 +151,6 @@ DetailsContent {
 				jid: root.account.settings.jid
 				encryptionWatcher: EncryptionWatcher {
 					encryptionController: root.account.encryptionController
-					accountJid: root.account.settings.jid
 					jids: [root.account.settings.jid]
 				}
 				onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage)

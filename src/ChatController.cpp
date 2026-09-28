@@ -39,7 +39,7 @@ ChatController::ChatController(QObject *parent)
     connect(m_accountEncryptionWatcher, &EncryptionWatcher::hasUsableDevicesChanged, this, &ChatController::isEncryptionEnabledChanged);
     connect(m_chatEncryptionWatcher, &EncryptionWatcher::hasUsableDevicesChanged, this, &ChatController::isEncryptionEnabledChanged);
 
-    connect(GroupChatUserDb::instance(), &GroupChatUserDb::userJidsChanged, this, &ChatController::updateGroupChatUserJids);
+    connect(GroupChatUserDb::instance(), &GroupChatUserDb::userJidsChanged, this, &ChatController::handleGroupChatUserJidsChanged);
 }
 
 ChatController::~ChatController()
@@ -209,14 +209,16 @@ void ChatController::initializeEncryption()
     m_encryptionController = m_account->encryptionController();
 
     m_accountEncryptionWatcher->setEncryptionController(m_encryptionController);
-    m_accountEncryptionWatcher->setAccountJid(m_account->settings()->jid());
     m_accountEncryptionWatcher->setJids({m_account->settings()->jid()});
 
     m_chatEncryptionWatcher->setEncryptionController(m_encryptionController);
-    m_chatEncryptionWatcher->setAccountJid(m_account->settings()->jid());
 
     // The JIDs for group chats are set by initializeGroupChat().
-    if (!rosterItem().isGroupChat()) {
+    if (rosterItem().isGroupChat()) {
+        // Reset the JIDs for group chats here to reset the encryption until the group chat users
+        // are loaded/fetched by initializeGroupChat().
+        m_chatEncryptionWatcher->setJids({});
+    } else {
         m_chatEncryptionWatcher->setJids({m_jid});
     }
 
@@ -254,36 +256,34 @@ void ChatController::initializeGroupChat()
     if (rosterItem().isGroupChat()) {
         m_groupChatController = m_account->groupChatController();
 
-        const auto relevantAccountJid = m_account->settings()->jid();
-        const auto relevantChatJid = m_jid;
+        const auto accountJid = m_account->settings()->jid();
+        const auto chatJid = m_jid;
 
-        GroupChatUserDb::instance()
-            ->userJids(relevantAccountJid, relevantChatJid)
-            .then(this, [this, relevantAccountJid, relevantChatJid](QList<QString> &&userJids) {
-                // Ensure that the chat is still the open one after fetching the user JIDs.
-                if (m_account->settings()->jid() == relevantAccountJid && m_jid == relevantChatJid) {
-                    setGroupChatUserJids(userJids);
+        GroupChatUserDb::instance()->userJids(accountJid, chatJid).then(this, [this, accountJid, chatJid](QList<QString> &&userJids) {
+            // Ensure that the chat is still the open one after fetching the user JIDs.
+            if (m_account->settings()->jid() == accountJid && m_jid == chatJid) {
+                setGroupChatUserJids(userJids);
 
-                    // Handle the case when the database does not contain users for the current group chat.
-                    // That happens, for example, after joining a channel or when the database was manually
-                    // deleted.
-                    //
-                    // The encryption for group chats is initialized once all group chat user JIDs are
-                    // fetched.
-                    if (m_groupChatUserJids.contains(m_account->settings()->jid())) {
-                        updateGroupChatEncryption();
-                    } else {
-                        m_groupChatController->requestGroupChatUsers(jid());
-                    }
+                // Handle the case when the database does not contain users for the current group chat.
+                // That happens, for example, after joining a channel or when the database was manually
+                // deleted.
+                //
+                // The encryption for group chats is initialized once all group chat user JIDs are
+                // fetched.
+                if (m_groupChatUserJids.contains(accountJid)) {
+                    updateGroupChatEncryption();
+                } else {
+                    m_groupChatController->requestGroupChatUsers(chatJid);
                 }
-            });
+            }
+        });
     } else {
         m_groupChatController = nullptr;
         setGroupChatUserJids({});
     }
 }
 
-void ChatController::updateGroupChatUserJids(const QString &accountJid, const QString &groupChatJid)
+void ChatController::handleGroupChatUserJidsChanged(const QString &accountJid, const QString &groupChatJid)
 {
     if (accountJid == m_account->settings()->jid() && groupChatJid == m_jid) {
         GroupChatUserDb::instance()->userJids(accountJid, groupChatJid).then(this, [this, accountJid, groupChatJid](QList<QString> &&userJids) {
@@ -300,10 +300,9 @@ void ChatController::updateGroupChatEncryption()
 {
     auto jids = m_groupChatUserJids;
     jids.removeOne(m_account->settings()->jid());
+    m_chatEncryptionWatcher->setJids(jids);
 
     if (!jids.isEmpty()) {
-        m_chatEncryptionWatcher->setJids(jids);
-
         executeOnceConnected([this, jids]() {
             m_encryptionController->initializeChat(jids);
         });

@@ -103,7 +103,7 @@ private:
     bool hasUsableEncryptionDevices() const;
 
     void initializeGroupChat();
-    void updateGroupChatUserJids(const QString &accountJid, const QString &groupChatJid);
+    void handleGroupChatUserJidsChanged(const QString &accountJid, const QString &groupChatJid);
     void updateGroupChatEncryption();
     void setGroupChatUserJids(const QList<QString> &groupChatUserJids);
 
