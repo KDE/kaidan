@@ -68,9 +68,12 @@ Controls.Control {
 					contentItem: Controls.Label {
 						text: qsTr("Images")
 						wrapMode: Text.Wrap
-						horizontalAlignment: Controls.Label.AlignHCenter
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
 						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
+					Layout.preferredWidth: 1
+					Layout.fillHeight: true
 				}
 
 				Kirigami.Separator {
@@ -84,9 +87,12 @@ Controls.Control {
 					contentItem: Controls.Label {
 						text: qsTr("Videos")
 						wrapMode: Text.Wrap
-						horizontalAlignment: Controls.Label.AlignHCenter
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
 						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
+					Layout.preferredWidth: 1
+					Layout.fillHeight: true
 				}
 
 
@@ -101,9 +107,12 @@ Controls.Control {
 					contentItem: Controls.Label {
 						text: qsTr("Other")
 						wrapMode: Text.Wrap
-						horizontalAlignment: Controls.Label.AlignHCenter
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
 						font.weight: parent.checked ? Font.Medium : Font.Normal
 					}
+					Layout.preferredWidth: 1
+					Layout.fillHeight: true
 				}
 
 				Controls.ButtonGroup {
