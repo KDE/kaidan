@@ -552,12 +552,12 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "No information"
 
-#: src/Message.cpp:363
+#: src/Message.cpp:372
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:373
+#: src/Message.cpp:382
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -565,7 +565,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Location"
 
-#: src/Message.cpp:470
+#: src/Message.cpp:479
 #, fuzzy, qt-format
 #| msgctxt "Message|"
 #| msgid "Invitation to group %1"
@@ -601,7 +601,7 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' cannot be sent because it is larger than %2"
 
-#: src/MessageController.cpp:278
+#: src/MessageController.cpp:260
 #, fuzzy
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -609,12 +609,12 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "Message could not be sent."
 
-#: src/MessageController.cpp:282
+#: src/MessageController.cpp:264
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
 
-#: src/MessageController.cpp:614
+#: src/MessageController.cpp:610
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -622,7 +622,7 @@ msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "This message is encrypted with %1 but could not be decrypted"
 
-#: src/MessageController.cpp:1030
+#: src/MessageController.cpp:1050
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -630,27 +630,63 @@ msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaction could not be sent: %1"
 
-#: src/MessageModel.cpp:284
+#: src/MessageController.cpp:1183
+msgctxt "MessageController|"
+msgid "Too old to be removed for everyone"
+msgstr ""
+
+#: src/MessageController.cpp:1205
+msgctxt "MessageController|"
+msgid ""
+"This person attempted to retract a message. But it is not supported by your "
+"app."
+msgstr ""
+
+#: src/MessageController.cpp:1227
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|%1 is an error message"
+msgid "Message could not be removed: %1"
+msgstr "Message could not be sent."
+
+#: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "MessageModel|"
+msgid "Removal pending"
+msgstr "Removal"
+
+#: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "MessageModel|"
+msgid "Removal failed"
+msgstr "Remove file"
+
+#: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pending"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:319
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Sent"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:321
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Delivered"
 
-#: src/MessageModel.cpp:290
+#: src/MessageModel.cpp:323
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:693
+#: src/MessageModel.cpp:629 src/MessageModel.cpp:726
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -658,7 +694,7 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaction could not be sent: %1"
 
-#: src/MessageModel.cpp:778
+#: src/MessageModel.cpp:811
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reactions could not be sent: %1"
@@ -666,12 +702,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Reactions could not be sent: %1"
 
-#: src/MessageModel.cpp:1321
+#: src/MessageModel.cpp:1394
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Today"
 
-#: src/MessageModel.cpp:1324
+#: src/MessageModel.cpp:1397
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Yesterday"
@@ -971,12 +1007,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Search"
 
-#: src/qml/ChatPage.qml:576
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr ""
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:592
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
 #| msgid "Select a chat to start"
@@ -984,7 +1020,7 @@ msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Select a chat to start"
 
-#: src/qml/ChatPage.qml:641
+#: src/qml/ChatPage.qml:643
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr ""
@@ -2620,12 +2656,12 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "No camera available"
 
-#: src/qml/elements/ChatMessage.qml:230
+#: src/qml/elements/ChatMessage.qml:232
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2633,7 +2669,7 @@ msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "Add hidden message part"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Add hidden message part"
@@ -2641,12 +2677,12 @@ msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "Add hidden message part"
 
-#: src/qml/elements/ChatMessage.qml:526
+#: src/qml/elements/ChatMessage.qml:528
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "New"
 
-#: src/qml/elements/ChatMessage.qml:554
+#: src/qml/elements/ChatMessage.qml:556
 #, fuzzy, qt-format
 #| msgctxt "ChatMessage|"
 #| msgid "%1 has read up to this point"
@@ -2654,7 +2690,7 @@ msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 has read up to this point"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:57
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
@@ -2662,7 +2698,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Remove file"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:65
+#: src/qml/elements/ChatMessageContextMenu.qml:68
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Remove selected file"
@@ -2670,52 +2706,68 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "Remove selected file"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:78
+#: src/qml/elements/ChatMessageContextMenu.qml:81
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "ChatMessageContextMenu|"
+msgid "Retry removal"
+msgstr "Removal"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:86
+#: src/qml/elements/ChatMessageContextMenu.qml:95
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "React"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:108
+#: src/qml/elements/ChatMessageContextMenu.qml:117
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Reply"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:126
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Quote"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:134
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:148
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Copy"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:162
+#: src/qml/elements/ChatMessageContextMenu.qml:171
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Edit"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:173
+#: src/qml/elements/ChatMessageContextMenu.qml:182
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:181
+#: src/qml/elements/ChatMessageContextMenu.qml:190
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:197
+#: src/qml/elements/ChatMessageContextMenu.qml:206
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove"
+msgstr "Remove"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:206
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Remove from this device"
@@ -4531,7 +4583,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterModel.cpp:758
+#: src/RosterModel.cpp:760
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Yesterday"

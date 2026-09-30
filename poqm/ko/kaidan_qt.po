@@ -487,17 +487,17 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "정보 없음"
 
-#: src/Message.cpp:363
+#: src/Message.cpp:372
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/Message.cpp:373
+#: src/Message.cpp:382
 msgctxt "Message|"
 msgid "Location"
 msgstr "위치"
 
-#: src/Message.cpp:470
+#: src/Message.cpp:479
 #, fuzzy, qt-format
 #| msgctxt "Message|"
 #| msgid "Invitation to group %1"
@@ -533,7 +533,7 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageController.cpp:278
+#: src/MessageController.cpp:260
 #, fuzzy
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -541,12 +541,12 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:282
+#: src/MessageController.cpp:264
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:614
+#: src/MessageController.cpp:610
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -554,7 +554,7 @@ msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1030
+#: src/MessageController.cpp:1050
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -562,27 +562,63 @@ msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:284
+#: src/MessageController.cpp:1183
+msgctxt "MessageController|"
+msgid "Too old to be removed for everyone"
+msgstr ""
+
+#: src/MessageController.cpp:1205
+msgctxt "MessageController|"
+msgid ""
+"This person attempted to retract a message. But it is not supported by your "
+"app."
+msgstr ""
+
+#: src/MessageController.cpp:1227
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|%1 is an error message"
+msgid "Message could not be removed: %1"
+msgstr "메시지를 전송할 수 없습니다."
+
+#: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "MessageModel|"
+msgid "Removal pending"
+msgstr "삭제"
+
+#: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "MediumSendingPreview|"
+#| msgid "Remove file"
+msgctxt "MessageModel|"
+msgid "Removal failed"
+msgstr "파일 삭제"
+
+#: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:319
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:321
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:290
+#: src/MessageModel.cpp:323
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:693
+#: src/MessageModel.cpp:629 src/MessageModel.cpp:726
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -590,7 +626,7 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:778
+#: src/MessageModel.cpp:811
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reactions could not be sent: %1"
@@ -598,12 +634,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1321
+#: src/MessageModel.cpp:1394
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1324
+#: src/MessageModel.cpp:1397
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -893,17 +929,17 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:576
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "전달 취소"
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:592
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "메시지를 전달하려는 채팅 선택"
 
-#: src/qml/ChatPage.qml:641
+#: src/qml/ChatPage.qml:643
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "보낼 파일을 끌어다 놓기"
@@ -2447,12 +2483,12 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "카메라를 사용할 수 없음"
 
-#: src/qml/elements/ChatMessage.qml:230
+#: src/qml/elements/ChatMessage.qml:232
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Add hidden message part"
@@ -2460,7 +2496,7 @@ msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "숨겨진 메시지 부분 추가"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Add hidden message part"
@@ -2468,12 +2504,12 @@ msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "숨겨진 메시지 부분 추가"
 
-#: src/qml/elements/ChatMessage.qml:526
+#: src/qml/elements/ChatMessage.qml:528
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "새로운 항목"
 
-#: src/qml/elements/ChatMessage.qml:554
+#: src/qml/elements/ChatMessage.qml:556
 #, fuzzy, qt-format
 #| msgctxt "ChatMessage|"
 #| msgid "%1 has read up to this point"
@@ -2481,7 +2517,7 @@ msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 님이 여기까지 읽음"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:57
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 #, fuzzy
 #| msgctxt "MediumSendingPreview|"
 #| msgid "Remove file"
@@ -2489,7 +2525,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "파일 삭제"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:65
+#: src/qml/elements/ChatMessageContextMenu.qml:68
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Open selected file's folder"
@@ -2497,52 +2533,68 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "선택한 파일이 포함된 폴더 열기"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:78
+#: src/qml/elements/ChatMessageContextMenu.qml:81
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "ChatMessageContextMenu|"
+msgid "Retry removal"
+msgstr "삭제"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:86
+#: src/qml/elements/ChatMessageContextMenu.qml:95
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "반응"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:108
+#: src/qml/elements/ChatMessageContextMenu.qml:117
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "답장"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:126
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "인용"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:134
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "전달"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:148
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "복사"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:162
+#: src/qml/elements/ChatMessageContextMenu.qml:171
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "편집"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:173
+#: src/qml/elements/ChatMessageContextMenu.qml:182
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "표시"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:181
+#: src/qml/elements/ChatMessageContextMenu.qml:190
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:197
+#: src/qml/elements/ChatMessageContextMenu.qml:206
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove"
+msgstr "삭제"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:206
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "이 장치에서 삭제"
@@ -4219,7 +4271,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "메모"
 
-#: src/RosterModel.cpp:758
+#: src/RosterModel.cpp:760
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"

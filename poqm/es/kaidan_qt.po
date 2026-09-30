@@ -465,17 +465,17 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Sin información"
 
-#: src/Message.cpp:363
+#: src/Message.cpp:372
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espóiler"
 
-#: src/Message.cpp:373
+#: src/Message.cpp:382
 msgctxt "Message|"
 msgid "Location"
 msgstr "Ubicación"
 
-#: src/Message.cpp:470
+#: src/Message.cpp:479
 #, qt-format
 msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
@@ -505,66 +505,102 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "No se puede enviar «%1» porque es mayor de %2"
 
-#: src/MessageController.cpp:278
+#: src/MessageController.cpp:260
 msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "No se ha podido enviar el mensaje"
 
-#: src/MessageController.cpp:282
+#: src/MessageController.cpp:264
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "No se ha podido enviar el mensaje."
 
-#: src/MessageController.cpp:614
+#: src/MessageController.cpp:610
 #, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este mensaje está cifrado con %1, pero no se puede descifrar"
 
-#: src/MessageController.cpp:1030
+#: src/MessageController.cpp:1050
 #, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "No se ha podido enviar la reacción: %1"
 
-#: src/MessageModel.cpp:284
+#: src/MessageController.cpp:1183
+msgctxt "MessageController|"
+msgid "Too old to be removed for everyone"
+msgstr ""
+
+#: src/MessageController.cpp:1205
+msgctxt "MessageController|"
+msgid ""
+"This person attempted to retract a message. But it is not supported by your "
+"app."
+msgstr ""
+
+#: src/MessageController.cpp:1227
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
+msgctxt "MessageController|%1 is an error message"
+msgid "Message could not be removed: %1"
+msgstr "No se ha podido enviar el mensaje"
+
+#: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "MessageModel|"
+msgid "Removal pending"
+msgstr "Eliminación"
+
+#: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Remove file"
+msgctxt "MessageModel|"
+msgid "Removal failed"
+msgstr "Eliminar archivo"
+
+#: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendiente"
 
-#: src/MessageModel.cpp:286
+#: src/MessageModel.cpp:319
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/MessageModel.cpp:288
+#: src/MessageModel.cpp:321
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregado"
 
-#: src/MessageModel.cpp:290
+#: src/MessageModel.cpp:323
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/MessageModel.cpp:596 src/MessageModel.cpp:693
+#: src/MessageModel.cpp:629 src/MessageModel.cpp:726
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "No se ha podido enviar la reacción: %1"
 
-#: src/MessageModel.cpp:778
+#: src/MessageModel.cpp:811
 #, qt-format
 msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "No se han podido enviar las reacciones: %1"
 
-#: src/MessageModel.cpp:1321
+#: src/MessageModel.cpp:1394
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hoy"
 
-#: src/MessageModel.cpp:1324
+#: src/MessageModel.cpp:1397
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ayer"
@@ -808,17 +844,17 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/qml/ChatPage.qml:576
+#: src/qml/ChatPage.qml:578
 msgctxt "ChatPage|"
 msgid "Cancel forwarding"
 msgstr "Cancelar el reenvío"
 
-#: src/qml/ChatPage.qml:590
+#: src/qml/ChatPage.qml:592
 msgctxt "ChatPage|"
 msgid "Select a chat to forward the message"
 msgstr "Seleccione una conversación para reenviar el mensaje"
 
-#: src/qml/ChatPage.qml:641
+#: src/qml/ChatPage.qml:643
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
 msgstr "Suelte los archivos que se enviarán"
@@ -2375,88 +2411,104 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "No hay ninguna cámara disponible"
 
-#: src/qml/elements/ChatMessage.qml:230
+#: src/qml/elements/ChatMessage.qml:232
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espóiler"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
 msgstr "Ocultar parte oculta del mensaje"
 
-#: src/qml/elements/ChatMessage.qml:237
+#: src/qml/elements/ChatMessage.qml:239
 msgctxt "ChatMessage|"
 msgid "Show hidden message part"
 msgstr "Mostrar parte oculta del mensaje"
 
-#: src/qml/elements/ChatMessage.qml:526
+#: src/qml/elements/ChatMessage.qml:528
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nuevo"
 
-#: src/qml/elements/ChatMessage.qml:554
+#: src/qml/elements/ChatMessage.qml:556
 #, qt-format
 msgctxt "ChatMessage|%1 is a username"
 msgid "%1 has read up to this point"
 msgstr "%1 ha leído hasta este punto"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:57
+#: src/qml/elements/ChatMessageContextMenu.qml:60
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove file"
 msgstr "Eliminar archivo"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:65
+#: src/qml/elements/ChatMessageContextMenu.qml:68
 msgctxt "ChatMessageContextMenu|"
 msgid "Open file in folder"
 msgstr "Abrir archivo en carpeta"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:78
+#: src/qml/elements/ChatMessageContextMenu.qml:81
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "ChatMessageContextMenu|"
+msgid "Retry removal"
+msgstr "Eliminación"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
 msgid "Resend"
 msgstr "Volver a enviar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:86
+#: src/qml/elements/ChatMessageContextMenu.qml:95
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
 msgstr "Reaccionar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:108
+#: src/qml/elements/ChatMessageContextMenu.qml:117
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
 msgstr "Responder"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:126
+#: src/qml/elements/ChatMessageContextMenu.qml:135
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
 msgstr "Citar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:134
+#: src/qml/elements/ChatMessageContextMenu.qml:143
 msgctxt "ChatMessageContextMenu|"
 msgid "Forward"
 msgstr "Reenviar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:148
+#: src/qml/elements/ChatMessageContextMenu.qml:157
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:162
+#: src/qml/elements/ChatMessageContextMenu.qml:171
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
 msgstr "Editar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:173
+#: src/qml/elements/ChatMessageContextMenu.qml:182
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
 msgstr "Marcar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:181
+#: src/qml/elements/ChatMessageContextMenu.qml:190
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
 msgstr "Bloquear y denunciar"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:197
+#: src/qml/elements/ChatMessageContextMenu.qml:206
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove"
+msgstr "Eliminar"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:206
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Eliminar de este dispositivo"
@@ -3968,7 +4020,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/RosterModel.cpp:758
+#: src/RosterModel.cpp:760
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ayer"
