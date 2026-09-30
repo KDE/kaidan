@@ -37,6 +37,12 @@ ImageProvider *ImageProvider::s_instance = nullptr;
 QMutex m_cacheMutex;
 std::vector<QXmppBitsOfBinaryData> m_cache;
 
+// If gst-video-thumbnailer is installed, it does not create a thumbnail for a video during testing.
+// The signal KIO::PreviewJob::failed() does not seem to provide any error message to identify its cause.
+// There is also no other log output explaining the error.
+// Thus, it is unclear where the problem comes from.
+const QList<QString> FAULTY_THUMBNAIL_PLUGINS = {QStringLiteral("gst-video-thumbnailer")};
+
 const QString IMAGE_SCHEME = QStringLiteral("image");
 const QString IMAGE_PROVIDER_PREFIX = QStringLiteral("%1://%2/").arg(IMAGE_SCHEME, IMAGE_PROVIDER_NAME);
 const QString LOCAL_FILE_PATH_SEGMENT = QStringLiteral("local-file");
@@ -314,9 +320,15 @@ QFuture<QImage> ImageProvider::generateImageWithDevicePixelRatio(const QUrl &loc
 {
     auto promise = std::make_shared<QPromise<QImage>>();
 
-    static auto allPlugins = KIO::PreviewJob::availablePlugins();
+    static const auto plugins = [] {
+        auto plugins = KIO::PreviewJob::availablePlugins();
+        plugins.removeIf([](const QString &plugin) {
+            return FAULTY_THUMBNAIL_PLUGINS.contains(plugin);
+        });
+        return plugins;
+    }();
 
-    auto *job = new KIO::PreviewJob({KFileItem(localFileUrl)}, effectiveSize(edgePixelCount), &allPlugins);
+    auto *job = new KIO::PreviewJob({KFileItem(localFileUrl)}, effectiveSize(edgePixelCount), &plugins);
 
     job->setDevicePixelRatio(devicePixelRatio);
     job->setAutoDelete(true);
