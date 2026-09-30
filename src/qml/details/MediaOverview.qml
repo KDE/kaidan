@@ -290,6 +290,7 @@ Controls.Control {
 					source: ImageProvider.generatedFileImageUrl(model.file)
 					fillMode: Image.PreserveAspectCrop
 					asynchronous: true
+					retainWhileLoading: true
 					sourceSize.width: preview.availableWidth
 					sourceSize.height: preview.availableHeight
 					anchors.fill: parent
