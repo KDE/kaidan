@@ -519,7 +519,7 @@ msgstr "რეაქციის გაგზავნა შეუძლებ�
 #: src/MessageController.cpp:1183
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "მეტისმეტად ძველია ყველასთვის წასაშლელად"
 
 #: src/MessageController.cpp:1205
 msgctxt "MessageController|"
@@ -527,30 +527,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"ამ პიროვნებამ სცადა, შეტყობინება უკან გადაეწია, მაგრამ ამის მხარდაჭერა ამ "
+"აპლიკაციას არ აქვს."
 
 #: src/MessageController.cpp:1227
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "შეტყობინების გაგზავნა შეუძლებელია"
+msgstr "შეტყობინების წაშლა შეუძლებელია: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "წაშლა"
+msgstr "წაშლა რიგშია"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "ფაილის წაშლა"
+msgstr "წაშლა ჩავარდა"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -2417,12 +2411,9 @@ msgid "Open file in folder"
 msgstr "ფაილის გახსნა საქაღალდეში"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "წაშლა"
+msgstr "წაშლის თავიდან ცდა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2470,9 +2461,6 @@ msgid "Block and report"
 msgstr "დაბლოკვა და შეტყობინება"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:206
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "წაშლა"

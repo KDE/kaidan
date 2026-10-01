@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-19 07:43+0200\n"
+"PO-Revision-Date: 2026-09-30 07:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -527,7 +527,7 @@ msgstr "Odziva ni bilo mogoče poslati: %1"
 #: src/MessageController.cpp:1183
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "Prestar, da bi ga odstranili za vse"
 
 #: src/MessageController.cpp:1205
 msgctxt "MessageController|"
@@ -535,30 +535,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"Ta oseba je poskusila preklicati sporočilo, vendar vaša aplikacija tega ne "
+"podpira."
 
 #: src/MessageController.cpp:1227
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Sporočila ni bilo mogoče poslati"
+msgstr "Sporočila ni bilo mogoče odstraniti: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Odstranitev"
+msgstr "Odstranitev v teku"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Odstrani datoteko"
+msgstr "Odstranitev ni uspela"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -2414,12 +2408,9 @@ msgid "Open file in folder"
 msgstr "Odpri datoteko v mapi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Odstranitev"
+msgstr "Ponovno poskusi odstraniti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2467,9 +2458,6 @@ msgid "Block and report"
 msgstr "Blokiraj in prijavi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:206
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Odstrani"
