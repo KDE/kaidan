@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-09-19 10:37+0200\n"
+"PO-Revision-Date: 2026-09-30 08:57+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 25.04.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -533,7 +533,7 @@ msgstr "No s'ha pogut enviar la reacció: %1"
 #: src/MessageController.cpp:1183
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "Massa antic per a ser eliminat per a tothom"
 
 #: src/MessageController.cpp:1205
 msgctxt "MessageController|"
@@ -541,30 +541,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"Esta persona ha intentat retractar un missatge. Però no és compatible amb la "
+"vostra aplicació."
 
 #: src/MessageController.cpp:1227
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "No s'ha pogut enviar el missatge"
+msgstr "No s'ha pogut eliminar el missatge: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Eliminació"
+msgstr "Eliminació pendent"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Elimina el fitxer"
+msgstr "L'eliminació ha fallat"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -2437,12 +2431,9 @@ msgid "Open file in folder"
 msgstr "Obri un fitxer en la carpeta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Eliminació"
+msgstr "Reintenta l'eliminació"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:81
 msgctxt "ChatMessageContextMenu|"
@@ -2490,9 +2481,6 @@ msgid "Block and report"
 msgstr "Bloqueja i informa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:206
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Elimina"
