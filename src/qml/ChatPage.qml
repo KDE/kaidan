@@ -815,7 +815,7 @@ SearchBarPage {
 
 			chatPage: root
 			width: root.width
-			height: root.chatController.rosterItem.isDeletedGroupChat ? 0 : undefined
+			height: root.chatController.rosterItem.isDeletedGroupChat || root.chatController.messageBodyToForward ? 0 : undefined
 			// Workaround to prevent sendingPane from overlapping messages if its height increases
 			// while the height of the lower hidden content of messageListView is less than
 			// sendingPane's added height.
