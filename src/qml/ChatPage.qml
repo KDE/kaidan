@@ -334,7 +334,7 @@ SearchBarPage {
 		footerPositioning: ListView.OverlayFooter
 		section.property: "nextDate"
 		section.delegate: ColumnLayout {
-			anchors.horizontalCenter: parent.horizontalCenter
+			width: parent.width
 			spacing: 0
 
 			Item {
@@ -352,6 +352,15 @@ SearchBarPage {
 				text: section
 				// Hide the date if the section label would display the same date as globalChatDate.
 				visible: root.globalChatDate && text !== root.globalChatDate.text
+				font {
+					weight: Font.Light
+					pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.95
+				}
+				color: Kirigami.Theme.disabledTextColor
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				Kirigami.Theme.inherit: false
+				Layout.alignment: Qt.AlignHCenter
+				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing
 			}
 
 			Item {
@@ -454,7 +463,13 @@ SearchBarPage {
 					return ""
 				}
 				visible: text.length
-				elide: Text.ElideRight
+				font {
+					weight: Font.Light
+					pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.95
+				}
+				color: Kirigami.Theme.disabledTextColor
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				Kirigami.Theme.inherit: false
 				Layout.alignment: Qt.AlignHCenter
 				Layout.topMargin: {
 					const minimalMargin = Kirigami.Units.smallSpacing * 3
@@ -590,9 +605,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: qsTr("Select a chat to forward the message")
-						font.weight: Font.Medium
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
 						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
 					}
 
@@ -641,9 +653,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: qsTr("Drop files to be sent")
-						font.weight: Font.Medium
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
 						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
 					}
 
@@ -661,8 +670,6 @@ SearchBarPage {
 
 					ChatInfo {
 						text: filePastingShortcut.nativeText
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
 						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
 					}
 

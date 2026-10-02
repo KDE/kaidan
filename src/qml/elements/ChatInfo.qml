@@ -7,6 +7,9 @@ import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 Controls.Label {
+	font.weight: Font.Medium
+	wrapMode: Text.Wrap
+	horizontalAlignment: Text.AlignHCenter
 	leftPadding: font.pixelSize * 0.7
 	rightPadding: leftPadding
 	topPadding: leftPadding * 0.4
