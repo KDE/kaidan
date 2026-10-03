@@ -26,6 +26,11 @@ SearchBarPage {
 	searchField {
 		listView: rosterListView
 		onTextChanged: rosterListView.model.setFilterFixedString(searchField.text.toLowerCase())
+		onActiveFocusChanged: {
+			if (activeFocus && pageStack.currentItem !== root) {
+				pageStack.goBack()
+			}
+		}
 	}
 	toolbarItems: [
 		IconButton {

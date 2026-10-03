@@ -53,6 +53,11 @@ SearchBarPage {
 				root.forceActiveFocus()
 			}
 		}
+		onActiveFocusChanged: {
+			if (activeFocus && pageStack.currentItem !== root) {
+				pageStack.goForward()
+			}
+		}
 		onAccepted: searchFromCurrentIndex(true)
 		Keys.onUpPressed: searchFromCurrentIndex(true)
 		Keys.onDownPressed: searchFromCurrentIndex(false)
