@@ -198,9 +198,11 @@ private Q_SLOTS:
         const PublicGroupChat &groupChat = model.groupChats().constFirst();
         const QModelIndex index = model.index(0);
 
-        QVERIFY(!groupChat.name().isEmpty());
+        QVERIFY(index.isValid());
+        QVERIFY(!groupChat.address().isEmpty());
         QCOMPARE(groupChat.name(), index.data(Qt::DisplayRole));
         QCOMPARE(groupChat.description(), index.data(Qt::ToolTipRole));
+        QCOMPARE(groupChat.address(), index.data(Qt::UserRole));
     }
 
     void testPublicGroupChatProxyModel_data()
