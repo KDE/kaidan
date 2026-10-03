@@ -42,6 +42,10 @@ Kirigami.Dialog {
 			message.messageListView.restorePreviousCurrentIndex()
 		}
 
+		if (root.message.chatController.messageBodyToForward) {
+			pageStack.get(0).forceActiveFocus()
+		}
+
 		destroy()
 	}
 
