@@ -200,7 +200,6 @@ Kirigami.Dialog {
 				&& root.message.stanzaId
 				&& root.message.chatController.account.settings.blockingReportsSupported
 			onClicked: {
-				contextMenu.close()
 				root.message.openBlockingReportDialog()
 				root.currentIndexResetOnClosing = false
 			}
