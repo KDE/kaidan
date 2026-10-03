@@ -168,7 +168,6 @@ Kirigami.ApplicationWindow {
 	// from which (un)blocking was triggered.
 	Instantiator {
 		model: AccountController.accounts
-
 		delegate: Connections {
 			required property var modelData
 

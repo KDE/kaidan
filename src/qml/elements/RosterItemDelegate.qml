@@ -118,8 +118,10 @@ ClickableItemDelegate {
 				text: root.lastMessageDateTime
 				visible: text && root.lastMessage && !root.isDeletedGroupChat
 				color: Kirigami.Theme.disabledTextColor
-				font.weight: Font.Light
-				font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.95
+				font {
+					weight: Font.Light
+					pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.95
+				}
 			}
 
 			Text {
