@@ -296,12 +296,12 @@ Kirigami.ApplicationWindow {
 	}
 
 	function showProperPageForNarrorWindow() {
-		if (!pageStack.wideMode && pageStack.layers.depth === 1) {
-			if (pageStack.currentItem instanceof EmptyChatPage) {
-				pageStack.goBack()
-			} else if (pageStack.lastItem instanceof ChatPage && pageStack.currentItem instanceof RosterPage) {
-				pageStack.goForward()
-			}
+		const currentPage = pageStack.currentItem
+
+		if (!pageStack.wideMode && pageStack.layers.depth === 1 &&
+			(currentPage instanceof EmptyChatPage ||
+			 (currentPage instanceof ChatPage && currentPage.chatController.messageBodyToForward))) {
+			pageStack.goBack()
 		}
 	}
 
