@@ -253,7 +253,7 @@ Controls.Pane {
 					// Remove text solely consisting of whitespace.
 					// That forbids sending messages without any visible characters.
 					if (text && !text.trim()) {
-						messageArea.clear()
+						clear()
 					}
 
 					// Skip events in which the text field was emptied (probably automatically after sending)
