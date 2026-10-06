@@ -22,6 +22,7 @@ Controls.AbstractButton {
 	property alias smoothOpacityChangeEnabled: smoothOpacityChangeBehavior.enabled
 
 	hoverEnabled: true
+	focusPolicy: Qt.NoFocus
 	visible: opacity
 	background: InteractiveBackground {
 		flat: root.flat
