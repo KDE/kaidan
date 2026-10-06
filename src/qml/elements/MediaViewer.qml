@@ -162,39 +162,44 @@ Controls.Control {
 			contentItem: ColumnLayout {
 				DetailsCard {
 					FormCard.FormTextDelegate {
-						text: qsTr("Message")
-						description: mediaListView.currentItemModel?.message?.body ?? ""
-						visible: description.length
+						text: mediaListView.currentItemModel?.message?.body ?? ""
+						textItem.wrapMode: Text.Wrap
+						description: qsTr("Message")
+						visible: text.length
 						Layout.alignment: Qt.AlignTop
 					}
 
 					FormCard.FormTextDelegate {
-						text: qsTr("Description")
-						description: mediaListView.currentItemModel?.file?.description ?? ""
-						visible: description.length
+						text: mediaListView.currentItemModel?.file?.description ?? ""
+						textItem.wrapMode: Text.Wrap
+						description: qsTr("Description")
+						visible: text.length
 					}
 				}
 
 				DetailsCard {
 					FormCard.FormTextDelegate {
-						text: qsTr("Name")
-						description: mediaListView.currentItemModel?.file?.name ?? ""
+						text: mediaListView.currentItemModel?.file?.name ?? ""
+						textItem.wrapMode: Text.Wrap
+						description: qsTr("Name")
 						Layout.alignment: Qt.AlignTop
 					}
 				}
 
 				DetailsCard {
 					FormCard.FormTextDelegate {
-						text: qsTr("Size")
-						description: mediaListView.currentItemModel?.file?.formattedSize ?? ""
-						visible: description.length
+						text: mediaListView.currentItemModel?.file?.formattedSize ?? ""
+						textItem.wrapMode: Text.Wrap
+						description: qsTr("Size")
+						visible: text.length
 						Layout.alignment: Qt.AlignTop
 					}
 
 					FormCard.FormTextDelegate {
-						text: qsTr("Sent/Received")
-						description: mediaListView.currentItemModel?.message?.formattedTimestamp ?? ""
-						visible: description.length
+						text: mediaListView.currentItemModel?.message?.formattedTimestamp ?? ""
+						textItem.wrapMode: Text.Wrap
+						description: qsTr("Sent/Received")
+						visible: text.length
 					}
 				}
 
