@@ -278,6 +278,7 @@ Controls.Control {
 				}
 				autoPlay: true
 			}
+			durationText.visible: parent.width > Kirigami.Units.gridUnit * 15
 			anchors {
 				left: Kirigami.Settings.isMobile ? parent.left : navigationArea.right
 				verticalCenter: navigationArea.verticalCenter

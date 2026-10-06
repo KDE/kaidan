@@ -28,8 +28,8 @@ MediaPlayerControl {
 	}
 	player.source: root.file.localFileUrl
 	playPositionSlider {
-		Layout.minimumWidth: root.minimumWidth - root.leftPadding - playPositionSlider.parent.spacing * 2 - playButton.width - durationText.width - root.rightPadding
-		Layout.maximumWidth: root.maximumWidth - root.leftPadding - playPositionSlider.parent.spacing * 2 - playButton.width - durationText.width - root.rightPadding
+		Layout.minimumWidth: root.minimumWidth - root.leftPadding - playPositionSlider.parent.spacing * 2 - playButton.width - durationText.width - root.rightPadding - playPositionSlider.Layout.rightMargin
+		Layout.maximumWidth: root.maximumWidth - root.leftPadding - playPositionSlider.parent.spacing * 2 - playButton.width - durationText.width - root.rightPadding - playPositionSlider.Layout.rightMargin
 	}
 	durationText.data: HoverHandler {
 		id: durationTextHoverHandler

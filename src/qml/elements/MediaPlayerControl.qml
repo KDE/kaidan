@@ -39,6 +39,7 @@ IconButtonArea {
 		id: playPositionSlider
 		to: player.duration
 		value: player.position
+		Layout.rightMargin: Kirigami.Units.mediumSpacing
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 15
 		Layout.fillWidth: true
 		onMoved: player.position = value
@@ -61,7 +62,6 @@ IconButtonArea {
 		text: MediaUtils.prettyDuration(player.position, player.duration) + "/" + MediaUtils.prettyDuration(player.duration)
 		scaleFactor: 0.9
 		color: Kirigami.Theme.disabledTextColor
-		leftPadding: Kirigami.Units.mediumSpacing
 		rightPadding: Kirigami.Units.mediumSpacing
 		// A custom padding is used because "verticalAlignment: Text.AlignVCenter" does not work
 		// correctly if the text is scaled.
