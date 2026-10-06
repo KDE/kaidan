@@ -160,17 +160,7 @@ Controls.Control {
 			id: detailsArea
 			opacity: detailsButton.checked ? toolbar.mainBackground.opacity : 0
 			contentItem: ColumnLayout {
-				FormCard.FormCard {
-					clip: true
-					visible: implicitHeight > 2
-					maximumWidth: parent.width - Kirigami.Units.smallSpacing
-
-					Behavior on implicitHeight {
-						SmoothedAnimation {
-							duration: mediaListView.highlightMoveDuration
-						}
-					}
-
+				DetailsCard {
 					FormCard.FormTextDelegate {
 						text: qsTr("Message")
 						description: mediaListView.currentItemModel?.message?.body ?? ""
@@ -185,17 +175,7 @@ Controls.Control {
 					}
 				}
 
-				FormCard.FormCard {
-					clip: true
-					visible: implicitHeight > 2
-					maximumWidth: parent.width - Kirigami.Units.smallSpacing
-
-					Behavior on implicitHeight {
-						SmoothedAnimation {
-							duration: mediaListView.highlightMoveDuration
-						}
-					}
-
+				DetailsCard {
 					FormCard.FormTextDelegate {
 						text: qsTr("Name")
 						description: mediaListView.currentItemModel?.file?.name ?? ""
@@ -203,17 +183,7 @@ Controls.Control {
 					}
 				}
 
-				FormCard.FormCard {
-					clip: true
-					visible: implicitHeight > 2
-					maximumWidth: parent.width - Kirigami.Units.smallSpacing
-
-					Behavior on implicitHeight {
-						SmoothedAnimation {
-							duration: mediaListView.highlightMoveDuration
-						}
-					}
-
+				DetailsCard {
 					FormCard.FormTextDelegate {
 						text: qsTr("Size")
 						description: mediaListView.currentItemModel?.file?.formattedSize ?? ""
@@ -225,6 +195,18 @@ Controls.Control {
 						text: qsTr("Sent/Received")
 						description: mediaListView.currentItemModel?.message?.formattedTimestamp ?? ""
 						visible: description.length
+					}
+				}
+
+				component DetailsCard: FormCard.FormCard {
+					clip: true
+					visible: implicitHeight > 2
+					maximumWidth: parent.width - Kirigami.Units.smallSpacing
+
+					Behavior on implicitHeight {
+						SmoothedAnimation {
+							duration: mediaListView.highlightMoveDuration
+						}
 					}
 				}
 			}
