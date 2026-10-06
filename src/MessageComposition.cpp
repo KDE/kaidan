@@ -606,6 +606,7 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
         file.height = dimensions.height();
     }
 
+    file.disposition = QXmppFileShare::Disposition::Attachment;
     file.isNew = isNew;
     file.transferOutgoing = true;
 
