@@ -202,6 +202,7 @@ Controls.Control {
 					clip: true
 					visible: implicitHeight > 2
 					maximumWidth: parent.width - Kirigami.Units.smallSpacing
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
 					Behavior on implicitHeight {
 						SmoothedAnimation {
