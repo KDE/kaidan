@@ -158,7 +158,7 @@ Controls.Control {
 
 		Controls.Control {
 			id: detailsArea
-			opacity: detailsButton.checked ? toolbar.mainBackground.opacity : 0
+			opacity: (root.hovered || Kirigami.Settings.isMobile) && detailsButton.checked ? toolbar.mainBackground.opacity : 0
 			contentItem: ColumnLayout {
 				DetailsCard {
 					FormCard.FormTextDelegate {
