@@ -276,12 +276,7 @@ Controls.Control {
 
 					return ""
 				}
-				onMediaStatusChanged: {
-					// This is needed to play the medium once it is loaded since "autoPlay" seems to not work for large audio files.
-					if (player.mediaStatus === Multimedia.MediaPlayer.LoadedMedia) {
-						player.play()
-					}
-				}
+				autoPlay: true
 			}
 			anchors {
 				left: Kirigami.Settings.isMobile ? parent.left : navigationArea.right
