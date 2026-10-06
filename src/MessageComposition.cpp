@@ -286,7 +286,6 @@ void MessageComposition::clear()
     setReplyQuote({});
     setOriginalBody({});
     setSpoiler(false);
-    setIsDraft(false);
     setIsForwarding(false);
 
     m_fileSelectionModel->clear();
@@ -469,6 +468,7 @@ void MessageComposition::reset()
 {
     if (m_isDraft) {
         MessageDb::instance()->removeDraftMessage(m_chatController->account()->settings()->jid(), m_chatController->jid());
+        setIsDraft(false);
     }
 
     clear();
