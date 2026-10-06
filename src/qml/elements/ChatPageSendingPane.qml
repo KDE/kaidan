@@ -62,7 +62,7 @@ Controls.Pane {
 			}
 
 			if (!isDraft && !isForwarding) {
-				root.clear()
+				root.clearUi()
 			}
 		}
 	}
@@ -345,6 +345,7 @@ Controls.Pane {
 						}
 					}
 				}
+				Keys.onEscapePressed: root.clear()
 
 				function mentionParticipant(mention) {
 					insert(cursorPosition, mention + Utils.groupChatUserMentionSeparator)
@@ -589,8 +590,7 @@ Controls.Pane {
 						root.composition.send()
 					}
 
-					clear()
-
+					root.clearUi()
 					root.chatPage.messageListView.positionViewAtLatestMessage()
 
 					// Enable the button again.
@@ -618,7 +618,7 @@ Controls.Pane {
 					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.cancel()
 					} else {
-						root.cancelCorrection()
+						root.clear()
 					}
 				}
 			}
@@ -731,7 +731,7 @@ Controls.Pane {
 			if (correctableMessageIndex !== -1) {
 				root.prepareCorrectionByShortcut(correctableMessageIndex)
 			} else if (root.composition.replaceId) {
-				root.cancelCorrection()
+				root.clear()
 			}
 		}
 	}
@@ -785,13 +785,8 @@ Controls.Pane {
 
 	function cancelOngoingCorrection(messageId) {
 		if (root.composition.replaceId === messageId) {
-			cancelCorrection()
+			clear()
 		}
-	}
-
-	function cancelCorrection() {
-		composition.clear()
-		clear()
 	}
 
 	function prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote) {
@@ -910,9 +905,14 @@ Controls.Pane {
 		return mapToGlobal(cursorRectangle.x, cursorRectangle.y).y - dialogHeight
 	}
 
-	function clear() {
+	function clearUi() {
 		messageArea.clear()
 		spoilerHintArea.clear()
 		expansionArea.close()
+	}
+
+	function clear() {
+		composition.clear()
+		clearUi()
 	}
 }
