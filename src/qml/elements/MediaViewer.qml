@@ -221,7 +221,7 @@ Controls.Control {
 				right: toolbar.right
 				topMargin: toolbar.anchors.topMargin
 			}
-			width: Kirigami.Units.gridUnit * 14
+			width: Math.min(Kirigami.Units.gridUnit * 14, parent.width - Kirigami.Units.largeSpacing * 2)
 			topPadding: 0
 			bottomPadding: 0
 			leftPadding: 0
