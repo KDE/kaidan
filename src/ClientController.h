@@ -8,6 +8,7 @@
 #pragma once
 
 // Qt
+#include <QFuture>
 #include <QtQml/qqmlregistration.h>
 // QXmpp
 #include <QXmppClient.h>
@@ -288,6 +289,7 @@ private:
     std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
     std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
 
+    QFuture<void> m_encryptionInitialization;
     bool m_isReconnecting = false;
     bool m_isDisconnecting = false;
     QXmppConfiguration m_configToBeUsedOnNextConnect;

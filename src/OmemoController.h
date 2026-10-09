@@ -30,9 +30,6 @@ public:
 
     QFuture<void> load();
     QFuture<void> setUp();
-    QFuture<void> unload();
-    QFuture<void> reset();
-    QFuture<void> resetLocally();
 
     void initializeAccount();
     void initializeChat(const QList<QString> &jids);
@@ -50,6 +47,11 @@ public:
 
     void removeContactDevices(const QString &jid);
 
+    QFuture<void> unsubscribeFromDeviceLists();
+
+    QFuture<void> reset();
+    QFuture<void> resetLocally();
+
 private:
     void buildMissingSessions(const QList<QString> &jids);
 
@@ -57,8 +59,6 @@ private:
      * Enables session building for new devices even before sending a message.
      */
     void enableSessionBuildingForNewDevices();
-
-    QFuture<void> unsubscribeFromDeviceLists();
 
     AccountSettings *const m_accountSettings;
     PresenceCache *const m_presenceCache;

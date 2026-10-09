@@ -114,23 +114,6 @@ QFuture<void> OmemoController::setUp()
     return promise->future();
 }
 
-QFuture<void> OmemoController::unload()
-{
-    auto promise = std::make_shared<QPromise<void>>();
-    promise->start();
-
-    if (m_isLoaded) {
-        unsubscribeFromDeviceLists().then([this, promise]() mutable {
-            m_isLoaded = false;
-            promise->finish();
-        });
-    } else {
-        promise->finish();
-    }
-
-    return promise->future();
-}
-
 void OmemoController::initializeAccount()
 {
     buildMissingSessions({m_accountSettings->jid()});
@@ -220,32 +203,6 @@ QFuture<void> OmemoController::subscribeToDeviceLists(const QList<QString> &jids
     return promise->future();
 }
 
-QFuture<void> OmemoController::reset()
-{
-    auto promise = std::make_shared<QPromise<void>>();
-    promise->start();
-
-    m_manager->resetOwnDevice().then(this, [this, promise](auto) mutable {
-        m_isLoaded = false;
-        promise->finish();
-    });
-
-    return promise->future();
-}
-
-QFuture<void> OmemoController::resetLocally()
-{
-    auto promise = std::make_shared<QPromise<void>>();
-    promise->start();
-
-    m_manager->resetOwnDeviceLocally().then(this, [this, promise]() mutable {
-        m_isLoaded = false;
-        promise->finish();
-    });
-
-    return promise->future();
-}
-
 QFuture<QString> OmemoController::ownKey()
 {
     auto promise = std::make_shared<QPromise<QString>>();
@@ -308,16 +265,6 @@ void OmemoController::removeContactDevices(const QString &jid)
     m_manager->removeContactDevices(jid);
 }
 
-void OmemoController::buildMissingSessions(const QList<QString> &jids)
-{
-    m_manager->buildMissingSessions(jids);
-}
-
-void OmemoController::enableSessionBuildingForNewDevices()
-{
-    m_manager->setNewDeviceAutoSessionBuildingEnabled(true);
-}
-
 QFuture<void> OmemoController::unsubscribeFromDeviceLists()
 {
     auto promise = std::make_shared<QPromise<void>>();
@@ -328,6 +275,42 @@ QFuture<void> OmemoController::unsubscribeFromDeviceLists()
     });
 
     return promise->future();
+}
+
+QFuture<void> OmemoController::reset()
+{
+    auto promise = std::make_shared<QPromise<void>>();
+    promise->start();
+
+    m_manager->resetOwnDevice().then(this, [this, promise](auto) mutable {
+        m_isLoaded = false;
+        promise->finish();
+    });
+
+    return promise->future();
+}
+
+QFuture<void> OmemoController::resetLocally()
+{
+    auto promise = std::make_shared<QPromise<void>>();
+    promise->start();
+
+    m_manager->resetOwnDeviceLocally().then(this, [this, promise]() mutable {
+        m_isLoaded = false;
+        promise->finish();
+    });
+
+    return promise->future();
+}
+
+void OmemoController::buildMissingSessions(const QList<QString> &jids)
+{
+    m_manager->buildMissingSessions(jids);
+}
+
+void OmemoController::enableSessionBuildingForNewDevices()
+{
+    m_manager->setNewDeviceAutoSessionBuildingEnabled(true);
 }
 
 #include "moc_OmemoController.cpp"

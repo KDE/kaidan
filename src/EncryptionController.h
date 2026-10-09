@@ -68,7 +68,8 @@ public:
     QFuture<bool> hasUsableDevices(const QList<QString> &jids);
     void removeContactDevices(const QString &jid);
 
-    QFuture<void> unload();
+    QFuture<void> unsubscribeFromDeviceLists();
+
     QFuture<void> reset();
     QFuture<void> resetLocally();
 

@@ -146,6 +146,8 @@ void ClientController::initialize(AtmController *atmController,
 
     connect(m_client, &QXmppClient::presenceReceived, m_presenceCache, &PresenceCache::updatePresence);
     connect(m_client, &QXmppClient::disconnected, m_presenceCache, &PresenceCache::clear);
+
+    m_encryptionInitialization = m_encryptionController->load();
 }
 
 void ClientController::logIn()
@@ -155,7 +157,7 @@ void ClientController::logIn()
         return;
     }
 
-    m_encryptionController->load().then([this] {
+    m_encryptionInitialization.then([this] {
         QXmppConfiguration config;
         config.setCredentials(m_accountSettings->credentials());
         config.setPassword(m_accountSettings->password());
@@ -235,7 +237,7 @@ void ClientController::logOut(bool isApplicationBeingClosed)
 
         break;
     case QXmppClient::ConnectedState:
-        m_encryptionController->unload().then([this]() {
+        m_encryptionController->unsubscribeFromDeviceLists().then([this]() {
             m_client->disconnectFromServer();
         });
     }
