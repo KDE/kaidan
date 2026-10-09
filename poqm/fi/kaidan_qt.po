@@ -342,7 +342,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Estetty"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not copy invalid source to clipboard: %1"
@@ -350,7 +350,7 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Virheellistä lähdettä ei voitu kopioida leikepöydälle: %1"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate thumbnail: %1 does not exist"
@@ -358,7 +358,7 @@ msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Pienoiskuvaa ei voi luoda: tiedostoa %1 ei ole olemassa"
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate QR code: %1"
@@ -809,7 +809,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Ei verkossa"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Oma palveluntarjoaja"
@@ -817,13 +817,13 @@ msgstr "Oma palveluntarjoaja"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Ei rajoitettu"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, fuzzy, qt-format
 #| msgctxt "ProviderModel|"
 #| msgid "%1 days"
@@ -3789,32 +3789,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Tietoa"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
-msgctxt "main|%1 is a JID"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Esto purettu: %1"
 
-#: src/qml/main.qml:181
-msgctxt "main|"
+#: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "Kumoa"
 
-#: src/qml/main.qml:188
+#: src/qml/Main.qml:188
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Ei voitu estää: %1: %2"
 
-#: src/qml/main.qml:192
+#: src/qml/Main.qml:192
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
 
@@ -4164,7 +4167,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Luo tili itse"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
@@ -4232,7 +4235,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"

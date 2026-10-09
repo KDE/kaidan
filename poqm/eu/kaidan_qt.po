@@ -359,7 +359,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Debeku duna"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not copy invalid source to clipboard: %1"
@@ -367,7 +367,7 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Ezin izan du sorburu baliogabea arbelera kopiatu: %1"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate thumbnail: %1 does not exist"
@@ -375,7 +375,7 @@ msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Ezin izan du koadro txikia sortu: %1 ez da existitzen"
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, fuzzy, qt-format
 #| msgctxt "ImageProvider|"
 #| msgid "Could not generate QR code: %1"
@@ -832,7 +832,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Lerroz kanpo"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Neurriko hornitzailea"
@@ -840,13 +840,13 @@ msgstr "Neurriko hornitzailea"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Mugagabea"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, fuzzy, qt-format
 #| msgctxt "ProviderModel|"
 #| msgid "%1 days"
@@ -3835,35 +3835,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Honi buruz"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
-msgctxt "main|%1 is a JID"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 desblokeatuta"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Undo"
-msgctxt "main|"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "Desegin"
 
-#: src/qml/main.qml:188
+#: src/qml/Main.qml:188
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Ezin izan da %1 blokeatu: %2"
 
-#: src/qml/main.qml:192
+#: src/qml/Main.qml:192
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Ezin izan da %1 desblokeatu: %2"
 
@@ -4213,7 +4213,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Kontua eskuz sortu"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
@@ -4281,7 +4281,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Oharrak"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Atzo"

@@ -346,7 +346,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已被封鎖"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
@@ -354,13 +354,13 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "聯絡人已複製到剪貼簿"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -821,7 +821,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "離線"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "自訂提供者"
@@ -829,13 +829,13 @@ msgstr "自訂提供者"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "無限制"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, fuzzy, qt-format
 #| msgctxt "ProviderModel|"
 #| msgid "%1 days"
@@ -4211,35 +4211,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "關於"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
-msgctxt "main|%1 is a JID"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "已解除封鎖 %1"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Undo"
-msgctxt "main|"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "復原"
 
-#: src/qml/main.qml:188
+#: src/qml/Main.qml:188
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "無法封鎖 %1：%2"
 
-#: src/qml/main.qml:192
+#: src/qml/Main.qml:192
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
@@ -4658,7 +4658,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "手動建立帳號"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知的大小"
@@ -4736,7 +4736,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "筆記"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

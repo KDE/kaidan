@@ -321,19 +321,19 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bannlyst"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Kunde inte kopiera ogiltig källa till klippbordet: %1"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Kunde inte skapa miniatyrbild: %1 finns inte"
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
@@ -742,7 +742,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Nerkopplad"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Egen leverantör"
@@ -750,13 +750,13 @@ msgstr "Egen leverantör"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Obegränsat"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
@@ -3538,26 +3538,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Om"
 
-#: src/qml/main.qml:181
-#, qt-format
-msgctxt "main|%1 is a JID"
+#: src/qml/Main.qml:181
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID"
+#| msgid "Unblocked %1"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Tog bort blockering av %1"
 
-#: src/qml/main.qml:181
-msgctxt "main|"
+#: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "Ångra"
 
-#: src/qml/main.qml:188
-#, qt-format
-msgctxt "main|%1 is a JID, %2 an error message"
+#: src/qml/Main.qml:188
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgid "Could not block %1: %2"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kunde inte blockera %1: %2"
 
-#: src/qml/main.qml:192
-#, qt-format
-msgctxt "main|%1 is a JID, %2 an error message"
+#: src/qml/Main.qml:192
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgid "Could not unblock %1: %2"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kunde inte ta bort blockering för %1: %2"
 
@@ -3895,7 +3904,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Skapa ett konto manuellt"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
@@ -3955,7 +3964,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Igår"

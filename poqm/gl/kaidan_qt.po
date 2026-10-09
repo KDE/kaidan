@@ -370,7 +370,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Expulsouse"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
@@ -378,13 +378,13 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Contacto copiado ao portapapeis"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -850,7 +850,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Sen conexión"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 #, fuzzy
 #| msgctxt "ProviderListModel|"
 #| msgid "Custom provider"
@@ -861,7 +861,7 @@ msgstr "Provedor personalizado"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 #, fuzzy
 #| msgctxt "ProviderListModel|"
 #| msgid "Unlimited"
@@ -870,7 +870,7 @@ msgid "Unlimited"
 msgstr "Sen límite"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, fuzzy, qt-format
 #| msgctxt "ProviderListModel|"
 #| msgid "%1 days"
@@ -3928,35 +3928,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Sobre"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Unblocked %1"
-msgctxt "main|%1 is a JID"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Desbloqueouse %1"
 
-#: src/qml/main.qml:181
+#: src/qml/Main.qml:181
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Undo"
-msgctxt "main|"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "Desfacer"
 
-#: src/qml/main.qml:188
+#: src/qml/Main.qml:188
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not block %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Non foi posíbel bloquear %1: %2"
 
-#: src/qml/main.qml:192
+#: src/qml/Main.qml:192
 #, fuzzy, qt-format
 #| msgctxt "ChatPage|"
 #| msgid "Could not unblock %1: %2"
-msgctxt "main|%1 is a JID, %2 an error message"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Non foi posíbel desbloquear %1: %2"
 
@@ -4314,7 +4314,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crear unha conta manualmente"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamaño descoñecido"
@@ -4385,7 +4385,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Onte"

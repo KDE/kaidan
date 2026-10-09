@@ -330,19 +330,19 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Заблоковано"
 
-#: src/ImageProvider.cpp:124
+#: src/ImageProvider.cpp:128
 #, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Не вдалося скопіювати некоректне джерело до буфера обміну даними: %1"
 
-#: src/ImageProvider.cpp:302
+#: src/ImageProvider.cpp:306
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Не вдалося створити мініатюру: %1 не існує"
 
-#: src/ImageProvider.cpp:356
+#: src/ImageProvider.cpp:360
 #, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
@@ -753,7 +753,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#: src/ProviderModel.cpp:73
+#: src/ProviderModel.cpp:75
 msgctxt "ProviderModel|"
 msgid "Custom provider"
 msgstr "Нетиповий надавач послуг"
@@ -761,13 +761,13 @@ msgstr "Нетиповий надавач послуг"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderModel.cpp:114 src/ProviderModel.cpp:130
+#: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
 msgstr "Без обмежень"
 
 #. Number of days for which message history is stored on the provider
-#: src/ProviderModel.cpp:133
+#: src/ProviderModel.cpp:135
 #, qt-format
 msgctxt "ProviderModel|"
 msgid "%n day(s)"
@@ -3584,26 +3584,35 @@ msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Про програму"
 
-#: src/qml/main.qml:181
-#, qt-format
-msgctxt "main|%1 is a JID"
+#: src/qml/Main.qml:181
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID"
+#| msgid "Unblocked %1"
+msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Розблоковано %1"
 
-#: src/qml/main.qml:181
-msgctxt "main|"
+#: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "main|"
+#| msgid "Undo"
+msgctxt "Main|"
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/qml/main.qml:188
-#, qt-format
-msgctxt "main|%1 is a JID, %2 an error message"
+#: src/qml/Main.qml:188
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgid "Could not block %1: %2"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Не вдалося заблокувати %1: %2"
 
-#: src/qml/main.qml:192
-#, qt-format
-msgctxt "main|%1 is a JID, %2 an error message"
+#: src/qml/Main.qml:192
+#, fuzzy, qt-format
+#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgid "Could not unblock %1: %2"
+msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Не вдалося розблокувати %1: %2"
 
@@ -3943,7 +3952,7 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:231
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
@@ -4004,7 +4013,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Нотатки"
 
-#: src/RosterModel.cpp:760
+#: src/RosterModel.cpp:761
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчора"
