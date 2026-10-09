@@ -273,7 +273,7 @@ void RegistrationController::handleRegistrationSucceeded()
         },
         Qt::SingleShotConnection);
 
-    m_clientController->logIn();
+    m_connection->logIn();
     cleanUpLastForm();
 }
 
