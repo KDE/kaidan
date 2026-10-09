@@ -488,6 +488,15 @@ SPDX-License-Identifier: CC0-1.0
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0424.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.5.0</xmpp:version>
+        <xmpp:since>0.17</xmpp:since>
+        <xmpp:note>Only local retraction limits are applied</xmpp:note>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0428.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.2.1</xmpp:version>
