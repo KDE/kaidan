@@ -62,18 +62,9 @@ Controls.Control {
 				visible: !root.selectionMode
 				spacing: 0
 
-				FormCard.AbstractFormDelegate {
+				TabBarItem {
 					id: imagesTab
-					checkable: true
-					contentItem: Controls.Label {
-						text: qsTr("Images")
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
-						verticalAlignment: Text.AlignVCenter
-						font.weight: parent.checked ? Font.Medium : Font.Normal
-					}
-					Layout.preferredWidth: 1
-					Layout.fillHeight: true
+					text: qsTr("Images")
 				}
 
 				Kirigami.Separator {
@@ -81,38 +72,19 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 
-				FormCard.AbstractFormDelegate {
+				TabBarItem {
 					id: videosTab
-					checkable: true
-					contentItem: Controls.Label {
-						text: qsTr("Videos")
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
-						verticalAlignment: Text.AlignVCenter
-						font.weight: parent.checked ? Font.Medium : Font.Normal
-					}
-					Layout.preferredWidth: 1
-					Layout.fillHeight: true
+					text: qsTr("Videos")
 				}
-
 
 				Kirigami.Separator {
 					id: videosOtherTabSeparator
 					Layout.fillHeight: true
 				}
 
-				FormCard.AbstractFormDelegate {
+				TabBarItem {
 					id: otherTab
-					checkable: true
-					contentItem: Controls.Label {
-						text: qsTr("Other")
-						wrapMode: Text.Wrap
-						horizontalAlignment: Text.AlignHCenter
-						verticalAlignment: Text.AlignVCenter
-						font.weight: parent.checked ? Font.Medium : Font.Normal
-					}
-					Layout.preferredWidth: 1
-					Layout.fillHeight: true
+					text: qsTr("Other")
 				}
 
 				Controls.ButtonGroup {
@@ -150,6 +122,19 @@ Controls.Control {
 
 						return tabBarGroup.buttons[root.tabBarCurrentIndex]
 					}
+				}
+
+				component TabBarItem: FormCard.AbstractFormDelegate {
+					checkable: true
+					contentItem: Controls.Label {
+						text: parent.text
+						wrapMode: Text.Wrap
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
+						font.weight: parent.checked ? Font.Medium : Font.Normal
+					}
+					Layout.preferredWidth: 1
+					Layout.fillHeight: true
 				}
 			}
 
