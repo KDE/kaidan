@@ -416,7 +416,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Banned"
 
-#: src/ImageProvider.cpp:128
+#: src/ImageProvider.cpp:134
 #, fuzzy, qt-format
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
@@ -424,13 +424,13 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Contact copied to clipboard"
 
-#: src/ImageProvider.cpp:306
+#: src/ImageProvider.cpp:312
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr ""
 
-#: src/ImageProvider.cpp:360
+#: src/ImageProvider.cpp:372
 #, fuzzy, qt-format
 #| msgctxt "MixController|"
 #| msgid "Could not rename group %1: %2"
@@ -1034,21 +1034,21 @@ msgid "You can share media up to %1."
 msgstr "You can share media up to %1."
 
 #: src/qml/details/AccountDetailsContent.qml:25
-#: src/qml/details/AccountDetailsContent.qml:267
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:266
+#: src/qml/details/AccountDetailsContent.qml:289
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Never"
 
 #: src/qml/details/AccountDetailsContent.qml:29
-#: src/qml/details/AccountDetailsContent.qml:271
+#: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "If personal data is shared"
 
 #: src/qml/details/AccountDetailsContent.qml:33
-#: src/qml/details/AccountDetailsContent.qml:275
-#: src/qml/details/AccountDetailsContent.qml:298
+#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:297
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Always"
@@ -1082,68 +1082,68 @@ msgstr ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 
-#: src/qml/details/AccountDetailsContent.qml:192
+#: src/qml/details/AccountDetailsContent.qml:191
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "Change label…"
 
-#: src/qml/details/AccountDetailsContent.qml:220
+#: src/qml/details/AccountDetailsContent.qml:219
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Remove label"
 
-#: src/qml/details/AccountDetailsContent.qml:232
-#: src/qml/details/AccountDetailsContent.qml:237
+#: src/qml/details/AccountDetailsContent.qml:231
+#: src/qml/details/AccountDetailsContent.qml:236
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "Share this account's chat address via QR code"
 
-#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:240
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "Share this account's chat address via text"
 
-#: src/qml/details/AccountDetailsContent.qml:244
+#: src/qml/details/AccountDetailsContent.qml:243
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "Account address copied to clipboard"
 
-#: src/qml/details/AccountDetailsContent.qml:248
+#: src/qml/details/AccountDetailsContent.qml:247
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr "Share this account's chat address via a web page with usage help"
 
-#: src/qml/details/AccountDetailsContent.qml:259
+#: src/qml/details/AccountDetailsContent.qml:258
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/qml/details/AccountDetailsContent.qml:263
+#: src/qml/details/AccountDetailsContent.qml:262
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Incoming contact messages"
 
-#: src/qml/details/AccountDetailsContent.qml:264
+#: src/qml/details/AccountDetailsContent.qml:263
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr "Show notification and play sound on message arrival from a contact"
 
-#: src/qml/details/AccountDetailsContent.qml:286
+#: src/qml/details/AccountDetailsContent.qml:285
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Incoming group messages"
 
-#: src/qml/details/AccountDetailsContent.qml:287
+#: src/qml/details/AccountDetailsContent.qml:286
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr "Show notification and play sound on message arrival from a group"
 
-#: src/qml/details/AccountDetailsContent.qml:294
+#: src/qml/details/AccountDetailsContent.qml:293
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "On mention"
 
-#: src/qml/details/AccountDetailsContent.qml:311
+#: src/qml/details/AccountDetailsContent.qml:310
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -1151,7 +1151,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Locations"
 msgstr "Location"
 
-#: src/qml/details/AccountDetailsContent.qml:315
+#: src/qml/details/AccountDetailsContent.qml:314
 msgctxt "AccountDetailsContent|"
 msgid ""
 "For displaying locations in Kaidan, online data from the third party "
@@ -1159,17 +1159,17 @@ msgid ""
 "submitting the location."
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:320
+#: src/qml/details/AccountDetailsContent.qml:319
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:329
+#: src/qml/details/AccountDetailsContent.qml:328
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -1177,7 +1177,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
 msgstr "Send location"
 
-#: src/qml/details/AccountDetailsContent.qml:330
+#: src/qml/details/AccountDetailsContent.qml:329
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -1185,7 +1185,7 @@ msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
 msgstr "Send location"
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:332
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Reset to defaults"
@@ -1193,7 +1193,7 @@ msgctxt "AccountDetailsContent|"
 msgid "System default"
 msgstr "Reset to defaults"
 
-#: src/qml/details/AccountDetailsContent.qml:337
+#: src/qml/details/AccountDetailsContent.qml:336
 #, fuzzy
 #| msgctxt "AboutDialog|"
 #| msgid "About Kaidan"
@@ -1201,57 +1201,57 @@ msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
 msgstr "About Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:365
+#: src/qml/details/AccountDetailsContent.qml:364
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Provider"
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:368
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Visit website"
 
-#: src/qml/details/AccountDetailsContent.qml:370
+#: src/qml/details/AccountDetailsContent.qml:369
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Open your provider's website in a web browser"
 
-#: src/qml/details/AccountDetailsContent.qml:376
+#: src/qml/details/AccountDetailsContent.qml:375
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Copy website address"
 
-#: src/qml/details/AccountDetailsContent.qml:377
+#: src/qml/details/AccountDetailsContent.qml:376
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Copy your provider's web address to the clipboard"
 
-#: src/qml/details/AccountDetailsContent.qml:381
+#: src/qml/details/AccountDetailsContent.qml:380
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Website address copied to clipboard"
 
-#: src/qml/details/AccountDetailsContent.qml:387
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Open support chat"
 
-#: src/qml/details/AccountDetailsContent.qml:388
+#: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Start chat with your provider's support contact"
 
-#: src/qml/details/AccountDetailsContent.qml:395
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Support"
 
-#: src/qml/details/AccountDetailsContent.qml:410
+#: src/qml/details/AccountDetailsContent.qml:409
 #, fuzzy, qt-format
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Support %1"
@@ -1259,17 +1259,17 @@ msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "Support %1"
 
-#: src/qml/details/AccountDetailsContent.qml:428
+#: src/qml/details/AccountDetailsContent.qml:427
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Open support group"
 
-#: src/qml/details/AccountDetailsContent.qml:429
+#: src/qml/details/AccountDetailsContent.qml:428
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Join your provider's public support group"
 
-#: src/qml/details/AccountDetailsContent.qml:444
+#: src/qml/details/AccountDetailsContent.qml:443
 #, fuzzy, qt-format
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Group Support %1"
@@ -1277,12 +1277,12 @@ msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "Group Support %1"
 
-#: src/qml/details/AccountDetailsContent.qml:458
+#: src/qml/details/AccountDetailsContent.qml:457
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Blocked Chat Addresses"
 
-#: src/qml/details/AccountDetailsContent.qml:462
+#: src/qml/details/AccountDetailsContent.qml:461
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -1291,52 +1291,52 @@ msgstr ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:489
+#: src/qml/details/AccountDetailsContent.qml:488
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "You must be connected to block or unblock chat addresses"
 
-#: src/qml/details/AccountDetailsContent.qml:497
+#: src/qml/details/AccountDetailsContent.qml:496
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:512
+#: src/qml/details/AccountDetailsContent.qml:511
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Block chat address"
 
-#: src/qml/details/AccountDetailsContent.qml:570
+#: src/qml/details/AccountDetailsContent.qml:569
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Change chat address…"
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:597
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Unblock"
 
-#: src/qml/details/AccountDetailsContent.qml:618
+#: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Add chat for notes"
 
-#: src/qml/details/AccountDetailsContent.qml:625
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Adding notes chat…"
 
-#: src/qml/details/AccountDetailsContent.qml:626
+#: src/qml/details/AccountDetailsContent.qml:625
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Add a chat for synchronising your notes across all your devices"
 
-#: src/qml/details/AccountDetailsContent.qml:639
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1345,12 +1345,12 @@ msgstr ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 
-#: src/qml/details/AccountDetailsContent.qml:674
+#: src/qml/details/AccountDetailsContent.qml:673
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Password Change"
 
-#: src/qml/details/AccountDetailsContent.qml:678
+#: src/qml/details/AccountDetailsContent.qml:677
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -1359,33 +1359,33 @@ msgstr ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 
-#: src/qml/details/AccountDetailsContent.qml:683
+#: src/qml/details/AccountDetailsContent.qml:682
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Current password"
 
-#: src/qml/details/AccountDetailsContent.qml:684
+#: src/qml/details/AccountDetailsContent.qml:683
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Enter your current password"
 
-#: src/qml/details/AccountDetailsContent.qml:700
+#: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "New password"
 
-#: src/qml/details/AccountDetailsContent.qml:700
-#: src/qml/details/AccountDetailsContent.qml:954
+#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Password"
 
-#: src/qml/details/AccountDetailsContent.qml:701
+#: src/qml/details/AccountDetailsContent.qml:700
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Enter your new password"
 
-#: src/qml/details/AccountDetailsContent.qml:703
+#: src/qml/details/AccountDetailsContent.qml:702
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter different password to change it"
@@ -1393,12 +1393,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "Enter different password to change it"
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:721
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Change password"
 
-#: src/qml/details/AccountDetailsContent.qml:758
+#: src/qml/details/AccountDetailsContent.qml:757
 #, fuzzy, qt-format
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Failed to change password: %1"
@@ -1406,17 +1406,17 @@ msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Failed to change password: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:764
+#: src/qml/details/AccountDetailsContent.qml:763
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Password changed successfully"
 
-#: src/qml/details/AccountDetailsContent.qml:787
+#: src/qml/details/AccountDetailsContent.qml:786
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Password Visibility"
 
-#: src/qml/details/AccountDetailsContent.qml:791
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1429,12 +1429,12 @@ msgstr ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:797
+#: src/qml/details/AccountDetailsContent.qml:796
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Don't show password as text"
 
-#: src/qml/details/AccountDetailsContent.qml:798
+#: src/qml/details/AccountDetailsContent.qml:797
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1443,17 +1443,17 @@ msgstr ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Removing password from text…"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:810
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Do not expose password in any way"
 
-#: src/qml/details/AccountDetailsContent.qml:812
+#: src/qml/details/AccountDetailsContent.qml:811
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1462,17 +1462,17 @@ msgstr ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 
-#: src/qml/details/AccountDetailsContent.qml:819
+#: src/qml/details/AccountDetailsContent.qml:818
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Removing password from text and QR code…"
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Connection"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:831
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1481,17 +1481,17 @@ msgstr ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:859
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:891
+#: src/qml/details/AccountDetailsContent.qml:890
 #, fuzzy, qt-format
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Connection settings could not be changed: %1"
@@ -1499,12 +1499,12 @@ msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Connection settings could not be changed: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:903
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Connection settings changed"
 
-#: src/qml/details/AccountDetailsContent.qml:914
+#: src/qml/details/AccountDetailsContent.qml:913
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid "Switch device"
@@ -1512,7 +1512,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "Switch device"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:917
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1526,7 +1526,7 @@ msgstr ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:923
 #, fuzzy
 #| msgctxt "StartPage|"
 #| msgid "Scan login QR code"
@@ -1534,7 +1534,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "Scan login QR code"
 
-#: src/qml/details/AccountDetailsContent.qml:925
+#: src/qml/details/AccountDetailsContent.qml:924
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1546,7 +1546,7 @@ msgstr ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:940
 #, fuzzy
 #| msgctxt "MessageReactionDetailsButton|"
 #| msgid "Show details"
@@ -1554,7 +1554,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "Show details"
 
-#: src/qml/details/AccountDetailsContent.qml:942
+#: src/qml/details/AccountDetailsContent.qml:941
 #, fuzzy
 #| msgctxt "DeviceSwitchingPage|"
 #| msgid ""
@@ -1566,7 +1566,7 @@ msgstr ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 
-#: src/qml/details/AccountDetailsContent.qml:948
+#: src/qml/details/AccountDetailsContent.qml:947
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -1574,27 +1574,27 @@ msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "Chat address"
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:964
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migration"
 
-#: src/qml/details/AccountDetailsContent.qml:970
+#: src/qml/details/AccountDetailsContent.qml:969
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migrate account"
 
-#: src/qml/details/AccountDetailsContent.qml:971
+#: src/qml/details/AccountDetailsContent.qml:970
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Preparing account migration…"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:972
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:972
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1605,17 +1605,17 @@ msgstr ""
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Removal"
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:999
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Remove from Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1001
+#: src/qml/details/AccountDetailsContent.qml:1000
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1624,29 +1624,29 @@ msgstr ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Removing account…"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1015
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Delete completely"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Delete account from provider. You will not be able to use your account again!"
 
-#: src/qml/details/AccountDetailsContent.qml:1025
+#: src/qml/details/AccountDetailsContent.qml:1024
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Deleting account…"
 
-#: src/qml/details/AccountDetailsContent.qml:1032
+#: src/qml/details/AccountDetailsContent.qml:1031
 #, fuzzy, qt-format
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -2325,22 +2325,22 @@ msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
 msgstr "All participants' devices are verified"
 
-#: src/qml/details/MediaOverview.qml:69
+#: src/qml/details/MediaOverview.qml:67
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Images"
 
-#: src/qml/details/MediaOverview.qml:85
+#: src/qml/details/MediaOverview.qml:77
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Videos"
 
-#: src/qml/details/MediaOverview.qml:102
+#: src/qml/details/MediaOverview.qml:87
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Other"
 
-#: src/qml/details/MediaOverview.qml:169
+#: src/qml/details/MediaOverview.qml:163
 #, fuzzy
 #| msgctxt "MediaOverview|"
 #| msgid "%1/%2 selected"
@@ -2351,7 +2351,7 @@ msgid_plural "%Ln/%L1 selected"
 msgstr[0] "%1/%2 selected"
 msgstr[1] "%1/%2 selected"
 
-#: src/qml/details/MediaOverview.qml:252
+#: src/qml/details/MediaOverview.qml:246
 #, fuzzy, qt-format
 #| msgctxt "MediaOverview|"
 #| msgid ""

@@ -316,19 +316,19 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "حُظر"
 
-#: src/ImageProvider.cpp:128
+#: src/ImageProvider.cpp:134
 #, qt-format
 msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "تعذر نسخ المصدر غير الصالح إلى الحافظة: %1"
 
-#: src/ImageProvider.cpp:306
+#: src/ImageProvider.cpp:312
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "تعذر إنشاء الصورة المصغرة: %1 غير موجود"
 
-#: src/ImageProvider.cpp:360
+#: src/ImageProvider.cpp:372
 #, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
@@ -843,21 +843,21 @@ msgid "You can share media up to %1."
 msgstr "يمكنك مشاركة الوسائط حتى %1."
 
 #: src/qml/details/AccountDetailsContent.qml:25
-#: src/qml/details/AccountDetailsContent.qml:267
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:266
+#: src/qml/details/AccountDetailsContent.qml:289
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "البتة"
 
 #: src/qml/details/AccountDetailsContent.qml:29
-#: src/qml/details/AccountDetailsContent.qml:271
+#: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "إذا شُوركت البيانات الشخصية"
 
 #: src/qml/details/AccountDetailsContent.qml:33
-#: src/qml/details/AccountDetailsContent.qml:275
-#: src/qml/details/AccountDetailsContent.qml:298
+#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:297
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "دائمًا"
@@ -891,73 +891,73 @@ msgstr ""
 "تضمن التعمية من طرف إلى طرف مع OMEMO 2 أنه لا يمكن لأي شخص آخر سوى شركاء "
 "الدردشة قراءة أو تعديل البيانات التي تبادلها."
 
-#: src/qml/details/AccountDetailsContent.qml:192
+#: src/qml/details/AccountDetailsContent.qml:191
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "غير اللصيقة…"
 
-#: src/qml/details/AccountDetailsContent.qml:220
+#: src/qml/details/AccountDetailsContent.qml:219
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "أزل اللصقية"
 
-#: src/qml/details/AccountDetailsContent.qml:232
-#: src/qml/details/AccountDetailsContent.qml:237
+#: src/qml/details/AccountDetailsContent.qml:231
+#: src/qml/details/AccountDetailsContent.qml:236
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "شارك عنوان دردشة هذا الحساب عبر رمز الاستجابة السريعة"
 
-#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:240
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "شارك عنوان دردشة هذا الحساب عبر النص"
 
-#: src/qml/details/AccountDetailsContent.qml:244
+#: src/qml/details/AccountDetailsContent.qml:243
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "نُسخ عنوان الحساب إلى الحافظة"
 
-#: src/qml/details/AccountDetailsContent.qml:248
+#: src/qml/details/AccountDetailsContent.qml:247
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr "شارك عنوان دردشة هذا الحساب عبر صفحة ويب مع مساعدة الاستخدام"
 
-#: src/qml/details/AccountDetailsContent.qml:259
+#: src/qml/details/AccountDetailsContent.qml:258
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "الإشعارات"
 
-#: src/qml/details/AccountDetailsContent.qml:263
+#: src/qml/details/AccountDetailsContent.qml:262
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "رسائل الاتصال الواردة"
 
-#: src/qml/details/AccountDetailsContent.qml:264
+#: src/qml/details/AccountDetailsContent.qml:263
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr "أظهر الإشعار والتشغيل الصوت عند وصول الرسائل من جهة اتصال"
 
-#: src/qml/details/AccountDetailsContent.qml:286
+#: src/qml/details/AccountDetailsContent.qml:285
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "رسائل المجموعة الواردة"
 
-#: src/qml/details/AccountDetailsContent.qml:287
+#: src/qml/details/AccountDetailsContent.qml:286
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr "أظهر الإشعار والتشغيل الصوت عند وصول الرسائل من مجموعة"
 
-#: src/qml/details/AccountDetailsContent.qml:294
+#: src/qml/details/AccountDetailsContent.qml:293
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "عند الإشارة"
 
-#: src/qml/details/AccountDetailsContent.qml:311
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
 msgstr "المواقع"
 
-#: src/qml/details/AccountDetailsContent.qml:315
+#: src/qml/details/AccountDetailsContent.qml:314
 msgctxt "AccountDetailsContent|"
 msgid ""
 "For displaying locations in Kaidan, online data from the third party "
@@ -967,114 +967,114 @@ msgstr ""
 "لعرض المواقع في كيدان، سيُستخدم بيانات عبر الإنترنت من مزود الطرف الثالث "
 "OpenStreetMap. تُنزل البيانات منه بعد إرسال الموقع."
 
-#: src/qml/details/AccountDetailsContent.qml:320
+#: src/qml/details/AccountDetailsContent.qml:319
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
 msgstr "معاينات خريطة الموقع"
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
 msgstr "اعرض معاينات المواقع"
 
-#: src/qml/details/AccountDetailsContent.qml:329
+#: src/qml/details/AccountDetailsContent.qml:328
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
 msgstr "المواقع الافتتاحية"
 
-#: src/qml/details/AccountDetailsContent.qml:330
+#: src/qml/details/AccountDetailsContent.qml:329
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
 msgstr "كيفية فتح المواقع"
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
 msgid "System default"
 msgstr "مبدئي النظام"
 
-#: src/qml/details/AccountDetailsContent.qml:337
+#: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
 msgstr "كيدان"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr "الوبّ"
 
-#: src/qml/details/AccountDetailsContent.qml:365
+#: src/qml/details/AccountDetailsContent.qml:364
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "المزود"
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:368
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "زر موقع الويب"
 
-#: src/qml/details/AccountDetailsContent.qml:370
+#: src/qml/details/AccountDetailsContent.qml:369
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "افتح موقع ويب مزودك في متصفح الويب"
 
-#: src/qml/details/AccountDetailsContent.qml:376
+#: src/qml/details/AccountDetailsContent.qml:375
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "انسخ عنوان الموقع"
 
-#: src/qml/details/AccountDetailsContent.qml:377
+#: src/qml/details/AccountDetailsContent.qml:376
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "انسخ عنوان ويب مزودك إلى الحافظة"
 
-#: src/qml/details/AccountDetailsContent.qml:381
+#: src/qml/details/AccountDetailsContent.qml:380
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "نُسخ عنوان الموقع إلى الحافظة"
 
-#: src/qml/details/AccountDetailsContent.qml:387
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "افتح دردشة الدعم"
 
-#: src/qml/details/AccountDetailsContent.qml:388
+#: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "ابدأ الدردشة مع جهة اتصال الدعم لمقدم خدمتك"
 
-#: src/qml/details/AccountDetailsContent.qml:395
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "الدعم"
 
-#: src/qml/details/AccountDetailsContent.qml:410
+#: src/qml/details/AccountDetailsContent.qml:409
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Support %1"
 msgstr "ادعم %1"
 
-#: src/qml/details/AccountDetailsContent.qml:428
+#: src/qml/details/AccountDetailsContent.qml:427
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "افتح مجموعة الدعم"
 
-#: src/qml/details/AccountDetailsContent.qml:429
+#: src/qml/details/AccountDetailsContent.qml:428
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "انضم إلى مجموعة الدعم العام لمزودك"
 
-#: src/qml/details/AccountDetailsContent.qml:444
+#: src/qml/details/AccountDetailsContent.qml:443
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
 msgstr "مجموعة الدعم %1"
 
-#: src/qml/details/AccountDetailsContent.qml:458
+#: src/qml/details/AccountDetailsContent.qml:457
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "عناوين الدردشة المحظورة"
 
-#: src/qml/details/AccountDetailsContent.qml:462
+#: src/qml/details/AccountDetailsContent.qml:461
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -1083,52 +1083,52 @@ msgstr ""
 "احظر مستخدم معين (على سبيل المثال، user@example.org) أو جميع مستخدمي الخادم "
 "نفسه (على سبيل المثال، example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:489
+#: src/qml/details/AccountDetailsContent.qml:488
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "يجب أن تكون متصلًا لحظر أو إلغاء حظر عناوين الدردشة"
 
-#: src/qml/details/AccountDetailsContent.qml:497
+#: src/qml/details/AccountDetailsContent.qml:496
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:512
+#: src/qml/details/AccountDetailsContent.qml:511
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "احظر عنوان الدردشة"
 
-#: src/qml/details/AccountDetailsContent.qml:570
+#: src/qml/details/AccountDetailsContent.qml:569
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "غير عنوان الدردشة…"
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:597
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "الغِ الحظر"
 
-#: src/qml/details/AccountDetailsContent.qml:618
+#: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "الملاحظات"
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "أضف دردشة للملاحظات"
 
-#: src/qml/details/AccountDetailsContent.qml:625
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "إضافة دردشة ملاحظات…"
 
-#: src/qml/details/AccountDetailsContent.qml:626
+#: src/qml/details/AccountDetailsContent.qml:625
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "أضف محادثة لمزامنة ملاحظاتك عبر جميع أجهزتك"
 
-#: src/qml/details/AccountDetailsContent.qml:639
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1136,71 +1136,71 @@ msgid ""
 msgstr ""
 "لا يمكن إضافة دردشة الملاحظات إلى قائمة جهات اتصالاك لأن خادمك لا يتيح ذلك"
 
-#: src/qml/details/AccountDetailsContent.qml:674
+#: src/qml/details/AccountDetailsContent.qml:673
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "غير كلمة السّر"
 
-#: src/qml/details/AccountDetailsContent.qml:678
+#: src/qml/details/AccountDetailsContent.qml:677
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr "غير كلمة سرك. تحتاج إلى إدخال كلمة سر جديدة على جميع أجهزتك الأخرى!"
 
-#: src/qml/details/AccountDetailsContent.qml:683
+#: src/qml/details/AccountDetailsContent.qml:682
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "كلمة السرّ الحاليّة"
 
-#: src/qml/details/AccountDetailsContent.qml:684
+#: src/qml/details/AccountDetailsContent.qml:683
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "أدخل كلمة السر الحالية"
 
-#: src/qml/details/AccountDetailsContent.qml:700
+#: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "كلمة السرّ الجديدة"
 
-#: src/qml/details/AccountDetailsContent.qml:700
-#: src/qml/details/AccountDetailsContent.qml:954
+#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "كلمة السّر"
 
-#: src/qml/details/AccountDetailsContent.qml:701
+#: src/qml/details/AccountDetailsContent.qml:700
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "أدخل كلمة سرك"
 
-#: src/qml/details/AccountDetailsContent.qml:703
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Enter a different password to change it"
 msgstr "أدخل كلمة سر مختلفة لتغييرها"
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:721
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "غير كلمة السر"
 
-#: src/qml/details/AccountDetailsContent.qml:758
+#: src/qml/details/AccountDetailsContent.qml:757
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "فشل في تغيير كلمة السر: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:764
+#: src/qml/details/AccountDetailsContent.qml:763
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
-#: src/qml/details/AccountDetailsContent.qml:787
+#: src/qml/details/AccountDetailsContent.qml:786
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "إمكانية رؤية كلمة السّر"
 
-#: src/qml/details/AccountDetailsContent.qml:791
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1212,12 +1212,12 @@ msgstr ""
 "إذا كنت تريد تغيير كلمة سرك أو استخدام حسابك على جهاز آخر لاحقًا، <b>ففكر في "
 "تخزين كلمة السر في مكان آخر. لا يمكن التراجع عن هذا!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:797
+#: src/qml/details/AccountDetailsContent.qml:796
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "لا تظهر كلمة السر كنص"
 
-#: src/qml/details/AccountDetailsContent.qml:798
+#: src/qml/details/AccountDetailsContent.qml:797
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1226,17 +1226,17 @@ msgstr ""
 "اسمح بإضافة أجهزة إضافية باستخدام رمز الاستجابة السريع للولوج ولكن لا تظهر "
 "كلمة السر أبدًا"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "إزالة كلمة السر من النص…"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:810
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "لا تعرض كلمة السر بأي طريقة"
 
-#: src/qml/details/AccountDetailsContent.qml:812
+#: src/qml/details/AccountDetailsContent.qml:811
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1245,50 +1245,50 @@ msgstr ""
 "لا تسمح بإضافة أجهزة إضافية باستخدام رمز الاستجابة السريعة للولوج أو إظهار "
 "كلمة السر"
 
-#: src/qml/details/AccountDetailsContent.qml:819
+#: src/qml/details/AccountDetailsContent.qml:818
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "إزالة كلمة السر من النص ورمز الاستجابة السريعة…"
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "الاتّصال"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:831
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "اضبط اسم المضيف والمنفذ للاتصال (الحقول الفارغة للقيم المبدئية)"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:859
 msgctxt "AccountDetailsContent|"
 msgid "Apply changes"
 msgstr "طبقّ التّعديلات"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
 msgstr "يطبق التّغييرات…"
 
-#: src/qml/details/AccountDetailsContent.qml:891
+#: src/qml/details/AccountDetailsContent.qml:890
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "لا يمكن تعديل إعدادات الاتّصال: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:903
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "تغيرت إعدادات الاتّصال"
 
-#: src/qml/details/AccountDetailsContent.qml:914
+#: src/qml/details/AccountDetailsContent.qml:913
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
 msgstr "بدّل جهاز"
 
-#: src/qml/details/AccountDetailsContent.qml:918
+#: src/qml/details/AccountDetailsContent.qml:917
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Never show the information in this section to anyone else. It would allow "
@@ -1297,52 +1297,52 @@ msgstr ""
 "لا تظهر هذا المعلومات أبدًا لأي شخص آخر. حيث أنها ستسمح  بالوصول غير المحدود "
 "إلى حسابك!"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:923
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
 msgstr "اعرض رمز الاستجابة للولوج"
 
-#: src/qml/details/AccountDetailsContent.qml:925
+#: src/qml/details/AccountDetailsContent.qml:924
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
 msgstr "امسح رمز الاستجابة السريعة بواسطة جهاز آخر للولوج إليه."
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:940
 msgctxt "AccountDetailsContent|"
 msgid "Show credentials"
 msgstr "أظهر بيانات الاعتماد"
 
-#: src/qml/details/AccountDetailsContent.qml:942
+#: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid "Enter the credentials in another device to log in on it"
 msgstr "أدخل بيانات الاعتماد في جهاز آخر للولوج إليه."
 
-#: src/qml/details/AccountDetailsContent.qml:948
+#: src/qml/details/AccountDetailsContent.qml:947
 msgctxt "AccountDetailsContent|"
 msgid "Chat address"
 msgstr "عنوان الدردشة"
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:964
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "الترحيل"
 
-#: src/qml/details/AccountDetailsContent.qml:970
+#: src/qml/details/AccountDetailsContent.qml:969
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "رحّل الحساب"
 
-#: src/qml/details/AccountDetailsContent.qml:971
+#: src/qml/details/AccountDetailsContent.qml:970
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "إعداد ترحيل الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:972
 msgctxt "AccountDetailsContent|"
 msgid "This may take a while"
 msgstr "قد يستغرق هذا الأمر بعض الوقت"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:972
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1353,17 +1353,17 @@ msgstr ""
 "من هذا التطبيق. خذ نسخة احتياطية من بيانات الاعتماد وسجل الدردشة إذا لزم "
 "الأمر!"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "الإزالة"
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:999
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "أزل من كيدان"
 
-#: src/qml/details/AccountDetailsContent.qml:1001
+#: src/qml/details/AccountDetailsContent.qml:1000
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1372,28 +1372,28 @@ msgstr ""
 "أزل الحساب من هذا التطبيق. خذ نسخة احتياطية لبيانات الاعتماد وسجل الدردشة "
 "إذا لزم الأمر!"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "إزالة الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:1015
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "احذف بالكامل"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "احذف الحساب من مقدم الخدمة. لن تتمكن من استخدام حسابك مرة أخرى!"
 
-#: src/qml/details/AccountDetailsContent.qml:1025
+#: src/qml/details/AccountDetailsContent.qml:1024
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "يحذف الحساب…"
 
-#: src/qml/details/AccountDetailsContent.qml:1032
+#: src/qml/details/AccountDetailsContent.qml:1031
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid ""
@@ -2039,22 +2039,22 @@ msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
 msgstr "تُحقق من جميع الأجهزة المعروفة للمشاركين"
 
-#: src/qml/details/MediaOverview.qml:69
+#: src/qml/details/MediaOverview.qml:67
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "الصور"
 
-#: src/qml/details/MediaOverview.qml:85
+#: src/qml/details/MediaOverview.qml:77
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "الفيديوهات"
 
-#: src/qml/details/MediaOverview.qml:102
+#: src/qml/details/MediaOverview.qml:87
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "أخرى"
 
-#: src/qml/details/MediaOverview.qml:169
+#: src/qml/details/MediaOverview.qml:163
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
@@ -2066,7 +2066,7 @@ msgstr[3] "%Ln/%L1 محدّد"
 msgstr[4] "%Ln/%L1 محدّد"
 msgstr[5] "%Ln/%L1 محدّد"
 
-#: src/qml/details/MediaOverview.qml:252
+#: src/qml/details/MediaOverview.qml:246
 #, qt-format
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
