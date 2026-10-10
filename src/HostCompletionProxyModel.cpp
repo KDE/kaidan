@@ -8,6 +8,8 @@ HostCompletionProxyModel::HostCompletionProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
     setSortCaseSensitivity(Qt::CaseInsensitive);
+
+    connect(this, &HostCompletionProxyModel::userInputChanged, this, &HostCompletionProxyModel::invalidateFilter);
 }
 
 QVariant HostCompletionProxyModel::data(const QModelIndex &index, int role) const
@@ -30,10 +32,7 @@ const QString &HostCompletionProxyModel::userInput() const
 void HostCompletionProxyModel::setUserInput(const QString &newUserInput)
 {
     if (m_userInput != newUserInput) {
-        beginFilterChange();
         m_userInput = newUserInput;
-        endFilterChange(QSortFilterProxyModel::Direction::Rows);
-
         Q_EMIT userInputChanged(newUserInput);
     }
 }
