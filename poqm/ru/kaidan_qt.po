@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-27 11:09+0300\n"
+"PO-Revision-Date: 2026-10-09 21:19+0200\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -44,12 +44,12 @@ msgstr "Не удалось подключиться к серверу. Пров
 #: src/Account.cpp:501
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
-msgstr "Ошибка при попытке установить защищённое соединение."
+msgstr "Ошибка при попытке установить защищённое подключение."
 
 #: src/Account.cpp:503
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
-msgstr "Сервер не поддерживает защищённое соединение."
+msgstr "Сервер не поддерживает защищённое подключение."
 
 #: src/Account.cpp:505
 msgctxt "Connection|"
@@ -63,7 +63,7 @@ msgstr ""
 #: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Этот сервер не работает или заблокирован сетевым экраном."
+msgstr "Сервер не работает или заблокирован сетевым экраном."
 
 #: src/Account.cpp:509
 msgctxt "Connection|"
@@ -81,7 +81,7 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"Доступ в Интернет запрещён. Проверьте настройки доступа в Интернет в системе."
+"Доступ в Интернет запрещён. Проверьте параметры доступа в Интернет в системе."
 
 #: src/Account.cpp:515
 msgctxt "Connection|"
@@ -92,8 +92,7 @@ msgstr "Этот сервер не поддерживает регистраци
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
-"Не удалось войти. Сначала подтвердите получение сообщения по электронной "
-"почте."
+"Не удалось войти. Сначала выполните подтверждение из полученного письма."
 
 #: src/Account.cpp:519
 msgctxt "Connection|"
@@ -165,7 +164,7 @@ msgstr ""
 #: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr "Отклонить"
+msgstr "Скрыть"
 
 #: src/ChatHintModel.cpp:235
 msgctxt "ChatHintModel|"
@@ -180,7 +179,7 @@ msgstr "Включение…"
 #: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
-msgstr "Неудачное подключение"
+msgstr "Не удалось подключиться"
 
 #: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
@@ -324,7 +323,7 @@ msgstr "Вышел"
 #: src/GroupChatUserModel.cpp:60
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr "Забанен"
+msgstr "Заблокирован"
 
 #: src/ImageProvider.cpp:124
 #, qt-format
@@ -593,7 +592,7 @@ msgstr "Группа не существует"
 #: src/MixController.cpp:183
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
-msgstr "Вам не разрешается присоединяться к группе"
+msgstr "Нет разрешения на присоединение к группе"
 
 #: src/MixController.cpp:237 src/MixController.cpp:244
 #, qt-format
@@ -618,7 +617,7 @@ msgstr "Не удалось получить перечень разрешённ
 #, qt-format
 msgctxt "MixController|%1 is a channel JID, %2 an error message"
 msgid "Banned users of %1 could not be retrieved: %2"
-msgstr "Не удалось получить перечень забаненных пользователей %1: %2"
+msgstr "Не удалось получить перечень заблокированных пользователей %1: %2"
 
 #: src/MixController.cpp:311
 #, qt-format
@@ -630,18 +629,18 @@ msgstr "Не удалось получить перечень присоедин
 #, qt-format
 msgctxt "MixController|%1 is a user JID, %2 a channel JID, %3 an error message"
 msgid "%1 could not be banned from %2: %3"
-msgstr "Не удалось забанить %1 в %2: %3"
+msgstr "Не удалось заблокировать %1 в %2: %3"
 
 #: src/MixController.cpp:371
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
-msgstr "Вам не разрешается удалять группу"
+msgstr "Нет разрешения на удаление группы"
 
 #: src/NotificationController.cpp:102
 #, qt-format
 msgctxt "NotificationController|"
 msgid "Incoming call from %1"
-msgstr "Входящий вызов от %1"
+msgstr "Входящий звонок от %1"
 
 #: src/NotificationController.cpp:104
 #, qt-format
@@ -692,7 +691,7 @@ msgstr "Не удалось настроить сквозное шифрован
 #: src/PresenceCache.cpp:36
 msgctxt "QObject|"
 msgid "Available"
-msgstr "Онлайн"
+msgstr "В сети"
 
 #: src/PresenceCache.cpp:38
 msgctxt "QObject|"
@@ -745,37 +744,37 @@ msgstr[2] "%n дней"
 #: src/qml/AboutDialog.qml:13
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
-msgstr "О программе Kaidan"
+msgstr "О Kaidan"
 
 #: src/qml/AboutPage.qml:12
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr "О программе Kaidan"
+msgstr "О Kaidan"
 
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr "Вызов"
+msgstr "Звонок"
 
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
 msgid "Quit call"
-msgstr "Завершить вызов"
+msgstr "Завершить звонок"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Начать аудиозвонок"
+msgstr "Открыть аудиозвонок"
 
 #: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "Начать голосовой вызов"
+msgstr "Начать аудиозвонок"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
 msgid "Open video call"
-msgstr "Начать видеозвонок"
+msgstr "Открыть видеозвонок"
 
 #: src/qml/ChatPage.qml:140
 msgctxt "ChatPage|"
@@ -790,7 +789,7 @@ msgstr "Искать вверх"
 #: src/qml/ChatPage.qml:174
 msgctxt "ChatPage|"
 msgid "Search downwards"
-msgstr "Поиск вниз"
+msgstr "Искать вниз"
 
 #: src/qml/ChatPage.qml:186
 msgctxt "ChatPage|"
@@ -844,7 +843,7 @@ msgstr "Не удалось разблокировать %1: %2"
 #, qt-format
 msgctxt "AccountDetailsContent|%1 is a size limit, e.g. 5 MB"
 msgid "You can share media up to %1."
-msgstr "Возможна публикация мультимедийных данных размером не более %1."
+msgstr "Можно отправлять медиафайлы размером до %1."
 
 #: src/qml/details/AccountDetailsContent.qml:25
 #: src/qml/details/AccountDetailsContent.qml:269
@@ -987,7 +986,7 @@ msgstr "Предпросмотр местоположения на карте"
 #: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr "Выполнять предпросмотр местоположения"
+msgstr "Показывать предпросмотр местоположения"
 
 #: src/qml/details/AccountDetailsContent.qml:333
 msgctxt "AccountDetailsContent|"
@@ -1012,7 +1011,7 @@ msgstr "Kaidan"
 #: src/qml/details/AccountDetailsContent.qml:345
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr "Интернет"
+msgstr "Веб-браузер"
 
 #: src/qml/details/AccountDetailsContent.qml:370
 msgctxt "AccountDetailsContent|"
@@ -1079,7 +1078,7 @@ msgstr "Присоединиться к общедоступной группе 
 #, qt-format
 msgctxt "AccountDetailsContent|as in 'get help'"
 msgid "Group Support %1"
-msgstr "Поддержка группы %1"
+msgstr "Группа поддержки %1"
 
 #: src/qml/details/AccountDetailsContent.qml:466
 msgctxt "AccountDetailsContent|"
@@ -1162,7 +1161,7 @@ msgid ""
 "devices!"
 msgstr ""
 "Измените пароль. Новый пароль потребуется ввести на всех остальных "
-"устройствах!"
+"устройствах."
 
 #: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
@@ -1228,7 +1227,7 @@ msgstr ""
 "переключении на другое устройство. Чтобы в дальнейшем иметь возможность "
 "изменить пароль или воспользоваться своей учётной записью на другом "
 "устройстве, <b>сейчас сохраните пароль в каком-либо другом месте. Это "
-"действие невозможно отменить!</b>"
+"действие невозможно отменить.</b>"
 
 #: src/qml/details/AccountDetailsContent.qml:806
 msgctxt "AccountDetailsContent|"
@@ -1306,7 +1305,7 @@ msgstr "Параметры подключения изменены"
 #: src/qml/details/AccountDetailsContent.qml:925
 msgctxt "AccountDetailsContent|"
 msgid "Switch Device"
-msgstr "Переключиться на другое устройство"
+msgstr "Переход на другое устройство"
 
 #: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
@@ -1314,8 +1313,8 @@ msgid ""
 "Never show the information in this section to anyone else. It would allow "
 "unlimited access to your account!"
 msgstr ""
-"Никогда никому не показывайте информацию из этого раздела. С её помощью "
-"злоумышленники могут получить неограниченный доступ к вашей учётной записи!"
+"Никогда никому не показывайте информацию из этого раздела: с её помощью "
+"можно получить неограниченный доступ к вашей учётной записи."
 
 #: src/qml/details/AccountDetailsContent.qml:935
 msgctxt "AccountDetailsContent|"
@@ -1373,7 +1372,7 @@ msgid ""
 msgstr ""
 "Перенести данные учётной записи (за исключением журнала чата) в другую "
 "учётную запись. Текущая учётная запись будет удалена из этого приложения. "
-"Сделайте резервную копию своих учётных данных и журнала чата, если нужно!"
+"При необходимости сделайте резервную копию учётных данных и журнала чата."
 
 #: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
@@ -1391,8 +1390,8 @@ msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
-"Удалить учётную запись из этого приложения. Сделайте резервную копию своих "
-"учётных данных и журнала чата, если нужно!"
+"Удалить учётную запись из этого приложения. При необходимости сделайте "
+"резервную копию учётных данных и журнала чата."
 
 #: src/qml/details/AccountDetailsContent.qml:1022
 msgctxt "AccountDetailsContent|"
@@ -1409,8 +1408,8 @@ msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
-"Удалить учётную запись из базы данных поставщика услуг. Вы больше не сможете "
-"ей пользоваться!"
+"Удалить учётную запись у поставщика услуг. Пользоваться ею больше будет "
+"нельзя."
 
 #: src/qml/details/AccountDetailsContent.qml:1038
 msgctxt "AccountDetailsContent|"
@@ -1424,8 +1423,8 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"Вашу учётную запись не удалось удалить на сервере, поэтому из приложения она "
-"также не была удалена: %1"
+"Не удалось удалить учётную запись на сервере, поэтому из приложения она тоже "
+"не удалена: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:13
 msgctxt "AccountDetailsDialog|"
@@ -1637,7 +1636,7 @@ msgstr "Отправлять уведомления о наборе текста
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Указывать, когда набирается сообщение"
+msgstr "Показывать, когда вы набираете сообщение"
 
 #: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
@@ -1747,7 +1746,7 @@ msgstr "Все известные устройства контакта пров
 #: src/qml/details/DetailsContent.qml:58
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr "Мультимедийные данные"
+msgstr "Медиафайлы"
 
 #: src/qml/details/DetailsContent.qml:68
 msgctxt "DetailsContent|"
@@ -1757,7 +1756,7 @@ msgstr "Автоматические загрузки"
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Загружать мультимедийные данные автоматически"
+msgstr "Загружать медиафайлы автоматически"
 
 #: src/qml/details/DetailsContent.qml:109
 msgctxt "DetailsContent|"
@@ -1772,7 +1771,7 @@ msgstr "Метки"
 #: src/qml/details/DetailsContent.qml:162
 msgctxt "DetailsContent|"
 msgid "Sharing"
-msgstr "Публикация"
+msgstr "Общий доступ"
 
 #: src/qml/details/DetailsContent.qml:167
 msgctxt "DetailsContent|"
@@ -1934,7 +1933,7 @@ msgstr "Отправлять уведомления о наборе текста
 #: src/qml/details/GroupChatDetailsContent.qml:350
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate when you are typing"
-msgstr "Показывать, когда вы печатаете"
+msgstr "Показывать, когда вы набираете сообщение"
 
 #: src/qml/details/GroupChatDetailsContent.qml:356
 msgctxt "GroupChatDetailsContent|"
@@ -1982,7 +1981,7 @@ msgstr "Удалить"
 #: src/qml/details/GroupChatDetailsContent.qml:401
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
-msgstr "Удалить группу. К ней больше никто не сможет присоединиться!"
+msgstr "Удалить группу. К ней больше никто не сможет присоединиться."
 
 #: src/qml/details/GroupChatDetailsContent.qml:410
 msgctxt "GroupChatDetailsContent|"
@@ -2181,17 +2180,17 @@ msgstr "Удалить"
 #: src/qml/details/ProviderChatDetailsContent.qml:32
 msgctxt "ProviderChatDetailsContent|"
 msgid "Remove provider chat and complete chat history"
-msgstr "Удалить чат провайдера и всю историю сообщений"
+msgstr "Удалить чат поставщика услуг и весь журнал чата"
 
 #: src/qml/details/ProviderChatDetailsContent.qml:40
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "Удаление чата провайдера…"
+msgstr "Удаление чата поставщика услуг…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
 msgctxt "ProviderChatDetailsDialog|"
 msgid "Provider Details"
-msgstr "Сведения о провайдере"
+msgstr "Сведения о поставщике услуг"
 
 #: src/qml/details/ProviderChatDetailsHeader.qml:8
 msgctxt "ProviderChatDetailsHeader|"
@@ -2201,7 +2200,7 @@ msgstr "Сообщения в этом чате отправлены вашим 
 #: src/qml/details/ProviderChatDetailsPage.qml:9
 msgctxt "ProviderChatDetailsPage|"
 msgid "Provider Details"
-msgstr "Сведения о провайдере"
+msgstr "Сведения о поставщике услуг"
 
 #: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
@@ -2266,7 +2265,7 @@ msgstr "Поддержать"
 #: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr "Сделать пожертвование на развитие программы и инфраструктуры Kaidan"
+msgstr "Сделать пожертвование на развитие приложения и инфраструктуры Kaidan"
 
 #: src/qml/elements/AboutContent.qml:40
 msgctxt "AboutContent|"
@@ -2329,7 +2328,7 @@ msgstr "Спойлер"
 #: src/qml/elements/ChatMessage.qml:234
 msgctxt "ChatMessage|"
 msgid "Hide hidden message part"
-msgstr "Скрыть скрытую часть сообщения"
+msgstr "Свернуть скрытую часть сообщения"
 
 #: src/qml/elements/ChatMessage.qml:234
 msgctxt "ChatMessage|"
@@ -2491,7 +2490,7 @@ msgstr "Дополнительно"
 #: src/qml/elements/ChatPageSendingPane.qml:471
 msgctxt "ChatPageSendingPane|"
 msgid "Slide to cancel"
-msgstr "Пролистните для отмены"
+msgstr "Проведите для отмены"
 
 #: src/qml/elements/ChatPageSendingPane.qml:529
 #: src/qml/elements/ChatPageSendingPane.qml:571
@@ -2547,7 +2546,7 @@ msgstr "Добавить контакт"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
-msgstr "Cканировать QR-коды"
+msgstr "Сканировать QR-коды"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
@@ -2592,7 +2591,7 @@ msgstr "Копировать"
 #: src/qml/elements/CustomConnectionSettings.qml:37
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname"
-msgstr "Имя узла сервера:"
+msgstr "Имя узла сервера"
 
 #: src/qml/elements/CustomConnectionSettings.qml:41
 msgctxt "CustomConnectionSettings|"
@@ -2615,13 +2614,13 @@ msgid ""
 "Required if your provider uses LDAP which is often the case in organizations "
 "where you can log in with a single account"
 msgstr ""
-"Требуется, если провайдер использует LDAP, что часто встречается в "
+"Требуется, если поставщик услуг использует LDAP, что часто встречается в "
 "организациях, где вход выполняется с помощью единой учётной записи"
 
 #: src/qml/elements/DisabledAccountHint.qml:13
 msgctxt "DisabledAccountHint|"
 msgid "Some functionality will become visible once your account is enabled"
-msgstr "Некоторые функции станут доступны после активации учётной записи."
+msgstr "Некоторые функции станут доступны после включения учётной записи"
 
 #: src/qml/elements/EmojiPicker.qml:53
 msgctxt "EmojiPicker|"
@@ -2691,7 +2690,7 @@ msgstr "Введите корректный адрес чата"
 #: src/qml/elements/fields/PasswordField.qml:23
 msgctxt "PasswordField|"
 msgid "Enter a valid password"
-msgstr "Введите правильный пароль"
+msgstr "Введите допустимый пароль"
 
 #: src/qml/elements/fields/PasswordField.qml:31
 msgctxt "PasswordField|"
@@ -2741,7 +2740,7 @@ msgstr "Создание группового чата…"
 #: src/qml/elements/GroupChatCreationContent.qml:28
 msgctxt "GroupChatCreationContent|"
 msgid "Group name (optional)"
-msgstr "Имя группы (необязательно)"
+msgstr "Название группы (необязательно)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:29
 msgctxt "GroupChatCreationContent|"
@@ -2771,12 +2770,12 @@ msgstr "Введите корректный идентификатор груп�
 #: src/qml/elements/GroupChatCreationContent.qml:65
 msgctxt "GroupChatCreationContent|"
 msgid "Service"
-msgstr "Сервис"
+msgstr "Служба"
 
 #: src/qml/elements/GroupChatCreationContent.qml:73
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional)"
-msgstr "Ник (необязательно)"
+msgstr "Псевдоним (необязательно)"
 
 #: src/qml/elements/GroupChatCreationContent.qml:90
 #, qt-format
@@ -2840,7 +2839,7 @@ msgstr "Введите корректный адрес группы"
 #: src/qml/elements/GroupChatJoiningContent.qml:50
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional)"
-msgstr "Ник (необязательно)"
+msgstr "Псевдоним (необязательно)"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:61
 #, qt-format
@@ -2904,12 +2903,12 @@ msgstr "Показать пояснения"
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr "Cканировать QR-коды"
+msgstr "Сканировать QR-коды"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr "Проверить в ручном режиме"
+msgstr "Проверить вручную"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:81
 msgctxt "KeyAuthenticationPage|"
@@ -2955,7 +2954,7 @@ msgstr "Войти"
 #: src/qml/elements/LoginArea.qml:39
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr "Cканировать QR-код для входа"
+msgstr "Сканировать QR-код для входа"
 
 #: src/qml/elements/LoginArea.qml:56
 msgctxt "LoginArea|"
@@ -3010,7 +3009,7 @@ msgstr "Открыть в папке"
 #: src/qml/elements/MediaViewer.qml:146
 msgctxt "MediaViewer|"
 msgid "Open externally"
-msgstr "Открыть во внешней программе"
+msgstr "Открыть во внешнем приложении"
 
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
@@ -3163,7 +3162,7 @@ msgstr ""
 #: src/qml/elements/ProviderFilterArea.qml:46
 msgctxt "ProviderFilterArea|"
 msgid "Bus factor"
-msgstr "Коэффициент занятости"
+msgstr "Фактор автобуса"
 
 #: src/qml/elements/ProviderFilterArea.qml:54
 msgctxt "ProviderFilterArea|"
@@ -3181,12 +3180,12 @@ msgstr ""
 #: src/qml/elements/ProviderFilterArea.qml:62
 msgctxt "ProviderFilterArea|"
 msgid "Size of shared media"
-msgstr "Размер публикуемых мультимедийных данных"
+msgstr "Размер отправляемых медиафайлов"
 
 #: src/qml/elements/ProviderFilterArea.qml:70
 msgctxt "ProviderFilterArea|"
 msgid "Size of all shared media in total"
-msgstr "Общий размер публикуемых мультимедийных данных"
+msgstr "Общий размер отправляемых медиафайлов"
 
 #: src/qml/elements/ProviderFilterArea.qml:78
 msgctxt "ProviderFilterArea|"
@@ -3292,7 +3291,7 @@ msgstr "Местоположение"
 #: src/qml/elements/ReferencedMessage.qml:100
 msgctxt "ReferencedMessage|"
 msgid "Media"
-msgstr "Мультимедийные данные"
+msgstr "Медиафайл"
 
 #: src/qml/elements/RosterFilterArea.qml:28
 msgctxt "RosterFilterArea|"
@@ -3322,7 +3321,7 @@ msgstr "Фильтровать по типу"
 #: src/qml/elements/RosterFilterArea.qml:53
 msgctxt "RosterFilterArea|"
 msgid "Show only entries of specific types"
-msgstr "Показать только записи определённых типов"
+msgstr "Показывать только записи определённых типов"
 
 #: src/qml/elements/RosterFilterArea.qml:114
 msgctxt "RosterFilterArea|"
@@ -3332,7 +3331,7 @@ msgstr "Фильтровать по учётным записям"
 #: src/qml/elements/RosterFilterArea.qml:115
 msgctxt "RosterFilterArea|"
 msgid "Show only chats of selected accounts"
-msgstr "Показать только чаты выбранных учётных записей"
+msgstr "Показывать только чаты выбранных учётных записей"
 
 #: src/qml/elements/RosterFilterArea.qml:176
 msgctxt "RosterFilterArea|"
@@ -3342,7 +3341,7 @@ msgstr "Фильтровать по меткам"
 #: src/qml/elements/RosterFilterArea.qml:177
 msgctxt "RosterFilterArea|"
 msgid "Show only chats with selected labels"
-msgstr "Показать только чаты с выбранными метками"
+msgstr "Показывать только чаты с выбранными метками"
 
 #: src/qml/elements/RosterItemDelegate.qml:127
 msgctxt "RosterItemDelegate|"
@@ -3478,7 +3477,7 @@ msgstr "Присоединиться к группе"
 #: src/qml/GlobalDrawer.qml:219
 msgctxt "GlobalDrawer|"
 msgid "Join group (unsupported)"
-msgstr "Вступить в группу (не поддерживается)"
+msgstr "Присоединиться к группе (не поддерживается)"
 
 #: src/qml/GlobalDrawer.qml:246
 msgctxt "GlobalDrawer|"
@@ -3488,7 +3487,7 @@ msgstr "Поиск общедоступных групп"
 #: src/qml/GlobalDrawer.qml:260
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr "О программе"
+msgstr "О приложении"
 
 #: src/qml/GlobalDrawer.qml:484
 #, qt-format
@@ -3516,12 +3515,12 @@ msgstr "Не удалось разблокировать %1: %2"
 #: src/qml/QrCodeOnboardingPage.qml:27
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "Cканировать QR-код"
+msgstr "Сканировать QR-код"
 
 #: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "Cканировать QR-код"
+msgstr "Сканировать QR-код"
 
 #: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
@@ -3531,7 +3530,7 @@ msgstr "Показать пояснения"
 #: src/qml/QrCodeOnboardingPage.qml:51
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Cканировать QR-код для входа старого устройства"
+msgstr "Сканировать QR-код для входа со старого устройства"
 
 #: src/qml/QrCodeOnboardingPage.qml:58
 msgctxt "QrCodeOnboardingPage|"
@@ -3565,7 +3564,7 @@ msgstr "Запрос регистрации…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:60
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr "Выполните регистрацию!"
+msgstr "Завершите регистрацию"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:93
 msgctxt "AutomaticRegistrationPage|"
@@ -3597,17 +3596,17 @@ msgstr "Не все пункты могут быть обязательными"
 #: src/qml/registration/ManualRegistrationPage.qml:30
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "Регистрация в ручном режиме"
+msgstr "Ручная регистрация"
 
 #: src/qml/registration/ManualRegistrationPage.qml:42
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr "Заполните регистрационную форму!"
+msgstr "Заполните регистрационную форму"
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Введите учётные данные"
+msgstr "Введите желаемые учётные данные"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
 msgctxt "ManualRegistrationPage|"
@@ -3639,7 +3638,7 @@ msgstr "Это имя пользователя уже занято."
 #: src/qml/registration/ManualRegistrationPage.qml:193
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr "Новое имя пользователя было создано случайным образом."
+msgstr "Создано новое случайное имя пользователя."
 
 #: src/qml/registration/ProviderPage.qml:22
 msgctxt "ProviderPage|"
@@ -3656,7 +3655,7 @@ msgstr "Фильтр"
 #: src/qml/registration/ProviderPage.qml:50
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr "Выберите поставщика услуг для регистрации!"
+msgstr "Выберите поставщика услуг для регистрации"
 
 #: src/qml/registration/ProviderPage.qml:117
 msgctxt "ProviderPage|"
@@ -3671,7 +3670,7 @@ msgstr "Показать параметры подключения"
 #: src/qml/registration/ProviderPage.qml:173
 msgctxt "ProviderPage|"
 msgid "Data storage/processing locations"
-msgstr "Местоположения для хранения и обработки данных"
+msgstr "Где хранятся и обрабатываются данные"
 
 #: src/qml/registration/ProviderPage.qml:178
 msgctxt "ProviderPage|"
@@ -3681,12 +3680,12 @@ msgstr "Языки"
 #: src/qml/registration/ProviderPage.qml:183
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr "Начало работы/Появление в списке"
+msgstr "Работает с / В списке с"
 
 #: src/qml/registration/ProviderPage.qml:188
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr "Максимальный размер публикуемых мультимедийных данных"
+msgstr "Максимальный размер отправляемых медиафайлов"
 
 #: src/qml/registration/ProviderPage.qml:193
 msgctxt "ProviderPage|"
@@ -3727,7 +3726,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:334
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr "Вы временно заблокированы: "
+msgstr "Временная блокировка: "
 
 #: src/qml/registration/RegistrationButton.qml:27
 msgctxt "RegistrationButton|"
@@ -3772,7 +3771,7 @@ msgstr "Веб-регистрация"
 #: src/qml/registration/WebRegistrationPage.qml:30
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr "Зарегистрируйтесь с помощью веб-сайта поставщика услуг!"
+msgstr "Зарегистрируйтесь на веб-сайте поставщика услуг"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
@@ -3790,8 +3789,8 @@ msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
-"После создания учётной записи на веб-сайте поставщика услуг будет можно "
-"выполнить вход с помощью Kaidan"
+"После создания учётной записи на веб-сайте поставщика услуг можно будет "
+"войти в Kaidan"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
 msgctxt "WebRegistrationPage|"
@@ -3806,9 +3805,7 @@ msgstr "Открыть веб-страницу регистрации поста
 #: src/qml/registration/WebRegistrationPage.qml:71
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr ""
-"Шаг 2: выполните вход с использованием вашей зарегистрированной учётной "
-"записи"
+msgstr "Шаг 2: войдите с зарегистрированной учётной записью"
 
 #: src/qml/RosterPage.qml:32 src/qml/RosterPage.qml:217
 #: src/qml/RosterPage.qml:230
@@ -3834,7 +3831,7 @@ msgstr "Создание учётной записи"
 #: src/qml/StartPage.qml:51
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr "Свободное общение на любом устройстве!"
+msgstr "Свободное общение на любом устройстве"
 
 #: src/qml/StartPage.qml:104
 msgctxt "StartPage|"
@@ -3849,7 +3846,7 @@ msgstr "Создать учётную запись автоматически"
 #: src/qml/StartPage.qml:113
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr "Создать учётную запись в ручном режиме"
+msgstr "Создать учётную запись вручную"
 
 #: src/QmlUtils.cpp:233
 msgctxt "QmlUtils|"
@@ -3879,7 +3876,7 @@ msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"Не удалось запросить персональные данные %1 из-за проблемы с подключением: %2"
+"Не удалось запросить личные данные %1 из-за проблемы с подключением: %2"
 
 #: src/RosterController.cpp:192
 #, qt-format
@@ -3891,7 +3888,7 @@ msgstr "Не удалось разрешить %1 доступ к вашим л�
 #, qt-format
 msgctxt "RosterController|%1 is a contact JID"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Не удалось остановить получение %1 ваших личных данных"
+msgstr "Не удалось запретить %1 доступ к вашим личным данным"
 
 #: src/RosterController.cpp:298
 msgctxt "RosterController|"
@@ -3921,12 +3918,12 @@ msgstr "Имя"
 #: src/VCardModel.cpp:132
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr "Ник"
+msgstr "Псевдоним"
 
 #: src/VCardModel.cpp:133
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "О программе"
+msgstr "О себе"
 
 #: src/VCardModel.cpp:134
 msgctxt "VCardModel|"
