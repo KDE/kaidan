@@ -228,21 +228,37 @@
         <p xml:lang="uk">У цьому випуску додано такі можливості:</p>
         <ul>
           <li>Add button to try another XMPP provider during automatic registration (@melvo)</li>
+          <li xml:lang="ru">Добавлена кнопка для попытки использования другого XMPP-провайдера во время автоматической регистрации (@melvo);</li>
           <li>Display avatars in notifications (@pehg, @melvo)</li>
+          <li xml:lang="ru">Отображение аватаров в уведомлениях (@pehg, @melvo);</li>
           <li>Allow to reply to message via its notification on supported systems (@pehg)</li>
+          <li xml:lang="ru">Добавлена возможность ответа на сообщение через уведомление о нём в поддерживаемых системах (@pehg);</li>
           <li>Handle pressing Down/Escape button in chats (@melvo)</li>
+          <li xml:lang="ru">Обработка нажатия клавиши со стрелкой вниз или Esc в чатах (@melvo);</li>
           <li>Apply new look to emoji picker with consistent interactive background (@melvo)</li>
+          <li xml:lang="ru">Применение нового вида к окну выбора эмодзи с единообразным интерактивным фоном (@melvo);</li>
           <li>Add search field for emojis as message reactions (@melvo)</li>
+          <li xml:lang="ru">Добавлено поле поиска эмодзи в качестве реакций на сообщения (@melvo);</li>
           <li>Open emoji/participant picker at cursor position while ensuring picker's width fits best (@melvo)</li>
+          <li xml:lang="ru">Открытие окна выбора эмодзи или собеседника в позиции курсора с одновременным обеспечением его оптимальной ширины (@melvo);</li>
           <li>Allow to navigate through emoji picker via keyboard to select emoji (@melvo)</li>
+          <li xml:lang="ru">Добавлена возможность использования клавиатуры для выбора эмодзи в соответствующем окне (@melvo);</li>
           <li>Play notification sounds (@pehg)</li>
+          <li xml:lang="ru">Воспроизведение звуков уведомлений (@pehg);</li>
           <li>Show more tooltips (@melvo)</li>
+          <li xml:lang="ru">Показ дополнительных всплывающих подсказок (@melvo);</li>
           <li>Add viewer for opening/browsing media within a chat (@fazevedo)</li>
+          <li xml:lang="ru">Добавлено средство просмотра для открытия и обзора медиафайлов внутри чата (@fazevedo);</li>
           <li>Add support to record voice messages via long press (@melvo)</li>
+          <li xml:lang="ru">Добавлена поддержка записи голосовых сообщений с помощью долгого нажатия (@melvo);</li>
           <li>Rework user interface for consistent and smoother look/behavior including buttons, fields, and fading opacity of icons (@melvo)</li>
+          <li xml:lang="ru">Переработка интерфейса пользователя для улучшения внешнего вида программы и пользовательского опыта при работе с ней, включая кнопки, поля и плавную непрозрачность значков (@melvo);</li>
           <li>Focus message input field on starting/canceling reply (@melvo)</li>
+          <li xml:lang="ru">Настройка фокуса на поле ввода сообщения при начале или отмене ответа (@melvo);</li>
           <li>Allow to zoom via mouse wheel in location map and move map by dragging (@melvo)</li>
+          <li xml:lang="ru">Добавлена возможность масштабировать карту локации с помощью колеса мыши и перемещать её путём перетаскивания (@melvo);</li>
           <li>Allow to share selected location via Return button (@melvo)</li>
+          <li xml:lang="ru">Добавлена возможность отправки выбранного местоположения по нажатию клавиши Return (@melvo).</li>
         </ul>
         <p>This release fixes the following bugs:</p>
         <p xml:lang="ar">يصلح هذا الإصدار العلل التالية:</p>
@@ -263,34 +279,62 @@
         <p xml:lang="uk">У цьому випуску виправлено такі вади:</p>
         <ul>
           <li>Ignore incoming call requests from other own devices (@melvo)</li>
+          <li xml:lang="ru">Игнорировать входящие вызовы с других устройств пользователя (@melvo);</li>
           <li>Fix recognizing video calls (@melvo)</li>
+          <li xml:lang="ru">Исправлено распознавание видеозвонков (@melvo);</li>
           <li>Hide contact name/avatar and adapt stop button's background if video playback is active in calls (@melvo)</li>
+          <li xml:lang="ru">Скрытие имени и аватара контакта и адаптация фона кнопки остановки, если во время звонка выполняется воспроизведение видео (@melvo);</li>
           <li>Maintain last focused user interface elements in various uses cases (@melvo)</li>
+          <li xml:lang="ru">Сохранение последних получивших фокус элементов интерфейса пользователя в различных сценариях использования (@melvo);</li>
           <li>Fix quitting calls (@melvo)</li>
+          <li xml:lang="ru">Исправлено завершение вызовов (@melvo);</li>
           <li>Fix highlighting contact invitation hint in groups (@melvo)</li>
+          <li xml:lang="ru">Исправлена подсветка подсказки по приглашению контакта в группах (@melvo);</li>
           <li>Fix wrong highlighting on opening group participant picker in some cases and ensure that highlighted item is not changed as long as count does not change (@melvo)</li>
+          <li xml:lang="ru">Исправлена иногда бывшая некорректной подсветка при открытии окна выбора участников группы и гарантировано, что подсвеченная запись не будет изменена до тех пор, пока не изменится количество (@melvo);</li>
           <li>Fix opening chat in all cases (@melvo)</li>
+          <li xml:lang="ru">Исправлено открытие чата во всех случаях (@melvo);</li>
           <li>Fix displaying full sender names of message reactions (@melvo)</li>
+          <li xml:lang="ru">Исправлено отображение полных имён отправителей реакций на сообщения (@melvo);</li>
           <li>Ensure account avatar's background color is updated if system colors change (e.g., on switching between light/dark mode) (@melvo)</li>
+          <li xml:lang="ru">Гарантировано, что цвет фона аватара учётной записи будет обновляться при изменении системных цветов (например, при переключении между тёмным и светлым режимами) (@melvo);</li>
           <li>Fix position of chat name/date in chat list (@melvo)</li>
+          <li xml:lang="ru">Исправлено положение имени и даты чата в списке чатов (@melvo);</li>
           <li>Fix showing multiple notifications for media (@melvo)</li>
+          <li xml:lang="ru">Исправлено отображение нескольких уведомлений для медиафайлов (@melvo);</li>
           <li>Fix saving new draft after sending draft (@melvo)</li>
+          <li xml:lang="ru">Исправлено сохранение нового черновика после отправки черновика (@melvo);</li>
           <li>Fix highlighting referenced message after loading from database (@fazevedo)</li>
+          <li xml:lang="ru">Исправлена подсветка упомянутого сообщения после загрузки из базы данных (@fazevedo);</li>
           <li>Fix behavior of toggle buttons on release after long press (@melvo)</li>
+          <li xml:lang="ru">Исправлено поведение кнопок переключения, когда их отпускают после долгого нажатия (@melvo);</li>
           <li>Ensure icons in media viewer and message context menu are always sharp (@melvo)</li>
+          <li xml:lang="ru">Гарантировано, что значки в средстве просмотра медиафайлов и контекстном меню сообщения всегда будут резкими (@melvo);</li>
           <li>Fix displaying notifications for personal data (e.g., availability and device info) sharing requests even if no chat is open (@melvo)</li>
+          <li xml:lang="ru">Исправлено отображение уведомлений для запросов на обмен персональными данными (например, о доступности и данных устройства), когда нет открытых чатов (@melvo);</li>
           <li>Update chat list filtering on availability changes of contacts (@melvo)</li>
+          <li xml:lang="ru">Обновление фильтрации списка чатов при изменении доступности контактов (@melvo);</li>
           <li>Fix sound behavior for subsequent messages (@melvo)</li>
+          <li xml:lang="ru">Исправление поведение звука для последующих сообщений (@melvo);</li>
           <li>Fix message input field overlapping messages if its height increases (@melvo)</li>
+          <li xml:lang="ru">Исправлено перекрытие сообщений полем ввода сообщения в случае увеличения его высоты (@melvo);</li>
           <li>Keep zoom level within bounds while zooming in location map (@melvo)</li>
+          <li xml:lang="ru">Сохранение уровня масштабирования в границах при увеличении масштаба карты локации (@melvo);</li>
           <li>Fix displaying avatar after canceling selection (@melvo)</li>
+          <li xml:lang="ru">Исправлено отображение аватара после отмены выбора (@melvo);</li>
           <li>Fix location displaying/sharing including proper location markers (@melvo)</li>
+          <li xml:lang="ru">Исправлены отображение и отправка данных о местоположении с соответствующими маркерами местоположения (@melvo);</li>
           <li>Allow entering credentials to log in (@fazevedo)</li>
+          <li xml:lang="ru">Добавлена возможность ввода учётных данных для входа (@fazevedo);</li>
           <li>Fix displaying marked message area (@melvo)</li>
+          <li xml:lang="ru">Исправлено отображение области отмеченных сообщений (@melvo).</li>
         </ul>
         <p>Kaidan requires KItemModels now</p>
+        <p xml:lang="ru">Теперь для работы Kaidan требуется KItemModels</p>
         <p>Kaidan requires Qt 6.9 now</p>
+        <p xml:lang="ru">Теперь для работы Kaidan требуется Qt 6.9</p>
         <p>Kaidan requires QXmpp 1.16 now</p>
+        <p xml:lang="ru">Теперь для работы Kaidan требуется QXmpp 1.16</p>
       </description>
     </release>
     <release type="stable" version="0.15.0" date="2026-01-30T00:00:00Z">
