@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-30 18:04+0200\n"
+"PO-Revision-Date: 2026-10-09 16:05+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3577,33 +3577,24 @@ msgid "About"
 msgstr "Informazioni"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Sbloccato %1"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Annulla"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Impossibile bloccare %1: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Impossibile sbloccare %1: %2"
