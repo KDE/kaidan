@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-30 08:34+0300\n"
+"PO-Revision-Date: 2026-10-09 09:54+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3509,33 +3509,24 @@ msgid "About"
 msgstr "על אודות"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "החסימה מעל %1 שוחררה"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "main|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "הסגה"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "לא ניתן לחסום את %1: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "לא ניתן לשחרר את החסימה מעל %1: %2"
