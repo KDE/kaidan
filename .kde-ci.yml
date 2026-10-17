@@ -23,6 +23,7 @@ Dependencies:
 
 Options:
   require-passing-tests-on: ['@all']
+  require-cppcheck-clean: true
   clang-format-versions: [19]
   cppcheck-arguments:
     # These signatures are fixed by QAbstractItemModel, and by the accountJid/chatJid pair every other lookup uses.
