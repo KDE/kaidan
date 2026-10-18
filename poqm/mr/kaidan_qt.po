@@ -139,43 +139,43 @@ msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr ""
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:232
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr ""
 
-#: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:243
+#: src/ChatHintModel.cpp:291 src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:235
+#: src/ChatHintModel.cpp:233
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr ""
 
-#: src/ChatHintModel.cpp:237
+#: src/ChatHintModel.cpp:235
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr ""
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr ""
 
-#: src/ChatHintModel.cpp:245
+#: src/ChatHintModel.cpp:243
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr ""
 
-#: src/ChatHintModel.cpp:247
+#: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr ""
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:258
 #, qt-format
 msgctxt ""
 "ChatHintModel|%1 is an account display name, %2 is appended text that begins "
@@ -186,7 +186,7 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:265
 #, qt-format
 msgctxt ""
 "ChatHintModel|%1 and %3 are account display names, %2 and %4 are account "
@@ -197,47 +197,47 @@ msgid ""
 "data such as availability, devices and other personal information again%5"
 msgstr ""
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr ""
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:291
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr ""
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr ""
 
-#: src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr ""
 
-#: src/ChatHintModel.cpp:316
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr ""
@@ -451,23 +451,23 @@ msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:251
+#: src/MessageComposition.cpp:252
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageComposition.cpp:525
+#: src/MessageComposition.cpp:526
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:561
+#: src/MessageComposition.cpp:562
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageComposition.cpp:594
+#: src/MessageComposition.cpp:595
 #, qt-format
 msgctxt ""
 "FileSelectionModel|%1 is a filename, %2 is a human-readable storage amount "
@@ -475,41 +475,41 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:260
+#: src/MessageController.cpp:261
 msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr ""
 
-#: src/MessageController.cpp:264
+#: src/MessageController.cpp:265
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageController.cpp:610
+#: src/MessageController.cpp:611
 #, qt-format
 msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1051
 #, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageController.cpp:1183
+#: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
 msgstr ""
 
-#: src/MessageController.cpp:1205
+#: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
 
-#: src/MessageController.cpp:1227
+#: src/MessageController.cpp:1228
 #, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
@@ -557,12 +557,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr ""
 
-#: src/MessageModel.cpp:1394
+#: src/MessageModel.cpp:1395
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1397
+#: src/MessageModel.cpp:1398
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -3860,7 +3860,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterModel.cpp:761
+#: src/RosterModel.cpp:763
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

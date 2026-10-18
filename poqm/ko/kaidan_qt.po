@@ -152,7 +152,7 @@ msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 님이 입력을 일시 정지함"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:232
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -161,38 +161,38 @@ msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr "계정이 활성화되지 않았습니다. 활성화된 후 메시지를 주고받습니다"
 
-#: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:243
+#: src/ChatHintModel.cpp:291 src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "끄기"
 
-#: src/ChatHintModel.cpp:235
+#: src/ChatHintModel.cpp:233
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "활성화"
 
-#: src/ChatHintModel.cpp:237
+#: src/ChatHintModel.cpp:235
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "활성화 중…"
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "연결할 수 없음"
 
-#: src/ChatHintModel.cpp:245
+#: src/ChatHintModel.cpp:243
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr "오류 표시"
 
-#: src/ChatHintModel.cpp:247
+#: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:258
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -207,7 +207,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1에서 현재 상태, 장치, 기타 개인 정보를 수신하려고 합니다%2"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:265
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -225,47 +225,47 @@ msgstr ""
 "%1(%2) 연락처가 %3(%4)(으)로 변경되었으며 현재 상태, 장치, 기타 개인 정보를 "
 "다시수신하려고 합니다%5"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "거절"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "허용"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "허용 중…"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "이 그룹에 사용자가 없음"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:291
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "대화 상대 초대"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "초대 영역 여는 중"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "이 그룹이 삭제됨"
 
-#: src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "떠나기"
 
-#: src/ChatHintModel.cpp:316
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "그룹 대화 떠나는 중"
@@ -505,17 +505,17 @@ msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "%1 그룹에 초대받음"
 
-#: src/MessageComposition.cpp:251
+#: src/MessageComposition.cpp:252
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "메시지 수정에 실패함"
 
-#: src/MessageComposition.cpp:525
+#: src/MessageComposition.cpp:526
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/MessageComposition.cpp:561
+#: src/MessageComposition.cpp:562
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -523,7 +523,7 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageComposition.cpp:594
+#: src/MessageComposition.cpp:595
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -533,7 +533,7 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1'을(를) 전송할 수 없음, %2보다 큼"
 
-#: src/MessageController.cpp:260
+#: src/MessageController.cpp:261
 #, fuzzy
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -541,12 +541,12 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:264
+#: src/MessageController.cpp:265
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없습니다."
 
-#: src/MessageController.cpp:610
+#: src/MessageController.cpp:611
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -554,7 +554,7 @@ msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "메시지가 %1(으)로 암호화되어 있지만 복호화할 수 없음"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1051
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -562,19 +562,19 @@ msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageController.cpp:1183
+#: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
 msgstr ""
 
-#: src/MessageController.cpp:1205
+#: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
 
-#: src/MessageController.cpp:1227
+#: src/MessageController.cpp:1228
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -634,12 +634,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "반응을 전송할 수 없음: %1"
 
-#: src/MessageModel.cpp:1394
+#: src/MessageModel.cpp:1395
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "오늘"
 
-#: src/MessageModel.cpp:1397
+#: src/MessageModel.cpp:1398
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -4274,7 +4274,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "메모"
 
-#: src/RosterModel.cpp:761
+#: src/RosterModel.cpp:763
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"

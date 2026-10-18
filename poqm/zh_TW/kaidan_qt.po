@@ -151,43 +151,43 @@ msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 暫時停止輸入"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:232
 msgctxt "ChatHintModel|"
 msgid "Your account is disabled - Messages are exchanged once connected"
 msgstr "您的帳號已停用 — 訊息將在連線後交換"
 
-#: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:243
+#: src/ChatHintModel.cpp:291 src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "忽略"
 
-#: src/ChatHintModel.cpp:235
+#: src/ChatHintModel.cpp:233
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "啟用"
 
-#: src/ChatHintModel.cpp:237
+#: src/ChatHintModel.cpp:235
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "正在啟用…"
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "無法連線"
 
-#: src/ChatHintModel.cpp:245
+#: src/ChatHintModel.cpp:243
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr "顯示錯誤"
 
-#: src/ChatHintModel.cpp:247
+#: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:258
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -202,7 +202,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:265
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -220,32 +220,32 @@ msgstr ""
 "您的聯絡人 %1 (%2) 已 %3 (%4) 而希望取得您的個人資訊，例如上線狀態、裝置以及"
 "其他個人資訊%5"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒絕"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允許"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "允許中…"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "這個群組沒有使用者"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:291
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀請聯絡人"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:293
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -253,17 +253,17 @@ msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在開啟邀請區域"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群組已被刪除"
 
-#: src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "離開"
 
-#: src/ChatHintModel.cpp:316
+#: src/ChatHintModel.cpp:314
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Free for chat"
@@ -498,7 +498,7 @@ msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:251
+#: src/MessageComposition.cpp:252
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful"
@@ -506,12 +506,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "訊息修正不成功"
 
-#: src/MessageComposition.cpp:525
+#: src/MessageComposition.cpp:526
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/MessageComposition.cpp:561
+#: src/MessageComposition.cpp:562
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -519,7 +519,7 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "「%1」無法傳送，因為它比 %2 還大"
 
-#: src/MessageComposition.cpp:594
+#: src/MessageComposition.cpp:595
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -529,7 +529,7 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "「%1」無法傳送，因為它比 %2 還大"
 
-#: src/MessageController.cpp:260
+#: src/MessageController.cpp:261
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -537,7 +537,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "訊息無法傳送。"
 
-#: src/MessageController.cpp:264
+#: src/MessageController.cpp:265
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -545,7 +545,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "訊息無法傳送。"
 
-#: src/MessageController.cpp:610
+#: src/MessageController.cpp:611
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -553,7 +553,7 @@ msgctxt "MessageController|%1 is the name of an encryption method"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "此訊息已用 %1 加密但無法解密"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1051
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %1"
@@ -561,19 +561,19 @@ msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageController.cpp:1183
+#: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
 msgstr ""
 
-#: src/MessageController.cpp:1205
+#: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
 
-#: src/MessageController.cpp:1227
+#: src/MessageController.cpp:1228
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -633,12 +633,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "無法傳送反應：%1"
 
-#: src/MessageModel.cpp:1394
+#: src/MessageModel.cpp:1395
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1397
+#: src/MessageModel.cpp:1398
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
@@ -4736,7 +4736,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "筆記"
 
-#: src/RosterModel.cpp:761
+#: src/RosterModel.cpp:763
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

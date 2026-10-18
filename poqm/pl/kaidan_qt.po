@@ -162,7 +162,7 @@ msgctxt "ChatController|%1 is a username"
 msgid "%1 paused typing"
 msgstr "%1 wstrzymał pisanie"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:232
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -173,23 +173,23 @@ msgstr ""
 "Twoje konto nie jest włączone - Wiadomości będzie można wysyłać i odbierać "
 "dopiero po jego włączeniu"
 
-#: src/ChatHintModel.cpp:235 src/ChatHintModel.cpp:245
-#: src/ChatHintModel.cpp:293 src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:243
+#: src/ChatHintModel.cpp:291 src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Odrzuć"
 
-#: src/ChatHintModel.cpp:235
+#: src/ChatHintModel.cpp:233
 msgctxt "ChatHintModel|"
 msgid "Enable"
 msgstr "Włącz"
 
-#: src/ChatHintModel.cpp:237
+#: src/ChatHintModel.cpp:235
 msgctxt "ChatHintModel|"
 msgid "Enabling…"
 msgstr "Włączanie…"
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:242
 #, fuzzy
 #| msgctxt "Connection|"
 #| msgid "Could not connect to the server."
@@ -197,17 +197,17 @@ msgctxt "ChatHintModel|"
 msgid "Could not connect"
 msgstr "Nie udało połączyć się z serwerem."
 
-#: src/ChatHintModel.cpp:245
+#: src/ChatHintModel.cpp:243
 msgctxt "ChatHintModel|"
 msgid "Show error"
 msgstr ""
 
-#: src/ChatHintModel.cpp:247
+#: src/ChatHintModel.cpp:245
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Łączenie…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:258
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -224,7 +224,7 @@ msgstr ""
 "%1 chciałby otrzymać twoje dane osobiste takie jak dostępność, urządzenia i "
 "inne dane osobowe %2"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:265
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -242,47 +242,47 @@ msgstr ""
 "Twój kontakt %1 (%2) jest teraz %3 (%4) i chciałby ponownie otrzymać twoje "
 "dane osobiste takie jak dostępność, urządzenia i inne dane osobowe %5"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Odmów"
 
-#: src/ChatHintModel.cpp:276
+#: src/ChatHintModel.cpp:274
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Zezwól"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:276
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Wczytywanie…"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Ta grupa nie ma żadnych użytkowników"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:291
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Zaproś kontakty"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Otwieranie obszaru zaproszeń"
 
-#: src/ChatHintModel.cpp:313
+#: src/ChatHintModel.cpp:311
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Ta grupa została usunięta"
 
-#: src/ChatHintModel.cpp:314
+#: src/ChatHintModel.cpp:312
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Opuść"
 
-#: src/ChatHintModel.cpp:316
+#: src/ChatHintModel.cpp:314
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Opuszczanie rozmowy grupowej"
@@ -520,17 +520,17 @@ msgctxt "Message|%1 is the group JID"
 msgid "Invitation to group %1"
 msgstr "Zaproszenie do grupy %1"
 
-#: src/MessageComposition.cpp:251
+#: src/MessageComposition.cpp:252
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Nie udało się poprawić wiadomości"
 
-#: src/MessageComposition.cpp:525
+#: src/MessageComposition.cpp:526
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/MessageComposition.cpp:561
+#: src/MessageComposition.cpp:562
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -538,7 +538,7 @@ msgctxt "FileSelectionModel|"
 msgid "Voice message cannot be sent because it is larger than %2"
 msgstr "Nie można wysłać '%1', bo jest większy niż %2"
 
-#: src/MessageComposition.cpp:594
+#: src/MessageComposition.cpp:595
 #, fuzzy, qt-format
 #| msgctxt "FileSelectionModel|"
 #| msgid "'%1' cannot be sent because it is larger than %2"
@@ -548,7 +548,7 @@ msgctxt ""
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Nie można wysłać '%1', bo jest większy niż %2"
 
-#: src/MessageController.cpp:260
+#: src/MessageController.cpp:261
 #, fuzzy
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -556,12 +556,12 @@ msgctxt "MessageController|"
 msgid "Message could not be sent"
 msgstr "Nie można wysłać wiadomości."
 
-#: src/MessageController.cpp:264
+#: src/MessageController.cpp:265
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Nie można wysłać wiadomości."
 
-#: src/MessageController.cpp:610
+#: src/MessageController.cpp:611
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -570,7 +570,7 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageController.cpp:1050
+#: src/MessageController.cpp:1051
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Reaction could not be sent: %1"
@@ -578,19 +578,19 @@ msgctxt "MessageController|%1 is an error message"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie można wysłać reakcji: %1"
 
-#: src/MessageController.cpp:1183
+#: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
 msgstr ""
 
-#: src/MessageController.cpp:1205
+#: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
 
-#: src/MessageController.cpp:1227
+#: src/MessageController.cpp:1228
 #, fuzzy, qt-format
 #| msgctxt "MessageController|"
 #| msgid "Message could not be sent."
@@ -650,12 +650,12 @@ msgctxt "MessageModel|%1 is an error message"
 msgid "Reactions could not be sent: %1"
 msgstr "Nie udało się wysłać reakcji: %1"
 
-#: src/MessageModel.cpp:1394
+#: src/MessageModel.cpp:1395
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: src/MessageModel.cpp:1397
+#: src/MessageModel.cpp:1398
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Wczoraj"
@@ -4384,7 +4384,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notatki"
 
-#: src/RosterModel.cpp:761
+#: src/RosterModel.cpp:763
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Wczoraj"
