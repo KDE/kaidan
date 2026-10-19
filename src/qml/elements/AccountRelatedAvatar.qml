@@ -7,6 +7,7 @@
 import QtQuick
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as Components
 
 import im.kaidan.kaidan
 
@@ -16,6 +17,8 @@ import im.kaidan.kaidan
  * The avatar for the account is only shown if multiple accounts are in use.
  */
 Item {
+	property bool isProviderChat: false
+	property bool isGroupChat: false
 	property alias chatAvatar: chatAvatar
 	property alias accountAvatar: accountAvatar
 	property alias accountAvatarBorder: accountAvatarBorder
@@ -25,6 +28,18 @@ Item {
 
 	Avatar {
 		id: chatAvatar
+		iconSource: {
+			if (parent.isProviderChat) {
+				return "user-home-symbolic"
+			}
+
+			if (parent.isGroupChat) {
+				return "system-users-symbolic"
+			}
+
+			return "avatar-default-symbolic"
+		}
+		initialsMode: parent.isProviderChat && !source.toString() ? Components.Avatar.InitialsMode.UseIcon : Components.Avatar.InitialsMode.UseInitials
 		anchors.centerIn: parent
 
 		Avatar {

@@ -72,11 +72,11 @@ SearchBarPage {
 			hoverEnabled: true
 			contentItem: RowLayout {
 				AccountRelatedAvatar {
+					isProviderChat: root.chatController.rosterItem.isProviderChat
+					isGroupChat: root.chatController.rosterItem.isGroupChat
 					chatAvatar {
 						jid: root.chatController.jid
 						name: root.chatController.account.settings.jid === root.chatController.jid ? root.chatController.account.settings.displayName : root.chatController.rosterItem.displayName
-						isProviderChat: root.chatController.rosterItem.isProviderChat
-						isGroupChat: root.chatController.rosterItem.isGroupChat
 					}
 					accountAvatar {
 						jid: root.chatController.account.settings.jid

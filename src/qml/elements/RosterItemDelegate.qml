@@ -59,11 +59,11 @@ ClickableItemDelegate {
 	}
 
 	AccountRelatedAvatar {
+		isProviderChat: root.isProviderChat
+		isGroupChat: root.isGroupChat
 		chatAvatar {
 			jid: root.jid
 			name: root.name
-			isProviderChat: root.isProviderChat
-			isGroupChat: root.isGroupChat
 			asynchronous: false
 			onNameChanged: cacheAvatar()
 			onSourceChanged: cacheAvatar()

@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick
 import org.kde.kirigamiaddons.components as Components
 
 import im.kaidan.kaidan
@@ -13,22 +12,9 @@ Components.Avatar {
 	id: root
 
 	property string jid
-	property bool isProviderChat: false
-	property bool isGroupChat: false
 
 	source: avatarImageWatcher.url
-	iconSource: {
-		if (isProviderChat) {
-			return "user-home-symbolic"
-		}
-
-		if (isGroupChat) {
-			return "system-users-symbolic"
-		}
-
-		return "avatar-default-symbolic"
-	}
-	initialsMode: isProviderChat && !source.toString() ? Components.Avatar.InitialsMode.UseIcon : Components.Avatar.InitialsMode.UseInitials
+	iconSource: "avatar-default-symbolic"
 	color: Utils.userColor(jid, name)
 
 	AvatarImageWatcher {
