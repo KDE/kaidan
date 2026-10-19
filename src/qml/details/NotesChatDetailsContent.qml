@@ -26,10 +26,10 @@ RosterItemDetailsContent {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you can read or modify the data that is synchronized across your devices.")
 			enabled: root.chatController.chatEncryptionWatcher.hasUsableDevices
-			checked: enabled && root.chatController.account.settings.encryption === Encryption.Omemo2
+			checked: enabled && root.chatController.encryption === Encryption.Omemo2
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: root.chatController.account.settings.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
+			onClicked: root.chatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		},
 
 		AccountKeyAuthenticationButton {
