@@ -56,15 +56,11 @@
 // GStreamer
 #include <gst/gst.h>
 // Kaidan
-#include "Account.h"
-#include "AccountMigrationController.h"
-#include "Globals.h"
 #include "GlobalsGen.h"
 #include "ImageProvider.h"
 #include "KaidanLog.h"
 #include "Keychain.h"
 #include "MainController.h"
-#include "RosterModel.h"
 
 Q_IMPORT_QML_PLUGIN(KaidanQmlPlugin)
 
