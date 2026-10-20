@@ -63,7 +63,7 @@ ClickableItemDelegate {
 		isGroupChat: root.isGroupChat
 		chatAvatar {
 			jid: root.jid
-			name: root.name
+			name: root.isNotesChat ? root.accountName : root.name
 			asynchronous: false
 			onNameChanged: cacheAvatar()
 			onSourceChanged: cacheAvatar()
