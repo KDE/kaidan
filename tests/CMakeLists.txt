@@ -126,3 +126,10 @@ add_executable(SendFileSourcesAttachment
 target_link_libraries(SendFileSourcesAttachment
     PRIVATE Qt::Core QXmpp::QXmpp
 )
+
+add_executable(AccountMigration
+    manual/AccountMigration/AccountMigration.cpp
+)
+target_link_libraries(AccountMigration
+    PRIVATE Kaidan::Tests
+)
