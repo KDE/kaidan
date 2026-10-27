@@ -17,7 +17,7 @@ template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_e
 void text(QXmlStreamWriter *writer, const QString &key, const T &value);
 
 template<>
-void text(QXmlStreamWriter *writer, const QString &key, const QString &value)
+inline void text(QXmlStreamWriter *writer, const QString &key, const QString &value)
 {
     writer->writeTextElement(key, value);
 }
@@ -71,7 +71,7 @@ template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_e
 bool text(const QString &value, T &out);
 
 template<>
-bool text(const QString &value, QString &out)
+inline bool text(const QString &value, QString &out)
 {
     out = value;
     return true;
