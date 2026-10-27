@@ -184,16 +184,18 @@ void AccountController::handleAccountAdded(const AccountSettings::Data &accountS
         auto *addedAccount = *itr;
 
         if (m_migrationController) {
-            connect(
-                addedAccount->connection(),
-                &Connection::connected,
-                this,
-                [this, addedAccount]() {
-                    m_migrationController->finalizeMigration(addedAccount).then([this]() {
-                        cancelMigration();
-                    });
-                },
-                Qt::SingleShotConnection);
+            auto finalizeMigration = [this, addedAccount]() {
+                m_migrationController->finalizeMigration(addedAccount).then([this]() {
+                    cancelMigration();
+                });
+            };
+
+            // The account is stored once it is connected, so it is usually already connected here.
+            if (addedAccount->connection()->state() == Enums::ConnectionState::StateConnected) {
+                finalizeMigration();
+            } else {
+                connect(addedAccount->connection(), &Connection::connected, this, finalizeMigration, Qt::SingleShotConnection);
+            }
         }
 
         Q_EMIT accountAdded(addedAccount);
