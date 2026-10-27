@@ -28,6 +28,12 @@ target_link_libraries(libkaidantests
 
 
 ecm_add_test(
+    AccountMigrationTest.cpp
+    TEST_NAME AccountMigrationTest
+    LINK_LIBRARIES Kaidan::Tests
+)
+
+ecm_add_test(
     DatabaseTest.cpp
     TEST_NAME DatabaseTest
     LINK_LIBRARIES Kaidan::Tests

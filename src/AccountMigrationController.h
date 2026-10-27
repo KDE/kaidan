@@ -22,6 +22,8 @@ class AccountMigrationController : public QObject
     QML_ELEMENT
     QML_UNCREATABLE("Cannot create object; only enums defined!")
 
+    friend class AccountMigrationTest;
+
 public:
     explicit AccountMigrationController(QObject *parent = nullptr);
     ~AccountMigrationController() override;
@@ -33,8 +35,8 @@ private:
     static void informUser(const QString &notification);
 
     QString diskAccountFilePath() const;
-    bool saveAccountDataToDisk(const QString &filePath, const QXmppExportData &data);
-    bool restoreAccountDataFromDisk(const QString &filePath, QXmppExportData &data);
+    static bool saveAccountDataToDisk(const QString &filePath, const QXmppExportData &data);
+    static bool restoreAccountDataFromDisk(const QString &filePath, QXmppExportData &data);
 
     using ExportResult = std::variant<ClientSettings, QXmppError>;
     using ImportResult = std::variant<QXmpp::Success, QXmppError>;

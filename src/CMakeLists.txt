@@ -43,6 +43,8 @@ target_sources(libkaidancore PRIVATE
     AccountDb.h
     AccountMigrationController.cpp
     AccountMigrationController.h
+    AccountMigrationData.cpp
+    AccountMigrationData.h
     AccountTrustMessageUriGenerator.cpp
     AccountTrustMessageUriGenerator.h
     Algorithms.h
