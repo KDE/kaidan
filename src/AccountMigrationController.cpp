@@ -5,23 +5,32 @@
 
 #include "AccountMigrationController.h"
 
+// std
+#include <chrono>
 // Qt
 #include <QDir>
 #include <QDomDocument>
 #include <QFile>
+#include <QHash>
 #include <QSaveFile>
 #include <QStandardPaths>
+#include <QTimer>
 #include <QUrl>
 // QXmpp
 #include <QXmppMovedManager.h>
 #include <QXmppPubSubManager.h>
 // Kaidan
-#include "AccountDb.h"
 #include "AccountMigrationData.h"
+#include "FutureUtils.h"
 #include "KaidanCoreLog.h"
 #include "MainController.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
+
+using namespace std::chrono_literals;
+
+// How long to wait for contacts missing from the new account's roster to be added.
+static constexpr auto PENDING_ROSTER_ITEM_SETTINGS_TIMEOUT = 2min;
 
 AccountMigrationController::AccountMigrationController(QObject *parent)
     : QObject(parent)
@@ -94,7 +103,7 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
             }
 
             if (const auto oldClientSettings = m_exportData.extension<ClientSettings>(); oldClientSettings) {
-                importClientSettings(newAccount, *oldClientSettings)
+                importClientSettings(newAccount->settings(), *oldClientSettings)
                     .then([this, promise, newAccount, oldContacts = oldClientSettings->rosterContacts()]() mutable {
                         m_oldAccount->clientController()
                             ->movedManager()
@@ -210,98 +219,108 @@ ClientSettings AccountMigrationController::exportClientSettings()
     return ClientSettings(accountSettings, RosterModel::instance()->items(accountSettings->jid()));
 }
 
-QFuture<void> AccountMigrationController::importClientSettings(Account *newAccount, const ClientSettings &oldClientSettings)
+static QFuture<void> updateRosterItemSettings(const QString &accountJid, const ClientRosterItemSettings &itemSettings)
 {
-    auto promise = std::make_shared<QPromise<void>>();
-    const auto newAccountJid = newAccount->settings()->jid();
+    return RosterDb::instance()->updateItem(accountJid, itemSettings.jid, [itemSettings](RosterItem &item) {
+        item.encryption = itemSettings.encryption.value_or(item.encryption);
+        item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
+        item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
+        item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
+        item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
+        item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
+    });
+}
 
-    AccountDb::instance()
-        ->updateAccount(newAccountJid,
-                        [settings = oldClientSettings.oldConfiguration](AccountSettings::Data &account) {
-                            if (settings.tlsErrorsIgnored) {
-                                account.tlsErrorsIgnored = *settings.tlsErrorsIgnored;
-                            }
+// Applies the settings to contacts once they are added to the roster later.
+// The migration must not wait for that since some contacts may never be added (e.g., group chats
+// that are not migrated).
+static void updateRosterItemSettingsOnceAdded(QObject *context, const QString &accountJid, const QList<ClientRosterItemSettings> &roster)
+{
+    auto pendingSettings = std::make_shared<QHash<QString, ClientRosterItemSettings>>();
 
-                            if (settings.tlsRequirement) {
-                                account.tlsRequirement = *settings.tlsRequirement;
-                            }
+    for (const auto &itemSettings : roster) {
+        pendingSettings->insert(itemSettings.jid, itemSettings);
+    }
 
-                            if (settings.passwordVisibility) {
-                                account.passwordVisibility = *settings.passwordVisibility;
-                            }
+    auto *watcher = new QObject(context);
 
-                            if (settings.encryption) {
-                                account.encryption = *settings.encryption;
-                            }
+    QObject::connect(RosterDb::instance(), &RosterDb::itemAdded, watcher, [watcher, accountJid, pendingSettings](const RosterItem &item) {
+        if (item.accountJid != accountJid) {
+            return;
+        }
 
-                            if (settings.automaticMediaDownloadsRule) {
-                                account.automaticMediaDownloadsRule = *settings.automaticMediaDownloadsRule;
-                            }
+        if (const auto itr = pendingSettings->constFind(item.jid); itr != pendingSettings->cend()) {
+            updateRosterItemSettings(accountJid, *itr);
+            pendingSettings->erase(itr);
 
-                            if (settings.name) {
-                                account.name = *settings.name;
-                            }
-
-                            if (settings.contactNotificationRule) {
-                                account.contactNotificationRule = *settings.contactNotificationRule;
-                            }
-
-                            if (settings.groupChatNotificationRule) {
-                                account.groupChatNotificationRule = *settings.groupChatNotificationRule;
-                            }
-
-                            if (settings.geoLocationMapPreviewEnabled) {
-                                account.geoLocationMapPreviewEnabled = *settings.geoLocationMapPreviewEnabled;
-                            }
-
-                            if (settings.geoLocationMapService) {
-                                account.geoLocationMapService = *settings.geoLocationMapService;
-                            }
-                        })
-        .then(this, [promise, newAccountJid, oldClientSettings, this]() mutable {
-            QList<QFuture<void>> futures;
-            const auto oldRosterItemSettings = oldClientSettings.roster;
-
-            for (const ClientRosterItemSettings &itemSettings : oldRosterItemSettings) {
-                auto updateRosterItem = [newAccountJid, itemSettings]() {
-                    return RosterDb::instance()->updateItem(newAccountJid, itemSettings.jid, [itemSettings](RosterItem &item) {
-                        item.encryption = itemSettings.encryption.value_or(item.encryption);
-                        item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
-                        item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
-                        item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
-                        item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
-                        item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
-                    });
-                };
-
-                if (RosterModel::instance()->hasItem(newAccountJid, itemSettings.jid)) {
-                    futures.append(updateRosterItem());
-                } else {
-                    auto updateRosterItemOnceAdded = [this, newAccountJid, itemSettings, updateRosterItem]() {
-                        auto promise = std::make_shared<QPromise<void>>();
-                        promise->start();
-                        auto *context = new QObject(this);
-
-                        connect(RosterDb::instance(),
-                                &RosterDb::itemAdded,
-                                context,
-                                [context, promise, newAccountJid, jid = itemSettings.jid, updateRosterItem](const RosterItem &rosterItem) mutable {
-                                    if (rosterItem.accountJid == newAccountJid && rosterItem.jid == jid) {
-                                        updateRosterItem().then(context, [context, promise]() mutable {
-                                            context->deleteLater();
-                                            promise->finish();
-                                        });
-                                    }
-                                });
-
-                        return promise->future();
-                    };
-
-                    futures.append(updateRosterItemOnceAdded());
-                }
+            if (pendingSettings->isEmpty()) {
+                watcher->deleteLater();
             }
+        }
+    });
 
-            joinVoidFutures(std::move(futures)).then([promise]() mutable {
+    QTimer::singleShot(PENDING_ROSTER_ITEM_SETTINGS_TIMEOUT, watcher, &QObject::deleteLater);
+}
+
+QFuture<void> AccountMigrationController::importClientSettings(AccountSettings *accountSettings, const ClientSettings &oldClientSettings)
+{
+    const auto &settings = oldClientSettings.oldConfiguration;
+
+    // Apply the settings to the account in use so that they take effect immediately and are not
+    // overwritten by its outdated values later.
+    if (settings.tlsErrorsIgnored) {
+        accountSettings->setTlsErrorsIgnored(*settings.tlsErrorsIgnored);
+    }
+
+    if (settings.tlsRequirement) {
+        accountSettings->setTlsRequirement(*settings.tlsRequirement);
+    }
+
+    if (settings.passwordVisibility) {
+        accountSettings->setPasswordVisibility(*settings.passwordVisibility);
+    }
+
+    if (settings.encryption) {
+        accountSettings->setEncryption(*settings.encryption);
+    }
+
+    if (settings.automaticMediaDownloadsRule) {
+        accountSettings->setAutomaticMediaDownloadsRule(*settings.automaticMediaDownloadsRule);
+    }
+
+    if (settings.name) {
+        accountSettings->setName(*settings.name);
+    }
+
+    if (settings.contactNotificationRule) {
+        accountSettings->setContactNotificationRule(*settings.contactNotificationRule);
+    }
+
+    if (settings.groupChatNotificationRule) {
+        accountSettings->setGroupChatNotificationRule(*settings.groupChatNotificationRule);
+    }
+
+    if (settings.geoLocationMapPreviewEnabled) {
+        accountSettings->setGeoLocationMapPreviewEnabled(*settings.geoLocationMapPreviewEnabled);
+    }
+
+    if (settings.geoLocationMapService) {
+        accountSettings->setGeoLocationMapService(*settings.geoLocationMapService);
+    }
+
+    auto promise = std::make_shared<QPromise<void>>();
+    promise->start();
+
+    // Store the settings that are not stored by their setters (e.g., the name).
+    accountSettings->storeTemporaryData().then(
+        accountSettings,
+        [promise, accountSettings, accountJid = accountSettings->jid(), roster = oldClientSettings.roster]() mutable {
+            // Watch before updating so that no contact added in between is missed.
+            updateRosterItemSettingsOnceAdded(accountSettings, accountJid, roster);
+
+            joinVoidFutures(transform<QList<QFuture<void>>>(roster, [accountJid](const ClientRosterItemSettings &itemSettings) {
+                return updateRosterItemSettings(accountJid, itemSettings);
+            })).then([promise]() mutable {
                 promise->finish();
             });
         });

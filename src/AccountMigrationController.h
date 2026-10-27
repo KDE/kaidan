@@ -15,6 +15,7 @@
 struct ClientSettings;
 
 class Account;
+class AccountSettings;
 
 class AccountMigrationController : public QObject
 {
@@ -42,7 +43,7 @@ private:
     using ImportResult = std::variant<QXmpp::Success, QXmppError>;
 
     ClientSettings exportClientSettings();
-    QFuture<void> importClientSettings(Account *newAccount, const ClientSettings &oldClientSettings);
+    static QFuture<void> importClientSettings(AccountSettings *accountSettings, const ClientSettings &oldClientSettings);
 
     QFuture<QXmppAccountMigrationManager::Result<>> notifyContacts(Account *newAccount, const QList<QString> &contactJids);
 

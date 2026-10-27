@@ -40,9 +40,12 @@ private:
 
     Q_SLOT void testClientSettingsSerialization();
     Q_SLOT void testDiskRoundTrip();
+    Q_SLOT void testImportClientSettingsWithMissingContact();
 
     static ClientSettings clientSettings();
     static void compareClientSettings(const ClientSettings &actual, const ClientSettings &expected);
+    std::optional<RosterItem> fetchItem(const QString &jid);
+    void addRosterItem(const QString &jid);
 
     Database db;
     AccountDb *accountDb = nullptr;
@@ -71,6 +74,7 @@ void AccountMigrationTest::initTestCase()
     QKeychainFuture::setUnencryptedFallback(true);
 
     AccountSettings::Data data;
+    data.initialized = true;
     data.jid = accountJid;
     wait(accountDb->addAccount(data));
 }
@@ -124,6 +128,29 @@ void AccountMigrationTest::compareClientSettings(const ClientSettings &actual, c
     }
 }
 
+std::optional<RosterItem> AccountMigrationTest::fetchItem(const QString &jid)
+{
+    const auto items = wait(RosterDb::instance()->fetchItems());
+
+    const auto itr = std::ranges::find_if(items, [&](const RosterItem &item) {
+        return item.accountJid == accountJid && item.jid == jid;
+    });
+
+    if (itr == items.cend()) {
+        return std::nullopt;
+    }
+
+    return *itr;
+}
+
+void AccountMigrationTest::addRosterItem(const QString &jid)
+{
+    RosterItem item;
+    item.accountJid = accountJid;
+    item.jid = jid;
+    wait(this, rosterDb->updateOrAddItem(accountJid, {}, item));
+}
+
 void AccountMigrationTest::testClientSettingsSerialization()
 {
     const auto expected = clientSettings();
@@ -164,6 +191,43 @@ void AccountMigrationTest::testDiskRoundTrip()
     const auto restoredSettings = restoredData.extension<ClientSettings>();
     QVERIFY(restoredSettings);
     compareClientSettings(*restoredSettings, expected);
+}
+
+void AccountMigrationTest::testImportClientSettingsWithMissingContact()
+{
+    // Only Alice is in the new account's roster, Bob is added later.
+    addRosterItem(alice);
+
+    const auto accounts = wait(accountDb->accounts());
+    QCOMPARE(accounts.size(), 1);
+    AccountSettings accountSettings(accounts.constFirst());
+
+    const auto future = AccountMigrationController::importClientSettings(&accountSettings, clientSettings());
+    wait(future);
+    QVERIFY(future.isFinished());
+
+    // The settings are applied to the account in use and stored.
+    QCOMPARE(accountSettings.encryption(), Encryption::NoEncryption);
+    QCOMPARE(accountSettings.name(), QStringLiteral("Old Account"));
+
+    const auto storedAccounts = wait(accountDb->accounts());
+    QCOMPARE(storedAccounts.size(), 1);
+    QCOMPARE(storedAccounts.constFirst().encryption, Encryption::NoEncryption);
+    QCOMPARE(storedAccounts.constFirst().name, QStringLiteral("Old Account"));
+
+    const auto aliceItem = fetchItem(alice);
+    QVERIFY(aliceItem);
+    QCOMPARE(aliceItem->encryption, Encryption::NoEncryption);
+    QCOMPARE(aliceItem->notificationRule, RosterItem::NotificationRule::Never);
+    QCOMPARE(aliceItem->pinningPosition, 3);
+
+    addRosterItem(bob);
+
+    QTRY_COMPARE(fetchItem(bob)->pinningPosition, 7);
+
+    const auto bobItem = fetchItem(bob);
+    QCOMPARE(bobItem->chatStateSendingEnabled, false);
+    QCOMPARE(bobItem->readMarkerSendingEnabled, false);
 }
 
 QTEST_GUILESS_MAIN(AccountMigrationTest)

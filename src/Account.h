@@ -181,8 +181,10 @@ public:
     QXmppSasl2UserAgent userAgent() const;
 
     bool tlsErrorsIgnored() const;
+    void setTlsErrorsIgnored(bool newTlsErrorsIgnored);
 
     QXmppConfiguration::StreamSecurityMode tlsRequirement() const;
+    void setTlsRequirement(QXmppConfiguration::StreamSecurityMode newTlsRequirement);
 
     const QString &host() const;
     void setHost(const QString &newHost);
@@ -260,7 +262,7 @@ public:
 
     Q_INVOKABLE void resetCustomConnectionSettings();
 
-    void storeTemporaryData();
+    QFuture<void> storeTemporaryData();
 
     QString loginUriString() const;
 

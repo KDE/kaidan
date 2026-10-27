@@ -103,9 +103,19 @@ bool AccountSettings::tlsErrorsIgnored() const
     return m_data.tlsErrorsIgnored;
 }
 
+void AccountSettings::setTlsErrorsIgnored(bool newTlsErrorsIgnored)
+{
+    m_data.tlsErrorsIgnored = newTlsErrorsIgnored;
+}
+
 QXmppConfiguration::StreamSecurityMode AccountSettings::tlsRequirement() const
 {
     return m_data.tlsRequirement;
+}
+
+void AccountSettings::setTlsRequirement(QXmppConfiguration::StreamSecurityMode newTlsRequirement)
+{
+    m_data.tlsRequirement = newTlsRequirement;
 }
 
 const QString &AccountSettings::host() const
@@ -363,22 +373,24 @@ void AccountSettings::resetCustomConnectionSettings()
     setPort(AUTO_DETECT_PORT);
 }
 
-void AccountSettings::storeTemporaryData()
+QFuture<void> AccountSettings::storeTemporaryData()
 {
     if (m_data.initialized) {
-        AccountDb::instance()->updateAccount(m_data.jid, [data = m_data](AccountSettings::Data &account) {
+        return AccountDb::instance()->updateAccount(m_data.jid, [data = m_data](AccountSettings::Data &account) {
             account.password = data.password;
             account.userAgentDeviceId = data.userAgentDeviceId;
+            account.tlsErrorsIgnored = data.tlsErrorsIgnored;
+            account.tlsRequirement = data.tlsRequirement;
             account.host = data.host;
             account.port = data.port;
             account.plainAuthAllowed = data.plainAuthAllowed;
             account.name = data.name;
         });
-    } else {
-        m_data.enabled = true;
-        m_data.initialized = true;
-        AccountDb::instance()->addAccount(m_data);
     }
+
+    m_data.enabled = true;
+    m_data.initialized = true;
+    return AccountDb::instance()->addAccount(m_data);
 }
 
 QString AccountSettings::loginUriString() const
