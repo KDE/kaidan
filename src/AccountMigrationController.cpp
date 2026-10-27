@@ -53,9 +53,9 @@ QFuture<bool> AccountMigrationController::startMigration(Account *oldAccount)
     m_oldAccount = oldAccount;
     auto *migrationManager = m_oldAccount->clientController()->accountMigrationManager();
 
-    connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this, promise](const QXmppError &error) mutable {
+    // QXmpp reports errors this way that do not abort the migration (e.g., for MIX channels).
+    connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [](const QXmppError &error) {
         informUser(error.description);
-        reportFinishedResult(*promise, false);
     });
 
     if (m_oldAccount->connection()->state() == Enums::ConnectionState::StateConnected) {
@@ -92,7 +92,13 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
     auto promise = std::make_shared<QPromise<void>>();
     promise->start();
 
-    newAccount->clientController()->accountMigrationManager()->importData(m_exportData).then(this, [this, promise, newAccount](auto &&result) mutable {
+    auto *migrationManager = newAccount->clientController()->accountMigrationManager();
+
+    connect(migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [](const QXmppError &error) {
+        informUser(error.description);
+    });
+
+    migrationManager->importData(m_exportData).then(this, [this, promise, newAccount](auto &&result) mutable {
         if (const auto accountFilePath = diskAccountFilePath(); const auto error = std::get_if<QXmppError>(&result)) {
             saveAccountDataToDisk(accountFilePath, m_exportData);
             informUser(error->description);
