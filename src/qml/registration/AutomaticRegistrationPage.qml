@@ -212,6 +212,8 @@ RegistrationPage {
 	 * Requests a registration form from another randomly chosen provider.
 	 */
 	function requestRegistrationFormFromAnotherProvider() {
+		loadingStackArea.busy = true
+
 		if (triedProviderIndexes.length < providerModel.providersMatchingSystemLocaleMinimumCount) {
 			chooseProviderRandomly()
 		} else {
