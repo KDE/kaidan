@@ -124,9 +124,12 @@ QFuture<void> AccountMigrationController::finalizeMigration(Account *newAccount)
                                             if (const auto error = std::get_if<QXmppError>(&result)) {
                                                 informUser(error->description);
                                             } else {
-                                                informUser(tr("Account '%1' migrated to '%2'", "%1 and %2 are account display names")
+                                                informUser(tr("Account %1 (%2) migrated to %3 (%4)",
+                                                              "%1 and %3 are account display names; %2 and %4 are chat addresses")
                                                                .arg(m_oldAccount->settings()->displayName())
-                                                               .arg(newAccount->settings()->displayName()));
+                                                               .arg(m_oldAccount->settings()->jid())
+                                                               .arg(newAccount->settings()->displayName())
+                                                               .arg(newAccount->settings()->jid()));
                                             }
 
                                             promise->finish();
