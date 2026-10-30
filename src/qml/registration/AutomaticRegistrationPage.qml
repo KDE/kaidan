@@ -232,8 +232,8 @@ RegistrationPage {
 	 * Sends the completed registration form.
 	 */
 	function register() {
-		sendRegistrationForm()
 		loadingStackArea.busy = true
+		sendRegistrationForm()
 	}
 
 	/**
