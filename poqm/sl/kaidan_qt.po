@@ -18,44 +18,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.9\n"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Nepovezano"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Povezano"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Neveljavno uporabniško ime ali geslo."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ni se mogoče povezati na strežnik. Prosimo, preverite svojo internetno "
 "povezavo."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Napaka pri poskusu varne povezave."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Strežnik ne podpira varnih povezav."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -64,22 +64,22 @@ msgstr ""
 "Povezovanje na strežnik ni uspelo. Prosimo, preverite svojo internetno "
 "povezavo ali ime strežnika."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:515
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Strežnik je odklopljen ali pa je blokiran s strani požarnega zidu."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:517
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Protokol avtentikacije strežnik ne podpira."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:519
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Povezave ni bilo mogoče osvežiti."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:521
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -88,39 +88,43 @@ msgstr ""
 "Dostop do interneta ni dovoljen. Preverite konfiguracijo dostopa do "
 "interneta v vašem sistemu."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:523
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Ta strežnik ne podpira registracije."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:525
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Ni se bilo mogoče prijaviti. Potrdite e-poštno sporočilo, ki ste ga najprej "
 "prejeli."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:527
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ni se bilo mogoče povezati s strežnikom."
 
-#: src/AccountMigrationController.cpp:330
+#: src/AccountMigrationController.cpp:66
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "Računa ni bilo mogoče preseliti: Ni bilo mogoče naložiti izvoženih podatkov "
 "računa"
 
-#: src/AccountMigrationController.cpp:347
+#: src/AccountMigrationController.cpp:83
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
 
-#: src/AccountMigrationController.cpp:385
-#, qt-format
-msgctxt "AccountMigrationController|%1 and %2 are account display names"
-msgid "Account '%1' migrated to '%2'"
+#: src/AccountMigrationController.cpp:127
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt ""
+"AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
+"are chat addresses"
+msgid "Account %1 (%2) migrated to %3 (%4)"
 msgstr "Račun '%1' je bil preseljen v '%2'"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78

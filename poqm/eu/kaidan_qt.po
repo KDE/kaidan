@@ -20,44 +20,44 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 25.12.0\n"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Deskonektatuta"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Konektatuta"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "Erabiltzaile-izen edo pasahitz baliogabea."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ezin du zerbitzariarekin konektatu. Mesedez, egiaztatu zure Interneterako "
 "konexioa."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "Errorea era seguruan konektatzen saiatzean."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "Zerbitzariak ez ditu konexio seguruak onartzen."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -66,22 +66,22 @@ msgstr ""
 "Ezin izan da zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
 "zure konexioa edo zure zerbitzariaren izena."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:515
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:517
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "Zerbitzariak ez du autentifikazio protokoloa onartzen."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:519
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "Ezin izan da konexioa berritu."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:521
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -90,40 +90,42 @@ msgstr ""
 "Interneterako sarbidea ez dago baimenduta. Mesedez, egiaztatu zure "
 "sistemaren interneterako sarbidearen konfigurazioa."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:523
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:525
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "Ezin izan da saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:527
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "Ezin izan da zerbitzariarekin konektatu."
 
-#: src/AccountMigrationController.cpp:330
+#: src/AccountMigrationController.cpp:66
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "Ezin izan da kontua migratu: Esportatutako kontuaren datuak ezin izan ditu "
 "zamatu"
 
-#: src/AccountMigrationController.cpp:347
+#: src/AccountMigrationController.cpp:83
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Kontua ezin izan da migratu: Konektatuta egon behar duzu"
 
-#: src/AccountMigrationController.cpp:385
+#: src/AccountMigrationController.cpp:127
 #, fuzzy, qt-format
 #| msgctxt "AccountMigrationController|"
 #| msgid "Account '%1' migrated to '%2'"
-msgctxt "AccountMigrationController|%1 and %2 are account display names"
-msgid "Account '%1' migrated to '%2'"
+msgctxt ""
+"AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
+"are chat addresses"
+msgid "Account %1 (%2) migrated to %3 (%4)"
 msgstr "'%1' kontua '%2'(e)ra migratu da"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78

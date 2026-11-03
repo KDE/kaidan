@@ -24,43 +24,43 @@ msgstr ""
 "X-Language: ca\n"
 "X-Qt-Contexts: true\n"
 
-#: src/Account.cpp:478
+#: src/Account.cpp:490
 msgctxt "Connection|"
 msgid "Disconnected"
 msgstr "Desconnectat"
 
-#: src/Account.cpp:480
+#: src/Account.cpp:492
 msgctxt "Connection|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Account.cpp:482
+#: src/Account.cpp:494
 msgctxt "Connection|"
 msgid "Connected"
 msgstr "Connectat"
 
-#: src/Account.cpp:493
+#: src/Account.cpp:505
 msgctxt "Connection|"
 msgid "Invalid username or password."
 msgstr "El nom d'usuari o la contrasenya són incorrectes."
 
-#: src/Account.cpp:495
+#: src/Account.cpp:507
 msgctxt "Connection|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
 
-#: src/Account.cpp:497
+#: src/Account.cpp:509
 msgctxt "Connection|"
 msgid "Error while trying to connect securely."
 msgstr "S'ha produït un error en provar de connectar de forma segura."
 
-#: src/Account.cpp:499
+#: src/Account.cpp:511
 msgctxt "Connection|"
 msgid "The server doesn't support secure connections."
 msgstr "El servidor no és compatible amb les connexions segures."
 
-#: src/Account.cpp:501
+#: src/Account.cpp:513
 msgctxt "Connection|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -69,22 +69,22 @@ msgstr ""
 "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
 "o el vostre nom de servidor."
 
-#: src/Account.cpp:503
+#: src/Account.cpp:515
 msgctxt "Connection|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
-#: src/Account.cpp:505
+#: src/Account.cpp:517
 msgctxt "Connection|"
 msgid "Authentication protocol not supported by the server."
 msgstr "El servidor no admet el protocol d'autenticació."
 
-#: src/Account.cpp:507
+#: src/Account.cpp:519
 msgctxt "Connection|"
 msgid "The connection could not be refreshed."
 msgstr "No s'ha pogut actualitzar la connexió."
 
-#: src/Account.cpp:509
+#: src/Account.cpp:521
 msgctxt "Connection|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -93,39 +93,43 @@ msgstr ""
 "No es permet l'accés a Internet. Comproveu la configuració d'accés a "
 "Internet del sistema."
 
-#: src/Account.cpp:511
+#: src/Account.cpp:523
 msgctxt "Connection|"
 msgid "This server does not support registration."
 msgstr "Aquest servidor no permet el registre."
 
-#: src/Account.cpp:513
+#: src/Account.cpp:525
 msgctxt "Connection|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 "No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
 "electrònic que heu rebut."
 
-#: src/Account.cpp:515
+#: src/Account.cpp:527
 msgctxt "Connection|"
 msgid "Could not connect to the server."
 msgstr "No s'ha pogut connectar amb el servidor."
 
-#: src/AccountMigrationController.cpp:330
+#: src/AccountMigrationController.cpp:66
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "No s'ha pogut migrar el compte: no s'han pogut carregar les dades de compte "
 "exportat"
 
-#: src/AccountMigrationController.cpp:347
+#: src/AccountMigrationController.cpp:83
 msgctxt "AccountMigrationController|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "No s'ha pogut migrar el compte: cal estar connectat"
 
-#: src/AccountMigrationController.cpp:385
-#, qt-format
-msgctxt "AccountMigrationController|%1 and %2 are account display names"
-msgid "Account '%1' migrated to '%2'"
+#: src/AccountMigrationController.cpp:127
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
+#| msgid "Account '%1' migrated to '%2'"
+msgctxt ""
+"AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
+"are chat addresses"
+msgid "Account %1 (%2) migrated to %3 (%4)"
 msgstr "El compte «%1» s'ha migrat a «%2»"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
