@@ -6,6 +6,8 @@
 
 // Qt
 #include <QStringLiteral>
+// QXmpp
+#include <QXmppUri.h>
 
 using namespace Qt::StringLiterals;
 
@@ -48,7 +50,12 @@ InputValidator::InputValidator(Patterns patterns, QObject *parent)
 
 QValidator::State InputValidator::validate(QString &input, int &pos) const
 {
-    const auto result = QRegularExpressionValidator::validate(input, pos);
+    auto result = QRegularExpressionValidator::validate(input, pos);
+
+    // Let XMPP URIs pass so that the field can replace them with their JIDs.
+    if (result == QValidator::Invalid && m_patterns.testFlag(Pattern::Jid) && std::holds_alternative<QXmppUri>(QXmppUri::fromString(input))) {
+        result = QValidator::Intermediate;
+    }
 
     if (m_state != result) {
         m_state = result;

@@ -35,12 +35,12 @@ ConfirmationArea {
 		placeholderText: qsTr("group@groups.example.org")
 		invalidHintText: qsTr("Enter a valid group address")
 		inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
-		onTextEdited: {
-			const jidOfXmppUri = Utils.jid(text)
+		onTextChanged: {
+			const xmppUriJid = Utils.jid(text)
 
-			if (jidOfXmppUri) {
-				// If the user inserts an XMPP URI into jidField, set jidField.text to the URI's JID.
-				text = jidOfXmppUri
+			if (xmppUriJid) {
+				// If the user inserts an XMPP URI into groupChatJidField, set groupChatJidField.text to the URI's JID.
+				text = xmppUriJid
 			}
 		}
 		onAccepted: nicknameField.forceActiveFocus()

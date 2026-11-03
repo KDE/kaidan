@@ -217,6 +217,12 @@ private Q_SLOTS:
         QTest::newRow("alice@localhost") << QStringLiteral("alice@localhost") << QValidator::State::Acceptable;
         QTest::newRow("alice@192.168.1.22") << QStringLiteral("alice@192.168.1.22") << QValidator::State::Acceptable;
         QTest::newRow("alice@::1") << QStringLiteral("alice@::1") << QValidator::State::Acceptable;
+
+        QTest::newRow("xmpp:") << QStringLiteral("xmpp:") << QValidator::State::Intermediate;
+        QTest::newRow("xmpp:alice@example.org") << QStringLiteral("xmpp:alice@example.org") << QValidator::State::Intermediate;
+        QTest::newRow("xmpp:group@groups.example.org?join") << QStringLiteral("xmpp:group@groups.example.org?join") << QValidator::State::Intermediate;
+        QTest::newRow("XMPP:alice@example.org") << QStringLiteral("XMPP:alice@example.org") << QValidator::State::Intermediate;
+        QTest::newRow("https://example.org") << QStringLiteral("https://example.org") << QValidator::State::Invalid;
     }
 
     void testJid()

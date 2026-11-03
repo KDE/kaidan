@@ -72,15 +72,16 @@ ConfirmationArea {
 
 	JidField {
 		id: jidField
-		onTextEdited: {
-			const jidOfXmppUri = Utils.jid(text)
+		// TODO: Replace onTextChanged with onTextEdited and "else if" with "else" once Kirigami Addons > v1.12.1 is required by Kaidan.
+		onTextChanged: {
+			const xmppUriJid = Utils.jid(text)
 
-			if (jidOfXmppUri) {
+			if (xmppUriJid) {
 				// If the user inserts an XMPP URI into jidField, cache that URI in the background and set jidField.text to the URI's JID.
 				root.xmppUri = text
-				text = jidOfXmppUri
-			} else {
-				// Reset a cached URI if jidField.text is changed by the user afterwards.
+				text = xmppUriJid
+			} else if (text !== Utils.jid(root.xmppUri)) {
+				// Reset a cached URI if jidField.text is changed afterwards.
 				root.xmppUri = ""
 			}
 		}
