@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-09 19:29+0300\n"
+"PO-Revision-Date: 2026-11-03 21:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -107,14 +107,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Hesap göç ettirilemedi: Bağlı olmanız gerekiyor."
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "“%1” hesabı, “%2” konumuna göç ettirildi"
+msgstr "“%1” hesabı (%2), “%3” konumuna (%4) göç ettirildi"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"

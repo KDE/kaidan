@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-09 21:19+0200\n"
+"PO-Revision-Date: 2026-11-03 07:44+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -112,14 +112,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Не удалось перенести учётную запись: требуется подключение"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Учётная запись «%1» перенесена в «%2»"
+msgstr "Учётная запись %1 (%2) перенесена в %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"

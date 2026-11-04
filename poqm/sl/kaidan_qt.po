@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-10-09 07:19+0200\n"
+"PO-Revision-Date: 2026-11-03 07:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -118,14 +118,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Račun '%1' je bil preseljen v '%2'"
+msgstr "Račun %1 (%2) je bil preseljen v %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
