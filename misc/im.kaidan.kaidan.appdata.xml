@@ -205,6 +205,51 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.17.0" date="2026-11-05T00:00:00Z">
+      <description>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>Go back to chat list to forward message and keep it open on narrow window (@melvo)</li>
+          <li>Add efficient retrieval of latest chat list from server (@lnj)</li>
+          <li>Add support for reporting spam/abusive senders/messages (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
+          <li>Mark button for filtering chats while filtering is active (@melvo)</li>
+          <li>Add support for retracting messages (XEP-0424: Message Retraction) (@lnj, @melvo)</li>
+          <li>Automatically reconnect to server based on network changes (@lnj)</li>
+          <li>Clear all ongoing actions of the message input field on pressing Escape button (@melvo)</li>
+          <li>Ensure that current default input device is always used for recording (@melvo, @lnj)</li>
+          <li>Hide button for recording voice messages if no input device is available (@melvo)</li>
+          <li>Inform user about problems with voice message recording (@melvo)</li>
+          <li>Delete recorded temporary file on error occurring while recording (@lnj)</li>
+        </ul>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Fix opening chat with existing contact on attempt to add that contact (@melvo)</li>
+          <li>Fix focusing message input field after opening chat or pressing on opened chat again (@melvo)</li>
+          <li>Fix hiding password if corresponding setting is enabled (@melvo)</li>
+          <li>Fix displaying duplicated blocked chat addresses (@lnj)</li>
+          <li>Fix duplicated notifications for blocking/unblocking chat addresses (@lnj)</li>
+          <li>Fix reactions to own messages (@lnj)</li>
+          <li>Fix encrypting non-pending read markers (@melvo)</li>
+          <li>Fix showing hints for invalid field input (@melvo)</li>
+          <li>Fix wrapping long date sections in chat (@melvo)</li>
+          <li>Fix only removing message reactions of removed chat instead of reactions of all chats of account (@lnj)</li>
+          <li>Fix sending pending data on reconnection to servers without media sharing support (@lnj)</li>
+          <li>Fix cut off details in media viewer (@melvo)</li>
+          <li>Fix playing after positioning slider while media is paused in media viewer (@melvo)</li>
+          <li>Fix resetting draft message on switching chats (@melvo)</li>
+          <li>Fix width of voice messages (@melvo)</li>
+          <li>Fix thumbnail generation with faulty plugin (@melvo)</li>
+          <li>Fix size of media overview's tab bar items (@melvo)</li>
+          <li>Fix thumbnails flickering in media overview while window is resized (@melvo)</li>
+          <li>Fix encryption initialization for groups and disabled accounts (@melvo)</li>
+          <li>Fix changing encryption of notes chats (@melvo)</li>
+          <li>Fix displaying account name initials for notes chats (@melvo)</li>
+          <li>Fix hanging account migration (@lnj)</li>
+          <li>Fix replacing XMPP URI with its chat address for contact addition and group joining (@lnj, @melvo)</li>
+        </ul>
+        <p>Kaidan requires QXmpp 1.17.1 now</p>
+      </description>
+    </release>
     <release type="stable" version="0.16.0" date="2026-07-21T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>

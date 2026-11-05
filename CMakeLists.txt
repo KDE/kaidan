@@ -35,9 +35,9 @@ set(APPLICATION_DESCRIPTION "User-friendly and modern chat app for every device"
 
 # Version
 set(VERSION_MAJOR 0)
-set(VERSION_MINOR 16)
+set(VERSION_MINOR 17)
 set(VERSION_PATCH 0)
-set(VERSION_CODE 27)
+set(VERSION_CODE 28)
 set(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # CMake options

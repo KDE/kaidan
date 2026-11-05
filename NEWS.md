@@ -1,4 +1,49 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.17.0
+--------------
+Released: 2026-11-05
+
+Features:
+* Go back to chat list to forward message and keep it open on narrow window (@melvo)
+* Add efficient retrieval of latest chat list from server (@lnj)
+* Add support for reporting spam/abusive senders/messages (XEP-0377: Blocking Command Reports) (@lnj, @melvo)
+* Mark button for filtering chats while filtering is active (@melvo)
+* Add support for retracting messages (XEP-0424: Message Retraction) (@lnj, @melvo)
+* Automatically reconnect to server based on network changes (@lnj)
+* Clear all ongoing actions of the message input field on pressing Escape button (@melvo)
+* Ensure that current default input device is always used for recording (@melvo, @lnj)
+* Hide button for recording voice messages if no input device is available (@melvo)
+* Inform user about problems with voice message recording (@melvo)
+* Delete recorded temporary file on error occurring while recording (@lnj)
+
+Bugfixes:
+* Fix opening chat with existing contact on attempt to add that contact (@melvo)
+* Fix focusing message input field after opening chat or pressing on opened chat again (@melvo)
+* Fix hiding password if corresponding setting is enabled (@melvo)
+* Fix displaying duplicated blocked chat addresses (@lnj)
+* Fix duplicated notifications for blocking/unblocking chat addresses (@lnj)
+* Fix reactions to own messages (@lnj)
+* Fix encrypting non-pending read markers (@melvo)
+* Fix showing hints for invalid field input (@melvo)
+* Fix wrapping long date sections in chat (@melvo)
+* Fix only removing message reactions of removed chat instead of reactions of all chats of account (@lnj)
+* Fix sending pending data on reconnection to servers without media sharing support (@lnj)
+* Fix cut off details in media viewer (@melvo)
+* Fix playing after positioning slider while media is paused in media viewer (@melvo)
+* Fix resetting draft message on switching chats (@melvo)
+* Fix width of voice messages (@melvo)
+* Fix thumbnail generation with faulty plugin (@melvo)
+* Fix size of media overview's tab bar items (@melvo)
+* Fix thumbnails flickering in media overview while window is resized (@melvo)
+* Fix encryption initialization for groups and disabled accounts (@melvo)
+* Fix changing encryption of notes chats (@melvo)
+* Fix displaying account name initials for notes chats (@melvo)
+* Fix hanging account migration (@lnj)
+* Fix replacing XMPP URI with its chat address for contact addition and group joining (@lnj, @melvo)
+
+Notes:
+* Kaidan requires QXmpp 1.17.1 now
+
 Version 0.16.0
 --------------
 Released: 2026-07-21
