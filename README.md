@@ -60,7 +60,7 @@ The following dependencies are needed by Kaidan:
 * [Kirigami Addons][kirigami-addons] >= 1.8.0
 * [Qt][qt-build-sources] >= 6.10.0 - Concurrent | Core | Multimedia | Location | Positioning | Qml | Qt6GuiPrivate | Quick | QuickControls2 | Sql | Svg | Xml
 * [QtKeychain][qtkeychain] >= 0.15
-* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.17.0
+* [QXmpp][qxmpp] (with OMEMO, GStreamer) >= 1.17.1
 
 ### Optional Dependencies
 
