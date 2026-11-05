@@ -32,10 +32,10 @@ MucController::MucController(AccountSettings *accountSettings,
     , m_bookmarkManager(bookmarkManager)
     , m_mucManager(mucManager)
 {
-    connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksReset, this, &MucController::replaceBookmarks);
-    connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksAdded, this, &MucController::addBookmarks);
-    connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksChanged, this, &MucController::updateBookmarks);
-    connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksRemoved, this, &MucController::removeBookmarks);
+    // connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksReset, this, &MucController::replaceBookmarks);
+    // connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksAdded, this, &MucController::addBookmarks);
+    // connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksChanged, this, &MucController::updateBookmarks);
+    // connect(m_bookmarkManager, &QXmppPepBookmarkManager::bookmarksRemoved, this, &MucController::removeBookmarks);
 }
 
 void MucController::replaceBookmarks()
