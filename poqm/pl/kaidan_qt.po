@@ -2799,6 +2799,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Wyślij wiadomość głosową"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent."
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Nie można wysłać wiadomości."
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"

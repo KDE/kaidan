@@ -2975,6 +2975,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "編輯訊息"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "訊息無法傳送。"
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"

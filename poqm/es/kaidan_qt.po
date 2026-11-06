@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 16:36+0100\n"
-"PO-Revision-Date: 2026-10-09 15:47+0100\n"
+"PO-Revision-Date: 2026-11-05 12:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -120,14 +120,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "No se puede migrar la cuenta: Debe estar conectado"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Cuenta «%1» migrada a «%2»"
+msgstr "Cuenta %1 (%2) migrada a %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -2606,6 +2604,14 @@ msgstr "Enviar"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Grabar un mensaje de voz"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MessageController|%1 is an error message"
+#| msgid "Message could not be removed: %1"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "No se ha podido eliminar el mensaje: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"

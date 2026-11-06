@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-10-09 09:54+0300\n"
+"PO-Revision-Date: 2026-11-05 13:41+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +14,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -107,14 +107,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "לא ניתן להסב את החשבון: צריך להתחבר"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "חשבון ‚%1’ הוסב לכדי ‚%2’"
+msgstr "החשבון %1 (%2) הוסב לכדי %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -2531,6 +2529,14 @@ msgstr "שליחה"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "הקלטת הודעה קולית"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MessageController|%1 is an error message"
+#| msgid "Message could not be removed: %1"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "לא ניתן להסיר את ההודעה: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
