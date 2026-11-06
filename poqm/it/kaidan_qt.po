@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-10-09 16:05+0200\n"
+"PO-Revision-Date: 2026-07-24 13:47+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -300,7 +300,9 @@ msgid "Transfer canceled"
 msgstr "Trasferimento annullato"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer failed: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Trasferimento non riuscito: %1"
@@ -525,7 +527,7 @@ msgstr "Impossibile inviare la reazione: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr "Troppo vecchio per essere rimosso per tutti"
+msgstr ""
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -533,24 +535,30 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
-"Questa persona ha provato a eliminare un messaggio, ma la tua applicazione "
-"non supporta questa funzione."
 
 #: src/MessageController.cpp:1228
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Il messaggio non può essere rimosso: %1"
+msgstr "Il messaggio non può essere inviato"
 
 #: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Rimozione in corso"
+msgstr "Rimozione"
 
 #: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Rimozione non riuscita"
+msgstr "Rimuovi il file"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1648,6 +1656,9 @@ msgid "Indicate which messages you have read"
 msgstr "Indica quali messaggi hai letto"
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Sblocca"
@@ -1656,7 +1667,7 @@ msgstr "Sblocca"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "Blocca e segnala"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1667,17 +1678,20 @@ msgstr "Blocca"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "Sblocca questo contatto"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "Blocca e (facoltativamente) segnala questo contatto"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Blocca questo contatto"
+msgstr "Cerca contatti"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2111,12 +2125,15 @@ msgid "Other"
 msgstr "Altro"
 
 #: src/qml/details/MediaOverview.qml:163
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%Ln/%L1 selezionato"
-msgstr[1] "%Ln/%L1 selezionati"
+msgstr[0] "%1/%2 selezionati"
+msgstr[1] "%1/%2 selezionati"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2332,55 +2349,64 @@ msgid "Feature unsupported"
 msgstr "Funzionalità non supportata"
 
 #: src/qml/elements/BlockingReportContent.qml:34
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Segnala"
+msgstr "Supporto"
 
 #: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutContent|"
+#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Segnala spam o abuso"
+msgstr "Segnala problemi"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr "Motivo"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr "Spam"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr "Messaggi non richiesti, spesso inviati in massa"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr "Abuso"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr "Comportamenti molesti, minacciosi o comunque offensivi"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Descrizione (facoltativa)"
+msgstr "Descrizione"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr "Blocca e segnala"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr "Segnala il messaggio selezionato e blocca il mittente."
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2424,9 +2450,12 @@ msgid "Open file in folder"
 msgstr "Apri il file nella cartella"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Riprova la rimozione"
+msgstr "Rimozione"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2471,9 +2500,12 @@ msgstr "Contrassegna"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr "Blocca e segnala"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Rimuovi"
@@ -2584,6 +2616,14 @@ msgstr "Invia"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Registra un messaggio vocale"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Gli utenti registrati di %1 non possono essere recuperati: %2"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3581,24 +3621,33 @@ msgid "About"
 msgstr "Informazioni"
 
 #: src/qml/Main.qml:181
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID"
+#| msgid "Unblocked %1"
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Sbloccato %1"
 
 #: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Annulla"
 
 #: src/qml/Main.qml:188
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Impossibile bloccare %1: %2"
 
 #: src/qml/Main.qml:192
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Impossibile sbloccare %1: %2"
@@ -3670,16 +3719,25 @@ msgstr ""
 "fornitori"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Digita le informazioni aggiuntive"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
-msgstr "Il fornitore ha richiesto ulteriori informazioni."
+msgstr "Il fornitore ha richiesto ulteriori informazioni"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Non tutto potrebbe essere necessario"
@@ -4055,6 +4113,14 @@ msgstr "Sito web"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Impossibile sbloccare %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "gg MMM alle hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Impossibile inviare la reazione: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Digita la password corretta"
@@ -4083,10 +4149,6 @@ msgstr "Sito web"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "L'indirizzo deve avere la forma <b>gruppo@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Impossibile inviare la reazione: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Impossibile unirsi al gruppo %1%2"
@@ -4103,21 +4165,9 @@ msgstr "Sito web"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Impossibile sbloccare %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "gg MMM alle hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Dettagli…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Chiudi la ricerca"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Cerca"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4135,37 +4185,21 @@ msgstr "Sito web"
 #~ "Indica quando hai questa conversazione aperta, stai digitando e hai "
 #~ "smesso di digitare"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 è in linea"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Rimuovi il file selezionato"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Posizioni del server"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 è in linea"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Digita diverse impostazioni di connessione per modificarle"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Impostazioni di connessione"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Impostazioni di connessione"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Il contatto esiste già"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Apri la chat"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4175,19 +4209,34 @@ msgstr "Sito web"
 #~ msgid "Maximize avatar"
 #~ msgstr "Massimizza l'avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Il contatto esiste già"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Apri la chat"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Posizioni del server"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Generazione del codice QR non riuscita: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Marca come primo non letto"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
-#~ msgstr ""
-#~ "L'account non può essere migrato: è già in corso un'altra migrazione"
+#~ msgstr "Impossibile migrare l'account: è già in corso un'altra migrazione"
 
 #~ msgctxt "Kaidan|"
 #~ msgid "Online"
@@ -4208,6 +4257,10 @@ msgstr "Sito web"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Può richiedere del tempo"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Marca come primo non letto"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

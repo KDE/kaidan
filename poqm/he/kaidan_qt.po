@@ -2,8 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-10-09 09:54+0300\n"
+"PO-Revision-Date: 2026-07-28 09:11+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -14,7 +13,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -269,17 +268,17 @@ msgstr "בוטל"
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Could not download file: %1"
-msgstr "לא ניתן להוריד את הקובץ: %1"
+msgstr "לא ניתן להוריד את הקובץ‏: %1"
 
 #: src/FileSharingController.cpp:383
 msgctxt "FileSharingController|"
 msgid "Media sharing support is unknown"
-msgstr "התמיכה בשיתוף מדיה לא ידועה"
+msgstr "התמיכה בשיתוף מולטימדיה לא ידועה"
 
 #: src/FileSharingController.cpp:386
 msgctxt "FileSharingController|"
 msgid "Media sharing is unsupported"
-msgstr "שיתוף מדיה לא נתמך"
+msgstr "שיתוף מולטימדיה לא נתמך"
 
 #: src/FileSharingController.cpp:509
 #, qt-format
@@ -293,7 +292,9 @@ msgid "Transfer canceled"
 msgstr "ההעברה בוטלה"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer failed: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "ההעברה נכשלה: %1"
@@ -518,30 +519,38 @@ msgstr "לא ניתן לשלוח את התגובה: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr "ישן מכדי שיוסר לכולם"
+msgstr ""
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
-msgstr "האדם הזה ניסה למשוך הודעה חזרה. אבל היישום שלך לא תומך בזה."
+msgstr ""
 
 #: src/MessageController.cpp:1228
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "לא ניתן להסיר את ההודעה: %1"
+msgstr "לא ניתן לשלוח את ההודעה"
 
 #: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "הסרה ממתינה"
+msgstr "הסרה"
 
 #: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "הסרה נכשלה"
+msgstr "הסרת קובץ"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -779,7 +788,7 @@ msgstr "על Kaidan"
 #: src/qml/CallPage.qml:18
 msgctxt "CallPage|"
 msgid "Call"
-msgstr "התקשרות"
+msgstr "שיחה"
 
 #: src/qml/CallPage.qml:63
 msgctxt "CallPage|"
@@ -794,7 +803,7 @@ msgstr "פתיחת שיחת שמע"
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "התחלת שיחת וידאו"
+msgstr "התחלת שיחה קולית"
 
 #: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
@@ -1608,6 +1617,9 @@ msgid "Indicate which messages you have read"
 msgstr "לציין אילו הודעות קראת"
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "שחרור חסימה"
@@ -1616,7 +1628,7 @@ msgstr "שחרור חסימה"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "חסימה ודיווח"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1627,17 +1639,17 @@ msgstr "חסימה"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "שחרור חסימת איש הקשר הזה"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "חסימה ודיווח (כרשות) על המשתמש הזה"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "חסימת איש הקשר הזה"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2060,14 +2072,17 @@ msgid "Other"
 msgstr "אחר"
 
 #: src/qml/details/MediaOverview.qml:163
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%Ln/%L1 נבחר"
-msgstr[1] "%Ln/%L1 נבחרו"
-msgstr[2] "%Ln/%L1 נבחרו"
-msgstr[3] "%Ln/%L1 נבחרו"
+msgstr[0] "%1/%2 נבחרו"
+msgstr[1] "%1/%2 נבחרו"
+msgstr[2] "%1/%2 נבחרו"
+msgstr[3] "%1/%2 נבחרו"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2151,7 +2166,7 @@ msgstr "הסרת שיחת הספק ואת היסטוריית הצ׳אט במלו
 #: src/qml/details/ProviderChatDetailsContent.qml:39
 msgctxt "ProviderChatDetailsContent|"
 msgid "Removing provider chat…"
-msgstr "שיחת הספק נמחק…"
+msgstr "שיחת הספק נמחקת…"
 
 #: src/qml/details/ProviderChatDetailsDialog.qml:9
 msgctxt "ProviderChatDetailsDialog|"
@@ -2279,55 +2294,64 @@ msgid "Feature unsupported"
 msgstr "היכולת לא נתמכת"
 
 #: src/qml/elements/BlockingReportContent.qml:34
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "דיווח"
+msgstr "תמיכה ב־FTP"
 
 #: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutContent|"
+#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "דיווח על זבל או ניצול לרעה"
+msgstr "דיווח על בעיות"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr "סיבה"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr "זבל"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr "הודעות לא רצויות, בדרך כלל נשלחות בכמות גדולה"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr "ניצול לרעה"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr "הטרדה, איום או התנהגות פוגענית אחרת"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "תיאור (רשות)"
+msgstr "תיאור"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr "חסימה ודיווח"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr "דיווח על ההודעה הנבחרת ולחסום את מי ששלח אותה"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2371,9 +2395,12 @@ msgid "Open file in folder"
 msgstr "פתיחת קובץ בתיקייה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "לנסות להסיר שוב"
+msgstr "הסרה"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2418,9 +2445,12 @@ msgstr "סימון"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr "חסימה ודיווח"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "הסרה"
@@ -2531,6 +2561,14 @@ msgstr "שליחה"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "הקלטת הודעה קולית"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "לא ניתן היה למשוך את המשתמשים שהצטרפו אל %1: %2"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3215,7 +3253,7 @@ msgstr "גודל כל המדיה המשותפת בסך הכול"
 #: src/qml/elements/ProviderFilterArea.qml:78
 msgctxt "ProviderFilterArea|"
 msgid "Media storage duration"
-msgstr "משך אחסון מדיה"
+msgstr "משך אחסון מולטימדיה"
 
 #: src/qml/elements/ProviderFilterArea.qml:86
 msgctxt "ProviderFilterArea|"
@@ -3513,24 +3551,33 @@ msgid "About"
 msgstr "על אודות"
 
 #: src/qml/Main.qml:181
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID"
+#| msgid "Unblocked %1"
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "החסימה מעל %1 שוחררה"
 
 #: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "הסגה"
 
 #: src/qml/Main.qml:188
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "לא ניתן לחסום את %1: %2"
 
 #: src/qml/Main.qml:192
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "לא ניתן לשחרר את החסימה מעל %1: %2"
@@ -3599,16 +3646,25 @@ msgid "Automatic registration failed because of problems with all providers"
 msgstr "הרשמה אוטומטית נכשלה עקב תקלות מול כל הספקים"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "נא למלא פרטים נוספים"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "הספק ביקש פרטים נוספים"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "לא הכול בגדר חובה"
@@ -3831,7 +3887,7 @@ msgstr "מסנן"
 #: src/qml/RosterPage.qml:45
 msgctxt "RosterPage|"
 msgid "Pin & Move"
-msgstr "נעיצה והעברה"
+msgstr "נעיצה והזזה"
 
 #: src/qml/StartPage.qml:28
 msgctxt "StartPage|"
@@ -3974,6 +4030,14 @@ msgstr "אתר אינטרנט"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "לא ניתן לשחרר את החסימה מעל %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM בשעה hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "לא ניתן לשלוח את התגובה: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "נא למלא את הסיסמה הנכונה"
@@ -4002,10 +4066,6 @@ msgstr "אתר אינטרנט"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "הכתובת חייבת להיות בצורה <b>group@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "לא ניתן לשלוח את התגובה: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "לא ניתן להצטרף לקבוצה %1%2"
@@ -4022,21 +4082,9 @@ msgstr "אתר אינטרנט"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "לא ניתן לשחרר את החסימה מעל %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM בשעה hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "פרטים…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "סגירת החיפוש"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "חיפוש"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4050,37 +4098,21 @@ msgstr "אתר אינטרנט"
 #~ "typing"
 #~ msgstr "לציין מתי הדיון הזה פתוח אצלך, מקלידים ומפסיקים להקליד בו"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 מקוון/נת"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "הסרת הקובץ הנבחר"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "מקומות שרת"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "חיפוש"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 מקוון/נת"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "נא למלא הגדרות חיבור אחרות כדי לשנות אותן"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "הגדרות חיבור"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "הגדרות חיבור"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "איש הקשר כבר קיים"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "פתיחת שיחה"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4090,15 +4122,31 @@ msgstr "אתר אינטרנט"
 #~ msgid "Maximize avatar"
 #~ msgstr "הגדלת תמונה ייצוגית"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "איש הקשר כבר קיים"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "פתיחת שיחה"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "הגדרות חיבור"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "הגדרות חיבור"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "מקומות שרת"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "יצירת קוד ה־QR נכשלה: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "סימון כראשון שלא נקרא"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "לא ניתן להסב את החשבון: כבר מתבצעת הסבה אחרת ברקע"
@@ -4122,6 +4170,10 @@ msgstr "אתר אינטרנט"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "זה יכול לארוך זמן רב"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "סימון כראשון שלא נקרא"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

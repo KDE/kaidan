@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-04 00:42+0100\n"
+"PO-Revision-Date: 2026-10-09 12:04+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -111,12 +111,14 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Účet se nepodařilo převést: Musíte být přihlášeni"
 
 #: src/AccountMigrationController.cpp:127
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
+#| msgid "Account '%1' migrated to '%2'"
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Účet %1 (%2) byl převeden do %3 (%4)"
+msgstr "Účet '%1' byl převeden do '%2'"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -295,7 +297,9 @@ msgid "Transfer canceled"
 msgstr "Přenos zrušen"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer failed: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Přenos se nezdařil: %1"
@@ -520,7 +524,7 @@ msgstr "Reakci nelze odeslat: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr "Příliš staré, aby to bylo odstraněno pro všechny"
+msgstr ""
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -528,24 +532,30 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
-"Tato osoba se pokusila odvolat zprávu. Vaše aplikace však tuto funkci "
-"nepodporuje."
 
 #: src/MessageController.cpp:1228
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Zprávu se nepodařilo odstranit: %1"
+msgstr "Zprávu se nepodařilo odeslat"
 
 #: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Čeká se na odstranění"
+msgstr "Odstranění"
 
 #: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Odstranění se nezdařilo"
+msgstr "Odstranit soubor"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1640,6 +1650,9 @@ msgid "Indicate which messages you have read"
 msgstr "Indikujte, které zprávy jste si přečetli"
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Odblokovat"
@@ -1648,7 +1661,7 @@ msgstr "Odblokovat"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "Zablokovat a nahlásit"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1659,17 +1672,17 @@ msgstr "Blokovat"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "Odblokovat tento kontakt"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "Zablokovat a (volitelně) nahlásit tento kontakt"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Zablokovat tento kontakt"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2103,13 +2116,16 @@ msgid "Other"
 msgstr "Jiné"
 
 #: src/qml/details/MediaOverview.qml:163
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%Ln/%L1 vybráno"
-msgstr[1] "%Ln/%L1 vybráno"
-msgstr[2] "%Ln/%L1 vybráno"
+msgstr[0] "vybráno %1/%2"
+msgstr[1] "vybráno %1/%2"
+msgstr[2] "vybráno %1/%2"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2324,55 +2340,64 @@ msgid "Feature unsupported"
 msgstr "Funkce není podporována"
 
 #: src/qml/elements/BlockingReportContent.qml:34
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Hlášení"
+msgstr "Podpora"
 
 #: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutContent|"
+#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Nahlásit spam nebo zneužití"
+msgstr "Hlášení problémů"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr "Důvod"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr "Spam"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr "Nevyžádané zprávy, často rozesílané hromadně"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr "Zneužití"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr "Obtěžování, vyhrožování nebo jiné urážlivé chování"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Popis (volitelné)"
+msgstr "Popis"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr "Zablokovat a nahlásit"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr "Nahlásit vybranou zprávu a zablokovat jejího odesílatele"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2416,9 +2441,12 @@ msgid "Open file in folder"
 msgstr "Otevřít soubor ve složce"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Opakovat odstranění"
+msgstr "Odstranění"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2463,9 +2491,12 @@ msgstr "Označit"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr "Zablokovat a nahlásit"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Odstranit"
@@ -2576,6 +2607,14 @@ msgstr "Odeslat"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Nahrát hlasovou zprávu"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Nelze načíst přihlášené uživatele z %1: %2"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3564,24 +3603,33 @@ msgid "About"
 msgstr "O aplikaci"
 
 #: src/qml/Main.qml:181
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID"
+#| msgid "Unblocked %1"
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
-msgstr "%1 odblokován(a)"
+msgstr "Odblokován(a) %1"
 
 #: src/qml/Main.qml:181
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Zpět"
 
 #: src/qml/Main.qml:188
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Nelze zablokovat %1: %2"
 
 #: src/qml/Main.qml:192
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
+#| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Nelze odblokovat %1: %2"
@@ -3652,16 +3700,25 @@ msgstr ""
 "Automatická registrace se nezdařila kvůli problémům u všech poskytovatelů"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Zadejte další informace"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "Poskytovatel požádal o další informace"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Možná nebude vše nezbytné"
@@ -4032,6 +4089,14 @@ msgstr "Webová stránka"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Nelze odblokovat %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM v hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reakci nelze odeslat: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Zadejte správné heslo"
@@ -4060,10 +4125,6 @@ msgstr "Webová stránka"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Adresa musí mít tvar <b>skupina@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reakci nelze odeslat: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Skupinu %1 se nepodařilo připojit k %2"
@@ -4080,17 +4141,13 @@ msgstr "Webová stránka"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Nelze odblokovat %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM v hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Podrobnosti…"
 
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Zavřít vyhledávání"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Odstranit vybraný soubor"
 
 #~ msgctxt "SearchBarPage|"
 #~ msgid "Search"
@@ -4100,6 +4157,34 @@ msgstr "Webová stránka"
 #~ msgid "%1 is online"
 #~ msgstr "%1 je online"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Otevřít rozhovor"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Online"
+#~ msgstr "Připojen"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Connecting…"
+#~ msgstr "Navazuji spojení…"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Offline"
+#~ msgstr "Odpojen"
+
 #~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Odstranit vybraný soubor"
+#~ msgid "Mark as first unread"
+#~ msgstr "Označit jako první nepřečtené"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Deleted"
+#~ msgstr "Smazáno"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Attention:"
+#~ msgstr "Pozor:"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Password:"
+#~ msgstr "Heslo:"

@@ -181,12 +181,9 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:245
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr "Ασφάλεια λογαριασμού"
+msgstr ""
 
 #: src/ChatHintModel.cpp:258
 #, qt-format
@@ -764,12 +761,9 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:75
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "Διεύθυνση συνομιλίας:"
+msgstr ""
 
 #. Unlimited file size for uploading
 #. ----------
@@ -2854,6 +2848,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Επεξεργασία μηνύματος"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Ασφάλεια λογαριασμού"
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
@@ -4461,20 +4463,6 @@ msgstr "Ιστότοπος"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
-#~| msgid "Close message search bar"
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Κλείστε τη γραμμή αναζήτησης μηνυμάτων"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Search"
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Αναζήτηση"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
 #~| msgid "Search down"
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
@@ -4482,17 +4470,10 @@ msgstr "Ιστότοπος"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
-#~| msgid "Mute notifications"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Σίγαση ειδοποιήσεων"
-
-#, fuzzy
-#~| msgctxt "AccountSecurity|"
-#~| msgid "Account Security"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Ασφάλεια λογαριασμού"
+#~| msgid "Search"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Αναζήτηση"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
@@ -4507,6 +4488,20 @@ msgstr "Ιστότοπος"
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "Νέος κωδικός πρόσβασης:"
+
+#, fuzzy
+#~| msgctxt "AccountSecurity|"
+#~| msgid "Account Security"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Ασφάλεια λογαριασμού"
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Mute notifications"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Σίγαση ειδοποιήσεων"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

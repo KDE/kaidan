@@ -2763,6 +2763,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Spoiler üzenet küldése"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, qt-format
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr ""
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
@@ -4372,11 +4378,9 @@ msgstr ""
 #~ msgstr "Csevegés címe:"
 
 #, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Compose message"
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Üzenet írása"
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Remove selected file"
+#~ msgstr "Eltávolít"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"
@@ -4384,18 +4388,6 @@ msgstr ""
 #~ msgctxt "SearchBarPage|"
 #~ msgid "Search"
 #~ msgstr "Keresés"
-
-#, fuzzy
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Remove selected file"
-#~ msgstr "Eltávolít"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Unmute notifications"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Az értesítések némítása"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"
@@ -4410,6 +4402,13 @@ msgstr ""
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "Jelszó módosítása"
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Unmute notifications"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Az értesítések némítása"
 
 #, fuzzy
 #~ msgctxt "RosterListItem|"

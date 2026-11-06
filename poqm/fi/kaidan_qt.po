@@ -2696,6 +2696,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Lähetä ääniviesti"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Ryhmään %1 liittyneitä käyttäjiä ei voitu noutaa: %2"
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
@@ -3801,7 +3809,7 @@ msgstr "Esto purettu: %1"
 
 #: src/qml/Main.qml:181
 #, fuzzy
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
@@ -4301,6 +4309,14 @@ msgstr "Sivusto"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Estoa ei voitu purkaa: %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "pp KKK klo tt:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reaktiota ei voitu lähettää: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Anna oikea salasana"
@@ -4329,10 +4345,6 @@ msgstr "Sivusto"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Osoitteen on oltava muotoa <b>ryhmä@palvelin</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reaktiota ei voitu lähettää: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Ryhmään %1 ei voitu liittyä%2"
@@ -4349,21 +4361,9 @@ msgstr "Sivusto"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Estoa ei voitu purkaa: %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "pp KKK klo tt:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Yksityiskohdat…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Sulje haku"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Etsi"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4381,37 +4381,21 @@ msgstr "Sivusto"
 #~ "Osoita keskustelun ollessa auki, kun joku kirjoittaa tai keskeyttää "
 #~ "kirjoittamisen"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 on verkossa"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Poista valittu tiedosto"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Palvelinsijainnit"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Etsi"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 on verkossa"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Anna eri yhteysasetukset muuttaaksesi niitä"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Yhteysasetukset"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Yhteysasetukset"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Yhteystieto on jo olemassa"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Avaa keskustelu"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4421,15 +4405,31 @@ msgstr "Sivusto"
 #~ msgid "Maximize avatar"
 #~ msgstr "Suurenna avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Yhteystieto on jo olemassa"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Avaa keskustelu"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Yhteysasetukset"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Yhteysasetukset"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Palvelinsijainnit"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "QR-koodin luonti epäonnistui: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Merkitse ensimmäiseksi ei-luetuksi"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Tiliä ei voitu siirtää: toinen siirto on jo meneillään"
@@ -4453,6 +4453,10 @@ msgstr "Sivusto"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Tämä voi kestää"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Merkitse ensimmäiseksi ei-luetuksi"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"

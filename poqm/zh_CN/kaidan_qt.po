@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
-"X-Crowdin-File-ID: 57154\n"
+"X-Crowdin-File: /kf6-stable/messages/kaidan/kaidan_qt.pot\n"
+"X-Crowdin-File-ID: 57166\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -289,10 +289,12 @@ msgid "Transfer canceled"
 msgstr "传输已取消"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer canceled"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
-msgstr ""
+msgstr "传输已取消"
 
 #: src/Globals.h:99
 msgctxt "QObject|"
@@ -1601,6 +1603,9 @@ msgid "Indicate which messages you have read"
 msgstr "指示您已阅读的消息"
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "取消屏蔽"
@@ -1609,7 +1614,7 @@ msgstr "取消屏蔽"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "屏蔽并举报"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1620,17 +1625,17 @@ msgstr "屏蔽"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "取消屏蔽此联系人"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "屏蔽并（可选）举报此联系人"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "屏蔽此联系人"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2049,11 +2054,14 @@ msgid "Other"
 msgstr "其他"
 
 #: src/qml/details/MediaOverview.qml:163
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] ""
+msgstr[0] "已选择 %1/%2"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2265,55 +2273,64 @@ msgid "Feature unsupported"
 msgstr "功能不受支持"
 
 #: src/qml/elements/BlockingReportContent.qml:34
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr ""
+msgstr "支持"
 
 #: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutContent|"
+#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "举报垃圾信息或滥用行为"
+msgstr "报告问题"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr "原因"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr "垃圾信息"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr "未经请求的消息，通常以批量形式发送"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr "滥用行为"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr "骚扰、威胁或其他形式的辱骂行为"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "描述（可选）"
+msgstr "描述"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr "屏蔽并举报"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr "举报所选消息并屏蔽其发送者"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2407,7 +2424,7 @@ msgstr "标记"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr "屏蔽并举报"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
 #, fuzzy
@@ -2523,6 +2540,14 @@ msgstr "发送"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "录制语音消息"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "无法检索 %1 的已加入用户：%2"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3505,7 +3530,7 @@ msgstr "关于"
 
 #: src/qml/Main.qml:181
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID"
+#| msgctxt "ChatPage|%1 is a JID"
 #| msgid "Unblocked %1"
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
@@ -3513,7 +3538,7 @@ msgstr "已取消屏蔽 %1"
 
 #: src/qml/Main.qml:181
 #, fuzzy
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
@@ -3521,7 +3546,7 @@ msgstr "撤销"
 
 #: src/qml/Main.qml:188
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
@@ -3529,7 +3554,7 @@ msgstr "无法屏蔽 %1：%2"
 
 #: src/qml/Main.qml:192
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
@@ -3961,3 +3986,23 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Block all communication including status and notifications"
+#~ msgstr "屏蔽所有通信，包括状态和通知"
+
+#~ msgctxt "GlobalDrawer|%1 is a JID"
+#~ msgid "Unblocked %1"
+#~ msgstr "已取消屏蔽 %1"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Undo"
+#~ msgstr "撤销"
+
+#~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
+#~ msgid "Could not block %1: %2"
+#~ msgstr "无法屏蔽 %1：%2"
+
+#~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
+#~ msgid "Could not unblock %1: %2"
+#~ msgstr "无法取消屏蔽 %1：%2"

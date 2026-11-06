@@ -813,10 +813,9 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:75
-#, fuzzy
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "チャットアドレス："
+msgstr ""
 
 #. Unlimited file size for uploading
 #. ----------
@@ -2744,6 +2743,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "メッセージを書く"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "LoginPage|"
+#| msgid "Connect"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "接続"
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
@@ -4349,6 +4356,13 @@ msgstr "ウェブサイト"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
+#~| msgid "Connect"
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "接続"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
 #~| msgid "Your Password:"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
@@ -4358,13 +4372,6 @@ msgstr "ウェブサイト"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "チャットアドレス："
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Connect"
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "接続"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4388,32 +4395,11 @@ msgstr "ウェブサイト"
 #~ msgstr "接続"
 
 #, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Compose message"
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "メッセージを書く"
-
-#, fuzzy
 #~| msgctxt "RosterRemoveContactSheet|"
 #~| msgid "Delete"
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "削除"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Connect"
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "接続"
-
-#, fuzzy
-#~| msgctxt "LoginPage|"
-#~| msgid "Connect"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "接続"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"
@@ -4428,6 +4414,20 @@ msgstr "ウェブサイト"
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "合言葉"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connect"
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "接続"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connect"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "接続"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"

@@ -184,12 +184,9 @@ msgid "Show error"
 msgstr ""
 
 #: src/ChatHintModel.cpp:245
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+msgstr ""
 
 #: src/ChatHintModel.cpp:258
 #, qt-format
@@ -747,12 +744,9 @@ msgid "Offline"
 msgstr ""
 
 #: src/ProviderModel.cpp:75
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "ProviderModel|"
 msgid "Custom provider"
-msgstr "ਚੈਟ ਐਡਰੈਸ:"
+msgstr ""
 
 #. Unlimited file size for uploading
 #. ----------
@@ -2658,6 +2652,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
@@ -4193,13 +4195,6 @@ msgstr ""
 #~ msgstr "ਚੈਟ ਐਡਰੈਸ:"
 
 #, fuzzy
-#~| msgctxt "AccountSecurity|"
-#~| msgid "Account Security"
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
-
-#, fuzzy
 #~| msgctxt "ChangePassword|"
 #~| msgid "Change password"
 #~ msgctxt "ContactDetailsHeader|"
@@ -4212,6 +4207,13 @@ msgstr ""
 #~ msgctxt "GroupChatDetailsHeader|"
 #~ msgid "Maximize avatar"
 #~ msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
+
+#, fuzzy
+#~| msgctxt "AccountSecurity|"
+#~| msgid "Account Security"
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"

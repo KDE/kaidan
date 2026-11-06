@@ -1210,7 +1210,9 @@ msgid "Change password"
 msgstr "Keisti slaptažodį"
 
 #: src/qml/details/AccountDetailsContent.qml:757
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Failed to change password: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Failed to change password: %1"
 msgstr "Nepavyko pakeisti slaptažodžio: %1"
@@ -1291,7 +1293,9 @@ msgid "Applying changes…"
 msgstr "Taikomai pakeitimai…"
 
 #: src/qml/details/AccountDetailsContent.qml:890
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection settings could not be changed: %1"
 msgctxt "AccountDetailsContent|%1 is an error message"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nepavyko pakeisti ryšio nuostatų: %1"
@@ -1617,15 +1621,18 @@ msgid "Indicate which messages you have read"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Block"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
-msgstr "Atblokuoti"
+msgstr "Užblokuoti"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "Užblokuoti ir pranešti"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1636,17 +1643,17 @@ msgstr "Užblokuoti"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "Atblokuoti šį adresatą"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "Užblokuoti šį adresatą ir (pasirinktinai) apie jį pranešti"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Užblokuoti šį adresatą"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2080,7 +2087,11 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: src/qml/details/MediaOverview.qml:246
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MediaOverview|"
+#| msgid ""
+#| "Not all files could be deleted:\n"
+#| "%1"
 msgctxt "MediaOverview|%1 is an error message"
 msgid ""
 "Not all files could be deleted:\n"
@@ -2325,9 +2336,12 @@ msgid "Harassing, threatening, or otherwise abusive behavior"
 msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Aprašas (nebūtinas)"
+msgstr "Aprašas"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
@@ -2551,6 +2565,14 @@ msgstr "Siųsti"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Siųsti balso žinutę"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Nepavyko išsiųsti žinutės"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3099,7 +3121,7 @@ msgstr ""
 #: src/qml/elements/MediaViewer.qml:167
 msgctxt "MediaViewer|"
 msgid "Message"
-msgstr "Žinutė"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:175
 msgctxt "MediaViewer|"
@@ -3114,22 +3136,22 @@ msgstr "Pavadinimas"
 #: src/qml/elements/MediaViewer.qml:193
 msgctxt "MediaViewer|"
 msgid "Size"
-msgstr "Dydis"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:201
 msgctxt "MediaViewer|"
 msgid "Sent/Received"
-msgstr "Išsiųsta/Gauta"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:247
 msgctxt "MediaViewer|"
 msgid "Previous"
-msgstr "Ankstesnė"
+msgstr ""
 
 #: src/qml/elements/MediaViewer.qml:254
 msgctxt "MediaViewer|"
 msgid "Next"
-msgstr "Kita"
+msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:47
 msgctxt "MediumSendingPreview|"
@@ -3577,16 +3599,14 @@ msgid "About"
 msgstr "Apie"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Unblock"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
-msgstr "Atblokuoti"
+msgstr ""
 
 #: src/qml/Main.qml:181
 #, fuzzy
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
@@ -3594,7 +3614,7 @@ msgstr "Atšaukti"
 
 #: src/qml/Main.qml:188
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
@@ -3602,7 +3622,7 @@ msgstr "Nepavyko užblokuoti %1: %2"
 
 #: src/qml/Main.qml:192
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
@@ -4038,23 +4058,25 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Internetinė svetainė"
 
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Block all communication including status and notifications"
+#~ msgstr "Užblokuoti visą komunikaciją, įskaitant būseną ir pranešimus"
+
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Undo"
 #~ msgstr "Atšaukti"
 
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Could not block %1: %2"
 #~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 #~ msgid "Could not block %1: %2"
 #~ msgstr "Nepavyko užblokuoti %1: %2"
 
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Could not unblock %1: %2"
 #~ msgctxt "GlobalDrawer|%1 is a JID, %2 an error message"
 #~ msgid "Could not unblock %1: %2"
-#~ msgstr "Nepavyko užblokuoti %1: %2"
+#~ msgstr "Nepavyko atblokuoti %1: %2"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
 
 #~ msgctxt "ContactAdditionContent|"
 #~ msgid "Message (optional, unencrypted):"
@@ -4067,10 +4089,6 @@ msgstr "Internetinė svetainė"
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "Address"
 #~ msgstr "Adresas"
-
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Nepavyko išsiųsti reakcijos: %1"
 
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Could not block %1: %2"

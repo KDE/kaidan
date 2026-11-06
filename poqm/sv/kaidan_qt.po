@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-09-30 21:12+0200\n"
+"PO-Revision-Date: 2026-07-22 08:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -295,7 +295,9 @@ msgid "Transfer canceled"
 msgstr "Överföring avbruten"
 
 #: src/FileSharingController.cpp:630
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Transfer failed: %1"
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Överföring misslyckades: %1"
@@ -520,7 +522,7 @@ msgstr "Reaktion kunde inte skickas: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr "För gammalt för att tas bort för alla"
+msgstr ""
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -528,24 +530,30 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
-"Personen försökte återkalla ett meddelande, men funktionen stöds inte av "
-"ditt program."
 
 #: src/MessageController.cpp:1228
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "MessageController|"
+#| msgid "Message could not be sent"
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Meddelande kunde inte tas bort: %1"
+msgstr "Meddelande kunde inte skickas"
 
 #: src/MessageModel.cpp:308
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Borttagning väntar"
+msgstr "Borttagning"
 
 #: src/MessageModel.cpp:310
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Borttagning misslyckades"
+msgstr "Ta bort fil"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -757,7 +765,7 @@ msgstr "Egen leverantör"
 #: src/ProviderModel.cpp:116 src/ProviderModel.cpp:132
 msgctxt "ProviderModel|"
 msgid "Unlimited"
-msgstr "Obegränsat"
+msgstr "Obegränsad"
 
 #. Number of days for which message history is stored on the provider
 #: src/ProviderModel.cpp:135
@@ -791,12 +799,12 @@ msgstr "Avsluta samtal"
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Open audio call"
-msgstr "Öppna samtal"
+msgstr "Öppna ljudsamtal"
 
 #: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "Start audio call"
-msgstr "Starta samtal"
+msgstr "Starta ljudsamtal"
 
 #: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
@@ -1290,7 +1298,7 @@ msgstr "Verkställ ändringar"
 #: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Applying changes…"
-msgstr "Verkställer ändringar…"
+msgstr "Verkställer ansiktsändringar…"
 
 #: src/qml/details/AccountDetailsContent.qml:890
 #, qt-format
@@ -1634,6 +1642,9 @@ msgid "Indicate which messages you have read"
 msgstr "Indikera vilka meddelanden du har läst"
 
 #: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Ta bort blockering"
@@ -1642,7 +1653,7 @@ msgstr "Ta bort blockering"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr "Blockera och rapportera"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1653,17 +1664,20 @@ msgstr "Blockera"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr "Ta bort blockering av kontakten"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr "Blockera och (valfritt) rapportera kontakten"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Blockera kontakten"
+msgstr "Sök efter kontakter"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2088,12 +2102,15 @@ msgid "Other"
 msgstr "Annat"
 
 #: src/qml/details/MediaOverview.qml:163
+#, fuzzy
+#| msgctxt "MediaOverview|%1 and %2 are numbers"
+#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%Ln/%L1 markerad"
-msgstr[1] "%Ln/%L1 markerade"
+msgstr[0] "%1/%2 valda"
+msgstr[1] "%1/%2 valda"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2307,55 +2324,64 @@ msgid "Feature unsupported"
 msgstr "Funktionen stöds inte"
 
 #: src/qml/elements/BlockingReportContent.qml:34
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Rapportera"
+msgstr "Support"
 
 #: src/qml/elements/BlockingReportContent.qml:35
+#, fuzzy
+#| msgctxt "AboutContent|"
+#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Rapportera skräpinlägg eller otillåten användning"
+msgstr "Rapportera problem"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr "Orsak"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr "Skräpinlägg"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr "Oönskade inlägg, ofta skickade i bulk"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr "Otillåten användning"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr "Trakasserande, hotande eller på annat sätt kränkande beteende"
+msgstr ""
 
 #: src/qml/elements/BlockingReportContent.qml:70
+#, fuzzy
+#| msgctxt "MediaViewer|"
+#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Beskrivning (valfri)"
+msgstr "Beskrivning"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr "Blockera och rapportera"
+msgstr ""
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr "Rapportera det markerade meddelandet och blockera avsändaren"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2399,9 +2425,12 @@ msgid "Open file in folder"
 msgstr "Öppna fil i katalog"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Försök ta bort igen"
+msgstr "Borttagning"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2441,14 +2470,17 @@ msgstr "Redigera"
 #: src/qml/elements/ChatMessageContextMenu.qml:186
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark"
-msgstr "Märk"
+msgstr "Markera"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr "Blockera och rapportera"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Ta bort"
@@ -2559,6 +2591,14 @@ msgstr "Skicka"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a voice message"
 msgstr "Spela in ett röstmeddelande"
+
+#: src/qml/elements/ChatPageSendingPane.qml:708
+#, fuzzy, qt-format
+#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
+#| msgid "Joined users of %1 could not be retrieved: %2"
+msgctxt "ChatPageSendingPane|"
+msgid "Voice message could not be recorded: %1"
+msgstr "Användare som har gått med i %1 kunde inte hämtas: %2"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -2687,7 +2727,7 @@ msgstr "Favoriter"
 #: src/qml/elements/EmojiPicker.qml:59
 msgctxt "EmojiPicker|"
 msgid "People"
-msgstr "Människor"
+msgstr "Personer"
 
 #: src/qml/elements/EmojiPicker.qml:65
 msgctxt "EmojiPicker|"
@@ -3544,7 +3584,7 @@ msgstr "Om"
 
 #: src/qml/Main.qml:181
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID"
+#| msgctxt "ChatPage|%1 is a JID"
 #| msgid "Unblocked %1"
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
@@ -3552,7 +3592,7 @@ msgstr "Tog bort blockering av %1"
 
 #: src/qml/Main.qml:181
 #, fuzzy
-#| msgctxt "main|"
+#| msgctxt "ChatPage|"
 #| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
@@ -3560,7 +3600,7 @@ msgstr "Ångra"
 
 #: src/qml/Main.qml:188
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not block %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
@@ -3568,7 +3608,7 @@ msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/Main.qml:192
 #, fuzzy, qt-format
-#| msgctxt "main|%1 is a JID, %2 an error message"
+#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
 #| msgid "Could not unblock %1: %2"
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
@@ -3641,16 +3681,25 @@ msgstr ""
 "leverantörer"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Ange ytterligare information"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "Leverantören har begärt mer information"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
+#, fuzzy
+#| msgctxt "CustomDataFormArea|"
+#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Allt kanske inte krävs"
@@ -4023,6 +4072,14 @@ msgstr "Webbplats"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Kunde inte ta bort blockering för %1: %2"
 
+#~ msgctxt "QObject|"
+#~ msgid "dd MMM at hh:mm"
+#~ msgstr "dd MMM kl. hh:mm"
+
+#~ msgctxt "MessageModel|"
+#~ msgid "Reaction could not be sent: %1"
+#~ msgstr "Reaktion kunde inte skickas: %1"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter correct password"
 #~ msgstr "Ange korrekt lösenord"
@@ -4051,10 +4108,6 @@ msgstr "Webbplats"
 #~ msgid "The address must have the form <b>group@server</b>"
 #~ msgstr "Adressen måste ha formen <b>grupp@server</b>"
 
-#~ msgctxt "MessageModel|"
-#~ msgid "Reaction could not be sent: %1"
-#~ msgstr "Reaktion kunde inte skickas: %1"
-
 #~ msgctxt "GroupChatJoiningContent|"
 #~ msgid "The group %1 could not be joined%2"
 #~ msgstr "Gruppen %1 gick inte att gå med i%2"
@@ -4071,21 +4124,9 @@ msgstr "Webbplats"
 #~ msgid "Could not unblock %1: %2"
 #~ msgstr "Kunde inte ta bort blockering för %1: %2"
 
-#~ msgctxt "QObject|"
-#~ msgid "dd MMM at hh:mm"
-#~ msgstr "dd MMM kl. hh:mm"
-
 #~ msgctxt "ChatPage|"
 #~ msgid "Details…"
 #~ msgstr "Detaljinformation…"
-
-#~ msgctxt "ChatPageSearchView|"
-#~ msgid "Close search"
-#~ msgstr "Stäng sökning"
-
-#~ msgctxt "SearchBarPage|"
-#~ msgid "Search"
-#~ msgstr "Sök"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid ""
@@ -4101,37 +4142,21 @@ msgstr "Webbplats"
 #~ msgstr ""
 #~ "Indikera när du har konversationen öppen, och skriver eller slutar skriva"
 
-#~ msgctxt "QmlUtils|"
-#~ msgid "%1 is online"
-#~ msgstr "%1 är uppkopplad"
-
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Remove selected file"
 #~ msgstr "Ta bort markerad fil"
 
-#~ msgctxt "ProviderPage|"
-#~ msgid "Server locations"
-#~ msgstr "Serverplatser"
+#~ msgctxt "SearchBarPage|"
+#~ msgid "Search"
+#~ msgstr "Sök"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "%1 is online"
+#~ msgstr "%1 är uppkopplad"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Enter different connection settings to change them"
 #~ msgstr "Ange andra anslutningsinställningar för att ändra dem"
-
-#~ msgctxt "LoginArea|"
-#~ msgid "Connection settings"
-#~ msgstr "Anslutningsinställningar"
-
-#~ msgctxt "ProviderPage|"
-#~ msgid "Connection settings"
-#~ msgstr "Anslutningsinställningar"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Contact already exists"
-#~ msgstr "Kontakten finns redan"
-
-#~ msgctxt "ContactAdditionContent|"
-#~ msgid "Open chat"
-#~ msgstr "Öppna chatt"
 
 #~ msgctxt "ContactDetailsHeader|"
 #~ msgid "Maximize avatar"
@@ -4141,15 +4166,31 @@ msgstr "Webbplats"
 #~ msgid "Maximize avatar"
 #~ msgstr "Maximera avatar"
 
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Contact already exists"
+#~ msgstr "Kontakten finns redan"
+
+#~ msgctxt "ContactAdditionContent|"
+#~ msgid "Open chat"
+#~ msgstr "Öppna chatt"
+
+#~ msgctxt "LoginArea|"
+#~ msgid "Connection settings"
+#~ msgstr "Anslutningsinställningar"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Anslutningsinställningar"
+
+#~ msgctxt "ProviderPage|"
+#~ msgid "Server locations"
+#~ msgstr "Serverplatser"
+
 #~ msgctxt "QrCodeGenerator|"
 #~ msgid "Generating the QR code failed: %1"
 #~ msgstr "Misslyckades skapa QR-kod: %1"
 
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Mark as first unread"
-#~ msgstr "Markera som första olästa"
-
-#~ msgctxt "AccountMigrationController|"
+#~ msgctxt "AccountMigrationManager|"
 #~ msgid ""
 #~ "Account could not be migrated: Another migration is already in progress"
 #~ msgstr "Kontot kunde inte överföras: En annan överföring pågår redan."
@@ -4173,6 +4214,10 @@ msgstr "Webbplats"
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "That can take long"
 #~ msgstr "Det kan ta lång tid"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Mark as first unread"
+#~ msgstr "Markera som första olästa"
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Deleted"
