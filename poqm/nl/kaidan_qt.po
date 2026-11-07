@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-22 10:25+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"PO-Revision-Date: 2026-11-06 11:31+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -113,14 +113,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Account kon niet gemigreerd worden: u moet verbonden zijn"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Account '%1' gemigreerd naar '%2'"
+msgstr "Account %1 (%2) gemigreerd naar %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -302,9 +300,7 @@ msgid "Transfer canceled"
 msgstr "Overdracht is geannuleerd"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Overdracht is mislukt: %1"
@@ -529,7 +525,7 @@ msgstr "Reactie kon niet worden verzonden: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "Te oud om te worden verwijderd voor iedereen"
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -537,30 +533,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"Deze persoon heeft geprobeerd een bericht in te trekken, maar dit wordt niet "
+"ondersteund door uw toepassing."
 
 #: src/MessageController.cpp:1228
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Bericht kon niet worden verzonden"
+msgstr "Bericht kon niet worden verwijderd: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Verwijdering"
+msgstr "Verwijdering wacht"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Verwijder bestand"
+msgstr "Verwijdering is mislukt"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1654,9 +1644,6 @@ msgid "Indicate which messages you have read"
 msgstr "Geef aan welk bericht u hebt gelezen"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Deblokkeren"
@@ -1665,7 +1652,7 @@ msgstr "Deblokkeren"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokkeren en rapporteren"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1676,20 +1663,17 @@ msgstr "Blokkeren"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Deze contactpersoon deblokkeren"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Blokkeren en (optioneel) deze contactpersoon rapporteren"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Door contacten zoeken"
+msgstr "Deze contactpersoon blokkeren"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2124,15 +2108,12 @@ msgid "Other"
 msgstr "Overig"
 
 #: src/qml/details/MediaOverview.qml:163
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 geselecteerd"
-msgstr[1] "%1/%2 geselecteerd"
+msgstr[0] "%Ln/%L1 geselecteerd"
+msgstr[1] "%Ln/%L1 geselecteerd"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2347,64 +2328,55 @@ msgid "Feature unsupported"
 msgstr "Mogelijkheid niet ondersteund"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Ondersteuning"
+msgstr "Rapporteer"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Problemen rapporteren"
+msgstr "Spam of misbruik rapporteren"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "Reden"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "Ongevraagde berichten, vaak in bulk verzonden"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "Misbruik"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "Intimiderend, bedreigend of anderszins beledigend gedrag"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Beschrijving"
+msgstr "Beschrijving (optioneel)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokkeren en rapporteren"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "Het geselecteerde bericht rapporteren"
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2448,12 +2420,9 @@ msgid "Open file in folder"
 msgstr "Bestand in map openen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Verwijdering"
+msgstr "Verwijdering proberen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2498,12 +2467,9 @@ msgstr "Markeren"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokkeren en rapporteren"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Verwijderen"
@@ -2616,12 +2582,10 @@ msgid "Record a voice message"
 msgstr "Een stembericht opnemen"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "Gebruikers die meedoen aan %1 konden niet worden opgehaald: %2"
+msgstr "Spraakbericht kon niet worden opgenomen: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3614,33 +3578,24 @@ msgid "About"
 msgstr "Info over"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 gedeblokkeerd"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Kon %1 niet blokkeren: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Kon %1 niet deblokkeren: %2"
@@ -3711,25 +3666,16 @@ msgstr ""
 "Automatische registratie is mislukt vanwege problemen met alle leveranciers"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Aanvullende informatie invoeren"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "De leverancier heeft meer informatie gevraagd"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Niet alles hoeft vereist te zijn"

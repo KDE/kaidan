@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-22 07:42+0200\n"
+"PO-Revision-Date: 2026-11-06 12:01+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -117,14 +117,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Račun '%1' je preseljen na '%2'"
+msgstr "Račun %1 (%2) je bil prenesen na %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -305,9 +303,7 @@ msgid "Transfer canceled"
 msgstr "Prenos preklican"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Prenos je spodletel: %1"
@@ -532,7 +528,7 @@ msgstr "Odziva ni bilo mogoče poslati: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "Prestar, da bi ga odstranili za vse"
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -540,30 +536,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"Ta oseba je poskušala umakniti sporočilo. Vendar vaša aplikacija tega ne "
+"podpira."
 
 #: src/MessageController.cpp:1228
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Sporočila ni bilo mogoče poslati"
+msgstr "Sporočila ni bilo mogoče odstraniti: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Odstranitev"
+msgstr "Odstranjevanje v teku"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Odstrani datoteko"
+msgstr "Odstranjevanje ni uspelo"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1649,9 +1639,6 @@ msgid "Indicate which messages you have read"
 msgstr "Navedite, katera sporočila ste prebrali"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Odblokiraj"
@@ -1660,7 +1647,7 @@ msgstr "Odblokiraj"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokiraj in poročaj"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1671,20 +1658,17 @@ msgstr "Blokiraj"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Deblokiraj ta stik"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Blokiraj in (neobvezno) prijavi ta stik"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Iskanje stikov"
+msgstr "Blokiraj ta stik"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2111,17 +2095,14 @@ msgid "Other"
 msgstr "Ostali"
 
 #: src/qml/details/MediaOverview.qml:163
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 izbrano"
-msgstr[1] "%1/%2 izbrano"
-msgstr[2] "%1/%2 izbrano"
-msgstr[3] "%1/%2 izbrano"
+msgstr[0] "%Ln/%L1 izbrano"
+msgstr[1] "%Ln/%L1 izbrano"
+msgstr[2] "%Ln/%L1 izbrano"
+msgstr[3] "%Ln/%L1 izbrano"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2336,64 +2317,55 @@ msgid "Feature unsupported"
 msgstr "Nepodprta zmožnost"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Podpora"
+msgstr "Poročilo"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Prijavite težave"
+msgstr "Prijavite neželeno vsebino ali zlorabo"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "Razlog"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "Neželena pošta"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "Nezaželena sporočila, pogosto poslana množično"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "Zloraba"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "Nadlegovanje, grožnje ali drugo zlorabljajoče vedenje"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Opis"
+msgstr "Opis (neobvezno)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokiraj in prijavi"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "Prijavi izbrano sporočilo in blokiraj njegovega pošiljatelja"
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2437,12 +2409,9 @@ msgid "Open file in folder"
 msgstr "Odpri datoteko v mapi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Odstranitev"
+msgstr "Ponovi odstranjevanje"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2487,12 +2456,9 @@ msgstr "Označi"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "Blokiraj in prijavi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Odstrani"
@@ -2605,12 +2571,10 @@ msgid "Record a voice message"
 msgstr "Posnemi zvočno sporočilo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "Pridruženih uporabnikov %1 ni bilo mogoče pridobiti: %2"
+msgstr "Glasovnega sporočila ni bilo mogoče posneti: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3598,33 +3562,24 @@ msgid "About"
 msgstr "O programu"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "Deblokiran %1"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Razveljavi"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Ni bilo mogoče blokirati %1: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Ni bilo mogoče deblokirati %1: %2"
@@ -3694,28 +3649,19 @@ msgid "Automatic registration failed because of problems with all providers"
 msgstr "Samodejna registracija ni uspela zaradi težav z vsemi ponudniki"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
-msgstr "Vnesi dodatno informacijo"
+msgstr "Vnesite dodatno informacijo"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "Ponudnik je zahteval več informacij"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
-msgstr "Morda ni zahtevano vse"
+msgstr "Morda ni vse potrebno."
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
 msgctxt "ManualRegistrationPage|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-08-10 14:54+0400\n"
+"PO-Revision-Date: 2026-11-05 08:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -104,14 +104,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "لا يمكن ترحيل الحساب: يجب أن تكون متصلًا"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "ترحل الحساب ’%1‘ إلى '%2'"
+msgstr "رُحّلَ  الحساب %1 (%2) إلى %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -290,9 +288,7 @@ msgid "Transfer canceled"
 msgstr "أُلغي النقل"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "فشل النقل: %1"
@@ -517,38 +513,30 @@ msgstr "تعذر إرسال التفاعل: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "عمرها أكبر من أن تزال من الجميع"
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
 msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
-msgstr ""
+msgstr "حاول هذا الشخص سحب رسالة. لكن تطبيقك لا يتيح هذه الميزة."
 
 #: src/MessageController.cpp:1228
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "تعذر إرسال الرسالة"
+msgstr "تعذر حذف الرسالة: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "الإزالة"
+msgstr "الإزالة في الانتظار"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "أزِل ملف"
+msgstr "فشلت الإزالة"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1619,18 +1607,15 @@ msgid "Indicate which messages you have read"
 msgstr "بيّن الرسائل التي قرأتها"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
-msgstr "الغِ الحظر"
+msgstr "ألغِ الحظر"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "احظر وأبلغ"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1641,20 +1626,17 @@ msgstr "كتلة"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "أزل حظر هذا المراسل"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "حظر هذا المرسل (وإبلاغ عنه اختياريًّا)"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "ابحث عن متراسلين"
+msgstr "ا&حظر هذا المراسل"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2075,19 +2057,16 @@ msgid "Other"
 msgstr "أخرى"
 
 #: src/qml/details/MediaOverview.qml:163
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 محدّد"
-msgstr[1] "%1/%2 محدّد"
-msgstr[2] "%1/%2 محدّد"
-msgstr[3] "%1/%2 محدّد"
-msgstr[4] "%1/%2 محدّد"
-msgstr[5] "%1/%2 محدّد"
+msgstr[0] "%Ln/%L1 محدّد"
+msgstr[1] "%Ln/%L1 محدّد"
+msgstr[2] "%Ln/%L1 محدّد"
+msgstr[3] "%Ln/%L1 محدّد"
+msgstr[4] "%Ln/%L1 محدّد"
+msgstr[5] "%Ln/%L1 محدّد"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2301,64 +2280,55 @@ msgid "Feature unsupported"
 msgstr "ميزة غير مدعومة"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "الدعم"
+msgstr "بلّغ"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "أبلغ عن مشكلة"
+msgstr "أبلغ عن سخام أو إساءة استعمال"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "السبب"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "سخام"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "الرسائل غير المرغوب فيها، التي تُرسل غالبًا بكميات كبيرة"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "إساءة"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "السلوك المضايق أو التهديدي أو المسيء بأي شكل"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "الوصف"
+msgstr "الوصف (اختياري)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "احظر وأبلغ"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "أبلغ عن الرسالة المحددة واحظر مرسلها"
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2402,12 +2372,9 @@ msgid "Open file in folder"
 msgstr "افتح ملف في مجلد"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "الإزالة"
+msgstr "أعد محاولة الإزالة"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2452,12 +2419,9 @@ msgstr "أشّر"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "احظر وأبلغ"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "احذف"
@@ -3557,33 +3521,24 @@ msgid "About"
 msgstr "عن"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "ارفع حظر %1"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "تراجع"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "لا يمكن حظر %1: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "لا يمكن إلغاء حظر %1: %2"
@@ -3653,25 +3608,16 @@ msgid "Automatic registration failed because of problems with all providers"
 msgstr "فشل التسجيل الآليّ بسبب وجود مشاكل مع جميع مقدمي الخدمة"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "أدخل معلومات إضافية"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "طلب المزود المزيد من المعلومات"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "لا يلزم كل شيء"

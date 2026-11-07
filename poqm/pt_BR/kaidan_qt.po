@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-07-22 00:45-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2026-11-06 08:43-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Language: pt_BR\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/Account.cpp:490
 msgctxt "Connection|"
@@ -114,14 +114,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "A conta não pôde ser migrada: Você precisa estar conectado"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "Conta '%1' migrada para '%2'"
+msgstr "Conta %1 (%2) migrada para %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -301,9 +299,7 @@ msgid "Transfer canceled"
 msgstr "Transferência cancelada"
 
 #: src/FileSharingController.cpp:630
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Transfer failed: %1"
+#, qt-format
 msgctxt "FileSharingController|%1 is an error message"
 msgid "Transfer failed: %1"
 msgstr "Transferência falhou: %1"
@@ -530,7 +526,7 @@ msgstr "Não foi possível enviar a reação: %1"
 #: src/MessageController.cpp:1184
 msgctxt "MessageController|"
 msgid "Too old to be removed for everyone"
-msgstr ""
+msgstr "Antigo demais para ser removido para todos"
 
 #: src/MessageController.cpp:1206
 msgctxt "MessageController|"
@@ -538,30 +534,24 @@ msgid ""
 "This person attempted to retract a message. But it is not supported by your "
 "app."
 msgstr ""
+"Esta pessoa tentou cancelar o envio de uma mensagem. No entanto, isso não é "
+"suportado pelo seu aplicativo."
 
 #: src/MessageController.cpp:1228
-#, fuzzy, qt-format
-#| msgctxt "MessageController|"
-#| msgid "Message could not be sent"
+#, qt-format
 msgctxt "MessageController|%1 is an error message"
 msgid "Message could not be removed: %1"
-msgstr "Não foi possível enviar a mensagem"
+msgstr "Não foi possível remover a mensagem: %1"
 
 #: src/MessageModel.cpp:308
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "MessageModel|"
 msgid "Removal pending"
-msgstr "Remoção"
+msgstr "Remoção pendente"
 
 #: src/MessageModel.cpp:310
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove file"
 msgctxt "MessageModel|"
 msgid "Removal failed"
-msgstr "Remover arquivo"
+msgstr "Remoção falhou"
 
 #: src/MessageModel.cpp:317
 msgctxt "MessageModel|"
@@ -1657,9 +1647,6 @@ msgid "Indicate which messages you have read"
 msgstr "Indica quais mensagens você leu"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Unblock"
 msgctxt "ContactDetailsContent|"
 msgid "Unblock"
 msgstr "Desbloquear"
@@ -1668,7 +1655,7 @@ msgstr "Desbloquear"
 #: src/qml/details/ContactDetailsContent.qml:193
 msgctxt "ContactDetailsContent|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloquear e denunciar"
 
 #: src/qml/details/ContactDetailsContent.qml:173
 #: src/qml/details/ContactDetailsContent.qml:193
@@ -1679,20 +1666,17 @@ msgstr "Bloquear"
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Unblock this contact"
-msgstr ""
+msgstr "Desbloquear este contato"
 
 #: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Block and (optionally) report this contact"
-msgstr ""
+msgstr "Bloquear e (opcionalmente) denunciar este contato"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search contacts"
 msgctxt "ContactDetailsContent|"
 msgid "Block this contact"
-msgstr "Procurar contatos"
+msgstr "Bloquear este contato"
 
 #: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
@@ -2128,15 +2112,12 @@ msgid "Other"
 msgstr "Outro"
 
 #: src/qml/details/MediaOverview.qml:163
-#, fuzzy
-#| msgctxt "MediaOverview|%1 and %2 are numbers"
-#| msgid "%1/%2 selected"
 msgctxt ""
 "MediaOverview|%Ln is the number of selected files, %L1 the total number"
 msgid "%Ln/%L1 selected"
 msgid_plural "%Ln/%L1 selected"
-msgstr[0] "%1/%2 selecionado"
-msgstr[1] "%1/%2 selecionado"
+msgstr[0] "%Ln/%L1 selecionado"
+msgstr[1] "%Ln/%L1 selecionados"
 
 #: src/qml/details/MediaOverview.qml:246
 #, qt-format
@@ -2352,64 +2333,55 @@ msgid "Feature unsupported"
 msgstr "Funcionalidade não suportada"
 
 #: src/qml/elements/BlockingReportContent.qml:34
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Support"
 msgctxt "BlockingReportContent|@action, as in 'Report spam or abuse'"
 msgid "Report"
-msgstr "Suporte"
+msgstr "Denunciar"
 
 #: src/qml/elements/BlockingReportContent.qml:35
-#, fuzzy
-#| msgctxt "AboutContent|"
-#| msgid "Report problems"
 msgctxt "BlockingReportContent|"
 msgid "Report spam or abuse"
-msgstr "Relatar problemas"
+msgstr "Denunciar spam ou abuso"
 
 #: src/qml/elements/BlockingReportContent.qml:47
 msgctxt "BlockingReportContent|"
 msgid "Reason"
-msgstr ""
+msgstr "Motivo"
 
 #: src/qml/elements/BlockingReportContent.qml:55
 msgctxt "BlockingReportContent|"
 msgid "Spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/qml/elements/BlockingReportContent.qml:56
 msgctxt "BlockingReportContent|"
 msgid "Unsolicited messages, often sent in bulk"
-msgstr ""
+msgstr "Mensagens não solicitadas, frequentemente enviadas em massa"
 
 #: src/qml/elements/BlockingReportContent.qml:60
 msgctxt "BlockingReportContent|"
 msgid "Abuse"
-msgstr ""
+msgstr "Abuso"
 
 #: src/qml/elements/BlockingReportContent.qml:61
 msgctxt "BlockingReportContent|"
 msgid "Harassing, threatening, or otherwise abusive behavior"
-msgstr ""
+msgstr "Comportamento de assédio, ameaçador ou de outra forma abusivo"
 
 #: src/qml/elements/BlockingReportContent.qml:70
-#, fuzzy
-#| msgctxt "MediaViewer|"
-#| msgid "Description"
 msgctxt "BlockingReportContent|"
 msgid "Description (optional)"
-msgstr "Descrição"
+msgstr "Descrição (opcional)"
 
 #: src/qml/elements/BlockingReportDialog.qml:25
 #: src/qml/elements/BlockingReportDialog.qml:29
 msgctxt "BlockingReportDialog|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloquear e denunciar"
 
 #: src/qml/elements/BlockingReportDialog.qml:36
 msgctxt "BlockingReportDialog|"
 msgid "Report the selected message and block its sender"
-msgstr ""
+msgstr "Denunciar a mensagem selecionada e bloquear o remetente"
 
 #: src/qml/elements/CameraStatus.qml:28
 msgctxt "CameraStatus|"
@@ -2453,12 +2425,9 @@ msgid "Open file in folder"
 msgstr "Abrir arquivo na pasta"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removal"
 msgctxt "ChatMessageContextMenu|"
 msgid "Retry removal"
-msgstr "Remoção"
+msgstr "Tentar remoção novamente"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:85
 msgctxt "ChatMessageContextMenu|"
@@ -2503,12 +2472,9 @@ msgstr "Marcar"
 #: src/qml/elements/ChatMessageContextMenu.qml:194
 msgctxt "ChatMessageContextMenu|"
 msgid "Block and report"
-msgstr ""
+msgstr "Bloquear e denunciar"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:209
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove"
 msgstr "Remover"
@@ -2621,12 +2587,10 @@ msgid "Record a voice message"
 msgstr "Gravar uma mensagem de voz"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MixController|%1 is a channel JID, %2 an error message"
-#| msgid "Joined users of %1 could not be retrieved: %2"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "Não foi possível enviar obter os usuários que entraram em %1: %2"
+msgstr "Não foi possível gravar a mensagem de voz: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
@@ -3616,33 +3580,24 @@ msgid "About"
 msgstr "Sobre"
 
 #: src/qml/Main.qml:181
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID"
-#| msgid "Unblocked %1"
+#, qt-format
 msgctxt "Main|%1 is a JID"
 msgid "Unblocked %1"
 msgstr "%1 desbloqueado"
 
 #: src/qml/Main.qml:181
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Undo"
 msgctxt "Main|"
 msgid "Undo"
 msgstr "Desfazer"
 
 #: src/qml/Main.qml:188
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not block %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not block %1: %2"
 msgstr "Não foi possível bloquear %1: %2"
 
 #: src/qml/Main.qml:192
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|%1 is a JID, %2 an error message"
-#| msgid "Could not unblock %1: %2"
+#, qt-format
 msgctxt "Main|%1 is a JID, %2 an error message"
 msgid "Could not unblock %1: %2"
 msgstr "Não foi possível desbloquear %1: %2"
@@ -3712,25 +3667,16 @@ msgid "Automatic registration failed because of problems with all providers"
 msgstr "Registro automático falhou por problemas com todos os servidores"
 
 #: src/qml/registration/CustomDataFormCard.qml:23
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Enter additional information"
 msgctxt "CustomDataFormCard|"
 msgid "Enter additional information"
 msgstr "Digite informações adicionais"
 
 #: src/qml/registration/CustomDataFormCard.qml:27
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "The provider has requested more information"
 msgctxt "CustomDataFormCard|"
 msgid "The provider has requested more information"
 msgstr "O servidor solicitou mais informações"
 
 #: src/qml/registration/CustomDataFormCard.qml:28
-#, fuzzy
-#| msgctxt "CustomDataFormArea|"
-#| msgid "Not everything may be required"
 msgctxt "CustomDataFormCard|"
 msgid "Not everything may be required"
 msgstr "Nem tudo pode ser obrigatório"
