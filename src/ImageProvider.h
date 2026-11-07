@@ -46,8 +46,6 @@ public:
     void setScreenDevicePixelRatio(qreal devicePixelRatio);
     Q_SIGNAL void screenDevicePixelRatioChanged();
 
-    Q_SIGNAL void imageAlphaChannelChanged(const QUrl &source, bool hasAlphaChannel);
-
     Q_INVOKABLE void copySourceToClipboard(const QUrl &source, const QSize &size);
     Q_SIGNAL void sourceCopiedToClipboard(const QUrl &source, const QSize &size);
 

@@ -19,7 +19,6 @@ Image {
 	property alias radius: roundedCornerMask.radius
 	property bool blurEnabled: false
 	property int blurMax: 64
-	property bool _hasAlphaChannel: false
 	signal sourceCopiedToClipboard()
 
 	// The loaded image should not be cached so that the alpha channel information is emitted.
@@ -33,7 +32,7 @@ Image {
 	sourceSize.width: width
 	sourceSize.height: height
 	layer {
-		enabled: GraphicsInfo.api !== GraphicsInfo.Software && !_hasAlphaChannel
+		enabled: GraphicsInfo.api !== GraphicsInfo.Software
 		effect: MultiEffect {
 			maskEnabled: true
 			maskSource: roundedCornerMask
@@ -65,14 +64,6 @@ Image {
 
 			if (decoded.toString() === root.source.toString()) {
 				root.sourceCopiedToClipboard()
-			}
-		}
-
-		function onImageAlphaChannelChanged(source: url, hasAlphaChannel: bool) {
-			const decoded = decodeURIComponent(source)
-
-			if (decoded.toString() === root.source.toString()) {
-				root._hasAlphaChannel = hasAlphaChannel
 			}
 		}
 	}

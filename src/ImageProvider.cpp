@@ -248,15 +248,6 @@ int ImageProvider::effectiveEdge(int edgePixelCount)
 QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &requestedSize, qreal devicePixelRatio, QObject *context)
 {
     const int requestedEdgePixelCount = std::max(requestedSize.width(), requestedSize.height());
-    auto then = [id](QImage &&image) {
-        auto url = QUrl(QStringLiteral("%1%2").arg(IMAGE_PROVIDER_PREFIX, id));
-        QMetaObject::invokeMethod(ImageProvider::instance(),
-                                  &ImageProvider::imageAlphaChannelChanged,
-                                  Qt::QueuedConnection,
-                                  std::move(url),
-                                  image.hasAlphaChannel());
-        return std::move(image);
-    };
 
     if (QXmppBitsOfBinaryContentId::isBitsOfBinaryContentId(id, true)) {
         QMutexLocker locker(&m_cacheMutex);
@@ -266,7 +257,7 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
         });
 
         if (item != m_cache.cend()) {
-            return generateBitsOfBinaryImage(*item, requestedEdgePixelCount).then(context, then);
+            return generateBitsOfBinaryImage(*item, requestedEdgePixelCount);
         }
     }
 
@@ -275,20 +266,19 @@ QFuture<QImage> ImageProvider::generateImage(const QString &id, const QSize &req
 
     if (key == LOCAL_FILE_PATH_SEGMENT) {
         if (isImageOrVideo(value)) {
-            return generateLocalFileImage(value, std::max(requestedEdgePixelCount, VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), devicePixelRatio, context)
-                .then(context, then);
+            return generateLocalFileImage(value, std::max(requestedEdgePixelCount, VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), devicePixelRatio, context);
         }
 
-        return generateIconImage(MediaUtils::iconName(value), requestedEdgePixelCount, devicePixelRatio).then(context, then);
+        return generateIconImage(MediaUtils::iconName(value), requestedEdgePixelCount, devicePixelRatio);
     } else if (key == BASE64_PATH_SEGMENT) {
-        return generateBase64Image(value.toLatin1()).then(context, then);
+        return generateBase64Image(value.toLatin1());
     } else if (key == ICON_PATH_SEGMENT) {
-        return generateIconImage(value, requestedEdgePixelCount, devicePixelRatio).then(context, then);
+        return generateIconImage(value, requestedEdgePixelCount, devicePixelRatio);
     } else if (key == QR_CODE_PATH_SEGMENT) {
-        return generateQrCodeImage(value, requestedEdgePixelCount, devicePixelRatio).then(context, then);
+        return generateQrCodeImage(value, requestedEdgePixelCount, devicePixelRatio);
     }
 
-    return QtFuture::makeReadyValueFuture(QImage()).then(context, then);
+    return QtFuture::makeReadyValueFuture(QImage());
 }
 
 QFuture<QImage> ImageProvider::generateLocalFileImage(const QString &localFilePath, int edgePixelCount, qreal devicePixelRatio, QObject *context)
