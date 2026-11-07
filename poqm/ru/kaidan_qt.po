@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-03 07:44+0200\n"
+"PO-Revision-Date: 2026-11-06 07:49+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -2604,12 +2604,10 @@ msgid "Record a voice message"
 msgstr "Записать голосовое сообщение"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MessageController|%1 is an error message"
-#| msgid "Message could not be removed: %1"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "Не удалось удалить сообщение: %1"
+msgstr "Не удалось записать голосовое сообщение: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"

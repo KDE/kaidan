@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-01 16:36+0100\n"
-"PO-Revision-Date: 2026-11-05 12:28+0100\n"
+"PO-Revision-Date: 2026-11-06 18:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2606,12 +2606,10 @@ msgid "Record a voice message"
 msgstr "Grabar un mensaje de voz"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MessageController|%1 is an error message"
-#| msgid "Message could not be removed: %1"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "No se ha podido eliminar el mensaje: %1"
+msgstr "No se ha podido grabar el mensaje de voz: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"

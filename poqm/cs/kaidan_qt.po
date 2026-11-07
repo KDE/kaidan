@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-04 00:42+0100\n"
+"PO-Revision-Date: 2026-11-06 11:03+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Account.cpp:490
@@ -2578,12 +2578,10 @@ msgid "Record a voice message"
 msgstr "Nahrát hlasovou zprávu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MessageController|%1 is an error message"
-#| msgid "Message could not be removed: %1"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "Zprávu se nepodařilo odstranit: %1"
+msgstr "Hlasovou zprávu se nepodařilo nahrát: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"

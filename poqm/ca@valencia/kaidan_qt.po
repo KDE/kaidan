@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2026-10-09 08:59+0200\n"
+"PO-Revision-Date: 2026-11-06 12:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -124,14 +124,12 @@ msgid "Account could not be migrated: You need to be connected"
 msgstr "No s'ha pogut migrar el compte: cal estar connectat"
 
 #: src/AccountMigrationController.cpp:127
-#, fuzzy, qt-format
-#| msgctxt "AccountMigrationController|%1 and %2 are account display names"
-#| msgid "Account '%1' migrated to '%2'"
+#, qt-format
 msgctxt ""
 "AccountMigrationController|%1 and %3 are account display names; %2 and %4 "
 "are chat addresses"
 msgid "Account %1 (%2) migrated to %3 (%4)"
-msgstr "El compte «%1» s'ha migrat a «%2»"
+msgstr "El compte %1 (%2) s'ha migrat a %3 (%4)"
 
 #: src/AuthenticatedEncryptionKeyModel.cpp:78
 msgctxt "AuthenticatedEncryptionKeyModel|"
@@ -2597,12 +2595,10 @@ msgid "Record a voice message"
 msgstr "Grava un missatge de veu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MessageController|%1 is an error message"
-#| msgid "Message could not be removed: %1"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "No s'ha pogut eliminar el missatge: %1"
+msgstr "No s'ha pogut gravar el missatge de veu: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
