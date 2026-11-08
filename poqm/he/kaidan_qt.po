@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-11-05 13:41+0200\n"
+"PO-Revision-Date: 2026-11-07 21:14+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -2531,12 +2531,10 @@ msgid "Record a voice message"
 msgstr "הקלטת הודעה קולית"
 
 #: src/qml/elements/ChatPageSendingPane.qml:708
-#, fuzzy, qt-format
-#| msgctxt "MessageController|%1 is an error message"
-#| msgid "Message could not be removed: %1"
+#, qt-format
 msgctxt "ChatPageSendingPane|"
 msgid "Voice message could not be recorded: %1"
-msgstr "לא ניתן להסיר את ההודעה: %1"
+msgstr "לא ניתן להקליט הודעה קולית: %1"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:57
 msgctxt "ConfirmationFormButtonArea|"
