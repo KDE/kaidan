@@ -203,10 +203,10 @@ void ClientController::connectToServer(QXmppConfiguration config)
             }
         }
 
-        // Disable the automatic reconnection in case this connection attempt is not
-        // successful. Otherwise, this could result in a reconnection loop. It is enabled
-        // again after a successful login.
-        config.setAutoReconnectionEnabled(false);
+        // The connection data of a new account may be wrong (e.g., a mistyped domain), which must
+        // not result in endless connection attempts. Automatic reconnection is enabled for such
+        // an account after its first successful login.
+        config.setAutoReconnectionEnabled(m_accountSettings->initialized());
 
         // Reset the attribute for In-Band Registration support. That is needed when the
         // attribute was true until the last logout but the server disabled the support
@@ -222,6 +222,8 @@ void ClientController::logOut(bool isApplicationBeingClosed)
 {
     switch (m_client->state()) {
     case QXmppClient::DisconnectedState:
+        // The client may be waiting for its next reconnection attempt.
+        m_client->disconnectFromServer();
         break;
     case QXmppClient::ConnectingState:
         // Abort an ongoing registration if the application is being closed.
@@ -302,6 +304,12 @@ void ClientController::onConnectionStateChanged(QXmppClient::State connectionSta
 void ClientController::onConnectionError(const QXmppError &error)
 {
     qCDebug(KAIDAN_CORE_LOG) << "Connection error:" << error.description;
+
+    // The attempt that a logout was waiting for failed, so prevent further attempts.
+    if (m_isDisconnecting) {
+        m_isDisconnecting = false;
+        m_client->disconnectFromServer();
+    }
 
     if (const auto socketError = error.value<QAbstractSocket::SocketError>()) {
         switch (*socketError) {
