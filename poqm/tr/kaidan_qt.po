@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2026-11-06 19:39+0300\n"
+"PO-Revision-Date: 2026-11-12 19:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -328,17 +328,17 @@ msgctxt "ImageProvider|%1 is the invalid source URL"
 msgid "Could not copy invalid source to clipboard: %1"
 msgstr "Geçersiz kaynak panoya kopyalanamadı: %1"
 
-#: src/ImageProvider.cpp:312
+#: src/ImageProvider.cpp:302
 #, qt-format
 msgctxt "ImageProvider|%1 is a file path"
 msgid "Could not generate thumbnail: %1 does not exist"
 msgstr "Küçük görsel oluşturulamadı: %1 yok"
 
-#: src/ImageProvider.cpp:372
+#: src/ImageProvider.cpp:362
 #, qt-format
 msgctxt "ImageProvider|%1 is an error message"
 msgid "Could not generate QR code: %1"
-msgstr "Kare kod oluşturulamadı: %1"
+msgstr "Karekod oluşturulamadı: %1"
 
 #: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
@@ -909,7 +909,7 @@ msgstr "Etiketi kaldır"
 #: src/qml/details/AccountDetailsContent.qml:236
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
-msgstr "Bu hesabın sohbet adresini Kare Kod ile paylaş"
+msgstr "Bu hesabın sohbet adresini Karekod ile paylaş"
 
 #: src/qml/details/AccountDetailsContent.qml:240
 msgctxt "AccountDetailsContent|"
@@ -1234,7 +1234,7 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
-"Oturum açma kare kodunu kullanarak yeni aygıtlar eklemeye izin ver; ancak "
+"Oturum açma karekodunu kullanarak yeni aygıtlar eklemeye izin ver; ancak "
 "parolayı hiçbir zaman gösterme"
 
 #: src/qml/details/AccountDetailsContent.qml:804
@@ -1253,13 +1253,13 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
-"Hem oturum açma kare koduyla yeni aygıtlar eklemeye izin verme hem de "
+"Hem oturum açma karekoduyla yeni aygıtlar eklemeye izin verme hem de "
 "parolayı gösterme"
 
 #: src/qml/details/AccountDetailsContent.qml:818
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr "Metinden Kare Kod’dan parola kaldırılıyor…"
+msgstr "Metinden ve karekoddan parola kaldırılıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:827
 msgctxt "AccountDetailsContent|"
@@ -1313,12 +1313,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:923
 msgctxt "AccountDetailsContent|"
 msgid "Show login QR code"
-msgstr "Oturum Açma Kare Kodunu Göster"
+msgstr "Oturum Açma Karekodunu Göster"
 
 #: src/qml/details/AccountDetailsContent.qml:924
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR code by another device to log in on it"
-msgstr "Üzerinde oturum açmak için kare kodu başka bir aygıtla tarayın"
+msgstr "Üzerinde oturum açmak için karekodu başka bir aygıtla tarayın"
 
 #: src/qml/details/AccountDetailsContent.qml:940
 msgctxt "AccountDetailsContent|"
@@ -1528,7 +1528,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:82
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr "Bu kişinin sohbet adresini Kare Kod ile paylaş"
+msgstr "Bu kişinin sohbet adresini Karekod ile paylaş"
 
 #: src/qml/details/ContactDetailsContent.qml:86
 msgctxt "ContactDetailsContent|"
@@ -1771,17 +1771,17 @@ msgstr "Paylaşım"
 #: src/qml/details/DetailsContent.qml:160
 msgctxt "DetailsContent|"
 msgid "Show QR code"
-msgstr "Kare Kodu göster"
+msgstr "Karekodu göster"
 
 #: src/qml/details/DetailsContent.qml:174
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
-msgstr "Kare Kodu kopyala"
+msgstr "Karekodu kopyala"
 
 #: src/qml/details/DetailsContent.qml:176
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
-msgstr "Kare Kod panoya kopyalandı"
+msgstr "Karekod panoya kopyalandı"
 
 #: src/qml/details/DetailsContent.qml:181
 msgctxt "DetailsContent|"
@@ -1860,7 +1860,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:282
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
-msgstr "Bu grubun sohbet adresini Kare Kod ile paylaş"
+msgstr "Bu grubun sohbet adresini Karekod ile paylaş"
 
 #: src/qml/details/GroupChatDetailsContent.qml:286
 msgctxt "GroupChatDetailsContent|"
@@ -2288,12 +2288,12 @@ msgstr "Her tür aygıt için çağdaş sohbet uygulaması"
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "1. Adım: <b>Diğer aygıtınızın</b> kare kodunu tarayın"
+msgstr "1. Adım: <b>Diğer aygıtınızın</b> karekodunu tarayın"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:25
 msgctxt "AccountKeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "2. Adım: Diğer aygıtınızla, <b>bu aygıtın</b> kare kodunu tarayın"
+msgstr "2. Adım: Diğer aygıtınızla, <b>bu aygıtın</b> karekodunu tarayın"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:28
 msgctxt "AccountKeyAuthenticationPage|"
@@ -2608,7 +2608,7 @@ msgstr "Kişi ekle"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
-msgstr "Kare kodları tara"
+msgstr "Karekodları tara"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:18
 msgctxt "ContactAdditionQrCodePage|"
@@ -2618,12 +2618,12 @@ msgstr "Açıklama göster"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:31
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "1. Adım: <b>Kişi</b>’nin kare kodunu tara"
+msgstr "1. Adım: <b>Kişi</b>’nin karekodunu tara"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:33
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "2. Adım: Kişinizin, <b>sizin</b> kare kodunuzu taramasına izin verin"
+msgstr "2. Adım: Kişinizin, <b>sizin</b> karekodunuzu taramasına izin verin"
 
 #: src/qml/elements/ContactInvitationHintDelegate.qml:23
 msgctxt "ContactInvitationHintDelegate|"
@@ -2633,12 +2633,12 @@ msgstr "Kişileri Bu Gruba Davet Et…"
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "1. Adım: <b>Kişi</b>’nin kare kodunu tarayın"
+msgstr "1. Adım: <b>Kişi</b>’nin karekodunu tarayın"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "2. Adım: Kişinizin, <b>sizin</b> kare kodunuzu taramasına izin verin"
+msgstr "2. Adım: Kişinizin, <b>sizin</b> karekodunuzu taramasına izin verin"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:24
 msgctxt "ContactKeyAuthenticationPage|"
@@ -2929,13 +2929,12 @@ msgstr "Yasakla"
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 1: Scan the <b>participant's</b> QR code"
-msgstr "1. Adım: <b>Katılımcının</b>’nın kare kodunu tara"
+msgstr "1. Adım: <b>Katılımcının</b>’nın karekodunu tara"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Step 2: Let the participant scan <b>your</b> QR code"
-msgstr ""
-"2. Adım: Katılımcının, <b>sizin</b> kare kodunuzu taramasına izin verin"
+msgstr "2. Adım: Katılımcının, <b>sizin</b> karekodunuzu taramasına izin verin"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -2966,7 +2965,7 @@ msgstr "Açıklama göster"
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr "Kare kodları tara"
+msgstr "Karekodları tara"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
@@ -3017,7 +3016,7 @@ msgstr "Oturum Aç"
 #: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr "Oturum Açma Kare Kodunu Tara"
+msgstr "Oturum Açma Karekodunu Tara"
 
 #: src/qml/elements/LoginArea.qml:52
 msgctxt "LoginArea|"
@@ -3300,7 +3299,7 @@ msgstr "Kişi eklendi — 2. adımla sürdürün"
 #: src/qml/elements/QrCodeScanningArea.qml:54
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr "Bu kare kod, bir kişi içermiyor"
+msgstr "Bu karekod, bir kişi içermiyor"
 
 #: src/qml/elements/QrCodeScanningArea.qml:64
 msgctxt "QrCodeScanningArea|"
@@ -3316,17 +3315,17 @@ msgstr "Kişiye güvenme kararı verildi — 2. adımla sürdürün"
 #: src/qml/elements/QrCodeScanningArea.qml:73
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr "Bu kare kod, diğer aygıtınız için değil"
+msgstr "Bu karekod, diğer aygıtınız için değil"
 
 #: src/qml/elements/QrCodeScanningArea.qml:75
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr "Bu kare kod, kişiniz için değil"
+msgstr "Bu karekod, kişiniz için değil"
 
 #: src/qml/elements/QrCodeScanningArea.qml:82
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
-msgstr "Bu kare kod, güvenme kararları için değil"
+msgstr "Bu karekod, güvenme kararları için değil"
 
 #: src/qml/elements/QrCodeScanningArea.qml:101
 msgctxt "QrCodeScanningArea|"
@@ -3512,7 +3511,7 @@ msgstr "Tüm kullanılabilir eylemleri görmek için bir hesap etkinleştir"
 #: src/qml/GlobalDrawer.qml:178
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr "Kare kod ile kişi ekle"
+msgstr "Karekod ile kişi ekle"
 
 #: src/qml/GlobalDrawer.qml:185
 msgctxt "GlobalDrawer|"
@@ -3575,12 +3574,12 @@ msgstr "%1 engeli kaldırılamadı: %2"
 #: src/qml/QrCodeOnboardingPage.qml:27
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "Kare Kod tara"
+msgstr "Karekod tara"
 
 #: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "Kare kod tara"
+msgstr "Karekod tara"
 
 #: src/qml/QrCodeOnboardingPage.qml:29
 msgctxt "QrCodeOnboardingPage|"
@@ -3590,7 +3589,7 @@ msgstr "Açıklama göster"
 #: src/qml/QrCodeOnboardingPage.qml:51
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's login QR code"
-msgstr "Eski aygıtınızın oturum açma kare kodunu tarayın"
+msgstr "Eski aygıtınızın oturum açma karekodunu tarayın"
 
 #: src/qml/QrCodeOnboardingPage.qml:58
 msgctxt "QrCodeOnboardingPage|"
@@ -3598,13 +3597,13 @@ msgid ""
 "You can display the QR code in the account details of your old device via "
 "Show login QR code"
 msgstr ""
-"Oturum açma kare kodunu göster seçeneği ile eski aygıtınızın kare kodunu "
-"hesap ayrıntılarında görüntüleyebilirsiniz"
+"Oturum açma karekodunu göster seçeneği ile eski aygıtınızın karekodunu hesap "
+"ayrıntılarında görüntüleyebilirsiniz"
 
 #: src/qml/QrCodeOnboardingPage.qml:99
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr "Bu kare kod, geçerli bir oturum açmak kare kodu değil."
+msgstr "Bu karekod, geçerli bir oturum açmak karekodu değil."
 
 #: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
