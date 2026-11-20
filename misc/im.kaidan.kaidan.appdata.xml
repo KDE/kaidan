@@ -237,6 +237,7 @@
           <li xml:lang="nl">Ga terug naar de chatlijst om het bericht door te sturen en houd deze geopend in een smal venster (@melvo)</li>
           <li xml:lang="pt-BR">Voltar à lista de conversas para encaminhar a mensagem e mantê-la aberta em uma janela estreita (@melvo)</li>
           <li xml:lang="ru">Для пересылки сообщения в узком окне выполняется переход к списку чатов, а сообщение остаётся открытым (@melvo);</li>
+          <li xml:lang="sk">Návrat do zoznamu chatov pri preposielaní správy a jeho ponechanie otvoreného v úzkom okne (@melvo)</li>
           <li xml:lang="sl">Vrne se na seznam klepetov, da posredujete sporočilo, in ga pustite odprtega v ozkem oknu (@melvo)</li>
           <li xml:lang="tr">Go back to chat list to forward message and keep it open on narrow window (@melvo)</li>
           <li xml:lang="uk">Реалізовано повернення до списку спілкувань для переспрямовування повідомлення та усунено потребу у його закритті у вузьких вікнах (@melvo)</li>
@@ -250,6 +251,7 @@
           <li xml:lang="nl">Voeg efficiënt ophalen van de meest recente chatlijst vanaf de server toe (@lnj)</li>
           <li xml:lang="pt-BR">Adicionada recuperação eficiente da lista de conversas mais recentes a partir do servidor (@lnj)</li>
           <li xml:lang="ru">Добавлено эффективное получение последнего списка чатов с сервера (@lnj);</li>
+          <li xml:lang="sk">Pridanie efektívneho načítania najnovšieho zoznamu chatov zo servera (@lnj)</li>
           <li xml:lang="sl">Doda učinkovito pridobivanje seznama nedavnih pogovorov s strežnika (@lnj)</li>
           <li xml:lang="tr">Add efficient retrieval of latest chat list from server (@lnj)</li>
           <li xml:lang="uk">Додано ефективне отримання списку найсвіжіших спілкувань з сервера (@lnj)</li>
@@ -263,6 +265,7 @@
           <li xml:lang="nl">Ondersteuning toegevoegd voor het rapporteren van spam/misbruikende afzenders/berichten (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
           <li xml:lang="pt-BR">Adicionado suporte para denunciar spam/remetentes abusivos/mensagens (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
           <li xml:lang="ru">Добавлена поддержка жалоб на спам и оскорбительных отправителей или сообщения (XEP-0377: Blocking Command Reports) (@lnj, @melvo);</li>
+          <li xml:lang="sk">Pridanie podpory nahlasovania spamu a zneužívajúcich odosielateľov/správ (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
           <li xml:lang="sl">Dodana podpora za prijavljanje neželene pošte/pošiljateljev/sporočil, ki so zlorabljajoči (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
           <li xml:lang="tr">Add support for reporting spam/abusive senders/messages (XEP-0377: Blocking Command Reports) (@lnj, @melvo)</li>
           <li xml:lang="uk">Додано підтримку скарг на спам, образи від відправників повідомлень (XEP-0377: блокування скарг команди) (@lnj, @melvo)</li>
@@ -276,6 +279,7 @@
           <li xml:lang="nl">Markeerknop voor het filteren van chats wanneer filtering actief is (@melvo)</li>
           <li xml:lang="pt-BR">Marcar botão de filtragem de conversas enquanto o filtro estiver ativo (@melvo)</li>
           <li xml:lang="ru">Кнопка фильтрации чатов выделяется, пока фильтр активен (@melvo);</li>
+          <li xml:lang="sk">Označenie tlačidla filtrovania chatov, kým je filtrovanie aktívne (@melvo)</li>
           <li xml:lang="sl">Označi gumb za filtriranje klepetov, ko je filtriranje aktivno (@melvo)</li>
           <li xml:lang="tr">Mark button for filtering chats while filtering is active (@melvo)</li>
           <li xml:lang="uk">Реалізовано позначення кнопки для фільтрування спілкувань, доки фільтрування є активним (@melvo)</li>
@@ -289,6 +293,7 @@
           <li xml:lang="nl">Ondersteuning toegevoegd voor het intrekken van berichten (XEP-0424: Message Retraction) (@lnj, @melvo)</li>
           <li xml:lang="pt-BR">Adicionado suporte para a retratação de mensagens (XEP-0424: Message Retraction) (@lnj, @melvo)</li>
           <li xml:lang="ru">Добавлена поддержка отзыва сообщений (XEP-0424: Message Retraction) (@lnj, @melvo);</li>
+          <li xml:lang="sk">Pridanie podpory odvolania správ (XEP-0424: Message Retraction) (@lnj, @melvo)</li>
           <li xml:lang="sl">Doda podporo za umik sporočil (XEP-0424: umik sporočil) (@lnj, @melvo)</li>
           <li xml:lang="tr">Add support for retracting messages (XEP-0424: Message Retraction) (@lnj, @melvo)</li>
           <li xml:lang="uk">Додано підтримку відкликання повідомлень (XEP-0424: відкликання повідомлення) (@melvo)</li>
@@ -302,6 +307,7 @@
           <li xml:lang="nl">Automatisch opnieuw verbinding maken met de server op basis van netwerkwijzigingen (@lnj)</li>
           <li xml:lang="pt-BR">Reconectar automaticamente ao servidor com base em alterações na rede (@lnj)</li>
           <li xml:lang="ru">Автоматическое переподключение к серверу при изменениях сети (@lnj);</li>
+          <li xml:lang="sk">Automatické opätovné pripojenie k serveru podľa zmien siete (@lnj)</li>
           <li xml:lang="sl">Samodejno ponovno vzpostavi povezavo ob izgubi povezave (@lnj)</li>
           <li xml:lang="tr">Automatically reconnect to server based on network changes (@lnj)</li>
           <li xml:lang="uk">Реалізовано автоматичне повторне з'єднання з сервером на основі змін у мережі (@lnj)</li>
@@ -315,6 +321,7 @@
           <li xml:lang="nl">Alle lopende acties in het invoerveld voor berichten wissen bij het indrukken van de Escape-toets (@melvo)</li>
           <li xml:lang="pt-BR">Cancelar todas as ações em andamento no campo de entrada de mensagens ao pressionar a tecla Escape (@melvo)</li>
           <li xml:lang="ru">Нажатие Escape отменяет все текущие действия в поле ввода сообщения (@melvo);</li>
+          <li xml:lang="sk">Zrušenie všetkých prebiehajúcich akcií vstupného poľa správy stlačením klávesu Escape (@melvo)</li>
           <li xml:lang="sl">Ob pritisku na tipko Escape počisti vsa trenutna dejanja v polju za vnos sporočila (@melvo)</li>
           <li xml:lang="tr">Clear all ongoing actions of the message input field on pressing Escape button (@melvo)</li>
           <li xml:lang="uk">Реалізовано вилучення усіх наступних дій з полем введення повідомлення у відповідь натискання кнопки скасування (@melvo)</li>
@@ -328,6 +335,7 @@
           <li xml:lang="nl">Zorg ervoor dat het huidige standaardinvoerapparaat altijd wordt gebruikt voor opnames (@melvo, @lnj)</li>
           <li xml:lang="pt-BR">Garantir que o dispositivo de entrada padrão atual seja sempre utilizado para gravação (@melvo, @lnj)</li>
           <li xml:lang="ru">Для записи всегда используется текущее устройство ввода по умолчанию (@melvo, @lnj);</li>
+          <li xml:lang="sk">Zabezpečenie, že na nahrávanie sa vždy použije aktuálne predvolené vstupné zariadenie (@melvo, @lnj)</li>
           <li xml:lang="sl">Zagotovi, da se za snemanje vedno uporablja trenutna privzeta vhodna naprava (@melvo, @lnj)</li>
           <li xml:lang="tr">Ensure that current default input device is always used for recording (@melvo, @lnj)</li>
           <li xml:lang="uk">Забезпечено безумовне використання типового пристрою для введення для записування звуку (@melvo, @lnj)</li>
@@ -341,6 +349,7 @@
           <li xml:lang="nl">Verberg de knop voor het opnemen van spraakberichten als er geen invoerapparaat beschikbaar is (@melvo)</li>
           <li xml:lang="pt-BR">Ocultar botão para gravação de mensagens de voz caso não haja um dispositivo de entrada disponível (@melvo)</li>
           <li xml:lang="ru">Кнопка записи голосовых сообщений скрывается, если нет доступного устройства ввода (@melvo);</li>
+          <li xml:lang="sk">Skrytie tlačidla nahrávania hlasových správ, ak nie je dostupné žiadne vstupné zariadenie (@melvo)</li>
           <li xml:lang="sl">Skriva gumb za snemanje glasovnih sporočil, če ni na voljo nobene vhodne naprave (@melvo)</li>
           <li xml:lang="tr">Hide button for recording voice messages if no input device is available (@melvo)</li>
           <li xml:lang="uk">Реалізовано приховування кнопки для записування голосових повідомлень, якщо немає доступних пристроїв введення (@melvo)</li>
@@ -354,6 +363,7 @@
           <li xml:lang="nl">Informeer de gebruiker over problemen bij het opnemen van een spraakbericht (@melvo)</li>
           <li xml:lang="pt-BR">Informar o usuário sobre problemas com a gravação de mensagens de voz (@melvo)</li>
           <li xml:lang="ru">Пользователь получает сообщение о проблемах с записью голосовых сообщений (@melvo);</li>
+          <li xml:lang="sk">Informovanie používateľa o problémoch s nahrávaním hlasových správ (@melvo)</li>
           <li xml:lang="sl">Obveščauporabnika o težavah pri snemanju glasovnega sporočila (@melvo)</li>
           <li xml:lang="tr">Inform user about problems with voice message recording (@melvo)</li>
           <li xml:lang="uk">Реалізовано інформування користувача про проблеми із записом голосових повідомлень (@melvo)</li>
@@ -367,6 +377,7 @@
           <li xml:lang="nl">Verwijder het opgenomen tijdelijke bestand als er tijdens de opname een fout optreedt (@lnj)</li>
           <li xml:lang="pt-BR">Exclusão do arquivo temporário gravado caso ocorra um erro durante a gravação (@lnj)</li>
           <li xml:lang="ru">При ошибке во время записи временный файл записи удаляется (@lnj).</li>
+          <li xml:lang="sk">Odstránenie nahraného dočasného súboru pri chybe počas nahrávania (@lnj)</li>
           <li xml:lang="sl">Izbriše posneto začasno datoteko, če med snemanjem pride do napake (@lnj)</li>
           <li xml:lang="tr">Delete recorded temporary file on error occurring while recording (@lnj)</li>
           <li xml:lang="uk">Реалізовано вилучення тимчасового файла запису, якщо під час записування сталася помилка (@lnj)</li>
@@ -400,6 +411,7 @@
           <li xml:lang="nl">Los probleem op waarbij een chat met een bestaand contact werd geopend bij een poging dat contact toe te voegen (@melvo)</li>
           <li xml:lang="pt-BR">Correção da abertura do chat com um contato já existente ao tentar adicionar esse contato (@melvo)</li>
           <li xml:lang="ru">Исправлено открытие чата с существующим контактом при попытке добавить этот контакт (@melvo);</li>
+          <li xml:lang="sk">Oprava otvárania chatu s existujúcim kontaktom pri pokuse o pridanie tohto kontaktu (@melvo)</li>
           <li xml:lang="sl">Odpravljena težava z odpiranjem klepeta z obstoječim stikom ob poskusu dodajanja tega stika (@melvo)</li>
           <li xml:lang="tr">Fix opening chat with existing contact on attempt to add that contact (@melvo)</li>
           <li xml:lang="uk">Виправлено відкриття спілкування з наявним контактом при спробі додати цей контакт (@melvo)</li>
@@ -413,6 +425,7 @@
           <li xml:lang="nl">Zorg dat het invoerveld voor berichten de focus krijgt na het openen van een chat of bij het opnieuw aantikken van een reeds geopende chat (@melvo)</li>
           <li xml:lang="pt-BR">Correção do foco no campo de entrada de mensagens ao abrir um chat ou ao tocar novamente em um chat já aberto (@melvo)</li>
           <li xml:lang="ru">Исправлен перевод фокуса на поле ввода сообщения после открытия чата или повторного нажатия на открытый чат (@melvo);</li>
+          <li xml:lang="sk">Oprava zamerania vstupného poľa správy po otvorení chatu alebo opätovnom kliknutí na otvorený chat (@melvo)</li>
           <li xml:lang="sl">Popravi fokusiranje vnosnega polja za sporočila po odprtju klepeta ali ponovnem pritisku na že odprt klepet (@melvo)</li>
           <li xml:lang="tr">Fix focusing message input field after opening chat or pressing on opened chat again (@melvo)</li>
           <li xml:lang="uk">Виправлено фокусування поля введення повідомлення після відкриття спілкування або повторного натискання відкритої панелі спілкування (@melvo)</li>
@@ -426,6 +439,7 @@
           <li xml:lang="nl">Herstel het verbergen van wachtwoorden wanneer de bijbehorende instelling is ingeschakeld (@melvo)</li>
           <li xml:lang="pt-BR">Correção da ocultação de senha quando a configuração correspondente está ativada (@melvo)</li>
           <li xml:lang="ru">Исправлено скрытие пароля при включённом соответствующем параметре (@melvo);</li>
+          <li xml:lang="sk">Oprava skrývania hesla, ak je zapnuté príslušné nastavenie (@melvo)</li>
           <li xml:lang="sl">Popravljeno skrivanje gesla, kadar je omogočena ustrezna nastavitev (@melvo)</li>
           <li xml:lang="tr">Fix hiding password if corresponding setting is enabled (@melvo)</li>
           <li xml:lang="uk">Виправлено приховування пароля, якщо увімкнено відповідну можливість (@melvo)</li>
@@ -439,6 +453,7 @@
           <li xml:lang="nl">Herstel de weergave van dubbele geblokkeerde chatadressen (@lnj)</li>
           <li xml:lang="pt-BR">Correção da exibição de endereços de chat bloqueados duplicados (@lnj)</li>
           <li xml:lang="ru">Исправлен показ повторяющихся заблокированных адресов чатов (@lnj);</li>
+          <li xml:lang="sk">Oprava zobrazovania duplicitných blokovaných chatových adries (@lnj)</li>
           <li xml:lang="sl">Popravi prikaz podvojenih blokiranih naslovov v klepetu (@lnj)</li>
           <li xml:lang="tr">Fix displaying duplicated blocked chat addresses (@lnj)</li>
           <li xml:lang="uk">Виправлено показ дубльованих заблокованих адрес спілкування (@lnj)</li>
@@ -452,6 +467,7 @@
           <li xml:lang="nl">Dubbele meldingen bij het blokkeren/deblokkeren van chatadressen verholpen (@lnj)</li>
           <li xml:lang="pt-BR">Correção de notificações duplicadas ao bloquear/desbloquear endereços de chat (@lnj)</li>
           <li xml:lang="ru">Исправлены повторяющиеся уведомления о блокировке и разблокировке адресов чатов (@lnj);</li>
+          <li xml:lang="sk">Oprava duplicitných upozornení pri blokovaní/odblokovaní chatových adries (@lnj)</li>
           <li xml:lang="sl">Popravek podvojenih obvestil ob blokiranju/odblokiranju naslovov v klepetu (@lnj)</li>
           <li xml:lang="tr">Fix duplicated notifications for blocking/unblocking chat addresses (@lnj)</li>
           <li xml:lang="uk">Виправлено дублювання сповіщень для блокування і розблокування адрес спілкування (@lnj)</li>
@@ -465,6 +481,7 @@
           <li xml:lang="nl">Reacties op eigen berichten herstellen (@lnj)</li>
           <li xml:lang="pt-BR">Correção das reações às próprias mensagens (@lnj)</li>
           <li xml:lang="ru">Исправлены реакции на собственные сообщения (@lnj);</li>
+          <li xml:lang="sk">Oprava reakcií na vlastné správy (@lnj)</li>
           <li xml:lang="sl">Popravi odzive na lastna sporočila (@lnj)</li>
           <li xml:lang="tr">Fix reactions to own messages (@lnj)</li>
           <li xml:lang="uk">Виправлено реакції на власні повідомлення (@lnj)</li>
@@ -478,6 +495,7 @@
           <li xml:lang="nl">Versleuteling van niet-in-wachtrij-staande leesmarkeringen hersteld (@melvo)</li>
           <li xml:lang="pt-BR">Correção da criptografia de marcadores de leitura que não estão pendentes (@melvo)</li>
           <li xml:lang="ru">Исправлено шифрование отметок о прочтении, не ожидающих отправки (@melvo);</li>
+          <li xml:lang="sk">Oprava šifrovania nečakajúcich potvrdení o prečítaní (@melvo)</li>
           <li xml:lang="sl">Popravek šifriranja nečakajočih označevalnikov branja (@melvo)</li>
           <li xml:lang="tr">Fix encrypting non-pending read markers (@melvo)</li>
           <li xml:lang="uk">Виправлено шифрування позначок читання поза чергою (@melvo)</li>
@@ -491,6 +509,7 @@
           <li xml:lang="nl">Probleem opgelost waarbij hints werden getoond voor ongeldige veldinvoer (@melvo)</li>
           <li xml:lang="pt-BR">Correção da exibição de dicas para entradas de campo inválidas (@melvo)</li>
           <li xml:lang="ru">Исправлен показ подсказок при неверном вводе в полях (@melvo);</li>
+          <li xml:lang="sk">Oprava zobrazovania upozornení pri neplatnom vstupe do poľa (@melvo)</li>
           <li xml:lang="sl">Popravek prikaza namigov za neveljaven vnos v polje (@melvo)</li>
           <li xml:lang="tr">Fix showing hints for invalid field input (@melvo)</li>
           <li xml:lang="uk">Виправлено показ підказок для некоректного введення даних у поле (@melvo)</li>
@@ -504,6 +523,7 @@
           <li xml:lang="nl">Los het afbreken van lange datumsecties in de chat op (@melvo)</li>
           <li xml:lang="pt-BR">Correção da quebra de linha em seções de data longas no chat (@melvo)</li>
           <li xml:lang="ru">Исправлен перенос длинных разделов дат в чате (@melvo);</li>
+          <li xml:lang="sk">Oprava zalamovania dlhých sekcií dátumu v chate (@melvo)</li>
           <li xml:lang="sl">Popravi prelom vrstic dolgih razdelkov z datumi v klepetu (@melvo)</li>
           <li xml:lang="tr">Fix wrapping long date sections in chat (@melvo)</li>
           <li xml:lang="uk">Виправлено перенесення частин довгої адреси у спілкуванні (@melvo)</li>
@@ -517,6 +537,7 @@
           <li xml:lang="nl">Correctie: alleen reacties op berichten uit een verwijderde chat worden verwijderd, in plaats van reacties uit alle chats van het account (@lnj)</li>
           <li xml:lang="pt-BR">Correção para remover apenas as reações a mensagens do chat excluído, em vez das reações de todos os chats da conta (@lnj)</li>
           <li xml:lang="ru">Исправлено удаление реакций на сообщения: удаляются только реакции удалённого чата, а не всех чатов учётной записи (@lnj);</li>
+          <li xml:lang="sk">Oprava, aby sa odstraňovali iba reakcie na správy odstráneného chatu, nie reakcie vo všetkých chatoch účtu (@lnj)</li>
           <li xml:lang="sl">Popravek: odstranjevanje odzivov na sporočila velja le za odstranjen klepet, namesto za odzive v vseh klepetih računa (@lnj)</li>
           <li xml:lang="tr">Fix only removing message reactions of removed chat instead of reactions of all chats of account (@lnj)</li>
           <li xml:lang="uk">Виправлено вилучення лише реакцій на вилучене спілкування замість реакцій у всіх спілкуваннях облікового запису (@lnj)</li>
@@ -530,6 +551,7 @@
           <li xml:lang="nl">Herstel het versturen van gegevens die in de wachtrij stonden bij het opnieuw verbinden met servers die geen ondersteuning bieden voor het delen van media (@lnj)</li>
           <li xml:lang="pt-BR">Correção do envio de dados pendentes ao reconectar a servidores que não oferecem suporte ao compartilhamento de mídia (@lnj)</li>
           <li xml:lang="ru">Исправлена отправка ожидающих данных при переподключении к серверам без поддержки обмена медиафайлами (@lnj);</li>
+          <li xml:lang="sk">Oprava odosielania čakajúcich údajov pri opätovnom pripojení k serverom bez podpory zdieľania médií (@lnj)</li>
           <li xml:lang="sl">Popravljeno je pošiljanje čakajočih podatkov ob ponovni povezavi s strežniki brez podpore za deljenje medijev (@lnj)</li>
           <li xml:lang="tr">Fix sending pending data on reconnection to servers without media sharing support (@lnj)</li>
           <li xml:lang="uk">Виправлено надсилання даних з черги при повторному з'єднанні з серверами без підтримки оприлюднення мультимедійних даних (@lnj)</li>
@@ -543,6 +565,7 @@
           <li xml:lang="nl">Afgesneden details in de mediaviewer herstellen (@melvo)</li>
           <li xml:lang="pt-BR">Correção dos detalhes cortados no visualizador de mídia (@melvo)</li>
           <li xml:lang="ru">Исправлены обрезанные сведения в просмотрщике медиафайлов (@melvo);</li>
+          <li xml:lang="sk">Oprava orezaných podrobností v prehliadači médií (@melvo)</li>
           <li xml:lang="sl">Popravi odrezane podrobnosti v pregledovalniku medijev (@melvo)</li>
           <li xml:lang="tr">Fix cut off details in media viewer (@melvo)</li>
           <li xml:lang="uk">Виправлено обрізання подробиць у засобі перегляду мультимедійних даних (@melvo)</li>
@@ -556,6 +579,7 @@
           <li xml:lang="nl">Herstel het afspelen na het verplaatsen van de schuifregelaar terwijl de media gepauzeerd is in de mediaviewer (@melvo)</li>
           <li xml:lang="pt-BR">Correção da retomada da reprodução após ajustar a barra de progresso com a mídia pausada no visualizador de mídia (@melvo)</li>
           <li xml:lang="ru">Исправлено воспроизведение после перемещения ползунка на паузе в просмотрщике медиафайлов (@melvo);</li>
+          <li xml:lang="sk">Oprava prehrávania po posunutí posuvníka pri pozastavenom médiu v prehliadači médií (@melvo)</li>
           <li xml:lang="sl">Popravek predvajanja po namestitvi drsnika, medtem ko je predstavnost začasno ustavljena v pregledovalniku medijev (@melvo)</li>
           <li xml:lang="tr">Fix playing after positioning slider while media is paused in media viewer (@melvo)</li>
           <li xml:lang="uk">Виправлено відтворення після позиціювання повзунка під час призупинення мультимедіа у засобі перегляду мультимедійних даних (@melvo)</li>
@@ -569,6 +593,7 @@
           <li xml:lang="nl">Herstel het opnieuw instellen van een conceptbericht bij het wisselen van chat (@melvo)</li>
           <li xml:lang="pt-BR">Correção da redefinição de rascunhos ao alternar entre conversas (@melvo)</li>
           <li xml:lang="ru">Исправлен сброс черновика сообщения при переключении чатов (@melvo);</li>
+          <li xml:lang="sk">Oprava resetovania konceptu správy pri prepínaní chatov (@melvo)</li>
           <li xml:lang="sl">Popravljeno ponastavljanje osnutka sporočila pri preklapljanju med pogovori (@melvo)</li>
           <li xml:lang="tr">Fix resetting draft message on switching chats (@melvo)</li>
           <li xml:lang="uk">Виправлено скидання чернетки повідомлення при перемиканні спілкувань (@melvo)</li>
@@ -582,6 +607,7 @@
           <li xml:lang="nl">Probleem met breedte van spraakberichten opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Correção da largura das mensagens de voz (@melvo)</li>
           <li xml:lang="ru">Исправлена ширина голосовых сообщений (@melvo);</li>
+          <li xml:lang="sk">Oprava šírky hlasových správ (@melvo)</li>
           <li xml:lang="sl">Popravljena širina glasovnih sporočil (@melvo)</li>
           <li xml:lang="tr">Fix width of voice messages (@melvo)</li>
           <li xml:lang="uk">Виправлено ширину голосових повідомлень (@melvo)</li>
@@ -595,6 +621,7 @@
           <li xml:lang="nl">Probleem met het genereren van miniaturen door een defecte plug-in opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Correção da geração de miniaturas com um plugin defeituoso (@melvo)</li>
           <li xml:lang="ru">Исправлено создание миниатюр при неисправном модуле (@melvo);</li>
+          <li xml:lang="sk">Oprava generovania miniatúr pri chybnom zásuvnom module (@melvo)</li>
           <li xml:lang="sl">Popravljeno generiranje predoglednih sličic pri pokvarjenemu vtičniku (@melvo)</li>
           <li xml:lang="tr">Fix thumbnail generation with faulty plugin (@melvo)</li>
           <li xml:lang="uk">Виправлено створення мініатюр для помилкового додатка (@melvo)</li>
@@ -608,6 +635,7 @@
           <li xml:lang="nl">Grootte van de tabbladbalk-items in het mediaoverzicht corrigeren (@melvo)</li>
           <li xml:lang="pt-BR">Correção do tamanho dos itens da barra de abas na visão geral de mídia (@melvo)</li>
           <li xml:lang="ru">Исправлен размер вкладок в обзоре медиафайлов (@melvo);</li>
+          <li xml:lang="sk">Oprava veľkosti položiek panela kariet v prehľade médií (@melvo)</li>
           <li xml:lang="sl">Popravi velikost elementov v vrstici zavihkov pregleda predstavnosti (@melvo)</li>
           <li xml:lang="tr">Fix size of media overview's tab bar items (@melvo)</li>
           <li xml:lang="uk">Виправлено розмір пунктів панелі вкладок огляду мультимедіа (@melvo)</li>
@@ -621,6 +649,7 @@
           <li xml:lang="nl">Los het flikkeren van miniaturen in het mediaoverzicht op wanneer het venster van formaat wordt veranderd (@melvo)</li>
           <li xml:lang="pt-BR">Correção da oscilação das miniaturas na visualização de mídia ao redimensionar a janela (@melvo)</li>
           <li xml:lang="ru">Исправлено мерцание миниатюр в обзоре медиафайлов при изменении размера окна (@melvo);</li>
+          <li xml:lang="sk">Oprava blikania miniatúr v prehľade médií pri zmene veľkosti okna (@melvo)</li>
           <li xml:lang="sl">Popravljeno utripanje predoglednih sličic v pregledu medijev ob spreminjanju velikosti okna (@melvo)</li>
           <li xml:lang="tr">Fix thumbnails flickering in media overview while window is resized (@melvo)</li>
           <li xml:lang="uk">Виправлено блимання мініатюр в огляді мультимедіа при зміні розмірів вікна (@melvo)</li>
@@ -634,6 +663,7 @@
           <li xml:lang="nl">Herstel de initialisatie van versleuteling voor groepen en uitgeschakelde accounts (@melvo)</li>
           <li xml:lang="pt-BR">Correção da inicialização da criptografia para grupos e contas desativadas (@melvo)</li>
           <li xml:lang="ru">Исправлена инициализация шифрования для групп и отключённых учётных записей (@melvo);</li>
+          <li xml:lang="sk">Oprava inicializácie šifrovania pre skupiny a zakázané účty (@melvo)</li>
           <li xml:lang="sl">Popravi inicializacijo šifriranja za skupine in onemogočene račune (@melvo)</li>
           <li xml:lang="tr">Fix encryption initialization for groups and disabled accounts (@melvo)</li>
           <li xml:lang="uk">Виправлено ініціалізацію шифрування для груп і вимкнених облікових записів (@melvo)</li>
@@ -647,6 +677,7 @@
           <li xml:lang="nl">Probleem met het wijzigen van versleuteling voor notitiechats opgelost (@melvo)</li>
           <li xml:lang="pt-BR">Correção da alteração da criptografia de conversas com anotações (@melvo)</li>
           <li xml:lang="ru">Исправлено изменение шифрования чатов с заметками (@melvo);</li>
+          <li xml:lang="sk">Oprava zmeny šifrovania poznámkových chatov (@melvo)</li>
           <li xml:lang="sl">Popravek spreminjanja šifriranja zapiskov klepetov (@melvo)</li>
           <li xml:lang="tr">Fix changing encryption of notes chats (@melvo)</li>
           <li xml:lang="uk">Виправлено зміну шифрування спілкувань з нотатками (@melvo)</li>
@@ -660,6 +691,7 @@
           <li xml:lang="nl">Herstel de weergave van initialen van accountnamen bij notitiechats (@melvo)</li>
           <li xml:lang="pt-BR">Correção da exibição das iniciais do nome da conta em conversas de notas (@melvo)</li>
           <li xml:lang="ru">Исправлен показ инициалов имени учётной записи для чатов с заметками (@melvo);</li>
+          <li xml:lang="sk">Oprava zobrazovania iniciál názvu účtu pre poznámkové chaty (@melvo)</li>
           <li xml:lang="sl">Popravi prikaz začetnic imena računa v pogovorih z opombami (@melvo)</li>
           <li xml:lang="tr">Fix displaying account name initials for notes chats (@melvo)</li>
           <li xml:lang="uk">Виправлено показ ініціалів назви облікового запису для спілкувань нотаток (@melvo)</li>
@@ -673,6 +705,7 @@
           <li xml:lang="nl">Probleem met vastgelopen accountmigratie verholpen (@lnj)</li>
           <li xml:lang="pt-BR">Correção da migração de conta que ficou pendente (@lnj)</li>
           <li xml:lang="ru">Исправлено зависание переноса учётной записи (@lnj);</li>
+          <li xml:lang="sk">Oprava zaseknutej migrácie účtu (@lnj)</li>
           <li xml:lang="sl">Popravi obtičalo migracijo računa (@lnj)</li>
           <li xml:lang="tr">Fix hanging account migration (@lnj)</li>
           <li xml:lang="uk">Виправлено повисання перенесення облікового запису (@lnj)</li>
@@ -686,6 +719,7 @@
           <li xml:lang="nl">Herstel: vervanging van een XMPP-URI door het bijbehorende chatadres bij het toevoegen van contacten en het deelnemen aan groepen (@lnj, @melvo)</li>
           <li xml:lang="pt-BR">Correção na substituição de URI XMPP pelo respectivo endereço de chat para a adição de contatos e a entrada em grupos (@lnj, @melvo)</li>
           <li xml:lang="ru">Исправлена замена URI XMPP на адрес чата при добавлении контакта и входе в группу (@lnj, @melvo).</li>
+          <li xml:lang="sk">Oprava nahradenia XMPP URI jeho chatovou adresou pri pridávaní kontaktu a pripájaní k skupine (@lnj, @melvo)</li>
           <li xml:lang="sl">Popravljena zamenjava URI-ja XMPP z ustreznim naslovom za klepet pri dodajanju stikov in pridruževanju skupinam (@lnj, @melvo)</li>
           <li xml:lang="tr">Fix replacing XMPP URI with its chat address for contact addition and group joining (@lnj, @melvo)</li>
           <li xml:lang="uk">Виправлено заміну адреси XMPP адресою її спілкування для додавання запису контактів і долучення до групи (@lnj, @melvo)</li>
@@ -701,6 +735,7 @@
         <p xml:lang="nl">Kaidan vereist nu QXmpp 1.17.1</p>
         <p xml:lang="pt-BR">O Kaidan agora requer QXmpp 1.17.1</p>
         <p xml:lang="ru">Теперь для работы Kaidan требуется QXmpp 1.17.1</p>
+        <p xml:lang="sk">Kaidan teraz vyžaduje QXmpp 1.17.1</p>
         <p xml:lang="sl">Kaidan zdaj zahteva QXmpp 1.17.1</p>
         <p xml:lang="tr">Kaidan requires QXmpp 1.17.1 now</p>
         <p xml:lang="uk">Нова версія Kaidan потребує QXmpp 1.17.1</p>
